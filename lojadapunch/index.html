@@ -227,6 +227,13 @@
   .fopt small{color:var(--muted)}
   .fopt b{margin-left:auto}
   .festim{color:var(--muted);font-size:11px;text-align:center;margin:0 0 10px}
+  .cupom-ok{
+    display:flex;align-items:center;gap:8px;justify-content:space-between;
+    background:rgba(255,215,0,.08);border:1px dashed var(--gold);border-radius:10px;
+    padding:10px 14px;margin-bottom:10px;font-size:13px;color:var(--gold);font-weight:600;
+  }
+  .cupom-ok button{color:var(--muted);font-size:12px;text-decoration:underline}
+  .row.desc span:last-child{color:var(--gold)}
   .row{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin-bottom:6px}
   .row.total{color:var(--white);font-weight:700;font-size:17px;margin:4px 0 6px}
   .pix{color:var(--gold);font-size:12.5px;text-align:center;margin-bottom:12px}
@@ -544,9 +551,7 @@ function renderCart(){
         </button>
       </div>
     </div>`).join("");
-  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
-  const fr = (freteOpts && freteSel!=null) ? freteOpts[freteSel] : null;
-  const totalF = total + (fr ? fr.price : 0);
+  const t = totals();
   $("cartFoot").innerHTML = `
     <div class="cep-row">
       <input id="cepIn" inputmode="numeric" placeholder="Digite seu CEP" maxlength="9" value="${freteCep}">
@@ -554,14 +559,43 @@ function renderCart(){
     </div>
     ${freteOpts ? freteOpts.map((o,i)=>`
       <button class="fopt ${freteSel===i?'on':''}" onclick="pickFrete(${i})">
-        <span>${o.name} <small>· chega em até ${o.days} dias úteis</small></span><b>${brl(o.price)}</b>
+        <span>${o.name} <small>· chega em até ${o.days} dias úteis</small></span><b>${cupom&&cupom.frete?`<s style="color:var(--muted)">${brl(o.price)}</s> grátis`:brl(o.price)}</b>
       </button>`).join("") + `<div class="festim">prazo já inclui o preparo do seu pedido · valores estimados, confirmados na finalização</div>` : ""}
-    <div class="row"><span>Subtotal</span><span>${brl(total)}</span></div>
-    <div class="row"><span>Frete</span><span>${fr ? fr.name+" — "+brl(fr.price) : "calcule acima"}</span></div>
-    <div class="row total"><span>Total</span><span>${brl(totalF)}</span></div>
-    <div class="pix">⚡ ${brl(totalF*0.95)} no Pix (5% off)</div>
+    ${cupom
+      ? `<div class="cupom-ok"><span>🏷️ ${cupom.code} — ${cupom.desc}</span><button onclick="tiraCupom()">remover</button></div>`
+      : `<div class="cep-row"><input id="cupIn" placeholder="Cupom de desconto" autocapitalize="characters"><button onclick="aplicaCupom()">Aplicar</button></div>`}
+    <div class="row"><span>Subtotal</span><span>${brl(t.sub)}</span></div>
+    ${t.desc>0?`<div class="row desc"><span>Desconto (${cupom.code})</span><span>− ${brl(t.desc)}</span></div>`:""}
+    <div class="row"><span>Frete</span><span>${t.frName ? t.frName+" — "+(t.frete===0?"grátis":brl(t.frete)) : "calcule acima"}</span></div>
+    <div class="row total"><span>Total</span><span>${brl(t.total)}</span></div>
+    <div class="pix">⚡ ${brl(t.total*0.95)} no Pix (5% off)</div>
     <button class="checkout" onclick="checkout()">Fechar pedido no WhatsApp</button>`;
 }
+// ===================== CUPOM =====================
+// Cadastre aqui os cupons ativos (código em MAIÚSCULAS):
+//   pct: desconto % sobre o subtotal · frete: true = frete grátis
+const CUPONS = {
+  "PUNCH10":     {pct:10, desc:"10% off"},
+  "BEMVINDO":    {pct:10, desc:"10% off na primeira compra"},
+  "FRETEGRATIS": {frete:true, desc:"frete grátis"},
+};
+let cupom = null;
+function totals(){
+  const sub = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const desc = cupom && cupom.pct ? +(sub*cupom.pct/100).toFixed(2) : 0;
+  const fr = (freteOpts && freteSel!=null) ? freteOpts[freteSel] : null;
+  const frete = fr ? (cupom && cupom.frete ? 0 : fr.price) : 0;
+  return {sub, desc, frete, frName: fr?fr.name:null, frDays: fr?fr.days:null, total: sub - desc + frete};
+}
+function aplicaCupom(){
+  const code = ($("cupIn").value||"").trim().toUpperCase();
+  if(!code) return;
+  if(!CUPONS[code]){ toast("Cupom inválido 😬"); return; }
+  cupom = {code, ...CUPONS[code]};
+  toast("Cupom aplicado! 🥊");
+  renderCart();
+}
+function tiraCupom(){ cupom = null; renderCart(); }
 let freteOpts = null, freteSel = null, freteCep = "";
 function calcFrete(){
   const v = ($("cepIn").value||"").replace(/\D/g,"");
@@ -582,13 +616,12 @@ function calcFrete(){
 }
 function pickFrete(i){ freteSel = i; renderCart(); }
 function checkout(){
-  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
-  const fr = (freteOpts && freteSel!=null) ? freteOpts[freteSel] : null;
-  const totalF = total + (fr ? fr.price : 0);
+  const t = totals();
   let msg = "🥊 *PEDIDO — LOJA DA PUNCH*\n\n";
   cart.forEach(i=>{ msg += `${i.qty}x ${i.name} (${i.variant}, ${i.size}) — ${brl(i.price*i.qty)}\n`; });
-  if(fr) msg += `Frete ${fr.name} (CEP ${freteCep}) — ${brl(fr.price)}\n`;
-  msg += `\n*Total: ${brl(totalF)}* (${brl(totalF*0.95)} no Pix)\n\nNome:\nEndereço + CEP:`;
+  if(cupom) msg += `Cupom ${cupom.code} (${cupom.desc})${t.desc>0?` — −${brl(t.desc)}`:""}\n`;
+  if(t.frName) msg += `Frete ${t.frName} (CEP ${freteCep}) — ${t.frete===0?"grátis":brl(t.frete)}\n`;
+  msg += `\n*Total: ${brl(t.total)}* (${brl(t.total*0.95)} no Pix)\n\nNome:\nEndereço + CEP:`;
   const url = WHATSAPP
     ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`
     : `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
