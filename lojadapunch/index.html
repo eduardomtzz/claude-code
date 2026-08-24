@@ -126,8 +126,9 @@
   .card .name{font-size:13px;font-weight:600;line-height:1.3;min-height:34px}
   .card .price{color:var(--white);font-weight:700;font-size:15px;margin-top:4px}
   .card .inst{color:var(--muted);font-size:11px}
-  .dots{display:flex;gap:5px;margin-top:7px}
-  .dot{width:12px;height:12px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35)}
+  .dots{display:flex;gap:7px;margin-top:8px}
+  .dot{width:15px;height:15px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);padding:0;cursor:pointer}
+  .dot.sel{border-color:var(--cyan);box-shadow:0 0 0 2px rgba(0,255,255,.3)}
 
   /* ---------- product view ---------- */
   .pv{position:fixed;inset:0;z-index:60;background:var(--navy);overflow-y:auto;overscroll-behavior:contain;transform:translateX(100%);transition:transform .28s cubic-bezier(.32,.72,.35,1);visibility:hidden}
@@ -397,17 +398,38 @@ function renderGrid(){
         <div class="name">${p.name}</div>
         <div class="price">${brl(p.price)}</div>
         <div class="inst">${inst(p.price)}</div>
-        ${p.variants.length>1?`<div class="dots">${p.variants.map(v=>`<span class="dot" style="background:${v.hex}"></span>`).join("")}</div>`:""}
+        ${p.variants.length>1?`<div class="dots" id="vdots-${p.id}">${p.variants.map((v,vi)=>`<button class="dot ${vi===varOfIdx(p,i)?'sel':''}" style="background:${v.hex}" onclick="pickColor(event,'${p.id}',${vi})" aria-label="Cor ${v.name}"></button>`).join("")}</div>`:""}
       </div>
     </div>`}).join("");
+}
+function varOfIdx(p, i){
+  // qual variante corresponde à foto de índice i no carrossel do card
+  let vi = 0;
+  for(let k=0;k<p.variants.length;k++){
+    if(i < p.variants[k].imgs.length) return k;
+    i -= p.variants[k].imgs.length;
+  }
+  return vi;
+}
+function syncCard(id, i){
+  const p = P.find(x=>x.id===id);
+  cardIdx[id] = i;
+  $("cimg-"+id).src = allImgs(p)[i];
+  [...$("cdots-"+id).children].forEach((el,j)=>el.classList.toggle("on", j===i));
+  const vd = $("vdots-"+id);
+  if(vd){ const vi = varOfIdx(p, i); [...vd.children].forEach((el,j)=>el.classList.toggle("sel", j===vi)); }
 }
 function cardNav(e, id, d){
   e.stopPropagation();
   const p = P.find(x=>x.id===id), imgs = allImgs(p);
-  const i = ((cardIdx[id]||0) + d + imgs.length) % imgs.length;
-  cardIdx[id] = i;
-  $("cimg-"+id).src = imgs[i];
-  [...$("cdots-"+id).children].forEach((el,j)=>el.classList.toggle("on", j===i));
+  syncCard(id, ((cardIdx[id]||0) + d + imgs.length) % imgs.length);
+}
+function pickColor(e, id, vi){
+  e.stopPropagation();
+  const p = P.find(x=>x.id===id);
+  let off = 0;
+  for(let k=0;k<vi;k++) off += p.variants[k].imgs.length;
+  syncCard(id, off);
 }
 function openFromCard(id){
   // abre o produto já na cor da foto que está aparecendo no card
