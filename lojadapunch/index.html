@@ -96,10 +96,22 @@
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:6px 16px 40px}
   @media(min-width:720px){.grid{grid-template-columns:repeat(3,1fr);gap:16px;max-width:1080px;margin:0 auto}}
   @media(min-width:1080px){.grid{grid-template-columns:repeat(4,1fr)}}
-  .card{border-radius:var(--radius);overflow:hidden;background:var(--navy-2);border:1px solid var(--line);text-align:left}
-  .card .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:#f2f2f2}
-  .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
-  .card:active .ph img{transform:scale(1.04)}
+  .card{border-radius:var(--radius);overflow:hidden;background:var(--navy-2);border:1px solid var(--line);text-align:left;cursor:pointer}
+  .card .ph{position:relative;height:0;padding-top:125%;overflow:hidden;background:#f2f2f2}
+  .card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .cnav{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+    width:24px;height:24px;border-radius:50%;
+    background:rgba(10,22,40,.35);backdrop-filter:blur(4px);
+    display:flex;align-items:center;justify-content:center;border:none;padding:0;
+  }
+  .cnav svg{width:11px;height:11px;stroke:#fff;stroke-width:2.5}
+  .cnav.prev{left:6px}
+  .cnav.next{right:6px}
+  .cnav:active{background:rgba(10,22,40,.7)}
+  .cdots{position:absolute;bottom:8px;left:0;right:0;z-index:2;display:flex;justify-content:center;gap:4px;pointer-events:none}
+  .cdots i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 1px 3px rgba(0,0,0,.35);transition:all .15s}
+  .cdots i.on{background:var(--cyan);width:11px;border-radius:3px}
   .card .tag{
     position:absolute;top:8px;left:8px;background:var(--navy);color:var(--gold);
     font-size:10px;font-weight:700;letter-spacing:.08em;padding:4px 8px;border-radius:6px;text-transform:uppercase;
@@ -115,7 +127,7 @@
   .pv{position:fixed;inset:0;z-index:60;background:var(--navy);overflow-y:auto;overscroll-behavior:contain;transform:translateX(100%);transition:transform .28s cubic-bezier(.32,.72,.35,1);visibility:hidden}
   .pv.open{transform:translateX(0);visibility:visible}
   .pv-top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:linear-gradient(rgba(10,22,40,.85),transparent);pointer-events:none}
-  .pv-top button{pointer-events:auto;width:42px;height:42px;border-radius:50%;background:rgba(10,22,40,.75);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center}
+  .pv-top button{pointer-events:auto;position:relative;width:42px;height:42px;border-radius:50%;background:rgba(10,22,40,.75);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center}
   .pv-top svg{width:20px;height:20px;stroke:var(--white)}
   .gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-top:-62px}
   .gallery::-webkit-scrollbar{display:none}
@@ -195,6 +207,16 @@
   .cart-empty{text-align:center;color:var(--muted);padding:56px 20px}
   .cart-empty .display{color:var(--white);font-size:22px;margin-bottom:6px}
   .cart-f{padding:16px 20px calc(18px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+  .cep-row{display:flex;gap:8px;margin-bottom:10px}
+  .cep-row input{flex:1;min-width:0;background:var(--navy-3);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--white);font-size:14px;font-family:inherit;outline:none}
+  .cep-row input::placeholder{color:var(--muted)}
+  .cep-row input:focus{border-color:var(--cyan)}
+  .cep-row button{background:var(--navy-3);border:1px solid var(--line);border-radius:10px;padding:0 18px;font-weight:700;font-size:13px;color:var(--white)}
+  .fopt{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:11px 14px;border:1.5px solid var(--line);border-radius:10px;margin-bottom:8px;font-size:13px;background:var(--navy-2);color:var(--white)}
+  .fopt.on{border-color:var(--cyan);background:var(--navy-3)}
+  .fopt small{color:var(--muted)}
+  .fopt b{margin-left:auto}
+  .festim{color:var(--muted);font-size:11px;text-align:center;margin:0 0 10px}
   .row{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin-bottom:6px}
   .row.total{color:var(--white);font-weight:700;font-size:17px;margin:4px 0 6px}
   .pix{color:var(--gold);font-size:12.5px;text-align:center;margin-bottom:12px}
@@ -257,7 +279,7 @@
 <div class="pv" id="pv">
   <div class="pv-top">
     <button onclick="closePV()" aria-label="Voltar"><svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg></button>
-    <button onclick="openCart()" aria-label="Sacola"><svg fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z"/></svg></button>
+    <button onclick="openCart()" aria-label="Sacola"><svg fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z"/></svg><span class="badge" id="badge2">0</span></button>
   </div>
   <div class="pv-body" id="pvBody"></div>
 </div>
@@ -345,14 +367,21 @@ function renderPills(){
     `<button class="pill ${filter===v?'on':''}" onclick="setFilter('${v}')">${l}</button>`).join("");
 }
 function setFilter(v){ filter=v; renderPills(); renderGrid(); }
+const cardIdx = {}; // foto atual de cada card na home
+const allImgs = p => p.variants.flatMap(v=>v.imgs);
 function renderGrid(){
   const list = P.filter(p => filter==="todos" || p.cat===filter);
   $("count").textContent = list.length + (list.length===1?" peça":" peças");
-  $("grid").innerHTML = list.map(p => `
-    <button class="card" onclick="openPV('${p.id}')">
+  $("grid").innerHTML = list.map(p => {
+    const imgs = allImgs(p), i = cardIdx[p.id]||0;
+    return `
+    <div class="card" onclick="openFromCard('${p.id}')">
       <div class="ph">
         ${p.variants.length>1?`<span class="tag">${p.variants.length} cores</span>`:""}
-        <img src="${p.variants[0].imgs[0]}" alt="${p.name}" loading="lazy">
+        <img id="cimg-${p.id}" src="${imgs[i]}" alt="${p.name}" loading="lazy">
+        <button class="cnav prev" onclick="cardNav(event,'${p.id}',-1)" aria-label="Foto anterior"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg></button>
+        <button class="cnav next" onclick="cardNav(event,'${p.id}',1)" aria-label="Próxima foto"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg></button>
+        <div class="cdots" id="cdots-${p.id}">${imgs.map((_,j)=>`<i class="${j===i?'on':''}"></i>`).join("")}</div>
       </div>
       <div class="info">
         <div class="name">${p.name}</div>
@@ -360,12 +389,30 @@ function renderGrid(){
         <div class="inst">${inst(p.price)}</div>
         ${p.variants.length>1?`<div class="dots">${p.variants.map(v=>`<span class="dot" style="background:${v.hex}"></span>`).join("")}</div>`:""}
       </div>
-    </button>`).join("");
+    </div>`}).join("");
+}
+function cardNav(e, id, d){
+  e.stopPropagation();
+  const p = P.find(x=>x.id===id), imgs = allImgs(p);
+  const i = ((cardIdx[id]||0) + d + imgs.length) % imgs.length;
+  cardIdx[id] = i;
+  $("cimg-"+id).src = imgs[i];
+  [...$("cdots-"+id).children].forEach((el,j)=>el.classList.toggle("on", j===i));
+}
+function openFromCard(id){
+  // abre o produto já na cor da foto que está aparecendo no card
+  const p = P.find(x=>x.id===id);
+  let i = cardIdx[id]||0, vi = 0;
+  for(let k=0;k<p.variants.length;k++){
+    if(i < p.variants[k].imgs.length){ vi = k; break; }
+    i -= p.variants[k].imgs.length;
+  }
+  openPV(id, vi);
 }
 
 // ===================== PRODUCT VIEW =====================
-function openPV(id){
-  cur = P.find(p=>p.id===id); curVar = 0; curSize = null;
+function openPV(id, varIdx){
+  cur = P.find(p=>p.id===id); curVar = varIdx||0; curSize = null;
   renderPV(); $("pv").classList.add("open");
   $("pv").scrollTop = 0;
   history.pushState({pv:id},"","#"+id);
@@ -424,8 +471,11 @@ function addToCart(){
 }
 function updateBadge(){
   const n = cart.reduce((s,i)=>s+i.qty,0);
-  $("badge").textContent = n;
-  $("badge").classList.toggle("on", n>0);
+  ["badge","badge2"].forEach(id=>{
+    const b = $(id); if(!b) return;
+    b.textContent = n;
+    b.classList.toggle("on", n>0);
+  });
 }
 function openCart(){ renderCart(); $("scrim").classList.add("open"); $("cart").classList.add("open"); }
 function closeCart(){ $("scrim").classList.remove("open"); $("cart").classList.remove("open"); }
@@ -454,18 +504,45 @@ function renderCart(){
       <div class="r"><b>${brl(i.price*i.qty)}</b></div>
     </div>`).join("");
   const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const fr = (freteOpts && freteSel!=null) ? freteOpts[freteSel] : null;
+  const totalF = total + (fr ? fr.price : 0);
   $("cartFoot").innerHTML = `
+    <div class="cep-row">
+      <input id="cepIn" inputmode="numeric" placeholder="Digite seu CEP" maxlength="9" value="${freteCep}">
+      <button onclick="calcFrete()">Calcular frete</button>
+    </div>
+    ${freteOpts ? freteOpts.map((o,i)=>`
+      <button class="fopt ${freteSel===i?'on':''}" onclick="pickFrete(${i})">
+        <span>${o.name} <small>· até ${o.days} dias úteis</small></span><b>${brl(o.price)}</b>
+      </button>`).join("") + `<div class="festim">valores estimados — confirmados na finalização do pedido</div>` : ""}
     <div class="row"><span>Subtotal</span><span>${brl(total)}</span></div>
-    <div class="row"><span>Frete</span><span>calculado no pedido</span></div>
-    <div class="row total"><span>Total</span><span>${brl(total)}</span></div>
-    <div class="pix">⚡ ${brl(total*0.95)} no Pix (5% off)</div>
+    <div class="row"><span>Frete</span><span>${fr ? fr.name+" — "+brl(fr.price) : "calcule acima"}</span></div>
+    <div class="row total"><span>Total</span><span>${brl(totalF)}</span></div>
+    <div class="pix">⚡ ${brl(totalF*0.95)} no Pix (5% off)</div>
     <button class="checkout" onclick="checkout()">Fechar pedido no WhatsApp</button>`;
 }
+let freteOpts = null, freteSel = null, freteCep = "";
+function calcFrete(){
+  const v = ($("cepIn").value||"").replace(/\D/g,"");
+  if(v.length!==8){ toast("Digita um CEP válido (8 números)"); return; }
+  freteCep = v.slice(0,5)+"-"+v.slice(5);
+  const r = +v[0]; // região do CEP
+  freteOpts = [
+    {name:"PAC",   price:+(14.9 + r*1.7).toFixed(2), days:4 + r},
+    {name:"SEDEX", price:+(24.9 + r*2.3).toFixed(2), days:Math.max(2, Math.ceil(r/2)+1)}
+  ];
+  freteSel = 0;
+  renderCart();
+}
+function pickFrete(i){ freteSel = i; renderCart(); }
 function checkout(){
   const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const fr = (freteOpts && freteSel!=null) ? freteOpts[freteSel] : null;
+  const totalF = total + (fr ? fr.price : 0);
   let msg = "🥊 *PEDIDO — LOJA DA PUNCH*\n\n";
   cart.forEach(i=>{ msg += `${i.qty}x ${i.name} (${i.variant}, ${i.size}) — ${brl(i.price*i.qty)}\n`; });
-  msg += `\n*Total: ${brl(total)}* (${brl(total*0.95)} no Pix)\n\nNome:\nEndereço + CEP:`;
+  if(fr) msg += `Frete ${fr.name} (CEP ${freteCep}) — ${brl(fr.price)}\n`;
+  msg += `\n*Total: ${brl(totalF)}* (${brl(totalF*0.95)} no Pix)\n\nNome:\nEndereço + CEP:`;
   const url = WHATSAPP
     ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`
     : `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
