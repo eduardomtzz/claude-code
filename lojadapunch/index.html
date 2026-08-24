@@ -443,7 +443,7 @@ function renderPV(){
       <p class="pv-desc">${p.desc}</p>
       <div class="acc">
         <details><summary>Modelagem e cuidados</summary><p>Modelagem oversized — se preferir o caimento tradicional, peça um tamanho abaixo. Lavar do avesso, não usar alvejante, não secar em máquina.</p></details>
-        <details><summary>Envio</summary><p>Enviamos para todo o Brasil. Prazo e valor do frete calculados na finalização do pedido.</p></details>
+        <details><summary>Envio</summary><p>Enviamos para todo o Brasil. Cada pedido passa por uma preparação cuidadosa de até 4 dias úteis antes da postagem — depois disso conta o prazo do frete escolhido. O prazo total estimado aparece na sacola, já com tudo incluído.</p></details>
         <details><summary>Troca e devolução</summary><p>Primeira troca grátis em até 7 dias após o recebimento, com a peça sem uso e com etiqueta.</p></details>
       </div>
     </div>`;
@@ -513,8 +513,8 @@ function renderCart(){
     </div>
     ${freteOpts ? freteOpts.map((o,i)=>`
       <button class="fopt ${freteSel===i?'on':''}" onclick="pickFrete(${i})">
-        <span>${o.name} <small>· até ${o.days} dias úteis</small></span><b>${brl(o.price)}</b>
-      </button>`).join("") + `<div class="festim">valores estimados — confirmados na finalização do pedido</div>` : ""}
+        <span>${o.name} <small>· chega em até ${o.days} dias úteis</small></span><b>${brl(o.price)}</b>
+      </button>`).join("") + `<div class="festim">prazo já inclui o preparo do seu pedido · valores estimados, confirmados na finalização</div>` : ""}
     <div class="row"><span>Subtotal</span><span>${brl(total)}</span></div>
     <div class="row"><span>Frete</span><span>${fr ? fr.name+" — "+brl(fr.price) : "calcule acima"}</span></div>
     <div class="row total"><span>Total</span><span>${brl(totalF)}</span></div>
@@ -531,9 +531,10 @@ function calcFrete(){
   // 0/1 = SP · 2 = RJ/ES · 3 = MG · 8 = PR/SC · 9 = RS · 7 = Centro-Oeste · 4/5/6 = NE/N
   const DIST = {0:0, 1:1, 2:2, 3:2, 8:2, 9:3, 7:3, 4:4, 5:5, 6:6};
   const d = DIST[+v[0]];
+  const PREP = 4; // dias úteis de preparo do pedido (picking + packing), somados ao prazo do frete
   freteOpts = [
-    {name:"PAC",   price:+(17.9 + d*3.4).toFixed(2), days:Math.max(2, 3 + Math.round(d*1.5))},
-    {name:"SEDEX", price:+(25.9 + d*4.8).toFixed(2), days:Math.max(1, 1 + Math.round(d*0.8))}
+    {name:"PAC",   price:+(17.9 + d*3.4).toFixed(2), days:PREP + Math.max(2, 3 + Math.round(d*1.5))},
+    {name:"SEDEX", price:+(25.9 + d*4.8).toFixed(2), days:PREP + Math.max(1, 1 + Math.round(d*0.8))}
   ];
   freteSel = 0;
   renderCart();
