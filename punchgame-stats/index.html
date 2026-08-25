@@ -58,6 +58,10 @@ nav a:hover{color:var(--cyan)}
 .mode:hover{color:var(--cyan)}
 .mode.on{background:var(--cyan);color:var(--navy)}
 .team-col{display:flex;flex-direction:column;gap:8px}
+.mode-hint{display:flex;align-items:baseline;gap:8px;color:var(--muted);font-size:.85rem;margin:-6px 0 20px}
+.mode-hint b{font-family:var(--disp);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.mode-hint.real b{color:var(--cyan)}
+.mode-hint.sim b{color:var(--gold)}
 .vs-picker{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:end;margin-bottom:26px}
 .pick label{display:block;font-family:var(--disp);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
 .pick-a label{color:var(--cyan)}.pick-b label{color:var(--gold)}
@@ -265,13 +269,15 @@ footer{margin-top:70px;border-top:1px solid var(--line);background:var(--navy-2)
     <div class="eyebrow">Temporada 2026 · Embaixadores Punch Game · Aldeia · Coliseu · Norte</div>
     <h1>Qual embaixador <span class="g">leva a coroa?</span></h1>
     <svg class="drip" viewBox="0 0 190 14" aria-hidden="true"><path d="M0 2h190v3H0zM14 5v6a2 2 0 004 0V5zM58 5v8a2 2 0 004 0V5zM121 5v5a2 2 0 004 0V5zM166 5v7a2 2 0 004 0V5z" fill="#FFD700"/></svg>
-    <p class="sub">A avaliação dos 20 embaixadores da PUNCH GAME na temporada 2026, somando Batalha da Aldeia, Batalha do Coliseu e Batalha da Norte. No X1 você vê o retrospecto real do confronto; em duplas e trios, a simulação calcula a probabilidade de vitória pelo winrate e histórico combinados.</p>
+    <p class="sub">A avaliação dos 20 embaixadores da PUNCH GAME na temporada 2026, somando Batalha da Aldeia, Batalha do Coliseu e Batalha da Norte.</p>
 
     <div class="modes" role="tablist" aria-label="Modo de simulação">
       <button class="mode on" data-mode="x1" role="tab" aria-selected="true">X1 · Retrospecto</button>
       <button class="mode" data-mode="dupla" role="tab" aria-selected="false">Duplas · 2×2</button>
       <button class="mode" data-mode="trio" role="tab" aria-selected="false">Trios · 3×3</button>
     </div>
+
+    <p class="mode-hint" id="modeHint"></p>
 
     <div class="vs-picker" id="pickerZone"></div>
 
@@ -673,6 +679,14 @@ function team(side){
   return [...document.querySelectorAll(`#pickerZone select[data-side="${side}"]`)].map(s => s.value);
 }
 function buildPickers(){
+  const hint = $('#modeHint');
+  if(MODE === 'x1'){
+    hint.className = 'mode-hint real';
+    hint.innerHTML = '<b>Histórico real</b><span>no X1 você vê o retrospecto real do confronto — o que de fato aconteceu no palco na temporada 2026.</span>';
+  } else {
+    hint.className = 'mode-hint sim';
+    hint.innerHTML = '<b>Simulação</b><span>em duplas e trios, a simulação calcula a probabilidade de vitória pelo winrate e histórico combinados — não é resultado real.</span>';
+  }
   const d = DEFAULTS[MODE];
   const mk = (side, i, val) => `<select data-side="${side}" data-i="${i}" aria-label="${side==='a'?'Time A':'Time B'} — integrante ${i+1}">${MCS.map(m => `<option value="${esc(m)}"${m===val?' selected':''}>${m}</option>`).join('')}</select>`;
   const lbl = MODE==='x1' ? ['MC A','MC B'] : ['Time A','Time B'];
