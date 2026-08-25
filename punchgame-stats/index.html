@@ -1,4 +1,5 @@
 <title>PUNCHGAME STATS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600;700&display=swap">
 <style>
@@ -12,6 +13,7 @@
   --body:'Inter',Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+button,select,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 body{background:var(--navy);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
@@ -21,7 +23,7 @@ a{color:var(--cyan);text-decoration:none}
 select{appearance:none;-webkit-appearance:none;width:100%;background:var(--navy-3) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2300FFFF' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center;
   border:1px solid var(--line);color:var(--white);font-family:var(--disp);font-weight:700;font-size:1.15rem;padding:12px 40px 12px 14px;cursor:pointer}
 select:focus-visible,button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
-input[type=search]{background:var(--navy-3);border:1px solid var(--line);color:var(--white);font-family:var(--body);font-size:.95rem;padding:9px 12px;width:100%}
+input[type=search]{background:var(--navy-3);border:1px solid var(--line);color:var(--white);font-family:var(--body);font-size:1rem;padding:9px 12px;width:100%}
 input[type=search]::placeholder{color:var(--faint)}
 
 .eyebrow{font-family:var(--disp);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
@@ -38,7 +40,15 @@ input[type=search]::placeholder{color:var(--faint)}
 nav{display:flex;gap:4px}
 nav a{font-family:var(--disp);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:8px 12px}
 nav a:hover{color:var(--cyan)}
-@media(max-width:760px){.brandline .by{display:none}nav a{padding:8px 7px;font-size:.72rem}}
+@media(max-width:760px){
+  .brandline .by{display:none}
+  .topbar .wrap{flex-wrap:wrap;gap:8px;row-gap:0}
+  .topbar img.pg{height:32px}
+  .brandline{flex:1}
+  .brandline b{font-size:.92rem}
+  nav{width:100%;justify-content:space-between;gap:0;margin:0 -8px;padding-bottom:2px}
+  nav a{padding:6px 8px;font-size:.7rem;letter-spacing:.05em}
+}
 
 /* hero / versus */
 .hero{position:relative;padding:64px 0 30px;overflow:hidden}
@@ -69,7 +79,18 @@ nav a:hover{color:var(--cyan)}
 .pick-b select{border-color:rgba(255,215,0,.45)}
 .vs-badge{font-family:var(--disp);font-weight:700;font-size:1.5rem;color:var(--white);background:var(--navy-3);border:1px solid var(--line);padding:10px 16px;transform:skewX(-8deg)}
 .vs-badge span{display:inline-block;transform:skewX(8deg)}
-@media(max-width:640px){.vs-picker{grid-template-columns:1fr;gap:10px}.vs-badge{justify-self:center;transform:none}.vs-badge span{transform:none}}
+@media(max-width:640px){
+  .hero{padding-top:44px}
+  .bracket{width:30px;height:30px;opacity:.55}
+  .b-tl{top:12px;left:12px}.b-tr{top:12px;right:12px}.b-bl{bottom:12px;left:12px}.b-br{bottom:12px;right:12px}
+  .modes{display:grid;grid-template-columns:repeat(3,1fr);width:100%}
+  .mode{padding:11px 4px;font-size:.68rem;letter-spacing:.05em;text-align:center}
+  .mode-hint{display:block}
+  .mode-hint b{display:inline;margin-right:7px}
+  .vs-picker{grid-template-columns:1fr;gap:10px}
+  .vs-badge{justify-self:center;transform:none;font-size:1.05rem;padding:7px 14px}
+  .vs-badge span{transform:none}
+}
 
 /* probability meter (team modes) */
 .probmeter{margin:18px auto 0;max-width:640px}
@@ -104,6 +125,12 @@ nav a:hover{color:var(--cyan)}
 .verdict.lead-a{color:var(--cyan)}.verdict.lead-b,.verdict.tied{color:var(--gold)}
 .verdict.tied{color:var(--white)}
 .serie-note{text-align:center;color:var(--faint);font-size:.8rem;margin-top:4px}
+@media(max-width:640px){
+  .scorecard{padding:20px 14px 18px}
+  .scoreline{grid-template-columns:1fr;gap:8px}
+  .f-a,.f-b{text-align:center}
+  .bigscore{text-align:center;font-size:clamp(2.2rem,12vw,3.2rem)}
+}
 
 /* arena breakdown */
 .arena-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
@@ -162,6 +189,7 @@ section.blk{padding:58px 0 12px}
 .rbar i.top3{background:var(--gold)}
 .rval{font-variant-numeric:tabular-nums;font-size:.8rem;color:var(--muted);white-space:nowrap}
 .rval b{font-family:var(--disp);color:var(--ink);font-size:.9rem;margin-right:6px}
+@media(max-width:480px){.wr-row{grid-template-columns:78px 1fr 100px;gap:8px}.rname{font-size:.76rem}.rval{font-size:.66rem}.rval b{font-size:.8rem;margin-right:4px}.card{padding:16px 14px}}
 .tit-row{display:flex;align-items:center;gap:10px;padding:5px 0;border-top:1px solid rgba(30,50,82,.5);cursor:pointer;background:none;border-left:0;border-right:0;border-bottom:0;width:100%;color:inherit;font:inherit;text-align:left}
 .tit-row:first-of-type{border-top:0}
 .tit-row .pos{color:var(--faint);font-size:.72rem;font-variant-numeric:tabular-nums;width:20px}
@@ -179,7 +207,7 @@ section.blk{padding:58px 0 12px}
 .mc-name{font-size:clamp(1.9rem,4.5vw,3rem);text-transform:uppercase;color:var(--gold);margin-bottom:18px}
 .tiles{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-bottom:16px}
 @media(max-width:960px){.tiles{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:560px){.tiles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.tiles{grid-template-columns:repeat(3,1fr);gap:8px}.tile b{font-size:1.4rem}.chip{padding:9px 14px}}
 .tile{background:var(--navy-2);border:1px solid var(--line);padding:14px 10px;text-align:center}
 .tile b{display:block;font-family:var(--disp);font-weight:700;font-size:1.7rem;font-variant-numeric:tabular-nums;line-height:1.1}
 .tile span{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:600}
