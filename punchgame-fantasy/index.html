@@ -145,15 +145,24 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
 .ligachip i{width:8px;height:8px;border-radius:50%;background:var(--liga);flex:none}
 @media(max-width:900px){.ligachip{display:none}}
 
-/* seletor de liga */
-.ligas-sec{margin:26px 0 8px}
-.ligas-hd{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.ligas-hd h2{font-size:clamp(1.15rem,3vw,1.5rem);text-transform:uppercase;letter-spacing:.02em}
-.ligas-hd h2::after{content:"";display:block;width:64px;height:4px;background:var(--liga);margin-top:7px;transition:background .35s ease}
-.ligas-hd .hint{color:var(--faint);font-size:.74rem;margin-left:auto;text-align:right}
-.ligas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+/* seletor de liga (compacto: liga ativa + expansor dourado) */
+.ligas-sec{margin:24px 0 8px}
+.ligas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
 @media(max-width:900px){.ligas-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.ligas-grid{grid-template-columns:1fr}}
+.liga-card.active-big{width:100%;padding:14px 16px}
+.liga-card.active-big .m b{font-size:.95rem}
+.ligas-expander{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;margin-top:10px;padding:13px 16px;cursor:pointer;
+  background:linear-gradient(180deg,rgba(255,215,0,.18),rgba(255,215,0,.05));border:1px solid var(--gold);color:var(--gold);
+  font-family:var(--disp);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;transition:background .15s ease}
+.ligas-expander:hover{background:linear-gradient(180deg,rgba(255,215,0,.28),rgba(255,215,0,.1))}
+.ligas-expander .arr{display:inline-block;transition:transform .2s ease;font-size:1rem}
+.ligas-expander.open .arr{transform:rotate(90deg)}
+.ligas-expander .count{font-size:.64rem;color:rgba(255,215,0,.7);letter-spacing:.06em}
+
+/* lembrete da liga dentro dos cards de batalha */
+.lg-liga{display:flex;align-items:center;justify-content:center;gap:7px;font-family:var(--disp);font-weight:700;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--liga);border-top:1px dashed color-mix(in srgb,var(--liga) 40%,transparent);padding-top:9px;margin-top:2px;transition:color .35s ease}
+.lg-liga i{width:7px;height:7px;border-radius:50%;background:var(--liga);flex:none}
 .liga-card{position:relative;display:flex;align-items:center;gap:10px;background:var(--navy-2);border:1px solid var(--line);padding:12px 14px 12px 12px;cursor:pointer;text-align:left;transition:border-color .15s ease,transform .12s ease;--lc:var(--cyan)}
 .liga-card:hover{border-color:var(--lc);transform:translateY(-1px)}
 .liga-card.on{border-color:var(--lc);box-shadow:0 0 0 2px var(--lc),0 10px 30px rgba(0,0,0,.35);background:linear-gradient(180deg,color-mix(in srgb,var(--lc) 12%,var(--navy-2)),var(--navy-2))}
@@ -619,6 +628,7 @@ function renderHome(){
       <div class="mini-slots">${slots}</div>
       ${saved && picks.length === 3 ? '<div class="savedtag">✓ Trio no palco — capitão em dobro</div><div class="teto">teto da noite <b>320 pts</b></div>' : ''}
       ${cta}
+      <div class="lg-liga"><i></i>${esc(ligaAtual().nome)}</div>
     </article>`;
   }).join('');
   const totalPicks = LEAGUES.reduce((s, l) => s + wkStore().picks[l.id].length, 0);
@@ -632,21 +642,25 @@ function renderHome(){
     : l.amb
       ? `<img src="${AVATARS[l.amb]}" alt="">`
       : `<span class="mono" style="background:hsl(${l.hue} 60% 62%)">${l.mono}</span>`;
+  const open = !!view.ligasOpen;
+  const others = LIGAS.filter(l => l.id !== ligaAtiva.id);
   const ligasHtml = `<div class="ligas-sec">
-    <div class="ligas-hd">
-      <h2>Escolha sua liga</h2>
-      <span class="hint">a cor da liga ativa marca todo o seu Fantasy</span>
-    </div>
-    <div class="ligas-grid">${LIGAS.map(l => {
+    <button class="liga-card on active-big" data-ligaopen="1" style="--lc:${ligaAtiva.cor}" title="Ver todas as ligas">
+      ${ligaBadge(ligaAtiva)}
+      <span class="m"><b>${esc(ligaAtiva.nome)}</b><span>${esc(ligaAtiva.sub)} · ${ligaAtiva.membros} jogadores · a cor dela marca todo o seu Fantasy</span></span>
+    </button>
+    <button class="ligas-expander ${open ? 'open' : ''}" data-ligaopen="1" aria-expanded="${open}">
+      <span class="arr">›</span> Selecione sua liga <span class="count">· ${others.length} outras ligas</span>
+    </button>
+    ${open ? `<div class="ligas-grid">${others.map(l => {
       const member = store.ligasMember.includes(l.id);
-      const on = store.liga === l.id;
-      const st = on ? '' : member ? '<span class="st trocar">Trocar</span>' : '<span class="st entrar">Participar</span>';
-      return `<button class="liga-card ${on ? 'on' : ''}" data-liga="${l.id}" style="--lc:${l.cor}">
+      const st = member ? '<span class="st trocar">Trocar</span>' : '<span class="st entrar">Participar</span>';
+      return `<button class="liga-card" data-liga="${l.id}" style="--lc:${l.cor}">
         ${ligaBadge(l)}
         <span class="m"><b>${esc(l.nome)}</b><span>${esc(l.sub)} · ${l.membros} jogadores</span></span>
         ${st}
       </button>`;
-    }).join('')}</div>
+    }).join('')}</div>` : ''}
   </div>`;
 
   $('#app').innerHTML = `
@@ -681,6 +695,10 @@ function bindHome(){
     render(); window.scrollTo(0, 0);
   }));
   bindRankBtns();
+  document.querySelectorAll('[data-ligaopen]').forEach(b => b.addEventListener('click', () => {
+    view.ligasOpen = !view.ligasOpen;
+    renderHome();
+  }));
   document.querySelectorAll('[data-liga]').forEach(b => b.addEventListener('click', () => {
     const id = b.dataset.liga;
     const l = LIGAS.find(x => x.id === id);
@@ -690,7 +708,8 @@ function bindHome(){
     } else if (store.liga !== id) {
       toast(`Liga ativa: <span class="g">${esc(l.nome)}</span>`);
     }
-    store.liga = id; persist(); applyLigaTheme(); renderHome();
+    store.liga = id; view.ligasOpen = false;
+    persist(); applyLigaTheme(); renderHome();
   }));
 }
 function bindRankBtns(){
