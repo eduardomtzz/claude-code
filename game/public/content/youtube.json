@@ -1,0 +1,758 @@
+{
+  "updatedAt": "2026-09-08",
+  "videos": [
+    {
+      "id": "yt-1",
+      "platform": "openai",
+      "title": "12 Life-Changing Ways To Use ChatGPT in 2026",
+      "channel": "Charlie Chang",
+      "url": "https://www.youtube.com/watch?v=WfSiryTVDiY",
+      "date": "2026-08-19",
+      "views": "130K",
+      "language": "en",
+      "tips": [
+        "Use Projetos (Projects) no ChatGPT para agrupar arquivos, instruções e conversas de um mesmo tema, em vez de começar do zero a cada chat.",
+        "Dê contexto ao ChatGPT sobre seus objetivos, agenda, finanças e documentos: quanto mais contexto, mais útil ele fica como 'central de comando' da sua vida.",
+        "Peça para o ChatGPT atuar como mentor: descreva sua situação e peça um plano de estudos ou de decisão com perguntas de acompanhamento.",
+        "Use o modo de voz para planejar o dia e tirar dúvidas rápidas sem digitar.",
+        "Conecte o ChatGPT a outros apps via MCP (ex.: Zapier MCP) para que ele leia e atue nas ferramentas que você já usa."
+      ]
+    },
+    {
+      "id": "yt-2",
+      "platform": "openai",
+      "title": "The ULTIMATE ChatGPT Guide 2026: How to Use ChatGPT 5.5 For Beginners",
+      "channel": "AI Master",
+      "url": "https://www.youtube.com/watch?v=McOK2URVyNg",
+      "date": "2026-05-20",
+      "views": "40K",
+      "language": "en",
+      "tips": [
+        "Entenda os níveis de modelo (rápido vs. raciocínio): tarefas simples vão no modelo rápido; análises e planejamento merecem o modelo de raciocínio.",
+        "Adote a 'mentalidade de raciocínio': descreva o objetivo e as restrições e deixe o modelo pensar, em vez de micro-gerenciar cada passo.",
+        "Use os recursos de Imagens 2.0, integração com Excel e Workspace Agents para fluxos de trabalho reais, não só perguntas soltas.",
+        "Compare modelos (ex.: GPT vs. Claude) na sua própria tarefa antes de escolher o que usar no dia a dia."
+      ]
+    },
+    {
+      "id": "yt-3",
+      "platform": "openai",
+      "title": "Curso de ChatGPT 2026 | GRÁTIS, ATUALIZADO e COMPLETO | do Básico ao Avançado",
+      "channel": "Negócios em Mente",
+      "url": "https://www.youtube.com/watch?v=czwzYb-y138",
+      "date": "2026-02-09",
+      "views": "411K",
+      "language": "pt",
+      "tips": [
+        "Conheça os modos avançados do ChatGPT: Investigação (pesquisa profunda), Modo Estudo e Modo Agente, cada um para um tipo de tarefa.",
+        "Use engenharia de prompt: defina papel, contexto, tarefa e formato de saída para obter respostas mais precisas.",
+        "Crie GPTs personalizados para tarefas repetitivas do seu trabalho ou negócio.",
+        "Aproveite os aplicativos conectados para trazer dados de outras ferramentas direto para a conversa.",
+        "Use o Modo Estudo para aprender de forma guiada, com perguntas e explicações passo a passo em vez de respostas prontas."
+      ]
+    },
+    {
+      "id": "yt-4",
+      "platform": "openai",
+      "title": "CHATGPT WORK: 10 DICAS e TRUQUES que VOCÊ DEVERIA SABER!",
+      "channel": "Sancler Miranda",
+      "url": "https://www.youtube.com/watch?v=8atIn8sH3eo",
+      "date": "2026-08-14",
+      "views": "10K",
+      "language": "pt",
+      "tips": [
+        "Importe seu contexto de outra IA para o ChatGPT Work em vez de reexplicar tudo do zero.",
+        "Use a voz para controlar o computador pelo ChatGPT Work: há mais de uma forma de ativar o comando por voz.",
+        "Abra duas ou mais janelas com atalhos para trabalhar em tarefas paralelas.",
+        "Não escreva skills à mão: grave a sequência de ações e deixe o ChatGPT transformá-la em uma skill reutilizável.",
+        "Use o Chat Lateral e os filtros para achar rapidamente projetos e conversas anteriores."
+      ]
+    },
+    {
+      "id": "yt-5",
+      "platform": "openai",
+      "title": "10 DICAS e TRUQUES ÚTEIS para o CHATGPT que VOCÊ DEVERIA SABER! (PARTE 2)",
+      "channel": "Sancler Miranda",
+      "url": "https://www.youtube.com/watch?v=XQhiVI1wY4k",
+      "date": "2026-08-22",
+      "views": "5.9K",
+      "language": "pt",
+      "tips": [
+        "Economize tokens: mantenha as conversas focadas e delegue tarefas grandes para um novo chat em vez de acumular tudo em uma só conversa.",
+        "Traga o contexto de outro chat ou projeto quando precisar continuar um trabalho.",
+        "Peça imagens com fundo transparente diretamente no prompt quando for usar em design.",
+        "Use um prompt de segurança contra prompt injection antes de deixar o agente navegar em sites desconhecidos.",
+        "Ajuste o esforço de raciocínio e o modelo conforme a tarefa: raciocínio alto para problemas difíceis, baixo para respostas rápidas."
+      ]
+    },
+    {
+      "id": "yt-6",
+      "platform": "openai",
+      "title": "18 Dicas, Truques e Segredos do ChatGPT (que Podem Mudar a Sua Vida).",
+      "channel": "Guilherme Karvatzki",
+      "url": "https://www.youtube.com/watch?v=pKuqW9vWoyg",
+      "date": "2024-10-23",
+      "views": "358K",
+      "language": "pt",
+      "tips": [
+        "Técnica 'me ajuda a te ajudar': peça ao ChatGPT que faça perguntas para entender melhor sua necessidade antes de responder.",
+        "Técnica da quinta série: peça a explicação como se fosse para uma criança para entender temas complexos.",
+        "Técnica da atuação: peça para o ChatGPT assumir um papel (especialista, entrevistador, professor) para respostas mais específicas.",
+        "Compartilhe chats, regenere respostas e selecione trechos do texto para pedir ajustes pontuais.",
+        "Use o Canvas para editar textos e códigos lado a lado com o ChatGPT."
+      ]
+    },
+    {
+      "id": "yt-7",
+      "platform": "openai",
+      "title": "ChatGPT for Beginners - 2026 Edition",
+      "channel": "AI Mastermind",
+      "url": "https://www.youtube.com/watch?v=hOe0maWOhp8",
+      "date": "2025-01-01",
+      "views": "551K",
+      "language": "en",
+      "tips": [
+        "Crie 'memória muscular': use o ChatGPT todo dia em tarefas pequenas (e-mails, resumos) até virar hábito.",
+        "Fique atento às alucinações: confira fatos, números e links importantes em outra fonte.",
+        "Comece com casos de uso práticos: redigir e-mails, aprender uma habilidade nova e acelerar fluxos de trabalho.",
+        "Aprenda os ícones e funções da interface para não perder recursos escondidos."
+      ]
+    },
+    {
+      "id": "yt-8",
+      "platform": "openai",
+      "title": "Como Criar Agentes de IA No ChatGPT (TUTORIAL)",
+      "channel": "André Arcas",
+      "url": "https://www.youtube.com/watch?v=vnM6tMyHgR0",
+      "date": "2026-03-26",
+      "views": "62K",
+      "language": "pt",
+      "tips": [
+        "Um agente no ChatGPT executa tarefas em várias etapas por conta própria; um projeto apenas organiza contexto e arquivos.",
+        "Ao criar um agente, defina claramente o objetivo, as etapas esperadas e o formato final da entrega.",
+        "Comece com um agente para uma tarefa repetitiva do seu negócio e refine as instruções conforme os resultados."
+      ]
+    },
+    {
+      "id": "yt-9",
+      "platform": "claude",
+      "title": "CLAUDE CODE FULL COURSE 4 HOURS: Build & Sell (2026)",
+      "channel": "Nick Saraev",
+      "url": "https://www.youtube.com/watch?v=QoQBzR1NIqI",
+      "date": "2026-02-12",
+      "views": "2.4M",
+      "language": "en",
+      "tips": [
+        "Trate o Claude Code como um construtor de sistemas: descreva o resultado de negócio (leads, automações) e não só o código.",
+        "Você não precisa de diploma em programação: aprenda pela prática, construindo projetos pequenos e vendáveis.",
+        "Separe os recursos do curso (prompts, templates) em uma pasta e reutilize-os em novos projetos."
+      ]
+    },
+    {
+      "id": "yt-10",
+      "platform": "claude",
+      "title": "Every Claude Code Concept Explained for Normal People",
+      "channel": "Simon Scrapes",
+      "url": "https://www.youtube.com/watch?v=ZlDnsf_DOzg",
+      "date": "2026-02-28",
+      "views": "862K",
+      "language": "en",
+      "tips": [
+        "O CLAUDE.md é o arquivo de memória do projeto: coloque nele regras, convenções e contexto que o Claude deve lembrar sempre.",
+        "Quando a janela de contexto encher, use /compact para resumir a conversa e continuar sem perder o fio.",
+        "Escolha o modelo pela tarefa: Haiku para coisas rápidas e baratas, Sonnet para o dia a dia, Opus para problemas difíceis.",
+        "Hooks executam comandos automaticamente (ex.: rodar testes após editar); Skills são instruções reutilizáveis; MCP conecta ferramentas externas.",
+        "Use checkpoints/undo e a integração com Git para desfazer mudanças ruins com segurança."
+      ]
+    },
+    {
+      "id": "yt-11",
+      "platform": "claude",
+      "title": "800+ hours of Learning Claude Code in 8 minutes (2026 tutorial / unknown tricks / newest model)",
+      "channel": "Edmund Yong",
+      "url": "https://www.youtube.com/watch?v=Ffh9OeJ7yxw",
+      "date": "2025-10-26",
+      "views": "978K",
+      "language": "en",
+      "tips": [
+        "D.R.Y. (Don't Repeat Yourself): se você repete a mesma instrução toda hora, coloque-a no CLAUDE.md ou em um comando/skill.",
+        "Instale alguns servidores MCP favoritos (ex.: navegador, docs) para o Claude buscar contexto sozinho.",
+        "Construa e envie funcionalidades em paralelo: abra várias sessões do Claude Code em worktrees separados.",
+        "Clone setups prontos de outros usuários (repositórios de configuração) em vez de começar do zero."
+      ]
+    },
+    {
+      "id": "yt-12",
+      "platform": "claude",
+      "title": "How Claude Code Works",
+      "channel": "Claude",
+      "url": "https://www.youtube.com/watch?v=6bs5b4FltCU",
+      "date": "2026-05-13",
+      "views": "635K",
+      "language": "en",
+      "tips": [
+        "O Claude Code funciona em um loop agêntico: reúne contexto, executa ações e verifica os resultados.",
+        "Entenda a janela de contexto: tudo o que o Claude lê e escreve ocupa espaço, então dê contexto relevante, não excessivo.",
+        "Os modos de permissão controlam o que o Claude pode fazer sem perguntar; comece pedindo confirmação e relaxe conforme ganhar confiança."
+      ]
+    },
+    {
+      "id": "yt-13",
+      "platform": "claude",
+      "title": "Full Claude Code Tutorial for Non-Technical Beginners in 2026 (step-by-step)",
+      "channel": "Futurepedia",
+      "url": "https://www.youtube.com/watch?v=bqJzIWAEn40",
+      "date": "2026-04-30",
+      "views": "201K",
+      "language": "en",
+      "tips": [
+        "Comece qualquer projeto com o Plan Mode: o Claude propõe o plano antes de tocar nos arquivos, e você aprova ou ajusta.",
+        "Itere em passos pequenos: peça uma funcionalidade por vez e teste antes de pedir a próxima.",
+        "Crie um CLAUDE.md logo no início descrevendo o projeto, o stack e as preferências.",
+        "Rode sessões paralelas para construir vários projetos ao mesmo tempo e conecte ferramentas via MCP.",
+        "Faça uma revisão de segurança (security review) antes de publicar o app na web."
+      ]
+    },
+    {
+      "id": "yt-14",
+      "platform": "claude",
+      "title": "FULL Claude Code Tutorial for Beginners in 2026! (Step-By-Step)",
+      "channel": "Tech With Tim",
+      "url": "https://www.youtube.com/watch?v=qYqIhX9hTQk",
+      "date": "2026-03-29",
+      "views": "395K",
+      "language": "en",
+      "tips": [
+        "Crie um arquivo CLAUDE.md como memória de longo prazo do projeto.",
+        "Adicione plugins e conectores (como o servidor MCP do GitHub) para o Claude abrir PRs e ler issues por você.",
+        "Use /model para trocar entre Sonnet, Opus e Haiku conforme a complexidade da tarefa.",
+        "Explore MCPs úteis como DB Hub (banco de dados), design de front-end e revisão de código."
+      ]
+    },
+    {
+      "id": "yt-15",
+      "platform": "claude",
+      "title": "FULL Claude Code Tutorial For Beginners in 2026! (Become a PRO)",
+      "channel": "AI Foundations",
+      "url": "https://www.youtube.com/watch?v=X_zVY3-mbM8",
+      "date": "2026-06-30",
+      "views": "122K",
+      "language": "en",
+      "tips": [
+        "Use 'outcome prompting': descreva o resultado desejado, não os passos técnicos.",
+        "Aponte o Claude Code para uma pasta de trabalho organizada e use arquivos markdown simples para dar contexto.",
+        "Slash commands e skills próprias transformam tarefas repetidas em um único comando.",
+        "Subagentes podem cuidar de pesquisas ou tarefas paralelas sem poluir a conversa principal.",
+        "Use Routines (rotinas) para colocar automações em piloto automático e receber notificações."
+      ]
+    },
+    {
+      "id": "yt-16",
+      "platform": "claude",
+      "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code",
+      "channel": "Nate Herk | AI Automation",
+      "url": "https://www.youtube.com/watch?v=sboNwYmH3AY",
+      "date": "2026-04-05",
+      "views": "691K",
+      "language": "en",
+      "tips": [
+        "Construa uma 'wiki' pessoal só com arquivos markdown e deixe o Claude Code ler, resumir e conectar as notas.",
+        "Use o Obsidian como interface visual e o Claude Code como motor que mantém a base de conhecimento.",
+        "Uma wiki em markdown mantida pelo agente pode substituir buscas semânticas (RAG) para uso pessoal."
+      ]
+    },
+    {
+      "id": "yt-17",
+      "platform": "claude",
+      "title": "The ONLY Claude Code Tutorial You'll Ever Need in 2026",
+      "channel": "Zinho Automates",
+      "url": "https://www.youtube.com/watch?v=LlFgLsffbBs",
+      "date": "2026-03-02",
+      "views": "93K",
+      "language": "en",
+      "tips": [
+        "Use o Claude Code dentro do VS Code para ver as mudanças nos arquivos em tempo real.",
+        "Planeje antes de construir: comece pelo plano inicial e só depois peça a implementação.",
+        "Envie imagens (prints, mockups) para o Claude iterar no visual.",
+        "Use @ para referenciar arquivos específicos e evitar que o Claude procure no lugar errado.",
+        "Configure instruções personalizadas e memória para o Claude lembrar suas preferências entre sessões."
+      ]
+    },
+    {
+      "id": "yt-18",
+      "platform": "claude",
+      "title": "Claude Code Tutorial Completo em Português: Do Zero ao Primeiro Projeto",
+      "channel": "Vagner Mazzeo",
+      "url": "https://www.youtube.com/watch?v=Vo5ePeM3C3U",
+      "date": "2026-05-22",
+      "views": "421K",
+      "language": "pt",
+      "tips": [
+        "Claude Code é diferente do Claude no chat: ele lê seus arquivos, executa comandos e edita o projeto direto no terminal.",
+        "Configure um CLAUDE.md logo após instalar para o Claude entender as regras do projeto.",
+        "Use o Plan Mode para a IA planejar antes de sair quebrando coisas.",
+        "Dá para construir um CRUD funcional do zero só com linguagem natural, sem saber terminal."
+      ]
+    },
+    {
+      "id": "yt-19",
+      "platform": "claude",
+      "title": "TUTORIAL de CLAUDE CODE | Aprenda a usar do zero + Dicas nível hard",
+      "channel": "Fernanda Kipper",
+      "url": "https://www.youtube.com/watch?v=bji41uwqflk",
+      "date": "2026-04-26",
+      "views": "52K",
+      "language": "pt",
+      "tips": [
+        "Entenda a hierarquia de configurações: nível de usuário (global) vs. nível de projeto.",
+        "Escolha o modelo com consciência de custo: Opus para tarefas difíceis, Sonnet no dia a dia, Haiku para o trivial.",
+        "Acompanhe a janela de contexto e use /compact antes que a conversa fique pesada.",
+        "Skills são instruções reutilizáveis: crie uma para padrões que você repete no time."
+      ]
+    },
+    {
+      "id": "yt-20",
+      "platform": "claude",
+      "title": "Aprenda Claude Code em 30 minutos",
+      "channel": "Karine Lago",
+      "url": "https://www.youtube.com/watch?v=5AD87VJ1ABM",
+      "date": "2026-04-06",
+      "views": "235K",
+      "language": "pt",
+      "tips": [
+        "Instale a extensão do Claude Code no VS Code para ter terminal e editor no mesmo lugar.",
+        "Aprenda os comandos, atalhos e modos principais antes de começar um projeto real.",
+        "Revise as permissões de arquivos que o Claude pede durante a execução.",
+        "Instale skills e plugins para tarefas como redesenhar o front-end.",
+        "Gerencie a janela de contexto (tokens) e publique o projeto com GitHub e Vercel."
+      ]
+    },
+    {
+      "id": "yt-21",
+      "platform": "claude",
+      "title": "Claude Code - Tutorial Completo (para Iniciantes)",
+      "channel": "Hashtag Programação",
+      "url": "https://www.youtube.com/watch?v=yDO21vewdes",
+      "date": "2026-03-12",
+      "views": "323K",
+      "language": "pt",
+      "tips": [
+        "Instale o VS Code e o Git antes do Claude Code para ter o ambiente completo.",
+        "Use Git e GitHub junto com o Claude Code para versionar e reverter mudanças.",
+        "Comece com um projeto pequeno para entender como o Claude lê e altera arquivos."
+      ]
+    },
+    {
+      "id": "yt-22",
+      "platform": "claude",
+      "title": "Claude Code: Tutorial COMPLETO para Iniciantes (Do Zero ao Projeto)",
+      "channel": "Matheus Battisti - Hora de Codar",
+      "url": "https://www.youtube.com/watch?v=w8HuiXr5Fkc",
+      "date": "2026-02-02",
+      "views": "154K",
+      "language": "pt",
+      "tips": [
+        "Configure o Claude Code nas variáveis de ambiente para chamá-lo de qualquer pasta.",
+        "Use slash commands como atalhos para ações específicas.",
+        "Integre o Claude Code ao VS Code para não alternar de janela.",
+        "Troque de modelo conforme a tarefa: mais rápido ou mais capaz."
+      ]
+    },
+    {
+      "id": "yt-23",
+      "platform": "claude",
+      "title": "Introducing Cowork: Claude Code for the rest of your work",
+      "channel": "Anthropic",
+      "url": "https://www.youtube.com/watch?v=UAmKyyZ-b9E",
+      "date": "2026-01-12",
+      "views": "934K",
+      "language": "en",
+      "tips": [
+        "O Cowork é o 'Claude Code para o resto do trabalho': descreva a tarefa, aponte as fontes e volte para pegar o resultado pronto.",
+        "Ele lê arquivos locais, ferramentas na nuvem e a web e entrega planilhas, apresentações, documentos e PDFs.",
+        "Rode várias tarefas em paralelo em vez de uma por vez."
+      ]
+    },
+    {
+      "id": "yt-24",
+      "platform": "manus",
+      "title": "Manus Demo Walkthrough 2026",
+      "channel": "Manus AI",
+      "url": "https://www.youtube.com/watch?v=3mdNmNLcWYQ",
+      "date": "2026-01-12",
+      "views": "23K",
+      "language": "en",
+      "tips": [
+        "Wide Research dispara vários subagentes em paralelo para pesquisar dezenas de itens ao mesmo tempo.",
+        "Scheduled Tasks (tarefas agendadas) rodam automaticamente todo dia/semana para monitoramento e relatórios.",
+        "O Cloud Browser e o Browser Operator permitem que o Manus navegue e opere sites por você.",
+        "Mail Manus: envie um e-mail para o Manus com uma tarefa e receba o resultado.",
+        "Use Projects e Personalization para manter contexto e preferências entre tarefas; a Use Case Library traz exemplos prontos."
+      ]
+    },
+    {
+      "id": "yt-25",
+      "platform": "manus",
+      "title": "Master Manus AI in 13 minutes (7 INCREDIBLE Use Cases)",
+      "channel": "Stewart Gauld",
+      "url": "https://www.youtube.com/watch?v=OdNg22kn-rI",
+      "date": "2026-07-08",
+      "views": "15K",
+      "language": "en",
+      "tips": [
+        "Explore as Skills do Manus para dar capacidades específicas ao agente.",
+        "Use o construtor de apps e sites para lançar um site sem código.",
+        "Workflows automatizam sequências de tarefas repetidas.",
+        "O Manus gera planilhas e slides prontos a partir de um pedido em texto.",
+        "Use Wide Research para pesquisas em massa e Agents para tarefas autônomas."
+      ]
+    },
+    {
+      "id": "yt-26",
+      "platform": "manus",
+      "title": "How To Use Manus AI - Manus AI Tutorial 2026",
+      "channel": "TheAIGRID",
+      "url": "https://www.youtube.com/watch?v=W4QOqbRfjVg",
+      "date": "2026-04-02",
+      "views": "15K",
+      "language": "en",
+      "tips": [
+        "Agende tarefas automáticas no Manus para relatórios recorrentes.",
+        "Peça um dashboard com dados ao vivo e o Manus constrói e hospeda.",
+        "Crie skills e workflows personalizados para reutilizar processos.",
+        "Gere apresentações e edite o texto dos slides direto no Manus."
+      ]
+    },
+    {
+      "id": "yt-27",
+      "platform": "manus",
+      "title": "Como usar MANUS AI [JULHO 2026] (Guia FÁCIL e RÁPIDO)",
+      "channel": "HostGator Brasil",
+      "url": "https://www.youtube.com/watch?v=pXLHB80rrXM",
+      "date": "2026-03-03",
+      "views": "4.2K",
+      "language": "pt",
+      "tips": [
+        "Um bom pedido ao Manus tem três partes: Objetivo Final, Formato de Entrega e Critério de Decisão.",
+        "Escolha o modo certo: Manus Lite para tarefas simples, Padrão para o dia a dia e Max para trabalhos complexos.",
+        "Planeje o prompt antes de enviar para economizar créditos: pedidos mal estruturados desperdiçam créditos.",
+        "O Manus roda em um ambiente isolado (sandbox) com computador virtual próprio.",
+        "Use multitarefa: dispare várias tarefas e acompanhe em paralelo."
+      ]
+    },
+    {
+      "id": "yt-28",
+      "platform": "manus",
+      "title": "Como Usar Manus AI | Tutorial Manus AI (AGENTE DE IA) do Zero - De Relatórios a Ebooks com IA",
+      "channel": "Eric Grassi",
+      "url": "https://www.youtube.com/watch?v=aoq4KqGKDbY",
+      "date": "2025-06-27",
+      "views": "7.6K",
+      "language": "pt",
+      "tips": [
+        "Escolha entre os modos Adaptive, Agent e Chat conforme a tarefa: Chat para perguntas rápidas, Agent para execução completa.",
+        "Organize o trabalho em Tasks para manter a rotina em ordem.",
+        "Use o Manus para avaliar canais do YouTube, buscar leads e criar briefings de campanha.",
+        "Agende tarefas e conecte integrações nas configurações."
+      ]
+    },
+    {
+      "id": "yt-29",
+      "platform": "manus",
+      "title": "Como Usar o NOVO Manus Ai, O Melhor Agente iA do Mercado Testado... Será que Vale?",
+      "channel": "Inteligência Mil Grau",
+      "url": "https://www.youtube.com/watch?v=f_Ai_5aQvyg",
+      "date": "2025-04-03",
+      "views": "134K",
+      "language": "pt",
+      "tips": [
+        "O Manus primeiro monta um planejamento em etapas e depois executa cada tarefa; acompanhe o plano para entender o que ele fará.",
+        "Tarefas longas são executadas de forma lenta: dispare e vá fazer outra coisa.",
+        "Confira quantos créditos a tarefa gastou ao final para calibrar pedidos futuros.",
+        "O resultado pode ser um PDF, um site publicado ou arquivos para download."
+      ]
+    },
+    {
+      "id": "yt-30",
+      "platform": "manus",
+      "title": "MANUS: o novo AGENTE DE IA que FAZ TUDO! [TUTORIAL COMPLETO]",
+      "channel": "wakaro",
+      "url": "https://www.youtube.com/watch?v=GwyYZbmoAGI",
+      "date": "2025-04-28",
+      "views": "30K",
+      "language": "pt",
+      "tips": [
+        "Acompanhe a execução no computador virtual do Manus para ver como ele usa Python para cálculos e gráficos.",
+        "Revise o relatório gerado antes de baixar ou publicar.",
+        "Um prompt de acompanhamento pode transformar o relatório em um site interativo publicado.",
+        "A conta gratuita tem créditos limitados: use-os em tarefas que realmente exigem um agente."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-yt-1",
+      "platform": "openai",
+      "videoId": "yt-1",
+      "type": "multiple_choice",
+      "prompt": "Segundo Charlie Chang, qual recurso do ChatGPT serve para agrupar arquivos, instruções e conversas de um mesmo tema?",
+      "options": ["Projetos (Projects)", "Modo de voz", "Canvas", "Histórico de buscas"],
+      "answer": 0,
+      "explanation": "Projects mantêm contexto compartilhado para que você não precise começar do zero a cada chat.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-2",
+      "platform": "openai",
+      "videoId": "yt-3",
+      "type": "multiple_choice",
+      "prompt": "No Curso de ChatGPT 2026 do Negócios em Mente, qual modo é indicado para aprender de forma guiada, com explicações passo a passo?",
+      "options": ["Modo Agente", "Modo Investigação", "Modo Estudo", "Modo Imagem"],
+      "answer": 2,
+      "explanation": "O Modo Estudo conduz o aprendizado com perguntas e explicações, em vez de entregar a resposta pronta.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-3",
+      "platform": "openai",
+      "videoId": "yt-4",
+      "type": "multiple_choice",
+      "prompt": "Uma das dicas de Sancler Miranda para o ChatGPT Work é: 'não escreva skills, ...'",
+      "options": ["compre", "peça para outra IA", "copie da internet", "grave"],
+      "answer": 3,
+      "explanation": "A dica é gravar a sequência de ações e deixar o ChatGPT transformá-la em uma skill reutilizável.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-yt-4",
+      "platform": "openai",
+      "videoId": "yt-5",
+      "type": "multiple_choice",
+      "prompt": "Antes de deixar o agente do ChatGPT navegar em sites desconhecidos, qual proteção Sancler Miranda recomenda?",
+      "options": ["Desligar a memória", "Um prompt de segurança contra prompt injection", "Usar só o modelo mais rápido", "Fechar as outras janelas"],
+      "answer": 1,
+      "explanation": "Um prompt de segurança orienta o agente a ignorar instruções maliciosas escondidas em páginas.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-yt-5",
+      "platform": "openai",
+      "videoId": "yt-6",
+      "type": "multiple_choice",
+      "prompt": "A 'técnica da quinta série', citada por Guilherme Karvatzki, consiste em:",
+      "options": ["Pedir explicações como se fosse para uma criança", "Limitar respostas a cinco linhas", "Usar apenas perguntas de sim ou não", "Repetir o prompt cinco vezes"],
+      "answer": 0,
+      "explanation": "Pedir uma explicação simples ajuda a entender temas complexos.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-6",
+      "platform": "openai",
+      "videoId": "yt-7",
+      "type": "multiple_choice",
+      "prompt": "O que o vídeo 'ChatGPT for Beginners - 2026 Edition' recomenda fazer com fatos e números importantes gerados pela IA?",
+      "options": ["Publicar imediatamente", "Pedir para o ChatGPT repetir", "Conferir em outra fonte por causa das alucinações", "Ignorar, pois a IA nunca erra"],
+      "answer": 2,
+      "explanation": "Modelos podem alucinar; informações críticas devem ser verificadas.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-7",
+      "platform": "openai",
+      "videoId": "yt-8",
+      "type": "multiple_choice",
+      "prompt": "Qual é a principal diferença entre um projeto e um agente no ChatGPT, segundo o tutorial de André Arcas?",
+      "options": ["Projetos são pagos e agentes são gratuitos", "Agentes só geram imagens", "Projetos executam tarefas e agentes guardam arquivos", "Agentes executam tarefas em etapas; projetos organizam contexto e arquivos"],
+      "answer": 3,
+      "explanation": "Projetos organizam contexto; agentes agem em múltiplas etapas de forma autônoma.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-yt-8",
+      "platform": "claude",
+      "videoId": "yt-10",
+      "type": "multiple_choice",
+      "prompt": "No Claude Code, qual comando resume a conversa para liberar espaço na janela de contexto?",
+      "options": ["/clear", "/compact", "/model", "/init"],
+      "answer": 1,
+      "explanation": "/compact cria um resumo da conversa e continua a partir dele, preservando a continuidade.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-9",
+      "platform": "claude",
+      "videoId": "yt-10",
+      "type": "multiple_choice",
+      "prompt": "Qual é a função do arquivo CLAUDE.md, explicado por Simon Scrapes?",
+      "options": ["Guardar regras, convenções e contexto que o Claude deve lembrar sempre", "Armazenar a senha da API", "Listar os arquivos que o Claude não pode ler", "Registrar o histórico de tokens gastos"],
+      "answer": 0,
+      "explanation": "O CLAUDE.md funciona como memória do projeto lida a cada sessão.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-10",
+      "platform": "claude",
+      "videoId": "yt-11",
+      "type": "multiple_choice",
+      "prompt": "O princípio D.R.Y. aplicado ao Claude Code por Edmund Yong significa:",
+      "options": ["Nunca usar MCP", "Sempre usar o modelo Opus", "Se você repete uma instrução, coloque-a no CLAUDE.md ou em um comando", "Rodar apenas uma sessão por vez"],
+      "answer": 2,
+      "explanation": "Don't Repeat Yourself: instruções recorrentes viram configuração persistente.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-yt-11",
+      "platform": "claude",
+      "videoId": "yt-13",
+      "type": "multiple_choice",
+      "prompt": "Segundo o tutorial da Futurepedia, o que o Plan Mode faz antes de alterar arquivos?",
+      "options": ["Apaga o projeto", "Troca o modelo automaticamente", "Publica o app na web", "Propõe um plano para você aprovar ou ajustar"],
+      "answer": 3,
+      "explanation": "No Plan Mode o Claude planeja primeiro e só executa após aprovação.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-12",
+      "platform": "claude",
+      "videoId": "yt-14",
+      "type": "multiple_choice",
+      "prompt": "Qual comando o Tech With Tim usa para alternar entre Sonnet, Opus e Haiku no Claude Code?",
+      "options": ["/switch", "/model", "/mode", "/change"],
+      "answer": 1,
+      "explanation": "/model permite trocar o modelo conforme a complexidade da tarefa.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-13",
+      "platform": "claude",
+      "videoId": "yt-15",
+      "type": "multiple_choice",
+      "prompt": "O que é 'outcome prompting', recomendado pelo AI Foundations?",
+      "options": ["Descrever o resultado desejado em vez dos passos técnicos", "Escrever o código e pedir revisão", "Pedir várias respostas e escolher a melhor", "Usar apenas prompts de uma linha"],
+      "answer": 0,
+      "explanation": "Focar no resultado deixa o Claude escolher a melhor forma de chegar lá.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-yt-14",
+      "platform": "claude",
+      "videoId": "yt-16",
+      "type": "multiple_choice",
+      "prompt": "A ideia de Andrej Karpathy mostrada por Nate Herk para uma base de conhecimento com Claude Code usa:",
+      "options": ["Um banco vetorial na nuvem", "Planilhas do Excel", "Arquivos markdown mantidos pelo agente (com Obsidian como interface)", "Um servidor MCP pago"],
+      "answer": 2,
+      "explanation": "Uma wiki em markdown mantida pelo Claude substitui o RAG para uso pessoal.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-yt-15",
+      "platform": "claude",
+      "videoId": "yt-17",
+      "type": "multiple_choice",
+      "prompt": "No Claude Code, para que serve o símbolo @ no prompt, segundo Zinho Automates?",
+      "options": ["Mencionar outro usuário", "Trocar de modelo", "Publicar o projeto", "Referenciar arquivos específicos do projeto"],
+      "answer": 3,
+      "explanation": "Com @ você aponta exatamente qual arquivo o Claude deve olhar.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-16",
+      "platform": "claude",
+      "videoId": "yt-19",
+      "type": "multiple_choice",
+      "prompt": "Segundo Fernanda Kipper, qual escolha de modelo faz sentido para uma tarefa trivial e barata?",
+      "options": ["Opus", "Haiku", "Sempre o mais caro", "Nenhum, use o chat web"],
+      "answer": 1,
+      "explanation": "Haiku é rápido e barato; Opus fica reservado para problemas difíceis.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-yt-17",
+      "platform": "claude",
+      "videoId": "yt-23",
+      "type": "multiple_choice",
+      "prompt": "O que é o Claude Cowork, apresentado pela Anthropic?",
+      "options": ["Um plano gratuito do Claude", "Um editor de código", "Um modo que entrega planilhas, documentos e apresentações a partir de suas fontes", "Um modelo menor que o Haiku"],
+      "answer": 2,
+      "explanation": "Cowork é o 'Claude Code para o resto do trabalho': tarefas delegadas com entregas prontas.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-yt-18",
+      "platform": "manus",
+      "videoId": "yt-24",
+      "type": "multiple_choice",
+      "prompt": "O que o recurso Wide Research do Manus faz?",
+      "options": ["Dispara vários subagentes em paralelo para pesquisar muitos itens de uma vez", "Aumenta o tamanho da tela", "Traduz o resultado para vários idiomas", "Cria um site com uma página"],
+      "answer": 0,
+      "explanation": "Wide Research paraleliza a pesquisa: 50 empresas viram 50 tarefas simultâneas.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-19",
+      "platform": "manus",
+      "videoId": "yt-27",
+      "type": "multiple_choice",
+      "prompt": "Segundo o guia da HostGator Brasil, um bom pedido ao Manus tem três partes. Quais?",
+      "options": ["Título, resumo e conclusão", "Objetivo final, formato de entrega e critério de decisão", "Nome, e-mail e senha", "Modelo, créditos e prazo"],
+      "answer": 1,
+      "explanation": "Esse framework evita retrabalho e desperdício de créditos.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-yt-20",
+      "platform": "manus",
+      "videoId": "yt-27",
+      "type": "multiple_choice",
+      "prompt": "Por que planejar o prompt antes de enviar ao Manus é importante?",
+      "options": ["Porque o Manus só aceita um prompt por dia", "Porque o texto é limitado a 100 caracteres", "Porque prompts mal estruturados desperdiçam créditos", "Porque o Manus não aceita correções depois"],
+      "answer": 2,
+      "explanation": "Cada ação consome créditos; pedidos claros evitam execuções desnecessárias.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-21",
+      "platform": "manus",
+      "videoId": "yt-28",
+      "type": "multiple_choice",
+      "prompt": "No Manus, qual modo é o mais indicado para uma pergunta rápida que não exige execução de tarefas?",
+      "options": ["Agent", "Wide Research", "Scheduled Task", "Chat"],
+      "answer": 3,
+      "explanation": "O modo Chat responde direto; Agent é para tarefas completas com execução.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-22",
+      "platform": "manus",
+      "videoId": "yt-29",
+      "type": "multiple_choice",
+      "prompt": "O que o Manus faz antes de executar uma tarefa complexa, conforme mostrado pelo Inteligência Mil Grau?",
+      "options": ["Monta um planejamento em etapas", "Pede um cartão de crédito", "Envia um e-mail de confirmação", "Desliga o computador virtual"],
+      "answer": 0,
+      "explanation": "O plano em etapas permite acompanhar o que o agente vai fazer.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-23",
+      "platform": "manus",
+      "videoId": "yt-24",
+      "type": "multiple_choice",
+      "prompt": "Qual recurso do Manus permite rodar automaticamente um relatório toda semana?",
+      "options": ["Cloud Browser", "Scheduled Tasks", "Slides Generation", "Trust Center"],
+      "answer": 1,
+      "explanation": "Scheduled Tasks agendam execuções recorrentes sem intervenção manual.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-yt-24",
+      "platform": "general",
+      "videoId": "yt-12",
+      "type": "multiple_choice",
+      "prompt": "Os três passos do loop agêntico do Claude Code, descritos pelo canal oficial, são:",
+      "options": ["Instalar, configurar, pagar", "Perguntar, esperar, copiar", "Compilar, testar, publicar", "Reunir contexto, executar ações, verificar resultados"],
+      "answer": 3,
+      "explanation": "Esse loop também descreve como agentes como Manus e o Modo Agente do ChatGPT trabalham.",
+      "difficulty": 2
+    }
+  ]
+}

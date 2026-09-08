@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev*)",
+      "Bash(npm run build*)",
+      "Bash(npm run preview*)",
+      "Bash(npm run validate:content*)",
+      "Bash(npm install*)",
+      "Bash(node scripts/*)",
+      "Bash(npx tsc*)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "WebFetch(domain:openai.com)",
+      "WebFetch(domain:platform.openai.com)",
+      "WebFetch(domain:help.openai.com)",
+      "WebFetch(domain:developers.openai.com)",
+      "WebFetch(domain:anthropic.com)",
+      "WebFetch(domain:claude.com)",
+      "WebFetch(domain:support.claude.com)",
+      "WebFetch(domain:code.claude.com)",
+      "WebFetch(domain:platform.claude.com)",
+      "WebFetch(domain:manus.im)",
+      "WebFetch(domain:help.manus.im)",
+      "WebFetch(domain:youtube.com)",
+      "WebFetch(domain:www.youtube.com)",
+      "WebSearch"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_TOOL_INPUT\" | grep -q 'git commit'; then cd \"$CLAUDE_PROJECT_DIR\" && npm run --silent validate:content; fi"
+          }
+        ]
+      }
+    ]
+  }
+}

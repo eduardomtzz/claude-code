@@ -1,0 +1,1769 @@
+{
+  "platform": "openai",
+  "name": "OpenAI",
+  "updatedAt": "2026-09-08",
+  "sources": [
+    {
+      "id": "src-1",
+      "title": "Models – OpenAI API",
+      "url": "https://developers.openai.com/api/docs/models",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-2",
+      "title": "GPT-6 Astra – model card",
+      "url": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-3",
+      "title": "GPT-5.6 Sol – model card",
+      "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-4",
+      "title": "GPT-5.6 Terra – model card",
+      "url": "https://developers.openai.com/api/docs/models/gpt-5.6-terra",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-5",
+      "title": "GPT-5.6 Luna – model card",
+      "url": "https://developers.openai.com/api/docs/models/gpt-5.6-luna",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-6",
+      "title": "Using the latest model (GPT-6 Astra)",
+      "url": "https://developers.openai.com/api/docs/guides/latest-model",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-7",
+      "title": "Reasoning models guide",
+      "url": "https://developers.openai.com/api/docs/guides/reasoning",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-8",
+      "title": "Migrate to the Responses API",
+      "url": "https://developers.openai.com/api/docs/guides/migrate-to-responses",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-9",
+      "title": "Conversation state",
+      "url": "https://developers.openai.com/api/docs/guides/conversation-state",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-10",
+      "title": "Built-in tools – Responses API",
+      "url": "https://developers.openai.com/api/docs/guides/tools",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-11",
+      "title": "Function calling",
+      "url": "https://developers.openai.com/api/docs/guides/function-calling",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-12",
+      "title": "Structured Outputs",
+      "url": "https://developers.openai.com/api/docs/guides/structured-outputs",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-13",
+      "title": "File search tool",
+      "url": "https://developers.openai.com/api/docs/guides/tools-file-search",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-14",
+      "title": "Web search tool",
+      "url": "https://developers.openai.com/api/docs/guides/tools-web-search",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-15",
+      "title": "Computer use tool",
+      "url": "https://developers.openai.com/api/docs/guides/tools-computer-use",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-16",
+      "title": "Remote MCP tool",
+      "url": "https://developers.openai.com/api/docs/guides/tools-remote-mcp",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-17",
+      "title": "Shell tool and hosted containers",
+      "url": "https://developers.openai.com/api/docs/guides/tools-shell",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-18",
+      "title": "Tool search",
+      "url": "https://developers.openai.com/api/docs/guides/tools-tool-search",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-19",
+      "title": "Batch API",
+      "url": "https://developers.openai.com/api/docs/guides/batch",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-20",
+      "title": "Realtime API",
+      "url": "https://developers.openai.com/api/docs/guides/realtime",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-21",
+      "title": "Background mode",
+      "url": "https://developers.openai.com/api/docs/guides/background",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-22",
+      "title": "Prompt caching",
+      "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-23",
+      "title": "Building agents – guide",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-24",
+      "title": "OpenAI Agents SDK (Python)",
+      "url": "https://openai.github.io/openai-agents-python/",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-25",
+      "title": "OpenAI Agents SDK (TypeScript)",
+      "url": "https://openai.github.io/openai-agents-js/",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-26",
+      "title": "API pricing",
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-27",
+      "title": "API changelog",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-28",
+      "title": "Image generation – API",
+      "url": "https://developers.openai.com/api/docs/guides/image-generation",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-29",
+      "title": "Deep research – API",
+      "url": "https://developers.openai.com/api/docs/guides/deep-research",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-30",
+      "title": "ChatGPT Developer mode",
+      "url": "https://developers.openai.com/api/docs/guides/developer-mode",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-31",
+      "title": "Safety best practices",
+      "url": "https://developers.openai.com/api/docs/guides/safety-best-practices",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-32",
+      "title": "ChatGPT Learn – overview",
+      "url": "https://learn.chatgpt.com/docs",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-33",
+      "title": "ChatGPT Learn – Pricing",
+      "url": "https://learn.chatgpt.com/docs/pricing",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-34",
+      "title": "Get started with ChatGPT Work",
+      "url": "https://learn.chatgpt.com/docs/get-started-with-work",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-35",
+      "title": "ChatGPT Learn – Models",
+      "url": "https://learn.chatgpt.com/docs/models",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-36",
+      "title": "Projects and chats",
+      "url": "https://learn.chatgpt.com/docs/projects",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-37",
+      "title": "Scheduled tasks",
+      "url": "https://learn.chatgpt.com/docs/automations",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-38",
+      "title": "Plugins",
+      "url": "https://learn.chatgpt.com/docs/plugins",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-39",
+      "title": "Skills & Plugins",
+      "url": "https://learn.chatgpt.com/docs/skills-and-plugins",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-40",
+      "title": "Sites",
+      "url": "https://learn.chatgpt.com/docs/sites",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-41",
+      "title": "Computer Use",
+      "url": "https://learn.chatgpt.com/docs/computer-use",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-42",
+      "title": "What's new – ChatGPT Learn",
+      "url": "https://learn.chatgpt.com/docs/whats-new",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-43",
+      "title": "Image generation – ChatGPT Learn",
+      "url": "https://learn.chatgpt.com/docs/image-generation",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-44",
+      "title": "ChatGPT Voice – ChatGPT Learn",
+      "url": "https://learn.chatgpt.com/docs/features/voice",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-45",
+      "title": "Personalize ChatGPT",
+      "url": "https://learn.chatgpt.com/docs/personalize",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-46",
+      "title": "Long-running work",
+      "url": "https://learn.chatgpt.com/docs/long-running-work",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-47",
+      "title": "Code review – Codex",
+      "url": "https://learn.chatgpt.com/docs/code-review",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-48",
+      "title": "Codex cloud",
+      "url": "https://learn.chatgpt.com/docs/cloud",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-49",
+      "title": "ChatGPT desktop app",
+      "url": "https://learn.chatgpt.com/docs/app",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-50",
+      "title": "ChatGPT & Codex changelog",
+      "url": "https://learn.chatgpt.com/docs/changelog",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-51",
+      "title": "Memories – ChatGPT Learn",
+      "url": "https://learn.chatgpt.com/docs/customization/memories",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-52",
+      "title": "Memory FAQ – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/8590148-memory-faq",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-53",
+      "title": "Projects in ChatGPT – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-54",
+      "title": "Scheduled tasks in ChatGPT – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-55",
+      "title": "Deep research in ChatGPT – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/10500283-deep-research-faq",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-56",
+      "title": "Using study mode in ChatGPT – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/11780217-using-study-mode-in-chatgpt",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-57",
+      "title": "Creating and editing GPTs – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/8554397-creating-and-editing-gpts",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-58",
+      "title": "ChatGPT agent – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-59",
+      "title": "ChatGPT Work and Codex – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-60",
+      "title": "GPT-5.6 and GPT-6 Pro in ChatGPT – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/20001354-gpt-56-in-chatgpt",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-61",
+      "title": "About ChatGPT Pro tiers – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-62",
+      "title": "Using Codex with your ChatGPT plan – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-63",
+      "title": "Working with writing blocks and code blocks – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/20001246-working-with-writing-blocks-and-code-blocks-in-chatgpt",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-64",
+      "title": "Canvas in ChatGPT – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/9930697",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-65",
+      "title": "ChatGPT Voice – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/8400625-voice-mode-faq",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-66",
+      "title": "Images in ChatGPT – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/11084440-images-in-chatgpt",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-67",
+      "title": "Creating and managing ChatGPT Sites – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/20001339-creating-and-managing-chatgpt-sites",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-68",
+      "title": "ChatGPT Free Tier FAQ – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-69",
+      "title": "File storage and Library in ChatGPT – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/20001052-file-storage-and-library-in-chatgpt",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-70",
+      "title": "Apps in ChatGPT – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/11487775-connectors-in-chatgpt",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-71",
+      "title": "Developer mode and MCP apps in ChatGPT – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-72",
+      "title": "ChatGPT — Release Notes – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-73",
+      "title": "ChatGPT Pricing – OpenAI",
+      "url": "https://openai.com/chatgpt/pricing/",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-74",
+      "title": "GPT-6 Astra: A new generation of intelligence – OpenAI",
+      "url": "https://openai.com/index/gpt-6-astra/",
+      "type": "blog",
+      "date": "2026-09-03",
+      "channel": null
+    },
+    {
+      "id": "src-75",
+      "title": "Introducing ChatGPT Go, now available worldwide – OpenAI",
+      "url": "https://openai.com/index/introducing-chatgpt-go/",
+      "type": "blog",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-76",
+      "title": "Evolving Atlas into ChatGPT for browser-based agentic work – OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/20001371-evolving-atlas-into-chatgpt-for-browser-based-agentic-work",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-77",
+      "title": "Meet ChatGPT Work",
+      "url": "https://www.youtube.com/watch?v=yRc5HcGJ-Cs",
+      "type": "youtube",
+      "date": "2026-07-09",
+      "channel": "OpenAI"
+    },
+    {
+      "id": "src-78",
+      "title": "Introducing GPT-6 Astra for developers",
+      "url": "https://www.youtube.com/watch?v=bOC3DisEOfg",
+      "type": "youtube",
+      "date": "2026-09-04",
+      "channel": "OpenAI"
+    },
+    {
+      "id": "src-79",
+      "title": "Introducing ChatGPT Work, powered by Codex and GPT-5.6",
+      "url": "https://www.youtube.com/watch?v=Wq45rvPGNHs",
+      "type": "youtube",
+      "date": null,
+      "channel": "OpenAI"
+    },
+    {
+      "id": "src-80",
+      "title": "Introducing ChatGPT agent: bridging research and action – OpenAI",
+      "url": "https://openai.com/index/introducing-chatgpt-agent/",
+      "type": "blog",
+      "date": null,
+      "channel": null
+    }
+  ],
+  "features": [
+    {
+      "id": "chatgpt-plans",
+      "name": "Planos do ChatGPT (Free, Go, Plus, Pro, Business, Enterprise)",
+      "category": "pricing",
+      "summary": "O ChatGPT tem um plano gratuito e planos pagos por usuário/mês: Go (US$ 8 nos EUA), Plus (US$ 20), Pro (a partir de US$ 100, com um nível de US$ 200), Business (US$ 20 por usuário, mínimo de 2 usuários no plano anual) e Enterprise/Edu (preço sob consulta). O Free oferece chats de texto ilimitados com GPT-5.6 Luna e um botão 'Think', enquanto Plus e superiores dão acesso ao GPT-5.6 Sol, Codex, ChatGPT Work e mais uso de ferramentas.",
+      "tips": [
+        "Pro US$ 100 libera 5x mais uso que o Plus; Pro US$ 200 libera 20x. As capacidades são as mesmas, o que muda é a cota semanal.",
+        "O armazenamento da Biblioteca (Library) varia por plano: 500 MB no Free, 4 GB no Go, 20 GB no Plus/Business e 100 GB no Pro.",
+        "Usuários Plus e Pro que atingem o limite podem comprar créditos adicionais em vez de fazer upgrade de plano.",
+        "Free e Go usam GPT-5.6 Luna como modelo padrão e não têm acesso ao GPT-5.6 Sol."
+      ],
+      "sourceIds": [
+        "src-33",
+        "src-73",
+        "src-61",
+        "src-68",
+        "src-69",
+        "src-75",
+        "src-62"
+      ]
+    },
+    {
+      "id": "chatgpt-models",
+      "name": "Modelos no ChatGPT: GPT-6 Astra e família GPT-5.6",
+      "category": "models",
+      "summary": "A linha atual é o GPT-6 Astra (lançado em 3 de setembro de 2026, o modelo mais capaz, em rollout gradual) e a família GPT-5.6 com três níveis: Sol (trabalho complexo e aberto), Terra (equilíbrio entre capacidade e custo) e Luna (rápido e barato, padrão nos planos Free e Go). Nos planos Pro existem variantes 'Pro' (GPT-5.6 Sol Pro e GPT-6 Pro) para tarefas difíceis e fluxos longos.",
+      "tips": [
+        "No app do ChatGPT você não escolhe entre Sol/Terra/Luna no chat comum: planos pagos usam Sol; a escolha fina acontece no Work, no Codex e na API.",
+        "No Codex e no ChatGPT Work você ajusta o esforço de raciocínio (Light, Medium, High, Extra High); use o menor nível que entrega o resultado e suba só quando travar.",
+        "O GPT-6 Astra está chegando primeiro para Pro (US$ 100 e US$ 200), Business e Enterprise; no Plus ele aparece via ChatGPT Work e Codex conforme o rollout.",
+        "O GPT-5.3 Codex Spark é um preview só de texto, exclusivo do Pro, otimizado para iteração rápida de código."
+      ],
+      "sourceIds": [
+        "src-35",
+        "src-60",
+        "src-74",
+        "src-72",
+        "src-61",
+        "src-78"
+      ]
+    },
+    {
+      "id": "chatgpt-work",
+      "name": "ChatGPT Work, modo agente e Computer Use",
+      "category": "agents",
+      "summary": "ChatGPT Work é o agente para trabalho longo e multi-etapas que entrega arquivos prontos (planilhas, slides, docs, web apps), substituindo o antigo 'ChatGPT agent'. Em Plan mode ele coleta contexto, faz perguntas e propõe um plano que você aprova; depois executa, pausa para aprovações e permite acompanhar e redirecionar. No desktop (macOS/Windows) o Computer Use permite que ele opere apps e navegadores (Chrome, Edge, Brave, Opera, Vivaldi) com permissão por app.",
+      "tips": [
+        "Alterne para o modo Work no compositor e descreva o resultado esperado, as fontes e o que significa 'pronto'; tarefas com várias fontes e saída revisável são as que mais rendem.",
+        "No desktop escolha entre 'Work locally' (usa seus arquivos e apps) ou 'Cloud' (continua rodando mesmo com o app fechado, ideal para tarefas agendadas).",
+        "Use /plan para o ChatGPT entrevistar você e transformar o objetivo em critérios de sucesso mensuráveis antes de começar.",
+        "Com Computer Use, mantenha tarefas estreitas, feche apps sensíveis e fique presente em ações de conta/segurança; o GPT-6 Astra é o recomendado para tarefas visualmente complexas."
+      ],
+      "sourceIds": [
+        "src-34",
+        "src-59",
+        "src-58",
+        "src-41",
+        "src-46",
+        "src-42",
+        "src-77",
+        "src-79",
+        "src-76"
+      ]
+    },
+    {
+      "id": "projects",
+      "name": "Projects (Projetos)",
+      "category": "files",
+      "summary": "Projects são espaços de trabalho que reúnem chats, arquivos (Sources), instruções e contexto conectado sobre um mesmo esforço de longo prazo. As instruções valem para todos os chats do projeto, e é possível escolher 'memória padrão' ou 'memória só do projeto' (project-only memory), que limita o contexto às conversas daquele projeto.",
+      "tips": [
+        "Abra um chat separado para cada resultado distinto dentro do projeto; assim cada conversa fica focada e o projeto organiza tudo.",
+        "Quando um projeto é compartilhado, a memória só do projeto é ativada automaticamente e não acessa memórias externas dos membros.",
+        "Use títulos descritivos (ex.: 'Brief lançamento Q3'), fixe projetos frequentes e busque chats antigos com Cmd/Ctrl+K.",
+        "No app desktop você pode anexar várias pastas locais a um projeto; projetos remotos suportam uma pasta."
+      ],
+      "sourceIds": [
+        "src-36",
+        "src-53"
+      ]
+    },
+    {
+      "id": "memory-personalization",
+      "name": "Memória e personalização",
+      "category": "memory",
+      "summary": "A memória do ChatGPT funciona de duas formas: 'memórias salvas' (fatos que você pede para lembrar, ex.: 'lembre que sou vegetariano') e 'histórico de chats' (insights extraídos de conversas anteriores). Você pode ver o resumo de memória, apagar itens, limpar tudo ou desligar a memória, e usar o Chat Temporário para conversas que não usam nem alteram memória. A personalização inclui instruções personalizadas e uma personalidade padrão (Friendly, Pragmatic ou None).",
+      "tips": [
+        "Peça diretamente na conversa para o ChatGPT atualizar, combinar ou remover o que ele sabe sobre você.",
+        "Use Chat Temporário quando não quiser que a conversa entre na memória.",
+        "No desktop/CLI, o comando /memories controla a memória por chat; regras que devem valer sempre ficam melhor em instruções ou no AGENTS.md do que na memória.",
+        "Ajuste personalidade, instruções e memória em Settings > Personalization."
+      ],
+      "sourceIds": [
+        "src-52",
+        "src-51",
+        "src-45"
+      ]
+    },
+    {
+      "id": "scheduled-tasks",
+      "name": "Tarefas agendadas (Scheduled tasks)",
+      "category": "automation",
+      "summary": "O ChatGPT executa tarefas únicas ou recorrentes (lembretes, resumos diários, monitoramento) e, no ChatGPT Work, tarefas disparadas por eventos do Gmail, Slack ou GitHub. Você cria pedindo no chat ou pela área 'Scheduled', e recebe notificações por push ou e-mail. O limite de tarefas ativas depende do plano: 3 (Free e Go), 5 (Plus), 10 (Business e Edu) e 15 (Pro e Enterprise).",
+      "tips": [
+        "No Free, tarefas recorrentes rodam no máximo uma vez por dia em janelas flexíveis (manhã/tarde/noite); horários exatos e agendas por hora exigem plano pago elegível.",
+        "Uma tarefa pode ter vários gatilhos de evento, mas não pode combinar gatilho de evento com agenda por horário.",
+        "Usuários avançados podem editar a regra de recorrência RFC 5545 (ex.: RRULE:FREQ=MONTHLY;BYMONTHDAY=1).",
+        "Tarefas no app desktop exigem o computador ligado; para rodar sem o app aberto, use a execução em nuvem."
+      ],
+      "sourceIds": [
+        "src-54",
+        "src-37",
+        "src-42"
+      ]
+    },
+    {
+      "id": "plugins-skills",
+      "name": "Plugins, apps/conectores e skills",
+      "category": "tools",
+      "summary": "Plugins são pacotes instaláveis que combinam skills, conectores (servidores MCP) e UI opcional, disponíveis num diretório único compartilhado entre ChatGPT e Codex (ex.: Gmail, Google Drive, Slack, GitHub, Codex Security, Apple Messages no macOS). Skills são fluxos reutilizáveis com instruções e materiais de apoio para uma tarefa repetível. O Developer mode permite conectar servidores MCP próprios com ações de escrita.",
+      "tips": [
+        "Instale na aba Plugins, autentique no serviço e invoque explicitamente com @nome-do-plugin quando quiser precisão.",
+        "Crie uma skill descrevendo o fluxo com @skill-creator no ChatGPT (ou $skill-creator no Codex), teste e habilite para reutilizar.",
+        "Developer mode fica em Settings → Security and login (web, planos Plus, Pro, Business, Enterprise e Edu); ações de escrita pedem confirmação e você pode inspecionar o JSON antes de aprovar.",
+        "Cuidado com prompt injection e servidores MCP maliciosos: só conecte fontes em que confia."
+      ],
+      "sourceIds": [
+        "src-38",
+        "src-39",
+        "src-70",
+        "src-30",
+        "src-71"
+      ]
+    },
+    {
+      "id": "custom-gpts",
+      "name": "GPTs personalizados (Custom GPTs)",
+      "category": "chat",
+      "summary": "GPTs são versões do ChatGPT configuradas para um propósito, combinando instruções, conhecimento (arquivos) e capacidades selecionadas. Criam-se em Explore GPTs → Create, com as abas Create (construtor conversacional) e Configure (nome, descrição, instruções, iniciadores de conversa). Atualmente, criar e publicar novos GPTs não está disponível em contas pessoais (Free, Go e Plus); é um recurso de workspaces Business, Enterprise e Edu.",
+      "tips": [
+        "Um GPT pode usar apps conectados do workspace OU custom actions (APIs de terceiros), mas não ambos no mesmo GPT.",
+        "Para publicar na GPT Store, salve como 'Everyone' e verifique seu Builder Profile (nome ou site verificado).",
+        "Em workspaces, custom actions só executam se o domínio da API estiver aprovado pelo administrador."
+      ],
+      "sourceIds": [
+        "src-57"
+      ]
+    },
+    {
+      "id": "deep-research",
+      "name": "Deep research",
+      "category": "chat",
+      "summary": "Deep research realiza pesquisa multi-etapas: o ChatGPT propõe um plano que você pode editar, navega por centenas de fontes (web, arquivos enviados e apps habilitados) e entrega um relatório estruturado com citações. Na API, o mesmo tipo de tarefa pode ser feito com a ferramenta web_search no modo 'deep research' em background, ou com os modelos o3-deep-research e o4-mini-deep-research.",
+      "tips": [
+        "Revise o plano proposto antes de iniciar e interrompa a qualquer momento para refinar o foco.",
+        "Restrinja a pesquisa a sites específicos ou escolha 'priorizar estes sites' mantendo a busca na web inteira.",
+        "Segundo a central de ajuda, as cotas mensais são de 25 pesquisas para Plus/Business/Enterprise/Edu, 250 para Pro e 5 para Free (mais versões leves).",
+        "Na API, use background: true e max_tool_calls para controlar custo e evitar timeouts, pois tarefas podem levar dezenas de minutos."
+      ],
+      "sourceIds": [
+        "src-55",
+        "src-29",
+        "src-14"
+      ]
+    },
+    {
+      "id": "study-mode",
+      "name": "Study mode (modo estudo)",
+      "category": "chat",
+      "summary": "Study mode transforma o ChatGPT em tutor: em vez de dar a resposta pronta, ele faz perguntas socráticas, dá dicas, explica passo a passo, organiza o conteúdo em seções e aplica quizzes para checar a compreensão. Está disponível em todos os planos e modelos, na web, iOS e Android.",
+      "tips": [
+        "Use para lição de casa, preparação de provas e aprender temas novos; ele adapta o nível às suas respostas e à memória de chats anteriores.",
+        "Peça verificações de conhecimento (quizzes e perguntas abertas) para fixar o conteúdo.",
+        "Confira informações importantes: o modo estudo também pode errar, especialmente em temas de saúde, direito ou finanças."
+      ],
+      "sourceIds": [
+        "src-56"
+      ]
+    },
+    {
+      "id": "voice",
+      "name": "ChatGPT Voice",
+      "category": "chat",
+      "summary": "O ChatGPT Voice oferece conversa por voz com modelos nativamente multimodais. Em Settings → Voice você escolhe entre Live, Advanced e Standard; o modo Live ouve e fala ao mesmo tempo, permitindo interrupções naturais, e pode usar busca na web, memória e widgets visuais. No app desktop, a voz (baseada em GPT-Live) pode delegar tarefas ao Chat, Work e Codex e, no macOS, ver a janela em primeiro plano com 'Take a look at this'.",
+      "tips": [
+        "A voz funciona dentro do chat: você pode ouvir acompanhando o texto, digitar quando não puder falar e reler mensagens anteriores.",
+        "Vídeo e compartilhamento de tela ficam disponíveis para assinantes elegíveis nos apps iOS e Android no modo Advanced.",
+        "Defina o idioma em Settings → Voice → Language para melhorar o reconhecimento de fala.",
+        "O plano Pro de US$ 200 inclui ChatGPT Voice ilimitado."
+      ],
+      "sourceIds": [
+        "src-65",
+        "src-44",
+        "src-33"
+      ]
+    },
+    {
+      "id": "images",
+      "name": "Geração e edição de imagens (GPT Image 2)",
+      "category": "chat",
+      "summary": "O ChatGPT cria e edita imagens com o modelo gpt-image-2. Você pede na conversa ou pelo menu Images, escolhe a proporção no seletor, edita áreas com a ferramenta Select e encontra tudo salvo na área Images (com filtros, prompts em alta e upload único de semelhança). Na API, o gpt-image-2 está no Image API (generations/edits) e como ferramenta image_generation no Responses API, com resoluções até 4K e fundo transparente em preview.",
+      "tips": [
+        "Um bom prompt tem 1 a 3 frases: propósito, sujeito, ação, cenário e estilo visual; descreva luz e enquadramento concretamente.",
+        "Ao editar, diga exatamente o que muda e o que deve permanecer igual; use várias imagens de referência para guiar conteúdo e estilo.",
+        "Texto dentro da imagem: coloque entre aspas e informe fonte e posição.",
+        "Na API, use o Responses API para edição multi-turno conversacional e o Image API para tarefas de imagem única."
+      ],
+      "sourceIds": [
+        "src-66",
+        "src-43",
+        "src-28"
+      ]
+    },
+    {
+      "id": "writing-code-blocks",
+      "name": "Writing blocks e code blocks (sucessores do Canvas)",
+      "category": "chat",
+      "summary": "A edição de textos e códigos agora acontece direto na resposta do chat: writing blocks são áreas editáveis para rascunhos (e-mails, posts, documentos) e code blocks separam o código para ler, copiar, editar, pré-visualizar ou executar. O Canvas (janela separada de colaboração) ficou como recurso legado, disponível por tempo limitado em modelos legados para usuários pagos.",
+      "tips": [
+        "Peça revisões incrementais no próprio bloco em vez de regenerar a resposta inteira.",
+        "Use a pré-visualização do code block para testar HTML/JS antes de copiar.",
+        "Se depende do Canvas, saiba que ele será desativado junto com os modelos legados."
+      ],
+      "sourceIds": [
+        "src-63",
+        "src-64"
+      ]
+    },
+    {
+      "id": "sites",
+      "name": "ChatGPT Sites",
+      "category": "coding",
+      "summary": "Sites permite criar, pré-visualizar, publicar e compartilhar sites, web apps e jogos sem sair do ChatGPT (dashboards, rastreadores, calendários, protótipos, portais internos). Basta pedir um 'website' ou usar @Sites; o fluxo é revisar → salvar uma versão → deploy, e toda URL de deploy é de produção. Está em beta público para Plus, Pro, Business, Enterprise e Edu.",
+      "tips": [
+        "Sites com dados persistentes usam banco relacional D1 e uploads via armazenamento R2.",
+        "O dono pode dar acesso 'Can edit' a membros do workspace e compartilhar com pessoas externas nomeadas sem tornar o site público.",
+        "Editores publicam novas versões na mesma URL, mas não alteram a audiência nem fazem a primeira publicação."
+      ],
+      "sourceIds": [
+        "src-40",
+        "src-67",
+        "src-72"
+      ]
+    },
+    {
+      "id": "codex",
+      "name": "Codex (app, CLI, IDE, web e cloud)",
+      "category": "coding",
+      "summary": "Codex é o agente de programação da OpenAI, disponível no app desktop (macOS, Windows, Linux), CLI, extensão de IDE, web e Codex cloud (ambientes isolados com tarefas em paralelo e abertura de PRs). Integra-se a GitHub, GitLab, Slack e Linear, e faz revisão de código com /review. Está incluído em todos os planos do ChatGPT (Free a Enterprise), com janelas de uso de 5 horas e semanal.",
+      "tips": [
+        "No Plus e Pro, Codex, ChatGPT Work e ChatGPT for Excel compartilham a mesma cota de uso 'agêntico'.",
+        "Use /review para revisar contra uma branch base, mudanças não commitadas ou um commit; ele reporta achados priorizados sem alterar seu working tree.",
+        "Coloque instruções duradouras do projeto em AGENTS.md; para tarefas paralelas de código, use git worktrees.",
+        "Rode tarefas longas no Codex cloud para não ocupar sua máquina e abra o PR quando o resultado estiver pronto; o GPT-6 Astra ainda não está disponível nas tarefas em nuvem."
+      ],
+      "sourceIds": [
+        "src-32",
+        "src-49",
+        "src-47",
+        "src-48",
+        "src-62",
+        "src-35",
+        "src-50"
+      ]
+    },
+    {
+      "id": "responses-api",
+      "name": "Responses API, function calling e Structured Outputs",
+      "category": "api",
+      "summary": "O Responses API é a interface recomendada para novos projetos: usa 'instructions' + 'input', devolve um array tipado de itens (mensagens, raciocínio, chamadas de função) e traz ferramentas embutidas na mesma chamada. O estado pode ser gerenciado com previous_response_id, com o Conversations API ou reenviando itens (store: false com raciocínio criptografado). Function calling define ferramentas em JSON Schema (strict: true) e Structured Outputs garante saída conforme o schema via text.format json_schema. O Assistants API foi encerrado em 26/08/2026; o Chat Completions segue suportado.",
+      "tips": [
+        "Loop de função: o modelo devolve function_call → você executa → responde com function_output → o modelo gera a resposta final.",
+        "Em strict mode, todos os campos devem estar em required e additionalProperties deve ser false; campos opcionais usam type ['string','null'].",
+        "Controle chamadas com tool_choice (auto, required, função forçada, allowed_tools ou none) e desative paralelismo com parallel_tool_calls: false.",
+        "Use background: true para tarefas longas (polling, cancelamento, streaming retomável com starting_after) e trate refusals de Structured Outputs no seu código."
+      ],
+      "sourceIds": [
+        "src-8",
+        "src-9",
+        "src-11",
+        "src-12",
+        "src-21",
+        "src-27"
+      ]
+    },
+    {
+      "id": "api-models-pricing",
+      "name": "Modelos e preços da API (raciocínio, cache, Batch)",
+      "category": "api",
+      "summary": "Na API, o GPT-6 Astra custa US$ 10/US$ 50 por milhão de tokens (entrada/saída), o GPT-5.6 Sol US$ 4/US$ 20 (preço promocional até 21/11/2026), o Terra US$ 2/US$ 12 e o Luna US$ 0,20/US$ 1,20. Todos têm janela de 1,05 M tokens e saída de até 128 k, com preço premium acima de 272 k tokens de entrada. O esforço de raciocínio vai de none a max (o Astra não aceita 'none'), tokens de raciocínio são cobrados como saída, entrada em cache custa 10% e o Batch API dá 50% de desconto.",
+      "tips": [
+        "Comece com gpt-6-astra para raciocínio complexo e desça para gpt-5.6-terra ou luna para otimizar custo; use reasoning.effort como ajuste fino, não como muleta de qualidade.",
+        "Ao migrar para o Astra, remova temperature, top_p e top_logprobs e use o Responses API para chamadas de ferramentas.",
+        "Prompt caching é automático a partir de 1.024 tokens visíveis (GPT-5.6+): ponha conteúdo estável no início e use prompt_cache_key para melhorar o hit rate; o cache dura 30 min.",
+        "Batch: arquivo JSONL com até 50 mil requisições/200 MB, conclusão em até 24 h, pool de rate limit separado; o modo Fast custa 2x."
+      ],
+      "sourceIds": [
+        "src-26",
+        "src-2",
+        "src-3",
+        "src-4",
+        "src-5",
+        "src-6",
+        "src-7",
+        "src-22",
+        "src-19",
+        "src-1"
+      ]
+    },
+    {
+      "id": "built-in-tools",
+      "name": "Ferramentas embutidas do Responses API",
+      "category": "tools",
+      "summary": "O Responses API oferece ferramentas hospedadas: web_search (citações url_citation, filtros de até 100 domínios, localização do usuário), file_search (vector stores, filtros de metadados, max_num_results), computer use, code interpreter (containers com Python), shell hospedado (Debian 12) ou local, image_generation, servidores MCP remotos e conectores, skills versionadas, tool search (carrega ferramentas sob demanda, gpt-5.4+) e programmatic tool calling (JavaScript orquestrando chamadas).",
+      "tips": [
+        "Preços: web search US$ 10 por mil chamadas + tokens; file search US$ 2,50 por mil chamadas + US$ 0,10/GB-dia; MCP remoto não tem taxa extra além dos tokens.",
+        "Em MCP use allowed_tools para reduzir tokens e require_approval para exigir aprovação de chamadas; conectores oficiais usam connector_id + token OAuth.",
+        "Containers do code interpreter expiram após 20 min sem uso (memória de 1 GB a 64 GB); use container_reference no shell para fluxos multi-turno.",
+        "Com tool_search, marque funções ou servidores MCP com defer_loading: true e agrupe-os em namespaces bem descritos."
+      ],
+      "sourceIds": [
+        "src-10",
+        "src-13",
+        "src-14",
+        "src-15",
+        "src-16",
+        "src-17",
+        "src-18",
+        "src-26"
+      ]
+    },
+    {
+      "id": "agents-sdk-realtime",
+      "name": "Agents SDK e Realtime API",
+      "category": "agents",
+      "summary": "O Agents SDK (Python e TypeScript) é o runtime de alto nível sobre o Responses API, com primitivas mínimas: Agents (LLM + instruções + ferramentas), Handoffs (delegação entre agentes), Guardrails (validação de entrada/saída), Sessions (memória) e Tracing. A versão TypeScript inclui agentes de voz em tempo real via @openai/agents/realtime. O Realtime API mantém conexões persistentes de áudio (WebRTC, WebSocket ou SIP) com modelos como gpt-realtime-2.1, gpt-realtime-translate e gpt-live-transcribe.",
+      "tips": [
+        "Use o Responses API diretamente quando quiser 'ser dono do loop'; use o Agents SDK quando quiser que o runtime cuide de turnos, ferramentas, guardrails, handoffs e sessões.",
+        "Escolha o transporte pelo cliente: WebRTC para navegador/mobile, WebSocket para pipelines de mídia no servidor e SIP para telefonia.",
+        "O SDK traz fluxos de aprovação retomáveis para ações arriscadas (humano no loop).",
+        "Comece pelo resultado desejado (conversa, tradução ou transcrição) para escolher o tipo de sessão Realtime."
+      ],
+      "sourceIds": [
+        "src-23",
+        "src-24",
+        "src-25",
+        "src-20"
+      ]
+    },
+    {
+      "id": "safety",
+      "name": "Segurança e boas práticas",
+      "category": "safety",
+      "summary": "A OpenAI recomenda usar o Moderation API (gratuito), manter humanos revisando saídas em domínios de alto risco, limitar entradas para reduzir prompt injection e enviar um safety_identifier estável (hash) para rastrear abuso sem expor dados pessoais. O GPT-6 Astra inclui monitoramento de desalinhamento: se um agente parece ter interpretado mal as instruções, a conversa pode ser pausada ou interrompida por precaução.",
+      "tips": [
+        "Em computer use, rode em navegador/VM isolados com allowlist de sites, exija confirmação antes de compras ou ações destrutivas e trate o conteúdo da tela como não confiável.",
+        "Só conecte servidores MCP remotos em que confia: um servidor malicioso pode exfiltrar dados do contexto do modelo.",
+        "Ao rodar shell com o modelo, use sandbox, allow/denylists e logs de auditoria.",
+        "Verifique o resultado por conta própria: não confie apenas no relato de sucesso do modelo."
+      ],
+      "sourceIds": [
+        "src-31",
+        "src-15",
+        "src-16",
+        "src-17",
+        "src-72",
+        "src-30"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-plans-1",
+      "featureId": "chatgpt-plans",
+      "type": "multiple_choice",
+      "prompt": "Qual é o preço mensal do plano ChatGPT Plus?",
+      "options": [
+        "US$ 8",
+        "US$ 20",
+        "US$ 100",
+        "US$ 200"
+      ],
+      "answer": 1,
+      "explanation": "O Plus custa US$ 20 por mês; Go custa US$ 8 e os níveis Pro custam US$ 100 ou US$ 200.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-plans-2",
+      "featureId": "chatgpt-plans",
+      "type": "multiple_choice",
+      "prompt": "Qual é a diferença principal entre o Pro de US$ 100 e o Pro de US$ 200?",
+      "options": [
+        "O de US$ 200 tem modelos exclusivos que o de US$ 100 não tem",
+        "Só o de US$ 200 inclui Codex",
+        "O de US$ 100 não tem acesso ao GPT-5.6 Sol",
+        "A cota de uso: 5x o Plus no de US$ 100 e 20x o Plus no de US$ 200"
+      ],
+      "answer": 3,
+      "explanation": "Ambos os níveis têm as mesmas capacidades; a diferença é a cota de uso (5x vs 20x o Plus).",
+      "difficulty": 2
+    },
+    {
+      "id": "q-plans-3",
+      "featureId": "chatgpt-plans",
+      "type": "multiple_choice",
+      "prompt": "Quanto armazenamento de Biblioteca (Library) um usuário Free tem?",
+      "options": [
+        "500 MB",
+        "4 GB",
+        "20 GB",
+        "100 GB"
+      ],
+      "answer": 0,
+      "explanation": "Free tem 500 MB; Go 4 GB; Plus e Business 20 GB; Pro 100 GB.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-models-1",
+      "featureId": "chatgpt-models",
+      "type": "multiple_choice",
+      "prompt": "Qual modelo da família GPT-5.6 é o padrão para usuários Free e Go no ChatGPT?",
+      "options": [
+        "GPT-5.6 Sol",
+        "GPT-5.6 Terra",
+        "GPT-5.6 Luna",
+        "GPT-6 Astra"
+      ],
+      "answer": 2,
+      "explanation": "Free e Go usam o GPT-5.6 Luna (que também alimenta o botão Think) e não têm acesso ao Sol.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-models-2",
+      "featureId": "chatgpt-models",
+      "type": "multiple_choice",
+      "prompt": "Quando o GPT-6 Astra foi anunciado pela OpenAI?",
+      "options": [
+        "9 de julho de 2026",
+        "26 de agosto de 2026",
+        "3 de setembro de 2026",
+        "21 de novembro de 2026"
+      ],
+      "answer": 2,
+      "explanation": "O GPT-6 Astra foi apresentado em 3 de setembro de 2026, com rollout gradual por planos.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-models-3",
+      "featureId": "chatgpt-models",
+      "type": "multiple_choice",
+      "prompt": "No Codex/ChatGPT Work, o que o modo 'Ultra' faz de diferente do 'Max'?",
+      "options": [
+        "Usa subagentes para paralelizar o trabalho",
+        "Desliga o raciocínio para ser mais rápido",
+        "Só funciona com o GPT-5.6 Luna",
+        "Gera imagens em 4K"
+      ],
+      "answer": 0,
+      "explanation": "Max dá mais tempo de raciocínio; Ultra usa subagentes para dividir e paralelizar tarefas complexas.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-work-1",
+      "featureId": "chatgpt-work",
+      "type": "multiple_choice",
+      "prompt": "O que acontece no 'Plan mode' do ChatGPT Work?",
+      "options": [
+        "O ChatGPT gera uma imagem do plano",
+        "O ChatGPT executa a tarefa sem pausas",
+        "O ChatGPT converte o chat em um GPT personalizado",
+        "O ChatGPT coleta contexto, faz perguntas e cria um plano passo a passo para você aprovar"
+      ],
+      "answer": 3,
+      "explanation": "Em Plan mode o agente entrevista você e propõe um plano; a execução começa após sua aprovação.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-work-2",
+      "featureId": "chatgpt-work",
+      "type": "multiple_choice",
+      "prompt": "Qual produto substituiu o antigo 'ChatGPT agent' para tarefas longas e entregas finais?",
+      "options": [
+        "ChatGPT Atlas",
+        "Canvas",
+        "ChatGPT Work",
+        "GPT Store"
+      ],
+      "answer": 2,
+      "explanation": "A central de ajuda indica que o ChatGPT agent não está mais disponível e orienta usar o ChatGPT Work.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-work-3",
+      "featureId": "chatgpt-work",
+      "type": "multiple_choice",
+      "prompt": "No app desktop, qual opção de execução do Work continua rodando mesmo depois que você fecha o app?",
+      "options": [
+        "Work locally",
+        "Cloud",
+        "Quick chat",
+        "Modo Live"
+      ],
+      "answer": 1,
+      "explanation": "A execução em Cloud continua após fechar o app, ideal para tarefas agendadas; 'Work locally' usa seus arquivos e apps.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-projects-1",
+      "featureId": "projects",
+      "type": "multiple_choice",
+      "prompt": "O que a opção 'memória só do projeto' (project-only memory) faz?",
+      "options": [
+        "Limita o contexto às conversas daquele projeto, sem acessar chats de fora",
+        "Desliga a memória em todo o ChatGPT",
+        "Salva as memórias em um arquivo local",
+        "Compartilha as memórias com todos os membros"
+      ],
+      "answer": 0,
+      "explanation": "Com project-only memory os chats referenciam apenas conversas do mesmo projeto, mantendo-o autocontido.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-projects-2",
+      "featureId": "projects",
+      "type": "multiple_choice",
+      "prompt": "Quais elementos um Project reúne em um só lugar?",
+      "options": [
+        "Somente imagens geradas",
+        "Chats, arquivos (Sources) e instruções",
+        "Apenas tarefas agendadas",
+        "Somente GPTs personalizados"
+      ],
+      "answer": 1,
+      "explanation": "Projects mantêm chats, arquivos, instruções e contexto conectado juntos, e as instruções valem para todos os chats do projeto.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-memory-1",
+      "featureId": "memory-personalization",
+      "type": "multiple_choice",
+      "prompt": "Quais são as duas formas de memória do ChatGPT?",
+      "options": [
+        "Cache e cookies",
+        "Projects e GPTs",
+        "Instruções e personalidade",
+        "Memórias salvas e histórico de chats"
+      ],
+      "answer": 3,
+      "explanation": "A memória combina 'memórias salvas' (pedidas por você) e 'histórico de chats' (insights de conversas anteriores).",
+      "difficulty": 1
+    },
+    {
+      "id": "q-memory-2",
+      "featureId": "memory-personalization",
+      "type": "multiple_choice",
+      "prompt": "Que recurso você usa para ter uma conversa que não usa nem atualiza a memória?",
+      "options": [
+        "Study mode",
+        "Chat Temporário",
+        "Modo Live",
+        "Deep research"
+      ],
+      "answer": 1,
+      "explanation": "O Chat Temporário (Temporary Chat) não consulta nem grava memórias.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-memory-3",
+      "featureId": "memory-personalization",
+      "type": "multiple_choice",
+      "prompt": "Quais são as opções de personalidade padrão em Settings > Personalization?",
+      "options": [
+        "Sol, Terra e Luna",
+        "Friendly, Pragmatic e None",
+        "Instant, Thinking e Pro",
+        "Live, Advanced e Standard"
+      ],
+      "answer": 1,
+      "explanation": "A personalidade padrão pode ser Friendly, Pragmatic ou None; ela muda o estilo, não a capacidade do modelo.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-tasks-1",
+      "featureId": "scheduled-tasks",
+      "type": "multiple_choice",
+      "prompt": "Quantas tarefas agendadas ativas um usuário Plus pode ter?",
+      "options": [
+        "3",
+        "10",
+        "5",
+        "15"
+      ],
+      "answer": 2,
+      "explanation": "Os limites são 3 (Free e Go), 5 (Plus), 10 (Business e Edu) e 15 (Pro e Enterprise).",
+      "difficulty": 2
+    },
+    {
+      "id": "q-tasks-2",
+      "featureId": "scheduled-tasks",
+      "type": "multiple_choice",
+      "prompt": "Quais serviços podem disparar tarefas por evento no ChatGPT Work?",
+      "options": [
+        "Spotify, Netflix e Uber",
+        "Dropbox, Box e Notion",
+        "Somente Google Calendar",
+        "Gmail, Slack e GitHub"
+      ],
+      "answer": 3,
+      "explanation": "Tarefas disparadas por eventos respondem a novas mensagens do Gmail, mensagens em canais do Slack e atividade de PRs no GitHub.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-tasks-3",
+      "featureId": "scheduled-tasks",
+      "type": "multiple_choice",
+      "prompt": "Qual combinação NÃO é permitida em uma única tarefa agendada?",
+      "options": [
+        "Vários gatilhos de evento",
+        "Gatilho de evento + agenda por horário",
+        "Agenda semanal + notificação por e-mail",
+        "Tarefa dentro de um chat existente"
+      ],
+      "answer": 1,
+      "explanation": "Uma tarefa pode ter vários gatilhos de evento, mas não pode combinar gatilhos de evento com uma agenda baseada em tempo.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-plugins-1",
+      "featureId": "plugins-skills",
+      "type": "multiple_choice",
+      "prompt": "O que é um plugin no ChatGPT/Codex?",
+      "options": [
+        "Um tema visual para o app",
+        "Um modelo de linguagem alternativo",
+        "Um plano de assinatura",
+        "Um pacote instalável que pode incluir skills, conectores (MCP) e UI opcional"
+      ],
+      "answer": 3,
+      "explanation": "Plugins são bundles instaláveis que reúnem skills, conectores baseados em MCP e interfaces opcionais.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-plugins-2",
+      "featureId": "plugins-skills",
+      "type": "multiple_choice",
+      "prompt": "Como você invoca um plugin específico de forma explícita em um prompt?",
+      "options": [
+        "Digitando /plugin",
+        "Usando #nome",
+        "Digitando @ seguido do nome do plugin",
+        "Pressionando Ctrl+P"
+      ],
+      "answer": 2,
+      "explanation": "Além de descrever a tarefa naturalmente, você pode @mencionar o plugin para forçar seu uso.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-plugins-3",
+      "featureId": "plugins-skills",
+      "type": "multiple_choice",
+      "prompt": "Onde o Developer mode do ChatGPT é ativado?",
+      "options": [
+        "Settings → Security and login",
+        "Settings → Voice",
+        "Explore GPTs → Create",
+        "Na aba Images"
+      ],
+      "answer": 0,
+      "explanation": "O Developer mode (suporte MCP completo, incluindo escrita) é ligado em Settings → Security and login, na web.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-gpts-1",
+      "featureId": "custom-gpts",
+      "type": "multiple_choice",
+      "prompt": "Quais abas aparecem no construtor de GPTs?",
+      "options": [
+        "Chat e Work",
+        "Plan e Execute",
+        "Draft e Publish",
+        "Create e Configure"
+      ],
+      "answer": 3,
+      "explanation": "Na aba Create você conversa com o GPT Builder; na aba Configure define nome, descrição, instruções e iniciadores.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-gpts-2",
+      "featureId": "custom-gpts",
+      "type": "multiple_choice",
+      "prompt": "Atualmente, em quais contas é possível criar e publicar novos GPTs?",
+      "options": [
+        "Em qualquer conta, inclusive Free",
+        "Apenas no Plus",
+        "Em workspaces Business, Enterprise e Edu (conforme permissões)",
+        "Apenas no Pro de US$ 200"
+      ],
+      "answer": 2,
+      "explanation": "A criação e publicação de novos GPTs não está disponível em contas pessoais (Free, Go, Plus); é um recurso de workspaces.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-research-1",
+      "featureId": "deep-research",
+      "type": "multiple_choice",
+      "prompt": "O que o deep research entrega ao final?",
+      "options": [
+        "Um áudio resumido",
+        "Um GPT personalizado",
+        "Uma imagem infográfica",
+        "Um relatório estruturado com citações ou links das fontes"
+      ],
+      "answer": 3,
+      "explanation": "O resultado é um relatório documentado com citações para que você verifique as informações.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-research-2",
+      "featureId": "deep-research",
+      "type": "multiple_choice",
+      "prompt": "Na API, qual parâmetro é recomendado para evitar timeouts em tarefas de deep research?",
+      "options": [
+        "stream: false",
+        "temperature: 0",
+        "background: true",
+        "store: false"
+      ],
+      "answer": 2,
+      "explanation": "Como as tarefas podem levar dezenas de minutos, a OpenAI recomenda o modo background com polling ou webhooks.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-study-1",
+      "featureId": "study-mode",
+      "type": "multiple_choice",
+      "prompt": "Qual é a principal característica do Study mode?",
+      "options": [
+        "Guiar o raciocínio com perguntas, dicas e quizzes em vez de entregar a resposta pronta",
+        "Responder o mais rápido possível",
+        "Gerar slides automaticamente",
+        "Bloquear o acesso à internet"
+      ],
+      "answer": 0,
+      "explanation": "O modo estudo usa perguntas socráticas, explicações passo a passo e verificações de conhecimento.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-study-2",
+      "featureId": "study-mode",
+      "type": "multiple_choice",
+      "prompt": "Em quais planos o Study mode está disponível?",
+      "options": [
+        "Somente Pro",
+        "Somente Plus e Pro",
+        "Em todos os planos, em todos os modelos",
+        "Somente Edu"
+      ],
+      "answer": 2,
+      "explanation": "O Study mode está disponível em todos os planos e modelos, na web, iOS e Android.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-voice-1",
+      "featureId": "voice",
+      "type": "multiple_choice",
+      "prompt": "Qual modo de voz consegue ouvir e falar ao mesmo tempo, com interrupções naturais?",
+      "options": [
+        "Standard",
+        "Advanced",
+        "Study",
+        "Live"
+      ],
+      "answer": 3,
+      "explanation": "O modo Live escuta e fala simultaneamente e pode usar busca na web, memória e widgets visuais.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-voice-2",
+      "featureId": "voice",
+      "type": "multiple_choice",
+      "prompt": "No app desktop para macOS, que frase faz a voz olhar a janela em primeiro plano?",
+      "options": [
+        "'Take a look at this'",
+        "'Open canvas'",
+        "'Run deep research'",
+        "'Start study mode'"
+      ],
+      "answer": 0,
+      "explanation": "Com o contexto de tela ativado, dizer 'Take a look at this' compartilha um appshot da janela ativa.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-images-1",
+      "featureId": "images",
+      "type": "multiple_choice",
+      "prompt": "Qual modelo gera imagens no ChatGPT atualmente?",
+      "options": [
+        "DALL·E 2",
+        "gpt-realtime-2.1",
+        "GPT-5.6 Luna",
+        "gpt-image-2"
+      ],
+      "answer": 3,
+      "explanation": "O ChatGPT (e a API) usam o gpt-image-2, o modelo de imagem mais recente da OpenAI.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-images-2",
+      "featureId": "images",
+      "type": "multiple_choice",
+      "prompt": "Na API, quando usar o Responses API em vez do Image API para imagens?",
+      "options": [
+        "Quando precisa de edição multi-turno em uma conversa",
+        "Quando quer gerar só uma imagem simples",
+        "Quando precisa de fundo transparente",
+        "Nunca; o Responses API não gera imagens"
+      ],
+      "answer": 0,
+      "explanation": "O Responses API é indicado para fluxos conversacionais com refinamento iterativo; o Image API é ideal para tarefas de imagem única.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-blocks-1",
+      "featureId": "writing-code-blocks",
+      "type": "multiple_choice",
+      "prompt": "O que substituiu o Canvas para editar textos e códigos no ChatGPT?",
+      "options": [
+        "Projects",
+        "Writing blocks e code blocks dentro da resposta",
+        "GPT Store",
+        "Sites"
+      ],
+      "answer": 1,
+      "explanation": "A edição agora acontece em blocos editáveis diretamente na resposta do chat; o Canvas ficou como legado.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-blocks-2",
+      "featureId": "writing-code-blocks",
+      "type": "multiple_choice",
+      "prompt": "Por quanto tempo usuários pagos ainda podem usar o Canvas?",
+      "options": [
+        "Somente até os modelos legados serem desativados",
+        "Indefinidamente",
+        "Apenas no plano Free",
+        "Somente na API"
+      ],
+      "answer": 0,
+      "explanation": "O Canvas continua disponível por tempo limitado via modelos legados até a sua desativação.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-sites-1",
+      "featureId": "sites",
+      "type": "multiple_choice",
+      "prompt": "Como você aciona explicitamente a criação de um site no ChatGPT?",
+      "options": [
+        "Digitando @Sites no prompt",
+        "Usando /agent",
+        "Abrindo o Study mode",
+        "Criando um GPT"
+      ],
+      "answer": 0,
+      "explanation": "Pedir um 'website' ou mencionar @Sites inicia o fluxo de criação de Sites.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-sites-2",
+      "featureId": "sites",
+      "type": "multiple_choice",
+      "prompt": "O que é verdade sobre as URLs de deploy do Sites?",
+      "options": [
+        "São sempre temporárias",
+        "Só funcionam dentro do workspace",
+        "Expiram em 24 horas",
+        "Toda URL de deploy é uma URL de produção"
+      ],
+      "answer": 3,
+      "explanation": "A documentação afirma que cada deploy do Sites é um deploy de produção; por isso o fluxo é revisar, salvar versão e só então publicar.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-codex-1",
+      "featureId": "codex",
+      "type": "multiple_choice",
+      "prompt": "Em quais planos do ChatGPT o Codex está incluído?",
+      "options": [
+        "Somente Pro e Enterprise",
+        "Somente Plus e Pro",
+        "Free, Go, Plus, Pro, Business, Edu e Enterprise",
+        "Somente via chave de API"
+      ],
+      "answer": 2,
+      "explanation": "A central de ajuda indica que o Codex está incluído em todos os planos, com cotas diferentes por plano.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-codex-2",
+      "featureId": "codex",
+      "type": "multiple_choice",
+      "prompt": "Qual comando do Codex faz revisão de código sem alterar seu working tree?",
+      "options": [
+        "/plan",
+        "/memories",
+        "/copy",
+        "/review"
+      ],
+      "answer": 3,
+      "explanation": "O /review analisa o diff (branch base, mudanças não commitadas ou um commit) e reporta achados priorizados.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-codex-3",
+      "featureId": "codex",
+      "type": "multiple_choice",
+      "prompt": "Qual arquivo a OpenAI recomenda para instruções duradouras do projeto no Codex?",
+      "options": [
+        "README.md",
+        "config.json",
+        "AGENTS.md",
+        ".env"
+      ],
+      "answer": 2,
+      "explanation": "Instruções que devem valer sempre ficam em AGENTS.md (ou documentação versionada), não apenas na memória.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-responses-1",
+      "featureId": "responses-api",
+      "type": "multiple_choice",
+      "prompt": "Qual parâmetro do Responses API encadeia uma nova resposta ao contexto da anterior?",
+      "options": [
+        "previous_response_id",
+        "messages",
+        "conversation_history",
+        "thread_id"
+      ],
+      "answer": 0,
+      "explanation": "previous_response_id compartilha o contexto entre respostas geradas; alternativamente usa-se o Conversations API.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-responses-2",
+      "featureId": "responses-api",
+      "type": "multiple_choice",
+      "prompt": "Qual API foi oficialmente encerrada em 26 de agosto de 2026?",
+      "options": [
+        "Chat Completions",
+        "Assistants API",
+        "Realtime API",
+        "Batch API"
+      ],
+      "answer": 1,
+      "explanation": "O Assistants API foi desativado; a migração recomendada é para Responses e Conversations. O Chat Completions continua suportado.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-responses-3",
+      "featureId": "responses-api",
+      "type": "multiple_choice",
+      "prompt": "Em function calling com strict: true, qual regra se aplica ao schema?",
+      "options": [
+        "Nenhum campo pode ser required",
+        "Todos os campos devem estar em required e additionalProperties deve ser false",
+        "O schema deve ser YAML",
+        "Só é permitido um parâmetro"
+      ],
+      "answer": 1,
+      "explanation": "Strict mode exige additionalProperties: false e todos os campos em required (opcionais usam type com null).",
+      "difficulty": 3
+    },
+    {
+      "id": "q-apiprice-1",
+      "featureId": "api-models-pricing",
+      "type": "multiple_choice",
+      "prompt": "Qual é o preço do GPT-6 Astra na API por milhão de tokens (entrada/saída)?",
+      "options": [
+        "US$ 2 / US$ 12",
+        "US$ 4 / US$ 20",
+        "US$ 10 / US$ 50",
+        "US$ 0,20 / US$ 1,20"
+      ],
+      "answer": 2,
+      "explanation": "O Astra custa US$ 10 de entrada e US$ 50 de saída por milhão de tokens; Sol é US$ 4/US$ 20, Terra US$ 2/US$ 12 e Luna US$ 0,20/US$ 1,20.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-apiprice-2",
+      "featureId": "api-models-pricing",
+      "type": "multiple_choice",
+      "prompt": "Qual desconto o Batch API oferece em relação ao uso síncrono?",
+      "options": [
+        "50%",
+        "10%",
+        "25%",
+        "90%"
+      ],
+      "answer": 0,
+      "explanation": "O Batch API dá 50% de desconto, com conclusão em até 24 horas e um pool de rate limit separado.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-apiprice-3",
+      "featureId": "api-models-pricing",
+      "type": "multiple_choice",
+      "prompt": "Qual nível de reasoning.effort o GPT-6 Astra NÃO suporta?",
+      "options": [
+        "low",
+        "none",
+        "high",
+        "max"
+      ],
+      "answer": 1,
+      "explanation": "O Astra não aceita 'none'; quem usava none ou minimal deve começar com 'low' e comparar resultados.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-tools-1",
+      "featureId": "built-in-tools",
+      "type": "multiple_choice",
+      "prompt": "Qual ferramenta embutida busca em arquivos enviados a vector stores?",
+      "options": [
+        "web_search",
+        "computer_use",
+        "tool_search",
+        "file_search"
+      ],
+      "answer": 3,
+      "explanation": "file_search faz busca semântica e por palavra-chave em vector stores, com filtros de metadados e max_num_results.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-tools-2",
+      "featureId": "built-in-tools",
+      "type": "multiple_choice",
+      "prompt": "Quantos domínios, no máximo, você pode listar em allowed_domains no web_search?",
+      "options": [
+        "10",
+        "50",
+        "100",
+        "1000"
+      ],
+      "answer": 2,
+      "explanation": "Os filtros aceitam até 100 domínios permitidos ou bloqueados, incluindo subdomínios automaticamente.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-tools-3",
+      "featureId": "built-in-tools",
+      "type": "multiple_choice",
+      "prompt": "Qual parâmetro marca funções ou servidores MCP para carregamento sob demanda com tool_search?",
+      "options": [
+        "lazy: true",
+        "defer_loading: true",
+        "require_approval: never",
+        "strict: true"
+      ],
+      "answer": 1,
+      "explanation": "Com {type: 'tool_search'} nas ferramentas, você marca as ferramentas adiadas com defer_loading: true (gpt-5.4 ou mais recente).",
+      "difficulty": 3
+    },
+    {
+      "id": "q-agents-1",
+      "featureId": "agents-sdk-realtime",
+      "type": "multiple_choice",
+      "prompt": "Qual primitiva do Agents SDK permite que um agente delegue uma tarefa a outro agente?",
+      "options": [
+        "Guardrails",
+        "Sessions",
+        "Tracing",
+        "Handoffs"
+      ],
+      "answer": 3,
+      "explanation": "Handoffs fazem um agente funcionar como ferramenta de outro para delegar tarefas especializadas.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-agents-2",
+      "featureId": "agents-sdk-realtime",
+      "type": "multiple_choice",
+      "prompt": "Qual transporte do Realtime API é indicado para agentes de voz por telefonia?",
+      "options": [
+        "WebRTC",
+        "WebSocket",
+        "SIP",
+        "HTTP polling"
+      ],
+      "answer": 2,
+      "explanation": "SIP é o transporte para telefonia; WebRTC serve navegador/mobile e WebSocket pipelines de mídia no servidor.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-safety-1",
+      "featureId": "safety",
+      "type": "multiple_choice",
+      "prompt": "Para que serve o parâmetro safety_identifier nas requisições à API?",
+      "options": [
+        "Escolher o nível de moderação",
+        "Ativar o modo background",
+        "Definir o idioma da resposta",
+        "Enviar um identificador estável (hash) do usuário para detectar abuso sem expor dados pessoais"
+      ],
+      "answer": 3,
+      "explanation": "O safety_identifier ajuda a OpenAI a rastrear padrões de abuso até um usuário específico sem informações pessoais.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-safety-2",
+      "featureId": "safety",
+      "type": "multiple_choice",
+      "prompt": "O que o monitoramento de desalinhamento do GPT-6 Astra pode fazer se detectar que um agente interpretou mal suas instruções?",
+      "options": [
+        "Trocar automaticamente para o GPT-5.6 Luna",
+        "Pausar ou interromper a conversa por precaução",
+        "Apagar a memória do usuário",
+        "Cobrar tokens em dobro"
+      ],
+      "answer": 1,
+      "explanation": "Segundo as notas de lançamento, a conversa pode ser pausada ou interrompida quando um possível caso de desalinhamento é detectado.",
+      "difficulty": 3
+    }
+  ]
+}

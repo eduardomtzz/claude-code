@@ -1,0 +1,1346 @@
+{
+  "platform": "manus",
+  "name": "Manus",
+  "updatedAt": "2026-09-08",
+  "sources": [
+    {
+      "id": "src-1",
+      "title": "Welcome - Manus Documentation",
+      "url": "https://manus.im/docs/introduction/welcome",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-2",
+      "title": "Plans and Pricing - Manus Documentation",
+      "url": "https://manus.im/docs/introduction/plans",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-3",
+      "title": "What is the current membership pricing for Manus? | Manus Help Center",
+      "url": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-4",
+      "title": "What are the rules for credits consumption? | Manus Help Center",
+      "url": "https://help.manus.im/en/articles/11711097-what-are-the-rules-for-credits-consumption-and-how-can-i-obtain-them",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-5",
+      "title": "What are credits - Manus",
+      "url": "https://manus.im/help/credits",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-6",
+      "title": "What are the differences between Chat mode and Agent mode? | Manus Help Center",
+      "url": "https://help.manus.im/en/articles/11711128-what-are-the-differences-between-chat-mode-and-agent-mode",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-7",
+      "title": "Wide Research - Manus Documentation",
+      "url": "https://manus.im/docs/features/wide-research",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-8",
+      "title": "Introducing Wide Research - Manus Blog",
+      "url": "https://manus.im/blog/introducing-wide-research",
+      "type": "blog",
+      "date": "2025-07-31",
+      "channel": null
+    },
+    {
+      "id": "src-9",
+      "title": "Manus Slides - Manus Documentation",
+      "url": "https://manus.im/docs/features/slides",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-10",
+      "title": "Scheduled Tasks - Manus Documentation",
+      "url": "https://manus.im/docs/features/scheduled-tasks",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-11",
+      "title": "Projects - Manus Documentation",
+      "url": "https://manus.im/docs/features/projects",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-12",
+      "title": "New: Projects That Learn From Every Task - Manus Blog",
+      "url": "https://manus.im/blog/manus-projects-self-updating",
+      "type": "blog",
+      "date": "2026-05-06",
+      "channel": null
+    },
+    {
+      "id": "src-13",
+      "title": "Manus Skills - Manus Documentation",
+      "url": "https://manus.im/docs/features/skills",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-14",
+      "title": "Manus AI Embraces Open Standards: Integrating Agent Skills - Manus Blog",
+      "url": "https://manus.im/blog/manus-skills",
+      "type": "blog",
+      "date": "2026-01-27",
+      "channel": null
+    },
+    {
+      "id": "src-15",
+      "title": "What can I do when I reach the knowledge base limit? | Manus Help Center",
+      "url": "https://help.manus.im/en/articles/11813718-what-can-i-do-when-i-reach-the-knowledge-base-limit",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-16",
+      "title": "Integrate Manus with Your Existing Tools - Manus Documentation",
+      "url": "https://manus.im/docs/integrations/integrations",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-17",
+      "title": "MCP Connectors - Manus Documentation",
+      "url": "https://manus.im/docs/integrations/mcp-connectors",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-18",
+      "title": "How can I use Manus Connectors? | Manus Help Center",
+      "url": "https://help.manus.im/en/articles/12231777-how-can-i-use-manus-connectors",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-19",
+      "title": "Manus Now Unlocks Precise Actions Across Google Workspace - Manus Blog",
+      "url": "https://manus.im/blog/manus-google-drive-connector-update-cli",
+      "type": "blog",
+      "date": "2026-03-17",
+      "channel": null
+    },
+    {
+      "id": "src-20",
+      "title": "Multimedia Processing - Manus Documentation",
+      "url": "https://manus.im/docs/features/multi-modal",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-21",
+      "title": "What can Manus' video generation feature do? | Manus Help Center",
+      "url": "https://help.manus.im/en/articles/11711172-what-can-manus-video-generation-feature-do",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-22",
+      "title": "Design View - Manus Documentation",
+      "url": "https://manus.im/docs/features/design-view",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-23",
+      "title": "Data Analysis & Visualization - Manus Documentation",
+      "url": "https://manus.im/docs/features/data-visualization",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-24",
+      "title": "Website Builder: Getting started - Manus Documentation",
+      "url": "https://manus.im/docs/website-builder/getting-started",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-25",
+      "title": "Website Builder: Publishing - Manus Documentation",
+      "url": "https://manus.im/docs/website-builder/publishing",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-26",
+      "title": "Website Builder: Usage and Pricing - Manus Documentation",
+      "url": "https://manus.im/docs/website-builder/getting-started/usage-and-pricing",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-27",
+      "title": "App Publishing (mobile) - Manus Documentation",
+      "url": "https://manus.im/docs/website-builder/app-publishing",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-28",
+      "title": "Introducing Manus 1.6: Max Performance, Mobile Dev, and Design View - Manus Blog",
+      "url": "https://manus.im/blog/manus-max-release",
+      "type": "blog",
+      "date": "2025-12-15",
+      "channel": null
+    },
+    {
+      "id": "src-29",
+      "title": "Cloud browser - Manus Documentation",
+      "url": "https://manus.im/docs/features/cloud-browser",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-30",
+      "title": "Browser Operator - Manus Documentation",
+      "url": "https://manus.im/docs/features/browser-operator",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-31",
+      "title": "Desktop (My Computer) - Manus Documentation",
+      "url": "https://manus.im/docs/features/desktop",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-32",
+      "title": "What is the Cloud Computer? | Manus Help Center",
+      "url": "https://help.manus.im/en/articles/15392111-what-is-the-cloud-computer",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-33",
+      "title": "Manus API - Introduction (API v2)",
+      "url": "https://open.manus.im/docs",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-34",
+      "title": "Manus API - Authentication",
+      "url": "https://open.manus.ai/docs/v2/authentication",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-35",
+      "title": "Manus API - Task Lifecycle",
+      "url": "https://open.manus.ai/docs/v2/task-lifecycle",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-36",
+      "title": "Manus API - task.create",
+      "url": "https://open.manus.ai/docs/v2/task.create",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-37",
+      "title": "Manus API - Rate Limits",
+      "url": "https://open.manus.ai/docs/v2/rate-limits",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-38",
+      "title": "Manus API - Structured Output",
+      "url": "https://open.manus.ai/docs/v2/structured-output",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-39",
+      "title": "Mail Manus - Manus Documentation",
+      "url": "https://manus.im/docs/features/mail-manus",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-40",
+      "title": "Manus Collab - Manus Documentation",
+      "url": "https://manus.im/docs/features/collab",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-41",
+      "title": "Slack Integration - Manus Documentation",
+      "url": "https://manus.im/docs/integrations/slack-integration",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-42",
+      "title": "Zapier - Manus Documentation",
+      "url": "https://manus.im/docs/integrations/zapier",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-43",
+      "title": "Meeting minutes - Manus Documentation",
+      "url": "https://manus.im/docs/features/meeting-minutes",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-44",
+      "title": "Beginner Prompts to Get Started with Manus - Manus Blog",
+      "url": "https://manus.im/blog/manus-beginner-prompts",
+      "type": "blog",
+      "date": "2026-02-11",
+      "channel": null
+    },
+    {
+      "id": "src-45",
+      "title": "Is there a way to check how many credits a task will cost before I begin? | Manus Help Center",
+      "url": "https://help.manus.im/en/articles/13185575-is-there-a-way-to-check-how-many-credits-a-task-will-cost-before-i-begin",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-46",
+      "title": "Introducing Manus in Your Chat: Your Personal Agent, Everywhere You Are - Manus Blog",
+      "url": "https://manus.im/blog/manus-agents-telegram",
+      "type": "blog",
+      "date": "2026-02-16",
+      "channel": null
+    },
+    {
+      "id": "src-47",
+      "title": "Manus Resumes Independent Operations - Manus Blog",
+      "url": "https://manus.im/blog/manus-resumes-independent-operations",
+      "type": "blog",
+      "date": "2026-09-01",
+      "channel": null
+    },
+    {
+      "id": "src-48",
+      "title": "How can I take over Manus' browser or VS code? | Manus Help Center",
+      "url": "https://help.manus.im/en/articles/11711218-how-can-i-take-over-manus-browser-or-vs-code",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-49",
+      "title": "Data Sources - Manus Documentation",
+      "url": "https://manus.im/docs/integrations/data-sources",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    },
+    {
+      "id": "src-50",
+      "title": "Manus: Hands On AI (homepage)",
+      "url": "https://manus.im/",
+      "type": "docs",
+      "date": null,
+      "channel": null
+    }
+  ],
+  "features": [
+    {
+      "id": "agente-autonomo-geral",
+      "name": "Agente autônomo geral",
+      "category": "agents",
+      "summary": "O Manus é um agente de IA autônomo de propósito geral: em vez de apenas responder perguntas, ele planeja, executa e entrega trabalhos completos. Ele opera em um sandbox próprio (um computador virtual com acesso à internet, sistema de arquivos persistente e capacidade de instalar software), e você acompanha tudo em tempo real. Em 1º de setembro de 2026 a empresa anunciou que retomou operações independentes, liderada pela equipe fundadora.",
+      "tips": [
+        "Pense no Manus como um colega virtual com o próprio computador: descreva o resultado final que quer receber, não apenas uma pergunta.",
+        "Se o Manus travar em algo (um CAPTCHA, por exemplo), você pode assumir o controle (Take Over) do navegador ou do VS Code dentro da tarefa e depois devolver o comando.",
+        "Você pode compartilhar uma tarefa ou o replay dela por link para mostrar o passo a passo do agente a outras pessoas."
+      ],
+      "sourceIds": [
+        "src-1",
+        "src-48",
+        "src-47",
+        "src-50"
+      ]
+    },
+    {
+      "id": "modos-chat-e-agente",
+      "name": "Modo Chat vs. Modo Agente",
+      "category": "models",
+      "summary": "O Manus tem dois modos. O Modo Chat é leve, dá respostas instantâneas, entende imagens, PDFs e textos, faz buscas na web e não consome créditos. O Modo Agente executa tarefas complexas (sites, slides, vídeos, apps) e consome créditos; nele você escolhe entre Manus 1.6 Max (raciocínio profundo), Manus 1.6 e Manus 1.6 Lite (rapidez). Usuários Free só têm o 1.6 Lite no Modo Agente; Pro e Team têm os três.",
+      "tips": [
+        "Use o Modo Chat para dúvidas rápidas, brainstorming e discussões: ele é gratuito em créditos.",
+        "Reserve o Manus 1.6 Max para trabalhos criativos ou de raciocínio complexo; o 1.6 Lite é ideal para resumos e tarefas leves.",
+        "Selecione o agente preferido ao iniciar uma nova tarefa; a escolha certa economiza créditos e tempo."
+      ],
+      "sourceIds": [
+        "src-6",
+        "src-3",
+        "src-28",
+        "src-2"
+      ]
+    },
+    {
+      "id": "como-escrever-boas-tarefas",
+      "name": "Como escrever boas tarefas",
+      "category": "chat",
+      "summary": "A qualidade do resultado depende muito do pedido. A documentação oficial recomenda ser específico ('Pesquise as 5 principais tendências de IA em saúde e crie um relatório' em vez de 'Pesquise IA'), definir o formato de saída e o público, agrupar tarefas relacionadas e revisar resultados intermediários em trabalhos longos. Bons prompts de agente pedem ações em várias etapas, acompanhamento de progresso e saídas estruturadas reutilizáveis.",
+      "tips": [
+        "Inclua no pedido: tarefa, contexto, restrições, público-alvo e formato de entrega (tabela, slides, planilha, site).",
+        "Frases como 'assuma a responsabilidade por…', 'me guie passo a passo' e 'acompanhe isso ao longo do tempo' sinalizam que você quer um agente, não uma resposta única.",
+        "Quebre projetos grandes em subtarefas e revise os resultados parciais antes de seguir; isso evita gastar créditos em trabalho que precisaria ser refeito.",
+        "O Manus não consegue estimar quantos créditos uma tarefa vai custar antes de começar; se ele afirmar um valor, trate como alucinação."
+      ],
+      "sourceIds": [
+        "src-44",
+        "src-2",
+        "src-45"
+      ]
+    },
+    {
+      "id": "wide-research",
+      "name": "Wide Research",
+      "category": "agents",
+      "summary": "Wide Research é o sistema multiagente paralelo do Manus para tarefas com muitos itens semelhantes: analisar 100 produtos, pesquisar 50 empresas, gerar 20 conteúdos. O agente principal decompõe o pedido, cada subtarefa recebe um agente próprio com contexto novo, e no fim tudo é sintetizado em uma tabela, relatório ou dataset. Assim o item 250 recebe a mesma profundidade do item 1. Foi lançado em julho de 2025 primeiro para usuários Pro.",
+      "tips": [
+        "Especifique a escala e a estrutura logo no pedido: 'Analise todas as 100 empresas desta lista e crie uma tabela com as colunas nome, site, preço e avaliação'.",
+        "Inclua critérios de avaliação explícitos ('avalie cada produto em preço, recursos, reviews e disponibilidade').",
+        "Não use Wide Research para análises únicas e profundas, tarefas com dependências sequenciais ou listas com menos de 10 itens: use o modo agente normal.",
+        "Depois do resultado, peça refinamentos: 'Adicione uma coluna de preço' ou 'Repesquise os itens 20 a 30 com mais detalhes'."
+      ],
+      "sourceIds": [
+        "src-7",
+        "src-8",
+        "src-3"
+      ]
+    },
+    {
+      "id": "manus-slides",
+      "name": "Manus Slides",
+      "category": "files",
+      "summary": "O Manus Slides cria apresentações completas a partir de uma descrição: pesquisa o tema, escreve o conteúdo, desenha os slides, gera imagens e escreve notas do apresentador. Você pode importar um template .pptx da sua empresa para manter layouts, cores e fontes, e exportar em PowerPoint (.pptx), PDF, slides web interativos ou um documento separado com as notas.",
+      "tips": [
+        "Diga o público e o objetivo: 'executivos sem formação técnica' e 'convencer investidores' rendem decks muito melhores que 'público geral'.",
+        "Defina quantidade e tempo: '15 slides para uma apresentação de 20 minutos'.",
+        "Envie seus dados (CSV, Excel) para o Manus gerar gráficos, e envie o template .pptx da marca em 'Import template'.",
+        "Um deck simples de 10 slides leva cerca de 5 minutos; uma apresentação de pesquisa com 40 slides, cerca de 15."
+      ],
+      "sourceIds": [
+        "src-9"
+      ]
+    },
+    {
+      "id": "tarefas-agendadas",
+      "name": "Tarefas agendadas",
+      "category": "automation",
+      "summary": "Tarefas agendadas permitem que o Manus execute trabalhos recorrentes ou em horário marcado: resumo diário de notícias, monitoramento semanal de concorrentes, relatório mensal de analytics. Você descreve a tarefa, o horário ('toda segunda às 8h') e a saída (e-mail, Slack, Google Drive, planilha). O plano Free permite 2 tarefas agendadas; o Pro, 20. A gestão fica em Configurações → Scheduled Tasks.",
+      "tips": [
+        "Teste a tarefa manualmente antes de agendar, para garantir que ela funciona como esperado.",
+        "Seja explícito no horário e no fuso ('todo dia útil às 8h, horário de Brasília') e no intervalo de pesquisa ('notícias das últimas 24 horas').",
+        "Defina a saída com clareza: 'me envie um resumo de 5 tópicos por e-mail' ou 'poste no canal #marketing do Slack'.",
+        "Tarefas agendadas rodam em horários fixos, não continuamente; para monitoramento em tempo real elas não servem."
+      ],
+      "sourceIds": [
+        "src-10",
+        "src-3"
+      ]
+    },
+    {
+      "id": "projetos",
+      "name": "Projetos (Projects)",
+      "category": "memory",
+      "summary": "Projetos são espaços de trabalho persistentes com uma instrução-mestre e uma base de conhecimento de arquivos que se aplicam automaticamente a toda nova tarefa criada dentro deles. Eles eliminam a repetição de contexto em fluxos recorrentes e permitem colaboração em equipe. Desde maio de 2026, um Projeto pode 'aprender' com as tarefas: o Manus propõe atualizações de instruções, arquivos e skills, aplicadas só após sua aprovação. Disponíveis em todos os planos.",
+      "tips": [
+        "Crie um Projeto por tipo de trabalho recorrente: relatórios semanais, criação de conteúdo, análise de concorrentes, revisão de código.",
+        "Escreva instruções-mestre detalhadas: quanto mais específicas, menos contexto você precisa repetir em cada tarefa.",
+        "Atualizações de instruções valem já na próxima mensagem; atualizações de arquivos só valem para tarefas novas.",
+        "Projetos e tarefas são privados por padrão: quem é convidado ao Projeto vê a instrução e os arquivos, mas só as próprias tarefas."
+      ],
+      "sourceIds": [
+        "src-11",
+        "src-12"
+      ]
+    },
+    {
+      "id": "base-de-conhecimento",
+      "name": "Base de conhecimento (Knowledge)",
+      "category": "memory",
+      "summary": "Além dos arquivos dentro de Projetos, o Manus mantém uma base de conhecimento do usuário com entradas que orientam as respostas. Segundo a central de ajuda, ela é limitada a 100 entradas para usuários Pro e 50 para usuários Free, e ter entradas demais pode prejudicar a qualidade das respostas.",
+      "tips": [
+        "Mantenha a base enxuta: priorize entradas importantes e recentes e apague o que não usa mais.",
+        "Se você bater no limite, filtre as entradas pelas necessidades atuais em vez de acumular tudo.",
+        "Para contexto de um fluxo específico, prefira colocar arquivos e instruções dentro de um Projeto."
+      ],
+      "sourceIds": [
+        "src-15",
+        "src-11"
+      ]
+    },
+    {
+      "id": "skills",
+      "name": "Manus Skills",
+      "category": "tools",
+      "summary": "Skills são pacotes baseados em arquivos (com um SKILL.md e scripts opcionais) que ensinam ao agente um fluxo de trabalho especializado, seguindo o padrão aberto Agent Skills. Você pode criá-las a partir de uma tarefa bem-sucedida ('Build with Manus'), enviar um .zip/.skill, importar do GitHub ou pegar da biblioteca oficial, e ativá-las com um comando de barra (/nome-da-skill). O carregamento é progressivo: metadados (~100 tokens), instruções (<5k tokens) e recursos só quando usados.",
+      "tips": [
+        "Depois de um fluxo que deu certo, peça: 'empacote este fluxo em uma Skill' para reutilizá-lo.",
+        "Antes de usar uma skill da comunidade, peça ao Manus para revisar o SKILL.md e os scripts e apontar riscos de segurança.",
+        "Skills e MCP são complementares: MCP é o 'encanamento de dados', a Skill é o 'manual de operação'.",
+        "Digite / no chat para listar suas skills disponíveis e acioná-las explicitamente."
+      ],
+      "sourceIds": [
+        "src-13",
+        "src-14"
+      ]
+    },
+    {
+      "id": "conectores-e-mcp",
+      "name": "Conectores e MCP",
+      "category": "tools",
+      "summary": "Conectores ligam o Manus às ferramentas que você já usa via OAuth: Gmail, Google Calendar, Google Drive/Workspace, Notion, Slack, Stripe, HubSpot, GitHub, Linear, Zoom, bancos como Supabase e Postgres, entre outros. Eles seguem o padrão MCP (Model Context Protocol) e você pode criar conectores personalizados de API ou servidores MCP próprios. Em março de 2026 o conector do Google Workspace passou a fazer edições precisas dentro de Docs, Sheets e Slides, em todos os planos.",
+      "tips": [
+        "Basta mencionar o app no prompt ('busque no meu Gmail…', 'crie o evento no Google Calendar') que o Manus usa o conector certo.",
+        "Combine vários conectores em um só pedido: ler notas no Gmail, atualizar o deal no HubSpot e criar tarefas no Notion.",
+        "Se não existir conector para sua ferramenta, crie um conector de API customizado ou um servidor MCP próprio.",
+        "Ao remover um conector, as credenciais são apagadas; o Manus também oculta chaves de API em sessões compartilhadas."
+      ],
+      "sourceIds": [
+        "src-16",
+        "src-17",
+        "src-18",
+        "src-19",
+        "src-49"
+      ]
+    },
+    {
+      "id": "imagens-video-e-audio",
+      "name": "Imagens, vídeo e áudio",
+      "category": "tools",
+      "summary": "O Manus gera imagens, entende imagens e vídeos, transcreve áudio e cria narração por voz, podendo combinar tudo em um só fluxo (por exemplo, transformar um vídeo em post de blog com capturas). O Design View permite editar imagens com precisão usando a ferramenta Mark (selecione um elemento e diga o que mudar) e é alimentado pelo modelo Nano Banana Pro do Google. Na geração de vídeo há um modelo padrão (30 créditos por segundo, formatos 16:9, 9:16 e 1:1) e o Veo 3 (600 créditos a cada 8 segundos, só 16:9).",
+      "tips": [
+        "Nas imagens, descreva estilo, composição e uso final: 'foto profissional minimalista, fundo desfocado, formato quadrado para Instagram'.",
+        "No Design View, dê instruções diretas ao marcar um elemento ('mude para verde-sálvia'), use imagens de referência de boa qualidade e itere em pequenos passos.",
+        "Vídeo custa caro em créditos: use o modelo padrão para testar e o Veo 3 só quando precisar da melhor qualidade em 16:9.",
+        "Para transcrições, envie MP3, WAV, M4A ou WEBM e peça rótulos de falantes e timestamps."
+      ],
+      "sourceIds": [
+        "src-20",
+        "src-21",
+        "src-22",
+        "src-28"
+      ]
+    },
+    {
+      "id": "analise-e-visualizacao-de-dados",
+      "name": "Análise e visualização de dados",
+      "category": "files",
+      "summary": "Envie um arquivo (CSV, Excel, PDF), descreva o que quer descobrir e o Manus faz a análise, identifica padrões e entrega o resultado em slides, dashboard interativo, relatório ou página web. Você pode escolher até 5 tipos de gráfico por análise (barras, linhas, pizza, dispersão, mapa de calor, radar). A entrada fica em Mais > Visualization na página inicial.",
+      "tips": [
+        "Seja específico: 'identifique padrões sazonais nas vendas e recomende ajustes de estoque' em vez de 'analise estes dados'.",
+        "Limpe os dados antes: cabeçalhos claros, datas em formato consistente, colunas desnecessárias removidas.",
+        "Escolha a saída pelo público: slides para executivos, dashboard para monitoramento, relatório para documentação, página web para compartilhar externamente.",
+        "Combine com outros recursos: use Wide Research para coletar dados de concorrentes e depois visualize-os."
+      ],
+      "sourceIds": [
+        "src-23"
+      ]
+    },
+    {
+      "id": "criacao-de-sites-e-apps-web",
+      "name": "Criação de sites e apps web",
+      "category": "coding",
+      "summary": "O Manus constrói aplicações full-stack (frontend, backend, banco de dados, armazenamento de arquivos e autenticação) a partir de linguagem natural, mostra um preview ao vivo, e publica com um clique em infraestrutura gerenciada, com domínio próprio (que pode ser comprado dentro do Manus) e SSL automático. A construção consome créditos; a hospedagem usa cobrança por uso com franquias mensais gratuitas (US$10 em cloud, US$1 em IA, US$1 em APIs). Há modo Autoscale (Google Cloud Run, US$0 ocioso) e Reserved (processo persistente, até ~US$36/mês).",
+      "tips": [
+        "Descreva seções e funcionalidades no primeiro pedido ('landing page com hero, botão de cadastro, seção de recursos, tabela de preços e rodapé') e revise o plano antes da construção.",
+        "Itere em linguagem natural no preview: 'mude o botão de cadastro para azul vibrante' ou 'adicione depoimentos entre recursos e preços'.",
+        "Use Autoscale para sites e APIs com tráfego variável; escolha Reserved para bots, WebSockets e jobs longos que precisam ficar sempre ativos.",
+        "Ative o auto top-up em Usage → Website usage & billing para o site não sair do ar quando a franquia gratuita acabar."
+      ],
+      "sourceIds": [
+        "src-24",
+        "src-25",
+        "src-26"
+      ]
+    },
+    {
+      "id": "apps-mobile",
+      "name": "Desenvolvimento de apps mobile",
+      "category": "coding",
+      "summary": "Desde o Manus 1.6 (dezembro de 2025) é possível descrever um app mobile e deixar o Manus cuidar do desenvolvimento de ponta a ponta. O recurso App Publishing empacota o app para testes: no Android, gera o arquivo AAB para você subir no Google Play Console; no iOS, cria o app na sua conta de desenvolvedor, faz o build e envia ao App Store Connect/TestFlight. A publicação final nas lojas continua sendo feita por você nas contas de desenvolvedor.",
+      "tips": [
+        "Você precisa de uma conta Apple Developer (iOS/TestFlight) ou Google Play Developer (Android) para distribuir builds de teste.",
+        "Coloque o app na mão de testadores cedo para encurtar o ciclo de feedback.",
+        "Enquanto os testes rodam, prepare os materiais das lojas: capturas de tela, descrição, política de privacidade e palavras-chave."
+      ],
+      "sourceIds": [
+        "src-27",
+        "src-28",
+        "src-6"
+      ]
+    },
+    {
+      "id": "navegador-cloud-e-browser-operator",
+      "name": "Cloud Browser e Browser Operator",
+      "category": "tools",
+      "summary": "O Cloud Browser é o navegador na nuvem que o Manus opera como uma pessoa: visita sites, clica, preenche formulários e extrai dados; você pode fazer login nas suas contas nele e, em verificações como CAPTCHA ou SMS, é chamado para assumir (Take Over). O Browser Operator (My Browser) é uma extensão para Chrome/Edge que faz o Manus usar seu navegador local com suas sessões já logadas, evitando bloqueios por IP de data center.",
+      "tips": [
+        "Use o Cloud Browser para pesquisa em sites públicos e extração em escala; use o My Browser para sites sensíveis, bancos ou onde o CAPTCHA aparece demais.",
+        "Faça login antecipadamente nas contas que usa com frequência (Gmail, Notion, LinkedIn) para não interromper a tarefa.",
+        "Ao ser chamado para o Take Over, complete só a verificação e devolva o controle logo.",
+        "Revise e limpe sessões logadas em Configurações → Cloud Browser → Logged-in Accounts periodicamente."
+      ],
+      "sourceIds": [
+        "src-29",
+        "src-30"
+      ]
+    },
+    {
+      "id": "desktop-my-computer-e-cloud-computer",
+      "name": "Desktop (My Computer) e Cloud Computer",
+      "category": "tools",
+      "summary": "O app Desktop (macOS e Windows) traz o recurso My Computer: o Manus acessa pastas que você autoriza, executa comandos na linha de comando local (Python, Node, compiladores) e pode usar sua GPU, com aprovação explícita de cada comando. Já o Cloud Computer é uma máquina virtual Ubuntu persistente e sempre ligada, para rodar bots, scrapers e scripts 24/7, diferente do sandbox comum que fecha ao fim da tarefa.",
+      "tips": [
+        "Autorize apenas as pastas necessárias e use 'Allow Once' para operações pontuais e 'Always Allow' só para tarefas recorrentes confiáveis.",
+        "Com um computador sempre ligado e o app Desktop aberto, você pode mandar tarefas pelo celular de qualquer lugar.",
+        "Combine My Computer com Tarefas Agendadas para rotinas locais, como limpar a pasta de downloads diariamente.",
+        "O Cloud Computer não tem interface gráfica: tudo acontece por linha de comando, e ele é acionado automaticamente quando a tarefa exige persistência (se seu plano permitir)."
+      ],
+      "sourceIds": [
+        "src-31",
+        "src-32"
+      ]
+    },
+    {
+      "id": "creditos-e-planos",
+      "name": "Créditos e planos",
+      "category": "pricing",
+      "summary": "Créditos medem o uso de recursos (tokens do modelo, máquinas virtuais e APIs de terceiros) e só são consumidos enquanto a tarefa está em execução. Planos atuais: Free (US$0, 300 créditos renovados diariamente, 1 tarefa simultânea, 2 agendadas), Pro (a partir de US$20/mês com 4.000 créditos ou US$40/mês com 8.000 créditos, 20 tarefas simultâneas, 20 agendadas, 17% de desconto anual, teste grátis de 7 dias no de US$40) e Team (a partir de US$20 por assento/mês, com pool de créditos compartilhado, SSO e analytics de uso). Exemplos oficiais: análise de dados ~200 créditos, site ~360, app com integração de dados ~900.",
+      "tips": [
+        "Ordem de consumo: créditos de evento > diários > mensais > add-on > gratuitos; créditos mensais zeram no fim do ciclo, add-ons rolam enquanto a assinatura estiver ativa.",
+        "Veja o consumo por tarefa em Configurações > Usage; tarefas concluídas e a hospedagem de resultados não gastam créditos.",
+        "Economize créditos sendo específico no pedido, usando o Modo Chat para perguntas simples e agrupando tarefas relacionadas.",
+        "Créditos diários do Free rendem no máximo 1.500 por mês; se precisar de mais, compre pacotes add-on ou suba de plano."
+      ],
+      "sourceIds": [
+        "src-2",
+        "src-3",
+        "src-4",
+        "src-5"
+      ]
+    },
+    {
+      "id": "api-manus",
+      "name": "API do Manus",
+      "category": "api",
+      "summary": "A API REST v2 (base https://api.manus.ai) expõe o agente completo para seus sistemas: task.create cria uma tarefa assíncrona, task.listMessages ou webhooks acompanham o progresso (status running, stopped, waiting, error), task.sendMessage continua a conversa e task.confirmAction aprova ações pendentes. Há endpoints de projetos, skills, arquivos (até 512 MB via file.upload), conectores, uso de créditos e websites. Autenticação por chave no header x-manus-api-key (até 50 chaves por conta) ou OAuth2 para apps de Team. A v1 foi descontinuada.",
+      "tips": [
+        "Crie a chave em Configurações → Integrations → API no webapp; ela aparece só uma vez, guarde-a em variável de ambiente.",
+        "Prefira webhooks a polling: task.listMessages tem limite de 100 req/min e task.create de 10 req/min por usuário.",
+        "Use structured_output_schema para receber o resultado em JSON validado contra seu esquema (o topo deve ser 'type': 'object').",
+        "O texto do prompt é limitado a cerca de 5.000 tokens; anexos por URL ou base64 têm teto de 20 MB, acima disso use file.upload."
+      ],
+      "sourceIds": [
+        "src-33",
+        "src-34",
+        "src-35",
+        "src-36",
+        "src-37",
+        "src-38"
+      ]
+    },
+    {
+      "id": "mail-manus-slack-zapier-e-chat",
+      "name": "Mail Manus, Slack, Zapier e chat",
+      "category": "automation",
+      "summary": "O Manus pode ser acionado de onde você já trabalha. Mail Manus dá um endereço de bot exclusivo para encaminhar e-mails e receber resultados na caixa de entrada, com fluxos automáticos por tipo de e-mail. No Slack, basta marcar @manus em uma thread para ele ler todo o contexto e trabalhar ali. Com o Zapier, eventos em mais de 8.000 apps criam tarefas Manus. E os Manus Agents levam o agente para apps de mensagem, começando pelo Telegram (fevereiro de 2026).",
+      "tips": [
+        "No Mail Manus, cadastre remetentes aprovados e use o assunto do e-mail como instrução ('Extraia datas e prazos').",
+        "Crie workflow emails dedicados (viagens, recibos, faturas) com um prompt padrão e filtros no Gmail/Outlook que encaminhem automaticamente.",
+        "No Slack, quem está na thread vira colaborador automaticamente; use isso para revisar e iterar em equipe sem copiar e colar.",
+        "Com Zapier, use gatilhos como 'nova reunião no Calendly' para gerar um briefing de pré-reunião automaticamente."
+      ],
+      "sourceIds": [
+        "src-39",
+        "src-41",
+        "src-42",
+        "src-46"
+      ]
+    },
+    {
+      "id": "collab-e-meeting-minutes",
+      "name": "Collab e Meeting Minutes",
+      "category": "chat",
+      "summary": "Manus Collab permite que várias pessoas trabalhem em tempo real na mesma tarefa: todos veem e podem enviar prompts, e só os créditos do dono da tarefa são consumidos. Meeting Minutes grava reuniões presenciais, entrevistas ou monólogos com um toque, identifica falantes, gera resumo com pontos-chave e itens de ação e permite transformar isso em slides, sites ou e-mails na mesma tarefa. A gravação é gratuita; a análise consome créditos. Ambos estão disponíveis em todos os planos.",
+      "tips": [
+        "Para colaborar, use o botão de compartilhar e escolha 'Collaboration' (não apenas 'Share'); só o dono pode convidar.",
+        "Conclua as etapas que exigem login no navegador antes de convidar colaboradores: os cookies do sandbox são limpos quando o primeiro entra.",
+        "Meeting Minutes é para conversas presenciais, não para reuniões online; mantenha a tela aberta para não interromper a gravação.",
+        "Use o resumo da reunião imediatamente como contexto para pedir e-mails de follow-up ou uma apresentação."
+      ],
+      "sourceIds": [
+        "src-40",
+        "src-43"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-agente-1",
+      "featureId": "agente-autonomo-geral",
+      "type": "multiple_choice",
+      "prompt": "O que diferencia o Manus de um chatbot tradicional, segundo a documentação oficial?",
+      "options": [
+        "Ele só funciona por e-mail",
+        "Ele executa tarefas em um sandbox próprio com internet e sistema de arquivos, entregando o trabalho completo",
+        "Ele responde mais rápido",
+        "Ele não usa modelos de linguagem"
+      ],
+      "answer": 1,
+      "explanation": "O Manus é descrito como um agente autônomo que age em um computador virtual próprio, planejando e entregando resultados completos.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-agente-2",
+      "featureId": "agente-autonomo-geral",
+      "type": "multiple_choice",
+      "prompt": "O que você pode fazer quando o Manus trava em um CAPTCHA durante uma tarefa?",
+      "options": [
+        "Assumir o controle (Take Over) do navegador, resolver e devolver o comando",
+        "Reiniciar a conta",
+        "Comprar créditos extras",
+        "Nada, a tarefa é cancelada"
+      ],
+      "answer": 0,
+      "explanation": "A central de ajuda explica que o usuário pode assumir o navegador ou o VS Code do Manus para ajudá-lo a superar obstáculos.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-modos-1",
+      "featureId": "modos-chat-e-agente",
+      "type": "multiple_choice",
+      "prompt": "Qual modo do Manus NÃO consome créditos?",
+      "options": [
+        "Wide Research",
+        "Modo Slides",
+        "Modo Agente",
+        "Modo Chat"
+      ],
+      "answer": 3,
+      "explanation": "Segundo a central de ajuda, conversas no Modo Chat não consomem créditos; o Modo Agente consome.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-modos-2",
+      "featureId": "modos-chat-e-agente",
+      "type": "multiple_choice",
+      "prompt": "Quais versões do agente um usuário Free pode usar no Modo Agente?",
+      "options": [
+        "Apenas Manus 1.6 Max",
+        "Nenhuma; Free só tem Modo Chat",
+        "Apenas Manus 1.6 Lite",
+        "Manus 1.6 Max, 1.6 e 1.6 Lite"
+      ],
+      "answer": 2,
+      "explanation": "Usuários Free só têm acesso ao Manus 1.6 Lite no Modo Agente; Pro e Team têm 1.6 Max, 1.6 e 1.6 Lite.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-prompts-1",
+      "featureId": "como-escrever-boas-tarefas",
+      "type": "multiple_choice",
+      "prompt": "Qual destes pedidos segue as recomendações oficiais do Manus para economizar créditos?",
+      "options": [
+        "'Faça algo legal com estes dados'",
+        "'Pesquise as 5 principais tendências de IA em saúde e crie um relatório resumido'",
+        "'Pesquise IA'",
+        "'Me ajude'"
+      ],
+      "answer": 1,
+      "explanation": "A documentação de planos usa exatamente esse contraste: pedidos claros e bem definidos reduzem iterações e consumo de créditos.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-prompts-2",
+      "featureId": "como-escrever-boas-tarefas",
+      "type": "multiple_choice",
+      "prompt": "O que a central de ajuda diz sobre estimar o custo em créditos de uma tarefa antes de começar?",
+      "options": [
+        "O Manus não consegue estimar; se afirmar um valor, é alucinação",
+        "O Manus mostra sempre uma estimativa exata",
+        "Só o plano Team tem estimativas",
+        "A estimativa vem por e-mail"
+      ],
+      "answer": 0,
+      "explanation": "O artigo afirma que o Manus não tem capacidade de julgar ou regular o consumo de créditos antecipadamente e que tal afirmação seria alucinação.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-wide-1",
+      "featureId": "wide-research",
+      "type": "multiple_choice",
+      "prompt": "Como o Wide Research evita a queda de qualidade ao analisar centenas de itens?",
+      "options": [
+        "Resumindo os itens antes de analisar",
+        "Limitando a 10 itens por tarefa",
+        "Usando um único agente com contexto maior",
+        "Cada item recebe um agente próprio com contexto novo, e os resultados são sintetizados no fim"
+      ],
+      "answer": 3,
+      "explanation": "A documentação explica que o pedido é decomposto e cada subtarefa vai para um agente dedicado, evitando o problema da janela de contexto.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-wide-2",
+      "featureId": "wide-research",
+      "type": "multiple_choice",
+      "prompt": "Para qual caso o Wide Research NÃO é indicado?",
+      "options": [
+        "Pesquisar 200 leads",
+        "Gerar 20 posts semelhantes",
+        "Uma análise única e profunda de um só tema",
+        "Comparar 100 produtos"
+      ],
+      "answer": 2,
+      "explanation": "A documentação lista análises únicas e profundas, tarefas sequenciais e listas com menos de 10 itens como casos não ideais.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-slides-1",
+      "featureId": "manus-slides",
+      "type": "multiple_choice",
+      "prompt": "Em quais formatos o Manus Slides exporta as apresentações?",
+      "options": [
+        "Apenas Google Slides",
+        "PowerPoint (.pptx), PDF, slides web e documento de notas",
+        "Apenas imagens PNG",
+        "Apenas PDF"
+      ],
+      "answer": 1,
+      "explanation": "A documentação lista .pptx editável, PDF, slides web interativos e um documento separado com as notas do apresentador.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-slides-2",
+      "featureId": "manus-slides",
+      "type": "multiple_choice",
+      "prompt": "Como usar o template da sua empresa no Manus Slides?",
+      "options": [
+        "Enviando um arquivo .pptx em 'Import template'",
+        "Colando o CSS da marca",
+        "Não é possível",
+        "Enviando um PDF do template"
+      ],
+      "answer": 0,
+      "explanation": "A documentação instrui a clicar em Import template e enviar o template PowerPoint (.pptx) para aplicar layouts, cores e fontes.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-agend-1",
+      "featureId": "tarefas-agendadas",
+      "type": "multiple_choice",
+      "prompt": "Quantas tarefas agendadas o plano Free permite?",
+      "options": [
+        "10",
+        "20",
+        "Ilimitadas",
+        "2"
+      ],
+      "answer": 3,
+      "explanation": "A central de ajuda informa 2 tarefas agendadas no Free e 20 no Pro.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-agend-2",
+      "featureId": "tarefas-agendadas",
+      "type": "multiple_choice",
+      "prompt": "Qual é a recomendação oficial antes de agendar uma tarefa recorrente?",
+      "options": [
+        "Usar sempre o Veo 3",
+        "Desativar o Modo Chat",
+        "Executar a tarefa manualmente primeiro para testar",
+        "Comprar créditos add-on"
+      ],
+      "answer": 2,
+      "explanation": "A documentação recomenda rodar a tarefa manualmente antes e só então configurar o agendamento.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-proj-1",
+      "featureId": "projetos",
+      "type": "multiple_choice",
+      "prompt": "O que um Projeto aplica automaticamente a cada nova tarefa criada dentro dele?",
+      "options": [
+        "Apenas o nome do projeto",
+        "A instrução-mestre e a base de conhecimento de arquivos",
+        "Um template de slides",
+        "Um domínio personalizado"
+      ],
+      "answer": 1,
+      "explanation": "Projetos definem uma master instruction e uma knowledge base que toda nova tarefa herda.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-proj-2",
+      "featureId": "projetos",
+      "type": "multiple_choice",
+      "prompt": "Quando uma atualização de arquivos em um Projeto passa a valer?",
+      "options": [
+        "Só em tarefas novas criadas após a atualização",
+        "Só depois de reiniciar o app",
+        "Nunca; arquivos não podem ser atualizados",
+        "Imediatamente em todas as tarefas antigas"
+      ],
+      "answer": 0,
+      "explanation": "A documentação diferencia: instruções valem na próxima mensagem, arquivos só em tarefas novas.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-know-1",
+      "featureId": "base-de-conhecimento",
+      "type": "multiple_choice",
+      "prompt": "Qual é o limite de entradas na base de conhecimento para usuários Pro e Free, respectivamente?",
+      "options": [
+        "1.000 e 500",
+        "10 e 5",
+        "Ilimitado e 100",
+        "100 e 50"
+      ],
+      "answer": 3,
+      "explanation": "A central de ajuda cita 100 entradas para Pro e 50 para Free.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-know-2",
+      "featureId": "base-de-conhecimento",
+      "type": "multiple_choice",
+      "prompt": "O que a central de ajuda recomenda ao atingir o limite da base de conhecimento?",
+      "options": [
+        "Criar outra conta",
+        "Desativar o Modo Agente",
+        "Filtrar pelas necessidades mais importantes e recentes e apagar entradas desnecessárias",
+        "Comprar créditos"
+      ],
+      "answer": 2,
+      "explanation": "O artigo orienta enxugar a base, pois entradas demais podem afetar a qualidade das respostas.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-skills-1",
+      "featureId": "skills",
+      "type": "multiple_choice",
+      "prompt": "Como ativar uma Skill durante uma conversa no Manus?",
+      "options": [
+        "Comprando na loja",
+        "Digitando / e escolhendo a skill na lista",
+        "Apenas pela API",
+        "Enviando o arquivo por e-mail"
+      ],
+      "answer": 1,
+      "explanation": "A documentação explica que basta digitar / no chat para listar e acionar as skills instaladas.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-skills-2",
+      "featureId": "skills",
+      "type": "multiple_choice",
+      "prompt": "Qual é a relação entre Skills e MCP, segundo o Manus?",
+      "options": [
+        "MCP fornece os 'encanamentos de dados' e Skills os 'manuais de operação'",
+        "MCP é só para o plano Team",
+        "São a mesma coisa",
+        "Skills substituem o MCP"
+      ],
+      "answer": 0,
+      "explanation": "O FAQ oficial descreve as duas tecnologias como complementares, com essa metáfora.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-conn-1",
+      "featureId": "conectores-e-mcp",
+      "type": "multiple_choice",
+      "prompt": "Qual método de autenticação os conectores MCP pré-construídos do Manus usam?",
+      "options": [
+        "Não usam autenticação",
+        "Chave SSH",
+        "Senha em texto puro no prompt",
+        "OAuth 2.0"
+      ],
+      "answer": 3,
+      "explanation": "A documentação afirma que os conectores usam OAuth 2.0 e que o usuário controla o que o Manus pode acessar.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-conn-2",
+      "featureId": "conectores-e-mcp",
+      "type": "multiple_choice",
+      "prompt": "O que a atualização do conector Google Workspace de março de 2026 trouxe?",
+      "options": [
+        "Um custo extra por edição",
+        "Suporte apenas ao Gmail",
+        "Edições precisas dentro de Docs, Sheets e Slides, como substituir texto e reordenar slides",
+        "Só criação de arquivos novos"
+      ],
+      "answer": 2,
+      "explanation": "O blog explica a integração da Google Workspace CLI para edições cirúrgicas, disponível gratuitamente em todos os planos.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-media-1",
+      "featureId": "imagens-video-e-audio",
+      "type": "multiple_choice",
+      "prompt": "Qual modelo de imagem alimenta o Design View do Manus?",
+      "options": [
+        "DALL·E 2",
+        "Nano Banana Pro, do Google",
+        "Veo 3",
+        "Stable Diffusion 1.5"
+      ],
+      "answer": 1,
+      "explanation": "A documentação do Design View afirma que ele é alimentado pelo Nano Banana Pro, do Google.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-media-2",
+      "featureId": "imagens-video-e-audio",
+      "type": "multiple_choice",
+      "prompt": "Quanto custa gerar vídeo com o modelo Veo 3 no Manus, segundo a central de ajuda?",
+      "options": [
+        "600 créditos a cada 8 segundos, só em 16:9",
+        "100 créditos por minuto",
+        "Grátis no plano Free",
+        "30 créditos por segundo"
+      ],
+      "answer": 0,
+      "explanation": "O artigo indica 600 créditos por 8 segundos para o Veo 3 (apenas 16:9) e 30 créditos por segundo para o modelo padrão.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-dados-1",
+      "featureId": "analise-e-visualizacao-de-dados",
+      "type": "multiple_choice",
+      "prompt": "Quantos tipos de gráfico podem ser escolhidos em uma única análise?",
+      "options": [
+        "Até 3",
+        "Apenas 1",
+        "Ilimitados",
+        "Até 5"
+      ],
+      "answer": 3,
+      "explanation": "A documentação diz que é possível selecionar até 5 tipos de visualização por análise.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-dados-2",
+      "featureId": "analise-e-visualizacao-de-dados",
+      "type": "multiple_choice",
+      "prompt": "Qual formato de saída é recomendado para monitoramento contínuo em equipe?",
+      "options": [
+        "Apenas uma tabela no chat",
+        "PDF impresso",
+        "Dashboard interativo",
+        "Áudio narrado"
+      ],
+      "answer": 2,
+      "explanation": "A documentação recomenda dashboard para monitoramento, slides para executivos, relatório para documentação e página web para compartilhar.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-sites-1",
+      "featureId": "criacao-de-sites-e-apps-web",
+      "type": "multiple_choice",
+      "prompt": "Quais são as franquias mensais gratuitas de hospedagem de sites criados no Manus?",
+      "options": [
+        "US$100 em cloud",
+        "US$10 em cloud, US$1 em IA e US$1 em APIs",
+        "Nenhuma",
+        "US$1 em cloud apenas"
+      ],
+      "answer": 1,
+      "explanation": "A página de Usage and Pricing lista US$10 (cloud), US$1 (AI) e US$1 (API) por mês, renovados a cada ciclo.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-sites-2",
+      "featureId": "criacao-de-sites-e-apps-web",
+      "type": "multiple_choice",
+      "prompt": "Qual modo de hospedagem é indicado para bots, WebSockets e jobs longos?",
+      "options": [
+        "Reserved",
+        "Autoscale",
+        "Modo Chat",
+        "Sandbox temporário"
+      ],
+      "answer": 0,
+      "explanation": "O modo Reserved mantém um processo persistente sem cold start; o Autoscale escala de zero e custa US$0 ocioso.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-mobile-1",
+      "featureId": "apps-mobile",
+      "type": "multiple_choice",
+      "prompt": "O que o App Publishing faz para apps Android criados no Manus?",
+      "options": [
+        "Cria um APK só para emulador",
+        "Publica direto na Play Store",
+        "Envia por e-mail aos usuários",
+        "Gera o arquivo AAB para você subir no Google Play Console"
+      ],
+      "answer": 3,
+      "explanation": "A documentação explica que o Manus empacota o app como AAB e você faz o upload e gerencia as faixas de teste no Play Console.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-mobile-2",
+      "featureId": "apps-mobile",
+      "type": "multiple_choice",
+      "prompt": "O App Publishing publica o app diretamente na App Store ou Google Play?",
+      "options": [
+        "Sim, mas só no iOS",
+        "Sim, com um clique",
+        "Não; ele prepara builds para teste (TestFlight/Play Console) e a publicação final é feita por você",
+        "Sim, mas só no plano Team"
+      ],
+      "answer": 2,
+      "explanation": "A documentação enfatiza que é um recurso de teste guiado, não um botão de 'publicar na loja'.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-nav-1",
+      "featureId": "navegador-cloud-e-browser-operator",
+      "type": "multiple_choice",
+      "prompt": "Quando é melhor usar o My Browser (Browser Operator) em vez do Cloud Browser?",
+      "options": [
+        "Nunca; o Cloud Browser é sempre melhor",
+        "Para sites sensíveis, bancos ou quando o CAPTCHA aparece com frequência",
+        "Só para gerar imagens",
+        "Para pesquisar sites públicos em escala"
+      ],
+      "answer": 1,
+      "explanation": "A documentação recomenda o My Browser (navegador local, IP residencial) para sites sensíveis e para evitar verificações por IP de data center.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-nav-2",
+      "featureId": "navegador-cloud-e-browser-operator",
+      "type": "multiple_choice",
+      "prompt": "Quais navegadores são recomendados para a extensão Browser Operator?",
+      "options": [
+        "Chrome e Edge",
+        "Qualquer navegador móvel",
+        "Safari e Firefox",
+        "Apenas Opera"
+      ],
+      "answer": 0,
+      "explanation": "O FAQ do Browser Operator indica Chrome e Edge como recomendados, com suporte a outros em breve.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-desk-1",
+      "featureId": "desktop-my-computer-e-cloud-computer",
+      "type": "multiple_choice",
+      "prompt": "Como o Manus obtém permissão para executar comandos no seu computador via My Computer?",
+      "options": [
+        "Só com senha de administrador",
+        "Por e-mail",
+        "Executa tudo automaticamente",
+        "Cada comando exige aprovação explícita (Allow Once ou Always Allow) e só em pastas autorizadas"
+      ],
+      "answer": 3,
+      "explanation": "A documentação do Desktop descreve aprovação explícita por comando e acesso restrito a pastas autorizadas.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-desk-2",
+      "featureId": "desktop-my-computer-e-cloud-computer",
+      "type": "multiple_choice",
+      "prompt": "Qual é a principal diferença do Cloud Computer para o sandbox padrão?",
+      "options": [
+        "Ele tem interface gráfica",
+        "Ele roda no seu notebook",
+        "Ele é persistente e fica sempre ligado, rodando bots e scripts 24/7",
+        "Ele é gratuito em créditos"
+      ],
+      "answer": 2,
+      "explanation": "A central de ajuda descreve o Cloud Computer como VM Ubuntu persistente e always-on, enquanto o sandbox fecha ao fim da tarefa.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-cred-1",
+      "featureId": "creditos-e-planos",
+      "type": "multiple_choice",
+      "prompt": "Quantos créditos diários o plano Free oferece?",
+      "options": [
+        "100",
+        "300",
+        "4.000",
+        "1.000"
+      ],
+      "answer": 1,
+      "explanation": "A central de ajuda informa 300 créditos renovados diariamente no Free, com 1 tarefa simultânea e 2 agendadas.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-cred-2",
+      "featureId": "creditos-e-planos",
+      "type": "multiple_choice",
+      "prompt": "Qual é a ordem de consumo dos créditos no Manus?",
+      "options": [
+        "Evento > diários > mensais > add-on > gratuitos",
+        "Aleatória",
+        "Mensais > evento > diários",
+        "Gratuitos > add-on > mensais > diários > evento"
+      ],
+      "answer": 0,
+      "explanation": "O artigo de regras de consumo define: event > daily > monthly > add-on > free credits.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-api-1",
+      "featureId": "api-manus",
+      "type": "multiple_choice",
+      "prompt": "Qual header é usado para autenticar com chave de API no Manus API v2?",
+      "options": [
+        "manus-key",
+        "Authorization: Basic",
+        "x-api-token",
+        "x-manus-api-key"
+      ],
+      "answer": 3,
+      "explanation": "A página de autenticação define o header x-manus-api-key para chaves e Authorization: Bearer para OAuth2.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-api-2",
+      "featureId": "api-manus",
+      "type": "multiple_choice",
+      "prompt": "Qual status de tarefa indica que o agente precisa de confirmação ou resposta do usuário?",
+      "options": [
+        "running",
+        "stopped",
+        "waiting",
+        "error"
+      ],
+      "answer": 2,
+      "explanation": "No ciclo de vida, 'waiting' significa que o agente aguarda confirmação (task.confirmAction) ou resposta (task.sendMessage).",
+      "difficulty": 2
+    },
+    {
+      "id": "q-mail-1",
+      "featureId": "mail-manus-slack-zapier-e-chat",
+      "type": "multiple_choice",
+      "prompt": "Como acionar o Manus dentro do Slack?",
+      "options": [
+        "Digitando /manus no terminal",
+        "Marcando @manus em uma thread",
+        "Enviando um e-mail",
+        "Instalando o app Desktop"
+      ],
+      "answer": 1,
+      "explanation": "A documentação diz para marcar @manus em qualquer thread; ele lê todo o contexto e trabalha ali.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-mail-2",
+      "featureId": "mail-manus-slack-zapier-e-chat",
+      "type": "multiple_choice",
+      "prompt": "Quem pode disparar tarefas pelo endereço de bot do Mail Manus?",
+      "options": [
+        "Apenas remetentes pré-aprovados",
+        "Apenas o suporte do Manus",
+        "Qualquer pessoa na internet",
+        "Apenas contatos do Slack"
+      ],
+      "answer": 0,
+      "explanation": "Por segurança, só e-mails de remetentes aprovados em Settings → Mail Manus → Approved Senders acionam tarefas.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-collab-1",
+      "featureId": "collab-e-meeting-minutes",
+      "type": "multiple_choice",
+      "prompt": "No Manus Collab, de quem são os créditos consumidos?",
+      "options": [
+        "Do último a enviar prompt",
+        "De todos os participantes",
+        "Ninguém consome créditos",
+        "Apenas do dono da tarefa"
+      ],
+      "answer": 3,
+      "explanation": "A documentação destaca que só os créditos do dono da tarefa são consumidos; colaboradores participam sem gastar.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-collab-2",
+      "featureId": "collab-e-meeting-minutes",
+      "type": "multiple_choice",
+      "prompt": "O que acontece com os cookies de login do sandbox quando o primeiro colaborador entra na tarefa?",
+      "options": [
+        "São enviados por e-mail",
+        "São copiados para o colaborador",
+        "São limpos, exigindo novo login em sites autenticados",
+        "Nada"
+      ],
+      "answer": 2,
+      "explanation": "Por segurança, os cookies de login do sandbox são limpos quando o primeiro colaborador entra; conclua etapas autenticadas antes.",
+      "difficulty": 3
+    }
+  ]
+}

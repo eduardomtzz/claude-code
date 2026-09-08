@@ -1,0 +1,791 @@
+{
+  "platform": "claude",
+  "name": "Claude (Anthropic)",
+  "updatedAt": "2026-09-08",
+  "sources": [
+    { "id": "src-1", "title": "Models overview (Claude Platform Docs)", "url": "https://platform.claude.com/docs/en/about-claude/models/overview", "type": "docs", "date": null, "channel": null },
+    { "id": "src-2", "title": "Pricing (Claude Platform Docs)", "url": "https://platform.claude.com/docs/en/about-claude/pricing", "type": "docs", "date": null, "channel": null },
+    { "id": "src-3", "title": "Claude pricing plans (claude.com)", "url": "https://claude.com/pricing", "type": "docs", "date": null, "channel": null },
+    { "id": "src-4", "title": "Anthropic Newsroom", "url": "https://www.anthropic.com/news", "type": "blog", "date": null, "channel": null },
+    { "id": "src-5", "title": "Introducing Claude Fable 5.1 and Claude Mythos 5.1", "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1", "type": "blog", "date": "2026-09-01", "channel": null },
+    { "id": "src-6", "title": "Introducing Claude Opus 5", "url": "https://www.anthropic.com/news/claude-opus-5", "type": "blog", "date": "2026-07-24", "channel": null },
+    { "id": "src-7", "title": "Choosing the right model", "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model", "type": "docs", "date": null, "channel": null },
+    { "id": "src-8", "title": "Claude Code overview", "url": "https://code.claude.com/docs/en/overview", "type": "docs", "date": null, "channel": null },
+    { "id": "src-9", "title": "Claude Code hooks", "url": "https://code.claude.com/docs/en/hooks", "type": "docs", "date": null, "channel": null },
+    { "id": "src-10", "title": "Claude Code skills", "url": "https://code.claude.com/docs/en/skills", "type": "docs", "date": null, "channel": null },
+    { "id": "src-11", "title": "Claude Code subagents", "url": "https://code.claude.com/docs/en/sub-agents", "type": "docs", "date": null, "channel": null },
+    { "id": "src-12", "title": "Connect Claude Code to tools via MCP", "url": "https://code.claude.com/docs/en/mcp", "type": "docs", "date": null, "channel": null },
+    { "id": "src-13", "title": "How Claude remembers your project (CLAUDE.md and auto memory)", "url": "https://code.claude.com/docs/en/memory", "type": "docs", "date": null, "channel": null },
+    { "id": "src-14", "title": "Configure permissions (Claude Code)", "url": "https://code.claude.com/docs/en/permissions", "type": "docs", "date": null, "channel": null },
+    { "id": "src-15", "title": "Choose a permission mode (Claude Code)", "url": "https://code.claude.com/docs/en/permission-modes", "type": "docs", "date": null, "channel": null },
+    { "id": "src-16", "title": "Slash commands (Claude Code)", "url": "https://code.claude.com/docs/en/slash-commands", "type": "docs", "date": null, "channel": null },
+    { "id": "src-17", "title": "Use Claude Code on the web", "url": "https://code.claude.com/docs/en/claude-code-on-the-web", "type": "docs", "date": null, "channel": null },
+    { "id": "src-18", "title": "Automate work with routines (Claude Code)", "url": "https://code.claude.com/docs/en/routines", "type": "docs", "date": null, "channel": null },
+    { "id": "src-19", "title": "Common workflows (Claude Code)", "url": "https://code.claude.com/docs/en/common-workflows", "type": "docs", "date": null, "channel": null },
+    { "id": "src-20", "title": "Prompt caching", "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching", "type": "docs", "date": null, "channel": null },
+    { "id": "src-21", "title": "Thinking", "url": "https://platform.claude.com/docs/en/build-with-claude/thinking", "type": "docs", "date": null, "channel": null },
+    { "id": "src-22", "title": "Batch processing (Message Batches API)", "url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing", "type": "docs", "date": null, "channel": null },
+    { "id": "src-23", "title": "Files API", "url": "https://platform.claude.com/docs/en/build-with-claude/files", "type": "docs", "date": null, "channel": null },
+    { "id": "src-24", "title": "Tool use with Claude", "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview", "type": "docs", "date": null, "channel": null },
+    { "id": "src-25", "title": "Computer use tool", "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool", "type": "docs", "date": null, "channel": null },
+    { "id": "src-26", "title": "Claude Managed Agents overview", "url": "https://platform.claude.com/docs/en/managed-agents/overview", "type": "docs", "date": null, "channel": null },
+    { "id": "src-27", "title": "Agent SDK overview", "url": "https://code.claude.com/docs/en/agent-sdk/overview", "type": "docs", "date": null, "channel": null },
+    { "id": "src-28", "title": "How can I create and manage projects? (Help Center)", "url": "https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects", "type": "docs", "date": null, "channel": null },
+    { "id": "src-29", "title": "What are artifacts and how do I use them? (Help Center)", "url": "https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them", "type": "docs", "date": null, "channel": null },
+    { "id": "src-30", "title": "Use Claude's chat search and memory (Help Center)", "url": "https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context", "type": "docs", "date": null, "channel": null },
+    { "id": "src-31", "title": "Get started with Claude in Chrome (Help Center)", "url": "https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome", "type": "docs", "date": null, "channel": null },
+    { "id": "src-32", "title": "Use research on Claude (Help Center)", "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude", "type": "docs", "date": null, "channel": null },
+    { "id": "src-33", "title": "Create and edit files with Claude (Help Center)", "url": "https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude", "type": "docs", "date": null, "channel": null },
+    { "id": "src-34", "title": "What are skills? (Help Center)", "url": "https://support.claude.com/en/articles/12512176-what-are-skills", "type": "docs", "date": null, "channel": null },
+    { "id": "src-35", "title": "Use voice mode (Help Center)", "url": "https://support.claude.com/en/articles/11101966-use-voice-mode", "type": "docs", "date": null, "channel": null },
+    { "id": "src-36", "title": "Use connectors to extend Claude's capabilities (Help Center)", "url": "https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities", "type": "docs", "date": null, "channel": null },
+    { "id": "src-37", "title": "Get started with Claude Cowork (Help Center)", "url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork", "type": "docs", "date": null, "channel": null },
+    { "id": "src-38", "title": "Schedule recurring tasks in Claude Cowork (Help Center)", "url": "https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork", "type": "docs", "date": null, "channel": null },
+    { "id": "src-39", "title": "Get started with custom connectors using remote MCP (Help Center)", "url": "https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp", "type": "docs", "date": null, "channel": null },
+    { "id": "src-40", "title": "When should I use web search, extended thinking, and research? (Help Center)", "url": "https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research", "type": "docs", "date": null, "channel": null }
+  ],
+  "features": [
+    {
+      "id": "projects",
+      "name": "Projetos (Projects)",
+      "category": "chat",
+      "summary": "Projetos são espaços que agrupam chats, documentos e instruções relacionadas dentro do Claude.ai. Você sobe arquivos para o conhecimento do projeto e define instruções personalizadas que valem para todas as conversas dentro dele. Usuários Free podem criar até 5 projetos; Pro, Max, Team e Enterprise têm projetos ilimitados.",
+      "tips": [
+        "Use «Set project instructions» para definir o tom, o formato e as regras que o Claude deve seguir em todos os chats do projeto.",
+        "Em planos pagos, quando o conhecimento do projeto se aproxima do limite de contexto, o Claude ativa automaticamente o modo RAG para ampliar a capacidade.",
+        "A memória é separada por projeto: mover um chat para outro projeto ajuda a manter contextos distintos organizados.",
+        "Em Team e Enterprise, compartilhe projetos com permissão «Can view» ou «Can edit» e use as abas «Your projects», «Organization» e «Shared with you» para achá-los."
+      ],
+      "sourceIds": ["src-28"]
+    },
+    {
+      "id": "artifacts",
+      "name": "Artifacts",
+      "category": "chat",
+      "summary": "Artifacts são janelas dedicadas, ao lado do chat, onde o Claude entrega conteúdo substancial e autônomo: documentos, código, sites HTML de página única, SVGs, diagramas e componentes React interativos. O Claude cria um artifact quando o conteúdo é significativo (tipicamente mais de 15 linhas) e você provavelmente vai editar, iterar ou reutilizar. Estão disponíveis em todos os planos, no Claude web, desktop, Cowork e Claude Code.",
+      "tips": [
+        "Peça alterações pelo chat e alterne entre versões do artifact para comparar caminhos sem perder trabalho anterior.",
+        "Clique em «Publish» para o artifact aparecer na seção Artifacts da barra lateral e poder ser compartilhado; artifacts criados em conversas não aparecem lá automaticamente.",
+        "Artifacts com IA embutida usam a conta Claude de quem os abre: o uso conta no limite de quem usa o app, não no de quem criou.",
+        "Em Pro, Max, Team e Enterprise você pode conectar artifacts a serviços via MCP e usar armazenamento persistente (até 20 MB por artifact)."
+      ],
+      "sourceIds": ["src-29"]
+    },
+    {
+      "id": "memory-chat-search",
+      "name": "Memória e busca em chats",
+      "category": "memory",
+      "summary": "A memória permite que o Claude leve contexto de conversas anteriores (seu papel, projetos, estilo de comunicação, preferências técnicas) para novos chats e tarefas do Cowork, salvando entradas individuais e categorizadas. A busca em chats anteriores está disponível nos planos pagos. A memória vem ligada por padrão em Free, Pro e Max; em Team e Enterprise vem desligada e precisa ser ativada por um owner.",
+      "tips": [
+        "Vá em Settings > Memory para ver, editar ou apagar entradas individuais; mudanças valem para conversas futuras.",
+        "Pausar mantém o que já foi memorizado e para de criar entradas novas; Reset apaga tudo de forma irreversível.",
+        "Use chats incógnitos (disponíveis em todos os planos) para conversas que não devem entrar no histórico nem na memória.",
+        "Cada projeto tem memória própria, então o contexto de um projeto não vaza para outro."
+      ],
+      "sourceIds": ["src-30"]
+    },
+    {
+      "id": "connectors-mcp",
+      "name": "Conectores e MCP",
+      "category": "tools",
+      "summary": "Conectores permitem que o Claude acesse seus apps, leia dados e execute ações em serviços como Google Workspace, GitHub, Microsoft 365, Linear, Slack e 1Password. Conectores personalizados usam MCP remoto e funcionam em todos os clientes (claude.ai, Desktop, Cowork, mobile); extensões desktop rodam localmente só no Claude Desktop. No Claude Code, servidores MCP são adicionados com «claude mcp add» em escopos local, project ou user.",
+      "tips": [
+        "No Claude.ai, adicione conectores em Customize > Connectors ou navegue pelo diretório em claude.ai/connectors; usuários Free têm direito a um conector personalizado.",
+        "Um conector remoto personalizado precisa ser alcançável pela internet pública, pois o Claude conecta a partir da infraestrutura da Anthropic, não do seu computador.",
+        "No Claude Code, prefira «--transport http» para servidores remotos e use «--scope project» para gravar em .mcp.json e compartilhar com o time via git.",
+        "Use «/mcp» dentro do Claude Code para autenticar via OAuth e conferir o status dos servidores; «claude mcp list» mostra todos os configurados."
+      ],
+      "sourceIds": ["src-36", "src-39", "src-12"]
+    },
+    {
+      "id": "claude-in-chrome",
+      "name": "Claude no Chrome",
+      "category": "agents",
+      "summary": "Claude in Chrome é uma extensão que permite ao Claude ler, clicar, digitar, navegar e preencher formulários em sites junto com você, pelo painel lateral do Chrome ou pelo Claude Desktop. Está disponível em todos os planos pagos (Pro, Max, Team e Enterprise) e não funciona em outros navegadores Chromium nem em dispositivos móveis.",
+      "tips": [
+        "Instale pela Chrome Web Store, faça login com sua conta Claude, fixe a extensão e conceda as permissões pedidas.",
+        "O painel lateral roda em modo «Automatically approve» por padrão: o Claude revisa cada ação por segurança e pausa para pedir aprovação quando necessário.",
+        "Em Max e Team (e chegando ao Pro) o painel lateral roda como sessão do Cowork, com sessões salvas e sincronizadas entre dispositivos.",
+        "Admins de Enterprise podem restringir sites com listas de permissão e bloqueio; use com cautela em sites com dados sensíveis."
+      ],
+      "sourceIds": ["src-31"]
+    },
+    {
+      "id": "voice-mode",
+      "name": "Modo de voz",
+      "category": "chat",
+      "summary": "O modo de voz (beta) permite falar com o Claude e ouvir respostas em voz, alternando entre texto e voz na mesma conversa. Está disponível em todos os planos no Claude Mobile (iOS e Android), Claude Desktop e web, mas foi pensado para funcionar melhor no celular. Durante a conversa por voz é possível usar busca na web e ferramentas como Gmail, Google Calendar, Google Docs e Slack.",
+      "tips": [
+        "Toque no ícone de onda sonora no campo de texto (mobile) ou no canto inferior direito (web/desktop) para ativar.",
+        "O modo hands-free (padrão) responde às pausas naturais da fala; em ambientes barulhentos, use push-to-talk segurando o botão enquanto fala.",
+        "Escolha entre vozes predefinidas e ajuste o ritmo nas configurações; defina o idioma preferido da voz em Settings.",
+        "O modo de voz não está disponível dentro do Claude Cowork nem do Claude Code."
+      ],
+      "sourceIds": ["src-35"]
+    },
+    {
+      "id": "file-creation",
+      "name": "Criação e edição de arquivos",
+      "category": "files",
+      "summary": "O Claude pode gerar planilhas Excel (.xlsx), apresentações PowerPoint (.pptx), documentos Word (.docx), PDFs, scripts Python e visualizações em PNG diretamente no chat, usando um ambiente de execução de código isolado por usuário. O limite é de 30 MB por arquivo, tanto para upload quanto para download, e os arquivos podem ser baixados ou salvos direto no Google Drive.",
+      "tips": [
+        "Em Free, Pro e Max, ative em Settings > Capabilities > «Code execution and file creation»; em Team e Enterprise vem ativado por padrão e owners controlam nas configurações da organização.",
+        "Para PDFs acima de 30 MB, o Claude consegue processá-los no ambiente de computação sem carregar tudo no contexto.",
+        "O acesso à rede do sandbox pode ser configurado (só gerenciadores de pacotes, domínios específicos ou desligado), o que afeta o que os scripts conseguem baixar.",
+        "A criação de arquivos também funciona nos apps iOS e Android."
+      ],
+      "sourceIds": ["src-33"]
+    },
+    {
+      "id": "research",
+      "name": "Research (pesquisa aprofundada)",
+      "category": "tools",
+      "summary": "Research faz o Claude operar de forma agentiva: ele conduz várias buscas encadeadas, explora ângulos diferentes da pergunta e entrega uma resposta abrangente com citações fáceis de verificar, em alguns minutos. Está disponível nos planos Pro, Max, Team e Enterprise, no web, desktop e mobile, e pode combinar a web com Gmail, Calendar e Docs quando os conectores do Google Workspace estão ligados.",
+      "tips": [
+        "Ative clicando no botão «+» do chat e escolhendo «Research» (o indicador fica azul); a busca na web precisa estar habilitada para o Research funcionar.",
+        "Use Research para tarefas amplas que exigem muitas fontes (cerca de 5 ou mais chamadas de ferramenta, 1 a 3 minutos); para uma consulta rápida, a busca na web simples basta.",
+        "Se não ativar sozinho, peça explicitamente: «use a ferramenta de research» ou cite as fontes internas que quer consultar.",
+        "Research consome limites de uso mais rápido que um chat comum, porque busca em várias fontes."
+      ],
+      "sourceIds": ["src-32", "src-40"]
+    },
+    {
+      "id": "skills",
+      "name": "Skills",
+      "category": "tools",
+      "summary": "Skills são pastas com instruções, scripts e recursos que o Claude carrega dinamicamente (progressive disclosure) para executar tarefas específicas de forma repetível, como criar documentos no padrão da empresa ou seguir um fluxo de análise. No Claude.ai há skills da Anthropic (Excel, Word, PowerPoint, PDF), skills personalizadas, skills provisionadas pela organização e skills de parceiros. No Claude Code, skills vivem em ~/.claude/skills ou .claude/skills e são invocadas com /nome-da-skill ou automaticamente pela descrição.",
+      "tips": [
+        "Toda skill precisa de um SKILL.md com frontmatter YAML contendo pelo menos name e description; a description é o que faz o Claude decidir quando usá-la.",
+        "No Claude.ai, gerencie em Customize > Skills (disponível em todos os planos, exige execução de código ativada) e crie skills conversando com o Claude, sem programar.",
+        "No Claude Code, os antigos .claude/commands foram fundidos com skills: um arquivo em .claude/commands/deploy.md e .claude/skills/deploy/SKILL.md criam o mesmo /deploy.",
+        "Use «disable-model-invocation: true» quando só você deve acionar a skill, e «!`comando`» para injetar saída de shell (por exemplo git diff) no conteúdo da skill."
+      ],
+      "sourceIds": ["src-34", "src-10", "src-16"]
+    },
+    {
+      "id": "cowork-automation",
+      "name": "Cowork, tarefas agendadas e Routines",
+      "category": "automation",
+      "summary": "O Claude Cowork leva capacidades agentivas ao trabalho de conhecimento: você descreve um resultado, sai, e volta para encontrar documentos, arquivos organizados ou pesquisa pronta; no desktop ele acessa pastas locais e pode usar um navegador. Tarefas agendadas do Cowork (planos pagos) rodam remotamente na cadência escolhida mesmo com o computador desligado. No Claude Code, Routines são configurações salvas que rodam na nuvem por agenda, chamada de API ou eventos do GitHub.",
+      "tips": [
+        "Cowork requer plano pago: Desktop (macOS/Windows) em todos os pagos; web e mobile em Pro, Max e Team (Enterprise quando habilitado); espere consumo de uso bem maior que um chat comum.",
+        "Para agendar no Cowork, clique em «Scheduled» > «New task» e escolha «Create with Claude»; frequências: hourly, daily, weekly, weekdays ou manual.",
+        "Crie Routines em claude.ai/code/routines ou com /schedule no CLI (ex.: «/schedule daily PR review at 9am»); o intervalo mínimo é de 1 hora e o Claude trabalha em branches com prefixo claude/.",
+        "Routines rodam sem prompts de permissão e usam seus conectores: remova os que a rotina não precisa e escreva prompts autossuficientes, com critério de sucesso explícito."
+      ],
+      "sourceIds": ["src-37", "src-38", "src-18", "src-8"]
+    },
+    {
+      "id": "model-lineup",
+      "name": "Família Claude 5 e escolha de modelo",
+      "category": "models",
+      "summary": "A linha atual é: Claude Fable 5.1 (claude-fable-5-1, US$10/US$50 por MTok, para raciocínio exigente e trabalho agentivo de longo horizonte, thinking adaptativo sempre ligado), Claude Opus 5 (claude-opus-5, US$5/US$25, para código agentivo complexo e trabalho enterprise), Claude Sonnet 5 (claude-sonnet-5, US$2/US$10, melhor equilíbrio entre velocidade e inteligência) e Claude Haiku 4.5 (claude-haiku-4-5, US$1/US$5, o mais rápido). Os três primeiros têm contexto de 1M tokens e 128K de saída; o Haiku 4.5 tem 200K de contexto e 64K de saída. A recomendação oficial é começar pelo Opus 5 na maioria das cargas.",
+      "tips": [
+        "Escolha Fable 5.1 só quando o Opus 5 com effort alto ainda não resolver: sessões de agente de horas, pesquisa profunda multi-etapas ou análises que terminam em documento, planilha ou apresentação.",
+        "Fable 5.1 e Mythos 5.1 são o mesmo modelo com salvaguardas diferentes; o Mythos 5.1 é restrito a programas de acesso confiável (cibersegurança e ciências da vida).",
+        "Antes de trocar de modelo, ajuste o parâmetro effort (low a max): muitas vezes é uma alavanca melhor de custo/qualidade do que descer de modelo.",
+        "Modelos legados ainda servidos: Fable 5, Opus 4.8/4.7/4.6/4.5 e Sonnet 4.6/4.5; o preço introdutório do Sonnet 5 (US$2/US$10) virou o preço padrão."
+      ],
+      "sourceIds": ["src-1", "src-7", "src-5", "src-6", "src-2", "src-4"]
+    },
+    {
+      "id": "claude-code-surfaces",
+      "name": "Claude Code: terminal, IDE, desktop e web",
+      "category": "coding",
+      "summary": "Claude Code é a ferramenta de codificação agentiva da Anthropic: lê seu codebase, edita arquivos, roda comandos e cria commits e PRs. Roda no terminal (CLI), em extensões para VS Code/Cursor e JetBrains, no app desktop (macOS, Windows; Linux em beta) e no navegador em claude.ai/code, com sessões na nuvem que continuam mesmo com o laptop fechado e podem ser acompanhadas pelo app mobile. Todas as superfícies usam o mesmo motor, então CLAUDE.md, settings e servidores MCP funcionam em todas.",
+      "tips": [
+        "Instale com «curl -fsSL https://claude.ai/install.sh | bash» (macOS/Linux/WSL), «brew install --cask claude-code» ou «winget install Anthropic.ClaudeCode», e rode «claude» dentro do projeto.",
+        "Use «claude --cloud \"tarefa\"» para mandar trabalho para a nuvem e «claude --teleport» para puxar uma sessão da web para o terminal (exige login claude.ai e a branch já enviada ao remoto).",
+        "Modo não interativo: «claude -p \"prompt\"» aceita stdin e serve para CI, pipes e scripts; «claude --continue» retoma a última sessão e «--worktree nome» cria sessões paralelas isoladas.",
+        "Claude Code na web está em research preview para Pro, Max e Team (e Enterprise com assentos premium); o app desktop exige assinatura paga."
+      ],
+      "sourceIds": ["src-8", "src-17", "src-19"]
+    },
+    {
+      "id": "claude-md-memory",
+      "name": "CLAUDE.md e memória automática",
+      "category": "coding",
+      "summary": "CLAUDE.md é um arquivo markdown que o Claude Code lê no início de cada sessão com instruções persistentes: comandos de build e teste, convenções, arquitetura e regras. Pode existir em nível de organização (política gerenciada), usuário (~/.claude/CLAUDE.md), projeto (./CLAUDE.md ou ./.claude/CLAUDE.md) e local (CLAUDE.local.md, fora do git). Complementando, a memória automática guarda aprendizados que o próprio Claude anota em ~/.claude/projects/<projeto>/memory/.",
+      "tips": [
+        "Rode /init para gerar um CLAUDE.md inicial a partir do codebase; mantenha o arquivo abaixo de 200 linhas e escreva instruções verificáveis («Use 2 espaços de indentação», não «formate bem»).",
+        "Importe outros arquivos com @caminho (até 4 níveis); se o repositório já usa AGENTS.md, crie um CLAUDE.md contendo «@AGENTS.md».",
+        "Use .claude/rules/*.md com frontmatter «paths» para regras que só carregam quando o Claude mexe em arquivos correspondentes.",
+        "Rode /memory para ver e editar arquivos de memória (e ligar/desligar a memória automática) e /context para confirmar quais arquivos foram carregados; só as primeiras 200 linhas ou 25 KB de MEMORY.md entram na sessão."
+      ],
+      "sourceIds": ["src-13"]
+    },
+    {
+      "id": "hooks",
+      "name": "Hooks",
+      "category": "coding",
+      "summary": "Hooks são automações definidas pelo usuário que executam em pontos do ciclo de vida do Claude Code, como SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop, SubagentStop e PreCompact. Podem ser comandos shell, endpoints HTTP, chamadas a ferramentas MCP, prompts para o modelo ou subagentes. Diferente do CLAUDE.md, que é contexto, os hooks são executados de verdade pelo harness, independentemente do que o modelo decidir.",
+      "tips": [
+        "Configure em ~/.claude/settings.json (todos os projetos), .claude/settings.json (projeto, versionável) ou .claude/settings.local.json (projeto, fora do git); plugins e frontmatter de skills também podem trazer hooks.",
+        "Para rodar lint depois de cada edição, use PostToolUse com matcher «Edit|Write»; para bloquear comandos perigosos, use PreToolUse com matcher «Bash».",
+        "Um hook PreToolUse que sai com código 2 bloqueia a chamada antes das regras de permissão, mesmo que uma regra allow permitisse.",
+        "Se uma instrução precisa acontecer sempre em um momento fixo (antes de cada commit, após cada edição), escreva como hook em vez de CLAUDE.md."
+      ],
+      "sourceIds": ["src-9", "src-13", "src-14"]
+    },
+    {
+      "id": "subagents",
+      "name": "Subagentes",
+      "category": "coding",
+      "summary": "Subagentes são assistentes especializados que rodam em janelas de contexto isoladas, com prompt de sistema próprio, acesso restrito a ferramentas e permissões independentes; eles fazem o trabalho e devolvem só um resumo à conversa principal. São definidos em arquivos markdown com frontmatter (name, description, tools, model, permissionMode, maxTurns, memory, isolation) em .claude/agents/ ou ~/.claude/agents/. O Claude Code inclui subagentes prontos como Explore (busca somente leitura), Plan e General-purpose.",
+      "tips": [
+        "Use subagentes para operações verbosas (rodar testes, ler logs, explorar um codebase grande) e manter o contexto principal limpo; para fluxos reutilizáveis no contexto principal, prefira skills.",
+        "Invoque por linguagem natural («use o agente code-reviewer»), por @-menção (@agent-nome) ou rode a sessão inteira como um agente com «claude --agent nome».",
+        "Um subagente comum não vê o histórico da conversa principal; se a tarefa precisa desse contexto, crie um fork com /subtask, que herda toda a conversa.",
+        "Reduza custo definindo «model: haiku» para tarefas simples e «maxTurns» para limitar a duração; «isolation: worktree» roda o agente em um worktree git isolado."
+      ],
+      "sourceIds": ["src-11"]
+    },
+    {
+      "id": "plan-mode-permissions",
+      "name": "Modo plano e permissões",
+      "category": "coding",
+      "summary": "O Claude Code tem modos de permissão que controlam o que ele pode fazer sem perguntar: default (Manual), acceptEdits, plan, auto, dontAsk e bypassPermissions. No modo plano ele lê arquivos e explora, mas só edita depois que você aprova o plano. No modo auto, padrão inicial em Pro, Max e Team, um modelo classificador revisa as ações em vez de você. Regras allow, deny e ask em settings.json refinam o acesso e são impostas pelo Claude Code, não pelo modelo.",
+      "tips": [
+        "Pressione Shift+Tab para alternar entre modos durante a sessão, ou inicie com «claude --permission-mode plan»; prefixe um prompt com /plan para planejar só aquela tarefa.",
+        "Ao revisar um plano, pressione Ctrl+G para abri-lo no editor e ajustar antes de aprovar; aprovar sai do modo plano e libera as edições.",
+        "As regras são avaliadas na ordem deny, depois ask, depois allow: um deny amplo como Bash(aws *) bloqueia mesmo que exista um allow mais específico.",
+        "Use /permissions para ver e editar as regras; reserve bypassPermissions para containers ou VMs isoladas e bloqueie-o com permissions.disableBypassPermissionsMode em settings gerenciados."
+      ],
+      "sourceIds": ["src-14", "src-15", "src-19"]
+    },
+    {
+      "id": "api-tool-use",
+      "name": "Messages API e uso de ferramentas",
+      "category": "api",
+      "summary": "Tudo na API do Claude passa por POST /v1/messages. Com tool use (function calling), você descreve ferramentas com name, description e input_schema; o Claude responde com stop_reason «tool_use» e blocos tool_use, seu código executa e devolve tool_result. Ferramentas cliente (as suas, mais bash, text editor, memory, computer use e browser use) rodam no seu app; ferramentas servidor (web search, web fetch, code execution, tool search, MCP connector) rodam na infraestrutura da Anthropic. A Files API permite subir um arquivo uma vez e referenciá-lo por file_id.",
+      "tips": [
+        "Use «strict: true» na definição da ferramenta para garantir que os argumentos sigam exatamente o schema, e parseie sempre o input como JSON.",
+        "Quando o Claude chamar várias ferramentas em paralelo, devolva todos os tool_result em uma única mensagem de usuário; erros devem voltar com is_error: true.",
+        "Computer use atual é o toolset «computer_toolset_20260801» (screenshot, zoom, cliques, teclado, scroll); rode sempre em VM ou container isolado e peça confirmação humana para ações consequentes.",
+        "Web search custa US$10 por 1.000 buscas; web fetch não tem custo extra além dos tokens; a Files API aceita arquivos de até 500 MB e 1 TB por organização, sem header beta."
+      ],
+      "sourceIds": ["src-24", "src-25", "src-23", "src-2"]
+    },
+    {
+      "id": "api-caching-thinking-batch",
+      "name": "Prompt caching, thinking/effort e Batch API",
+      "category": "api",
+      "summary": "Três recursos controlam custo e qualidade na API. O prompt caching reutiliza prefixos de prompt: gravar no cache custa 1,25x (5 min) ou 2x (1 h) o preço de entrada, e ler custa 0,1x (0,025x no Fable 5.1). O thinking adaptativo já vem ligado em Opus 5, Sonnet 5 e Fable 5.1 (em Opus 4.8/4.7/4.6 e Sonnet 4.6 é preciso enviar thinking: {type: adaptive}; Haiku 4.5 ainda usa budget_tokens) e a profundidade é guiada por output_config.effort (low, medium, high, xhigh, max). A Message Batches API processa lotes assíncronos com 50% de desconto.",
+      "tips": [
+        "Coloque conteúdo estável primeiro (tools, depois system, depois messages) e o cache_control no último bloco que não muda; mudar ferramentas, thinking ou effort invalida o cache dali em diante.",
+        "O mais simples é o cache automático: um único cache_control no nível superior da requisição; há no máximo 4 breakpoints por requisição e um mínimo de tokens por modelo (512 no Opus 5, 1.024 no Sonnet 5, 4.096 no Haiku 4.5).",
+        "Por padrão o texto do thinking vem omitido nos modelos atuais; envie display: «summarized» se quiser exibir um resumo do raciocínio ao usuário.",
+        "Um batch aceita até 100.000 requisições ou 256 MB, costuma terminar em menos de 1 hora (expira em 24 h) e os resultados ficam disponíveis por 29 dias; combine batch com caching para somar descontos."
+      ],
+      "sourceIds": ["src-20", "src-21", "src-22", "src-2", "src-1"]
+    },
+    {
+      "id": "managed-agents-agent-sdk",
+      "name": "Managed Agents e Agent SDK",
+      "category": "agents",
+      "summary": "Claude Managed Agents (beta) é um harness de agente pré-construído que roda em infraestrutura gerenciada: você cria um Agent (modelo, prompt, tools, MCP, skills), um Environment (sandbox na nuvem ou auto-hospedado) e inicia Sessions que trocam eventos via SSE, com bash, arquivos, web e execução de código embutidos. Já o Claude Agent SDK é uma biblioteca em Python e TypeScript que expõe o mesmo loop de agente e as ferramentas do Claude Code para você rodar no seu próprio processo.",
+      "tips": [
+        "Managed Agents exige o header beta «managed-agents-2026-04-01» (os SDKs enviam automaticamente) e cobra tokens mais US$0,08 por hora de sessão em estado running.",
+        "Escolha Managed Agents para tarefas longas, assíncronas ou agendadas (scheduled deployments) sem manter seu próprio sandbox; escolha o Agent SDK quando quiser hospedar o agente e controlar orquestração, ferramentas e permissões.",
+        "O Agent SDK carrega skills, comandos, CLAUDE.md, hooks, subagentes e MCP do seu .claude/ como o Claude Code; para outras linguagens, rode o CLI com «-p --output-format json».",
+        "Produtos construídos com o Agent SDK devem usar autenticação por API key (não login claude.ai) e não podem se apresentar como «Claude Code»."
+      ],
+      "sourceIds": ["src-26", "src-27", "src-2"]
+    },
+    {
+      "id": "plans-pricing",
+      "name": "Planos: Free, Pro, Max, Team e Enterprise",
+      "category": "pricing",
+      "summary": "O plano Free (US$0) inclui chat na web, iOS, Android e desktop, busca na web, memória entre conversas, criação de arquivos e execução de código, conectores e extended thinking. O Pro custa US$17/mês no anual ou US$20/mês no mensal e adiciona mais uso, Claude Code, Cowork, Design, Science, projetos ilimitados e mais modelos. O Max começa em US$100/mês com 5x ou 20x o uso do Pro. Team tem assento padrão (US$20 anual/US$25 mensal) e premium (US$100/US$125); Enterprise custa US$20 por assento mais uso a preços de API.",
+      "tips": [
+        "Se você só precisa de chat com busca, memória e arquivos, o Free já cobre; Claude Code, Cowork e Claude in Chrome pedem plano pago.",
+        "Max vale para quem bate limites de uso com frequência: além de 5x ou 20x o uso, dá limites de saída maiores, acesso antecipado a recursos e prioridade em horários de pico.",
+        "Team inclui billing central, SSO e sem treinamento nos seus dados por padrão; Enterprise adiciona SCIM, audit logs, Compliance API, retenção customizada e IP allowlisting.",
+        "Na API, os preços são por milhão de tokens e o Batch API dá 50% de desconto; prompt caching e batch se acumulam."
+      ],
+      "sourceIds": ["src-3", "src-2"]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-projects-1",
+      "featureId": "projects",
+      "type": "multiple_choice",
+      "prompt": "Quantos projetos um usuário do plano Free pode criar no Claude.ai?",
+      "options": ["Ilimitados", "Até 5", "Apenas 1", "Até 10"],
+      "answer": 1,
+      "explanation": "Usuários Free podem criar até cinco projetos; Pro, Max, Team e Enterprise têm projetos ilimitados.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-projects-2",
+      "featureId": "projects",
+      "type": "multiple_choice",
+      "prompt": "Em planos pagos, o que acontece quando o conhecimento de um projeto se aproxima do limite da janela de contexto?",
+      "options": ["O projeto é bloqueado até você remover arquivos", "O Claude ignora os arquivos mais antigos", "O Claude ativa automaticamente o modo RAG para ampliar a capacidade", "O projeto é dividido em dois automaticamente"],
+      "answer": 2,
+      "explanation": "Nos planos pagos, o Claude habilita RAG automaticamente quando o conhecimento do projeto chega perto do limite de contexto.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-artifacts-1",
+      "featureId": "artifacts",
+      "type": "multiple_choice",
+      "prompt": "Em um artifact com IA embutida publicado por você, de quem é o limite de uso consumido quando outra pessoa usa o app?",
+      "options": ["Do criador do artifact", "É gratuito para todos", "Dividido entre criador e usuário", "Do usuário que está usando, com a própria conta Claude"],
+      "answer": 3,
+      "explanation": "Quem usa o artifact autentica com a própria conta Claude e o uso conta no limite dela, não no do criador.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-artifacts-2",
+      "featureId": "artifacts",
+      "type": "multiple_choice",
+      "prompt": "Qual destes NÃO é um tipo de conteúdo suportado em artifacts?",
+      "options": ["Vídeo MP4 editável", "Componente React interativo", "Site HTML de página única", "Imagem SVG"],
+      "answer": 0,
+      "explanation": "Artifacts suportam documentos, código, HTML de página única, SVG, diagramas e componentes React; vídeo editável não está na lista.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-memory-1",
+      "featureId": "memory-chat-search",
+      "type": "multiple_choice",
+      "prompt": "Em quais planos a memória do Claude vem DESLIGADA por padrão?",
+      "options": ["Free", "Pro e Max", "Team e Enterprise", "Em nenhum plano; vem sempre ligada"],
+      "answer": 2,
+      "explanation": "Em Team e Enterprise a memória vem desligada e um owner precisa ativá-la; em Free, Pro e Max vem ligada.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-memory-2",
+      "featureId": "memory-chat-search",
+      "type": "multiple_choice",
+      "prompt": "Qual a diferença entre «pausar» e «resetar» a memória em Settings > Memory?",
+      "options": ["Não há diferença", "Pausar mantém o que existe e para de criar entradas; resetar apaga tudo de forma irreversível", "Pausar apaga tudo; resetar só desliga temporariamente", "Ambos exportam a memória para um arquivo"],
+      "answer": 1,
+      "explanation": "Pausar preserva as memórias existentes sem criar novas; Reset apaga permanentemente todas as memórias.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-connectors-1",
+      "featureId": "connectors-mcp",
+      "type": "multiple_choice",
+      "prompt": "De onde parte a conexão quando você adiciona um conector personalizado (MCP remoto) no Claude.ai?",
+      "options": ["Da infraestrutura em nuvem da Anthropic, por isso o servidor precisa ser acessível pela internet", "Do seu computador local", "Do navegador, via extensão", "Do servidor MCP para o Claude, por webhook"],
+      "answer": 0,
+      "explanation": "O Claude conecta ao servidor MCP remoto a partir da nuvem da Anthropic; servidores atrás de VPN ou firewall não funcionam.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-connectors-2",
+      "featureId": "connectors-mcp",
+      "type": "multiple_choice",
+      "prompt": "No Claude Code, qual escopo de «claude mcp add» grava o servidor em .mcp.json para compartilhar com o time?",
+      "options": ["local", "project", "user", "global"],
+      "answer": 1,
+      "explanation": "O escopo project salva em .mcp.json na raiz do repositório; local e user ficam em ~/.claude.json e não são compartilhados.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-chrome-1",
+      "featureId": "claude-in-chrome",
+      "type": "multiple_choice",
+      "prompt": "Em quais navegadores a extensão Claude in Chrome funciona?",
+      "options": ["Qualquer navegador baseado em Chromium", "Chrome e Safari", "Apenas o Google Chrome no desktop", "Chrome no desktop e no celular"],
+      "answer": 2,
+      "explanation": "A documentação diz que não há suporte a outros navegadores Chromium nem a dispositivos móveis.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-chrome-2",
+      "featureId": "claude-in-chrome",
+      "type": "multiple_choice",
+      "prompt": "Quais planos têm acesso ao Claude in Chrome?",
+      "options": ["Apenas Enterprise", "Todos os planos pagos (Pro, Max, Team e Enterprise)", "Todos os planos, inclusive Free", "Apenas Max"],
+      "answer": 1,
+      "explanation": "Claude in Chrome está disponível para todos os planos pagos: Pro, Max, Team e Enterprise.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-voice-1",
+      "featureId": "voice-mode",
+      "type": "multiple_choice",
+      "prompt": "Qual é o modo padrão de interação no modo de voz do Claude?",
+      "options": ["Hands-free, respondendo às pausas naturais da fala", "Push-to-talk, segurando o botão", "Ditado com envio manual", "Somente leitura em voz das respostas"],
+      "answer": 0,
+      "explanation": "Hands-free é o padrão: o Claude escuta continuamente e responde nas pausas; push-to-talk é a alternativa para ambientes barulhentos.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-voice-2",
+      "featureId": "voice-mode",
+      "type": "multiple_choice",
+      "prompt": "Onde o modo de voz NÃO está disponível?",
+      "options": ["No app iOS", "Na web", "No Claude Desktop", "No Claude Cowork e no Claude Code"],
+      "answer": 3,
+      "explanation": "O modo de voz funciona no mobile, desktop e web, mas não dentro do Cowork nem do Claude Code.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-files-1",
+      "featureId": "file-creation",
+      "type": "multiple_choice",
+      "prompt": "Qual é o tamanho máximo por arquivo para upload e download na criação de arquivos do Claude.ai?",
+      "options": ["10 MB", "100 MB", "30 MB", "500 MB"],
+      "answer": 2,
+      "explanation": "O limite é de 30 MB por arquivo, tanto para uploads quanto para downloads.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-files-2",
+      "featureId": "file-creation",
+      "type": "multiple_choice",
+      "prompt": "Onde um usuário Pro ativa a criação de arquivos e execução de código?",
+      "options": ["Customize > Skills", "Settings > Capabilities > «Code execution and file creation»", "Settings > Memory", "Não precisa ativar; vem sempre ligado"],
+      "answer": 1,
+      "explanation": "Em Free, Pro e Max o recurso é ligado em Settings > Capabilities; em Team e Enterprise vem ativado por padrão.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-research-1",
+      "featureId": "research",
+      "type": "multiple_choice",
+      "prompt": "Qual pré-requisito é necessário para o Research funcionar?",
+      "options": ["A busca na web precisa estar habilitada", "Ter um projeto criado", "Estar no plano Max", "Ter o Claude in Chrome instalado"],
+      "answer": 0,
+      "explanation": "O Research depende da busca na web; sem ela ativada o recurso não funciona.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-research-2",
+      "featureId": "research",
+      "type": "multiple_choice",
+      "prompt": "Quando faz mais sentido usar Research em vez de uma busca na web simples?",
+      "options": ["Para qualquer pergunta factual rápida", "Quando você não tem plano pago", "Para tarefas abrangentes que exigem sintetizar várias fontes com citações, levando alguns minutos", "Somente para pesquisar dentro do Gmail"],
+      "answer": 2,
+      "explanation": "Research faz buscas encadeadas e agentivas e entrega um relatório com citações; é indicado para tarefas amplas que precisam de várias fontes.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-skills-1",
+      "featureId": "skills",
+      "type": "multiple_choice",
+      "prompt": "Qual arquivo é obrigatório em toda skill, contendo frontmatter YAML com name e description?",
+      "options": ["README.md", "SKILL.md", "skill.json", "CLAUDE.md"],
+      "answer": 1,
+      "explanation": "Toda skill é uma pasta com pelo menos um SKILL.md cujo frontmatter traz name e description.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-skills-2",
+      "featureId": "skills",
+      "type": "multiple_choice",
+      "prompt": "No Claude Code, o que aconteceu com os comandos personalizados em .claude/commands/?",
+      "options": ["Foram removidos e não funcionam mais", "Só funcionam com plano Enterprise", "Viraram hooks", "Foram fundidos com skills: .claude/commands/deploy.md e .claude/skills/deploy/SKILL.md criam o mesmo /deploy"],
+      "answer": 3,
+      "explanation": "Comandos personalizados foram unificados com skills; os arquivos antigos continuam funcionando, mas skills têm mais recursos.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-skills-3",
+      "featureId": "skills",
+      "type": "multiple_choice",
+      "prompt": "Qual campo do frontmatter impede que o próprio Claude invoque uma skill automaticamente, deixando-a só para o usuário?",
+      "options": ["user-invocable: false", "disable-model-invocation: true", "allowed-tools: none", "context: fork"],
+      "answer": 1,
+      "explanation": "disable-model-invocation: true torna a skill acionável apenas pelo usuário via /nome; user-invocable: false faz o oposto.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-cowork-1",
+      "featureId": "cowork-automation",
+      "type": "multiple_choice",
+      "prompt": "Onde as tarefas agendadas do Claude Cowork rodam por padrão?",
+      "options": ["No seu computador, que precisa ficar ligado", "Remotamente nos servidores da Anthropic, mesmo com o computador desligado", "No navegador Chrome", "Em um GitHub Action"],
+      "answer": 1,
+      "explanation": "Tarefas agendadas rodam remotamente por padrão; só rodam localmente quando precisam de arquivos ou apps locais.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-cowork-2",
+      "featureId": "cowork-automation",
+      "type": "multiple_choice",
+      "prompt": "Quais tipos de gatilho uma Routine do Claude Code pode combinar?",
+      "options": ["Apenas agenda (cron)", "Agenda e e-mail", "Agenda, chamada de API e eventos do GitHub", "Apenas eventos do GitHub"],
+      "answer": 2,
+      "explanation": "Uma mesma Routine pode ter gatilhos de agenda, um endpoint de API com bearer token e eventos do GitHub, como pull_request.opened.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-cowork-3",
+      "featureId": "cowork-automation",
+      "type": "multiple_choice",
+      "prompt": "Qual comando dentro do Claude Code CLI cria uma Routine de forma conversacional?",
+      "options": ["/schedule", "/loop", "/cron", "/routine-new"],
+      "answer": 0,
+      "explanation": "/schedule (alias /routines) cria e gerencia Routines na nuvem; /loop repete um prompt apenas dentro da sessão atual.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-models-1",
+      "featureId": "model-lineup",
+      "type": "multiple_choice",
+      "prompt": "Segundo a documentação oficial, qual modelo é o ponto de partida recomendado para a maioria das cargas de trabalho?",
+      "options": ["Claude Haiku 4.5", "Claude Opus 5", "Claude Fable 5.1", "Claude Sonnet 4.6"],
+      "answer": 1,
+      "explanation": "A documentação diz para começar com o Claude Opus 5 e só migrar para o Fable 5.1 quando o Opus 5 em effort alto não bastar.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-models-2",
+      "featureId": "model-lineup",
+      "type": "multiple_choice",
+      "prompt": "Qual é a janela de contexto do Claude Haiku 4.5?",
+      "options": ["200K tokens", "1M tokens", "128K tokens", "500K tokens"],
+      "answer": 0,
+      "explanation": "O Haiku 4.5 tem 200K de contexto e 64K de saída; Fable 5.1, Opus 5 e Sonnet 5 têm 1M de contexto e 128K de saída.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-models-3",
+      "featureId": "model-lineup",
+      "type": "multiple_choice",
+      "prompt": "Qual é a relação entre Claude Fable 5.1 e Claude Mythos 5.1?",
+      "options": ["São modelos de tamanhos diferentes", "Mythos é a versão antiga do Fable", "Fable é só para chat e Mythos só para API", "São o mesmo modelo com níveis diferentes de salvaguardas; Mythos é restrito a programas de acesso confiável"],
+      "answer": 3,
+      "explanation": "Fable 5.1 é disponível para todos; Mythos 5.1 é o mesmo modelo com salvaguardas ajustadas, restrito a profissionais verificados em cibersegurança e ciências da vida.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-cc-surfaces-1",
+      "featureId": "claude-code-surfaces",
+      "type": "multiple_choice",
+      "prompt": "Qual flag do CLI puxa uma sessão do Claude Code na web para o seu terminal?",
+      "options": ["--resume", "--cloud", "--teleport", "--continue"],
+      "answer": 2,
+      "explanation": "claude --teleport traz uma sessão da nuvem (com a branch e o histórico) para o terminal; --resume e --continue só retomam sessões locais.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-cc-surfaces-2",
+      "featureId": "claude-code-surfaces",
+      "type": "multiple_choice",
+      "prompt": "Como você roda o Claude Code de forma não interativa, aceitando entrada por pipe, para usar em CI ou scripts?",
+      "options": ["claude -p \"prompt\"", "claude --batch", "claude --headless-mode", "claude run"],
+      "answer": 0,
+      "explanation": "A flag -p executa um prompt e sai, lendo stdin e escrevendo em stdout como uma ferramenta Unix.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-claude-md-1",
+      "featureId": "claude-md-memory",
+      "type": "multiple_choice",
+      "prompt": "Qual comando gera um CLAUDE.md inicial analisando o codebase?",
+      "options": ["/memory", "/init", "/context", "/doctor"],
+      "answer": 1,
+      "explanation": "/init cria um CLAUDE.md com comandos de build, testes e convenções descobertas; se já existir, sugere melhorias.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-claude-md-2",
+      "featureId": "claude-md-memory",
+      "type": "multiple_choice",
+      "prompt": "Qual arquivo guarda preferências pessoais de um projeto que NÃO devem ir para o controle de versão?",
+      "options": ["./CLAUDE.md", "~/.claude/CLAUDE.md", "/etc/claude-code/CLAUDE.md", "./CLAUDE.local.md"],
+      "answer": 3,
+      "explanation": "CLAUDE.local.md fica na raiz do projeto, é carregado junto com o CLAUDE.md e deve ser adicionado ao .gitignore.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-claude-md-3",
+      "featureId": "claude-md-memory",
+      "type": "multiple_choice",
+      "prompt": "Quanto do arquivo MEMORY.md da memória automática é carregado no início de cada sessão?",
+      "options": ["O arquivo inteiro, sem limite", "Apenas a primeira linha", "As primeiras 200 linhas ou 25 KB, o que vier primeiro", "Nada; ele só é lido sob demanda"],
+      "answer": 2,
+      "explanation": "Só as primeiras 200 linhas ou 25 KB de MEMORY.md entram na sessão; os arquivos de tópico são lidos sob demanda.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-hooks-1",
+      "featureId": "hooks",
+      "type": "multiple_choice",
+      "prompt": "Qual evento e matcher você usaria para rodar um linter automaticamente depois de cada edição de arquivo?",
+      "options": ["SessionStart com matcher «*»", "UserPromptSubmit sem matcher", "PostToolUse com matcher «Edit|Write»", "Stop com matcher «Bash»"],
+      "answer": 2,
+      "explanation": "PostToolUse dispara após a execução de uma ferramenta; o matcher Edit|Write restringe a edições e escritas de arquivo.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-hooks-2",
+      "featureId": "hooks",
+      "type": "multiple_choice",
+      "prompt": "Qual é a principal diferença entre uma instrução no CLAUDE.md e um hook?",
+      "options": ["O hook é executado de fato pelo harness em um evento fixo; o CLAUDE.md é contexto que o modelo tenta seguir", "O CLAUDE.md é mais poderoso que hooks", "Hooks só funcionam no plano Enterprise", "Não há diferença prática"],
+      "answer": 0,
+      "explanation": "Hooks rodam independentemente do que o modelo decide; CLAUDE.md orienta o comportamento, mas não é uma camada de imposição.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-subagents-1",
+      "featureId": "subagents",
+      "type": "multiple_choice",
+      "prompt": "O que um subagente comum (não fork) NÃO recebe ao iniciar?",
+      "options": ["Os arquivos CLAUDE.md da hierarquia", "O histórico da conversa principal", "Seu próprio prompt de sistema", "A mensagem de delegação da tarefa"],
+      "answer": 1,
+      "explanation": "Subagentes começam com contexto novo e não veem o histórico principal; apenas forks (/subtask) herdam toda a conversa.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-subagents-2",
+      "featureId": "subagents",
+      "type": "multiple_choice",
+      "prompt": "Qual subagente embutido do Claude Code é somente leitura e usado para buscar e entender código rapidamente?",
+      "options": ["General-purpose", "Plan", "statusline-setup", "Explore"],
+      "answer": 3,
+      "explanation": "Explore usa apenas ferramentas de leitura e é acionado quando o Claude precisa pesquisar o código sem alterá-lo.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-plan-1",
+      "featureId": "plan-mode-permissions",
+      "type": "multiple_choice",
+      "prompt": "Qual atalho alterna os modos de permissão durante uma sessão no CLI do Claude Code?",
+      "options": ["Shift+Tab", "Ctrl+P", "Alt+M", "Ctrl+Shift+P"],
+      "answer": 0,
+      "explanation": "Shift+Tab percorre os modos (default → acceptEdits → plan → ...); no VS Code usa-se o indicador de modo.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-plan-2",
+      "featureId": "plan-mode-permissions",
+      "type": "multiple_choice",
+      "prompt": "Em que ordem o Claude Code avalia as regras de permissão?",
+      "options": ["allow, ask, deny", "Pela regra mais específica", "deny, depois ask, depois allow", "Na ordem em que aparecem no settings.json"],
+      "answer": 2,
+      "explanation": "A primeira correspondência na ordem deny → ask → allow decide; especificidade não altera a ordem.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-plan-3",
+      "featureId": "plan-mode-permissions",
+      "type": "multiple_choice",
+      "prompt": "Qual é o modo de permissão inicial padrão em sessões do Claude Code nos planos Pro, Max e Team?",
+      "options": ["plan", "auto (um classificador revisa as ações)", "bypassPermissions", "dontAsk"],
+      "answer": 1,
+      "explanation": "Em Pro, Max e Team o modo inicial embutido é auto, no qual um modelo classificador revisa as ações em vez de pedir aprovação a cada passo.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-tools-1",
+      "featureId": "api-tool-use",
+      "type": "multiple_choice",
+      "prompt": "Qual stop_reason indica que o Claude quer que sua aplicação execute uma ferramenta?",
+      "options": ["end_turn", "max_tokens", "tool_use", "pause_turn"],
+      "answer": 2,
+      "explanation": "Com stop_reason «tool_use», a resposta traz blocos tool_use; seu código executa e devolve tool_result na próxima mensagem.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-tools-2",
+      "featureId": "api-tool-use",
+      "type": "multiple_choice",
+      "prompt": "Qual destas é uma ferramenta de servidor, executada na infraestrutura da Anthropic sem código de handler no seu app?",
+      "options": ["bash", "text editor", "computer use", "web search"],
+      "answer": 3,
+      "explanation": "web search, web fetch, code execution e tool search rodam no servidor; bash, text editor e computer use são ferramentas cliente executadas por você.",
+      "difficulty": 2
+    },
+    {
+      "id": "q-tools-3",
+      "featureId": "api-tool-use",
+      "type": "multiple_choice",
+      "prompt": "Qual é o limite de tamanho por arquivo na Files API?",
+      "options": ["30 MB", "500 MB", "1 TB", "100 MB"],
+      "answer": 1,
+      "explanation": "A Files API aceita arquivos de até 500 MB, com 1 TB de armazenamento total por organização.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-cache-1",
+      "featureId": "api-caching-thinking-batch",
+      "type": "multiple_choice",
+      "prompt": "Quanto custa uma leitura de cache (cache hit) em relação ao preço base de entrada na maioria dos modelos?",
+      "options": ["0,5x", "0,1x", "1,25x", "2x"],
+      "answer": 1,
+      "explanation": "Leituras custam 0,1x o preço de entrada (0,025x no Fable 5.1); gravações custam 1,25x (5 min) ou 2x (1 h).",
+      "difficulty": 2
+    },
+    {
+      "id": "q-cache-2",
+      "featureId": "api-caching-thinking-batch",
+      "type": "multiple_choice",
+      "prompt": "Qual desconto a Message Batches API oferece sobre o preço padrão?",
+      "options": ["10%", "25%", "50%", "75%"],
+      "answer": 2,
+      "explanation": "Batches são cobrados a 50% do preço padrão de entrada e saída, com a maioria concluída em menos de 1 hora.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-cache-3",
+      "featureId": "api-caching-thinking-batch",
+      "type": "multiple_choice",
+      "prompt": "Como você controla a profundidade do raciocínio (thinking) no Claude Opus 5 pela API?",
+      "options": ["Com output_config.effort (low, medium, high, xhigh, max)", "Com thinking.budget_tokens", "Com o parâmetro temperature", "Com max_tokens apenas"],
+      "answer": 0,
+      "explanation": "Nos modelos 4.6+ o thinking é adaptativo e a profundidade é guiada pelo effort; budget_tokens só vale para modelos mais antigos como o Haiku 4.5.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-agents-1",
+      "featureId": "managed-agents-agent-sdk",
+      "type": "multiple_choice",
+      "prompt": "Em quais linguagens o Claude Agent SDK está disponível como biblioteca?",
+      "options": ["Apenas Python", "Python, Java e Go", "Apenas TypeScript", "Python e TypeScript"],
+      "answer": 3,
+      "explanation": "O Agent SDK existe em Python e TypeScript; para outras linguagens, a docs sugere rodar o CLI como subprocesso com -p.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-agents-2",
+      "featureId": "managed-agents-agent-sdk",
+      "type": "multiple_choice",
+      "prompt": "Além dos tokens, como o runtime de uma sessão do Claude Managed Agents é cobrado?",
+      "options": ["Não há cobrança adicional", "US$0,08 por hora de sessão em estado running", "US$1 por sessão criada", "Por container-hora, como o code execution"],
+      "answer": 1,
+      "explanation": "Managed Agents cobra tokens mais US$0,08 por hora de sessão; tempo idle ou terminated não conta.",
+      "difficulty": 3
+    },
+    {
+      "id": "q-plans-1",
+      "featureId": "plans-pricing",
+      "type": "multiple_choice",
+      "prompt": "Quanto custa o plano Pro do Claude na cobrança mensal?",
+      "options": ["US$10/mês", "US$17/mês", "US$20/mês", "US$25/mês"],
+      "answer": 2,
+      "explanation": "O Pro custa US$20/mês no mensal ou US$17/mês no plano anual.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-plans-2",
+      "featureId": "plans-pricing",
+      "type": "multiple_choice",
+      "prompt": "A partir de qual plano individual o Claude Code está incluído?",
+      "options": ["Pro", "Free", "Somente Max", "Somente Team e Enterprise"],
+      "answer": 0,
+      "explanation": "O Pro inclui Claude Code, Cowork, Design e Science; o Free não inclui Claude Code.",
+      "difficulty": 1
+    },
+    {
+      "id": "q-plans-3",
+      "featureId": "plans-pricing",
+      "type": "multiple_choice",
+      "prompt": "Como o plano Enterprise é precificado?",
+      "options": ["US$100 por assento fixo", "US$20 por assento mais uso a preços de API", "Gratuito para organizações grandes", "US$25 por assento, sem cobrança de uso"],
+      "answer": 1,
+      "explanation": "Enterprise custa US$20 por assento por mês mais uso cobrado a preços de API, com recursos como SCIM, audit logs e IP allowlisting.",
+      "difficulty": 2
+    }
+  ]
+}
