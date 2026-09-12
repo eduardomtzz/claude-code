@@ -8,10 +8,10 @@ Eduardo é o gestor e aprovador.
 
 | Etapa | Status | Observação |
 |---|---|---|
-| 1. Pesquisa de nicho | em andamento | 2 rodadas feitas (Manus + ChatGPT). Rodada 3 (verticais) em curso |
+| 1. Pesquisa de nicho | em andamento | 3 rodadas lidas e cruzadas (`01-pesquisa/resumo-rodada-3.md`). Aguardando decisão da primeira vertical (`01-pesquisa/decisao-primeira-vertical.md`) |
 | 2. Oferta | não iniciado | começa após escolha da primeira vertical |
 | 3. Produto | não iniciado | 20 planilhas por vertical + prompts + aulas narradas por IA |
-| 4. Marca | não iniciado | marca guarda-chuva para 5 verticais |
+| 4. Marca | aprovado | direção D, kit de marca em `03-marca/kit-de-marca/` |
 | 5. Copy | não iniciado | |
 | 6. Página | não iniciado | uma página de vendas por produto, home como catálogo |
 | 7. Checkout | não iniciado | hipótese: Kiwify (baixo) e Hotmart (alto/internacional) |
