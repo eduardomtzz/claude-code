@@ -82,6 +82,20 @@ h1{font-family:"Fraunces",Georgia,serif;font-size:clamp(28px,6vw,40px);margin:0 
 .C .avatar{background:var(--c1)}
 .C .prod{background:var(--c3);color:var(--c1)}
 .C .prod .p{color:var(--c5)}
+
+/* Direction D: Painel na paleta Parceiro */
+.D{--d1:#3b1f5e;--d2:#ffc83d;--d3:#7a5aa8;--d4:#f3eefb;--d5:#fffaf0}
+.D .logo,.D .sym{background:var(--d5)}
+.D .type .d{font-family:"Sora",sans-serif;font-weight:700;color:var(--d1);letter-spacing:-.02em}
+.D .type .b{font-family:"Figtree",sans-serif}
+.D .ad{background:var(--d1);color:#fff}
+.D .ad .hl{font-family:"Sora",sans-serif;font-weight:700;letter-spacing:-.02em}
+.D .ad .cta{background:var(--d2);color:var(--d1)}
+.D .avatar{background:var(--d1)}
+.D .prod{background:var(--d4);color:var(--d1)}
+.D .prod .p{color:var(--d3)}
+.D .alt{display:flex;flex-wrap:wrap;gap:14px}
+.D .alt .logo{flex:1 1 240px}
 </style>
 
 <div class="wrap">
@@ -262,6 +276,87 @@ h1{font-family:"Fraunces",Georgia,serif;font-size:clamp(28px,6vw,40px);margin:0 
     <div class="pro">
       <div><b>A favor</b>Mais distintiva no feed: ninguém no mercado de gestão usa roxo e amarelo. Serve de dentista a entregador. A metáfora de duas peças que se encaixam é o "sócio".</div>
       <div><b>Contra</b>Advogado mais conservador pode achar informal; o ajuste seria usar mais o roxo e menos o amarelo na vertical jurídica.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== D ===================== -->
+<section class="dir D">
+  <div class="head">
+    <div class="tag">Direção D</div>
+    <h2>Painel, na paleta Parceiro</h2>
+    <p>O símbolo de degraus da direção B com as cores da direção C. Os três degraus continuam sendo o crescimento organizado; o ponto amarelo é o sócio que avisa. Duas versões do nome: uma com a fonte do B (Sora) e outra com a do C (Bricolage), para você escolher.</p>
+  </div>
+  <div class="board">
+    <div class="alt">
+      <div class="logo">
+        <svg width="280" height="72" viewBox="0 0 280 72" role="img" aria-label="Seu Sócio Gestor, direção D com Sora">
+          <g transform="translate(0,10)">
+            <rect x="0" y="34" width="34" height="14" rx="7" fill="#7a5aa8"/>
+            <rect x="12" y="18" width="34" height="14" rx="7" fill="#3b1f5e"/>
+            <rect x="24" y="2" width="34" height="14" rx="7" fill="#3b1f5e"/>
+            <circle cx="53" cy="41" r="7" fill="#ffc83d"/>
+          </g>
+          <text x="76" y="46" font-family="Sora, system-ui, sans-serif" font-weight="800" font-size="27" letter-spacing="-0.8" fill="#3b1f5e">Seu Sócio <tspan fill="#7a5aa8">Gestor</tspan></text>
+        </svg>
+      </div>
+      <div class="logo">
+        <svg width="280" height="72" viewBox="0 0 280 72" role="img" aria-label="Seu Sócio Gestor, direção D com Bricolage">
+          <g transform="translate(0,10)">
+            <rect x="0" y="34" width="34" height="14" rx="7" fill="#7a5aa8"/>
+            <rect x="12" y="18" width="34" height="14" rx="7" fill="#3b1f5e"/>
+            <rect x="24" y="2" width="34" height="14" rx="7" fill="#3b1f5e"/>
+            <circle cx="53" cy="41" r="7" fill="#ffc83d"/>
+          </g>
+          <text x="76" y="44" font-family="Bricolage Grotesque, system-ui, sans-serif" font-weight="800" font-size="27" letter-spacing="-0.6" fill="#3b1f5e">Seu Sócio Gestor</text>
+          <rect x="196" y="50" width="78" height="6" rx="3" fill="#ffc83d"/>
+        </svg>
+      </div>
+      <div class="sym">
+        <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+          <rect width="72" height="72" rx="16" fill="#3b1f5e"/>
+          <rect x="12" y="46" width="30" height="11" rx="5.5" fill="#fff"/>
+          <rect x="21" y="31" width="30" height="11" rx="5.5" fill="#fff"/>
+          <rect x="30" y="16" width="30" height="11" rx="5.5" fill="#b89be0"/>
+          <circle cx="56" cy="52" r="6" fill="#ffc83d"/>
+        </svg>
+      </div>
+      <div class="sym" style="background:#ffc83d">
+        <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+          <rect x="12" y="46" width="30" height="11" rx="5.5" fill="#3b1f5e"/>
+          <rect x="21" y="31" width="30" height="11" rx="5.5" fill="#3b1f5e"/>
+          <rect x="30" y="16" width="30" height="11" rx="5.5" fill="#3b1f5e"/>
+          <circle cx="56" cy="52" r="6" fill="#fff"/>
+        </svg>
+      </div>
+    </div>
+    <div class="pal">
+      <div class="sw" style="background:#3b1f5e;color:#fff"><b>Uva</b>#3B1F5E</div>
+      <div class="sw" style="background:#ffc83d;color:#3b1f5e"><b>Sol</b>#FFC83D</div>
+      <div class="sw" style="background:#7a5aa8;color:#fff"><b>Lilás apoio</b>#7A5AA8</div>
+      <div class="sw" style="background:#f3eefb;color:#3b1f5e"><b>Lavanda clara</b>#F3EEFB</div>
+      <div class="sw" style="background:#fffaf0;color:#3b1f5e;border:1px solid #dcdcd6"><b>Creme quente</b>#FFFAF0</div>
+    </div>
+    <div class="type">
+      <small>Sora (títulos) + Figtree (texto) + IBM Plex Mono (números)</small>
+      <div class="d">Você atende. Seu sócio administra.</div>
+      <div class="b">Vinte planilhas prontas, um manual e uma biblioteca de prompts de IA. Sem mensalidade, sem software, sem esperar ninguém.</div>
+    </div>
+    <div class="apps">
+      <div class="ad">
+        <div class="tag" style="color:#fff;opacity:.7">Seu Sócio Gestor · para clínicas</div>
+        <div class="hl">Você estudou anos para atender. Administrar a clínica veio sem manual.</div>
+        <div class="cta">Ver o kit de gestão</div>
+      </div>
+      <div class="stack">
+        <div class="avatar"><svg width="48" height="48" viewBox="0 0 72 72" aria-hidden="true"><rect x="12" y="46" width="30" height="11" rx="5.5" fill="#fff"/><rect x="21" y="31" width="30" height="11" rx="5.5" fill="#fff"/><rect x="30" y="16" width="30" height="11" rx="5.5" fill="#b89be0"/><circle cx="56" cy="52" r="6" fill="#ffc83d"/></svg></div>
+        <div class="prod"><div class="k">Kit para clínicas</div><div class="n">Gestão da Clínica com dados e IA</div><div class="p">R$ 797 · pagamento único</div></div>
+      </div>
+    </div>
+    <div class="pro">
+      <div><b>A favor</b>Junta o símbolo mais forte com a paleta mais distintiva. Roxo escuro segura a seriedade para advogados; o amarelo dá o calor e o alerta.</div>
+      <div><b>Contra</b>O degrau mais claro no símbolo precisa de contraste bom em fundo escuro; ajusto no logo final. Escolher entre Sora (mais técnica) e Bricolage (mais humana) no nome.</div>
     </div>
   </div>
 </section>
