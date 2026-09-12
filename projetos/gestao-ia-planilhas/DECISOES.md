@@ -12,3 +12,6 @@
 | 2026-09-12 | Lançar uma vertical, validar, depois clonar. Planejar para cinco. |
 | 2026-09-12 | Orçamento de teste: R$ 20 a 50 mil/mês. Aberto a expansão internacional depois de validar no Brasil. |
 | 2026-09-12 | Tese de copy: benefício econômico crível (economizar, organizar, ganhar) como lente e ângulo, nunca como promessa de renda. "Renda extra" ok; "renda passiva" não. |
+| 2026-09-12 | Nome da marca: **Seu Sócio Gestor**. Domínio único seusociogestor.com.br (e .com), verificados livres via RDAP em 2026-09-12. Produtos como sub-páginas: /advogados, /clinicas, /ia, /kit. Instagram e INPI a confirmar. |
+| 2026-09-12 | Naming dos produtos: "Seu Sócio Gestor para Advogados", "Seu Sócio Gestor para Clínicas", "Seu Sócio Gestor no Trabalho" (linha IA), "Kit" (entrada). |
+| 2026-09-12 | Regra de copy: a primeira linha de toda página explica que é um sistema de planilhas + IA, sem pessoa por trás, para não criar expectativa de atendimento humano. |

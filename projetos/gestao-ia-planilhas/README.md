@@ -1,4 +1,4 @@
-# Gestão com IA e planilhas (nome provisório)
+# Seu Sócio Gestor
 
 Empresa de produtos digitais 100% automáticos: sistemas de gestão em planilhas + ensino de IA
 aplicada ao trabalho, com verticais por profissão liberal. Tudo produzido pelo Claude Code;
