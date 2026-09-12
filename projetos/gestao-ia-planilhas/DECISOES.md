@@ -15,3 +15,4 @@
 | 2026-09-12 | Nome da marca: **Seu Sócio Gestor**. Domínio único seusociogestor.com.br (e .com), verificados livres via RDAP em 2026-09-12. Produtos como sub-páginas: /advogados, /clinicas, /ia, /kit. Instagram e INPI a confirmar. |
 | 2026-09-12 | Naming dos produtos: "Seu Sócio Gestor para Advogados", "Seu Sócio Gestor para Clínicas", "Seu Sócio Gestor no Trabalho" (linha IA), "Kit" (entrada). |
 | 2026-09-12 | Regra de copy: a primeira linha de toda página explica que é um sistema de planilhas + IA, sem pessoa por trás, para não criar expectativa de atendimento humano. |
+| 2026-09-12 | Domínios comprados na GoDaddy (3 anos): seusociogestor.com (R$ 219,99) e seusociogestor.com.br (R$ 129,99), conta no e-mail da empresa. Instagram @seusociogestor verificado livre; página Instagram/Facebook a criar pelo Eduardo. |
