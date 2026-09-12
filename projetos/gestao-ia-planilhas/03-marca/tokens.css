@@ -1,0 +1,17 @@
+/* Seu Sócio Gestor — tokens de marca (v1, 2026-09-12) */
+:root{
+  --ssg-uva:#3B1F5E;        /* primária: títulos, logo, fundos escuros */
+  --ssg-sol:#FFC83D;        /* ação: botões de compra, grifo, destaques (texto sempre em uva) */
+  --ssg-lilas:#7A5AA8;      /* apoio: subtítulos, ícones, degrau claro do símbolo */
+  --ssg-lilas-claro:#B89BE0;/* degrau claro do símbolo em fundo escuro */
+  --ssg-lavanda:#F3EEFB;    /* fundo de cards e seções alternadas */
+  --ssg-creme:#FFFAF0;      /* fundo padrão da página */
+  --ssg-tinta:#1F1235;      /* texto corrido sobre fundos claros */
+  --ssg-branco:#FFFFFF;
+  --ssg-ok:#1E8E5A; --ssg-alerta:#D9772B; --ssg-erro:#C8402E; /* semânticas (planilhas e painéis) */
+  --ssg-font-display:"Bricolage Grotesque",system-ui,sans-serif;
+  --ssg-font-body:"Figtree",system-ui,sans-serif;
+  --ssg-font-mono:"IBM Plex Mono",ui-monospace,monospace;
+  --ssg-radius:12px; --ssg-radius-pill:999px;
+}
+/* Google Fonts: Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800 | Figtree:wght@400;500;600;700 | IBM+Plex+Mono:wght@500 */
