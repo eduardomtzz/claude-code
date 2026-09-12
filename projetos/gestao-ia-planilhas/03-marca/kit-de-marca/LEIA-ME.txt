@@ -9,7 +9,6 @@ ONDE USAR CADA ARQUIVO
 12-instagram-post-apresentacao-1080x1080.png ......... primeiro post do feed
 13-instagram-stories-apresentacao-1080x1920.png ...... primeiro story / destaque
 14-favicon-e-icone-de-app-512x512.png ................ ícone do site e de apps (Kiwify, Hotmart, área de membros)
-15-favicon-128x128.png ............................... ícone pequeno da aba do navegador
 16-paleta-de-cores.png ............................... referência rápida das cores
 
 01 a 06 ............................................. logos com fundo transparente, para colocar em qualquer material
