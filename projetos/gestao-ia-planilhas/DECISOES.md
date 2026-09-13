@@ -76,3 +76,23 @@
   de dados nomeado (hoje o site declara só o canal privacidade@).
 - Avaliação dos auditores: GPT (relatório "Auditoria independente do site") foi o melhor; Manus rendeu volume, não insight.
   Daqui em diante: uma auditoria por rodada, do GPT. Manus só para pesquisa que exija varrer muitas fontes na web.
+
+## 2026-09-13 · Preço único em todos os kits (Eduardo: "não vamos escolher um preço só?")
+
+| Kit | Preço | Por quê |
+|---|---|---|
+| IA no Trabalho · Completo | R$ 197 | Degrau de 5× sobre o Essencial; cabe em 12× de R$ 19,90; R$ 297 exigiria prova social que ainda não temos, e o Eduardo não quer subir preço depois |
+| Gestão para Advogados | R$ 497 | Primeira vertical, sem avaliações; a pesquisa colocou 497–697 e o piso vende mais rápido |
+| Gestão para Médicos | R$ 697 | Já era preço fechado na pesquisa |
+| Gestão para Dentistas | R$ 697 | Idem |
+| Gestão para Entregadores | R$ 27 | Faixa da pesquisa era 19,90–29,90; 27 deixa R$ 22 líquidos e usa a mesma âncora do Essencial |
+| Edição Estética | R$ 497 | Clone do núcleo de clínica, mesma lógica dos advogados |
+
+Sem faixa "de a até b" em lugar nenhum. Sem âncora riscada. Preço muda só com decisão registrada aqui.
+
+## 2026-09-13 · Produto 2 começa agora (Eduardo: "por que já não fazer pro produto dois?")
+
+Kit IA no Trabalho · Completo entra em produção completa (oferta, 7 planilhas novas, 40 prompts novos, 8 aulas curtas
+narradas, manual, demos, copy e página `/completo/`) sem esperar o Essencial ir ao ar. A regra "um produto só começa
+depois que o anterior está no ar com ROAS medido" fica suspensa enquanto as contas (Kiwify, domínio, Meta) não existem:
+o gargalo é externo, não de produção.

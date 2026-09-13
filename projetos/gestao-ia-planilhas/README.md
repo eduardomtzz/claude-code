@@ -9,7 +9,7 @@ Eduardo é o gestor e aprovador.
 | Etapa | Status | Observação |
 |---|---|---|
 | 1. Pesquisa de nicho | aprovado | 4 rodadas. Rodada 4 (conversão) consolidada em `01-pesquisa/resumo-rodada-4.md`: blueprint das páginas, checkout e pós-compra |
-| 2. Oferta | em andamento | `02-oferta/kit-essencial.md` (produto 1) em revisão; `02-oferta/dentistas.md` guardada para o produto 5 |
+| 2. Oferta | em andamento | `02-oferta/kit-essencial.md` (produto 1) e `02-oferta/kit-completo.md` (produto 2); `02-oferta/dentistas.md` guardada para o produto 5 |
 | 3. Produto | em andamento | Kit Essencial v1 completo em `produto/kit-essencial/entrega/` (3 planilhas, 40 prompts, manual, 8 slides, checklist, 3 vídeos). Aguarda auditoria de produto |
 | 4. Marca | aprovado | direção D, kit de marca em `03-marca/kit-de-marca/` |
 | 5. Copy | em andamento | `04-copy/kit-essencial.md` (página, obrigado, e-mails, 3 ângulos de anúncio) |
@@ -25,12 +25,12 @@ Eduardo é o gestor e aprovador.
 |---|---|---|---|
 | 0 | Base do site: home institucional mínima, termos, privacidade, suporte, checkout, Pixel + CAPI, e-mail de entrega | / | — |
 | 1 | Kit IA no Trabalho · Essencial (entrada de tudo) | /kit | R$ 37 |
-| 2 | IA no Trabalho: planilhas, relatórios e apresentações na metade do tempo | /ia | R$ 197 a 297 |
-| 3 | Kit de Gestão para Advogados | /advogados | R$ 497 a 697 |
-| 4 | Kit de Gestão para Médicos (cria o núcleo de clínica) | /medicos | R$ 697 (âncora 997) |
-| 5 | Kit de Gestão para Dentistas (clona o núcleo de clínica) | /dentistas | R$ 697 (âncora 997) |
-| 6 | Kit de Gestão para Entregadores (laboratório de afiliados e orgânico) | /entregadores | R$ 19,90 a 29,90 |
-| 7 | Edição Estética (clone do núcleo de clínica) | /estetica | R$ 497 a 697 |
+| 2 | Kit IA no Trabalho · Completo (10 planilhas, 80 prompts, 8 aulas curtas) | /completo | R$ 197 |
+| 3 | Kit de Gestão para Advogados | /advogados | R$ 497 |
+| 4 | Kit de Gestão para Médicos (cria o núcleo de clínica) | /medicos | R$ 697 |
+| 5 | Kit de Gestão para Dentistas (clona o núcleo de clínica) | /dentistas | R$ 697 |
+| 6 | Kit de Gestão para Entregadores (laboratório de afiliados e orgânico) | /entregadores | R$ 27 |
+| 7 | Edição Estética (clone do núcleo de clínica) | /estetica | R$ 497 |
 | Pro | Painéis Power BI + atualizações 12 meses (upsell das verticais) | — | R$ 497 |
 
 Regras: um produto só começa a ser produzido depois que o anterior está no ar com ROAS medido.
