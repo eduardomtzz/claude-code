@@ -24,12 +24,12 @@ Eduardo é o gestor e aprovador.
 | Ordem | Produto | Página | Preço |
 |---|---|---|---|
 | 0 | Base do site: home institucional mínima, termos, privacidade, suporte, checkout, Pixel + CAPI, e-mail de entrega | / | — |
-| 1 | Kit IA no Trabalho (entrada e order bump de tudo) | /kit | R$ 27 a 47 |
+| 1 | Kit IA no Trabalho · Essencial (entrada e order bump de tudo) | /kit | R$ 27 a 47 |
 | 2 | IA no Trabalho: planilhas, relatórios e apresentações na metade do tempo | /ia | R$ 197 a 297 |
-| 3 | Seu Sócio Gestor para Advogados | /advogados | R$ 497 a 697 |
-| 4 | Seu Sócio Gestor para Médicos (cria o núcleo de clínica) | /medicos | R$ 697 (âncora 997) |
-| 5 | Seu Sócio Gestor para Dentistas (clona o núcleo de clínica) | /dentistas | R$ 697 (âncora 997) |
-| 6 | Entregadores e motoristas de app (laboratório de afiliados e orgânico) | /entregadores | R$ 19,90 a 29,90 |
+| 3 | Kit de Gestão para Advogados | /advogados | R$ 497 a 697 |
+| 4 | Kit de Gestão para Médicos (cria o núcleo de clínica) | /medicos | R$ 697 (âncora 997) |
+| 5 | Kit de Gestão para Dentistas (clona o núcleo de clínica) | /dentistas | R$ 697 (âncora 997) |
+| 6 | Kit de Gestão para Entregadores (laboratório de afiliados e orgânico) | /entregadores | R$ 19,90 a 29,90 |
 | 7 | Edição Estética (clone do núcleo de clínica) | /estetica | R$ 497 a 697 |
 | Pro | Painéis Power BI + atualizações 12 meses (upsell das verticais) | — | R$ 497 |
 
