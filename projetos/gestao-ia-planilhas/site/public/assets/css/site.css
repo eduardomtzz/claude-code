@@ -299,6 +299,7 @@ p{margin:0 0 1em;max-width:65ch}
 .tela__chips li{counter-increment:c;font-size:13px;background:var(--lavanda);color:var(--uva);border-radius:var(--pill);padding:5px 11px 5px 8px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
 .tela__chips li::before{content:counter(c);font-family:var(--mono);font-size:11px;background:var(--sol);color:var(--uva);width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:none}
 .tela figcaption{border-top:0;padding-top:4px}
+.tela--mock img{padding:6px 10px 0;box-sizing:border-box}
 
 /* dores */
 .dores{display:grid;gap:14px}

@@ -28,40 +28,51 @@ CSS=f"""
 .fone .notch{{position:absolute;left:50%;top:14px;transform:translateX(-50%);width:36%;height:26px;background:#1F1235;border-radius:0 0 18px 18px;z-index:2}}
 .tag{{position:absolute;background:#3B1F5E;color:#fff;font-family:'IBM Plex Mono';font-size:22px;padding:10px 18px;border-radius:999px;z-index:5}}
 """
-def dispositivos(x,y,escala):
-    # notebook com o painel do Relatório Mensal; celular com o painel de Ganhos e Gastos (recorte)
+def dispositivos(x,y,escala,lap='tela-relatorio-painel.png',fone='tela-ganhos-painel.png',tag1='Relatório Mensal Pronto',tag2='Ganhos e Gastos',docs=None):
+    docs=docs or DOCS
     lw=int(1100*escala); lh=int(660*escala); fw=int(330*escala); fh=int(680*escala); ft=max(20,int(22*escala))
     return f'''<div class="cena" style="left:{x}px;top:{y}px;width:{lw+int(180*escala)}px;height:{lh+int(200*escala)}px">
-      <div class="lap" style="left:0;top:0;width:{lw}px"><div class="scr" style="height:{lh-int(52*escala)}px"><img src="data:image/png;base64,{b64(DOCS/'tela-relatorio-painel.png')}"></div><div class="base"></div></div>
-      <div class="fone" style="left:{lw-int(150*escala)}px;top:{int(140*escala)}px;width:{fw}px;height:{fh}px"><div class="notch"></div><div class="scr" style="height:100%"><img src="data:image/png;base64,{b64(DOCS/'tela-ganhos-painel.png')}" style="width:{int(fw*2.0)}px;left:{-int(fw*0.02)}px;top:0"></div></div>
-      <div class="tag" style="left:{int(40*escala)}px;top:{lh-int(20*escala)}px;font-size:{ft}px;padding:{int(ft*.45)}px {int(ft*.8)}px">Relatório Mensal Pronto</div>
-      <div class="tag" style="right:0;top:{int(140*escala)+fh+int(16*escala)}px;font-size:{ft}px;padding:{int(ft*.45)}px {int(ft*.8)}px">Ganhos e Gastos</div>
+      <div class="lap" style="left:0;top:0;width:{lw}px"><div class="scr" style="height:{lh-int(52*escala)}px"><img src="data:image/png;base64,{b64(docs/lap)}"></div><div class="base"></div></div>
+      <div class="fone" style="left:{lw-int(150*escala)}px;top:{int(140*escala)}px;width:{fw}px;height:{fh}px"><div class="notch"></div><div class="scr" style="height:100%"><img src="data:image/png;base64,{b64(docs/fone)}" style="width:{int(fw*2.0)}px;left:{-int(fw*0.02)}px;top:0"></div></div>
+      <div class="tag" style="left:{int(40*escala)}px;top:{lh-int(20*escala)}px;font-size:{ft}px;padding:{int(ft*.45)}px {int(ft*.8)}px">{tag1}</div>
+      <div class="tag" style="right:0;top:{int(140*escala)+fh+int(16*escala)}px;font-size:{ft}px;padding:{int(ft*.45)}px {int(ft*.8)}px">{tag2}</div>
     </div>'''
 def pagina(w,h,corpo,marca=True):
     m=f'<div class="marca">{SIMB}</div>' if marca else ''; bg='' if marca else 'html,body{background:transparent}'
     return f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS} html,body{{width:{w}px;height:{h}px}} {bg}</style></head><body>{m}{corpo}</body></html>'
-V=pagina(1080,1920,f'''
+DOCS_C=PROJ/'produto'/'kit-completo'/'docs'
+PRODUTOS={
+ 'essencial':dict(titulo='Kit IA no Trabalho<br><em>Essencial</em>',sub='3 planilhas prontas + 40 prompts de IA.<br>Você baixa, preenche e entrega.',pill='Comprar por R$ 37 · uma vez',nota='Pix ou cartão · acesso imediato · 7 dias para desistir',
+   q_t='Não comece <em>do zero.</em>',q_sub='3 planilhas prontas e 40 prompts que fazem a IA trabalhar nos seus números.',q_pill='R$ 37 · uma vez',dev={}),
+ 'completo':dict(titulo='Kit IA no Trabalho<br><em>Completo</em>',sub='10 planilhas, 80 prompts e 8 aulas curtas.<br>Método pronto, do zero ao entregue.',pill='Comprar por R$ 197 · uma vez',nota='Pix ou 12× · acesso imediato · 7 dias para desistir',
+   q_t='Método, <em>não braço.</em>',q_sub='10 planilhas, 80 prompts e 8 aulas curtas para entregar planilha, relatório e apresentação sem começar do zero.',q_pill='R$ 197 · uma vez',
+   dev=dict(lap='tela-metas-painel.png',fone='tela-projetos-painel.png',tag1='Metas do Trimestre',tag2='Projetos e Prazos',docs=DOCS_C)),
+}
+out=ROOT/'trabalho-mockup'; out.mkdir(exist_ok=True); alvos=[]
+for slug,P in PRODUTOS.items():
+    d=P['dev']
+    V=pagina(1080,1920,f'''
 <div class="logo" style="position:absolute;left:80px;top:150px;width:360px">{LOGO}</div>
-<div class="t" style="position:absolute;left:80px;right:80px;top:290px;font-size:104px">Kit IA no Trabalho<br><em>Essencial</em></div>
-<div class="sub" style="position:absolute;left:80px;right:80px;top:560px;font-size:44px">3 planilhas prontas + 40 prompts de IA.<br>Você baixa, preenche e entrega.</div>
-{dispositivos(41,760,0.78)}
-<div class="pill" style="position:absolute;left:80px;right:80px;top:1560px;height:150px;font-size:60px">Comprar por R$ 37 · uma vez</div>
-<div class="nota" style="position:absolute;left:80px;right:80px;top:1740px;font-size:28px;text-align:center">Pix ou cartão · acesso imediato · 7 dias para desistir</div>
+<div class="t" style="position:absolute;left:80px;right:80px;top:290px;font-size:104px">{P['titulo']}</div>
+<div class="sub" style="position:absolute;left:80px;right:80px;top:560px;font-size:44px">{P['sub']}</div>
+{dispositivos(41,760,0.78,**d)}
+<div class="pill" style="position:absolute;left:80px;right:80px;top:1560px;height:150px;font-size:60px">{P['pill']}</div>
+<div class="nota" style="position:absolute;left:80px;right:80px;top:1740px;font-size:28px;text-align:center">{P['nota']}</div>
 ''')
-Q=pagina(1080,1080,f'''
+    Q=pagina(1080,1080,f'''
 <div class="logo" style="position:absolute;left:70px;top:70px;width:300px">{LOGO}</div>
-<div class="t" style="position:absolute;left:70px;top:160px;width:900px;font-size:74px">Não comece <em>do zero.</em></div>
-<div class="sub" style="position:absolute;left:70px;top:270px;width:900px;font-size:32px">3 planilhas prontas e 40 prompts que fazem a IA trabalhar nos seus números.</div>
-{dispositivos(430,480,0.5)}
-<div class="pill" style="position:absolute;left:70px;top:900px;width:460px;height:110px;font-size:44px">R$ 37 · uma vez</div>
+<div class="t" style="position:absolute;left:70px;top:160px;width:900px;font-size:74px">{P['q_t']}</div>
+<div class="sub" style="position:absolute;left:70px;top:270px;width:900px;font-size:32px">{P['q_sub']}</div>
+{dispositivos(430,480,0.5,**d)}
+<div class="pill" style="position:absolute;left:70px;top:900px;width:460px;height:110px;font-size:44px">{P['q_pill']}</div>
 <div class="nota" style="position:absolute;left:70px;top:1030px;font-size:20px">7 dias para desistir · seusociogestor.com.br</div>
 ''')
-Hh=pagina(1600,1000,f'''{dispositivos(150,50,0.95)}''',marca=False)
-out=ROOT/'trabalho-mockup'; out.mkdir(exist_ok=True)
-for nome,html_,w,h in [('essencial-produto-1080x1920',V,1080,1920),('essencial-produto-1080x1080',Q,1080,1080),('essencial-produto-hero-1600x1000',Hh,1600,1000)]:
-    (out/f'{nome}.html').write_text(html_)
+    Hh=pagina(1600,1000,f'''{dispositivos(150,50,0.95,**d)}''',marca=False)
+    for nome,html_,w,h in [(f'{slug}-produto-1080x1920',V,1080,1920),(f'{slug}-produto-1080x1080',Q,1080,1080),(f'{slug}-produto-hero-1600x1000',Hh,1600,1000)]:
+        (out/f'{nome}.html').write_text(html_); alvos.append([nome,w,h])
+import json
 js=f"""const {{chromium}}=require('playwright');(async()=>{{const b=await chromium.launch({{executablePath:'/opt/pw-browsers/chromium',headless:true,args:['--no-sandbox']}});
-for(const [n,w,h] of [['essencial-produto-1080x1920',1080,1920],['essencial-produto-1080x1080',1080,1080],['essencial-produto-hero-1600x1000',1600,1000]]){{
+for(const [n,w,h] of {json.dumps(alvos)}){{
  const p=await b.newPage({{viewport:{{width:w,height:h}}}}); await p.goto('file://{out}/'+n+'.html'); await p.evaluate(()=>document.fonts.ready); await p.waitForTimeout(500);
  await p.screenshot({{path:'{ROOT}/'+n+'.png',omitBackground:n.includes('hero')}}); await p.close(); }}
 await b.close(); console.log('ok');}})();"""
