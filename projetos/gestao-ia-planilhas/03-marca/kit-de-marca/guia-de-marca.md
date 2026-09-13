@@ -43,5 +43,5 @@ pronto, seu. Palavras proibidas: sistema (para o produto), garantido, renda pass
 ## Aplicações prontas
 `avatar-instagram-1080.png` (símbolo branco sobre uva), `capa-facebook-1640x624.png`,
 `logo-horizontal-2400.png`, `logo-branco-2400.png`, `logo-empilhado-1200.png`, `simbolo-1024.png`.
-Bio do Instagram sugerida: "Kits de gestão prontos para quem estudou para atender, não para
-administrar. Planilhas + IA. Sem mensalidade." Link: seusociogestor.com.br
+Bio do Instagram sugerida: "Kits de gestão prontos para quem sabe fazer o trabalho e nunca teve
+um sócio para cuidar do resto. Planilhas + IA. Sem mensalidade." Link: seusociogestor.com.br
