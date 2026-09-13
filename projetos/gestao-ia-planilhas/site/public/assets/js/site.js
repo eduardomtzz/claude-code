@@ -15,6 +15,12 @@
     window.addEventListener('load', topo);
   } catch (e) {}
 
+  /* Índice das páginas de texto: aberto no desktop, recolhido no celular */
+  try {
+    var idx = document.querySelector('details.doc__indice');
+    if (idx && window.matchMedia('(min-width: 900px)').matches) idx.open = true;
+  } catch (e) {}
+
   var KEY = 'ssg_consent_v1';
   var DEFAULT = { necessario: true, medicao: false, publicidade: false, ts: 0 };
 

@@ -64,3 +64,15 @@ Kiwify, e-mail ou domínio) · **Rejeitado** (não faz sentido para nós).
 | 36 | Publicar protocolo de validação ("como validamos cada kit", versão e data) | GPT-A, Manus | Aceito | Bloco curto no Sobre com o que de fato fazemos (recalcular, testar em Excel/Sheets, revisar manual). |
 | 37 | "Entregadores" vs "entregadores e motoristas de aplicativo" | GPT-B, Manus | Adiado | Decidir quando o produto 6 existir. |
 | 38 | Não anunciar compra enquanto o destino estiver "Em breve" | 3 | Aceito | Já é a regra: tráfego só para `/kit/` com checkout funcionando. |
+
+## Aplicado em 2026-09-13 (com a lente do Eduardo: corrigir o risco, mas com redação que vende)
+
+- Aplicados: 1, 2, 3 (como "Pix e cartão são pagamentos instantâneos: aprovou, o acesso sai na hora"), 4, 8, 9 ("Preço previsto"),
+  12, 13, 14, 15, 16, 17, 18, 19, 20, 23, 24, 25, 26 (provisório), 27, 28, 29, 30, 31, 32, 36, 38.
+- Mantidos por decisão do Eduardo: 5 ("Arquivos seus para sempre" fica, vende e é verdade para o arquivo baixado), 7 ("não por um guru"
+  fica na home), 34 (Z2), 35 (painel ilustrativo).
+- Rejeitados: 6 (público no lead da home: a home é catálogo para todos), 10, 11.
+- Adiados até Kiwify/e-mail: 21, 22, 33, 37.
+- Retirada, a pedido do Eduardo, a menção a "produzido com apoio de IA" e "testado com empresa fictícia" na home e na página do
+  kit. Ficou "recalculado, testado no Excel e no Google Sheets e revisado antes de publicar". No Sobre, a narração sintética dos
+  vídeos continua declarada (é perceptível e custa nada).

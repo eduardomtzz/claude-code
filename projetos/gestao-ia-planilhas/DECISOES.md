@@ -64,3 +64,15 @@
 - Regra geral confirmada: nada quebra linha em botão, tag, chip ou linha de painel.
 
 - Painel do herói da home: a primeira imagem do site precisa contar a história completa (números com variação, evolução, reserva e a IA explicando o mês). Painel simples demais não vende.
+
+## 2026-09-13 · Auditoria 1 do site (2 relatórios do GPT + 1 do Manus)
+
+- Relatórios e triagem item a item em `06-site/`. Aplicado o que corrige risco legal real (reembolso "automático", "30 minutos",
+  cláusulas dos Termos, DPO inexistente, dados sensíveis, cookies do Google que não usamos, tabelas no celular) sempre com
+  redação vendedora. Regra do Eduardo: o objetivo é vender; correção jurídica não pode virar texto defensivo.
+- Não se fala mais em "produzido com IA" nem "testado com empresa fictícia" nas páginas de venda. Fala-se em recalculado,
+  testado e revisado.
+- Pendente do Eduardo: confirmar com o contador o momento da nota fiscal (texto ficou genérico) e dizer se haverá encarregado
+  de dados nomeado (hoje o site declara só o canal privacidade@).
+- Avaliação dos auditores: GPT (relatório "Auditoria independente do site") foi o melhor; Manus rendeu volume, não insight.
+  Daqui em diante: uma auditoria por rodada, do GPT. Manus só para pesquisa que exija varrer muitas fontes na web.

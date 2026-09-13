@@ -135,9 +135,13 @@ p{margin:0 0 1em;max-width:65ch}
 .doc{padding-block:clamp(36px,6vw,64px)}
 .doc__in{display:grid;gap:32px}
 @media (min-width:900px){.doc__in{grid-template-columns:240px 1fr}}
-.doc__indice{background:var(--lavanda);border-radius:var(--r);padding:14px 16px}
-@media (min-width:900px){.doc__indice{position:sticky;top:84px;align-self:start;padding:16px}}
-.doc__indice p{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--lilas);margin:0 0 8px}
+.doc__indice{background:var(--lavanda);border-radius:var(--r);padding:10px 16px}
+.doc__indice summary{cursor:pointer;list-style:none;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--lilas);display:flex;justify-content:space-between;align-items:center;min-height:28px}
+.doc__indice summary::-webkit-details-marker{display:none}
+.doc__indice summary::after{content:"+";font-size:18px;color:var(--lilas)}
+.doc__indice[open] summary::after{content:"–"}
+.doc__indice[open] summary{margin-bottom:6px}
+@media (min-width:900px){.doc__indice{position:sticky;top:84px;align-self:start;padding:16px}.doc__indice summary{pointer-events:none}.doc__indice summary::after{content:none!important}}
 .doc__indice a{display:inline-block;font-size:14px;padding:4px 10px 4px 0;text-decoration:none;color:var(--tinta)}
 @media (min-width:900px){.doc__indice a{display:block;font-size:14.5px;padding:5px 0}}
 .doc__indice a:hover{color:var(--uva);text-decoration:underline}
@@ -329,3 +333,13 @@ p{margin:0 0 1em;max-width:65ch}
 .painel__ia img{width:34px;height:34px;flex:none;border-radius:9px}
 .painel__ia small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.03em;color:#D9C8F5;margin-bottom:4px;line-height:1.3}
 .painel__ia p{margin:0;font-size:13.5px;line-height:1.4;color:#fff;max-width:none}
+
+/* tabelas legais viram cartões no celular */
+@media (max-width:640px){
+  .doc__corpo table.cartoes,.doc__corpo table.cartoes tbody,.doc__corpo table.cartoes tr,.doc__corpo table.cartoes td{display:block}
+  .doc__corpo table.cartoes tr:first-child{display:none}
+  .doc__corpo table.cartoes tr{background:#fff;border:1px solid var(--linha);border-radius:10px;padding:6px 14px 10px;margin-bottom:10px}
+  .doc__corpo table.cartoes td{border:0;padding:6px 0}
+  .doc__corpo table.cartoes td::before{content:attr(data-label);display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--lilas);margin-bottom:2px}
+  .doc__corpo table.cartoes td:first-child{font-weight:600;color:var(--uva)}
+}

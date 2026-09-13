@@ -4,12 +4,12 @@ description: Escolha quais tecnologias de medição e publicidade o site pode us
 -->
 <section class="doc">
   <div class="wrap doc__in">
-    <aside class="doc__indice" aria-label="Nesta página">
-      <p>Nesta página</p>
+    <details class="doc__indice">
+      <summary>Nesta página</summary>
       <a href="#escolha">Sua escolha</a>
       <a href="#quais">Quais cookies usamos</a>
       <a href="#terceiros">Como desativar nos terceiros</a>
-    </aside>
+    </details>
     <div class="doc__corpo">
       <p class="eyebrow">Cookies</p>
       <h1>Cookies e suas preferências</h1>
@@ -26,31 +26,28 @@ description: Escolha quais tecnologias de medição e publicidade o site pode us
           <label class="switch" aria-label="Medição"><input type="checkbox" name="medicao" id="pref-medicao"><span></span></label>
         </div>
         <div class="pref__item">
-          <div><h3>Publicidade</h3><p>Pixel da Meta e tags do Google para medir se um anúncio gerou visita ou compra e para mostrar anúncios mais relevantes. Inclui envio de eventos pelo servidor, com identificadores protegidos.</p></div>
+          <div><h3>Publicidade</h3><p>Pixel da Meta para medir se um anúncio gerou visita ou compra e para mostrar anúncios mais relevantes. Inclui envio de eventos pelo servidor, com identificadores protegidos.</p></div>
           <label class="switch" aria-label="Publicidade"><input type="checkbox" name="publicidade" id="pref-publicidade"><span></span></label>
         </div>
         <div class="pref__acoes">
           <button type="submit" class="btn btn--sol">Salvar minhas escolhas</button>
-          <button type="button" class="btn btn--uva" data-consent="all">Aceitar todos</button>
-          <button type="button" class="btn btn--linha" data-consent="none">Rejeitar não necessários</button>
+          <button type="button" class="btn btn--uva" data-consent="all">Aceitar</button>
+          <button type="button" class="btn btn--uva" data-consent="none">Rejeitar</button>
         </div>
-        <p id="pref-estado" class="pref__estado">Carregando…</p>
+        <p id="pref-estado" class="pref__estado">Sua escolha aparece aqui. Se não aparecer, o navegador está bloqueando o armazenamento local.</p>
       </form>
 
       <h2 id="quais">Quais cookies e tecnologias usamos</h2>
-      <div class="tabela-wrap"><table>
+      <div class="tabela-wrap"><table class="cartoes">
         <tr><th>Nome</th><th>Categoria</th><th>Quem</th><th>Para quê</th><th>Duração</th></tr>
-        <tr><td>ssg_consent_v1</td><td>Necessário</td><td>Este site (armazenamento local)</td><td>Guardar a sua escolha de cookies</td><td>Até você mudar</td></tr>
-        <tr><td>Registros de acesso</td><td>Necessário</td><td>Hospedagem</td><td>Segurança e funcionamento</td><td>6 meses</td></tr>
-        <tr><td>_fbp, _fbc</td><td>Publicidade</td><td>Meta</td><td>Medir anúncios e reconhecer visitas vindas de anúncios</td><td>Até 90 dias</td></tr>
-        <tr><td>_ga, _gid, _gcl_*</td><td>Medição e publicidade</td><td>Google</td><td>Estatísticas e medição de anúncios</td><td>Até 2 anos</td></tr>
+        <tr><td data-label="Nome">ssg_consent_v1</td><td data-label="Categoria">Necessário</td><td data-label="Quem">Este site (armazenamento local)</td><td data-label="Para quê">Guardar a sua escolha de cookies</td><td data-label="Duração">Até você mudar</td></tr>
+        <tr><td data-label="Nome">_fbp, _fbc</td><td data-label="Categoria">Publicidade</td><td data-label="Quem">Meta</td><td data-label="Para quê">Medir anúncios e reconhecer visitas vindas de anúncios</td><td data-label="Duração">Até 90 dias</td></tr>
       </table></div>
-      <p>A lista é atualizada quando uma ferramenta entra ou sai do site. Data desta versão: {{atualizado_em}}.</p>
+      <p>Além dos cookies, a hospedagem guarda registros técnicos de acesso (data, hora e IP) por 6 meses, por segurança. Hoje não usamos ferramenta de medição de audiência; se entrar, ela aparece nesta lista antes de ser ligada. A lista é atualizada quando uma ferramenta entra ou sai do site. Data desta versão: {{atualizado_em}}.</p>
 
       <h2 id="terceiros">Como desativar também nos terceiros</h2>
       <ul>
         <li>Meta: <a href="https://www.facebook.com/ads/preferences" rel="noopener">preferências de anúncios do Facebook</a>.</li>
-        <li>Google: <a href="https://adssettings.google.com" rel="noopener">configurações de anúncios do Google</a> e <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">extensão de desativação do Analytics</a>.</li>
         <li>Navegador: as configurações de privacidade permitem bloquear ou apagar cookies de qualquer site.</li>
       </ul>
       <p>Mais detalhes na <a href="/privacidade/">Política de privacidade</a>.</p>
