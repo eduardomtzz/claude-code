@@ -8,8 +8,8 @@ Eduardo é o gestor e aprovador.
 
 | Etapa | Status | Observação |
 |---|---|---|
-| 1. Pesquisa de nicho | em andamento | 3 rodadas lidas e cruzadas (`01-pesquisa/resumo-rodada-3.md`). Aguardando decisão da primeira vertical (`01-pesquisa/decisao-primeira-vertical.md`) |
-| 2. Oferta | não iniciado | começa após escolha da primeira vertical |
+| 1. Pesquisa de nicho | aprovado | 3 rodadas cruzadas em `01-pesquisa/resumo-rodada-3.md`; primeira vertical: dentistas |
+| 2. Oferta | em andamento | `02-oferta/dentistas.md` (primeira vertical) |
 | 3. Produto | não iniciado | 20 planilhas por vertical + prompts + aulas narradas por IA |
 | 4. Marca | aprovado | direção D, kit de marca em `03-marca/kit-de-marca/` |
 | 5. Copy | não iniciado | |
@@ -19,14 +19,20 @@ Eduardo é o gestor e aprovador.
 | 9. Criativos | não iniciado | |
 | 10. Tráfego | não iniciado | Meta + Google Pesquisa |
 
-## Escada de produtos (hipótese aprovada em 2026-09-12)
+## Escada de produtos (revisada em 2026-09-13)
 
-1. R$ 27 a 47: Kit IA no Trabalho (prompts + 3 planilhas). Entrada e order bump.
-2. R$ 197 a 297: IA no Trabalho: planilhas, relatórios e apresentações na metade do tempo
-   (10 planilhas horizontais + biblioteca de prompts + aulas curtas narradas por IA).
-3. R$ 697 a 997: vertical por profissão (20 planilhas de gestão prontas, manual, demonstrações
-   de tela, prompts). Primeira vertical a definir na rodada 3; candidatas: odontologia,
-   psicologia/terapeutas, clínicas veterinárias, advocacia, arquitetura/engenharia autônoma;
-   reservas: estética, nutrição.
-4. Opcional, depois: R$ 1.497 a 1.997 com painéis Power BI, atualizações 12 meses, comunidade
-   assíncrona.
+| # | Produto | Página | Preço | Onda |
+|---|---|---|---|---|
+| 1 | Kit IA no Trabalho (entrada e order bump) | /kit | R$ 27 a 47 | 1 |
+| 2 | Seu Sócio Gestor para Dentistas (Kit de Gestão da Clínica Odontológica) | /dentistas | R$ 697 (âncora 997) | 1 |
+| 3 | IA no Trabalho: planilhas, relatórios e apresentações na metade do tempo | /ia | R$ 197 a 297 | 2 |
+| 4 | Seu Sócio Gestor para Médicos (consultório e clínica médica) | /medicos | R$ 697 (âncora 997) | 2 |
+| 5 | Seu Sócio Gestor para Advogados | /advogados | R$ 497 a 697 | 2 |
+| 6 | Seu Sócio Gestor para Entregadores e Motoristas de App | /entregadores | R$ 19,90 a 29,90 | 3 |
+| 7 | Edição Estética (clone do núcleo de clínica) | /estetica | R$ 497 a 697 | 3 |
+| Pro | Painéis Power BI + atualizações por 12 meses (upsell das verticais) | — | R$ 497 como upsell | 2 |
+
+Cada vertical tem planilhas próprias; o núcleo financeiro (caixa, provisões, pró-labore, DRE,
+painel) é compartilhado e recebe a "pele" de cada profissão.
+
+Ofertas ficam em `02-oferta/<produto>.md`; produto em `produto/<produto>/`.
