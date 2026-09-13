@@ -43,7 +43,7 @@ e parar de passar vergonha em reunião.
 ## Produto
 
 Formato: as 10 planilhas em Excel e Google Sheets (fórmulas protegidas, aba "Como usar", exemplo preenchido
-com empresa fictícia), biblioteca de 80 prompts (PDF e txt), 8 aulas de 6 a 10 min (tela real + narração
+com empresa fictícia), biblioteca de 80 prompts (PDF e txt), 8 aulas de 2 a 4 min (tela real + narração
 por IA + legenda, como os vídeos do Essencial, só mais longas), manual do método em PDF, 3 modelos de
 apresentação, checklists.
 
@@ -79,14 +79,14 @@ resposta a perguntas difíceis da diretoria, comparação de cenários, e-mail d
 
 | # | Aula | Duração alvo | Planilha usada |
 |---|---|---|---|
-| 1 | Pensar antes de abrir o Excel: o que a planilha responde | 6 min | Base Limpa |
-| 2 | Base limpa e tabela dinâmica em 10 minutos | 10 min | Base Limpa |
-| 3 | As 8 fórmulas que resolvem 80% (SOMASES, CONT.SES, ÍNDICE+CORRESP, SE, SEERRO, DATADIF, TEXTO, PROCV) | 10 min | Orçamento |
-| 4 | O gráfico certo para cada pergunta | 6 min | Relatório Mensal |
-| 5 | Relatório executivo com IA: do bloco Resumo ao texto revisado | 8 min | Relatório Mensal |
-| 6 | Apresentação de 8 slides com IA, sem enfeite | 8 min | Modelo de slides |
-| 7 | Revisar antes de enviar: erros que a IA comete e como pegar | 6 min | Checklist |
-| 8 | A rotina: segunda, dia 30 e fim de trimestre | 6 min | Semana, Relatório, Metas |
+| 1 | Pensar antes de abrir o Excel: o que a planilha responde | 3 min | Base Limpa |
+| 2 | Base limpa e tabela dinâmica em 10 minutos | 4 min | Base Limpa |
+| 3 | As 8 fórmulas que resolvem 80% (SOMASES, CONT.SES, ÍNDICE+CORRESP, SE, SEERRO, DATADIF, TEXTO, PROCV) | 4 min | Orçamento |
+| 4 | O gráfico certo para cada pergunta | 3 min | Relatório Mensal |
+| 5 | Relatório executivo com IA: do bloco Resumo ao texto revisado | 3 min | Relatório Mensal |
+| 6 | Apresentação de 8 slides com IA, sem enfeite | 3 min | Modelo de slides |
+| 7 | Revisar antes de enviar: erros que a IA comete e como pegar | 3 min | Checklist |
+| 8 | A rotina: segunda, dia 30 e fim de trimestre | 4 min | Semana, Relatório, Metas |
 
 Sem apresentador em vídeo (regra do projeto). Narração sintética declarada e legendada.
 

@@ -343,3 +343,24 @@ p{margin:0 0 1em;max-width:65ch}
   .doc__corpo table.cartoes td::before{content:attr(data-label);display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--lilas);margin-bottom:2px}
   .doc__corpo table.cartoes td:first-child{font-weight:600;color:var(--uva)}
 }
+
+/* página do Completo */
+.passos--4{grid-template-columns:1fr}
+@media (min-width:640px){.passos--4{grid-template-columns:1fr 1fr}}
+@media (min-width:980px){.passos--4{grid-template-columns:repeat(4,1fr)}}
+.video--largo{max-width:900px;margin-inline:auto}
+@media (min-width:640px){.inv--10{grid-template-columns:1fr 1fr}.inv--10 .inv__item:last-child{grid-column:span 2}.inv--10 .inv__item:last-child img{aspect-ratio:2.4}}
+@media (min-width:980px){.inv--10{grid-template-columns:repeat(5,1fr)}.inv--10 .inv__item{grid-column:span 1}.inv--10 .inv__item:nth-child(n+4){grid-column:span 1}.inv--10 .inv__item img{aspect-ratio:4/3!important}.inv--10 .inv__item:last-child{grid-column:span 1}.inv--10 .inv__txt h3{font-size:16px}.inv--10 .inv__txt p{font-size:13.5px}}
+.aulas{list-style:none;margin:0;padding:0;counter-reset:a;background:#fff;border:1px solid var(--linha);border-radius:14px;overflow:hidden}
+.aulas li{counter-increment:a;display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--linha);font-size:15px}
+.aulas li:first-child{border-top:0}
+.aulas li::before{content:counter(a);font-family:var(--mono);font-size:12px;background:var(--sol);color:var(--uva);width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.aulas b{flex:1 1 auto;min-width:0;font-weight:600;color:var(--tinta)}
+.aulas span{font-family:var(--mono);font-size:12px;color:var(--tinta-2);white-space:nowrap}
+.bonus{display:grid;gap:14px;margin-top:20px}
+@media (min-width:760px){.bonus{grid-template-columns:repeat(3,1fr)}}
+.bonus__item{background:#fff;border:1px solid var(--linha);border-radius:14px;padding:14px;display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start}
+.bonus__item img{width:96px;aspect-ratio:3/4;object-fit:cover;object-position:top;border:1px solid var(--linha);border-radius:8px}
+.bonus__item p{margin:0;font-size:14px;color:var(--tinta-2)}
+.bonus__item b{color:var(--uva)}
+.exemplo__confira code{font-family:var(--mono);font-size:12.5px;background:var(--lavanda);padding:2px 6px;border-radius:6px;word-break:break-all}

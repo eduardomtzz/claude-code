@@ -16,7 +16,7 @@ tudo isso na tela; o manual é o mapa.
 | Biblioteca A | 40 prompts do dia a dia (organizar, analisar, escrever, apresentar, revisar, aprender), PDF e txt |
 | Biblioteca B | 40 prompts para estruturar e produzir, PDF e txt |
 | Dicionário | 60 fórmulas explicadas em uma frase, com exemplo |
-| Aulas 1 a 8 | Vídeos de 6 a 10 minutos, tela real, narração e legenda |
+| Aulas 1 a 8 | Vídeos de 2 a 4 minutos, tela real, narração e legenda |
 | Modelos | 3 apresentações: relatório mensal (8 slides), resultado do trimestre (12), proposta comercial (10) |
 | Checklists | Planilha, relatório, apresentação e envio |
 

@@ -45,9 +45,9 @@ for p in pages:
 
 # Vídeos de demonstração: copiados do pacote do produto (não ficam no git dentro de site/)
 import shutil
-VID_SRC = ROOT.parent / 'produto' / 'kit-essencial' / 'entrega' / 'videos'
-VID_DST = ROOT / 'public' / 'assets' / 'kit' / 'videos'
-if VID_SRC.is_dir():
+for VID_SRC, VID_DST in [(ROOT.parent / 'produto' / 'kit-essencial' / 'entrega' / 'videos', ROOT / 'public' / 'assets' / 'kit' / 'videos'),
+                         (ROOT.parent / 'produto' / 'kit-completo' / 'entrega' / 'videos', ROOT / 'public' / 'assets' / 'completo' / 'videos')]:
+    if not VID_SRC.is_dir(): continue
     VID_DST.mkdir(parents=True, exist_ok=True)
     for f in sorted(VID_SRC.iterdir()):
         if f.suffix == '.mp4':

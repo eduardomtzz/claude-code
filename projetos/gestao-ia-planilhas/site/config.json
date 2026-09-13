@@ -18,6 +18,15 @@
   "checkout": {
     "_nota": "Trocar pelos links reais da Kiwify quando a conta existir. Enquanto vazio, o botão leva ao bloco de preço.",
     "kit_essencial": "#preco",
-    "area_download": "#"
-  }
+    "area_download": "#",
+    "kit_completo": "#preco"
+  },
+  "aula1_dur": "2 a 4 min",
+  "aula2_dur": "2 a 4 min",
+  "aula3_dur": "2 a 4 min",
+  "aula4_dur": "2 a 4 min",
+  "aula5_dur": "2 a 4 min",
+  "aula6_dur": "2 a 4 min",
+  "aula7_dur": "2 a 4 min",
+  "aula8_dur": "2 a 4 min"
 }
