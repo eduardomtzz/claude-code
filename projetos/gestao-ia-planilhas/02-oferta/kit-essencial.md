@@ -77,16 +77,15 @@ Os dois já existem no momento do lançamento (são produzidos junto com o kit).
 
 | Etapa | Item | Preço | Taxa esperada |
 |---|---|---|---|
-| Front-end | Kit IA no Trabalho · Essencial | R$ 37 (lançamento R$ 27 com data real) | — |
-| Order bump | 30 prompts extras "Fórmulas explicadas" (Excel e Google Sheets: a IA escreve e explica a fórmula) | R$ 9,90 | 25% |
+| Front-end | Kit IA no Trabalho · Essencial | R$ 37 | — |
+| Order bump | Nenhum no lançamento. Candidato futuro: 30 prompts "Fórmulas explicadas" a R$ 9,90, depois de medir a compra principal | — | — |
 | Upsell 1 clique | Kit IA no Trabalho · Completo, com o valor do Essencial abatido | quando existir | 10% |
 
-Ticket médio no lançamento (sem upsell): 27 + 0,25 × 9,90 ≈ **R$ 29,50**.
+Ticket médio no lançamento: **R$ 37** (sem bump, sem upsell).
 
 ## Preços
 
-- Preço cheio: R$ 37. Preço de lançamento: R$ 27, com data e hora de término publicadas na página
-  e registradas em `DECISOES.md`; depois sobe de verdade.
+- Preço único: R$ 37, sem preço de lançamento e sem urgência (decisão de 2026-09-13).
 - Sem preço riscado, sem "de R$ 197 por R$ 27". A âncora é de valor: "menos que uma hora de
   trabalho montando do zero".
 - Pix pré-selecionado; cartão à vista (parcelamento irrelevante neste ticket).
@@ -109,21 +108,18 @@ Premissas: Kiwify 8,99% + R$ 2,49, reembolso 5%, imposto 6% sobre o líquido.
 | CPA alvo (70%) | 13,80 | 19,50 |
 | Conversão de equilíbrio com clique a R$ 1,50 | 7,6% | 5,4% |
 
-Leitura honesta: tráfego frio da Meta dificilmente converte 5 a 8% em compra. Por isso este
-produto roda com orçamento pequeno de teste (R$ 1.500 a 3.000), otimizando por início de
-checkout, e o lucro vem do bump e do upsell para o Completo. O objetivo do lançamento é aprender
-e coletar 5 avaliações, não escalar.
+Leitura honesta: tráfego frio da Meta dificilmente converte 5% em compra. Por isso este produto
+roda com orçamento pequeno de teste (R$ 1.500 a 3.000), otimizando por início de checkout, e o
+lucro vem depois, com o upsell para o Completo. O objetivo do lançamento é aprender e coletar 5
+avaliações, não escalar.
 
 ## Nome da oferta
 
 "Kit IA no Trabalho · Essencial: 3 planilhas prontas + 40 prompts para trabalhar com IA".
 Na copy: "o kit".
 
-## Perguntas abertas para o Eduardo
+## Decisões tomadas (2026-09-13)
 
-1. Preço cheio R$ 37 com lançamento a R$ 27: aprovado?
-2. As três planilhas (Semana Organizada, Relatório Mensal Pronto, Ganhos e Gastos): aprovadas?
-   Alternativas consideradas: "Controle de Clientes e Propostas" (mais vendas, menos universal) e
-   "Agenda de Reuniões e Decisões" (menos tangível).
-3. Order bump de R$ 9,90 com 30 prompts de fórmulas: aprovado, ou prefere lançar sem bump para
-   medir a compra principal limpa?
+1. Preço R$ 37 direto, sem lançamento.
+2. Três planilhas aprovadas.
+3. Sem order bump no lançamento; "Fórmulas explicadas" fica como candidato para depois.
