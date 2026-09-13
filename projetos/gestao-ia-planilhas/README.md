@@ -9,7 +9,7 @@ Eduardo é o gestor e aprovador.
 | Etapa | Status | Observação |
 |---|---|---|
 | 1. Pesquisa de nicho | aprovado | 4 rodadas. Rodada 4 (conversão) consolidada em `01-pesquisa/resumo-rodada-4.md`: blueprint das páginas, checkout e pós-compra |
-| 2. Oferta | em andamento | `02-oferta/dentistas.md` pronta (produto 5, guardada). Próxima: Kit IA no Trabalho |
+| 2. Oferta | em andamento | `02-oferta/kit-essencial.md` (produto 1) em revisão; `02-oferta/dentistas.md` guardada para o produto 5 |
 | 3. Produto | não iniciado | 20 planilhas por vertical + prompts + aulas narradas por IA |
 | 4. Marca | aprovado | direção D, kit de marca em `03-marca/kit-de-marca/` |
 | 5. Copy | não iniciado | |
