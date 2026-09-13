@@ -2,3 +2,4 @@ prints/*.html
 videos/*/
 docs/*.html
 __pycache__/
+*.zip
