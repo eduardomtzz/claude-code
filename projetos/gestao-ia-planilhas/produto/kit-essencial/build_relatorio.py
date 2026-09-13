@@ -120,7 +120,8 @@ lc.add_data(Reference(p,min_col=1,max_col=13,min_row=HR+1,max_row=HR+2),from_row
 lc.set_categories(Reference(p,min_col=2,max_col=13,min_row=HR))
 lc.series[0].graphicalProperties.line.solidFill=UVA; lc.series[0].graphicalProperties.line.width=28000
 lc.series[1].graphicalProperties.line.solidFill=SOL; lc.series[1].graphicalProperties.line.dashStyle="dash"
-lc.y_axis.majorGridlines=None; lc.legend.position="b"
+lc.y_axis.majorGridlines=None; lc.legend.position="b"; lc.dispBlanksAs="gap"
+for sr in lc.series: sr.smooth=False
 p.add_chart(lc,f"A{RN+5}")
 p.column_dimensions["J"].hidden=True
 p.cell(row=HR-1,column=1,value="Dados do gráfico (automáticos; meses sem valor aparecem como erro de propósito, para o gráfico deixar a lacuna)").font=F(size=9,color="B0A6C4")
