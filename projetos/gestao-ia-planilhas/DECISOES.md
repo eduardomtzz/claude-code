@@ -52,3 +52,13 @@
 - Vídeos do site são copiados do pacote do produto no build (`site/public/assets/kit/videos/` fora do git) para não
   duplicar 17 MB no repositório.
 - Home: card do Kit Essencial passou de "Em breve · a partir de R$ 27" para "Disponível · R$ 37 · Ver o kit".
+
+## 2026-09-13 · Aprendizados da primeira revisão da página do kit (Eduardo, no celular). Valem para todos os produtos
+
+- Botão do cabeçalho curto ("Comprar R$ 37"): "Comprar por R$ 37" quebrava em duas linhas no celular.
+- Print de planilha nunca entra sem contexto: precisa de uma linha dizendo o que é aquilo e de 2 ou 3 chips com o
+  que a tela faz. No celular ele aparece depois do botão e, sozinho, parece perdido.
+- Página precisa vender, não só descrever: bloco do problema (dores + "com o kit") logo depois do herói, e bloco
+  explicando o que é um prompt com um prompt real do kit e a resposta que a IA devolve. Público iniciante não sabe o
+  que é prompt nem por que a planilha ajuda.
+- Regra geral confirmada: nada quebra linha em botão, tag, chip ou linha de painel.

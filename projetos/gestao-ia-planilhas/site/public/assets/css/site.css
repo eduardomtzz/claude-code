@@ -42,7 +42,7 @@ p{margin:0 0 1em;max-width:65ch}
 .topo__nav{display:none;gap:22px;margin-left:12px}
 .topo__nav a{color:var(--tinta);text-decoration:none;font-weight:600;font-size:15px}
 .topo__nav a:hover{color:var(--uva)}
-.topo__cta{margin-left:auto;min-height:42px;padding:8px 16px;font-size:15px}
+.topo__cta{margin-left:auto;min-height:42px;padding:8px 16px;font-size:15px;white-space:nowrap;flex:none}
 @media (min-width:760px){.topo__nav{display:flex}.topo__logo img{width:196px}}
 
 /* seções */
@@ -280,3 +280,34 @@ p{margin:0 0 1em;max-width:65ch}
 .obrigado__card ol{padding-left:20px}
 .obrigado__card li{margin-bottom:6px}
 .obrigado__card b{color:var(--uva)}
+
+/* herói do kit: contexto da tela */
+.tela__titulo{font-size:14.5px;color:var(--tinta);margin:0;padding:12px 14px 10px;max-width:none;line-height:1.4}
+.tela__chips{list-style:none;margin:0;padding:10px 14px 4px;display:flex;flex-wrap:wrap;gap:6px;counter-reset:c}
+.tela__chips li{counter-increment:c;font-size:13px;background:var(--lavanda);color:var(--uva);border-radius:var(--pill);padding:5px 11px 5px 8px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.tela__chips li::before{content:counter(c);font-family:var(--mono);font-size:11px;background:var(--sol);color:var(--uva);width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.tela figcaption{border-top:0;padding-top:4px}
+
+/* dores */
+.dores{display:grid;gap:14px}
+@media (min-width:760px){.dores{grid-template-columns:repeat(3,1fr)}}
+.dor{background:#fff;border:1px solid var(--linha);border-radius:14px;padding:20px;display:flex;flex-direction:column}
+.dor h3{font-size:19px;font-weight:700;color:var(--uva);margin:0 0 8px}
+.dor p{font-size:15px;color:var(--tinta-2);margin:0 0 10px}
+.dor__kit{margin-top:auto!important;background:var(--lavanda);border-radius:10px;padding:10px 12px;color:var(--tinta)!important}
+.dor__kit b{color:var(--uva)}
+
+/* exemplo de prompt */
+.exemplo{display:grid;gap:16px;align-items:start}
+@media (min-width:860px){.exemplo{grid-template-columns:1fr 1fr}}
+.exemplo__rot{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--lilas);margin:0 0 8px}
+.exemplo__card{background:#fff;border:1px solid var(--linha);border-radius:14px;padding:18px}
+.exemplo__card--saida{background:var(--lavanda);border-color:transparent}
+.exemplo__card p{font-size:15px;margin:0 0 10px;max-width:none}
+.exemplo__nome{font-family:var(--display);font-weight:700;color:var(--uva);font-size:17px!important}
+.exemplo__quando,.exemplo__confira{color:var(--tinta-2);font-size:14px!important}
+.exemplo__prompt{font-family:var(--mono);font-size:13px;line-height:1.5;white-space:pre-wrap;word-break:break-word;background:var(--creme);border:1px dashed var(--linha);border-radius:10px;padding:12px 14px;margin:0 0 12px;color:var(--tinta)}
+.exemplo__card--saida b{color:var(--uva)}
+.exemplo__nota{font-family:var(--mono);font-size:12px!important;color:var(--tinta-2);margin:4px 0 0!important}
+.exemplo__porque{margin:20px 0 0;max-width:70ch;font-size:16px;background:#fff;border-left:4px solid var(--sol);padding:12px 16px;border-radius:0 10px 10px 0}
+.exemplo__porque b{color:var(--uva)}

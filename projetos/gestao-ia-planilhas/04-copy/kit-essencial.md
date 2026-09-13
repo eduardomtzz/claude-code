@@ -12,12 +12,18 @@ Tom: direto, "você", sem caixa alta, sem promessa de resultado. Preço único R
 - **Linha de transparência:** Kit de arquivos: 3 planilhas + biblioteca de prompts + mini-manual + 3 vídeos de demonstração. Não é curso longo, não é software, não tem mensalidade.
 - **CTA:** Comprar por R$ 37
 - **Nota sob o botão:** Pix ou cartão · acesso imediato · 7 dias para desistir
-- **Mídia:** tela real da aba Hoje (Semana Organizada), com dados fictícios.
+- **Mídia:** tela real da aba Hoje (Semana Organizada), com dados fictícios, sempre com contexto: linha acima ("A primeira planilha do kit, aberta no Excel. Você só digita as tarefas. O resto ela faz:") e três chips abaixo (conta atrasadas e de hoje; ordena o que fazer primeiro; mostra se a semana cabe no dia). Sem isso a tela parece perdida no celular.
+- **Botão do cabeçalho:** "Comprar R$ 37" (curto, nunca quebra linha no celular).
 
 Headlines alternativas para teste:
 1. Planilhas prontas + prompts de IA: o seu trabalho de segunda começa pronto.
 2. Você sabe fazer o seu trabalho. As planilhas e os prompts já estão prontos.
 3. Três planilhas, 40 prompts, uma tarde: o que você monta do zero toda semana, pronto.
+
+## 1b. O problema (bloco novo, pedido do Eduardo: página mais vendedora)
+Eyebrow: Toda semana, a mesma coisa. Título: **Você já usa planilha e já abriu o ChatGPT. Sozinhos, eles te deixam no meio do caminho.**
+Sub: A planilha em branco não sabe o que é urgente. A IA sem os seus números inventa. O kit junta os dois.
+Três dores com "Com o kit:": lista na cabeça → Semana Organizada decide a ordem; relatório atrasa → Resumo escreve as frases e o prompt vira relatório; dinheiro some → Ganhos e Gastos mostra o que sobrou, onde foi e a reserva.
 
 ## 2. O que vem no kit
 <!-- inventário auditável: nome real de cada arquivo, print de cada um -->
@@ -33,6 +39,11 @@ Sub: Sete arquivos, todos seus. Abrem no Excel, no Google Sheets e no celular.
 | Mini-manual (PDF, 13 páginas) | Como abrir, preencher em 15 minutos, a rotina da semana e os erros comuns. |
 | 3 vídeos de demonstração (1 min cada) | Tela real, narração e legenda. Você vê funcionando antes de abrir. |
 | Bônus: 8 slides + checklist | Modelo de apresentação do relatório mensal (PowerPoint e Google Slides) e a página "antes de enviar". |
+
+## 2b. O que é um prompt (bloco novo)
+Eyebrow: Sem mistério. Título: **O que é um prompt, e por que ele precisa da planilha.**
+Sub: Prompt é o texto que você cola no ChatGPT, no Copilot ou no Gemini dizendo o que quer. Escrever um bom leva tempo e tentativa. Os 40 do kit já estão escritos e testados, e cada um diz onde colar os seus números.
+Lado a lado: o prompt Escrever 01 exatamente como vem no kit, e um exemplo de resposta com os dados fictícios da Prisma Comunicação (marcado como exemplo). Fecho: sem os seus números, a IA inventa; a planilha entrega os números certos, em um bloco para copiar.
 
 ## 3. Como funciona
 <!-- mecanismo único: Preencher, Perguntar, Entregar -->
