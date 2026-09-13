@@ -19,19 +19,31 @@ body_class: pagina-home
       <div class="painel__cab"><b>Fechamento do mês</b><span class="tag tag--neutro">exemplo fictício</span></div>
       <p class="painel__sub">Clínica Sorriso da Vila · setembro</p>
       <div class="painel__kpis">
-        <div class="kpi"><small>Recebido</small><b>R$ 48.200</b></div>
-        <div class="kpi"><small>Custos</small><b>R$ 31.650</b></div>
-        <div class="kpi kpi--sol"><small>Sobrou</small><b>R$ 16.550</b></div>
+        <div class="kpi"><small>Recebido</small><b>R$ 48.200</b><i class="delta delta--ok">▲ 8% vs ago</i></div>
+        <div class="kpi"><small>Custos</small><b>R$ 31.650</b><i class="delta delta--ok">▼ 3% vs ago</i></div>
+        <div class="kpi kpi--sol"><small>Sobrou</small><b>R$ 16.550</b><i class="delta">▲ 21% vs ago</i></div>
       </div>
-      <svg class="painel__grafico" viewBox="0 0 480 150" role="img" aria-label="Gráfico de barras de receita por semana, ilustrativo">
-        <g fill="#B89BE0"><rect x="20" y="70" width="60" height="70" rx="6"/><rect x="130" y="52" width="60" height="88" rx="6"/><rect x="240" y="88" width="60" height="52" rx="6"/></g>
-        <rect x="350" y="30" width="60" height="110" rx="6" fill="#3B1F5E"/>
-        <circle cx="380" cy="18" r="7" fill="#FFC83D"/>
-        <g font-family="IBM Plex Mono, monospace" font-size="12" fill="#5A4A78"><text x="30" y="148">sem 1</text><text x="140" y="148">sem 2</text><text x="250" y="148">sem 3</text><text x="360" y="148">sem 4</text></g>
+      <p class="painel__rot">Quanto sobrou, mês a mês</p>
+      <svg class="painel__grafico" viewBox="0 0 480 150" role="img" aria-label="Gráfico de linha do valor que sobrou nos últimos seis meses, ilustrativo">
+        <defs><linearGradient id="gsol" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B89BE0" stop-opacity=".55"/><stop offset="1" stop-color="#B89BE0" stop-opacity="0"/></linearGradient></defs>
+        <g stroke="#DCD2EC" stroke-dasharray="3 4"><line x1="30" y1="30" x2="450" y2="30"/><line x1="30" y1="70" x2="450" y2="70"/><line x1="30" y1="110" x2="450" y2="110"/></g>
+        <path d="M30 105 L114 81 L198 110 L282 68 L366 68 L450 25 L450 122 L30 122 Z" fill="url(#gsol)"/>
+        <path d="M30 105 L114 81 L198 110 L282 68 L366 68 L450 25" fill="none" stroke="#3B1F5E" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+        <g fill="#7A5AA8"><circle cx="30" cy="105" r="4"/><circle cx="114" cy="81" r="4"/><circle cx="198" cy="110" r="4"/><circle cx="282" cy="68" r="4"/><circle cx="366" cy="68" r="4"/></g>
+        <circle cx="450" cy="25" r="7" fill="#FFC83D" stroke="#3B1F5E" stroke-width="3"/>
+        <rect x="360" y="2" width="86" height="20" rx="10" fill="#3B1F5E"/><text x="403" y="16" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#FFC83D">R$ 16,5 mil</text>
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#5A4A78" text-anchor="middle"><text x="30" y="142">abr</text><text x="114" y="142">mai</text><text x="198" y="142">jun</text><text x="282" y="142">jul</text><text x="366" y="142">ago</text><text x="450" y="142" fill="#3B1F5E" font-weight="700">set</text></g>
       </svg>
       <div class="painel__linha"><b>Atrasados</b><span class="mono">4 boletos</span><span class="tag tag--sol">cobrar hoje</span></div>
-      <div class="painel__linha"><b>Reserva</b><span class="mono">2,1 meses</span><span class="tag tag--lilas">meta 3</span></div>
+      <div class="painel__linha painel__linha--barra"><b>Reserva</b><span class="barra" aria-hidden="true"><i style="width:70%"></i></span><span class="mono">2,1 de 3 meses</span></div>
       <div class="painel__linha"><b>Pró-labore</b><span class="mono">R$ 9.000</span><span class="tag tag--ok">em dia</span></div>
+      <div class="painel__ia">
+        <img src="/assets/img/simbolo-fundo-uva.svg" alt="" width="34" height="34">
+        <div>
+          <small>Prompt "Explicar o mês" · o que a IA respondeu com estes números</small>
+          <p>"Setembro fechou com R$ 16.550 de sobra, 21% acima de agosto. Os quatro boletos atrasados somam R$ 3.900: cobrar esta semana mantém a reserva no caminho da meta."</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

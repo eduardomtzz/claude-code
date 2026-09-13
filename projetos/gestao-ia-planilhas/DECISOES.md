@@ -62,3 +62,5 @@
   explicando o que é um prompt com um prompt real do kit e a resposta que a IA devolve. Público iniciante não sabe o
   que é prompt nem por que a planilha ajuda.
 - Regra geral confirmada: nada quebra linha em botão, tag, chip ou linha de painel.
+
+- Painel do herói da home: a primeira imagem do site precisa contar a história completa (números com variação, evolução, reserva e a IA explicando o mês). Painel simples demais não vende.
