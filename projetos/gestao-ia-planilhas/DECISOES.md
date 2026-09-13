@@ -120,3 +120,6 @@ o gargalo é externo, não de produção.
 - **Segunda correção do Eduardo:** "com método" no Completo dizia, por exclusão, que o Essencial não tem método. Rótulo de
   público igual nos dois ("Para qualquer trabalho"); o degrau aparece em quantidade ("3 planilhas" / "10 planilhas e 8 aulas"),
   nunca em qualidade. Um produto da escada nunca diminui o outro.
+- **Terceira correção (Eduardo):** quantidade também compara. Rótulo final diz o que cada kit resolve, sem público e sem
+  número: Essencial "Semana, relatório e dinheiro em ordem"; Completo "Projetos, metas, orçamento e propostas em ordem".
+  Regra: o rótulo acima do nome do produto descreve o problema resolvido. Quem é o público, a pessoa decide sozinha.
