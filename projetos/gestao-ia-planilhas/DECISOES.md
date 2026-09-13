@@ -117,3 +117,6 @@ o gargalo é externo, não de produção.
 - **Aprendizado:** rótulo de público nunca descreve a profissão ou a rotina ("para quem vive de relatório"); descreve a
   necessidade, que é de todo mundo ("para qualquer trabalho"). Quanto mais gente se reconhece, mais gente compra.
   Mesma lição do "estudou para atender". Vale para todos os produtos.
+- **Segunda correção do Eduardo:** "com método" no Completo dizia, por exclusão, que o Essencial não tem método. Rótulo de
+  público igual nos dois ("Para qualquer trabalho"); o degrau aparece em quantidade ("3 planilhas" / "10 planilhas e 8 aulas"),
+  nunca em qualidade. Um produto da escada nunca diminui o outro.
