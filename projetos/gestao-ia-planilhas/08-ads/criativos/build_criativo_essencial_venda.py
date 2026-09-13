@@ -7,14 +7,14 @@ ROOT=pathlib.Path(__file__).resolve().parent; PROJ=ROOT.parents[1]; DOCS=PROJ/'p
 W,H=1080,1920; PAUSA=0.5
 b64=lambda p: base64.b64encode(pathlib.Path(p).read_bytes()).decode()
 LOGO=(PROJ/'03-marca'/'logo'/'logo-horizontal.svg').read_text(); LOGOB=(PROJ/'03-marca'/'logo'/'logo-branco.svg').read_text()
-FONTS=PROJ/'site'/'public'/'assets'/'fonts'
+FONTS=PROJ/'site'/'public'/'assets'/'fonts'; MOCK=ROOT/'essencial-produto-hero-1600x1000.png'
 SIMB='<svg viewBox="0 0 72 72"><rect x="12" y="46" width="30" height="10" rx="5.5" fill="#B89BE0"/><rect x="21" y="31" width="30" height="10" rx="5.5" fill="#fff"/><rect x="30" y="16" width="30" height="10" rx="5.5" fill="#fff"/><circle cx="56" cy="52" r="6" fill="#FFC83D"/></svg>'
 CENAS=[
  {'tipo':'dor','fala':'Toda segunda, a mesma planilha. Todo dia trinta, o relatório do zero. Toda reunião, os slides na véspera.','min':6.5,
   'itens':['Segunda: a mesma planilha','Dia 30: o relatório do zero','Véspera: os slides']},
  {'tipo':'custo','fala':'Isso custa umas seis horas por semana. Trezentas horas por ano montando o que já podia estar pronto.','min':6.0},
  {'tipo':'fluxo','fala':'O Kit IA no Trabalho resolve em três passos. Você preenche a planilha pronta. Cola os números no prompt. A IA escreve, você revisa e entrega.','min':8.5},
- {'tipo':'prova','img':DOCS/'tela-semana-hoje.png','foco':[0,0,1,0.55],'fala':'Não é promessa: são três planilhas reais, quarenta prompts prontos, manual e vídeos.','min':5.5,'legenda':'Tela real. Sem enfeite.'},
+ {'tipo':'prova','fala':'Não é promessa: são três planilhas reais, quarenta prompts prontos, manual e vídeos. No computador ou no celular.','min':6.5},
  {'tipo':'valor','fala':'Um analista cobraria mais de cem reais por hora para montar isso. O kit custa trinta e sete. Uma vez.','min':6.5},
  {'tipo':'fim','fala':'Kit IA no Trabalho Essencial. Trinta e sete reais. Sete dias para desistir. Comece hoje.','min':5.5},
 ]
@@ -48,7 +48,10 @@ CSS=f"""
 .fluxo .n{{width:96px;height:96px;border-radius:50%;background:#FFC83D;color:#3B1F5E;font-family:'Bricolage Grotesque';font-weight:800;font-size:52px;display:flex;align-items:center;justify-content:center;flex:none}}
 .fluxo .p b{{display:block;font-family:'Bricolage Grotesque';font-weight:700;font-size:54px;color:#fff}} .fluxo .p span{{font-size:34px;color:#D9C8F5}}
 .fluxo .seta{{text-align:center;color:#FFC83D;font-size:44px;margin:-18px 0 6px}}
-/* prova */
+/* prova: mockup notebook + celular entra de baixo */
+.mock{{position:absolute;left:0;width:{W}px;opacity:0;transform:translateY(90px);transition:all .9s cubic-bezier(.2,.7,.2,1)}} .mock.on{{opacity:1;transform:none}} .mock img{{width:100%;display:block}}
+.prova .mock{{top:470px}} .prova .selos{{position:absolute;left:60px;right:60px;top:1200px;display:flex;gap:18px;flex-wrap:wrap;justify-content:center}}
+.prova .selos span{{background:#fff;border:2px solid #DCD2EC;border-radius:999px;padding:16px 30px;font-family:'Bricolage Grotesque';font-weight:700;font-size:36px;color:#3B1F5E;opacity:0;transform:translateY(20px);transition:all .4s}} .prova .selos span.on{{opacity:1;transform:none}}
 .tela{{position:absolute;left:60px;top:560px;width:{W-120}px;height:900px;border-radius:24px;overflow:hidden;background:#fff;border:2px solid #DCD2EC;box-shadow:0 30px 60px -30px rgba(31,18,53,.45)}}
 .tela img{{position:absolute;left:0;top:0;transform-origin:0 0;transition:transform 2.2s cubic-bezier(.4,0,.2,1)}}
 .selo{{position:absolute;right:60px;top:500px;background:#FFC83D;color:#3B1F5E;border-radius:999px;padding:16px 30px;font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;z-index:6;transform:rotate(-4deg)}}
@@ -60,14 +63,15 @@ CSS=f"""
 .valor .c b{{display:block;font-family:'Bricolage Grotesque';font-weight:800;font-size:96px;color:#3B1F5E;letter-spacing:-.03em;line-height:1}} .valor .c i{{display:block;font-style:normal;font-size:32px;color:#5A4A78;margin-top:14px}} .valor .c2 i{{color:#3B1F5E}}
 .valor .risco{{position:relative}} .valor .risco::after{{content:'';position:absolute;left:-6%;right:-6%;top:52%;height:10px;background:#C8402E;transform:rotate(-8deg);border-radius:6px;opacity:0;transition:opacity .3s}} .valor .risco.on::after{{opacity:1}}
 /* fim */
-.fim .l{{position:absolute;top:220px;left:80px;width:520px}} .fim .l svg{{width:520px;height:auto}}
-.fim .tt{{position:absolute;top:470px;left:80px;right:80px;font-size:96px}} .fim .tt em{{font-style:normal;background:linear-gradient(transparent 62%,#FFC83D 62%)}}
+.fim .l{{position:absolute;top:140px;left:80px;width:440px}} .fim .l svg{{width:440px;height:auto}}
+.fim .tt{{position:absolute;top:290px;left:80px;right:80px;font-size:84px}} .fim .tt em{{font-style:normal;background:linear-gradient(transparent 62%,#FFC83D 62%)}}
+.fim .mock{{top:520px}}
 .fim .lista{{position:absolute;top:840px;left:80px;right:80px;list-style:none;padding:0;margin:0}} .fim .lista li{{font-size:40px;padding:18px 0 18px 70px;position:relative;border-top:1px solid rgba(255,255,255,.18);color:#F3EEFB}}
 .fim .lista li::before{{content:'';position:absolute;left:0;top:26px;width:36px;height:36px;border-radius:50%;background:#FFC83D url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M4 9.5l3 3 7-7' fill='none' stroke='%233B1F5E' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/60% no-repeat}}
-.fim .preco{{position:absolute;top:1250px;left:80px;right:80px;background:#FFC83D;color:#3B1F5E;border-radius:999px;height:150px;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque';font-weight:800;font-size:64px;animation:pulsa 1.6s ease-in-out infinite}}
+.fim .preco{{position:absolute;top:1260px;left:80px;right:80px;background:#FFC83D;color:#3B1F5E;border-radius:999px;height:150px;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque';font-weight:800;font-size:64px;animation:pulsa 1.6s ease-in-out infinite}}
 @keyframes pulsa{{50%{{transform:scale(1.03)}}}}
-.fim .nota{{position:absolute;top:1430px;left:80px;right:80px;font-family:'IBM Plex Mono';font-size:28px;color:#D9C8F5;text-align:center}}
-.fim .site{{position:absolute;top:1520px;left:80px;right:80px;font-family:'Bricolage Grotesque';font-weight:600;font-size:34px;color:#FFC83D;text-align:center}}
+.fim .nota{{position:absolute;top:1440px;left:80px;right:80px;font-family:'IBM Plex Mono';font-size:28px;color:#D9C8F5;text-align:center}}
+.fim .site{{position:absolute;top:1530px;left:80px;right:80px;font-family:'Bricolage Grotesque';font-weight:600;font-size:34px;color:#FFC83D;text-align:center}}
 """
 def html(cenas):
     partes=[]; extra=[]
@@ -85,12 +89,15 @@ def html(cenas):
             partes.append(f'<div class="cena uva fluxo" id="c{i}"><div class="topo">{LOGOB}</div><div class="t h">Três passos. <em>Pronto.</em></div><div class="passos">{inner}</div><div class="rod">Kit IA no Trabalho · Essencial</div></div>')
             extra.append(f'[1.6,4.0,6.0].forEach((s,k)=>setTimeout(()=>document.getElementById("f"+k).classList.add("on"),(T{i}+s)*1000));')
         elif c['tipo']=='prova':
-            partes.append(f'<div class="cena" id="c{i}"><div class="topo">{LOGO}</div><div class="t h" style="font-size:72px">O que você recebe hoje</div><div class="selo">tela real</div><div class="tela"><img src="data:image/png;base64,{b64(c["img"])}" data-foco="{",".join(map(str,c["foco"]))}"></div><div class="legenda">3 planilhas · 40 prompts</div></div>')
+            selos=''.join(f'<span id="s{k}">{x}</span>' for k,x in enumerate(['3 planilhas prontas','40 prompts de IA','Mini-manual','3 vídeos']))
+            partes.append(f'<div class="cena prova" id="c{i}"><div class="topo">{LOGO}</div><div class="t h" style="font-size:72px">O que você recebe hoje</div><div class="selo">telas reais</div><div class="mock" id="mock{i}"><img src="data:image/png;base64,{b64(MOCK)}"></div><div class="selos">{selos}</div><div class="rod">Abre no Excel, no Google Planilhas e no celular</div></div>')
+            extra.append(f'setTimeout(()=>document.getElementById("mock{i}").classList.add("on"),(T{i}+0.3)*1000); [1.6,2.4,3.2,4.0].forEach((s,k)=>setTimeout(()=>document.getElementById("s"+k).classList.add("on"),(T{i}+s)*1000));')
         elif c['tipo']=='valor':
             partes.append(f'<div class="cena valor" id="c{i}"><div class="topo">{LOGO}</div><div class="t h">Faça a conta.</div><div class="comp"><div class="c c1"><small>um analista</small><b class="risco" id="risco">R$ 100+</b><i>por hora, e leva o dia</i></div><div class="c c2"><small>o kit</small><b>R$ 37</b><i>uma vez, seu para sempre</i></div></div><div class="rod">Menos que uma hora do seu trabalho montando do zero</div></div>')
             extra.append(f'setTimeout(()=>document.getElementById("risco").classList.add("on"),(T{i}+3.2)*1000);')
         elif c['tipo']=='fim':
-            partes.append(f'<div class="cena uva fim" id="c{i}"><div class="l">{LOGOB}</div><div class="t tt">Kit IA no Trabalho <em>Essencial</em></div><ul class="lista"><li>3 planilhas prontas</li><li>40 prompts de IA</li><li>Mini-manual e 3 vídeos</li></ul><div class="preco">Comprar por R$ 37</div><div class="nota">Pix ou cartão · acesso imediato · 7 dias para desistir</div><div class="site">seusociogestor.com.br</div></div>')
+            partes.append(f'<div class="cena uva fim" id="c{i}"><div class="l">{LOGOB}</div><div class="t tt">Kit IA no Trabalho <em>Essencial</em></div><div class="mock" id="mock{i}"><img src="data:image/png;base64,{b64(MOCK)}"></div><div class="preco">Comprar por R$ 37</div><div class="nota">3 planilhas · 40 prompts · manual e vídeos<br>Pix ou cartão · acesso imediato · 7 dias para desistir</div><div class="site">seusociogestor.com.br</div></div>')
+            extra.append(f'setTimeout(()=>document.getElementById("mock{i}").classList.add("on"),(T{i}+0.2)*1000);')
     durs=[c['dur'] for c in cenas]
     starts=[]; t=0
     for d in durs: starts.append(round(t,2)); t+=d

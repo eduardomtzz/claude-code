@@ -37,8 +37,9 @@ def dispositivos(x,y,escala):
       <div class="tag" style="left:{int(40*escala)}px;top:{lh-int(20*escala)}px;font-size:{ft}px;padding:{int(ft*.45)}px {int(ft*.8)}px">Relatório Mensal Pronto</div>
       <div class="tag" style="right:0;top:{int(140*escala)+fh+int(16*escala)}px;font-size:{ft}px;padding:{int(ft*.45)}px {int(ft*.8)}px">Ganhos e Gastos</div>
     </div>'''
-def pagina(w,h,corpo):
-    return f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS} html,body{{width:{w}px;height:{h}px}}</style></head><body><div class="marca">{SIMB}</div>{corpo}</body></html>'
+def pagina(w,h,corpo,marca=True):
+    m=f'<div class="marca">{SIMB}</div>' if marca else ''; bg='' if marca else 'html,body{background:transparent}'
+    return f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS} html,body{{width:{w}px;height:{h}px}} {bg}</style></head><body>{m}{corpo}</body></html>'
 V=pagina(1080,1920,f'''
 <div class="logo" style="position:absolute;left:80px;top:150px;width:360px">{LOGO}</div>
 <div class="t" style="position:absolute;left:80px;right:80px;top:290px;font-size:104px">Kit IA no Trabalho<br><em>Essencial</em></div>
@@ -55,7 +56,7 @@ Q=pagina(1080,1080,f'''
 <div class="pill" style="position:absolute;left:70px;top:900px;width:460px;height:110px;font-size:44px">R$ 37 · uma vez</div>
 <div class="nota" style="position:absolute;left:70px;top:1030px;font-size:20px">7 dias para desistir · seusociogestor.com.br</div>
 ''')
-Hh=pagina(1600,1000,f'''{dispositivos(150,50,0.95)}''')
+Hh=pagina(1600,1000,f'''{dispositivos(150,50,0.95)}''',marca=False)
 out=ROOT/'trabalho-mockup'; out.mkdir(exist_ok=True)
 for nome,html_,w,h in [('essencial-produto-1080x1920',V,1080,1920),('essencial-produto-1080x1080',Q,1080,1080),('essencial-produto-hero-1600x1000',Hh,1600,1000)]:
     (out/f'{nome}.html').write_text(html_)
