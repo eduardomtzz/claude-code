@@ -132,3 +132,7 @@ o gargalo é externo, não de produção.
   (1) voz de serviço pago em português (ElevenLabs, OpenAI ou Google), trocando só o motor de áudio; (2) GPT gera o áudio
   e o Eduardo envia o arquivo; (3) sem narração nos anúncios, só legenda e música. Recomendação do Claude: opção 1, e
   regravar também as aulas e os vídeos dos kits com a voz nova antes do lançamento.
+- **Decisão (Eduardo):** narração vai para o Google Cloud Text-to-Speech (vozes Chirp 3 HD em pt-BR), com a possibilidade de
+  uma voz diferente por cena. Eduardo aceita pagar (custo estimado: menos de R$ 3 para regravar tudo que existe). O motor
+  já aceita a chave pela variável de ambiente `GOOGLE_TTS_API_KEY` (`produto/kit-completo/tts.py`); sem a chave, continua no
+  Piper. Quando a chave existir: regravar aulas, vídeos dos kits e criativos com um comando.

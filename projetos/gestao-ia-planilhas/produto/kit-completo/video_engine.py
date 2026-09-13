@@ -12,18 +12,8 @@ PAUSA=1.1  # segundos de respiro após cada fala
 
 def b64(p): return base64.b64encode(pathlib.Path(p).read_bytes()).decode()
 
-def sintetiza(texto, wav):
-    from piper import PiperVoice
-    global _voz
-    try: _voz
-    except NameError: _voz=PiperVoice.load(str(VOZ))
-    try:
-        from piper import SynthesisConfig
-        cfgv=SynthesisConfig(length_scale=1.1)
-        with wave.open(str(wav),'wb') as w: _voz.synthesize_wav(texto, w, syn_config=cfgv)
-    except Exception:
-        with wave.open(str(wav),'wb') as w: _voz.synthesize_wav(texto, w)
-    with wave.open(str(wav),'rb') as w: return w.getnframes()/w.getframerate()
+from tts import sintetiza as _tts
+def sintetiza(texto, wav, voz=None): return _tts(texto, wav, voz)
 
 CSS=f"""
 @font-face{{font-family:'Bricolage Grotesque';font-weight:600 800;src:url(data:font/woff2;base64,{b64(FONTS/'bricolage-grotesque.woff2')}) format('woff2')}}
@@ -85,7 +75,7 @@ def build(nome):
     cenas=rot['cenas']; wavs=[]
     (ROOT/'entrega'/'videos').mkdir(parents=True,exist_ok=True)
     for i,c in enumerate(cenas):
-        w=out/f'fala{i}.wav'; d=sintetiza(c['fala'],w); c['dur']=round(d+PAUSA,2); wavs.append((w,c['dur']))
+        w=out/f'fala{i}.wav'; d=sintetiza(c['fala'],w,c.get('voz')); c['dur']=round(d+PAUSA,2); wavs.append((w,c['dur']))
     total=sum(c['dur'] for c in cenas)
     (out/'video.html').write_text(html_video(nome,rot,cenas))
     # áudio: cada fala seguida de silêncio até completar a duração da cena
