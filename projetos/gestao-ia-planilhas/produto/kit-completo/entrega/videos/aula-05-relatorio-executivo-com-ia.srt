@@ -1,0 +1,39 @@
+1
+00:00:00,000 --> 00:00:07,150
+Aula cinco. Relatório executivo com IA. Do bloco de números da planilha ao texto revisado, em quarenta e cinco minutos.
+
+2
+00:00:08,250 --> 00:00:19,620
+Começa no Relatório Mensal Pronto. Doze indicadores digitados, e o Painel calcula mês, mês anterior, variação, meta e situação. É daqui que saem os números. Nunca da sua memória.
+
+3
+00:00:20,720 --> 00:00:37,380
+A aba Resumo escreve as frases-base: receita, cento e trinta e um mil e duzentos, mais cinco por cento contra agosto, meta cento e vinte mil, no alvo. E os destaques automáticos: maior alta, maior queda, mais longe da meta. Lá embaixo, o bloco único para copiar.
+
+4
+00:00:38,480 --> 00:00:56,160
+Copie o bloco único e cole no prompt Escrever zero um. Diga quem lê: diretoria, cliente, sócio. E acrescente os seus comentários: o que aconteceu, por quê. A estrutura já vem no prompt: resultado em uma frase, três destaques com número, pontos de atenção com causa e ação, próximos passos.
+
+5
+00:00:57,260 --> 00:01:09,610
+A IA devolve o texto na estrutura pedida. Repare nos colchetes com explicar: onde ela não tinha informação, ela marca em vez de inventar. Isso está no prompt de propósito. É a sua deixa para completar com o que só você sabe.
+
+6
+00:01:10,710 --> 00:01:23,680
+Para o relatório trimestral, ou quando uma página não basta, o prompt Produzir catorze é a versão longa: seiscentas palavras, com a seção do que explica o resultado, o que vem no próximo período e a decisão que precisa ser tomada.
+
+7
+00:01:24,780 --> 00:01:39,270
+Revisão. Cada explicar preenchido ou apagado. Cada número conferido na planilha, um por um; a IA troca sinal, confunde alta com queda. Toda comparação diz com o quê. E nenhuma frase que você não saberia defender numa reunião. Se não sabe defender, apaga.
+
+8
+00:01:40,370 --> 00:01:57,110
+Quando o mês foi ruim, o prompt Produzir dezessete. O número e a distância da meta na primeira frase, duas causas com evidência, o que já foi feito, o que será feito, o que você precisa de quem lê. Sem drama e sem culpar ninguém. Resultado ruim bem comunicado dá mais credibilidade que resultado bom escondido.
+
+9
+00:01:58,210 --> 00:02:11,750
+Outro bloco pronto para a IA está na planilha Ata e Pendências: a aba Resumo monta a reunião escolhida, decisões e pendências, em um bloco. Com o prompt Escrever zero sete vira o resumo para quem não foi; com o Escrever zero dois, o e-mail de cobrança.
+
+10
+00:02:12,850 --> 00:02:25,530
+Resumo da aula cinco. Planilha entrega os números. Bloco único no prompt, com os seus comentários. IA entrega as palavras. Você revisa cada número e cada explicar. Na próxima aula, o mesmo bloco vira apresentação.

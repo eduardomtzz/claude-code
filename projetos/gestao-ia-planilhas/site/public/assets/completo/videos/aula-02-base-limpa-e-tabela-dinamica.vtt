@@ -1,0 +1,45 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.590
+Aula dois. Base limpa e tabela dinâmica em dez minutos. Abra a planilha dez, Base Limpa, para acompanhar.
+
+2
+00:00:07.690 --> 00:00:24.720
+A aba Base tem cento e oitenta lançamentos fictícios da Prisma Comunicação: data, cliente, categoria, canal, responsável, descrição, quantidade, valor unitário. O valor total, o mês e o ano são calculados. Cliente, categoria, canal e status vêm de listas.
+
+3
+00:00:25.820 --> 00:00:41.830
+Antes de analisar, o Checklist. Ele conta linhas com data sem valor, valor sem data, datas fora do intervalo, categorias e clientes fora da lista, status em branco, quantidade zero e possíveis lançamentos em dobro. A última linha diz: base pronta, pode analisar.
+
+4
+00:00:42.930 --> 00:00:56.610
+Tabela dinâmica é a ferramenta mais subestimada do Excel. É um resumo da base que você monta arrastando campos, sem escrever fórmula. Categoria nas linhas, mês nas colunas, soma do valor nos valores. Entrou dado novo, atualiza e pronto.
+
+5
+00:00:57.710 --> 00:01:13.960
+No Excel: clique numa célula da base, menu Inserir, Tabela Dinâmica, OK. Abre uma aba nova com a lista de campos à direita. Arraste Categoria para Linhas, Mês para Colunas, Valor total para Valores. Se quiser ver só o que está pago, arraste Status para Filtros e escolha Pago.
+
+6
+00:01:15.060 --> 00:01:27.890
+No Google Sheets é parecido: selecione a base inteira, menu Inserir, Tabela dinâmica, nova página. No painel da direita, adicione Categoria em Linhas, Mês em Colunas e Valor total em Valores. Aparece o mesmo resumo.
+
+7
+00:01:28.990 --> 00:01:43.700
+A aba Resumo da planilha faz exatamente esse resumo, mas com fórmula: SOMASES por categoria e mês, filtrando ano e status. Serve para comparar: o total da sua tabela dinâmica tem que bater com o total daqui. Se não bate, alguma linha está fora da lista.
+
+8
+00:01:44.800 --> 00:01:55.400
+Mais abaixo, o resumo por cliente: registros, valor no ano, ticket médio e último registro. Também dá para fazer na dinâmica: cliente nas linhas, contagem e soma nos valores.
+
+9
+00:01:56.500 --> 00:02:08.890
+Três coisas quebram a dinâmica. Total no meio da base, que entra duas vezes. Célula mesclada, que ela recusa. E data digitada como texto, que não agrupa por mês. As três estão no checklist da aula um.
+
+10
+00:02:09.990 --> 00:02:19.810
+Se travar num menu, o prompt Produzir zero seis guia passo a passo com os nomes exatos dos menus, no Excel ou no Sheets. Diga o que quer nas linhas, nas colunas e nos valores.
+
+11
+00:02:20.910 --> 00:02:33.390
+Resumo da aula dois. Base limpa, checklist zerado, Inserir, Tabela dinâmica, três campos arrastados. Confira o total contra o SOMASES. Na próxima aula, as oito fórmulas que resolvem oitenta por cento.

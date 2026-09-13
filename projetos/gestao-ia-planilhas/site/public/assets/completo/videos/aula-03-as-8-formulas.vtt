@@ -1,0 +1,53 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.840
+Aula três. As oito fórmulas que resolvem oitenta por cento do trabalho. Tenha o dicionário de fórmulas ao lado.
+
+2
+00:00:06.940 --> 00:00:18.860
+A primeira e mais importante: SOMASES, SUMIFS em inglês. Soma a coluna de valor quando as condições forem verdadeiras: tipo igual a despesa, e mês igual a nove. Todos os painéis do kit são feitos com ela.
+
+3
+00:00:19.960 --> 00:00:33.370
+Olhe o painel do Orçamento. Cada célula de realizado é um SOMASES: soma o valor da aba Realizado quando a categoria é esta, o mês é o do painel e o ano é o de Config. Vinte categorias, uma fórmula copiada para baixo.
+
+4
+00:00:34.470 --> 00:00:47.380
+A segunda é a irmã dela: CONT.SES, COUNTIFS. Em vez de somar, conta. Quantas etapas estão atrasadas. Quantas propostas estão em negociação. Mesma lógica: intervalo, condição, intervalo, condição.
+
+5
+00:00:48.480 --> 00:01:02.020
+A terceira: SE, IF. Se a condição for verdadeira, uma coisa; senão, outra. A coluna Situação de todas as planilhas é um SE dentro de outro: se está feito, feita; senão, se o prazo passou, atrasada; senão, se é hoje, hoje.
+
+6
+00:01:03.120 --> 00:01:15.590
+A quarta: SEERRO, IFERROR. Se a fórmula der erro, mostra o que você mandar. Serve para buscas que não acham nada. Cuidado: não use para esconder dado errado. Se o erro é a categoria fora da lista, corrija a categoria.
+
+7
+00:01:16.690 --> 00:01:30.130
+A quinta é um par: ÍNDICE e CORRESP, INDEX e MATCH. CORRESP acha em que linha está o nome. ÍNDICE devolve o valor daquela linha em outra coluna. Funciona em qualquer direção, ao contrário do PROCV, e é como o kit busca o custo-hora de cada pessoa.
+
+8
+00:01:31.230 --> 00:01:44.850
+A sexta é a clássica: PROCV, VLOOKUP. Procura o valor na primeira coluna da tabela e devolve a coluna que você pedir. É simples e todo mundo conhece; a limitação é que só busca para a direita. O zero no fim é obrigatório: busca exata.
+
+9
+00:01:45.950 --> 00:02:00.000
+A sétima são duas de data. DIATRABALHOTOTAL, NETWORKDAYS, conta dias úteis entre duas datas e desconta feriados de uma lista. DATADIF calcula a diferença em dias, meses ou anos. E lembre: data menos data dá o número de dias, direto.
+
+10
+00:02:01.100 --> 00:02:14.020
+A oitava: TEXTO, TEXT. Transforma número ou data em texto com formato. É o que monta as frases da aba Resumo do Relatório Mensal e os títulos dos painéis: nome da empresa, mês, ano, tudo junto numa célula.
+
+11
+00:02:15.120 --> 00:02:28.200
+Três hábitos. Cifrão antes de copiar: o que não pode mudar leva cifrão, e a tecla F4 alterna. Nunca some um intervalo com total no meio. E teste com um número que você sabe de cabeça antes de copiar a fórmula para quinhentas linhas.
+
+12
+00:02:29.300 --> 00:02:41.390
+Quando não souber a fórmula, o prompt Produzir zero um. Você descreve o cálculo em palavras, diz quais são as colunas, e a IA devolve a fórmula nas duas linguagens, com o cifrão no lugar. Teste em duas células antes de copiar.
+
+13
+00:02:42.490 --> 00:02:54.870
+Resumo da aula três. SOMASES, CONT.SES, SE, SEERRO, ÍNDICE com CORRESP, PROCV, as de data e TEXTO. Oito fórmulas, oitenta por cento do trabalho. As outras cinquenta e duas estão no dicionário.

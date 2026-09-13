@@ -1,0 +1,35 @@
+1
+00:00:00,000 --> 00:00:07,780
+Aula sete. Revisar antes de enviar. Os erros que a IA comete com mais frequência e os dois minutos que evitam o e-mail de correção.
+
+2
+00:00:08,880 --> 00:00:27,560
+A IA erra de cinco jeitos previsíveis. Inventa um número que não estava no bloco. Troca o sinal, alta vira queda. Confunde mês anterior com meta. Escreve com confiança o que devia estar entre colchetes. E generaliza: todos os indicadores melhoraram, quando foram dez de doze. Sabendo os cinco, você pega em dois minutos.
+
+3
+00:00:28,660 --> 00:00:40,320
+A regra mais simples e mais eficaz: leia o texto com a planilha aberta do lado. Cada número que aparecer no texto, aponte a célula de onde ele veio. Se não tem célula, é invenção. Apaga ou corrige.
+
+4
+00:00:41,420 --> 00:00:56,970
+A revisão da planilha está automatizada na Base Limpa: o checklist conta os problemas. Para as outras planilhas, o checklist de revisão do kit tem nove itens: totais batem, fórmula igual do topo ao fim, sem total no meio, datas são datas, categorias de lista.
+
+5
+00:00:58,070 --> 00:01:12,320
+Checklist do relatório. Primeira frase diz o principal. Todo explicar resolvido. Cada número conferido. Comparações dizem com o quê. Nenhuma frase que eu não saberia defender. E leitura em voz alta uma vez: frase que embola na boca, embola na cabeça de quem lê.
+
+6
+00:01:13,420 --> 00:01:26,790
+Para acelerar, o prompt Revisar zero três: cole a tabela e o texto, e a IA compara número por número, listando as divergências. Ela ajuda a revisar, mas a decisão final continua sendo sua: a IA também erra ao revisar.
+
+7
+00:01:27,890 --> 00:01:41,400
+Checklist da apresentação. Títulos são conclusões. Um gráfico por slide, letra maior que dezoito. Tem slide de pontos de atenção. O último pede decisão. E cronometrei: cabe em oitenta por cento do tempo da reunião, porque sempre atrasa.
+
+8
+00:01:42,500 --> 00:01:57,450
+E o envio. Destinatários, assunto e anexo certos, e o anexo aberto antes de enviar. A versão do cliente sem número interno: custo, margem, salário. E o nome do arquivo que faça sentido daqui a seis meses: cliente, assunto, ano e mês.
+
+9
+00:01:58,550 --> 00:02:09,420
+Resumo da aula sete. Cinco erros previsíveis. Cada número, um dedo na planilha. Os quatro checklists estão no PDF do kit: planilha, relatório, apresentação e envio. Dois minutos cada.

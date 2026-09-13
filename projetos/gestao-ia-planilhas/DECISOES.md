@@ -103,8 +103,8 @@ o gargalo é externo, não de produção.
   Propostas, Horas e Custo por Projeto, Base Limpa), todas recalculadas com zero erro, com exemplo da Prisma Comunicação.
 - Biblioteca B com 40 prompts (Estruturar 12, Produzir 28), dicionário de 60 fórmulas, 4 checklists, manual do método
   (16 páginas), 2 modelos de apresentação novos (trimestre 12 slides, proposta 10 slides).
-- 8 aulas em vídeo de 2 a 4 minutos (tela real + cartões + narração sintética + legenda). A oferta dizia "6 a 10 min";
-  ajustado para "2 a 4 min" em todos os textos: aula curta e direta vende melhor do que aula esticada, e é o que existe.
+- 8 aulas em vídeo de 2 a 3 minutos (tela real + cartões + narração sintética + legenda). A oferta dizia "6 a 10 min";
+  ajustado para "2 a 3 min" em todos os textos: aula curta e direta vende melhor do que aula esticada, e é o que existe.
 - Página `/completo/` e copy em `04-copy/kit-completo.md`. Botão de compra aponta para `#preco` até a Kiwify
   (`checkout.kit_completo` em `site/config.json`). Páginas de obrigado ficaram neutras, servem aos dois kits.
 - Upgrade Essencial → Completo com abatimento dos R$ 37: a Kiwify faz por cupom ou oferta de upsell; configurar ao criar

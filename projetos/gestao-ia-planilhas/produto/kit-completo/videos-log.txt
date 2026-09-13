@@ -1,2 +1,16 @@
 gravado
 aula-01-pensar-antes-de-abrir-o-excel 145.5s /home/user/claude-code/projetos/gestao-ia-planilhas/produto/kit-completo/entrega/videos/aula-01-pensar-antes-de-abrir-o-excel.mp4
+gravado
+aula-02-base-limpa-e-tabela-dinamica 154.5s /home/user/claude-code/projetos/gestao-ia-planilhas/produto/kit-completo/entrega/videos/aula-02-base-limpa-e-tabela-dinamica.mp4
+gravado
+aula-03-as-8-formulas 176.0s /home/user/claude-code/projetos/gestao-ia-planilhas/produto/kit-completo/entrega/videos/aula-03-as-8-formulas.mp4
+gravado
+aula-04-o-grafico-certo 119.2s /home/user/claude-code/projetos/gestao-ia-planilhas/produto/kit-completo/entrega/videos/aula-04-o-grafico-certo.mp4
+gravado
+aula-05-relatorio-executivo-com-ia 146.6s /home/user/claude-code/projetos/gestao-ia-planilhas/produto/kit-completo/entrega/videos/aula-05-relatorio-executivo-com-ia.mp4
+gravado
+aula-06-apresentacao-de-8-slides-com-ia 137.0s /home/user/claude-code/projetos/gestao-ia-planilhas/produto/kit-completo/entrega/videos/aula-06-apresentacao-de-8-slides-com-ia.mp4
+gravado
+aula-07-revisar-antes-de-enviar 130.5s /home/user/claude-code/projetos/gestao-ia-planilhas/produto/kit-completo/entrega/videos/aula-07-revisar-antes-de-enviar.mp4
+gravado
+aula-08-a-rotina 160.9s /home/user/claude-code/projetos/gestao-ia-planilhas/produto/kit-completo/entrega/videos/aula-08-a-rotina.mp4

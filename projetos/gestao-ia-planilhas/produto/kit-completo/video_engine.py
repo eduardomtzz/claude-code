@@ -47,6 +47,8 @@ CSS=f"""
 """
 SIMB='<svg viewBox="0 0 72 72"><rect x="12" y="46" width="30" height="10" rx="5.5" fill="#B89BE0"/><rect x="21" y="31" width="30" height="10" rx="5.5" fill="#fff"/><rect x="30" y="16" width="30" height="10" rx="5.5" fill="#fff"/><circle cx="56" cy="52" r="6" fill="#FFC83D"/></svg>'
 
+import html as _html
+def esc(x): return _html.escape(str(x), quote=False)
 def html_video(nome, rot, cenas):
     partes=[]
     for i,c in enumerate(cenas):
@@ -54,15 +56,15 @@ def html_video(nome, rot, cenas):
             partes.append(f'<div class="cena capa" id="c{i}"><div class="simb">{SIMB}</div><div class="t"><em>Aula {rot["n"]}</em><br>{rot["titulo"]}</div><div class="s">{rot["sub"]}</div><div class="k">Kit IA no Trabalho · Completo · Seu Sócio Gestor</div></div>')
         elif c['tipo']=='tela':
             src='data:image/png;base64,'+b64(ROOT/c['img'])
-            partes.append(f'<div class="cena" id="c{i}"><div class="topo">{LOGO}</div><div class="tela"><img src="{src}" data-foco="{",".join(map(str,c["foco"]))}"></div><div class="legenda"><b>{i}</b>{c["legenda"]}</div></div>')
+            partes.append(f'<div class="cena" id="c{i}"><div class="topo">{LOGO}</div><div class="tela"><img src="{src}" data-foco="{",".join(map(str,c["foco"]))}"></div><div class="legenda"><b>{i}</b>{esc(c["legenda"])}</div></div>')
         elif c['tipo']=='card':
-            box=f'<div class="box">{c["box"]}</div>' if c.get('box') else ''
-            partes.append(f'<div class="cena card" id="c{i}"><div class="topo">{LOGO}</div><div class="t">{c["titulo"]}</div><div class="p">{c["texto"]}</div>{box}<div class="legenda"><b>{i}</b>{c["legenda"]}</div></div>')
+            box=f'<div class="box">{esc(c["box"])}</div>' if c.get('box') else ''
+            partes.append(f'<div class="cena card" id="c{i}"><div class="topo">{LOGO}</div><div class="t">{esc(c["titulo"])}</div><div class="p">{esc(c["texto"])}</div>{box}<div class="legenda"><b>{i}</b>{esc(c["legenda"])}</div></div>')
         elif c['tipo']=='lista':
-            its=''.join(f'<li>{x}</li>' for x in c['itens'])
-            partes.append(f'<div class="cena card" id="c{i}"><div class="topo">{LOGO}</div><div class="t">{c["titulo"]}</div><ul class="li">{its}</ul><div class="legenda"><b>{i}</b>{c["legenda"]}</div></div>')
+            its=''.join(f'<li>{esc(x)}</li>' for x in c['itens'])
+            partes.append(f'<div class="cena card" id="c{i}"><div class="topo">{LOGO}</div><div class="t">{esc(c["titulo"])}</div><ul class="li">{its}</ul><div class="legenda"><b>{i}</b>{esc(c["legenda"])}</div></div>')
         elif c['tipo']=='fim':
-            partes.append(f'<div class="cena fim" id="c{i}"><div class="t">{c["fala"]}</div><div class="s">Suporte por e-mail · reembolso em 7 dias · pagamento único</div><div class="site">seusociogestor.com.br</div></div>')
+            partes.append(f'<div class="cena fim" id="c{i}"><div class="t">{esc(c["fala"])}</div><div class="s">Suporte por e-mail · reembolso em 7 dias · pagamento único</div><div class="site">seusociogestor.com.br</div></div>')
     durs=[c['dur'] for c in cenas]
     js=f"""
 const durs={json.dumps(durs)}; const W={W-64}, H={H-84-118};

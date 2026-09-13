@@ -11,7 +11,7 @@ sempre com contexto, bloco de dor logo depois do herói, explicar o básico. Pre
 - **Headline:** Planilha, relatório e apresentação com método. Não no braço.
 - **Subheadline:** Dez planilhas prontas, 80 prompts e 8 aulas curtas que fazem você entregar o que o chefe ou o cliente
   pede, revisado, sem começar do zero. Pagamento único de R$ 197.
-- **Linha de transparência:** Kit de arquivos + aulas gravadas: 10 planilhas, 80 prompts, 8 aulas de 2 a 4 minutos, manual
+- **Linha de transparência:** Kit de arquivos + aulas gravadas: 10 planilhas, 80 prompts, 8 aulas de 2 a 3 minutos, manual
   do método, 3 modelos de apresentação. Você baixa e usa. Não é curso ao vivo, não é software, não tem mensalidade.
 - **CTA:** Comprar por R$ 197 · **Topo:** Comprar R$ 197
 - **Nota:** Pix ou 12× no cartão · acesso imediato · 7 dias para desistir
@@ -94,7 +94,7 @@ Nota fiscal em nome da ZTRAINING SERVICE LTDA.
 3. **Funciona no Google Sheets?** Sim. Todas as dez foram testadas no Sheets. Só MÍNIMOSES e MÁXIMOSES pedem Excel
    2019 ou mais novo, ou o Sheets.
 4. **Preciso pagar ChatGPT ou outra IA?** Não. As versões gratuitas atuais dão conta do que as aulas ensinam.
-5. **As aulas têm professor?** Não. São tela real com narração sintética e legenda, de 2 a 4 minutos cada. Vão
+5. **As aulas têm professor?** Não. São tela real com narração sintética e legenda, de 2 a 3 minutos cada. Vão
    direto ao que fazer.
 6. **Serve para o meu tipo de trabalho?** As planilhas são de gestão do trabalho (tarefas, projetos, metas, dinheiro,
    propostas, horas), não de uma profissão. Os kits por profissão têm planilhas específicas.

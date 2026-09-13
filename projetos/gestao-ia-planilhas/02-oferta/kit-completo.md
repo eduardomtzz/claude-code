@@ -43,7 +43,7 @@ e parar de passar vergonha em reunião.
 ## Produto
 
 Formato: as 10 planilhas em Excel e Google Sheets (fórmulas protegidas, aba "Como usar", exemplo preenchido
-com empresa fictícia), biblioteca de 80 prompts (PDF e txt), 8 aulas de 2 a 4 min (tela real + narração
+com empresa fictícia), biblioteca de 80 prompts (PDF e txt), 8 aulas de 2 a 3 min (tela real + narração
 por IA + legenda, como os vídeos do Essencial, só mais longas), manual do método em PDF, 3 modelos de
 apresentação, checklists.
 
