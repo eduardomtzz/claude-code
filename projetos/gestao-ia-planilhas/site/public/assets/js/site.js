@@ -21,6 +21,7 @@
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
       window.fbq('init', window.SSG.pixelId);
       window.fbq('track', 'PageView', {}, { eventID: window.SSG.pageViewId || undefined });
+      if (window.SSG.viewContent) window.fbq('track', 'ViewContent', window.SSG.viewContent);
     }
   }
 
@@ -66,6 +67,12 @@
       render();
     });
   }
+
+  /* Clique no botão de compra: InitiateCheckout (só se o Pixel estiver carregado) */
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest('a[data-checkout]');
+    if (a && window.fbq && window.__ssgPixel) window.fbq('track', 'InitiateCheckout', window.SSG.viewContent || {});
+  });
 
   /* Preserva UTM e fbclid nos links de checkout (quando existirem) */
   try {

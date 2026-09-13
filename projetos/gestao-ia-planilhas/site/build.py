@@ -32,15 +32,31 @@ for p in pages:
     slug = meta.get('path', '/' + p.stem + '/')
     if p.stem == 'index': slug = '/'
     if p.stem == '404': slug = '/404.html'
-    html = render(layout, {'content': render(raw, meta), 'title': meta.get('title', cfg['marca']),
-                           'description': meta.get('description', ''), 'path': slug,
-                           'body_class': meta.get('body_class', '')})
+    ctx = dict(meta); ctx.update({'content': render(raw, meta), 'title': meta.get('title', cfg['marca']),
+                                  'description': meta.get('description', ''), 'path': slug,
+                                  'body_class': meta.get('body_class', '')})
+    html = render(layout, ctx)
     out = ROOT / 'public' / (slug.strip('/') + ('/index.html' if slug.endswith('/') else '')) if slug != '/' else ROOT / 'public' / 'index.html'
     if slug == '/404.html': out = ROOT / 'public' / '404.html'
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding='utf-8')
-    if p.stem != '404': sitemap.append(cfg['url'] + slug)
+    if p.stem != '404' and 'noindex' not in meta.get('robots', ''): sitemap.append(cfg['url'] + slug)
     print('ok', slug, '->', out.relative_to(ROOT))
+
+# Vídeos de demonstração: copiados do pacote do produto (não ficam no git dentro de site/)
+import shutil
+VID_SRC = ROOT.parent / 'produto' / 'kit-essencial' / 'entrega' / 'videos'
+VID_DST = ROOT / 'public' / 'assets' / 'kit' / 'videos'
+if VID_SRC.is_dir():
+    VID_DST.mkdir(parents=True, exist_ok=True)
+    for f in sorted(VID_SRC.iterdir()):
+        if f.suffix == '.mp4':
+            dst = VID_DST / f.name
+            if not dst.exists() or dst.stat().st_mtime < f.stat().st_mtime: shutil.copy2(f, dst)
+        elif f.suffix == '.srt':
+            vtt = 'WEBVTT\n\n' + re.sub(r'(\d{2}:\d{2}:\d{2}),(\d{3})', r'\1.\2', f.read_text(encoding='utf-8'))
+            (VID_DST / (f.stem + '.vtt')).write_text(vtt, encoding='utf-8')
+    print('vídeos copiados de', VID_SRC.relative_to(ROOT.parent))
 
 (ROOT / 'public' / 'sitemap.xml').write_text(
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

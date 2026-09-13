@@ -10,10 +10,10 @@ Eduardo é o gestor e aprovador.
 |---|---|---|
 | 1. Pesquisa de nicho | aprovado | 4 rodadas. Rodada 4 (conversão) consolidada em `01-pesquisa/resumo-rodada-4.md`: blueprint das páginas, checkout e pós-compra |
 | 2. Oferta | em andamento | `02-oferta/kit-essencial.md` (produto 1) em revisão; `02-oferta/dentistas.md` guardada para o produto 5 |
-| 3. Produto | em andamento | Kit Essencial v1 completo em `produto/kit-essencial/entrega/` (3 planilhas, 40 prompts, manual, 8 slides, checklist, 3 vídeos). Próximo: copy e página |
+| 3. Produto | em andamento | Kit Essencial v1 completo em `produto/kit-essencial/entrega/` (3 planilhas, 40 prompts, manual, 8 slides, checklist, 3 vídeos). Aguarda auditoria de produto |
 | 4. Marca | aprovado | direção D, kit de marca em `03-marca/kit-de-marca/` |
-| 5. Copy | não iniciado | |
-| 6. Página | em andamento | base pronta em `site/` (home, sobre, suporte, termos, privacidade, cookies, reembolso). Falta hospedar e as páginas de produto |
+| 5. Copy | em andamento | `04-copy/kit-essencial.md` (página, obrigado, e-mails, 3 ângulos de anúncio) |
+| 6. Página | em andamento | base + `/kit/` (Kit Essencial) + `/obrigado/` (3 estados) em `site/`. Falta hospedar, link da Kiwify e revisão do Eduardo |
 | 7. Checkout | não iniciado | hipótese: Kiwify (baixo) e Hotmart (alto/internacional) |
 | 8. Rastreamento | não iniciado | |
 | 9. Criativos | não iniciado | |
@@ -24,7 +24,7 @@ Eduardo é o gestor e aprovador.
 | Ordem | Produto | Página | Preço |
 |---|---|---|---|
 | 0 | Base do site: home institucional mínima, termos, privacidade, suporte, checkout, Pixel + CAPI, e-mail de entrega | / | — |
-| 1 | Kit IA no Trabalho · Essencial (entrada e order bump de tudo) | /kit | R$ 27 a 47 |
+| 1 | Kit IA no Trabalho · Essencial (entrada de tudo) | /kit | R$ 37 |
 | 2 | IA no Trabalho: planilhas, relatórios e apresentações na metade do tempo | /ia | R$ 197 a 297 |
 | 3 | Kit de Gestão para Advogados | /advogados | R$ 497 a 697 |
 | 4 | Kit de Gestão para Médicos (cria o núcleo de clínica) | /medicos | R$ 697 (âncora 997) |

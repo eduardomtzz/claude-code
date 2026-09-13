@@ -36,3 +36,19 @@
 | 2026-09-13 | Ordem de produção por produto: oferta → planilhas → manual e prompts → demonstrações → copy e página → obrigado e e-mails. Só depois o próximo produto. Contas (Cloudflare, e-mail, Kiwify, Meta) só quando tudo do primeiro produto estiver pronto. Aviso "não afiliado à Meta" removido do rodapé: é costume de mercado, não regra. |
 | 2026-09-13 | Kit Essencial: preço cheio R$ 37 direto, sem preço de lançamento (Eduardo: anunciar lançamento passa imagem de empresa nova). Três planilhas aprovadas: Semana Organizada, Relatório Mensal Pronto, Ganhos e Gastos. Lançar **sem order bump**; o pacote "Fórmulas explicadas" fica para depois, como bump, quando houver base de compra medida. |
 | 2026-09-13 | Kit IA no Trabalho · Essencial v1 produzido: 3 planilhas (testadas, zero erros de fórmula), 40 prompts (PDF e txt), mini-manual (13 págs), modelo de 8 slides (pptx validado), checklist, 3 vídeos de 54 a 57 s com narração por IA (Piper, voz pt-BR) e legendas .srt. Pacote em `produto/kit-essencial/kit-ia-no-trabalho-essencial-v1.zip`. Auditoria do produto por GPT/Manus fica para quando o Eduardo quiser. |
+
+## 2026-09-13 · Página do Kit Essencial e páginas de obrigado (Claude, para revisão do Eduardo)
+
+- `/kit/` construída a partir de `04-copy/kit-essencial.md` e do blueprint da rodada 4: tela real no herói,
+  inventário com print de cada um dos 7 arquivos, método (Preencher, perguntar, entregar) com vídeo por toque,
+  três usos, compatibilidade, quem faz, preço único R$ 37 com direito de arrependimento pelo nome, FAQ. Sem contador,
+  sem depoimento, sem âncora de preço falsa.
+- `/obrigado/`, `/obrigado/pix/` e `/obrigado/recusado/`: os três estados, todos `noindex`. A Kiwify será configurada
+  para mandar cada status para a URL certa.
+- Botão de compra aponta para `#preco` até existir o link da Kiwify (`site/config.json` → `checkout.kit_essencial`).
+  Mesmo campo para a área de download (`checkout.area_download`).
+- Pixel: a página envia `ViewContent` (valor 37, BRL) e o clique no botão envia `InitiateCheckout`, sempre só com
+  consentimento de publicidade. Detalhe do rastreamento fica para a etapa 8 (CAPI).
+- Vídeos do site são copiados do pacote do produto no build (`site/public/assets/kit/videos/` fora do git) para não
+  duplicar 17 MB no repositório.
+- Home: card do Kit Essencial passou de "Em breve · a partir de R$ 27" para "Disponível · R$ 37 · Ver o kit".

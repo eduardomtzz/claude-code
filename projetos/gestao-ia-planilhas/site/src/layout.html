@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{title}}</title>
 <meta name="description" content="{{description}}">
+<meta name="robots" content="{{robots}}">
 <link rel="canonical" href="{{url}}{{path}}">
 <meta property="og:title" content="{{title}}">
 <meta property="og:description" content="{{description}}">
@@ -31,7 +32,7 @@
       <a href="/#como-funciona">Como funciona</a>
       <a href="/suporte/">Suporte</a>
     </nav>
-    <a class="btn btn--sol topo__cta" href="/#kits">Ver os kits</a>
+    <a class="btn btn--sol topo__cta" href="{{cta_href}}">{{cta_label}}</a>
   </div>
 </header>
 <main id="conteudo">
@@ -45,7 +46,7 @@
     </div>
     <div class="rodape__col">
       <h2>Kits</h2>
-      <a href="/#kits">Kit IA no Trabalho · Essencial</a>
+      <a href="/kit/">Kit IA no Trabalho · Essencial</a>
       <a href="/#kits">Kit IA no Trabalho · Completo</a>
       <a href="/#kits">Para advogados</a>
       <a href="/#kits">Para médicos</a>

@@ -11,5 +11,13 @@
     "prazo_resposta": "até 5 dias úteis"
   },
   "meta_pixel_id": "",
-  "atualizado_em": "13 de setembro de 2026"
+  "atualizado_em": "13 de setembro de 2026",
+  "cta_href": "/#kits",
+  "cta_label": "Ver os kits",
+  "robots": "index, follow",
+  "checkout": {
+    "_nota": "Trocar pelos links reais da Kiwify quando a conta existir. Enquanto vazio, o botão leva ao bloco de preço.",
+    "kit_essencial": "#preco",
+    "area_download": "#"
+  }
 }

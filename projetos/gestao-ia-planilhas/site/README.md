@@ -22,8 +22,16 @@ site/
 
 Páginas: `/` (home institucional e catálogo), `/sobre/`, `/suporte/`, `/termos/`,
 `/privacidade/`, `/cookies/` (preferências funcionais), `/reembolso/`, `404`.
-Páginas de produto (`/kit/`, `/ia/`, `/advogados/`, `/medicos/`, `/dentistas/`,
-`/entregadores/`) e de obrigado entram uma a uma, na ordem do README do projeto.
+Produto 1: `/kit/` (Kit IA no Trabalho · Essencial) e `/obrigado/`, `/obrigado/pix/`, `/obrigado/recusado/`
+(`noindex`). As demais páginas de produto entram uma a uma, na ordem do README do projeto.
+
+Variáveis por página (comentário no topo de cada `src/pages/*.html`): `title`, `description`,
+`body_class`, `path` (URL final), `robots` (`noindex, nofollow` nas de obrigado), `cta_href` e
+`cta_label` (botão do cabeçalho). `config.json` → `checkout.kit_essencial` e `checkout.area_download`
+recebem os links da Kiwify quando a conta existir; enquanto isso apontam para `#preco` e `#`.
+
+Imagens da página do kit em `public/assets/kit/` (recortes dos prints reais em `produto/kit-essencial/docs/`).
+Os vídeos são copiados de `produto/kit-essencial/entrega/videos/` pelo `build.py` (pasta fora do git).
 
 ## Como editar e publicar
 
