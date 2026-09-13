@@ -8,7 +8,7 @@ Eduardo é o gestor e aprovador.
 
 | Etapa | Status | Observação |
 |---|---|---|
-| 1. Pesquisa de nicho | aprovado | 3 rodadas cruzadas em `01-pesquisa/resumo-rodada-3.md`. Rodada 4 (conversão): Claude pronta em `01-pesquisa/rodada-4-claude.md`; aguardando ChatGPT e Manus |
+| 1. Pesquisa de nicho | aprovado | 4 rodadas. Rodada 4 (conversão) consolidada em `01-pesquisa/resumo-rodada-4.md`: blueprint das páginas, checkout e pós-compra |
 | 2. Oferta | em andamento | `02-oferta/dentistas.md` pronta (produto 5, guardada). Próxima: Kit IA no Trabalho |
 | 3. Produto | não iniciado | 20 planilhas por vertical + prompts + aulas narradas por IA |
 | 4. Marca | aprovado | direção D, kit de marca em `03-marca/kit-de-marca/` |
@@ -37,7 +37,7 @@ Regras: um produto só começa a ser produzido depois que o anterior está no ar
 Cada produto passa por oferta, produto, copy, página, criativos e lançamento. Área do cliente é a
 área de membros do checkout; não construímos a nossa. Anúncio nunca cai na home.
 
-Antes de construir qualquer página: rodada 4 de pesquisa (conversão, UX, checkout, prova social)
-em `01-pesquisa/rodada-4-*.md`, consolidada em `resumo-rodada-4.md`.
+Blueprint de páginas, checkout e pós-compra: `01-pesquisa/resumo-rodada-4.md` (entrada obrigatória das
+etapas 6 a 8).
 
 Ofertas ficam em `02-oferta/<produto>.md`; produto em `produto/<produto>/`.
