@@ -29,12 +29,14 @@ blockquote{{margin:0;padding:6pt 12pt;background:#FFF4CC;border-radius:6px}}
 .capa .t em{{font-style:normal;background:linear-gradient(transparent 62%,#FFC83D 62%)}}
 .capa .s{{font-size:13pt;color:#5A4A78;margin-top:14pt;max-width:120mm}} .capa .m{{font-family:'IBM Plex Mono';font-size:9pt;color:#7A5AA8}}
 input[type=checkbox]{{width:11pt;height:11pt;vertical-align:-1pt;margin-right:6pt}}
+ul.check{{list-style:none;padding-left:0}} ul.check li{{margin-bottom:6pt}}
 """
 def build(md_path, pdf_name, titulo, sub, capa=True):
     md=pathlib.Path(md_path).read_text()
     md=re.sub(r'^# .*\n\n?.*?\n\n','',md,count=1,flags=re.M) if capa else md
     md=md.replace('- [ ] ','- <input type="checkbox"> ')
     html=markdown.markdown(md,extensions=['tables','fenced_code'])
+    html=html.replace('<ul>\n<li><input','<ul class="check">\n<li><input')
     html=re.sub(r'<img alt="([^"]*)" src="docs/([^"]+)"',lambda m:f'<img alt="{m.group(1)}" src="data:image/png;base64,{b64(ROOT/"docs"/m.group(2))}"',html)
     logo=LOGO.replace("<svg",'<svg class="logo"',1)
     capa_html=f'<div class="capa"><div>{logo}</div><div><div class="t">{titulo}</div><div class="s">{sub}</div></div><div class="m">Kit IA no Trabalho · Essencial · versão 1.0 · setembro de 2026 · seusociogestor.com.br</div></div>' if capa else ''
