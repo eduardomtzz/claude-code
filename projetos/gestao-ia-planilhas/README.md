@@ -13,7 +13,7 @@ Eduardo é o gestor e aprovador.
 | 3. Produto | não iniciado | 20 planilhas por vertical + prompts + aulas narradas por IA |
 | 4. Marca | aprovado | direção D, kit de marca em `03-marca/kit-de-marca/` |
 | 5. Copy | não iniciado | |
-| 6. Página | não iniciado | uma página de vendas por produto, home como catálogo |
+| 6. Página | em andamento | base pronta em `site/` (home, sobre, suporte, termos, privacidade, cookies, reembolso). Falta hospedar e as páginas de produto |
 | 7. Checkout | não iniciado | hipótese: Kiwify (baixo) e Hotmart (alto/internacional) |
 | 8. Rastreamento | não iniciado | |
 | 9. Criativos | não iniciado | |
