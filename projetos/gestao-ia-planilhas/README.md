@@ -10,7 +10,7 @@ Eduardo é o gestor e aprovador.
 |---|---|---|
 | 1. Pesquisa de nicho | aprovado | 4 rodadas. Rodada 4 (conversão) consolidada em `01-pesquisa/resumo-rodada-4.md`: blueprint das páginas, checkout e pós-compra |
 | 2. Oferta | em andamento | `02-oferta/kit-essencial.md` (produto 1) em revisão; `02-oferta/dentistas.md` guardada para o produto 5 |
-| 3. Produto | não iniciado | 20 planilhas por vertical + prompts + aulas narradas por IA |
+| 3. Produto | em andamento | Kit Essencial v1 completo em `produto/kit-essencial/entrega/` (3 planilhas, 40 prompts, manual, 8 slides, checklist, 3 vídeos). Próximo: copy e página |
 | 4. Marca | aprovado | direção D, kit de marca em `03-marca/kit-de-marca/` |
 | 5. Copy | não iniciado | |
 | 6. Página | em andamento | base pronta em `site/` (home, sobre, suporte, termos, privacidade, cookies, reembolso). Falta hospedar e as páginas de produto |
