@@ -109,3 +109,11 @@ o gargalo é externo, não de produção.
   (`checkout.kit_completo` em `site/config.json`). Páginas de obrigado ficaram neutras, servem aos dois kits.
 - Upgrade Essencial → Completo com abatimento dos R$ 37: a Kiwify faz por cupom ou oferta de upsell; configurar ao criar
   os produtos.
+
+## 2026-09-13 · Regra de trabalho e aprendizado de copy (Eduardo)
+
+- **Regra:** quando o Claude discordar de uma instrução do Eduardo, mesmo dita de forma absoluta, não altera nada antes
+  de dizer do que discorda e por quê. Concordando, executa.
+- **Aprendizado:** rótulo de público nunca descreve a profissão ou a rotina ("para quem vive de relatório"); descreve a
+  necessidade, que é de todo mundo ("para qualquer trabalho"). Quanto mais gente se reconhece, mais gente compra.
+  Mesma lição do "estudou para atender". Vale para todos os produtos.
