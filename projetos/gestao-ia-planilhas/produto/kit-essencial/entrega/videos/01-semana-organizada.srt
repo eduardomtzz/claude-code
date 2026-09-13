@@ -1,0 +1,27 @@
+1
+00:00:00,000 --> 00:00:05,790
+Esta é a Semana Organizada, a primeira planilha do Kit IA no Trabalho. Em quinze minutos você começa.
+
+2
+00:00:06,690 --> 00:00:15,760
+Na aba Tarefas, você preenche só as células amarelas: nome da tarefa, projeto, responsável, prazo, impacto e urgência de um a três, horas e status.
+
+3
+00:00:16,660 --> 00:00:24,680
+Prioridade, dias para o prazo e situação são calculados na hora. Tarefa atrasada fica vermelha; a de hoje, amarela; o que está feito, cinza.
+
+4
+00:00:25,580 --> 00:00:34,170
+Na aba Hoje não se preenche nada. O painel mostra atrasadas, para hoje, esta semana e o total em aberto, e a lista do que fazer primeiro, já na ordem certa.
+
+5
+00:00:35,070 --> 00:00:42,220
+Logo abaixo, a carga dos próximos sete dias contra a sua capacidade, com um aviso quando o dia não cabe, e o resumo por pessoa.
+
+6
+00:00:43,120 --> 00:00:49,870
+Com o prompt Organizar zero um da biblioteca, a IA transforma uma lista bagunçada nas linhas da planilha. Você cola e pronto.
+
+7
+00:00:50,770 --> 00:00:56,450
+Todo dia, marque o que foi feito. Toda sexta, revise os prazos. O mini-manual mostra o passo a passo.

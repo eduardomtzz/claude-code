@@ -43,7 +43,7 @@ s.addChart(pres.charts.BAR,[{name:'Receita',labels:['Abr','Mai','Jun','Jul','Ago
  {x:0.5,y:1.6,w:5.6,h:3.4,barDir:'col',chartColors:[UVA],showValue:true,dataLabelPosition:'outEnd',dataLabelFontSize:10,dataLabelColor:TINTA,dataLabelFormatCode:'0.0',
   catAxisLabelColor:CINZA,valAxisLabelColor:CINZA,valGridLine:{color:'E6DFF2',size:0.5},catGridLine:{style:'none'},showLegend:false,valAxisMinVal:90,valAxisMaxVal:140,showTitle:false});
 s.addShape(pres.shapes.LINE,{x:0.95,y:2.9,w:4.9,h:0,line:{color:SOL,width:2,dashType:'dash'}});
-s.addText('meta R$ 120 mil',{x:4.5,y:2.62,w:1.4,h:0.25,fontFace:H,fontSize:9,color:CINZA,isTextBox:true,margin:0,align:'right'});
+s.addText('meta R$ 120 mil',{x:0.95,y:2.62,w:1.4,h:0.25,fontFace:H,fontSize:9,color:CINZA,isTextBox:true,margin:0});
 s.addText([{text:'O que puxou',options:{bold:true,color:UVA,breakLine:true}},{text:'Ticket médio subiu para R$ 9,7 mil (+3%).',options:{bullet:true,breakLine:true}},{text:'Sete novos clientes em agosto renderam em setembro.',options:{bullet:true,breakLine:true}},{text:'Serviços foram 95% da receita; produtos começaram (R$ 320).',options:{bullet:true}}],
  {x:6.4,y:1.7,w:3.1,h:3.2,fontFace:H,fontSize:12,color:TINTA,isTextBox:true,margin:0,valign:'top',paraSpaceAfter:6});
 rodape(s,false); s.addNotes('Destaque positivo com gráfico. Clique no gráfico > Editar dados para trocar os valores. Mantenha a linha da meta.');
