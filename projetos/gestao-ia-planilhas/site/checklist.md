@@ -7,7 +7,8 @@
 - [x] Sitemap, robots, cabeçalhos de segurança, imagem de compartilhamento
 - [x] Prints mobile e desktop em `screenshots/`
 - [x] Página `/kit/` (Kit Essencial) e `/obrigado/` em 3 estados, `noindex`
-- [ ] Link da Kiwify em `config.json` (`checkout.kit_essencial` e `checkout.area_download`)
+- [ ] Links da Kiwify em `config.json` (`checkout.kit_essencial`, `checkout.kit_completo` e `checkout.area_download`)
+- [x] Página `/completo/` (Kit Completo) com aula 5 embutida
 - [ ] Kiwify: URLs de obrigado por status (aprovado, Pix pendente, recusado)
 - [ ] E-mail de confirmação com resumo do pedido e cópia dos Termos (Decreto 7.962, art. 4º, IV)
 - [ ] Privacidade: tabela real de fornecedores (Kiwify, hospedagem, e-mail, Meta) e país de armazenamento
