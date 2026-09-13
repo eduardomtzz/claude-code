@@ -123,3 +123,12 @@ o gargalo é externo, não de produção.
 - **Terceira correção (Eduardo):** quantidade também compara. Rótulo final diz o que cada kit resolve, sem público e sem
   número: Essencial "Semana, relatório e dinheiro em ordem"; Completo "Projetos, metas, orçamento e propostas em ordem".
   Regra: o rótulo acima do nome do produto descreve o problema resolvido. Quem é o público, a pessoa decide sozinha.
+
+## 2026-09-13 · Criativos de vídeo e narração (pendência)
+
+- Criativo de venda do Essencial aprovado na estrutura (dor → custo → três passos → prova → valor → preço), em
+  `08-ads/criativos/essencial-venda-9x16.mp4`. O demonstrativo anterior fica para página e retargeting.
+- **Pendente:** a narração sintética atual (Piper, gratuita, roda localmente) ficou fraca para o Eduardo. Opções a decidir:
+  (1) voz de serviço pago em português (ElevenLabs, OpenAI ou Google), trocando só o motor de áudio; (2) GPT gera o áudio
+  e o Eduardo envia o arquivo; (3) sem narração nos anúncios, só legenda e música. Recomendação do Claude: opção 1, e
+  regravar também as aulas e os vídeos dos kits com a voz nova antes do lançamento.
