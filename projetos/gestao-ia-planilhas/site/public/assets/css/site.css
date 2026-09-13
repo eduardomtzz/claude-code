@@ -72,7 +72,7 @@ p{margin:0 0 1em;max-width:65ch}
 .kpi--sol{background:var(--sol)}
 .painel__grafico{width:100%;height:auto}
 .painel__linha{display:flex;gap:10px;align-items:center;font-size:13px;padding:9px 4px;border-top:1px dashed var(--linha)}
-.painel__linha b{flex:1 1 auto;min-width:0}
+.painel__linha b{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .painel__linha .mono{flex:none;white-space:nowrap}
 .painel__linha .tag{flex:none;white-space:nowrap;margin-left:auto}
 .painel__linha b{font-weight:600;color:var(--tinta)}
