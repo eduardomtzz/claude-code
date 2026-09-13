@@ -129,9 +129,11 @@ p{margin:0 0 1em;max-width:65ch}
 .doc{padding-block:clamp(36px,6vw,64px)}
 .doc__in{display:grid;gap:32px}
 @media (min-width:900px){.doc__in{grid-template-columns:240px 1fr}}
-.doc__indice{position:sticky;top:84px;align-self:start;background:var(--lavanda);border-radius:var(--r);padding:16px}
+.doc__indice{background:var(--lavanda);border-radius:var(--r);padding:14px 16px}
+@media (min-width:900px){.doc__indice{position:sticky;top:84px;align-self:start;padding:16px}}
 .doc__indice p{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--lilas);margin:0 0 8px}
-.doc__indice a{display:block;font-size:14.5px;padding:5px 0;text-decoration:none;color:var(--tinta)}
+.doc__indice a{display:inline-block;font-size:14px;padding:4px 10px 4px 0;text-decoration:none;color:var(--tinta)}
+@media (min-width:900px){.doc__indice a{display:block;font-size:14.5px;padding:5px 0}}
 .doc__indice a:hover{color:var(--uva);text-decoration:underline}
 .doc__corpo{max-width:70ch}
 .doc__corpo h2{font-size:clamp(22px,3vw,28px);margin-top:1.6em;padding-top:.6em;border-top:1px solid var(--linha)}
