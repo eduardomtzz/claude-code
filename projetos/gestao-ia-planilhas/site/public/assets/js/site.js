@@ -1,5 +1,20 @@
 /* Seu Sócio Gestor — consentimento (ANPD), Pixel condicionado, preferências */
 (function () {
+  /* Toda página abre no topo (sem restaurar rolagem), a não ser que o link aponte para uma seção (#id). */
+  try {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    function topo() {
+      if (location.hash && document.getElementById(location.hash.slice(1))) return;
+      var html = document.documentElement, prev = html.style.scrollBehavior;
+      html.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0); document.body.scrollTop = 0; html.scrollTop = 0;
+      html.style.scrollBehavior = prev;
+    }
+    topo();
+    window.addEventListener('pageshow', topo);
+    window.addEventListener('load', topo);
+  } catch (e) {}
+
   var KEY = 'ssg_consent_v1';
   var DEFAULT = { necessario: true, medicao: false, publicidade: false, ts: 0 };
 
