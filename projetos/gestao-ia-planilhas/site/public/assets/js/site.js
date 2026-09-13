@@ -35,14 +35,50 @@
     document.dispatchEvent(new CustomEvent('ssg:consent', { detail: c }));
     aplicar(c);
   }
+  /* ---- Rastreamento (Meta Pixel + Conversions API), só com consentimento de publicidade ---- */
+  function uuid() {
+    try { if (window.crypto && crypto.randomUUID) return crypto.randomUUID(); } catch (e) {}
+    return 'e' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+  }
+  function cookie(n) { var m = document.cookie.match('(?:^|; )' + n + '=([^;]*)'); return m ? decodeURIComponent(m[1]) : ''; }
+  function guardarFbc() {
+    /* Meta recomenda gravar o fbclid da URL no cookie _fbc para melhorar a correspondência. */
+    try {
+      var m = location.search.match(/[?&]fbclid=([^&]+)/);
+      if (m && !cookie('_fbc')) {
+        var v = 'fb.1.' + Date.now() + '.' + decodeURIComponent(m[1]);
+        document.cookie = '_fbc=' + encodeURIComponent(v) + '; max-age=' + (90 * 86400) + '; path=/; domain=' + location.hostname.replace(/^www\./, '') + '; SameSite=Lax; Secure';
+      }
+    } catch (e) {}
+  }
+  function capi(name, id, params) {
+    /* Espelho do evento no servidor (Cloudflare Pages Function em /api/capi). Falha em silêncio. */
+    try {
+      var body = JSON.stringify({ event_name: name, event_id: id, event_time: Math.floor(Date.now() / 1000), event_source_url: location.href,
+        custom_data: params || {}, fbp: cookie('_fbp'), fbc: cookie('_fbc') });
+      if (navigator.sendBeacon) { navigator.sendBeacon('/api/capi', new Blob([body], { type: 'application/json' })); return; }
+      fetch('/api/capi', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true }).catch(function () {});
+    } catch (e) {}
+  }
+  function track(name, params) {
+    if (!window.__ssgPixel || !window.fbq) return null;
+    var id = uuid();
+    window.fbq('track', name, params || {}, { eventID: id });
+    if (window.SSG.capi !== false) capi(name, id, params);
+    return id;
+  }
+  window.SSG = window.SSG || {};
+  window.SSG.track = track;
   function aplicar(c) {
     if (c.publicidade && window.SSG && window.SSG.pixelId && !window.__ssgPixel) {
       window.__ssgPixel = true;
+      guardarFbc();
       /* Meta Pixel só carrega com consentimento de publicidade. */
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
       window.fbq('init', window.SSG.pixelId);
-      window.fbq('track', 'PageView', {}, { eventID: window.SSG.pageViewId || undefined });
-      if (window.SSG.viewContent) window.fbq('track', 'ViewContent', window.SSG.viewContent);
+      track('PageView');
+      if (window.SSG.viewContent) track('ViewContent', window.SSG.viewContent);
+      /* Purchase NÃO dispara aqui: vem do checkout (Pixel + CAPI nativos da Kiwify, no webhook de aprovação). */
     }
   }
 
@@ -92,7 +128,7 @@
   /* Clique no botão de compra: InitiateCheckout (só se o Pixel estiver carregado) */
   document.addEventListener('click', function (ev) {
     var a = ev.target.closest('a[data-checkout]');
-    if (a && window.fbq && window.__ssgPixel) window.fbq('track', 'InitiateCheckout', window.SSG.viewContent || {});
+    if (a) track('InitiateCheckout', window.SSG.viewContent || {});
   });
 
   /* Preserva UTM e fbclid nos links de checkout (quando existirem) */

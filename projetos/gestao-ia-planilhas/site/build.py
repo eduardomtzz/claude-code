@@ -3,6 +3,7 @@
 import json, re, os, pathlib, datetime
 ROOT = pathlib.Path(__file__).resolve().parent
 cfg = json.loads((ROOT / 'config.json').read_text(encoding='utf-8'))
+if os.environ.get('META_PIXEL_ID'): cfg['meta_pixel_id'] = os.environ['META_PIXEL_ID']  # nunca gravar o ID no repositório; vem do ambiente do deploy
 layout = (ROOT / 'src' / 'layout.html').read_text(encoding='utf-8')
 
 def flat(d, prefix=''):
