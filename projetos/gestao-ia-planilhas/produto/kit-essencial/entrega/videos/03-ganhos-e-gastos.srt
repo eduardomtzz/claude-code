@@ -1,0 +1,27 @@
+1
+00:00:00,000 --> 00:00:04,820
+Esta é a Ganhos e Gastos. Serve para você, para o seu negócio ou para os dois.
+
+2
+00:00:05,720 --> 00:00:15,860
+Na aba Lançamentos, uma linha por entrada ou saída: data, tipo, categoria, descrição, valor, forma de pagamento e se já foi pago. Lance na hora ou uma vez por semana.
+
+3
+00:00:16,760 --> 00:00:23,870
+No Painel, escolha o mês e veja quanto entrou, quanto saiu, quanto sobrou, o saldo acumulado e o que ainda falta pagar.
+
+4
+00:00:24,770 --> 00:00:35,030
+A reserva mostra quantos meses de despesa o seu saldo cobre e se você está no caminho da meta. Depois, para onde o dinheiro foi, categoria por categoria, com a barra e o mês anterior ao lado.
+
+5
+00:00:35,930 --> 00:00:41,550
+No fim, o ano mês a mês: entrou, saiu, sobrou e o saldo ao fim de cada mês, com o gráfico.
+
+6
+00:00:42,450 --> 00:00:49,530
+Com o prompt Analisar zero três, a IA ajuda a decidir onde cortar. Com o Escrever zero cinco, ela explica o mês em linguagem simples.
+
+7
+00:00:50,430 --> 00:00:55,410
+Antes de um gasto grande, olhe a linha da reserva. Se estiver abaixo da meta, o painel avisa.
