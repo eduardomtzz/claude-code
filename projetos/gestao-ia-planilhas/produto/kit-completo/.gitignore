@@ -1,3 +1,4 @@
 prints/*.html
 videos/*/
 docs/*.html
+__pycache__/
