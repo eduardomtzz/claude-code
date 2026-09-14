@@ -137,3 +137,4 @@ o gargalo é externo, não de produção.
   já aceita a chave pela variável de ambiente `GOOGLE_TTS_API_KEY` (`produto/kit-completo/tts.py`); sem a chave, continua no
   Piper. Quando a chave existir: regravar aulas, vídeos dos kits e criativos com um comando.
 | 2026-09-14 | **Pendente de aprovação:** tetos da fase de teste de anúncios em `08-ads/limites.json` (R$ 300/dia, R$ 4.500 no total em 14 dias, parar tudo com R$ 450 sem venda; CPA máximo R$ 28 Essencial e R$ 157 Completo). Plano em `08-ads/plano.md`. Nada é criado antes do "aprovado" aqui. |
+| 2026-09-14 | Claude, sem consulta prévia (registrado para o Eduardo decidir): a frase "testada no Excel e no Google Sheets" saiu das páginas (kit, completo, home, sobre) e virou "recalculada, conferida célula a célula e revisada", porque ninguém abriu os arquivos em Excel/Sheets reais ainda. Quando o Eduardo testar nos dois, a frase original pode voltar. |

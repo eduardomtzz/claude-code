@@ -10,14 +10,14 @@ Eduardo é o gestor e aprovador.
 |---|---|---|
 | 1. Pesquisa de nicho | aprovado | 4 rodadas. Rodada 4 (conversão) consolidada em `01-pesquisa/resumo-rodada-4.md`: blueprint das páginas, checkout e pós-compra |
 | 2. Oferta | em andamento | `02-oferta/kit-essencial.md` (produto 1) e `02-oferta/kit-completo.md` (produto 2); `02-oferta/dentistas.md` guardada para o produto 5 |
-| 3. Produto | em andamento | Kit Essencial v1 em `produto/kit-essencial/entrega/`. Kit Completo v1 em `produto/kit-completo/` (10 planilhas, 80 prompts, manual, dicionário, 3 modelos de slides, 8 aulas). Aguardam auditoria de produto |
+| 3. Produto | em andamento | Kit Essencial v1 e Kit Completo v1 em `produto/*/entrega/`, com a revisão interna 1 aplicada (`produto/revisao-interna-1.md`: 49 defeitos corrigidos). Falta: auditoria de produto no GPT, teste em Excel/Sheets reais pelo Eduardo, narração definitiva (Google TTS) |
 | 4. Marca | aprovado | direção D, kit de marca em `03-marca/kit-de-marca/` |
 | 5. Copy | em andamento | `04-copy/kit-essencial.md` e `04-copy/kit-completo.md` (página, obrigado, e-mails, 3 ângulos de anúncio cada) |
-| 6. Página | em andamento | base + `/kit/` (Essencial) + `/completo/` (Completo) + `/obrigado/` (3 estados) em `site/`. Falta hospedar, links da Kiwify e revisão do Eduardo |
-| 7. Checkout | não iniciado | hipótese: Kiwify (baixo) e Hotmart (alto/internacional) |
-| 8. Rastreamento | não iniciado | |
-| 9. Criativos | não iniciado | |
-| 10. Tráfego | não iniciado | Meta + Google Pesquisa |
+| 6. Página | em andamento | base + `/kit/` + `/completo/` + `/obrigado/` (3 estados) em `site/`, heróis com mockup de notebook + celular, revisadas em celular e desktop. Falta hospedar (Cloudflare Pages), links da Kiwify, e-mails, leitura final do Eduardo |
+| 7. Checkout | em andamento | Kiwify decidida. E-mails de entrega e pós-compra prontos em `05-checkout/emails.md`, com checklist de configuração. Falta a conta e os links |
+| 8. Rastreamento | em andamento | Código pronto: `site.js` (Pixel com consentimento e `event_id`), `site/functions/api/capi.js` (API de Conversões). Purchase vem da Kiwify. Plano e verificação em `06-tracking.md`. Falta o ID do Pixel e o token |
+| 9. Criativos | em andamento | Em `08-ads/criativos/`: vídeo de vendas 9:16 do Essencial e do Completo, demo do Essencial, estáticos 9:16 e 1:1 com mockup dos dois kits. Falta: vídeos curtos de 15 s, carrosséis, narração definitiva |
+| 10. Tráfego | em andamento | Plano de teste em `08-ads/plano.md`, tetos em `08-ads/limites.json` (pendentes de aprovação em `DECISOES.md`), `matriz.csv`. Liga quando existirem conta, Pixel e Kiwify |
 
 ## Escada de produtos e ordem de produção (aprovada em 2026-09-13)
 

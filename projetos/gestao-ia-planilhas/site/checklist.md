@@ -10,10 +10,13 @@
 - [ ] Links da Kiwify em `config.json` (`checkout.kit_essencial`, `checkout.kit_completo` e `checkout.area_download`)
 - [x] Página `/completo/` (Kit Completo) com aula 5 embutida
 - [ ] Kiwify: URLs de obrigado por status (aprovado, Pix pendente, recusado)
-- [ ] E-mail de confirmação com resumo do pedido e cópia dos Termos (Decreto 7.962, art. 4º, IV)
+- [x] E-mail de confirmação com resumo do pedido e cópia dos Termos (Decreto 7.962, art. 4º, IV): `05-checkout/emails.md`, e-mail 1
 - [ ] Privacidade: tabela real de fornecedores (Kiwify, hospedagem, e-mail, Meta) e país de armazenamento
 - [ ] Contador: confirmar momento de emissão da nota fiscal
-- [ ] Auditoria 1 (GPT + Manus) triada e aplicada: `06-site/auditoria-1-triagem.md`
+- [x] Auditoria 1 (GPT + Manus) triada e aplicada: `06-site/auditoria-1-triagem.md`
+- [x] Revisão interna 1 dos produtos aplicada e páginas ajustadas (miniaturas reais, contagem de páginas, FAQ do Sheets)
+- [x] Pixel com `event_id` + Function `/api/capi` (falta só o ID e o token; ver `06-tracking.md`)
+- [x] Heróis com mockup de notebook + celular nas duas páginas de produto
 - [x] Dados reais da empresa em `config.json`
 - [ ] Caixas de e-mail criadas e testadas
 - [ ] Domínio apontado e HTTPS ativo (Cloudflare Pages)
