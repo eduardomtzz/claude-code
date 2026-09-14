@@ -35,7 +35,8 @@ for p in pages:
     if p.stem == '404': slug = '/404.html'
     ctx = dict(meta); ctx.update({'content': render(raw, meta), 'title': meta.get('title', cfg['marca']),
                                   'description': meta.get('description', ''), 'path': slug,
-                                  'body_class': meta.get('body_class', '')})
+                                  'body_class': meta.get('body_class', ''),
+                                  'og_image': meta.get('og_image', '/assets/img/og-1200x630.png')})
     html = render(layout, ctx)
     out = ROOT / 'public' / (slug.strip('/') + ('/index.html' if slug.endswith('/') else '')) if slug != '/' else ROOT / 'public' / 'index.html'
     if slug == '/404.html': out = ROOT / 'public' / '404.html'
