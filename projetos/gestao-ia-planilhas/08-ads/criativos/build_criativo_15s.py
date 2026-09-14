@@ -32,8 +32,8 @@ CFG={
  'medicos':dict(
   dor=dict(fala='Você atende o dia inteiro. E a clínica?',min=3.5,h='Você atende. <em>E a clínica?</em>',itens=['Agenda com buraco, sem medir','Convênio aceito sem calcular','Imposto junto com o 13º']),
   sol=dict(fala='Vinte planilhas prontas para a clínica: agenda, preço, caixa e convênios.',min=4.5,h='Cinco núcleos. <em>Uma rotina.</em>',ctx='Kit de Gestão para Médicos · tela real',chips=['Agenda','Preço','Caixa','Recebíveis','Painel'],num=False),
-  prova=dict(fala='Quarenta prompts, oito aulas e modelos de slides.',min=3.5,selos=['20 planilhas prontas','40 prompts de IA','8 aulas curtas','3 modelos de slides']),
-  fim=dict(fala='Seiscentos e noventa e sete reais. Comece hoje.',min=3.5,tt='Kit de Gestão <em>para Médicos</em>',preco='Comprar por R$ 697',nota='20 planilhas · 40 prompts · 8 aulas · 3 modelos<br>Pix ou 12× · acesso imediato · 7 dias para desistir')),
+  prova=dict(fala='Quarenta e um prompts, oito aulas e modelos de slides.',min=3.5,selos=['20 planilhas prontas','41 prompts de IA','8 aulas curtas','3 modelos de slides']),
+  fim=dict(fala='Seiscentos e noventa e sete reais. Comece hoje.',min=3.5,tt='Kit de Gestão <em>para Médicos</em>',preco='Comprar por R$ 697',nota='20 planilhas · 41 prompts · 8 aulas · 3 modelos<br>Pix ou 12× · acesso imediato · 7 dias para desistir')),
  'advogados':dict(
   dor=dict(fala='Você advoga o dia inteiro. E o escritório?',min=3.5,h='Você advoga. <em>E o escritório?</em>',itens=['Prazo: caderno, celular, e-mail','"Quanto fica?" de cabeça','Imposto junto com o 13º']),
   sol=dict(fala='Vinte planilhas prontas para o escritório: prazos, honorários e caixa.',min=4.5,h='Cinco núcleos. <em>Uma rotina.</em>',ctx='Kit de Gestão para Advogados · tela real',chips=['Prazos','Honorários','Caixa','Carteira','Painel'],num=False),

@@ -227,14 +227,14 @@ PRODUTOS={
 <div class="eyebrow">O que vem dentro</div>
 <div class="t h" style="font-size:70px;top:190px">Cinco núcleos, <em>vinte planilhas.</em></div>
 {inventario(300,[(AS/'medicos'/'mock-agenda.webp','1 · Agenda'),(AS/'medicos'/'mock-preco.webp','2 · Preço'),(AS/'medicos'/'mock-caixa.webp','3 · Caixa'),(AS/'medicos'/'mock-convenios.webp','4 · Recebíveis'),(AS/'medicos'/'mock-painel.webp','5 · Painel'),
-  ('txt','<b style="font-size:28px;margin-bottom:10px">E mais</b>'+lista_txt(['40 prompts e 8 aulas curtas','Manual de 4 semanas','3 modelos de slides e 3 bônus'],25))],h=240)}
+  ('txt','<b style="font-size:28px;margin-bottom:10px">E mais</b>'+lista_txt(['41 prompts e 8 aulas curtas','Manual de 4 semanas','3 modelos de slides e 3 bônus'],25))],h=240)}
 <div class="nota" style="position:absolute;left:72px;top:1080px">Nada clínico, nada de prontuário: é gestão da clínica.<br>Telas reais · clínica de exemplo</div>'''),
  ('creme',f'''
 <div class="eyebrow">Faça a conta</div>
 <div class="t h" style="font-size:80px">Mensalidade ou <em>uma vez?</em></div>
 {comparacao(400,('Software de clínica','Com o kit'),[('Preço','A partir de R$ 62 por mês*','R$ 697, uma vez'),('Em 12 meses','R$ 744 ou mais','R$ 697'),('Arquivos','Acesso enquanto paga','Seus, para sempre'),('Custo da hora','Você calcula na mão','A planilha calcula'),('Convênio','Glosa só no extrato','Prazo e glosa na conta')])}
 <div class="nota" style="position:absolute;left:72px;right:72px;top:1120px;font-size:21px">*Menor plano público de um software de clínica, consultado em set/2026. Software cuida de agenda online e prontuário; o kit cuida do dinheiro e do tempo da clínica. Um não substitui o outro.</div>'''),
- ('uva',preco('R$ 697','ou 12× no cartão · acesso imediato após a aprovação',['20 planilhas em 5 núcleos (Excel, Sheets e celular)','40 prompts da clínica com exemplo','8 aulas curtas + manual de implantação','3 modelos de apresentação e 3 bônus','7 dias para desistir, sem explicar'],'Comprar por R$ 697','Pix ou 12× no cartão · 7 dias para desistir')),
+ ('uva',preco('R$ 697','ou 12× no cartão · acesso imediato após a aprovação',['20 planilhas em 5 núcleos (Excel, Sheets e celular)','41 prompts da clínica com exemplo','8 aulas curtas + manual de implantação','3 modelos de apresentação e 3 bônus','7 dias para desistir, sem explicar'],'Comprar por R$ 697','Pix ou 12× no cartão · 7 dias para desistir')),
 ]),
 }
 NOMES_ETAPA=['A dor','O custo','A solução','O que vem dentro','Faça a conta','Preço']
