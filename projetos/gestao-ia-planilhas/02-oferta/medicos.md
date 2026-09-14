@@ -56,7 +56,7 @@ imposto e contador, repasse mal calculado ao colega.
 Formato: Excel 2016+/Microsoft 365 e Google Sheets, só funções 2007+, fórmulas protegidas sem senha, clínica fictícia
 preenchida ("Clínica Vida Plena", 2 sócios: Dra. Carolina Mendes, clínica médica, e Dr. Paulo Andrade, cardiologia;
 1 médica parceira por repasse, Dra. Renata Sousa, endocrinologia, 2 turnos por semana; 1 recepcionista, Bruna
-Carvalho; 3 convênios fictícios: Saúde Total, MediPlan, Vida Care; ~120 pacientes fictícios), dados de setembro de
+Carvalho; 3 convênios fictícios: Saúde Total, MediPlan, Vida Care; ~150 pacientes fictícios), dados de setembro de
 2026 com agosto fechado, datas relativas a hoje onde houver agenda, aba "Como usar" em cada arquivo, formato
 brasileiro, valores em cache. Só dados administrativos fictícios. **Nada clínico. O kit não é prontuário.**
 
@@ -66,7 +66,7 @@ brasileiro, valores em cache. Só dados administrativos fictícios. **Nada clín
 | | 2 | Faltas, remarcações e lista de retorno (taxa de falta por dia e convênio) | "por que a agenda esvazia?" |
 | | 3 | Rotina da semana da clínica (segunda e sexta) | "por onde começo?" |
 | | 4 | Checklist de abertura e fechamento do dia (agenda confirmada, caixa fechado, guias separadas) | dia sem fechamento |
-| 2. Preço | 5 | Custo da hora de atendimento (fixo + equipe + pró-labore ÷ horas atendidas) | "quanto custa a minha hora?" |
+| 2. Preço | 5 | Custo da hora de atendimento (fixo + equipe + pró-labore ÷ horas de atendimento) | "quanto custa a minha hora?" |
 | | 6 | Precificação de consulta e procedimento (hora + material + margem) | preço certo |
 | | 7 | Simulador convênio × particular (tabela, prazo, glosa esperada, custo do dinheiro) | "vale a pena este convênio?" |
 | | 8 | Tabela de preços e referência por procedimento | preço coerente |
