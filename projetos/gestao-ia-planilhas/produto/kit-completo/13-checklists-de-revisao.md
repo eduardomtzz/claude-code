@@ -17,9 +17,8 @@ coisa que sai da sua mão.
 ## Relatório ou texto (e-mail, relatório, proposta)
 - [ ] A primeira frase diz o principal. Quem lê em 10 segundos entende.
 - [ ] Todo "[explicar]" e todo colchete foi preenchido ou apagado.
-- [ ] Cada número do texto foi conferido na planilha, um a um.
+- [ ] Cada número do texto foi conferido na planilha, um a um. Nomes, cargos e datas também.
 - [ ] Comparações dizem com o quê (mês anterior, meta, ano passado).
-- [ ] Nomes, cargos e datas corretos. Nenhum dado de cliente que não deveria estar ali.
 - [ ] Nenhuma frase que a IA escreveu e eu não saberia defender.
 - [ ] Li em voz alta uma vez. Frase longa demais virou duas.
 
@@ -30,11 +29,11 @@ coisa que sai da sua mão.
 - [ ] Tem um slide de "o que pode dar errado" ou "pontos de atenção".
 - [ ] O último slide pede uma decisão clara.
 - [ ] Cronometrei: cabe em 80% do tempo da reunião.
-- [ ] Preparei as 5 perguntas mais prováveis (prompt Produzir 20).
+- [ ] Preparei as 8 perguntas mais prováveis (prompt Produzir 20).
 
 ## Envio
 - [ ] Destinatários, assunto e anexo certos. Abri o anexo antes de enviar.
-- [ ] Versão do cliente não tem número interno (custo, margem, salário).
+- [ ] Versão do cliente não tem número interno (custo, margem, salário) nem dado de outro cliente.
 - [ ] O arquivo tem nome que faz sentido daqui a 6 meses (cliente-assunto-aaaa-mm).
 
 seusociogestor.com.br · suporte@seusociogestor.com.br

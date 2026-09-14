@@ -13,7 +13,7 @@ Versão 1.0 · setembro de 2026 · Seu Sócio Gestor
 | 05-mini-manual.pdf | Este guia | agora |
 | 06-modelo-apresentacao-8-slides.pptx | Bônus: apresentação do relatório mensal | 10 min |
 | 07-checklist-antes-de-enviar.pdf | Bônus: uma página para conferir antes de mandar | 2 min |
-| videos/ | Três demonstrações de tela, uma por planilha | 3 min cada |
+| videos/ | Três demonstrações de tela, uma por planilha | 1 min cada |
 
 Tudo é seu: baixe, copie, edite e guarde onde quiser. Não há login, mensalidade ou atualização
 automática. Quando corrigirmos algo, a nova versão aparece na sua área de download.
@@ -38,7 +38,7 @@ também abre, com pequenas diferenças visuais.
 
 - **Amarelo é seu.** Só as células amarelas devem ser preenchidas. As brancas são calculadas.
 - **Fórmulas protegidas, sem senha.** Se precisar mexer: no Excel, Revisar > Desproteger planilha;
-  no Sheets, Dados > Proteger páginas e intervalos > remover a proteção. Depois, proteja de novo.
+  no Sheets, Dados > Proteger intervalos > remover a proteção. Depois, proteja de novo.
 - **Apague os exemplos antes de começar.** As pessoas e empresas dos exemplos (Ana, Prisma
   Comunicação, Rafa Design) são inventadas. Selecione as linhas amarelas com exemplo e delete só o
   conteúdo (tecla Delete), não as linhas.
@@ -75,6 +75,8 @@ Organizar 02 monta o seu dia em blocos. Organizar 05 faz a revisão de sexta.
 
 ![Painel do Relatório Mensal](docs/tela-relatorio-painel.png)
 
+![Aba Resumo do Relatório Mensal](docs/tela-relatorio-resumo.png)
+
 1. **Config.** Nome da empresa ou área, ano e o mês do relatório.
 2. **Indicadores.** Até 12 linhas. Para cada indicador: nome, unidade (R$, %, un, h, pts), casas
    decimais, meta mensal, se maior é melhor (Sim para receita, Não para despesa ou inadimplência) e
@@ -84,8 +86,6 @@ Organizar 02 monta o seu dia em blocos. Organizar 05 faz a revisão de sexta.
 4. **Resumo.** As frases do mês já estão escritas. Copie o "bloco único" e cole no prompt Escrever
    01 (relatório executivo) ou Apresentar 01 (roteiro de 8 slides), junto com os seus comentários
    sobre o porquê dos números.
-
-![Aba Resumo do Relatório Mensal](docs/tela-relatorio-resumo.png)
 
 **Todo mês:** digite os valores do mês novo em Indicadores e troque o mês em Config. Nada mais.
 

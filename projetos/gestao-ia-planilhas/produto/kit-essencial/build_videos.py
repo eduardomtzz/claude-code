@@ -130,13 +130,10 @@ const v=p.video(); await ctx.close(); const f=await v.path(); fs.renameSync(f,pa
     subprocess.run(['node',str(rec),str(out/'video.html'),str(out),str(total)],check=True,env={**dict(__import__('os').environ),'NODE_PATH':str(S/'pw'/'node_modules')})
     # junta: corta o vídeo na duração do áudio, codifica mp4
     final=ROOT/'entrega'/'videos'/f'{nome}.mp4'
-    subprocess.run(['ffmpeg','-y','-loglevel','error','-i',str(out/'gravacao.webm'),'-i',str(out/'narracao.wav'),'-map','0:v','-map','1:a','-c:v','libx264','-preset','medium','-crf','21','-pix_fmt','yuv420p','-r','30','-c:a','aac','-b:a','128k','-shortest','-movflags','+faststart',str(final)],check=True)
-    # legendas .srt (acessibilidade e Kiwify)
-    srt=[]; t=0.0
-    def ts(x): h=int(x//3600); m=int(x%3600//60); s=x%60; return f'{h:02d}:{m:02d}:{s:06.3f}'.replace('.',',')
-    for i,c in enumerate(cenas):
-        srt.append(f"{i+1}\n{ts(t)} --> {ts(t+c['dur']-PAUSA)}\n{c['fala']}\n"); t+=c['dur']
-    (ROOT/'entrega'/'videos'/f'{nome}.srt').write_text('\n'.join(srt))
+    # legendas .srt (cues curtos) escritas antes do mux, e gravadas na imagem acima da barra roxa
+    import sys as _s; _s.path.insert(0,str(ROOT.parent)); import legendas as _lg
+    srt_path=ROOT/'entrega'/'videos'/f'{nome}.srt'; srt_path.write_text(_lg.cues(cenas,PAUSA))
+    subprocess.run(['ffmpeg','-y','-loglevel','error','-i',str(out/'gravacao.webm'),'-i',str(out/'narracao.wav'),'-map','0:v','-map','1:a','-vf',_lg.filtro(srt_path),'-c:v','libx264','-preset','medium','-crf','21','-pix_fmt','yuv420p','-r','30','-c:a','aac','-b:a','128k','-shortest','-movflags','+faststart',str(final)],check=True)
     print(nome, f'{total:.1f}s', final)
 
 if __name__=='__main__':

@@ -1,14 +1,15 @@
-KIT IA NO TRABALHO · ESSENCIAL · Seu Sócio Gestor · versão 1.0 (setembro de 2026)
+Kit IA no Trabalho · Essencial · Seu Sócio Gestor · versão 1.0 · setembro de 2026
 
 Comece pelo 05-mini-manual.pdf (15 minutos). Ordem sugerida:
   01-semana-organizada.xlsx ........... tarefas, prioridades e painel do dia
   02-relatorio-mensal-pronto.xlsx ..... indicadores do mês, painel, gráfico e resumo para a IA
   03-ganhos-e-gastos.xlsx ............. entradas, saídas, saldo, reserva e categorias
   04-biblioteca-de-prompts.pdf / .txt . 40 prompts em 6 grupos (o .txt é para copiar no celular)
-  05-mini-manual.pdf .................. este guia
+  05-mini-manual.pdf .................. guia de início (comece por ele)
   06-modelo-apresentacao-8-slides.pptx  bônus: apresentação do relatório mensal
   07-checklist-antes-de-enviar.pdf .... bônus: uma página para conferir antes de mandar
-  videos/ ............................. demonstrações de tela, uma por planilha
+  videos/ ............................. demonstrações de tela, uma por planilha (cerca de 1 min cada)
+  videos/*.srt ........................ legendas em arquivo separado; os vídeos já têm a legenda gravada na imagem
 
 Abre no Excel (2016+) e no Google Sheets (upload no Drive). Sem macros, sem login, sem mensalidade.
 Células amarelas: você preenche. Fórmulas protegidas sem senha. Exemplos são fictícios: apague antes de usar.

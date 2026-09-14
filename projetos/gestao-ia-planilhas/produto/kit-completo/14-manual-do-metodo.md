@@ -2,7 +2,7 @@
 
 Versão 1.0 · setembro de 2026 · Seu Sócio Gestor
 
-Este manual é para ser lido uma vez, em 40 minutos, e consultado depois. Ele explica o método em
+Este manual é para ser lido uma vez, em 15 minutos, e consultado depois. Ele explica o método em
 quatro passos, mostra o que cada uma das 10 planilhas faz e em que ordem usar, ensina a usar a IA
 com segurança e fecha com a rotina da semana, do mês e do trimestre. As 8 aulas em vídeo mostram
 tudo isso na tela; o manual é o mapa.
@@ -20,7 +20,9 @@ tudo isso na tela; o manual é o mapa.
 | Modelos | 3 apresentações: relatório mensal (8 slides), resultado do trimestre (12), proposta comercial (10) |
 | Checklists | Planilha, relatório, apresentação e envio |
 
-Abre tudo no Excel 2016 ou mais novo e no Google Sheets. No celular, os aplicativos do Excel e do
+Abre tudo no Excel 2019 ou mais novo, no Microsoft 365 e no Google Sheets. As planilhas 04, 05 e 10
+usam MÍNIMOSES, MÁXIMOSES e UNIRTEXTO, funções que o Excel 2016 não tem (nelas, o Excel antigo mostra
+"#NOME?"). No celular, os aplicativos do Excel e do
 Sheets abrem e mostram; para preencher, use o computador. Sem macros, sem instalação, sem login.
 
 ## 2. O método em quatro passos

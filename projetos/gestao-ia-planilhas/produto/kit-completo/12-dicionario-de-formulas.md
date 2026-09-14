@@ -84,7 +84,7 @@ argumentos. Onde aparece `A5:A500`, é o intervalo da sua base.
 | # | Português | Inglês | O que faz | Exemplo |
 |---|---|---|---|---|
 | 49 | ARRED | ROUND | Arredonda com N casas | `=ARRED(E5/3;2)` |
-| 50 | ARREDONDAR.PARA.CIMA / BAIXO | ROUNDUP / ROUNDDOWN | Arredonda sempre para cima ou para baixo | `=ARREDONDAR.PARA.CIMA(E5;0)` |
+| 50 | ARREDONDAR.PARA.<wbr>CIMA / BAIXO | ROUNDUP / ROUNDDOWN | Arredonda sempre para cima ou para baixo | `=ARREDONDAR.PARA.CIMA(E5;0)` |
 | 51 | INT | INT | Parte inteira | `=INT((HOJE()-B6)/7)` |
 | 52 | MOD | MOD | Resto da divisão | `=MOD(LIN();2)` |
 | 53 | MAIOR / MENOR | LARGE / SMALL | N-ésimo maior ou menor (usado no ranking do kit) | `=MAIOR(M5:M300;1)` |

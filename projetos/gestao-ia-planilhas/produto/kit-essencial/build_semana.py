@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Planilha 1 do Kit IA no Trabalho · Essencial: Semana Organizada. Gera 01-semana-organizada.xlsx"""
+"""Planilha 1 do Kit IA no Trabalho: Semana Organizada. Gera 01-semana-organizada.xlsx"""
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side, Protection
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.formatting.rule import FormulaRule
 from openpyxl.utils import get_column_letter
-from datetime import date, timedelta
 
 UVA="3B1F5E"; SOL="FFC83D"; LILAS="7A5AA8"; LAVANDA="F3EEFB"; CREME="FFFAF0"; TINTA="1F1235"; AMARELO="FFF4CC"; BRANCO="FFFFFF"
 F=lambda **k: Font(name="Arial", **k)
@@ -28,11 +27,14 @@ for c in ("A4","A6","A8","D8","F8"): cfg[c].font=F(bold=True,color=UVA)
 for c in ("C4","C6"): cfg[c].font=F(size=10,color=LILAS)
 cfg["B4"].number_format="dd/mm/yyyy"
 for rng in ("B4","B6"): cfg[rng].fill=fill(AMARELO); cfg[rng].protection=Protection(locked=False); cfg[rng].border=borda; cfg[rng].font=F(color=TINTA)
+CINZA="F2F2F2"
 for r in range(9,17):
-    for col in (2,4,6):
-        c=cfg.cell(row=r,column=col); c.fill=fill(AMARELO); c.border=borda; c.font=F(color=TINTA)
-        if col!=4: c.protection=Protection(locked=False)
-cfg["A18"]="A lista de status é fixa: as fórmulas dependem de \"Feito\" e \"Cancelado\"."; cfg["A18"].font=F(size=10,color=LILAS)
+    for col in (2,6):
+        c=cfg.cell(row=r,column=col); c.fill=fill(AMARELO); c.border=borda; c.font=F(color=TINTA); c.protection=Protection(locked=False)
+for r in range(9,13):  # status: lista fixa, bloqueada, fundo cinza claro (não é célula de preenchimento)
+    c=cfg.cell(row=r,column=4); c.fill=fill(CINZA); c.border=borda; c.font=F(color=TINTA)
+cfg["A18"]="A lista de status é fixa (fundo cinza): as fórmulas dependem de \"Feito\" e \"Cancelado\"."; cfg["A18"].font=F(size=10,color=LILAS)
+cfg["A19"]="Preencha responsáveis e projetos de cima para baixo, sem pular linha: as listas suspensas param na última linha preenchida."; cfg["A19"].font=F(size=10,color=LILAS)
 for col,w in zip("ABCDEF",(30,22,70,14,4,26)): cfg.column_dimensions[col].width=w
 cfg.sheet_view.showGridLines=False
 
@@ -60,10 +62,10 @@ for r in range(FIRST,LAST+1):
         if col in (6,7,8,11,13,1): c.alignment=Alignment(horizontal="center")
     t.cell(row=r,column=13).font=F(color="B0A6C4",size=9)
 # validações
-dv_resp=DataValidation(type="list",formula1="=Config!$B$9:$B$16",allow_blank=True); dv_resp.add(f"D{FIRST}:D{LAST}")
+dv_resp=DataValidation(type="list",formula1="=OFFSET(Config!$B$9,0,0,MAX(1,COUNTA(Config!$B$9:$B$16)),1)",allow_blank=True); dv_resp.add(f"D{FIRST}:D{LAST}")
 dv_123=DataValidation(type="list",formula1='"1,2,3"',allow_blank=True); dv_123.add(f"F{FIRST}:G{LAST}")
 dv_status=DataValidation(type="list",formula1="=Config!$D$9:$D$12",allow_blank=True); dv_status.add(f"I{FIRST}:I{LAST}")
-dv_proj=DataValidation(type="list",formula1="=Config!$F$9:$F$16",allow_blank=True,showErrorMessage=False); dv_proj.add(f"C{FIRST}:C{LAST}")
+dv_proj=DataValidation(type="list",formula1="=OFFSET(Config!$F$9,0,0,MAX(1,COUNTA(Config!$F$9:$F$16)),1)",allow_blank=True,showErrorMessage=False); dv_proj.add(f"C{FIRST}:C{LAST}")
 dv_data=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True); dv_data.add(f"E{FIRST}:E{LAST}")
 dv_h=DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True); dv_h.add(f"H{FIRST}:H{LAST}")
 for dv in (dv_resp,dv_123,dv_status,dv_proj,dv_data,dv_h): t.add_data_validation(dv)
@@ -77,8 +79,11 @@ t.merge_cells("A2:N2"); t.column_dimensions["M"].hidden=True
 t.freeze_panes="C4"; t.sheet_view.showGridLines=False
 t.auto_filter.ref=f"A3:N{LAST}"
 # exemplos (empresa fictícia: Ana, analista de marketing na Prisma)
-hoje=date(2026,9,14)  # segunda-feira de referência dos exemplos
-d=lambda n: hoje+timedelta(days=n)
+# Prazos relativos a HOJE(), para o exemplo não envelhecer. O deslocamento +1 reproduz a distribuição
+# original vista em 13/09/2026 (2 atrasadas, 1 para hoje, 9 nesta semana).
+def d(n):
+    k=n+1
+    return "=TODAY()" if k==0 else f"=TODAY(){k:+d}"
 ex=[
 ("Enviar relatório de setembro para a diretoria","Relatório mensal","Ana (você)",d(-2),3,3,2,"Fazendo","Faltam os gráficos de vendas"),
 ("Revisar proposta comercial da Aurora","Cliente Aurora","Ana (você)",d(-1),3,2,1.5,"A fazer","Cliente pediu desconto de 10%"),
@@ -124,7 +129,7 @@ for i,(lab,fml,bg,fg) in enumerate(kpis):
 h.row_dimensions[5].height=34
 # O que fazer primeiro
 h["A7"]="O que fazer primeiro"; h["A7"].font=F(bold=True,size=13,color=UVA)
-h["A8"]="Ordem: situação (atrasada, hoje, esta semana) combinada com impacto × urgência. Uma tarefa alta de hoje vem antes de uma baixa atrasada."; h["A8"].font=F(size=9,color=LILAS)
+h["A8"]="Ordem (as 12 primeiras): situação (atrasada, hoje, esta semana) combinada com impacto × urgência. Uma tarefa alta de hoje vem antes de uma baixa atrasada. As demais ficam na aba Tarefas."; h["A8"].font=F(size=9,color=LILAS)
 hd=["#","Tarefa","Prazo","Situação","Prioridade","Responsável","Horas"]
 for i,v in enumerate(hd,start=1):
     c=h.cell(row=9,column=i,value=v); c.font=F(bold=True,color=BRANCO,size=10); c.fill=fill(UVA); c.alignment=Alignment(horizontal="center"); c.border=borda
@@ -201,10 +206,10 @@ h.freeze_panes="A4"
 # ---------- Como usar ----------
 u=wb.create_sheet("Como usar",0)
 u["A1"]="Semana Organizada"; u["A1"].font=F(bold=True,size=20,color=UVA)
-u["A2"]="Kit IA no Trabalho · Essencial · Seu Sócio Gestor · versão 1.0 (setembro de 2026)"; u["A2"].font=F(size=10,color=LILAS)
+u["A2"]="Kit IA no Trabalho · Seu Sócio Gestor · versão 1.0 (setembro de 2026)"; u["A2"].font=F(size=10,color=LILAS)
 linhas=[
 ("O que esta planilha faz","Lista as suas tarefas com prazo e prioridade e mostra, na aba Hoje, o que fazer primeiro, a carga dos próximos 7 dias e a situação de cada responsável."),
-("Passo 1","Abra a aba Config. Confira a data de referência (fica em =HOJE()) e a capacidade de horas por dia. Ajuste a lista de responsáveis e de projetos."),
+("Passo 1","Abra a aba Config. Confira a data de referência (fica em =HOJE()) e a capacidade de horas por dia. Ajuste a lista de responsáveis e de projetos, preenchendo de cima para baixo, sem pular linha."),
 ("Passo 2","Vá para a aba Tarefas. Apague os exemplos (linhas amarelas) e digite as suas tarefas: nome, projeto, responsável, prazo, impacto (1 a 3), urgência (1 a 3), horas e status."),
 ("Passo 3","Abra a aba Hoje. Ela é só leitura: prioridades, carga por dia e resumo por pessoa se atualizam sozinhos."),
 ("Passo 4","Todo dia, mude o status do que terminou para Feito. Uma vez por semana, revise prazos e horas."),
@@ -212,7 +217,7 @@ linhas=[
 ("Legenda","Células amarelas: você preenche. Células brancas: calculadas, não mexa. Linhas vermelhas: atrasadas. Linhas amarelas na aba Hoje: vencem hoje."),
 ("Proteção","As fórmulas estão protegidas sem senha, só para evitar apagar sem querer. Para editar: Revisar > Desproteger planilha (Excel) ou Dados > Proteger intervalos (Google Sheets)."),
 ("Google Sheets","Faça upload do arquivo no Google Drive e abra com o Google Sheets. Tudo funciona: listas, cores e fórmulas."),
-("Exemplos","Os dados de exemplo são fictícios (Ana, Bruno e Carla numa agência inventada) e usam datas de setembro de 2026. Apague-os antes de começar."),
+("Exemplos","Os dados de exemplo são fictícios (Ana, Bruno e Carla numa agência inventada). Os exemplos usam datas relativas a hoje (prazos como =HOJE()+2); apague-os e digite as suas."),
 ("Suporte","suporte@seusociogestor.com.br · resposta em até 5 dias úteis · reembolso em até 7 dias pelo mesmo canal."),
 ]
 for i,(a,b) in enumerate(linhas,start=4):
@@ -226,5 +231,5 @@ c=u.cell(row=16,column=1,value="Amostra"); c.fill=fill(AMARELO); c.border=borda;
 for ws in (t,cfg,h,u):
     ws.protection.sheet=True; ws.protection.formatColumns=False; ws.protection.formatRows=False
     ws.protection.sort=False; ws.protection.autoFilter=False; ws.protection.selectLockedCells=False
-wb.properties.creator="Seu Sócio Gestor"; wb.properties.title="Semana Organizada · Kit IA no Trabalho Essencial"
+wb.properties.creator="Seu Sócio Gestor"; wb.properties.title="Semana Organizada · Kit IA no Trabalho"
 wb.save("01-semana-organizada.xlsx"); print("salvo")

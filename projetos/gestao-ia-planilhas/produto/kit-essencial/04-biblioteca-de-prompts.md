@@ -35,9 +35,11 @@ Regras: uma tarefa por linha, começando com verbo no infinitivo; se o prazo nã
 Texto:
 [cole aqui]
 ```
-**Exemplo de entrada:** "gente, lembrando que a diretoria quer o relatório até sexta, e a Aurora
+**Exemplo:** Entrada: "gente, lembrando que a diretoria quer o relatório até sexta, e a Aurora
 pediu desconto na proposta, alguém revisa? o post de terça precisa aprovar hoje, e preciso
-conferir as faturas dos fornecedores essa semana."
+conferir as faturas dos fornecedores essa semana." Saída: tabela com 4 linhas ("Enviar relatório
+de setembro para a diretoria", prazo sexta, impacto 3, urgência 3, 2 h; "Revisar proposta
+comercial da Aurora", responsável "definir"...), prontas para colar na aba Tarefas.
 **Confira:** prazos inferidos, responsável (a IA chuta), impacto e urgência (ajuste ao seu
 critério).
 
@@ -50,6 +52,11 @@ Monte o meu dia de trabalho em blocos de tempo, das [hora de início] às [hora 
 Compromissos fixos: [ex.: reunião 14h às 15h].
 Se não couber tudo, diga o que ficaria para amanhã e por quê. Responda em tabela: Horário | Tarefa | Observação.
 ```
+**Exemplo:** Entrada: das 9h às 18h, almoço de 60 min; tarefas da aba Hoje da Ana (Prisma): enviar
+relatório (2 h), montar apresentação da Horizonte (3 h), revisar proposta da Aurora (1,5 h),
+atualizar planilha de leads (1 h); reunião fixa das 14h às 15h. Saída: tabela de blocos com a
+apresentação logo às 9h, a reunião respeitada e "atualizar leads" empurrada para amanhã, com o
+motivo (faltou 1 hora).
 **Confira:** se os blocos respeitam suas reuniões e se a IA não inventou tarefas.
 
 ### Organizar 03 · Prioridade quando tudo parece urgente
@@ -61,6 +68,11 @@ Contexto do meu trabalho: [uma frase sobre o que você faz e o que é mais impor
 Tarefas:
 [cole aqui]
 ```
+**Exemplo:** Entrada: as 14 tarefas abertas da aba Tarefas da Prisma; contexto: "analista de
+marketing; o mais importante este mês é o relatório da diretoria e a proposta da Aurora". Saída:
+quatro caixas com uma frase por tarefa; "Responder pesquisa de clima" e "Organizar pasta de fotos"
+foram para Delegar e Cortar; as três de hoje: relatório, apresentação da Horizonte, proposta da
+Aurora.
 **Confira:** a IA não conhece sua política; ajuste antes de cortar algo.
 
 ### Organizar 04 · Ata de reunião em 5 minutos
@@ -72,6 +84,11 @@ Reunião: [assunto], em [data], com [participantes por função, sem nomes se pr
 Anotações:
 [cole aqui]
 ```
+**Exemplo:** Entrada: reunião "Alinhamento Aurora", 14/09, gerente de conta e analista; anotações:
+"cliente quer 10% de desconto, Ana vê a margem até quarta; pauta de outubro fecha dia 16 (Carla);
+vídeo institucional: orçamento ainda sem dono; próxima reunião 21/09, hora a combinar". Saída: ata
+com 1 decisão, 2 tarefas com dono e prazo, 1 pendência sem dono (orçamento do vídeo) e
+"[confirmar]" na hora da próxima reunião.
 **Confira:** cada "[confirmar]" e os prazos.
 
 ### Organizar 05 · Semana revisada na sexta
@@ -82,6 +99,10 @@ Faça a minha revisão semanal. Com a lista abaixo (tarefas feitas, atrasadas e 
 Lista:
 [cole aqui]
 ```
+**Exemplo:** Entrada: feitas: relatório de mídia de agosto, backup mensal; atrasadas: proposta da
+Aurora, pesquisa de clima; próxima semana: apresentação da Horizonte, pauta de outubro. Saída: os
+quatro blocos; causa provável do atraso: "a proposta esperava a decisão sobre o desconto";
+mensagem de duas linhas para a diretoria, pronta para copiar.
 **Confira:** se a "causa provável" faz sentido; a IA não viu o que aconteceu.
 
 ---
@@ -97,6 +118,10 @@ Contexto: [o que é a tabela, período, unidade dos valores].
 Tabela:
 [cole aqui]
 ```
+**Exemplo:** Entrada: a tabela da aba Indicadores da Prisma Comunicação, janeiro a setembro de
+2026, 12 indicadores em R$, % e unidades. Saída: três frases (receita em alta, inadimplência em
+queda), cinco fatos com número (receita de 131.200 em setembro, a maior do ano) e uma anomalia
+para conferir: horas extras caíram de 26 para 12 enquanto os atendimentos subiram.
 **Confira:** recalcule mentalmente um ou dois números citados.
 
 ### Analisar 02 · Comparar dois períodos
@@ -109,6 +134,10 @@ Período 1 ([nome]):
 Período 2 ([nome]):
 [cole]
 ```
+**Exemplo:** Entrada: o Painel da Prisma, agosto contra setembro; menor é melhor: Despesas,
+Inadimplência, Horas extras, Custo por lead; estável = variação menor que 2%. Saída: tabela com os
+12 indicadores; receita +5,3% (124.600 para 131.200, melhorou), despesas +2,9% (piorou), leads 142
+para 137 (−3,5%, piorou) e uma conclusão de duas frases.
 **Confira:** sinais de "menor é melhor" e percentuais.
 
 ### Analisar 03 · Onde cortar gastos
@@ -120,6 +149,11 @@ Contexto: [pessoa ou negócio, renda média mensal, objetivo do corte].
 Gastos do mês:
 [cole aqui]
 ```
+**Exemplo:** Entrada: gastos de setembro da Rafa Design por categoria (Moradia 1.660, Alimentação
+cerca de 930, Saúde 390, Educação 297, Ferramentas 189, Transporte cerca de 180, Marketing 150,
+Lazer cerca de 140); contexto: designer autônomo, renda média de R$ 6.000, quer sobrar R$ 500 a
+mais por mês. Saída: cada categoria marcada como fixa ou variável e essencial, importante ou
+supérflua; três cortes (almoços fora, lazer, adiar o curso) que somam pouco mais de R$ 500.
 **Confira:** a IA não sabe o que é essencial para você; ajuste a classificação.
 
 ### Analisar 04 · Meta realista
@@ -131,6 +165,11 @@ Indicador: [nome, unidade, maior é melhor ou menor é melhor].
 Histórico mês a mês:
 [cole]
 ```
+**Exemplo:** Entrada: indicador "Leads recebidos, unidades, maior é melhor"; histórico de janeiro
+a setembro: 88, 95, 110, 102, 131, 118, 109, 142, 137. Saída: conservador em torno de 125,
+provável 135 e ambicioso 150 por mês, com o cálculo de cada um (média dos últimos meses e
+tendência) e o que precisaria acontecer para o ambicioso (campanha de fim de ano no ar em
+outubro).
 **Confira:** se a IA respeitou a sazonalidade que você conhece.
 
 ### Analisar 05 · Achar o erro na planilha
@@ -142,6 +181,10 @@ O que eu esperava: [ex.: o total deveria ser 12.400].
 Trecho:
 [cole]
 ```
+**Exemplo:** Entrada: "esperava que Sobrou fosse Entrou menos Saiu"; trecho do painel de setembro
+da Rafa Design: Entrou 6.670, Saiu 4.580, Sobrou 1.590. Saída: aponta que 6.670 − 4.580 = 2.090,
+não 1.590; suspeita de um lançamento de R$ 500 contado duas vezes (a transferência para a reserva)
+e pede a aba Lançamentos para confirmar.
 **Confira:** tudo. Este prompt encontra suspeitas, não prova erros.
 
 ### Analisar 06 · Perguntas antes de decidir
@@ -152,6 +195,11 @@ Vou tomar a decisão: [descreva]. Com os dados abaixo, liste: 1) o que os dados 
 Dados:
 [cole]
 ```
+**Exemplo:** Entrada: decisão "contratar um segundo designer júnior na Prisma"; dados: receita de
+janeiro a setembro, atendimentos de 52 para 63, horas extras de 26 para 12. Saída: os dados
+sustentam que a demanda cresceu; não respondem quanto desse trabalho é design; cinco perguntas
+(custo total, prazo de retorno, freelancer como alternativa...); pior cenário: receita cair e o
+custo fixo ficar.
 **Confira:** as perguntas costumam ser o mais útil; os cenários são hipóteses.
 
 ### Analisar 07 · Gráfico certo para o dado
@@ -160,6 +208,10 @@ Dados:
 ```
 Quero mostrar [o que você quer que a pessoa entenda] para [público]. Os dados são: [descreva as colunas e o período]. Indique o tipo de gráfico mais adequado, o que vai em cada eixo, se precisa de linha de meta, e o título em uma frase que já diga a conclusão (ex.: "Receita cresceu 12% em setembro, puxada por serviços"). Diga também o que evitar (ex.: pizza com 12 fatias).
 ```
+**Exemplo:** Entrada: "quero mostrar para a diretoria que a inadimplência caiu em 2026; dados: mês
+e inadimplência em %, janeiro a setembro; meta de 3%". Saída: gráfico de linha com a meta
+pontilhada, eixo em %, título "Inadimplência caiu de 4,1% para 2,4% e fechou dois meses seguidos
+abaixo da meta"; evitar pizza e eixo que não começa em zero.
 **Confira:** título deve ser verdadeiro para os seus dados.
 
 ### Analisar 08 · Resumo executivo de uma tabela grande
@@ -171,6 +223,10 @@ Contexto: [o que é, período, unidade].
 Tabela:
 [cole]
 ```
+**Exemplo:** Entrada: a aba Lançamentos da Rafa Design, julho a setembro, cerca de 50 linhas,
+valores em R$. Saída: 100 palavras: sobrou dinheiro nos três meses; os dois números (cerca de
+6.700 de entrada em setembro, 500 por mês para a reserva); risco: duas contas a pagar vencendo dia
+30; ação: quitar as duas antes de comprar equipamento novo.
 **Confira:** os dois números citados.
 
 ---
@@ -186,6 +242,10 @@ Meus comentários sobre o mês: [o que aconteceu, por quê].
 Números:
 [cole o bloco da aba Resumo]
 ```
+**Exemplo:** Entrada: para a diretoria; o "Bloco único para copiar" da aba Resumo da Prisma,
+setembro de 2026; comentário: "receita subiu com dois projetos novos da Horizonte; despesas
+subiram com o freelancer de vídeo". Saída: relatório de cerca de 250 palavras com os quatro blocos
+e um "[explicar]" na queda dos leads, que o comentário não cobria.
 **Confira:** cada "[explicar]" e se nenhum número foi alterado.
 
 ### Escrever 02 · E-mail curto que pede algo
@@ -195,6 +255,10 @@ Números:
 Escreva um e-mail de até 120 palavras para [pessoa e cargo] pedindo [o quê] até [prazo]. Comece pelo pedido na primeira frase, explique o motivo em duas linhas, diga o que acontece se não vier no prazo (sem ameaça) e termine com uma pergunta fechada. Assunto de até 8 palavras. Tom: [cordial e direto / formal].
 Contexto extra: [o que a pessoa já sabe].
 ```
+**Exemplo:** Entrada: para a gerente de marketing da Aurora, pedindo a aprovação da pauta de
+outubro até quarta, 16/09; tom cordial e direto; ela já recebeu a pauta na sexta. Saída: e-mail de
+cerca de 90 palavras, assunto "Pauta de outubro: aprovação até quarta?", pedido na primeira frase
+e pergunta fechada no fim.
 **Confira:** prazo e o que exatamente você está pedindo.
 
 ### Escrever 03 · Responder um e-mail difícil
@@ -205,6 +269,10 @@ Recebi o e-mail abaixo e preciso responder. Meu objetivo: [ex.: manter o cliente
 E-mail recebido (sem dados pessoais):
 [cole]
 ```
+**Exemplo:** Entrada: objetivo "manter a Aurora sem dar os 10% de desconto"; posição "posso
+parcelar em 3 vezes ou tirar uma entrega do escopo"; e-mail do cliente pedindo o desconto. Saída:
+resposta de cerca de 130 palavras que reconhece o pedido, mantém o valor, oferece as duas
+alternativas e fecha com uma ligação na quinta.
 **Confira:** se a resposta não promete o que você não pode cumprir.
 
 ### Escrever 04 · Justificativa para chefe ou cliente
@@ -215,6 +283,10 @@ Escreva uma justificativa de até 180 palavras para [quem] sobre [o fato]. Estru
 Fatos:
 [cole]
 ```
+**Exemplo:** Entrada: para a diretoria, atraso de três dias no relatório de setembro; fatos: os
+dados de vendas chegaram na sexta e não na quarta, o gráfico teve de ser refeito, nova data terça.
+Saída: justificativa de cerca de 150 palavras, sem culpar a equipe de vendas, propondo antecipar o
+prazo dos dados no próximo mês e pedindo o "de acordo" com a nova data.
 **Confira:** que os fatos estejam corretos e que a proposta seja viável.
 
 ### Escrever 05 · Explicar o mês financeiro para alguém
@@ -226,6 +298,10 @@ Números:
 [cole o painel]
 Contexto: [o que aconteceu de diferente no mês].
 ```
+**Exemplo:** Entrada: o Painel de setembro da Rafa Design (entrou cerca de 6.670, saiu cerca de
+4.580, maior gasto: moradia); para "minha mãe, que não mexe com planilha"; contexto: "teve um
+cliente a mais este mês". Saída: cerca de 180 palavras em linguagem de conversa; decisão sugerida:
+manter os R$ 500 da reserva e adiar o curso para o mês que vem.
 **Confira:** números e a decisão sugerida.
 
 ### Escrever 06 · Proposta comercial simples
@@ -236,6 +312,10 @@ Escreva uma proposta de serviço de uma página para [cliente e ramo] com as se�
 O pedido do cliente: [descreva].
 O que vou entregar: [liste].
 ```
+**Exemplo:** Entrada: cliente Padaria do Sol, identidade visual; entregar logo, paleta e três
+aplicações; R$ 3.600, 50% na aprovação e 50% na entrega; 15 dias úteis; validade de 10 dias.
+Saída: proposta de uma página com as sete seções; em "O que não está incluído" a IA listou site e
+papelaria, que não estavam no pedido.
 **Confira:** escopo, valor e condições; nada de promessa extra.
 
 ### Escrever 07 · Resumo de reunião para quem não foi
@@ -246,6 +326,9 @@ Escreva um resumo de até 150 palavras para [quem] que não participou da reuni�
 Ata:
 [cole]
 ```
+**Exemplo:** Entrada: para o Bruno, que faltou à reunião de alinhamento da Aurora; a ata gerada
+pelo Organizar 04. Saída: cerca de 120 palavras: a decisão (sem desconto, com parcelamento), o que
+muda para o Bruno (atualizar a planilha de leads até quarta) e a lista de tarefas com prazo.
 **Confira:** o que "muda para a pessoa" é interpretação; revise.
 
 ### Escrever 08 · Texto simplificado
@@ -256,6 +339,9 @@ Reescreva o texto abaixo para ser lido em metade do tempo, mantendo todo o conte
 Texto:
 [cole]
 ```
+**Exemplo:** Entrada: parágrafo de 180 palavras do relatório mensal, cheio de "em virtude de" e
+"conforme mencionado anteriormente"; tom formal. Saída: 90 palavras com as mesmas informações e um
+trecho entre colchetes onde a IA não soube se "resultado" era antes ou depois dos impostos.
 **Confira:** cada colchete e se nada importante sumiu.
 
 ### Escrever 09 · Descrição de tarefa para delegar
@@ -265,6 +351,10 @@ Texto:
 Escreva a descrição de uma tarefa para eu delegar a [quem, nível de experiência]. Estrutura: objetivo em uma frase; o que exatamente entregar (formato, tamanho, exemplo); como saberemos que está bom (3 critérios); o que evitar; prazo e onde entregar; a quem perguntar em caso de dúvida. Máximo 200 palavras.
 Tarefa: [descreva do seu jeito].
 ```
+**Exemplo:** Entrada: delegar ao estagiário, sem experiência, "atualizar a planilha de leads da
+Aurora toda segunda". Saída: descrição de cerca de 170 palavras com três critérios (nenhuma linha
+duplicada, data no formato 14/09/2026, status preenchido em todas as linhas), prazo (segunda até
+12h) e a quem perguntar (Bruno).
 **Confira:** critérios de qualidade são o que evita retrabalho; ajuste-os.
 
 ### Escrever 10 · Mensagem de cobrança educada
@@ -273,6 +363,9 @@ Tarefa: [descreva do seu jeito].
 ```
 Escreva três versões de mensagem de cobrança para [cliente], sobre [o que, valor R$ [ ], vencido em [data]]: 1) lembrete amigável (primeiro contato); 2) segunda cobrança, firme e cordial; 3) última antes de suspender o serviço, clara e sem ameaça. Cada uma com até 80 palavras, com Pix/forma de pagamento e um caminho fácil para resolver. Tom respeitoso: presuma que foi esquecimento.
 ```
+**Exemplo:** Entrada: cliente Bistrô 42, cardápio, R$ 950, vencido em 20/09, pagamento por Pix.
+Saída: três mensagens de até 80 palavras, do lembrete amigável à última antes de suspender o
+serviço, todas com a chave Pix, o valor e a data.
 **Confira:** valor, data e o que você realmente fará se não pagarem.
 
 ---
@@ -288,6 +381,10 @@ Meus comentários: [o que aconteceu].
 Números:
 [cole]
 ```
+**Exemplo:** Entrada: setembro, para a diretoria da Prisma; o bloco da aba Resumo e os comentários
+do Escrever 01. Saída: roteiro de 8 slides; slide 3 "Receita bateu 131 mil, 9% acima da meta";
+slide 5 com "[explicar]" na queda dos leads; slide 8 pede aprovar o freelancer de vídeo para
+outubro.
 **Confira:** cada "[explicar]"; o slide 8 precisa ser um pedido real.
 
 ### Apresentar 02 · Fala de abertura de 60 segundos
@@ -296,6 +393,9 @@ Números:
 ```
 Escreva o que eu digo nos primeiros 60 segundos da apresentação sobre [assunto] para [público]: o que vamos ver, por que importa para eles, qual a decisão que preciso no fim, e quanto tempo vai durar. Máximo 120 palavras, linguagem falada, sem "bom dia a todos" genérico.
 ```
+**Exemplo:** Entrada: apresentação dos resultados de setembro para a diretoria da Prisma; decisão
+que preciso: aprovar o freelancer de vídeo; 20 minutos. Saída: fala de cerca de 100 palavras que
+começa pelo resultado do mês, diz o que vai ser mostrado e termina com a decisão pedida.
 **Confira:** a decisão que você pede no fim deve ser a mesma do slide 8.
 
 ### Apresentar 03 · Perguntas prováveis e respostas
@@ -306,6 +406,10 @@ Com base no roteiro abaixo, liste as 8 perguntas mais prováveis de [público] e
 Roteiro:
 [cole]
 ```
+**Exemplo:** Entrada: o roteiro dos 8 slides de setembro; público: diretoria. Saída: 8 perguntas
+("por que os leads caíram?", "o que acontece se não contratar o freelancer?") com respostas curtas
+e um "não tenho o dado agora, trago até sexta" para a que não dá para responder; as três mais
+difíceis marcadas.
 **Confira:** respostas honestas; não use as que prometem o que você não sabe.
 
 ### Apresentar 04 · Um slide que explica tudo
@@ -316,6 +420,10 @@ Condense o assunto abaixo em UM slide: título-conclusão (até 12 palavras), tr
 Assunto e dados:
 [cole]
 ```
+**Exemplo:** Entrada: "resultado de setembro da Prisma: receita 131.200 (meta 120.000),
+inadimplência 2,4%, leads 137 (142 em agosto); pedido: aprovar freelancer de vídeo". Saída: título
+"Setembro fechou 9% acima da meta com a menor inadimplência do ano", três tópicos com número,
+gráfico de barras receita × meta e uma frase de pedido.
 **Confira:** os três números.
 
 ### Apresentar 05 · Transformar relatório em apresentação
@@ -326,6 +434,9 @@ Transforme o relatório abaixo em uma apresentação de [n] slides. Um tema por 
 Relatório:
 [cole]
 ```
+**Exemplo:** Entrada: o relatório de setembro de 300 palavras gerado pelo Escrever 01; 6 slides.
+Saída: 6 slides com título-conclusão e nota do apresentador; a IA cortou o parágrafo de contexto
+sobre o mercado e manteve os três pontos de atenção.
 **Confira:** o que foi cortado; às vezes a IA corta o que importa.
 
 ### Apresentar 06 · Feedback do meu roteiro
@@ -336,6 +447,9 @@ Aja como um diretor exigente que vai assistir a esta apresentação. Aponte: ond
 Roteiro:
 [cole]
 ```
+**Exemplo:** Entrada: o roteiro dos 8 slides de setembro. Saída: apontou o slide 2 como vago ("mês
+positivo"), sugeriu trocar a ordem dos dois pontos de atenção e fez a pergunta desconfortável:
+"por que os leads caíram se o custo por lead também caiu?".
 **Confira:** aplique só o que faz sentido para o seu público.
 
 ---
@@ -343,22 +457,36 @@ Roteiro:
 ## Grupo 5 · Revisar (6)
 
 ### Revisar 01 · Revisão de texto antes de enviar
+**Quando usar:** em todo texto que sai da sua mesa (e-mail, relatório, proposta), depois de pronto
+e antes de enviar.
+
 ```
 Revise o texto abaixo em três passes: 1) erros de português e digitação (liste com correção); 2) clareza (frases que podem ser mal entendidas, com sugestão); 3) tom (algo que pode soar rude, defensivo ou exagerado). Não reescreva tudo; aponte e sugira. Português do Brasil.
 Texto:
 [cole]
 ```
+**Exemplo:** Entrada: e-mail de cobrança de 80 palavras para o Bistrô 42, escrito com o prompt
+Escrever 10. Saída: dois erros de digitação com a correção, uma frase ambígua ("até dia 30", sem o
+mês) e um aviso de tom ("caso contrário" soou como ameaça).
 **Confira:** aceite as correções uma a uma.
 
 ### Revisar 02 · Conferir uma conta de porcentagem ou variação
+**Quando usar:** antes de escrever uma variação em relatório, slide ou e-mail, ou quando dois
+números não batem.
+
 ```
 Confira os cálculos abaixo. Para cada linha, refaça a conta passo a passo e diga se está certa; se não, dê o valor correto. Explique a diferença entre variação percentual e pontos percentuais quando aparecer.
 Cálculos:
 [cole]
 ```
+**Exemplo:** Entrada: "receita: 124.600 em agosto e 131.200 em setembro, variação de 5,3%;
+inadimplência de 2,6% para 2,4%, queda de 0,2%". Saída: confirma os 5,3%; corrige o segundo: queda
+de 0,2 ponto percentual, o que equivale a −7,7% em variação percentual.
 **Confira:** este é o prompt em que a IA mais erra: refaça você o que for decisivo.
 
 ### Revisar 03 · Checar consistência entre planilha e texto
+**Quando usar:** com o relatório escrito pela IA e a aba Painel ao lado, antes de enviar.
+
 ```
 Compare os números do texto com os da tabela e liste toda divergência (número no texto, número na tabela, onde). Aponte também números citados no texto que não existem na tabela.
 Texto:
@@ -366,26 +494,49 @@ Texto:
 Tabela:
 [cole]
 ```
+**Exemplo:** Entrada: o relatório do Escrever 01 e a tabela do Painel de setembro da Prisma.
+Saída: uma divergência (o texto diz "ticket médio de 9.400", a tabela mostra 9.700) e um número
+sem origem ("crescimento de 15%" não existe na tabela).
 **Confira:** as divergências apontadas; a IA pode deixar passar alguma.
 
 ### Revisar 04 · Simplificar uma fórmula ou explicar o que ela faz
+**Quando usar:** quando herdar uma planilha de alguém ou quiser mexer em uma fórmula protegida do
+kit.
+
 ```
 Explique em português simples o que esta fórmula de planilha faz, passo a passo, e diga se há uma forma mais simples ou mais segura de escrevê-la (compatível com Excel e Google Sheets). Aponte casos em que ela pode dar erro (célula vazia, divisão por zero, texto no lugar de número).
 Fórmula:
 [cole]
 ```
+**Exemplo:** Entrada: a fórmula da coluna "Dias para o prazo" da Semana Organizada,
+=SE(D5="";"";D5-Config!$B$4). Saída: explicação passo a passo (se não há prazo, deixa vazio;
+senão, prazo menos a data de referência), alerta de que dá erro se a data virar texto e a
+recomendação de deixar como está.
 **Confira:** teste a fórmula sugerida em uma cópia antes de trocar.
 
 ### Revisar 05 · Checklist antes de entregar
+**Quando usar:** antes de uma entrega diferente das do kit (proposta, planilha nova, treinamento),
+para adaptar o checklist do bônus.
+
 ```
 Monte um checklist de verificação para [o que vou entregar: relatório, planilha, apresentação, proposta] para [público], com no máximo 12 itens, do mais crítico ao menos crítico. Inclua itens de número, de texto, de formato e de envio (destinatário, anexo, assunto).
 ```
+**Exemplo:** Entrada: proposta comercial para a Padaria do Sol, cliente novo. Saída: 10 itens, do
+mais crítico (valor e condições de pagamento iguais aos combinados por telefone) ao menos crítico
+(nome do arquivo), incluindo "abrir o anexo antes de enviar".
 **Confira:** use o checklist do bônus do kit como base e complete com o da IA.
 
 ### Revisar 06 · Segunda opinião sobre uma decisão
+**Quando usar:** antes de uma decisão que custa dinheiro ou é difícil de desfazer (desconto,
+contratação, cancelamento).
+
 ```
 Vou tomar a decisão: [descreva]. Meus motivos: [liste]. Faça o papel do advogado do diabo: os três melhores argumentos contra, o que eu posso estar ignorando, e uma versão menor ou reversível da mesma decisão. Depois, diga honestamente se os argumentos contra são fortes ou fracos.
 ```
+**Exemplo:** Entrada: "dar 10% de desconto para a Aurora; motivos: cliente antigo, mês fraco de
+leads". Saída: três argumentos contra (abre precedente, come a margem, não resolve os leads), o
+que estou ignorando (o cliente pode aceitar parcelar), versão reversível (desconto só por três
+meses) e o veredito: os argumentos contra são "medianos, mas o precedente pesa".
 **Confira:** a decisão continua sua.
 
 ---
@@ -393,28 +544,59 @@ Vou tomar a decisão: [descreva]. Meus motivos: [liste]. Faça o papel do advoga
 ## Grupo 6 · Aprender (5)
 
 ### Aprender 01 · Explicar um termo de planilha ou de gestão
+**Quando usar:** quando um termo aparece em reunião, relatório ou na planilha e você não quer
+perguntar na frente de todo mundo.
+
 ```
 Explique "[termo]" para alguém que nunca estudou gestão, em até 100 palavras, com um exemplo do dia a dia de [seu tipo de trabalho]. Depois dê a definição técnica em uma frase.
 ```
+**Exemplo:** Entrada: termo "ticket médio"; trabalho: agência de comunicação. Saída: explicação de
+80 palavras com o exemplo da agência (receita do mês dividida pelo número de clientes atendidos) e
+a definição técnica em uma frase.
+**Confira:** o exemplo, que às vezes simplifica demais, e a definição técnica em uma segunda
+fonte.
 
 ### Aprender 02 · Montar uma tabela dinâmica (passo a passo)
+**Quando usar:** quando precisa cruzar duas colunas (por mês e por pessoa, por categoria e por
+cliente) e o painel do kit não tem esse corte.
+
 ```
 Tenho uma tabela com as colunas [liste] no [Excel/Google Sheets]. Quero ver [ex.: total de vendas por mês e por vendedor]. Me dê o passo a passo, clique por clique, para montar uma tabela dinâmica que mostre isso, e diga como atualizar quando eu incluir dados novos.
 ```
+**Exemplo:** Entrada: colunas Data, Tipo, Categoria e Valor da aba Lançamentos, no Google Sheets;
+quero o total por categoria e por mês. Saída: passo a passo (Inserir > Tabela dinâmica; Categoria
+nas linhas, mês da data nas colunas, soma de Valor) e como ampliar o intervalo quando entrarem
+linhas novas.
 **Confira:** os nomes de menu mudam entre versões; se não achar, diga a versão para a IA.
 
 ### Aprender 03 · Escolher a função certa
+**Quando usar:** quando sabe o que quer calcular e não sabe qual função faz isso.
+
 ```
 No [Excel/Google Sheets], preciso [descreva o que quer calcular, com exemplo de entrada e saída]. Diga qual função usar, escreva a fórmula pronta para as células [ex.: valores em B2:B50, categorias em A2:A50], explique cada parte e dê uma alternativa mais simples se existir. Evite funções que só existem nas versões mais novas.
 ```
+**Exemplo:** Entrada: Excel; somar o valor só das linhas "Despesa" do mês 9; valores em E5:E504,
+tipo em B5:B504, mês em I5:I504. Saída: =SOMASES(E5:E504;B5:B504;"Despesa";I5:I504;9), com cada
+parte explicada, e a alternativa mais simples (SOMASE por tipo em uma cópia filtrada pelo mês).
 **Confira:** teste em uma cópia.
 
 ### Aprender 04 · Plano de estudo de 4 semanas
+**Quando usar:** quando decidiu estudar algo por conta própria e não sabe por onde começar.
+
 ```
 Monte um plano de 4 semanas, com 30 minutos por dia, para eu aprender [tema, ex.: fórmulas essenciais de planilha / apresentações objetivas / usar IA no trabalho] partindo de [nível]. Cada semana: objetivo, o que praticar por dia, um exercício com meus próprios dados e como saber que aprendi. Sem cursos pagos.
 ```
+**Exemplo:** Entrada: "fórmulas essenciais de planilha", partindo de "sei somar e fazer média".
+Saída: quatro semanas (referências e formatos; SE e SOMASES; PROCV e ÍNDICE; gráficos e tabela
+dinâmica), com um exercício por dia usando as planilhas do kit e um teste de "sei que aprendi" no
+fim de cada semana.
+**Confira:** se o plano usa só recursos que existem na sua versão; ajuste o tempo se 30 minutos
+por dia não cabem.
 
 ### Aprender 05 · Como explicar meu trabalho com números
+**Quando usar:** antes de uma avaliação, de uma negociação de honorários ou de uma reunião de
+resultados.
+
 ```
 Trabalho como [função] e preciso mostrar meu valor para [chefe/cliente] com números. Sugira 6 indicadores que eu consiga medir sozinho com uma planilha simples, como calcular cada um, com que frequência olhar e o que seria um bom resultado. Explique em linguagem simples.
 ```
@@ -433,5 +615,9 @@ Regras: [o que não fazer; marque dúvidas com colchetes].
 Dados:
 [cole]
 ```
+**Exemplo:** Entrada: analista de marketing na Prisma Comunicação; mostrar valor para a diretoria.
+Saída: seis indicadores (leads, custo por lead, taxa de conversão, prazo de entrega, retrabalho,
+NPS), como calcular cada um, frequência de olhar e uma faixa do que seria um bom resultado.
 
 Suporte: suporte@seusociogestor.com.br · Reembolso em até 7 dias.
+

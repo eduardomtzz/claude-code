@@ -42,7 +42,9 @@ await p.goto('file://'+html); await p.waitForTimeout(600);
 const hs=await p.$$('h1');
 for(const it of itens){ let ok=false;
   for(const el of hs){const t=(await el.innerText()).replace(/\s+/g,' ').trim();
-    if(/^Sheet \d+: /.test(t) && t.slice(t.indexOf(': ')+2)===it.aba){const bb=await el.boundingBox(); await p.screenshot({path:it.out,fullPage:true,clip:{x:0,y:bb.y+40,width:it.w,height:it.h}}); ok=true; break;}}
+    if(/^Sheet \d+: /.test(t) && t.slice(t.indexOf(': ')+2)===it.aba){const bb=await el.boundingBox();
+      let h=it.h; const k=hs.indexOf(el); if(k+1<hs.length){const nb=await hs[k+1].boundingBox(); h=Math.min(h,Math.max(200,Math.floor(nb.y-bb.y-40-24)));}
+      await p.screenshot({path:it.out,fullPage:true,clip:{x:0,y:bb.y+40,width:it.w,height:h}}); ok=true; break;}}
   console.log(ok?'ok':'FALTOU', it.aba, it.out);}
 await b.close();})();"""
 (WORK/'shot.js').write_text(JS)
@@ -54,6 +56,19 @@ def gera(kit,tabela,filtro=None):
         por_arquivo.setdefault(arq,[]).append(dict(aba=aba,w=w,h=h,out=str(docs/f'{nome}.png')))
     for arq,itens in por_arquivo.items():
         src=ent/arq; dst=WORK/arq; shutil.copy2(src,dst); html=WORK/(dst.stem+'.html'); html.unlink(missing_ok=True)
+        import openpyxl
+        na_cells=[(ws.title,c.coordinate) for ws in openpyxl.load_workbook(src).worksheets for row in ws.iter_rows() for c in row if isinstance(c.value,str) and 'NA()' in c.value]
+        if na_cells:
+            # Cópia só para captura: células que dão #N/A (lacuna do gráfico no Excel) ficam VAZIAS, porque o
+            # LibreOffice plota erro/"" como zero na exportação. 1) recalcula, 2) acha os erros, 3) esvazia.
+            rc=WORK/'recalc'; rc.mkdir(exist_ok=True)
+            subprocess.run(['soffice','--headless',f'-env:UserInstallation=file://{PROFILE}','--convert-to','xlsx','--outdir',str(rc),str(dst)],env={**os.environ,'SAL_USE_VCLPLUGIN':'svp'},check=True,capture_output=True,timeout=300)
+            vals=openpyxl.load_workbook(rc/dst.name,data_only=True)
+            wb=openpyxl.load_workbook(dst)
+            for t,coord in na_cells:
+                v=vals[t][coord].value
+                if v is None or v=='' or (isinstance(v,str) and v.startswith('#')): wb[t][coord].value=None
+            wb.save(dst)
         subprocess.run(['soffice','--headless',f'-env:UserInstallation=file://{PROFILE}','--convert-to','html','--outdir',str(WORK),str(dst)],
                        env={**os.environ,'SAL_USE_VCLPLUGIN':'svp'},check=True,capture_output=True,timeout=300)
         r=subprocess.run(['node',str(WORK/'shot.js'),str(html),json.dumps(itens)],env={**os.environ,'NODE_PATH':str(S/'pw'/'node_modules')},capture_output=True,text=True)

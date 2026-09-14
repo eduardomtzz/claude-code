@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Planilha 2 do Kit IA no Trabalho · Essencial: Relatório Mensal Pronto. Gera 02-relatorio-mensal-pronto.xlsx"""
+"""Planilha 2 do Kit IA no Trabalho: Relatório Mensal Pronto. Gera 02-relatorio-mensal-pronto.xlsx"""
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side, Protection
 from openpyxl.worksheet.datavalidation import DataValidation
-from openpyxl.formatting.rule import FormulaRule
+from openpyxl.formatting.rule import FormulaRule, Rule
+from openpyxl.styles.differential import DifferentialStyle
+from openpyxl.styles.numbers import NumberFormat
 from openpyxl.chart import LineChart, BarChart, Reference
 from openpyxl.utils import get_column_letter as L
 
@@ -46,7 +48,7 @@ cfg.column_dimensions["A"].width=26; cfg.column_dimensions["B"].width=40; cfg.co
 ind=wb.create_sheet("Indicadores")
 ind["A1"]="Indicadores do ano"; ind["A1"].font=F(bold=True,size=16,color=UVA)
 ind["A2"]="Preencha o nome, a unidade, a meta mensal, se maior é melhor, e o valor de cada mês. Deixe em branco o que ainda não aconteceu."; ind["A2"].font=F(italic=True,size=10,color=LILAS); ind.merge_cells("A2:R2")
-cols=["Indicador","Unidade","Casas decimais","Meta mensal","Maior é melhor?"]+[m[:3] for m in MESES]+["Acumulado","Média"]
+cols=["Indicador","Unidade","Casas decimais","Meta mensal","Maior é melhor?"]+[m[:3] for m in MESES]+["Acumulado (soma; média para % e pts)","Média"]
 hdr(ind,4,range(1,len(cols)+1),cols)
 ind.row_dimensions[4].height=30
 ex=[("Receita","R$",0,120000,"Sim",[98500,101200,112400,109800,118300,121900,115700,124600,131200]),
@@ -66,7 +68,7 @@ for i in range(NI):
     for c in range(1,6): inp(ind.cell(row=r,column=c))
     for c in range(6,18): inp(ind.cell(row=r,column=c),"#,##0.00")
     ind.cell(row=r,column=1).alignment=Alignment(horizontal="left")
-    ind.cell(row=r,column=18,value=f'=IF(COUNT(F{r}:Q{r})=0,"",SUM(F{r}:Q{r}))'); calc(ind.cell(row=r,column=18),"#,##0.00")
+    ind.cell(row=r,column=18,value=f'=IF(COUNT(F{r}:Q{r})=0,"",IF(OR(B{r}="%",B{r}="pts"),AVERAGE(F{r}:Q{r}),SUM(F{r}:Q{r})))'); calc(ind.cell(row=r,column=18),"#,##0.00")
     ind.cell(row=r,column=19,value=f'=IF(COUNT(F{r}:Q{r})=0,"",AVERAGE(F{r}:Q{r}))'); calc(ind.cell(row=r,column=19),"#,##0.00")
     if i<len(ex):
         nome,un,casas,meta,mb,vals=ex[i]
@@ -74,16 +76,17 @@ for i in range(NI):
         for j,v in enumerate(vals): ind.cell(row=r,column=6+j,value=v)
 dv_sn=DataValidation(type="list",formula1='"Sim,Não"',allow_blank=True); dv_sn.add(f"E{R0}:E{RN}"); ind.add_data_validation(dv_sn)
 dv_cd=DataValidation(type="list",formula1='"0,1,2"',allow_blank=True); dv_cd.add(f"C{R0}:C{RN}"); ind.add_data_validation(dv_cd)
-ind.cell(row=RN+2,column=1,value='"Acumulado" soma os meses preenchidos; para taxas e médias, use a coluna "Média". Para indicadores em %, digite 4,5 (não 0,045).').font=F(size=10,color=LILAS)
+dv_un=DataValidation(type="list",formula1='"R$,%,un,h,pts"',allow_blank=True); dv_un.add(f"B{R0}:B{RN}"); ind.add_data_validation(dv_un)
+ind.cell(row=RN+2,column=1,value='"Acumulado" soma os meses preenchidos quando a unidade é R$, un ou h; quando é % ou pts (taxas, notas), mostra a média dos meses, porque somar taxas não faz sentido. "Média" é sempre a média. Para indicadores em %, digite 4,5 (não 0,045).').font=F(size=10,color=LILAS)
 ind.merge_cells(start_row=RN+2,start_column=1,end_row=RN+2,end_column=19)
-for c,w in zip(range(1,20),[30,8,9,12,10]+[10]*12+[12,10]): ind.column_dimensions[L(c)].width=w
+for c,w in zip(range(1,20),[30,8,9,12,10]+[10]*12+[16,10]): ind.column_dimensions[L(c)].width=w
 ind.freeze_panes="B5"; ind.sheet_view.showGridLines=False
 
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
 p["A1"]='=Config!B4&" · Relatório de "&Config!B6&" de "&Config!B5'; p["A1"].font=F(bold=True,size=16,color=UVA); p.merge_cells("A1:I1")
-p["A2"]="Nada para preencher aqui. Escolha o mês em Config; os números vêm de Indicadores."; p["A2"].font=F(italic=True,size=10,color=LILAS); p.merge_cells("A2:I2")
-hdr(p,4,range(1,10),["Indicador","Mês","Mês anterior","Variação","Meta","Vs. meta","Situação","Acumulado","Unidade"])
+p["A2"]="Nada para digitar aqui, exceto o indicador do gráfico em B18. Escolha o mês em Config; os números vêm de Indicadores."; p["A2"].font=F(italic=True,size=10,color=LILAS); p.merge_cells("A2:I2")
+hdr(p,4,range(1,10),["Indicador","Mês","Mês anterior","Variação","Meta","Vs. meta","Situação","Acumulado (soma; média p/ % e pts)","Unidade"])
 p.row_dimensions[4].height=28
 m="Config!$B$7"
 for i in range(NI):
@@ -97,24 +100,30 @@ for i in range(NI):
     p.cell(row=r,column=7,value=f'=IF(OR(B{r}="",E{r}=""),"",IF(Indicadores!E{s}="Não",IF(B{r}<=E{r},"No alvo","Acima da meta"),IF(B{r}>=E{r},"No alvo","Abaixo da meta")))'); calc(p.cell(row=r,column=7))
     p.cell(row=r,column=8,value=f'=IF(Indicadores!A{s}="","",Indicadores!R{s})'); calc(p.cell(row=r,column=8),"#,##0.00")
     p.cell(row=r,column=9,value=f'=IF(Indicadores!A{s}="","",Indicadores!B{s})'); calc(p.cell(row=r,column=9))
-    p.cell(row=r,column=10,value=f'=IF(F{r}="","",ABS(F{r}))'); p.cell(row=r,column=10).font=F(size=9,color="B0A6C4")
+    # N: casas decimais (para o formato condicional). O: quanto o indicador está fora da meta, só se fora do alvo,
+    # sempre positivo (sinal invertido quando "Maior é melhor?" = Não).
+    p.cell(row=r,column=14,value=f'=IF(Indicadores!C{s}="",2,Indicadores!C{s})'); p.cell(row=r,column=14).font=F(size=9,color="B0A6C4")
+    p.cell(row=r,column=15,value=f'=IF(OR(F{r}="",G{r}="",G{r}="No alvo"),"",IF(Indicadores!E{s}="Não",F{r},-F{r}))'); p.cell(row=r,column=15).font=F(size=9,color="B0A6C4")
 rng=f"A{R0}:I{RN}"
 p.conditional_formatting.add(rng, FormulaRule(formula=[f'OR($G{R0}="Abaixo da meta",$G{R0}="Acima da meta")'], fill=fill("FBE4E4"), font=Font(name="Arial",color="7A1F1F",size=10)))
 p.conditional_formatting.add(rng, FormulaRule(formula=[f'$G{R0}="No alvo"'], fill=fill("DDF3E7")))
+# casas decimais de Indicadores!C aplicadas a Mês, Mês anterior, Meta e Acumulado (formato base: 2 casas)
+for cols_,fmt,fid,casas in ((f"B{R0}:C{RN} E{R0}:E{RN} H{R0}:H{RN}","#,##0",3,0),(f"B{R0}:C{RN} E{R0}:E{RN} H{R0}:H{RN}","#,##0.0",201,1)):
+    p.conditional_formatting.add(cols_, Rule(type="expression",formula=[f'$N{R0}={casas}'],dxf=DifferentialStyle(numFmt=NumberFormat(numFmtId=fid,formatCode=fmt))))
 # helper para gráfico de linha: indicador escolhido
 p.cell(row=RN+2,column=1,value="Indicador do gráfico").font=F(bold=True,color=UVA)
 p.cell(row=RN+2,column=2,value="=Indicadores!A5"); inp(p.cell(row=RN+2,column=2)); p.merge_cells(start_row=RN+2,start_column=2,end_row=RN+2,end_column=4)
-dv_ind=DataValidation(type="list",formula1=f"=Indicadores!$A${R0}:$A${RN}",allow_blank=False); dv_ind.add(f"B{RN+2}"); p.add_data_validation(dv_ind)
+dv_ind=DataValidation(type="list",formula1=f"=OFFSET(Indicadores!$A${R0},0,0,MAX(1,COUNTA(Indicadores!$A${R0}:$A${RN})),1)",allow_blank=False); dv_ind.add(f"B{RN+2}"); p.add_data_validation(dv_ind)
 HR=RN+22  # linhas auxiliares do gráfico ficam abaixo dele (gráficos ignoram linhas ocultas)
-p.cell(row=HR,column=1,value="Mês").font=F(size=9,color=LILAS)
-p.cell(row=HR+1,column=1,value="Valor").font=F(size=9,color=LILAS)
-p.cell(row=HR+2,column=1,value="Meta").font=F(size=9,color=LILAS)
+p.cell(row=HR,column=1,value="Mês").font=F(size=9,color=BRANCO)
+p.cell(row=HR+1,column=1,value="Valor").font=F(size=9,color=BRANCO)
+p.cell(row=HR+2,column=1,value="Meta").font=F(size=9,color=BRANCO)
 for j in range(12):
     c=2+j
-    p.cell(row=HR,column=c,value=MESES[j][:3]).font=F(size=9,color=LILAS)
+    p.cell(row=HR,column=c,value=MESES[j][:3]).font=F(size=9,color=BRANCO)
     idx=f'MATCH($B${RN+2},Indicadores!$A${R0}:$A${RN},0)'
-    p.cell(row=HR+1,column=c,value=f'=IFERROR(IF(INDEX(Indicadores!$F${R0}:$Q${RN},{idx},{j+1})="",NA(),INDEX(Indicadores!$F${R0}:$Q${RN},{idx},{j+1})),NA())').font=F(size=9,color=LILAS)
-    p.cell(row=HR+2,column=c,value=f'=IFERROR(INDEX(Indicadores!$D${R0}:$D${RN},{idx}),NA())').font=F(size=9,color=LILAS)
+    p.cell(row=HR+1,column=c,value=f'=IFERROR(IF(INDEX(Indicadores!$F${R0}:$Q${RN},{idx},{j+1})="",NA(),INDEX(Indicadores!$F${R0}:$Q${RN},{idx},{j+1})),NA())').font=F(size=9,color=BRANCO)
+    p.cell(row=HR+2,column=c,value=f'=IFERROR(INDEX(Indicadores!$D${R0}:$D${RN},{idx}),NA())').font=F(size=9,color=BRANCO)
 lc=LineChart(); lc.title=None; lc.height=7.5; lc.width=18; lc.style=2
 lc.add_data(Reference(p,min_col=1,max_col=13,min_row=HR+1,max_row=HR+2),from_rows=True,titles_from_data=True)
 lc.set_categories(Reference(p,min_col=2,max_col=13,min_row=HR))
@@ -123,11 +132,10 @@ lc.series[1].graphicalProperties.line.solidFill=SOL; lc.series[1].graphicalPrope
 lc.y_axis.majorGridlines=None; lc.legend.position="b"; lc.dispBlanksAs="gap"
 for sr in lc.series: sr.smooth=False
 p.add_chart(lc,f"A{RN+5}")
-p.column_dimensions["J"].hidden=True
-p.cell(row=HR-1,column=1,value="Dados do gráfico (automáticos; meses sem valor aparecem como erro de propósito, para o gráfico deixar a lacuna)").font=F(size=9,color="B0A6C4")
-# Observação: as células ocultas K..M da linha "Valor" retornam #N/A de propósito nos meses sem dado, para o gráfico mostrar lacuna em vez de zero.
+p.column_dimensions["N"].hidden=True; p.column_dimensions["O"].hidden=True  # fora de B:M, para o gráfico não pular mês oculto
+p.cell(row=HR-1,column=1,value=f"Dados do gráfico ficam nas linhas {HR} a {HR+2}, em fonte branca, de propósito: meses sem valor dão #N/D para o gráfico deixar a lacuna em vez de cair a zero.").font=F(size=9,color="B0A6C4")
 p.cell(row=RN+4,column=1,value="Evolução no ano do indicador escolhido (linha cheia) e sua meta (tracejada).").font=F(size=9,color=LILAS)
-for c,w in zip(range(1,14),[30,12,12,10,12,10,15,12,9,9,9,9,9]): p.column_dimensions[L(c)].width=w
+for c,w in zip(range(1,14),[30,12,12,10,12,10,15,16,9,9,9,9,9]): p.column_dimensions[L(c)].width=w
 p.freeze_panes="A5"; p.sheet_view.showGridLines=False
 
 # ---------- Resumo ----------
@@ -151,8 +159,8 @@ rs.cell(row=D0,column=1,value="Destaques automáticos").font=F(bold=True,color=U
 VR=f"Painel!$D${R0}:$D${RN}"; NR=f"Painel!$A${R0}:$A${RN}"; MR=f"Painel!$F${R0}:$F${RN}"
 rs.cell(row=D0+1,column=1,value=f'=IFERROR("• Maior alta contra o mês anterior: "&INDEX({NR},MATCH(MAX({VR}),{VR},0))&" ("&IF(MAX({VR})>=0,"+","")&FIXED(MAX({VR})*100,0)&"%).","• Maior alta: preencha ao menos dois meses.")')
 rs.cell(row=D0+2,column=1,value=f'=IFERROR("• Maior queda contra o mês anterior: "&INDEX({NR},MATCH(MIN({VR}),{VR},0))&" ("&FIXED(MIN({VR})*100,0)&"%).","")')
-AR=f"Painel!$J${R0}:$J${RN}"
-rs.cell(row=D0+3,column=1,value=f'=IFERROR("• Mais longe da meta: "&INDEX({NR},MATCH(MAX({AR}),{AR},0))&" ("&IF(INDEX({MR},MATCH(MAX({AR}),{AR},0))>=0,"+","")&FIXED(INDEX({MR},MATCH(MAX({AR}),{AR},0))*100,0)&"% da meta).","")')
+AR=f"Painel!$O${R0}:$O${RN}"; SR=f"Painel!$G${R0}:$G${RN}"
+rs.cell(row=D0+3,column=1,value=f'=IF(COUNT({AR})=0,"• Nenhum indicador fora da meta.",IFERROR("• Mais longe da meta: "&INDEX({NR},MATCH(MAX({AR}),{AR},0))&" ("&IF(INDEX({MR},MATCH(MAX({AR}),{AR},0))>=0,"+","")&FIXED(INDEX({MR},MATCH(MAX({AR}),{AR},0))*100,0)&"% da meta, "&LOWER(INDEX({SR},MATCH(MAX({AR}),{AR},0)))&").",""))')
 rs.cell(row=D0+4,column=1,value=f'=IFERROR("• Indicadores no alvo: "&COUNTIF(Painel!$G${R0}:$G${RN},"No alvo")&" de "&COUNTIF(Painel!$G${R0}:$G${RN},"<>")&".","")')
 for k in range(1,5):
     rs.cell(row=D0+k,column=1).font=F(size=10,color=TINTA); rs.merge_cells(start_row=D0+k,start_column=1,end_row=D0+k,end_column=4); rs.cell(row=D0+k,column=1).alignment=Alignment(wrap_text=True,vertical="top")
@@ -170,11 +178,11 @@ rs.sheet_view.showGridLines=False
 # ---------- Como usar ----------
 u=wb.create_sheet("Como usar",0)
 u["A1"]="Relatório Mensal Pronto"; u["A1"].font=F(bold=True,size=20,color=UVA)
-u["A2"]="Kit IA no Trabalho · Essencial · Seu Sócio Gestor · versão 1.0 (setembro de 2026)"; u["A2"].font=F(size=10,color=LILAS)
+u["A2"]="Kit IA no Trabalho · Seu Sócio Gestor · versão 1.0 (setembro de 2026)"; u["A2"].font=F(size=10,color=LILAS)
 linhas=[
-("O que esta planilha faz","Você digita até 12 indicadores por mês; ela calcula variação contra o mês anterior, comparação com a meta, acumulado e média, monta o painel e escreve as frases-base do relatório para você colar na IA."),
+("O que esta planilha faz","Você digita até 12 indicadores por mês; ela calcula variação contra o mês anterior, comparação com a meta, acumulado (soma; média para % e pts) e média, monta o painel e escreve as frases-base do relatório para você colar na IA."),
 ("Passo 1","Em Config, preencha o nome da empresa ou área, o ano e escolha o mês do relatório."),
-("Passo 2","Em Indicadores, troque os exemplos pelos seus: nome, unidade (R$, %, un, h, pts), casas decimais, meta mensal e se maior é melhor. Depois, o valor de cada mês. Em %, digite 4,5 e não 0,045."),
+("Passo 2","Em Indicadores, troque os exemplos pelos seus (de cima para baixo, sem pular linha): nome, unidade (R$, %, un, h, pts), casas decimais, meta mensal e se maior é melhor. Depois, o valor de cada mês. Em %, digite 4,5 e não 0,045."),
 ("Passo 3","Abra Painel: cada indicador com mês, mês anterior, variação, meta e situação (verde no alvo, vermelho fora). Escolha um indicador para o gráfico de evolução."),
 ("Passo 4","Abra Resumo: as frases do mês já estão escritas. Copie o bloco único e cole no prompt \"Escrever 01\" (relatório executivo) ou \"Apresentar 01\" (roteiro de 8 slides) da biblioteca do kit, junto com os seus comentários sobre o porquê dos números."),
 ("Todo mês","Digite os valores do novo mês em Indicadores e troque o mês em Config. O resto se refaz sozinho."),
@@ -191,5 +199,5 @@ u.column_dimensions["A"].width=20; u.column_dimensions["B"].width=95; u.sheet_vi
 
 for ws in (cfg,ind,p,rs,u):
     ws.protection.sheet=True; ws.protection.formatColumns=False; ws.protection.formatRows=False; ws.protection.selectLockedCells=False
-wb.properties.creator="Seu Sócio Gestor"; wb.properties.title="Relatório Mensal Pronto · Kit IA no Trabalho Essencial"
+wb.properties.creator="Seu Sócio Gestor"; wb.properties.title="Relatório Mensal Pronto · Kit IA no Trabalho"
 wb.save("02-relatorio-mensal-pronto.xlsx"); print("salvo")
