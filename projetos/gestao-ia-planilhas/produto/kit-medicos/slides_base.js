@@ -1,17 +1,17 @@
-// helpers comuns dos modelos de apresentação do Kit de Gestão para Advogados (derivado do slides_base.js do Kit Completo).
+// helpers comuns dos modelos de apresentação do Kit de Gestão para Médicos (derivado do slides_base.js do Kit Completo).
 // Marca: só no slide mestre (um símbolo pequeno no canto), para o usuário apagar em uma edição; nada de logo ou rodapé
 // "modelo v1.0" solto em cada slide. O aviso de modelo vai só nas notas do apresentador (NOTA0).
 const pptxgen = require('pptxgenjs');
 const C={UVA:'3B1F5E', SOL:'FFC83D', LILAS:'7A5AA8', LILC:'B89BE0', LAV:'F3EEFB', TINTA:'1F1235', BR:'FFFFFF', CINZA:'5A4A78', VERDE:'DDF3E7', VERDE_T:'155E3C', VERM:'FBE4E4', VERM_T:'7A1F1F', GRADE:'E6DFF2', BORDA:'DCD2EC'};
 const H='Arial';
-const ROD='Kit de Gestão para Advogados · modelo v1.0 · set/2026';
-const NOTA0='Modelo do Kit de Gestão para Advogados (v1.0, set/2026): troque os textos e mantenha a estrutura. O símbolo do canto está no slide mestre (Exibir > Slide mestre): apague lá uma vez e some de todos. ';
+const ROD='Kit de Gestão para Médicos · modelo v1.0 · set/2026';
+const NOTA0='Modelo do Kit de Gestão para Médicos (v1.0, set/2026): troque os textos e mantenha a estrutura. O símbolo do canto está no slide mestre (Exibir > Slide mestre): apague lá uma vez e some de todos. ';
 function simboloObjs(x,y,k,dark){ const c1=dark?C.LILC:C.LILAS, c2=dark?C.BR:C.UVA; return [
   {rect:{x:x,y:y+0.40*k,w:0.42*k,h:0.14*k,fill:{color:c1},line:{color:c1},rectRadius:0.06*k}},
   {rect:{x:x+0.10*k,y:y+0.22*k,w:0.42*k,h:0.14*k,fill:{color:c2},line:{color:c2},rectRadius:0.06*k}},
   {rect:{x:x+0.20*k,y:y+0.04*k,w:0.42*k,h:0.14*k,fill:{color:c2},line:{color:c2},rectRadius:0.06*k}},
   {rect:{x:x+0.62*k,y:y+0.44*k,w:0.13*k,h:0.13*k,fill:{color:C.SOL},line:{color:C.SOL},rectRadius:0.065*k}} ]; }
-function novo(titulo){ const p=new pptxgen(); p.layout='LAYOUT_16x9'; p.author='Kit de Gestão para Advogados'; p.title=titulo;
+function novo(titulo){ const p=new pptxgen(); p.layout='LAYOUT_16x9'; p.author='Kit de Gestão para Médicos'; p.title=titulo;
   p.defineSlideMaster({title:'CLARO',background:{color:C.BR},objects:simboloObjs(9.1,5.1,0.5,false)});
   p.defineSlideMaster({title:'ESCURO',background:{color:C.UVA},objects:simboloObjs(9.1,5.1,0.5,true)});
   return p; }

@@ -1,0 +1,52 @@
+Kit de Gestão para Médicos · Seu Sócio Gestor · versão 1.0 · setembro de 2026
+
+Comece por aqui: 26-manual-de-implantacao.pdf (20 minutos de leitura), a aula 1 e a planilha 05-custo-da-hora.xlsx.
+O manual organiza a implantação em 4 semanas, cinco ou seis planilhas por semana, e diz qual aula ver em cada uma.
+Não abra as 20 de uma vez.
+
+Planilhas (Excel 2016 ou mais novo, Microsoft 365 e Google Sheets), em 5 núcleos:
+  Agenda       01-agenda-e-ocupacao.xlsx                02-faltas-e-retornos.xlsx
+               03-rotina-da-semana.xlsx                 04-checklist-do-dia.xlsx
+  Preço        05-custo-da-hora.xlsx                    06-precificacao.xlsx
+               07-simulador-convenio-x-particular.xlsx  08-tabela-de-precos.xlsx
+  Caixa        09-caixa-da-clinica.xlsx                 10-provisao-de-impostos.xlsx
+               11-repasse-e-pro-labore.xlsx             12-reserva-e-metas-de-caixa.xlsx
+  Recebíveis   13-convenios-a-receber.xlsx              14-parcelas-e-inadimplencia.xlsx
+               15-orcamentos.xlsx                       16-conciliacao-de-cartao.xlsx
+  Painel       17-painel-da-clinica.xlsx                18-resultado-mensal.xlsx
+               19-metas-do-trimestre.xlsx               20-resumo-do-mes.xlsx
+  Todas as fórmulas usam só funções que existem desde o Excel 2007: abrem no Excel 2016 ou mais novo, sem macros.
+  As 20 vêm preenchidas com a mesma clínica fictícia (Clínica Vida Plena), na mesma data: segunda-feira 14/09/2026,
+  com setembro em andamento e agosto como último mês fechado. Nada clínico: só nome, contato, valor e data.
+  Apague o exemplo e digite o seu.
+Prompts: 21-biblioteca-de-prompts-da-clinica.pdf e 21-biblioteca-de-prompts-da-clinica.txt
+  (40 prompts em 5 grupos: Agenda, Preço, Caixa, Recebíveis, Painel; o .txt é texto puro, para copiar no celular).
+Bônus: 22-mensagens-de-confirmacao-e-cobranca.pdf e 22-mensagens-de-confirmacao-e-cobranca.txt (15 modelos, na régua da planilha 14)
+       23-guia-lgpd-clinica-pequena.pdf · 24-roteiro-reuniao-com-o-contador.pdf
+Referência: 25-checklists.pdf (abertura e fechamento do dia, fechamento do mês, antes de fechar um convênio) · 26-manual-de-implantacao.pdf
+Modelos de apresentação (.pptx): 27 (resultado do mês para os sócios, 8 slides) · 28 (proposta de parceria para médico, 10) · 29 (convênios e caixa para o contador, 8)
+  27-modelo-resultado-do-mes-8-slides.pptx · 28-modelo-proposta-de-parceria-10-slides.pptx · 29-modelo-convenios-para-o-contador-8-slides.pptx
+  A marca do kit está só no slide mestre: apague lá uma vez (Exibir > Slide mestre) e some de todos os slides.
+  No Google Slides: Arquivo > Importar slides (ou fazer upload do .pptx no Drive e abrir).
+Aulas (pasta videos/): 8 aulas em mp4, de 2 a 3 minutos, com legenda .srt. Ordem: 01 a 08.
+  aula-01-antes-de-abrir-a-planilha              Antes de abrir a planilha: os cinco núcleos e a rotina
+  aula-02-agenda-ocupacao-e-faltas               Agenda, ocupação e faltas
+  aula-03-custo-da-hora-de-atendimento           Custo da hora de atendimento
+  aula-04-preco-e-simulador-de-convenio          Preço e simulador de convênio
+  aula-05-quanto-cobrar-por-este-procedimento    Quanto cobrar por este procedimento
+  aula-06-caixa-provisao-e-repasse               Caixa, provisão e repasse
+  aula-07-convenios-parcelas-e-cobranca          Convênios, parcelas e cobrança
+  aula-08-painel-de-sexta-e-fechamento           Painel de sexta e fechamento
+  Cada aula tem o .mp4 e o .srt com o mesmo nome (ex.: aula-01-antes-de-abrir-a-planilha.mp4 e .srt).
+
+Rotina: 12 minutos na segunda (agenda, com a recepção) e 18 na sexta (caixa e painel); 3 minutos na abertura e 10 no
+fechamento do dia (recepção, planilha 04); fechamento do mês no dia 5.
+Regras de ouro: preencha só as células amarelas; nunca cole nome de paciente, contato ou qualquer dado de saúde em IA
+pública (use Paciente A, Convênio 1); confira cada número que a IA escrever; alíquota, regime e formalização do repasse
+são assunto do seu contador.
+O kit é gestão da clínica: nenhuma planilha ou prompt guarda prontuário, produz conteúdo clínico ou peça de divulgação.
+Mensagens ao paciente são de rotina administrativa; qualquer texto que vá ao público segue as regras do CFM e do seu CRM.
+Clínica Vida Plena e todas as pessoas, pacientes e convênios citados são fictícios.
+
+Suporte: suporte@seusociogestor.com.br (até 5 dias úteis). Arrependimento em 7 dias pelo mesmo e-mail ou pela página do pedido.
+ZTRAINING SERVICE LTDA · CNPJ 68.796.613/0001-10 · seusociogestor.com.br

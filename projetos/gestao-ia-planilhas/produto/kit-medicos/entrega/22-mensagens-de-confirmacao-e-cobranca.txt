@@ -1,0 +1,228 @@
+15 MENSAGENS DE CONFIRMAÇÃO E COBRANÇA · KIT DE GESTÃO PARA MÉDICOS
+===================================================================
+
+Versão 1.0 · setembro de 2026 · Seu Sócio Gestor · bônus
+
+Quinze modelos curtos de WhatsApp e e-mail para a rotina administrativa da recepção: confirmação de consulta, lembrete de véspera, falta, remarcação, retorno, orçamento, cobrança em quatro degraus, confirmação de pagamento e encerramento. Troque o que está entre colchetes, apague o que não se aplica e envie. Cada modelo tem a versão para WhatsApp (mais curta) ou para e-mail (com assunto); adapte uma na outra quando precisar.
+
+========================================
+ANTES DE USAR: SETE REGRAS DA CASA
+========================================
+
+1. Mensagem de rotina não é divulgação. Estes textos vão para quem já é paciente da clínica, um a um, sobre agenda, valores e documentos. Eles não anunciam serviços, não prometem resultado, não comparam a clínica com ninguém e não pedem indicação. Se algum texto daqui for usado para um grupo de pessoas, em lista de transmissão, rede social ou site, ele vira publicidade médica: revise pelas regras do CFM (Resolução CFM 2.336/2023) e do seu CRM antes de usar.
+2. Dado de saúde não entra em mensagem. Nenhum modelo cita motivo da consulta, exame, resultado, diagnóstico ou orientação. "Retorno" e "exame" aparecem só como nome administrativo do horário. Dado de saúde é dado sensível (LGPD, art. 5º, II); mensagem de WhatsApp e e-mail não é lugar para ele. O que é clínico, o médico fala em consulta.
+3. Cobrar é administrativo, não é briga. Presuma esquecimento até o terceiro contato. A régua da Planilha 14 (aba Config) diz em que degrau a parcela está e a mensagem acompanha o degrau: 1 dia, lembrete gentil por WhatsApp (modelo 09); 7 dias, mensagem da recepção com nova data (10); 15 dias, ligação da recepção com o demonstrativo (11); 30 dias, conversa do médico ou da administração e plano por escrito (12).
+4. Nada de ameaça nem constrangimento. Nenhum modelo cita negativação, juros, suspensão de atendimento ou "medidas cabíveis". Cobrança de paciente segue o Código de Defesa do Consumidor (art. 42: sem exposição ao ridículo, sem constrangimento) e a ética médica: o atendimento não é moeda de cobrança. O que acontece se a parcela não for paga é decisão sua, dita em conversa, não em mensagem padrão.
+5. Um pedido por mensagem. Data e hora, ou valor, vencimento, forma de pagamento e o caminho mais fácil para resolver.
+6. Sem "prezado" em excesso. Paciente entende "consulta", "parcela", "Pix", "nota fiscal".
+7. Registre. Depois de enviar, anote data, canal e degrau junto da parcela (Planilha 14) ou do horário (Planilha 1). Sem registro, a próxima mensagem começa do zero.
+
+Campos usados: [Nome], [Clínica], [Profissional], [Recepção], [Procedimento], [Data], [Hora], [Endereço], [Valor], [Parcela n de N], [Chave Pix], [Telefone], [Link], [Prazo].
+
+========================================
+AGENDA: CONFIRMAÇÃO, VÉSPERA, FALTA E REMARCAÇÃO
+========================================
+
+01 · Confirmação de agendamento (WhatsApp)
+------------------------------------------
+Quando: na hora em que o horário é marcado, por telefone ou no balcão. Fecha o combinado administrativo: data, hora, profissional, o que levar.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]! Aqui é [Recepção], da [Clínica]. Seu horário com [Profissional] está marcado para [Data], às [Hora], em [Endereço]. Traga documento com foto e [carteirinha do convênio / a guia autorizada]. [Valor da consulta particular: R$ [Valor], por Pix, cartão ou dinheiro na recepção.] Se precisar remarcar, avise até [Prazo: 24 horas antes] para o horário ser oferecido a outra pessoa. Até lá!
+---- fim ----
+
+02 · Lembrete de véspera com pedido de confirmação (WhatsApp)
+-------------------------------------------------------------
+Quando: na tarde do dia anterior (às 16h, por exemplo), para todos os horários do dia seguinte. É a mensagem que mais reduz falta; quem não responder até o fim da tarde recebe uma ligação.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]. Lembrete da [Clínica]: amanhã, [Data], às [Hora], você tem horário com [Profissional]. Pode confirmar respondendo SIM? Se não puder vir, responda NÃO que a gente remarca e libera o horário. Endereço: [Endereço]. Obrigado!
+---- fim ----
+
+03 · Falta sem aviso (WhatsApp)
+-------------------------------
+Quando: no mesmo dia, depois do horário, para quem não veio e não avisou. Tom de quem se preocupou, não de quem cobra; oferece remarcar. A regra da clínica para faltas repetidas (se houver) é dita em conversa, não aqui.
+
+---- mensagem: copie daqui ----
+Olá, [Nome], tudo bem? Sentimos sua falta hoje no horário das [Hora] com [Profissional]. Aconteceu algum imprevisto? Se quiser remarcar, temos [Data e Hora] ou [Data e Hora]. É só responder por aqui. Se preferir deixar para outro momento, também é só avisar.
+---- fim ----
+
+04 · Remarcação ou cancelamento pedido pelo paciente (WhatsApp)
+---------------------------------------------------------------
+Quando: assim que o paciente pedir para mudar ou cancelar. Confirma a nova data por escrito e registra na Agenda (Planilha 1) como Remarcado ou Cancelado, para a taxa de falta ficar certa.
+
+---- mensagem: copie daqui ----
+Combinado, [Nome]. O horário de [Data antiga], às [Hora antiga], foi [remarcado para [Data nova], às [Hora nova] / cancelado]. [Se remarcado: o lembrete chega na véspera, como sempre.] [Se cancelado: quando quiser marcar de novo, é só chamar por aqui.] Obrigado por avisar!
+---- fim ----
+
+05 · Retorno previsto sem horário marcado (WhatsApp)
+----------------------------------------------------
+Quando: para a lista de retorno da Planilha 2: pacientes que passaram do retorno previsto pelo profissional e não têm horário marcado. É lembrete de agenda, não orientação de saúde: nada de "é importante para o seu tratamento". Um contato; se não houver resposta, registre e siga a rotina.
+Atenção: enviada em lote para muitos pacientes, esta mensagem pode ser lida como divulgação. Use uma a uma, para quem tem retorno previsto, e revise pelas regras do CFM/CRM antes de qualquer uso em massa.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]. Aqui é [Recepção], da [Clínica]. O retorno com [Profissional] estava previsto para [mês]. Temos horário em [Data e Hora] ou [Data e Hora]; se preferir outro dia, é só dizer. Se já resolveu de outra forma ou não quer marcar agora, responda por aqui que atualizamos o cadastro. Obrigado!
+---- fim ----
+
+========================================
+ORÇAMENTOS
+========================================
+
+06 · Retomada de contato sobre um orçamento (WhatsApp)
+------------------------------------------------------
+Quando: para a lista "Retomar contato primeiro" da Planilha 15: orçamento apresentado ou em análise, parado há mais dias que o limite. Uma pergunta, sem insistência, sem desconto e sem dizer que o exame é necessário.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]. Aqui é [Recepção], da [Clínica]. Passando para saber se ficou alguma dúvida sobre o orçamento de [Procedimento] apresentado em [Data] ([Valor], [formas de pagamento: à vista no Pix ou em até [n] vezes no cartão]). Se quiser agendar, temos [Data e Hora]. Se preferir deixar para depois, é só avisar que atualizamos por aqui.
+---- fim ----
+
+07 · Orçamento aprovado: confirmação e agendamento (WhatsApp)
+-------------------------------------------------------------
+Quando: no dia em que o paciente aprovar. Confirma valor, forma de pagamento e o horário; registra Aprovado na Planilha 15 e o horário na Planilha 1. Se for a prazo, as parcelas vão para a Planilha 14.
+
+---- mensagem: copie daqui ----
+Combinado, [Nome]! [Procedimento] agendado para [Data], às [Hora], com [Profissional]. Valor: [Valor], [à vista por Pix ([Chave Pix]) ou cartão na recepção / em [n] parcelas de [Valor da parcela], a primeira em [Data]]. A nota fiscal vai por e-mail depois do pagamento. Traga documento com foto [e as orientações que [Profissional] passou na consulta]. Qualquer dúvida, é só chamar.
+---- fim ----
+
+========================================
+PARCELAS: A RÉGUA DA PLANILHA 14
+========================================
+
+Os modelos 08 a 12 seguem a régua de cobrança da aba Config da Planilha 14, na ordem: lembrete antes do vencimento (08), 1 dia de atraso (09), 7 dias (10), 15 dias (11), 30 dias (12). Cada parcela vencida recebe a ação da maior faixa que ela já alcançou; a aba Painel mostra, parcela por parcela, qual é o degrau de hoje.
+
+08 · Lembrete de parcela, 3 dias antes (WhatsApp)
+-------------------------------------------------
+Quando: para todo paciente com parcela a vencer, sempre. Evita a maior parte dos atrasos.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]. Lembrete da [Clínica]: a parcela [n de N] do [Procedimento], de [Valor], vence em [Data]. Pix: [Chave Pix] (ou cartão na recepção). Se já pagou, ignore esta mensagem. Obrigado!
+---- fim ----
+
+09 · Atraso de 1 dia: lembrete gentil por WhatsApp
+--------------------------------------------------
+Quando: no dia seguinte ao vencimento. Degrau 1 da régua: confirmar se o Pix ou o boleto chegou e reenviar, se preciso. Presume esquecimento.
+
+---- mensagem: copie daqui ----
+Olá, [Nome], tudo bem? A parcela [n de N] do [Procedimento], de [Valor], venceu ontem ([Data]) e ainda não identificamos o pagamento. Pode ser que a chave ou o link não tenha chegado: reenvio aqui. Pix: [Chave Pix] · [Link ou boleto]. Se já pagou, me avisa que eu confiro por aqui.
+---- fim ----
+
+10 · Atraso de 7 dias: mensagem da recepção com nova data (WhatsApp)
+--------------------------------------------------------------------
+Quando: uma semana depois, se não houve resposta ao lembrete. Degrau 2: a recepção pergunta se houve imprevisto e já oferece uma nova data para o pagamento.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]. Aqui é [Recepção], da [Clínica]. A parcela [n de N] do [Procedimento], de [Valor], venceu em [Data] e ainda está em aberto; mandamos um lembrete no dia [data do contato anterior]. Aconteceu algum imprevisto? Se ajudar, podemos combinar uma nova data: [Data + 7 dias] funciona para você? Pix: [Chave Pix]. Se já pagou, me envie o comprovante para eu dar baixa.
+---- fim ----
+
+11 · Atraso de 15 dias: ligação da recepção com o demonstrativo (roteiro + mensagem)
+------------------------------------------------------------------------------
+Quando: duas semanas de atraso, sem acordo. Degrau 3: a recepção liga com o demonstrativo das parcelas em aberto (aba Parcelas da Planilha 14, filtrada pelo paciente) e propõe nova data ou divisão do valor. Depois da ligação, a mensagem confirma o que foi dito.
+
+---- mensagem: copie daqui ----
+Roteiro da ligação (até 4 minutos):
+1. Abertura, sem rodeio: "Olá, [Nome], aqui é [Recepção], da [Clínica]. Estou ligando sobre a parcela de [Valor], vencida em [Data]. Quero combinar com você um jeito de resolver."
+2. Pergunta aberta: "Aconteceu alguma coisa com esse pagamento?" Ouça e anote.
+3. Demonstrativo: "Está em aberto: parcela [n de N], vencida em [Data], [Valor]; [parcela seguinte, se houver]. Total: [Valor total]."
+4. Proposta: no máximo duas saídas que caibam na regra da clínica: [pagar o total até [Data + 7 dias] / dividir o valor em aberto em [2] vezes, em [Data 1] e [Data 2]].
+5. Fechamento: repita o combinado em voz alta e avise que vai confirmar por mensagem agora.
+O que não dizer: nada sobre o atendimento ou a saúde do paciente; nada de negativação, juros ou suspensão de atendimento; nenhuma comparação com outros pacientes.
+
+Mensagem de confirmação, no mesmo dia:
+Olá, [Nome]. Conforme conversamos hoje por telefone, fica combinado: [descreva: valor, número de parcelas, datas], por [Pix ([Chave Pix]) / cartão na recepção]. Vou enviar o lembrete três dias antes de cada data. Obrigado pela conversa.
+---- fim ----
+
+12 · Atraso de 30 dias: conversa do médico ou da administração e plano por escrito (roteiro + e-mail)
+------------------------------------------------------------------------------
+Quando: um mês de atraso. Degrau 4: a recepção já fez o que podia; agora é conversa do sócio ou de quem administra a clínica, para combinar um plano de pagamento e registrar por escrito. O que acontece se o plano não for cumprido é conversa sua, dentro do CDC e da ética médica; nada disso entra na mensagem.
+
+---- mensagem: copie daqui ----
+Roteiro da conversa (presencial, por vídeo ou telefone, até 10 minutos):
+1. Abertura: "Quero resolver com você a parcela de [Valor], vencida em [Data], de um jeito que caiba para os dois lados."
+2. Escuta: o que aconteceu, o que é possível agora.
+3. Plano: [n] parcelas de [Valor], dia [dia], a primeira em [Data]; ou nova data única.
+4. Fechamento: repita o plano e diga que vai confirmar por e-mail hoje.
+
+E-mail de confirmação, enviado no mesmo dia:
+Assunto: Confirmação do combinado: parcela de [Data]
+
+Olá, [Nome].
+
+Conforme conversamos hoje, fica combinado sobre a parcela [n de N] do [Procedimento], vencida em [Data]: [descreva o plano: valor, número de parcelas, datas], por [Pix ([Chave Pix]) / cartão na recepção]. A nota fiscal de cada pagamento vai por e-mail. Enviaremos o lembrete três dias antes de cada data.
+
+Obrigado pela conversa. Se algo mudar, avise antes do vencimento.
+
+[Profissional ou administração] · [Clínica] · [Telefone]
+---- fim ----
+
+========================================
+PAGAMENTO E ENCERRAMENTO
+========================================
+
+13 · Confirmação de pagamento (WhatsApp)
+----------------------------------------
+Quando: no mesmo dia em que o pagamento entrar. Confirmar cria o hábito de pagar. A nota fiscal de serviço é obrigatória em todo recebimento, à vista ou a prazo, e é emitida à parte (o contador orienta o sistema e o prazo); esta mensagem não substitui a nota.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]! Recebemos a parcela [n de N] do [Procedimento], de [Valor]. Obrigado. A nota fiscal vai por e-mail. Próxima: [Data] (ou: "essa era a última; está tudo quitado").
+---- fim ----
+
+14 · Confirmação de quitação (e-mail)
+-------------------------------------
+Quando: na última parcela, ou no pagamento à vista quando o paciente pedir por escrito. É só a confirmação administrativa: a nota fiscal de cada recebimento é obrigatória e é emitida à parte; este e-mail não substitui nota nem recibo.
+
+---- mensagem: copie daqui ----
+Assunto: Pagamento confirmado: [Procedimento]
+
+Olá, [Nome].
+
+Confirmamos o recebimento da última parcela ([n de N], [Valor]) em [Data]. O valor referente a [Procedimento] está quitado. A nota fiscal desta parcela segue em anexo (ou: foi enviada em [Data]).
+
+Ficamos à disposição.
+
+[Recepção] · [Clínica] · [Telefone]
+---- fim ----
+
+15 · Encerramento de um pacote ou acompanhamento e pedido de opinião privada (e-mail)
+------------------------------------------------------------------------------
+Quando: quando um pacote de sessões, um plano de acompanhamento ou um conjunto de exames contratado termina, sem pendência financeira. Fecha o combinado administrativo (pendências, documentos, guarda) e pede, à parte e de forma opcional, a opinião do paciente sobre o atendimento da recepção, os prazos e a clareza sobre valores. Nada sobre saúde nem sobre resultado.
+Atenção: este modelo não pede avaliação pública, depoimento nem indicação. Depoimento de paciente e divulgação de opinião são matéria da Resolução CFM 2.336/2023 e do seu CRM; antes de qualquer uso público de opinião de paciente (site, redes, Google), revise pelas regras do CFM/CRM.
+
+---- mensagem: copie daqui ----
+Assunto: Encerramento: [Procedimento ou pacote]
+
+Olá, [Nome].
+
+O [pacote / acompanhamento] de [Procedimento ou pacote] contratado em [Data] foi concluído em [Data]. Obrigado pela confiança.
+
+Pendências: [nenhuma / a última parcela de [Valor] vence em [Data]].
+Documentos administrativos (notas fiscais, comprovantes): [enviados por e-mail em [Data] / disponíveis na recepção].
+Guardamos seus dados de cadastro e de pagamento pelo prazo que a lei e o Conselho exigem, conforme nosso aviso de privacidade.
+
+Se quiser, responda a este e-mail com uma ou duas frases sobre o atendimento da recepção, os prazos de resposta e a clareza sobre valores: o que funcionou e o que devemos melhorar. É opcional e fica só entre nós.
+
+Quando precisar marcar de novo, é só chamar.
+
+[Recepção] · [Clínica] · [Telefone]
+---- fim ----
+
+========================================
+REGISTRO E CADÊNCIA
+========================================
+
+Momento · Modelo · Canal · Degrau da Planilha 14 · Registrar
+Ao marcar · 01 · WhatsApp · — · Agenda (01): Agendado
+Véspera, 16h · 02 · WhatsApp (+ ligação para quem não responde) · — · Agenda (01): Confirmado
+Falta ou remarcação · 03, 04 · WhatsApp · — · Agenda (01): Falta, Remarcado ou Cancelado
+Retorno previsto · 05 · WhatsApp · — · Lista de retorno (02): contato e data
+Orçamento · 06, 07 · WhatsApp · — · Orçamentos (15): etapa e data
+3 dias antes · 08 · WhatsApp · antes da régua · Lembrete
+1 dia depois · 09 · WhatsApp · 1 · lembrete gentil · Degrau 1
+7 dias · 10 · WhatsApp (recepção) · 2 · mensagem da recepção · Degrau 2, nova data oferecida
+15 dias · 11 · Ligação da recepção + mensagem · 3 · ligação com demonstrativo · Degrau 3, opção proposta
+30 dias · 12 · Conversa do médico ou da administração + e-mail · 4 · plano por escrito · Degrau 4, plano combinado
+Pagamento · 13 ou 14 · WhatsApp ou e-mail · — · Baixa na 14, entrada na 09 e nota fiscal
+Encerramento · 15 · E-mail · — · Cadastro e prazo de guarda
+
+Antes de qualquer mensagem: confira data e hora na Agenda (01) ou valor e vencimento na aba Parcelas (14); verifique se o pagamento não entrou na conta hoje; use o nome como o paciente prefere ser chamado. Envie de um número ou e-mail da clínica, não do celular pessoal do médico. Nunca escreva, em mensagem, nada sobre a saúde do paciente.
+
+Suporte: suporte@seusociogestor.com.br · Reembolso em até 7 dias.
