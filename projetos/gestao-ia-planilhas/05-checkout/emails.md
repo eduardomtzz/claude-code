@@ -64,7 +64,7 @@ Os 80 prompts estão nas bibliotecas "11-a" e "11-b" (PDF e TXT). As 8 aulas est
 
 **Advogados:**
 ```
-1. Abra o "26-manual-de-implantacao.pdf" (20 minutos de leitura) e assista à aula 1, "Antes de abrir a planilha: os cinco núcleos e a rotina" (2 min 28 s). Ela vem antes de qualquer planilha.
+1. Abra o "26-manual-de-implantacao.pdf" (20 minutos de leitura) e assista à aula 1, "Antes de abrir a planilha: os cinco núcleos e a rotina" (2 min 35 s). Ela vem antes de qualquer planilha.
 2. Abra "05-custo-hora.xlsx", troque os custos fixos e as horas pelos seus: quinze minutos e você sabe quanto custa a sua hora.
 3. Amanhã: "01-agenda-de-prazos.xlsx" com os prazos desta semana. O semáforo faz o resto.
 Os 40 prompts estão em "21-biblioteca-de-prompts-do-escritorio" (PDF e TXT). As 8 aulas estão na pasta "videos".

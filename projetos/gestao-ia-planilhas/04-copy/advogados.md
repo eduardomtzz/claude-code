@@ -32,8 +32,8 @@ Título: **Três coisas que o escritório pequeno vive**
    domingo. → Com o kit: Caixa com provisão e Pró-labore separado. Você sabe quanto pode retirar.
 
 ## 3. Demonstração
-Aula 5 inteira, por toque: "Custo-hora e proposta: quanto cobrar por este caso" (2:44). Legenda na página: "Aula 5 ·
-Custo-hora e proposta: quanto cobrar por este caso · 2:44 min. Narração sintética, legendada."
+Aula 5 inteira, por toque: "Custo-hora e proposta: quanto cobrar por este caso" (2:42). Legenda na página: "Aula 5 ·
+Custo-hora e proposta: quanto cobrar por este caso · 2:42 min. Narração sintética, legendada."
 
 ## 4. Método: cinco núcleos, um fechamento por semana
 1. **Prazos sob controle.** Cada processo com as próximas datas e o semáforo. Segunda-feira, 12 minutos.
@@ -67,10 +67,10 @@ Prompt anotado: "Painel 01 · Explicar o mês ao sócio", texto literal da bibli
 Nota fixa: "Nenhum prompt do kit produz petição, parecer ou tese. E a regra número um: nunca cole nome de cliente
 ou número de processo real em IA pública. Os prompts usam Cliente A, Processo 1."
 Grade das 8 aulas (títulos canônicos, os das capas dos vídeos; durações em `site/config.json`, `adv_aulaN_dur`):
-1. Antes de abrir a planilha: os cinco núcleos e a rotina (2:28) · 2. Agenda de prazos e andamento (2:19) ·
-3. Custo-hora do escritório (2:20) · 4. Simulador e tabela de honorários (2:15) · 5. Custo-hora e proposta: quanto
-cobrar por este caso (2:44) · 6. Caixa, provisão e pró-labore (2:33) · 7. Carteira, parcelas e cobrança (2:38) ·
-8. Painel de sexta e fechamento (2:47).
+1. Antes de abrir a planilha: os cinco núcleos e a rotina (2:35) · 2. Agenda de prazos e andamento (2:33) ·
+3. Custo-hora do escritório (2:24) · 4. Simulador e tabela de honorários (2:54) · 5. Custo-hora e proposta: quanto
+cobrar por este caso (2:42) · 6. Caixa, provisão e pró-labore (2:42) · 7. Carteira, parcelas e cobrança (2:45) ·
+8. Painel de sexta e fechamento (2:55).
 Bônus (3 cards): mensagens de cobrança e confirmação (15 modelos) · guia LGPD para escritório pequeno · roteiro
 da reunião mensal com o contador. Mais: 3 modelos de apresentação (resultado do mês, proposta, carteira para o
 contador) e 3 checklists.

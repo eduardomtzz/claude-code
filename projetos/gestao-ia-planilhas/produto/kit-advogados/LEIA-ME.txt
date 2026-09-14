@@ -27,14 +27,14 @@ Modelos de apresentação (.pptx): 27 (resultado do mês, 8 slides) · 28 (propo
   A marca do kit está só no slide mestre: apague lá uma vez (Exibir > Slide mestre) e some de todos os slides.
   No Google Slides: Arquivo > Importar slides (ou fazer upload do .pptx no Drive e abrir).
 Aulas (pasta videos/): 8 aulas em mp4, de 2 a 3 minutos, com legenda .srt. Ordem: 01 a 08.
-  aula-01-antes-de-abrir-a-planilha           Antes de abrir a planilha: os cinco núcleos e a rotina (2:28)
-  aula-02-agenda-de-prazos-e-andamento        Agenda de prazos e andamento (2:19)
-  aula-03-custo-hora-do-escritorio            Custo-hora do escritório (2:20)
-  aula-04-simulador-e-tabela-de-honorarios    Simulador e tabela de honorários (2:15)
-  aula-05-custo-hora-e-proposta               Custo-hora e proposta: quanto cobrar por este caso (2:44)
-  aula-06-caixa-provisao-e-pro-labore         Caixa, provisão e pró-labore (2:33)
-  aula-07-carteira-parcelas-e-cobranca        Carteira, parcelas e cobrança (2:38)
-  aula-08-painel-de-sexta-e-fechamento        Painel de sexta e fechamento (2:47)
+  aula-01-antes-de-abrir-a-planilha           Antes de abrir a planilha: os cinco núcleos e a rotina (2:35)
+  aula-02-agenda-de-prazos-e-andamento        Agenda de prazos e andamento (2:33)
+  aula-03-custo-hora-do-escritorio            Custo-hora do escritório (2:24)
+  aula-04-simulador-e-tabela-de-honorarios    Simulador e tabela de honorários (2:54)
+  aula-05-custo-hora-e-proposta               Custo-hora e proposta: quanto cobrar por este caso (2:42)
+  aula-06-caixa-provisao-e-pro-labore         Caixa, provisão e pró-labore (2:42)
+  aula-07-carteira-parcelas-e-cobranca        Carteira, parcelas e cobrança (2:45)
+  aula-08-painel-de-sexta-e-fechamento        Painel de sexta e fechamento (2:55)
 
 Rotina: 12 minutos na segunda (prazos) e 18 na sexta (caixa e painel); proposta em 20 minutos na primeira vez, 5 nas seguintes.
 Regras de ouro: preencha só as células amarelas; nunca cole nome de cliente ou número de processo real em IA pública

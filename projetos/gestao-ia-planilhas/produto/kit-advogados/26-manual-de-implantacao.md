@@ -28,21 +28,21 @@ na fonte oficial, a estratégia e a conversa com o cliente continuam sendo suas.
 | 25 | Checklists: abertura de caso, fechamento do mês, antes de enviar a proposta | 2 min cada |
 | 26 | Este manual | 20 min, uma vez |
 | 27 a 29 | Modelos de apresentação (.pptx): resultado do mês (8 slides), proposta de honorários (10), carteira para o contador (8) | 20 min por apresentação |
-| videos/ | 8 aulas de 2 a 3 minutos, tela real, narração e legenda | 20 min no total |
+| videos/ | 8 aulas de 2 a 3 minutos, tela real, narração e legenda | 22 min no total |
 
 **As 8 aulas (pasta videos/, em mp4 com legenda .srt).** Assista na ordem; cada semana da
 implantação diz qual aula ver.
 
 | Aula | Título | Duração | Planilhas |
 |---|---|---|---|
-| 1 | Antes de abrir a planilha: os cinco núcleos e a rotina | 2:28 | método e 03 |
-| 2 | Agenda de prazos e andamento | 2:19 | 01, 02, 04 |
-| 3 | Custo-hora do escritório | 2:20 | 05 |
-| 4 | Simulador e tabela de honorários | 2:15 | 06, 08 |
-| 5 | Custo-hora e proposta: quanto cobrar por este caso | 2:44 | 05, 06, 07 |
-| 6 | Caixa, provisão e pró-labore | 2:33 | 09, 10, 11, 12 |
-| 7 | Carteira, parcelas e cobrança | 2:38 | 13, 14, 15, 16 |
-| 8 | Painel de sexta e fechamento | 2:47 | 17, 18, 19, 20 |
+| 1 | Antes de abrir a planilha: os cinco núcleos e a rotina | 2:35 | método e 03 |
+| 2 | Agenda de prazos e andamento | 2:33 | 01, 02, 04 |
+| 3 | Custo-hora do escritório | 2:24 | 05 |
+| 4 | Simulador e tabela de honorários | 2:54 | 06, 08 |
+| 5 | Custo-hora e proposta: quanto cobrar por este caso | 2:42 | 05, 06, 07 |
+| 6 | Caixa, provisão e pró-labore | 2:42 | 09, 10, 11, 12 |
+| 7 | Carteira, parcelas e cobrança | 2:45 | 13, 14, 15, 16 |
+| 8 | Painel de sexta e fechamento | 2:55 | 17, 18, 19, 20 |
 
 Abre tudo no Excel 2016 ou mais novo, no Microsoft 365 e no Google Sheets: as fórmulas usam só
 funções que existem desde o Excel 2007 (SOMASES, CONT.SES, ÍNDICE e CORRESP, SEERRO, SOMARPRODUTO),
