@@ -75,7 +75,7 @@ Regra número um: nunca cole nome de cliente ou número de processo real em IA p
 **Médicos:**
 ```
 1. Abra o "26-manual-de-implantacao.pdf" (20 minutos de leitura) e assista à aula 1, "Antes de abrir a planilha: os cinco núcleos e a rotina" (2 min 30 s). Ela vem antes de qualquer planilha.
-2. Abra "05-custo-da-hora.xlsx", troque os custos fixos, a equipe, o pró-labore e as horas atendidas pelos seus: quinze minutos e você sabe quanto custa a sua hora de atendimento.
+2. Abra "05-custo-da-hora.xlsx", troque os custos fixos, a equipe, o pró-labore e as horas de atendimento pelos seus: quinze minutos e você sabe quanto custa a sua hora de atendimento.
 3. Amanhã: "01-agenda-e-ocupacao.xlsx" com a agenda desta semana. A ocupação e as faltas aparecem sozinhas.
 Os 40 prompts estão em "21-biblioteca-de-prompts-da-clinica" (PDF e TXT). As 8 aulas estão na pasta "videos".
 Regra número um: nunca cole nome, contato ou qualquer dado de paciente em IA pública. Nenhuma planilha do kit guarda dado clínico: só nome, contato, valor e data.
@@ -150,7 +150,7 @@ Olá, [Nome].
 Ontem você recebeu o kit. Hoje é o dia de descobrir quanto custa a sua hora de atendimento, o número que sustenta o preço da consulta, do procedimento e a conversa com o convênio.
 
 1. Abra "05-custo-da-hora.xlsx" na aba Custos.
-2. Troque os custos fixos, a equipe, o pró-labore e as horas atendidas do exemplo pelos seus (só as células amarelas).
+2. Troque os custos fixos, a equipe, o pró-labore e as horas de atendimento do exemplo pelos seus (só as células amarelas).
 3. O custo da hora aparece no painel. Compare com o que o seu convênio mais usado paga por consulta.
 
 A aula 3, "Custo da hora de atendimento" (2 min 30 s), mostra tudo isso na tela.
