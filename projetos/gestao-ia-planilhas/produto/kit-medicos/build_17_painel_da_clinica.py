@@ -62,12 +62,12 @@ for i,(k,rot,val,lim,sent,fonte,fmt) in enumerate(LINHAS):
     else: inp(b,fmt,center=True)
     inp(d.cell(row=r,column=3,value=lim),fmt,center=True); inp(d.cell(row=r,column=4,value=sent),center=True)
     d.cell(row=r,column=5,value=fonte); nota(d.cell(row=r,column=5)); d.cell(row=r,column=5).border=borda
-    d.cell(row=r,column=6,value=(f'=IF(OR(B{r}="",C{r}=""),"Informativo",IF(D{r}="Menor é melhor",IF(B{r}<=C{r},"No alvo",IF(B{r}<=C{r}*1.1+(C{r}=0)*0.0001,"Perto","Fora")),'
-                                 f'IF(B{r}>=C{r},"No alvo",IF(B{r}>=C{r}*0.9,"Perto","Fora"))))')); calc(d.cell(row=r,column=6))
+    d.cell(row=r,column=6,value=(f'=IF(OR(B{r}="",C{r}=""),"Informativo",IF(D{r}="Menor é melhor",IF(B{r}<C{r},"No alvo",IF(B{r}<=C{r}*1.1+(C{r}=0)*0.0001,"Perto","Fora")),'
+                                 f'IF(B{r}>C{r},"No alvo",IF(B{r}>=C{r}*0.9,"Perto","Fora"))))')); calc(d.cell(row=r,column=6))
 dvs=lista('"Maior é melhor,Menor é melhor"'); dvs.add(f"D{R0}:D{RN}"); d.add_data_validation(dvs)
 for cor,txt,fnt in ((VERDE,"No alvo",VERDE_T),(AMARELO,"Perto","7A5200"),(VERM,"Fora",VERM_T)):
     d.conditional_formatting.add(f"F{R0}:F{RN}", FormulaRule(formula=[f'F{R0}="{txt}"'], fill=fill(cor), font=F(color=fnt,size=10,bold=(txt=="Fora"))))
-d.cell(row=RN+2,column=1,value="Linha sem limite fica \"Informativo\". \"Perto\" é até 10% do limite. Inadimplência = vencido ÷ (pago + vencido), a mesma conta da planilha 14. Convênio a receber é o que foi enviado e ainda está no prazo: informativo; o problema é o atrasado. Orçamentos em aberto também são informativos: pouco orçamento pendente pode ser bom (fechou tudo) ou ruim (a recepção parou de apresentar) — quem diz é a taxa de aprovação da planilha 15, não o valor parado. Os valores desta sexta valem para o mês escolhido em Config; no fim do mês, copie a coluna B para a linha do mês em Histórico.").font=F(size=9,color=LILAS)
+d.cell(row=RN+2,column=1,value="Linha sem limite fica \"Informativo\". \"Perto\" é o limite exato ou até 10% além dele. Inadimplência = vencido ÷ (pago + vencido), a mesma conta da planilha 14. Convênio a receber é o que foi enviado e ainda está no prazo: informativo; o problema é o atrasado. Orçamentos em aberto também são informativos: pouco orçamento pendente pode ser bom (fechou tudo) ou ruim (a recepção parou de apresentar) — quem diz é a taxa de aprovação da planilha 15, não o valor parado. Os valores desta sexta valem para o mês escolhido em Config; no fim do mês, copie a coluna B para a linha do mês em Histórico.").font=F(size=9,color=LILAS)
 d.merge_cells(start_row=RN+2,start_column=1,end_row=RN+2,end_column=6)
 d.cell(row=RN+3,column=1,value="As planilhas indicadas em \"Copie de\" são as do próprio kit. Se ainda não usa alguma, deixe a linha em branco: o painel mostra \"—\". No exemplo (sexta 11/09/2026) agenda e caixa são do mês em andamento: a comparação com agosto só aparece no fechamento.").font=F(size=9,color=LILAS)
 d.merge_cells(start_row=RN+3,start_column=1,end_row=RN+3,end_column=6)
