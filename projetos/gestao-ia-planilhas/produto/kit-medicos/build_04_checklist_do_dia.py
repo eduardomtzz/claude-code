@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Planilha 4 do Kit de Gestão para Médicos: Checklist de abertura e fechamento do dia. Gera 04-checklist-do-dia.xlsx
 Uma linha por dia de atendimento; itens de abertura (agenda confirmada, salas prontas, guias separadas) e de fechamento
-(caixa fechado e conferido, lançado na 09, faltas marcadas, retornos agendados). Exemplo: dias úteis de 01/07 a 11/09/2026."""
+(caixa fechado e conferido, lançado na 09, faltas marcadas, retornos agendados). Exemplo: dias úteis de 01/06 a 11/09/2026."""
 from ssg import *
 import dados, random
 from datetime import timedelta
@@ -74,7 +74,7 @@ ck.conditional_formatting.add(f"A{R0}:C{RN}", FormulaRule(formula=[f'AND(ISNUMBE
 ck.conditional_formatting.add(f"{L(CPA)}{R0}:{L(CPE)}{RN}", FormulaRule(formula=[f'AND(ISNUMBER({L(CPA)}{R0}),{L(CPA)}{R0}<1)'], font=F(color="C8402E",size=10,bold=True)))
 widths(ck,[12,11,18]+[12]*(2*NIT)+[10,12,11,12,11,60,8,6,6]); ck.column_dimensions[L(CKEY)].hidden=True; ck.column_dimensions[L(CAUX)].hidden=True; ck.column_dimensions[L(CAUX+1)].hidden=True
 ck.freeze_panes=f"{L(CA)}{R0}"; ck.sheet_view.showGridLines=False; ck.auto_filter.ref=f"A4:{L(CFAL)}{RN}"
-# exemplo: dias úteis de 01/07 a 11/09/2026, quase tudo Sim; algumas pendências
+# exemplo: dias úteis de 01/06 a 11/09/2026, quase tudo Sim; algumas pendências
 rng_=random.Random(4); d=dados.INICIO_AGENDA; i=0
 PEND={}
 while d<=dados.SEXTA:
@@ -158,8 +158,8 @@ como_usar(wb,"Checklist de abertura e fechamento do dia",[
  ("Passo 1","Em Config, ajuste os itens de abertura e de fechamento ao jeito da clínica e cadastre os responsáveis. Preencha de cima para baixo, sem pular linha."),
  ("Passo 2","Em Checklist, apague os exemplos e crie uma linha por dia (data e responsável). Em cada item, marque Sim, Não ou N/A. Vazio conta como pendente, de propósito: o dia só fecha quando tudo está marcado."),
  ("Passo 3","Em Painel: aderência dos últimos 20 dias (abertura e fechamento completos), os dias com pendência e \"Item mais esquecido\": se o mesmo item pende em vários dias, o problema é a rotina, não o dia."),
- ("Rotina","Abertura: 3 minutos antes do primeiro paciente. Fechamento: 10 minutos depois do último. Na sexta, o sócio da semana olha o Painel junto com o caixa (09)."),
- ("Exemplo","Dias úteis de 01/07 a 11/09/2026, preenchidos pela recepção. Sexta-feira 11/09 tem itens de fechamento em branco: é o que o Painel aponta na segunda."),
+ ("Rotina","É o roteiro diário da recepção, fora dos 30 minutos semanais dos sócios (planilha 03): abertura, 3 minutos antes do primeiro paciente; fechamento, 10 minutos depois do último — são 13 minutos por dia. O fechamento inclui lançar o caixa do dia na planilha 09; na sexta a sócia só confere os cinco fechamentos da semana (rotina de sexta da 03)."),
+ ("Exemplo","Dias úteis de 01/06 a 11/09/2026, preenchidos pela recepção. Sexta-feira 11/09 tem itens de fechamento em branco: é o que o Painel aponta na segunda."),
  ("Com a IA","Copie a coluna \"O que faltou\" de um dia e use o prompt \"Agenda 06 · Pendências do dia viram tarefas da recepção\" da biblioteca do kit."),
 ])
 proteger(wb); salvar(wb,"04-checklist-do-dia.xlsx","Checklist de abertura e fechamento do dia · Kit de Gestão para Médicos")

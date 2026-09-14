@@ -49,7 +49,7 @@ for r in range(R0,RN+1):
     o.cell(row=r,column=11,value=f'=IF(G{r}="","",IFERROR(INDEX(Config!$B${E0}:$B${E1},MATCH(G{r},Config!$A${E0}:$A${E1},0)),0))'); calc(o.cell(row=r,column=11),PCT)
     o.cell(row=r,column=12,value=f'=IF(OR(G{r}="",F{r}=""),"",F{r}*K{r})'); calc(o.cell(row=r,column=12),BRL0)
     o.cell(row=r,column=13,value=f'=IF(OR(G{r}="",G{r}="Aprovado",G{r}="Recusado",G{r}="Sem retorno",A{r}=""),"",{HOJE}-A{r})'); calc(o.cell(row=r,column=13),"0")
-    o.cell(row=r,column=14,value=f'=IF(AND(OR(G{r}="Aprovado",G{r}="Recusado"),H{r}<>"",A{r}<>""),H{r}-A{r},"")'); calc(o.cell(row=r,column=14),"0")
+    o.cell(row=r,column=14,value=f'=IF(AND(OR(G{r}="Aprovado",G{r}="Recusado"),H{r}<>"",A{r}<>"",H{r}>=A{r}),H{r}-A{r},"")'); calc(o.cell(row=r,column=14),"0")
     o.cell(row=r,column=15,value=f'=IF(G{r}="","",IF(OR(G{r}="Aprovado",G{r}="Recusado",G{r}="Sem retorno"),G{r},IF(AND(M{r}<>"",M{r}>{PAR}),"Parado","Ativo")))'); calc(o.cell(row=r,column=15))
     o.cell(row=r,column=16,value=f'=IF(A{r}="","",DATE(YEAR(A{r}),MONTH(A{r}),1))'); calc(o.cell(row=r,column=16),"mm/yyyy")
     o.cell(row=r,column=17,value=f'=IF(OR(G{r}="",O{r}="Aprovado",O{r}="Recusado",O{r}="Sem retorno"),0,IF(O{r}="Parado",2000,1000)+MIN(N(M{r}),500)+N(F{r})/1000000-ROW()/100000)'); o.cell(row=r,column=17).font=F(color=CINZA,size=9)
@@ -63,6 +63,8 @@ o.conditional_formatting.add(f"A{R0}:O{RN}", FormulaRule(formula=[f'$O{R0}="Apro
 o.conditional_formatting.add(f"A{R0}:O{RN}", FormulaRule(formula=[f'OR($O{R0}="Recusado",$O{R0}="Sem retorno")'], font=F(color="8A86A0",size=10)))
 o.conditional_formatting.add(f"I{R0}:I{RN}", FormulaRule(formula=[f'AND($G{R0}="Recusado",$I{R0}="")'], fill=fill(VERM)))
 o.cell(row=RN+2,column=1,value="Amarelo: parado há mais dias que o limite da Config. Verde: aprovado. Cinza: recusado ou sem retorno. Motivo em vermelho: recusado sem motivo (preencha, é o que ensina). Datas de orçamentos ainda abertos no exemplo são relativas a hoje.").font=F(size=9,color=LILAS)
+o.cell(row=RN+3,column=1,value="A data da decisão nunca é anterior à da apresentação: um orçamento aprovado hoje para um exame marcado para a semana que vem tem apresentação e decisão no passado e o agendamento no futuro (a observação guarda a data marcada). Se \"Dias até decidir\" ficar vazio numa linha decidida, é sinal de que as duas datas estão trocadas.").font=F(size=9,color=LILAS)
+o.cell(row=RN+4,column=1,value="Orçamento aprovado a prazo: só para quem não tem parcela vencida em aberto na planilha 14. Com parcela em atraso, o combinado é à vista — a mesma regra da régua de cobrança.").font=F(size=9,color=LILAS)
 widths(o,(11,26,22,20,36,12,13,12,24,30,11,13,9,9,12,9)); o.freeze_panes="C5"; o.sheet_view.showGridLines=False; o.auto_filter.ref=f"A4:P{RN}"
 
 # ---------- Painel ----------
@@ -162,9 +164,9 @@ como_usar(wb,"Orçamentos apresentados × aprovados",[
  ("O que esta planilha faz","O funil da recepção: cada orçamento de exame ou pacote particular apresentado ao paciente, com valor e etapa; a previsão ponderada, o aprovado no trimestre contra a meta, a taxa de aprovação, quem retomar primeiro, os resultados por tipo e profissional e os motivos de recusa."),
  ("Passo 1","Em Config, preencha a meta de orçamentos aprovados no trimestre, o limite de \"parado\" (7 dias é um bom padrão), os tipos, motivos de recusa, profissionais e itens mais comuns. Ajuste as probabilidades por etapa se a sua experiência for diferente."),
  ("Passo 2","Em Orçamentos, uma linha por orçamento: data, paciente, profissional, tipo, itens, valor e etapa. Sempre que o paciente responder, atualize a etapa."),
- ("Passo 3","Ao decidir, mude a etapa para Aprovado, Recusado ou Sem retorno e preencha a data. Se recusado, anote o motivo: é a parte mais valiosa da planilha. Aprovado vira horário na agenda (01) e, se for a prazo, parcela na 14."),
+ ("Passo 3","Ao decidir, mude a etapa para Aprovado, Recusado ou Sem retorno e preencha a data — que é sempre igual ou posterior à da apresentação. Se recusado, anote o motivo: é a parte mais valiosa da planilha. Aprovado vira horário na agenda (01) e, se for a prazo, parcela na 14 — e a prazo só para quem não tem parcela vencida em aberto."),
  ("Passo 4","Em Painel, veja o funil, a previsão ponderada, a lista \"Retomar contato primeiro\", a taxa de aprovação por tipo e profissional e os motivos de recusa."),
- ("Rotina","Sexta-feira, 10 minutos: atualizar etapas, retomar os parados. Dia 1 do mês: comparar o aprovado com a meta e olhar os motivos de recusa. O Painel da clínica (17) copia \"Em aberto\" e \"Aprovado no mês\" daqui."),
+ ("Rotina","Sexta-feira, 3 minutos (rotina da semana, planilha 03): atualizar as etapas e retomar os parados. Dia 1 do mês: comparar o aprovado com a meta e olhar os motivos de recusa. O Painel da clínica (17) copia \"Em aberto\" e \"Aprovado no mês\" daqui."),
  ("Com a IA","Copie \"Motivos de recusa\" e use o prompt \"Recebíveis 05 · Por que os orçamentos não fecham\" da biblioteca; para retomar um contato, \"Agenda 04 · Mensagem de retomada de orçamento\" (sem nome do paciente). Nenhum prompt do kit escreve promessa de resultado."),
  ("Exemplo","O funil traz os orçamentos de junho a setembro de 2026: os aprovados são exames realizados ou agendados na planilha 01 (mesmo paciente e data); os abertos têm datas relativas a hoje."),
 ])

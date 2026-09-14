@@ -13,12 +13,12 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Custo-hora da planilha 05; pagadores com prazo e glosa esperada; procedimentos com tempo e material (iguais à 06).",merge_to="H")
 campos=[("Nome da clínica",f"{dados.CLINICA} (exemplo fictício)",None),("Data de referência","=TODAY()",DATA),("Custo da hora de atendimento (R$)",dados.CUSTO_HORA,BRL),
- ("Impostos e taxas sobre o que entra (%)",dados.ALIQ,PCT),("Margem mínima sobre o preço (%)",dados.MARGEM,PCT),("Custo do dinheiro (% ao mês)",dados.JUROS_MES,"0.0%")]
+ ("Impostos sobre o que entra (%)",dados.ALIQ,PCT),("Margem mínima sobre o preço (%)",dados.MARGEM,PCT),("Custo do dinheiro (% ao mês)",dados.JUROS_MES,"0.0%")]
 for i,(a,v,fmt) in enumerate(campos):
     r=3+i; cfg.cell(row=r,column=1,value=a); rotulo(cfg.cell(row=r,column=1)); cfg.cell(row=r,column=2,value=v)
     if r==4: calc(cfg.cell(row=r,column=2),fmt)
     else: inp(cfg.cell(row=r,column=2),fmt,center=fmt is not None)
-cfg["C5"]="Copie do Painel da planilha 05. No exemplo, R$ 200,00."; cfg["C6"]="A mesma alíquota efetiva das planilhas 05 e 06 (exemplo: 11 %)."; cfg["C7"]="A mesma margem mínima da 05 e da 06."
+cfg["C5"]="Copie do Painel da planilha 05. No exemplo, R$ 200,00."; cfg["C6"]="A mesma alíquota efetiva das planilhas 05 e 06 (exemplo: 11 %). Só imposto: a taxa da maquininha não entra aqui (o convênio não passa na maquininha; o cartão é conciliado na 16)."; cfg["C7"]="A mesma margem mínima da 05 e da 06."
 cfg["C8"]="O que custa esperar 30, 45 ou 60 dias pelo dinheiro: juros do cheque especial ou da antecipação, ou o rendimento que o dinheiro parado deixa de dar. 1,5 % ao mês é um exemplo; use o seu."
 for r in (5,6,7,8): nota(cfg.cell(row=r,column=3))
 hdr(cfg,P0-1,["Pagador","Prazo de pagamento (dias)","Glosa esperada (%)","Observação"],height=30)
@@ -44,6 +44,7 @@ s=wb.create_sheet("Simulador",0)
 titulo(s,'=Config!$B$3&" · Simulador convênio × particular · "&TEXT(DAY(Config!$B$4),"00")&"/"&TEXT(MONTH(Config!$B$4),"00")&"/"&YEAR(Config!$B$4)',"Escolha o procedimento e digite o valor de tabela de cada pagador (amarelo). O resto é calculado: glosa, custo do dinheiro pelo prazo, impostos, custo cheio, margem e as duas leituras (agenda cheia × agenda vazia).",merge_to="N")
 s["A7"]="1. O procedimento"; s["A7"].font=F(bold=True,size=13,color=UVA)
 s["A8"]="Procedimento"; s["B8"]="Consulta"; rotulo(s["A8"]); inp(s["B8"])
+s["C8"]="Os valores de tabela do quadro 2 saem da planilha 08 · Tabela de preços (a fonte única da tabela no kit): copie de lá, não digite um preço diferente aqui."; nota(s["C8"]); s.merge_cells("C8:J8")
 dvp=lista(f"=OFFSET(Config!$A${Q0},0,0,MAX(1,COUNTA(Config!$A${Q0}:$A${QN})),1)"); dvp.add("B8"); s.add_data_validation(dvp)
 campos=[("Minutos",f'=IFERROR(INDEX(Config!$B${Q0}:$B${QN},MATCH(B8,{PROCS},0)),"")',"0"),
         ("Gera retorno?",f'=IFERROR(INDEX(Config!$C${Q0}:$C${QN},MATCH(B8,{PROCS},0)),"")',None),
@@ -146,7 +147,7 @@ for i,pg in enumerate(dados.PAGADORES):
 como_usar(wb,"Simulador convênio × particular",[
  ("O que esta planilha faz","Responde \"vale a pena este convênio?\" para um procedimento: pega o valor de tabela de cada pagador, tira a glosa esperada, o custo do dinheiro pelo prazo de pagamento e os impostos, compara com o custo cheio do atendimento (custo-hora da 05 + material) e mostra o líquido por hora contra a hora mínima. Depois faz a leitura oposta: com horários vazios, o que cada pagador ainda contribui."),
  ("Passo 1","Em Config, copie o custo-hora, a alíquota e a margem mínima da planilha 05; digite o custo do dinheiro (% ao mês); cadastre os pagadores com prazo de pagamento e glosa esperada (Painel da 13) e os procedimentos com tempo e material (iguais à 06)."),
- ("Passo 2","Em Simulador, escolha o procedimento e digite o valor de tabela de cada pagador (o particular é o preço praticado). Leia o quadro 2 (agenda cheia): margem, líquido por hora e o veredito de cada pagador."),
+ ("Passo 2","Em Simulador, escolha o procedimento e copie o valor de tabela de cada pagador da planilha 08 · Tabela de preços (o particular é o preço praticado). A 08 é a fonte única da tabela no kit: mudou um preço, atualize 08 → 06 → 07 → 01, nessa ordem. Leia o quadro 2 (agenda cheia): margem, líquido por hora e o veredito de cada pagador."),
  ("Passo 3","Leia o quadro 3 (agenda vazia): a contribuição por atendimento e quantos atendimentos do convênio equivalem a um particular. Compare com as horas vazias do mês (01). No quadro 4, digite os atendimentos do mês por pagador e veja o resultado do mix."),
  ("Rotina","Antes de renovar, aceitar ou descredenciar um convênio, e uma vez por semestre para os que já estão. Leva 15 minutos por procedimento. No exemplo: consulta, com as tabelas da 08 e as consultas realizadas em agosto."),
  ("Com a IA","Copie os quadros 2 e 3 e use o prompt \"Preço 03 · Vale a pena este convênio?\" da biblioteca do kit para preparar os argumentos da negociação de tabela (sem prometer descredenciamento: é decisão da clínica, com contrato)."),

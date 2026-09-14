@@ -23,7 +23,7 @@ CRM antes.
 | 09 a 12 | Núcleo Caixa: Caixa da clínica, Provisão de impostos, 13º e férias, Repasse e pró-labore, Reserva e metas de caixa | parte dos 18 min de sexta; 1 hora no dia 5 |
 | 13 a 16 | Núcleo Recebíveis: Convênios a receber, Parcelas e inadimplência, Orçamentos, Conciliação de cartão | parte dos 18 min de sexta; lote de convênio no dia 5 |
 | 17 a 20 | Núcleo Painel: Painel da clínica, Resultado mensal, Metas do trimestre, Resumo do mês | parte dos 18 min de sexta; 30 min no dia 5 |
-| 21 | Biblioteca de 40 prompts da clínica (5 grupos de 8: Agenda, Preço, Caixa, Recebíveis, Painel), PDF e txt | 5 min por prompt |
+| 21 | Biblioteca de 41 prompts da clínica (5 grupos: Agenda, Preço, Caixa, Recebíveis, Painel), PDF e txt | 5 min por prompt |
 | 22 | Bônus: 15 mensagens de confirmação e cobrança (WhatsApp e e-mail), PDF e txt | 2 min por mensagem |
 | 23 | Bônus: Guia LGPD para a clínica pequena | 30 min, uma vez |
 | 24 | Bônus: Roteiro da reunião mensal com o contador | 30 min por mês |
@@ -32,19 +32,19 @@ CRM antes.
 | 27 a 29 | Modelos de apresentação (.pptx): resultado do mês para os sócios (8 slides), proposta de parceria para médico (10), convênios e caixa para o contador (8) | 20 min por apresentação |
 | videos/ | 8 aulas de 2 a 3 minutos, tela real, narração e legenda | cerca de 20 min no total |
 
-**As 8 aulas (pasta videos/, em mp4 com legenda .srt).** Assista na ordem; cada semana da
-implantação diz qual aula ver.
+**As 8 aulas (pasta videos/, em mp4 com legenda .srt).** Cada uma tem de 2 a 3 minutos. Assista na
+ordem; cada semana da implantação diz qual aula ver.
 
-| Aula | Título | Duração | Planilhas |
-|---|---|---|---|
-| 1 | Antes de abrir a planilha: os cinco núcleos e a rotina | 2 a 3 min | método e 03 |
-| 2 | Agenda, ocupação e faltas | 2 a 3 min | 01, 02, 04 |
-| 3 | Custo da hora de atendimento | 2 a 3 min | 05 |
-| 4 | Preço e simulador de convênio | 2 a 3 min | 06, 07 |
-| 5 | Quanto cobrar por este procedimento | 2 a 3 min | 05, 06, 08 |
-| 6 | Caixa, provisão e repasse | 2 a 3 min | 09, 10, 11, 12 |
-| 7 | Convênios, parcelas e cobrança | 2 a 3 min | 13, 14, 15, 16 |
-| 8 | Painel de sexta e fechamento | 2 a 3 min | 17, 18, 19, 20 |
+| Aula | Título | Planilhas |
+|---|---|---|
+| 1 | Antes de abrir a planilha: os cinco núcleos e a rotina | método e 03 |
+| 2 | Agenda, ocupação e faltas | 01, 02, 04 |
+| 3 | Custo da hora de atendimento | 05 |
+| 4 | Preço e simulador de convênio | 06, 07 |
+| 5 | Quanto cobrar por este procedimento | 05, 06, 08 |
+| 6 | Caixa, provisão e repasse | 09, 10, 11, 12 |
+| 7 | Convênios, parcelas e cobrança | 13, 14, 15, 16 |
+| 8 | Painel de sexta e fechamento | 17, 18, 19, 20 |
 
 Abre tudo no Excel 2016 ou mais novo, no Microsoft 365 e no Google Sheets: as fórmulas usam só
 funções que existem desde o Excel 2007 (SOMASES, CONT.SES, ÍNDICE e CORRESP, SEERRO, SOMARPRODUTO),
@@ -95,9 +95,9 @@ sócio e para o contador com o prompt "Painel 01 · Explicar o mês ao sócio".
 
 **Um fechamento por semana, em dois momentos.** Segunda-feira, 12 minutos: agenda (vagas dos
 próximos 7 dias, confirmações da semana, lista de retorno, faltas da semana passada), quase tudo
-com a recepção. Sexta-feira, 18 minutos: caixa e painel (lançar os fechamentos do dia, marcar
-parcelas e lotes que caíram, separar as guias, atualizar orçamentos, olhar o Painel da clínica e
-anotar até três decisões). Trinta minutos por semana. A planilha 03 registra se a rotina foi feita;
+com a recepção. Sexta-feira, 18 minutos: caixa e painel (conferir os fechamentos do dia que a
+recepção lançou, marcar parcelas e lotes que caíram, separar as guias, atualizar orçamentos, olhar o
+Painel da clínica e anotar até três decisões). Trinta minutos por semana. A planilha 03 registra se a rotina foi feita;
 o que não vira hábito em quatro semanas é encurtado ou delegado, não abandonado.
 
 **Anatomia de toda planilha do kit.** Aba **Como usar** (passo a passo), aba principal (**Painel**,
@@ -229,7 +229,8 @@ texto pronto para o sócio e para o contador. A partir daqui, é rotina.
 
 Para cada planilha: o que ela responde, o que você preenche, o que sai, os prompts da biblioteca que
 combinam e o detalhe que evita o erro mais comum. O passo a passo completo está na aba "Como usar" de
-cada arquivo.
+cada arquivo. As capturas mostram o alto de cada aba — os cartões, ou as primeiras colunas quando não
+há cartões — no tamanho que ainda se lê no papel; as tabelas inteiras estão nos arquivos, na tela.
 
 ### 4.1 Agenda e ocupação por profissional e sala (arquivo 01)
 **Responde:** quantas horas a clínica tinha, quantas atendeu, onde a agenda esvazia e quanto produziu?
@@ -278,9 +279,10 @@ pulada.
 ![Planilha 03 · aba Painel](docs/recorte-03.png)
 
 **Detalhe que importa:** a rotina é de 12 minutos na segunda e 18 na sexta, quase tudo com a
-recepção (30 minutos por semana), com 83 % de aderência nas últimas 4 semanas. Abaixo de 70 % fica vermelho. A rotina mais
-pulada merece ser encurtada, delegada ou trocada de dia, não bronca: no exemplo, "ligar ou mandar
-mensagem para a lista de retorno" foi feita em 1 de 4 semanas.
+recepção (30 minutos por semana), com 83 % de aderência nas últimas 4 semanas; o exemplo registra da
+semana 29 (20/07) em diante. Abaixo de 70 % fica vermelho. A rotina mais pulada merece ser encurtada,
+delegada ou trocada de dia, não bronca: no exemplo, "ligar ou mandar mensagem para a lista de
+retorno" foi feita em 1 de 4 semanas.
 
 ### 4.4 Checklist de abertura e fechamento do dia (arquivo 04)
 **Responde:** o dia abriu com a agenda confirmada e as guias separadas, e fechou com o caixa
@@ -296,8 +298,9 @@ responsáveis; em Checklist, uma linha por dia e, em cada item, Sim, Não ou N/A
 **Detalhe que importa:** vazio conta como pendente, de propósito: o dia só fecha quando tudo está
 marcado. No exemplo (52 dias, de 01/07 a 11/09), a abertura fica completa em 85 % dos dias e o
 fechamento em 55 %; o item mais esquecido é "Caixa do dia fechado e conferido (Pix, cartão,
-dinheiro)". Se o mesmo item pende em vários dias, o problema é a rotina, não o dia. O fechamento do
-dia é o que alimenta o Caixa (09) na sexta: sem ele, o caixa vira reconstrução de memória.
+dinheiro)". Se o mesmo item pende em vários dias, o problema é a rotina, não o dia. Quem lança o
+fechamento do dia no Caixa (09) é a recepção, no mesmo dia; o sócio da semana confere na sexta. Sem
+esse lançamento diário, o caixa vira reconstrução de memória.
 
 ### 4.5 Custo da hora de atendimento (arquivo 05)
 **Responde:** quanto custa uma hora da agenda da clínica e qual é a hora mínima que posso cobrar?
@@ -307,7 +310,8 @@ que entra.
 **Sai:** custo total, horas de atendimento, custo da hora, hora mínima a cobrar, custo de um horário
 vazio, custo direto e da estrutura por hora, por pessoa e a sensibilidade (e se as faltas tirarem
 horas do mês?).
-**Prompt:** Preço 01 (entender o custo da minha hora), Caixa 03 (cortar custo fixo), Painel 07.
+**Prompt:** Preço 01 (entender o custo da minha hora), Caixa 03 (cortar custo fixo sem cortar
+atendimento), Painel 07.
 
 ![Planilha 05 · aba Painel](docs/recorte-05.png)
 
@@ -331,7 +335,7 @@ situação por cor; o resumo (quantos abaixo do mínimo, quantas tabelas abaixo 
 prejuízo).
 **Prompt:** Preço 02 (revisar a tabela pela margem), Preço 05 (quanto cobrar por este procedimento).
 
-![Planilha 06 · aba Precificação](docs/recorte-06.png)
+![Planilha 06 · aba Precificação: as primeiras colunas (custo cheio, mínimo, alvo e margem)](docs/recorte-06.png)
 
 **Detalhe que importa:** custo cheio = (minutos + 0,4 × 20 min de retorno, nas consultas) ÷ 60 ×
 custo-hora + material. No exemplo, a consulta de 30 minutos custa R$ 130,67 com o retorno embutido;
@@ -351,7 +355,7 @@ pagador; no quadro 4, os atendimentos do mês por pagador.
 quadro 4: o resultado do mix do mês.
 **Prompt:** Preço 03 (vale a pena este convênio?), Preço 06 (negociar a tabela), Preço 08.
 
-![Planilha 07 · aba Simulador (consulta)](docs/recorte-07.png)
+![Planilha 07 · aba Simulador (consulta): os cartões do alto](docs/recorte-07.png)
 
 **Detalhe que importa:** duas leituras do mesmo número. Com agenda cheia, a consulta particular
 deixa R$ 534 por hora e o Vida Care R$ 110 (−68 % contra a hora mínima); nenhum dos três convênios
@@ -371,12 +375,12 @@ realizados e produção por procedimento; "Referência de mercado" é opcional.
 no mês e quanto fica acima ou abaixo do mínimo, valor por hora por pagador com gráfico.
 **Prompt:** Preço 04 (revisar a tabela de preços), Preço 06 (negociar a tabela), Preço 07 (desconto).
 
-![Planilha 08 · aba Tabela (volume de agosto)](docs/recorte-08.png)
+![Planilha 08 · aba Tabela (volume de agosto): os cartões do alto](docs/recorte-08.png)
 
 **Detalhe que importa:** a 08 usa a mesma conta da 06 (mesmo custo cheio, mínimo e alvo); a
 diferença é o volume real. No exemplo, com agosto: produção R$ 48.631, valor médio por hora R$ 410,97
 (21 % acima da hora mínima), consulta a R$ 236,38 em média (7 % acima do mínimo, porque metade é
-convênio), ECG a R$ 78,67 (38 % abaixo: 13 dos 18 foram por convênio). A tabela de preços da agenda
+convênio), ECG a R$ 78,67 (38 % abaixo: 10 dos 18 foram por convênio, a R$ 32 ou R$ 40). A tabela de preços da agenda
 (Config da 01) tem de ser esta, escrita igual. Referência de mercado é sua; a planilha não afirma
 preço de mercado, e a divulgação de valores segue as regras do CFM.
 
@@ -387,10 +391,10 @@ o dinheiro?
 movimento com data, tipo, categoria, paciente ou convênio (quando houver), valor, forma e Pago?.
 **Sai:** entrou, saiu, sobrou, saldo acumulado, a receber, a pagar; para onde foi e de onde veio, por
 forma de pagamento; o ano mês a mês com gráfico.
-**Prompt:** Caixa 01 (explicar o mês do caixa), Caixa 03 (cortar custo fixo), Caixa 06 (separar o
-pessoal).
+**Prompt:** Caixa 01 (explicar o mês do caixa), Caixa 03 (cortar custo fixo sem cortar atendimento),
+Caixa 08 (plano para a reserva).
 
-![Planilha 09 · aba Painel (Config = Setembro)](docs/recorte-09.png)
+![Planilha 09 · aba Painel (Config = Setembro): os cartões do alto](docs/recorte-09.png)
 
 **Detalhe que importa:** só Pago? = Sim conta como caixa; lote de convênio enviado e parcela a
 receber entram com Não e viram Sim quando caem (no exemplo, setembro até 11/09: entrou R$ 21.570,
@@ -407,7 +411,7 @@ Entradas e pagamentos, por mês, o que entrou (da 09, sem Outras entradas) e o q
 situação; o ano mês a mês com gráfico.
 **Prompt:** Caixa 04 (preparar a reunião com o contador), Caixa 05 (perguntas sobre provisão).
 
-![Planilha 10 · aba Painel (Config = Setembro)](docs/recorte-10.png)
+![Planilha 10 · aba Painel (Config = Setembro): os cartões do alto](docs/recorte-10.png)
 
 **Detalhe que importa:** provisão = entradas × alíquota efetiva (11 % no exemplo, a mesma da 05 à
 08 e da 18), mais 13º (R$ 750 de cada sócio, por decisão dos sócios, e R$ 198 da recepcionista) e
@@ -427,7 +431,7 @@ parceria; combinado × retirado por sócio no mês e no ano, a acertar; lucro di
 trimestre.
 **Prompt:** Caixa 06 (separar o pessoal), Caixa 07 (conversa sobre o repasse), Painel 07.
 
-![Planilha 11 · aba Painel (Config = Setembro)](docs/recorte-11.png)
+![Planilha 11 · aba Painel (Config = Setembro): os cartões do alto](docs/recorte-11.png)
 
 **Detalhe que importa:** repasse devido = % da produção do parceiro no Painel da 01 (no exemplo, 50 %:
 agosto R$ 10.380 de produção, R$ 5.190 pagos em 10/09; setembro até 11/09, R$ 2.925 a pagar em 10/10).
@@ -446,7 +450,7 @@ três metas do trimestre.
 projeção de 24 meses com gráfico, metas com barra de progresso.
 **Prompt:** Caixa 08 (plano para a reserva de três meses).
 
-![Planilha 12 · aba Painel](docs/recorte-12.png)
+![Planilha 12 · aba Painel: os cartões do alto](docs/recorte-12.png)
 
 **Detalhe que importa:** a projeção supõe aporte igual todo mês, sem rendimento (no exemplo: meta
 R$ 84.000 = 3 × R$ 28.000; reserva R$ 14.000, que cobre meio mês; aporte de R$ 3.000 chega em setembro
@@ -465,7 +469,7 @@ recorrer.
 **Prompt:** Recebíveis 01 (resumir os convênios), Recebíveis 03 (recurso de glosa), Recebíveis 08
 (lote atrasado).
 
-![Planilha 13 · aba Painel](docs/recorte-13.png)
+![Planilha 13 · aba Painel: os cartões do alto](docs/recorte-13.png)
 
 **Detalhe que importa:** glosa = glosa ÷ (pago + glosa) dos lotes pagos, a mesma conta em todo o kit
 (no exemplo, 5,5 % no ano: Saúde Total 3,3 % e prazo real de 32 dias, MediPlan 7,5 % e 47 dias, Vida
@@ -484,7 +488,7 @@ Caixa).
 faixa com a ação da régua, "Cobrar primeiro" e as que vencem nos próximos 30 dias.
 **Prompt:** Recebíveis 02 (quem cobrar primeiro), Recebíveis 04 (cobrança educada), Recebíveis 06, 07.
 
-![Planilha 14 · aba Painel](docs/recorte-14.png)
+![Planilha 14 · aba Painel: os cartões do alto](docs/recorte-14.png)
 
 **Detalhe que importa:** inadimplência = vencido ÷ (pago + vencido), só do que foi combinado a prazo,
 a mesma conta nas planilhas 17, 19 e 20 (no exemplo: R$ 4.550 ÷ (R$ 39.005 + R$ 4.550) = 10,4 %; 16
@@ -504,7 +508,7 @@ Config; Orçamentos, uma linha por orçamento com valor, etapa e datas; ao decid
 decidir; funil, "Retomar contato primeiro", por tipo e profissional, motivos de recusa.
 **Prompt:** Recebíveis 05 (por que os orçamentos não fecham), Agenda 04 (retomada de orçamento).
 
-![Planilha 15 · aba Painel](docs/recorte-15.png)
+![Planilha 15 · aba Painel: os cartões do alto](docs/recorte-15.png)
 
 **Detalhe que importa:** previsão ponderada = valor × probabilidade da etapa (no exemplo, 6 abertos
 somando R$ 3.460, previsão R$ 1.318; aprovado no trimestre R$ 8.510, 47 % da meta de R$ 18.000; taxa de
@@ -517,12 +521,13 @@ se a prazo, parcela na 14.
 **Responde:** quanto as taxas comem no mês, o que ainda vai cair na conta e o que já deveria ter caído
 e não foi conferido?
 **Você preenche:** taxas e prazos da operadora em Config; em Vendas, uma linha por pagamento no
-cartão ou Pix (da Agenda da 01) e, toda sexta, Sim em "Conferido no extrato?".
+cartão ou Pix (da Agenda da 01) e, toda sexta, Sim em "Conferido no extrato?" — as duas coisas pela
+recepção, que também lança o fechamento do dia na 09; o sócio da semana confere.
 **Sai:** vendas, taxas, taxa média, líquido, ainda vai cair, a conferir; por tipo de pagamento com
 gráfico; dia a dia; "Falta conferir".
 **Prompt:** Caixa 09 (a taxa da maquininha está comendo a margem?).
 
-![Planilha 16 · aba Painel (Config = Agosto)](docs/recorte-16.png)
+![Planilha 16 · aba Painel (Config = Agosto): os cartões do alto](docs/recorte-16.png)
 
 **Detalhe que importa:** no exemplo, agosto: R$ 31.820 em Pix e cartão, taxas R$ 484,12 (1,52 %), o
 equivalente a 1,3 consultas particulares; o crédito parcelado (3,9 %) é 14 % das vendas e a maior taxa.
@@ -540,7 +545,7 @@ Histórico.
 **Prompt:** Painel 07 (trazer um parceiro ou abrir um turno), Painel 08 (segunda opinião); para o
 texto do mês, Painel 01 com a planilha 20.
 
-![Planilha 17 · aba Painel (sexta 11/09/2026)](docs/recorte-17.png)
+![Planilha 17 · aba Painel (sexta 11/09/2026): os 15 cartões](docs/recorte-17.png)
 
 **Detalhe que importa:** é a planilha mais simples do kit de propósito: 14 números copiados à mão em
 10 minutos, dos painéis das 01, 02, 09, 13, 14 e 15 (no exemplo, os da sexta 11/09: ocupação 81 %,
@@ -559,7 +564,7 @@ por mês.
 (variação da margem em p.p.); receita por origem; o ano com gráfico.
 **Prompt:** Caixa 02 (comparar dois meses), Painel 02 (relatório para os sócios).
 
-![Planilha 18 · aba Painel (Config = Agosto)](docs/recorte-18.png)
+![Planilha 18 · aba Painel (Config = Agosto): os cartões do alto](docs/recorte-18.png)
 
 **Detalhe que importa:** DRE simplificada por regime de caixa: entra o recebido, sai o pago, e os
 impostos entram como % da receita (11 %) para o resultado não parecer maior do que é. No exemplo,
@@ -577,7 +582,7 @@ partida, meta, valor atual, dono, sentido); toda sexta, o valor atual e a coluna
 histórico de 13 semanas.
 **Prompt:** Painel 05 (meta realista), Painel 06 (meta × realizado: explicar o desvio).
 
-![Planilha 19 · aba Painel (3º trimestre, semana 11 de 13)](docs/recorte-19.png)
+![Planilha 19 · aba Painel (3º trimestre, semana 11 de 13): os cartões do alto](docs/recorte-19.png)
 
 **Detalhe que importa:** o semáforo compara o progresso com o tempo decorrido: 100 % é "Atingido";
 até 10 pontos abaixo, "No ritmo"; até 25, "Atenção"; além, "Em risco". Onde menor é melhor (taxa de
@@ -596,9 +601,9 @@ automáticos e o **bloco único para copiar**.
 **Prompt:** Painel 01 (explicar o mês ao sócio), Painel 02, Painel 03 (8 slides), Painel 04, Caixa 04
 (contador).
 
-![Planilha 20 · aba Resumo (agosto)](docs/recorte-20.png)
+![Planilha 20 · aba Resumo (agosto): os 12 indicadores do mês](docs/recorte-20.png)
 
-![Planilha 20 · aba Painel (agosto × julho)](docs/recorte-20-painel.png)
+![Planilha 20 · aba Painel: as três primeiras colunas (indicador, agosto e julho)](docs/recorte-20-painel.png)
 
 **Detalhe que importa:** o bloco só tem totais da clínica, sem paciente nem procedimento por pessoa:
 é o único texto do kit pronto para colar na IA sem tratamento. Em %, digite 19,2 e não 0,192. Todo
@@ -608,7 +613,7 @@ números, e também ela não leva nome de paciente.
 
 ## 5. Usar a IA com segurança (leia antes do primeiro prompt)
 
-Os 40 prompts da biblioteca funcionam no ChatGPT, no Copilot, no Gemini e no Claude, inclusive nas
+Os 41 prompts da biblioteca funcionam no ChatGPT, no Copilot, no Gemini e no Claude, inclusive nas
 versões gratuitas. Cinco regras, na ordem em que importam:
 
 1. **Nunca cole nome de paciente, contato ou qualquer dado de saúde em uma IA pública.** Nem CPF,
@@ -645,16 +650,17 @@ trimestre. Mais o que a recepção faz todo dia: 3 minutos na abertura e 10 no f
 **Segunda, 12 minutos (agenda), com a recepção.** Agenda (01): vagas dos próximos 7 dias e ocupação
 da semana. Confirmações da semana por mensagem (modelo 02 do bônus 22). Lista de retorno (02): ligar
 ou mandar mensagem (modelo 05) e oferecer as vagas. Faltas da semana passada: registrar e remarcar
-(modelo 03). Parcelas (14): marcar as pagas e enviar as mensagens de "Cobrar primeiro" (modelos 09 a
-12). Rotina (03): marcar Sim. Prompts: Agenda 01 quando a ocupação cair; Recebíveis 02 quando a lista
-de cobrança for longa.
+(modelo 03). Rotina (03): marcar Sim. Prompt: Agenda 01 quando a ocupação cair. Segunda é só agenda:
+dinheiro fica para sexta.
 
-**Sexta, 18 minutos (caixa e painel).** Caixa (09): lançar os fechamentos do dia da semana, marcar
-Sim nas parcelas e lotes que caíram, conferir A receber contra o extrato. Convênios (13): separar as
-guias da semana e atualizar os lotes. Orçamentos (15): etapas e retomadas. Conciliação (16): conferir
-o que caiu da operadora. Painel da clínica (17): copiar os totais para Dados e anotar até três
-decisões. Metas (19) e Reserva (12): valor atual. Rotina (03): marcar Sim. Prompt: Agenda 08 para
-fechar a semana em texto.
+**Sexta, 18 minutos (caixa e painel).** Caixa (09): o sócio da semana confere os fechamentos do dia
+que a recepção lançou, marca Sim nas parcelas e lotes que caíram e confere A receber contra o
+extrato. Parcelas (14): marcar as recebidas e disparar o degrau da régua de quem está atrasado
+(mensagens 09 e 10, ligação 11, conversa 12 do bônus 22). Convênios (13): separar as guias da semana e
+atualizar os lotes. Orçamentos (15): etapas e retomadas. Conciliação (16): a recepção marca o que
+caiu da operadora em "Conferido no extrato?". Painel da clínica (17): copiar os totais para Dados e
+anotar até três decisões. Metas (19) e Reserva (12): valor atual. Rotina (03): marcar Sim. Prompts:
+Agenda 08 para fechar a semana em texto; Recebíveis 02 quando a lista de cobrança for longa.
 
 **Dia 5, 1 hora e meia (fechamento do mês).** Na ordem: Caixa (09) conciliado com o extrato e as taxas
 de cartão do mês lançadas (16); lote de convênio do mês anterior enviado e registrado (13); Provisão

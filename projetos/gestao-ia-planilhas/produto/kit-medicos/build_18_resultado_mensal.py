@@ -7,11 +7,14 @@ from ssg import *
 import dados
 from openpyxl.chart import BarChart, Reference
 
-MODAL=dados.CAT_ENTRADA; VARIAVEIS=dados.CAT_VARIAVEIS; SOCIOS=dados.PRO_LABORE
+MODAL=[c for c in dados.CAT_ENTRADA if c!="Outras entradas"]   # "Outras entradas" = reembolso de sócio: não é receita e não paga imposto
+VARIAVEIS=dados.CAT_VARIAVEIS; SOCIOS=dados.PRO_LABORE
+PROV=dados.provisao_10()
 DRE={m:dados.dre(m) for m in range(1,9)}
 NMESES=8
 PREV_RECEITA=[36000,32000,42000,42000,44000,44000,46000,46000,46000,46000,44000,40000]
 PREV_VARIAVEIS=[6000]*12
+PREV_PROV=round(PROV[8]["dec13"]+PROV[8]["ferias"])
 
 wb=Workbook()
 # ---------- Config ----------
@@ -38,10 +41,12 @@ titulo(rs,"Resultado mensal da clínica","Preencha as linhas amarelas de cada m�
 hdr(rs,4,["Linha"]+[m[:3] for m in MESES]+["Total do ano","Média dos meses preenchidos"],height=30)
 NC=len(dados.CUSTOS_FIXOS); NS=len(SOCIOS); NV=len(VARIAVEIS)
 R_REC0=6; R_RECT=R_REC0+len(MODAL)
-R_CF0=R_RECT+2; R_CFT=R_CF0+NC
+R_REEMB=R_RECT+1                      # reembolsos de sócios: fora da receita e fora do imposto
+R_CF0=R_REEMB+2; R_CFT=R_CF0+NC
 R_VA0=R_CFT+2; R_VAT=R_VA0+NV
 R_PL0=R_VAT+2; R_PLT=R_PL0+NS
-R_IMP=R_PLT+1; R_SAI=R_IMP+1; R_RES=R_SAI+1; R_MAR=R_RES+1
+R_PROV=R_PLT+1                        # provisão de 13º e férias (planilha 10)
+R_IMP=R_PROV+1; R_SAI=R_IMP+1; R_RES=R_SAI+1; R_MAR=R_RES+1
 def secao(r,txt): c=rs.cell(row=r,column=1,value=txt); c.font=F(bold=True,size=11,color=UVA); c.fill=fill(LAVANDA); [setattr(rs.cell(row=r,column=k),"fill",fill(LAVANDA)) for k in range(2,16)]
 def linha_total(r,txt,fn,fmt=BRL0,bold=True):
     rs.cell(row=r,column=1,value=txt); rotulo(rs.cell(row=r,column=1),bold=bold); rs.cell(row=r,column=1).border=borda
@@ -58,6 +63,7 @@ PREENCH=lambda col: f'COUNT({col}${R_REC0}:{col}${R_RECT-1},{col}${R_CF0}:{col}$
 secao(R_REC0-1,"Receita (o que entrou no mês, por categoria do caixa)")
 linhas_entrada(R_REC0,MODAL,lambda m,n: DRE[m]["receita"][n])
 linha_total(R_RECT,"Receita total",lambda col: f'=IF({PREENCH(col)},"",SUM({col}{R_REC0}:{col}{R_RECT-1}))')
+linhas_entrada(R_REEMB,["Reembolsos de sócios (não é receita, não paga imposto)"],lambda m,n: dados.TOTAIS[m]["devol"])
 secao(R_CF0-1,"Custos fixos")
 linhas_entrada(R_CF0,[n for n,_ in dados.CUSTOS_FIXOS],lambda m,n: DRE[m]["fixos"][n])
 linha_total(R_CFT,"Total de custos fixos",lambda col: f'=IF({PREENCH(col)},"",SUM({col}{R_CF0}:{col}{R_CFT-1}))')
@@ -67,11 +73,15 @@ linha_total(R_VAT,"Total de despesas variáveis",lambda col: f'=IF({PREENCH(col)
 secao(R_PL0-1,"Pró-labore fixo dos sócios")
 linhas_entrada(R_PL0,[n for n,_ in SOCIOS],lambda m,n: DRE[m]["pro_labore"][n])
 linha_total(R_PLT,"Total de pró-labore",lambda col: f'=IF({PREENCH(col)},"",SUM({col}{R_PL0}:{col}{R_PLT-1}))')
+for m_ in range(12):
+    cell=rs.cell(row=R_PROV,column=2+m_); inp(cell,BRL0,center=True)
+    if m_<NMESES: cell.value=round(PROV[m_+1]["dec13"]+PROV[m_+1]["ferias"])
+rs.cell(row=R_PROV,column=1,value="Provisão de 13º e férias (planilha 10)"); rotulo(rs.cell(row=R_PROV,column=1),bold=False); rs.cell(row=R_PROV,column=1).border=borda
 linha_total(R_IMP,"Impostos provisionados (% da receita, Config)",lambda col: f'=IF({col}{R_RECT}="","",ROUND({col}{R_RECT}*Config!$B$7,0))',bold=False)
-linha_total(R_SAI,"Total de saídas (custos + variáveis + pró-labore + impostos)",lambda col: f'=IF({col}{R_RECT}="","",{col}{R_CFT}+{col}{R_VAT}+{col}{R_PLT}+{col}{R_IMP})')
+linha_total(R_SAI,"Total de saídas (custos + variáveis + pró-labore + provisões + impostos)",lambda col: f'=IF({col}{R_RECT}="","",{col}{R_CFT}+{col}{R_VAT}+{col}{R_PLT}+N({col}{R_PROV})+{col}{R_IMP})')
 linha_total(R_RES,"Resultado do mês (receita − saídas)",lambda col: f'=IF({col}{R_RECT}="","",{col}{R_RECT}-{col}{R_SAI})')
 linha_total(R_MAR,"Margem (resultado ÷ receita)",lambda col: f'=IF(OR({col}{R_RECT}="",{col}{R_RECT}=0),"",{col}{R_RES}/{col}{R_RECT})',fmt="0.0%")
-for r in list(range(R_REC0,R_RECT+1))+list(range(R_CF0,R_CFT+1))+list(range(R_VA0,R_VAT+1))+list(range(R_PL0,R_PLT+1))+[R_IMP,R_SAI,R_RES]:
+for r in list(range(R_REC0,R_RECT+1))+[R_REEMB]+list(range(R_CF0,R_CFT+1))+list(range(R_VA0,R_VAT+1))+list(range(R_PL0,R_PLT+1))+[R_PROV,R_IMP,R_SAI,R_RES]:
     rs.cell(row=r,column=14,value=f'=IF(COUNT(B{r}:M{r})=0,"",SUM(B{r}:M{r}))'); calc(rs.cell(row=r,column=14),BRL0)
     rs.cell(row=r,column=15,value=f'=IF(COUNT(B{r}:M{r})=0,"",AVERAGE(B{r}:M{r}))'); calc(rs.cell(row=r,column=15),BRL0)
     if r in (R_RECT,R_CFT,R_VAT,R_PLT,R_SAI,R_RES):
@@ -82,7 +92,8 @@ rs.conditional_formatting.add(f"B{R_RES}:O{R_RES}", FormulaRule(formula=[f'AND(I
 rs.conditional_formatting.add(f"B{R_RES}:O{R_RES}", FormulaRule(formula=[f'AND(ISNUMBER(B{R_RES}),B{R_RES}>=0)'], fill=fill(VERDE), font=F(color=VERDE_T,size=10,bold=True)))
 rs.conditional_formatting.add("B4:M4", FormulaRule(formula=['COLUMN()-1=Config!$B$8'], fill=fill(SOL), font=F(color=UVA,size=10,bold=True)))
 notas=["Receita por categoria: copie de \"De onde veio o dinheiro\" (Painel da 09). Convênio entra quando o lote é pago (menos a glosa); cartão entra pelo bruto e a taxa vai em \"Taxas de cartão\". Custos e despesas: de \"Para onde foi o dinheiro\".",
-       "Impostos são provisão (11 % do que entrou no mês), não a guia paga; no caixa aparece a guia do mês anterior. Retiradas extras, distribuição de lucro e despesas pessoais dos sócios não entram aqui: são movimentos sócio × clínica (planilha 11). Resultado negativo fica vermelho.",
+       "Impostos são provisão (11 % da receita do mês), não a guia paga; no caixa aparece a guia do mês anterior. A provisão de 13º e férias vem do Painel da planilha 10 (as colunas \"Provisão de 13º\" e \"Provisão de férias\" somadas): é dinheiro que o mês já deve, mesmo que só saia em dezembro e em janeiro — sem ela o resultado parece maior do que é. Retiradas extras, distribuição de lucro e despesas pessoais dos sócios não entram aqui: são movimentos sócio × clínica (planilha 11). Resultado negativo fica vermelho.",
+       "Reembolsos de sócios (na 09, a categoria \"Outras entradas\": a devolução de uma despesa pessoal que passou pela conta da clínica) ficam numa linha própria, fora da receita: não são faturamento e não pagam imposto. Por isso a \"Receita total\" daqui é o \"Entrou no mês\" do caixa menos essa linha — a mesma base das planilhas 10 e 11.",
        "Os valores de exemplo (janeiro a agosto de 2026, meses fechados) são os totais por categoria do Painel do Caixa (09) com Pago? = Sim; setembro fica em branco porque está em andamento. O Painel da clínica (17) e o Resumo do mês (20) usam estes mesmos números."]
 for i,t in enumerate(notas):
     c=rs.cell(row=R_MAR+2+i,column=1,value=t); c.font=F(size=9,color=LILAS); rs.merge_cells(start_row=R_MAR+2+i,start_column=1,end_row=R_MAR+2+i,end_column=15)
@@ -93,22 +104,22 @@ widths(rs,[50]+[11]*12+[14,16]); rs.freeze_panes="B5"; rs.sheet_view.showGridLin
 pv=wb.create_sheet("Previsto")
 titulo(pv,"Previsto para o ano","Preencha o que espera de receita, custos fixos, despesas variáveis e pró-labore em cada mês. O Painel compara o realizado com este previsto.",merge_to="N")
 hdr(pv,4,["Linha"]+[m[:3] for m in MESES]+["Total do ano"],height=30)
-PV=["Receita prevista","Custos fixos previstos","Despesas variáveis previstas","Pró-labore previsto","Impostos previstos (% da receita, Config)","Saídas previstas","Resultado previsto","Margem prevista"]
-PV_EX=[PREV_RECEITA,[dados.CUSTOS_FIXOS_TOTAL]*12,PREV_VARIAVEIS,[dados.PRO_LABORE_TOTAL]*12]
-P_REC,P_CF,P_VA,P_PL,P_IMP,P_SAI,P_RES,P_MAR=range(5,13)
+PV=["Receita prevista","Custos fixos previstos","Despesas variáveis previstas","Pró-labore previsto","Provisão de 13º e férias prevista","Impostos previstos (% da receita, Config)","Saídas previstas","Resultado previsto","Margem prevista"]
+PV_EX=[PREV_RECEITA,[dados.CUSTOS_FIXOS_TOTAL]*12,PREV_VARIAVEIS,[dados.PRO_LABORE_TOTAL]*12,[PREV_PROV]*12]
+P_REC,P_CF,P_VA,P_PL,P_PROV,P_IMP,P_SAI,P_RES,P_MAR=range(5,14)
 for j,nome in enumerate(PV):
-    r=5+j; pv.cell(row=r,column=1,value=nome); rotulo(pv.cell(row=r,column=1),bold=(j>=5)); pv.cell(row=r,column=1).border=borda
+    r=5+j; pv.cell(row=r,column=1,value=nome); rotulo(pv.cell(row=r,column=1),bold=(j>=6)); pv.cell(row=r,column=1).border=borda
     for m in range(12):
         col=L(2+m); cell=pv.cell(row=r,column=2+m)
-        if j<4: inp(cell,BRL0,center=True); cell.value=PV_EX[j][m]
-        elif j==4: cell.value=f'=IF({col}{P_REC}="","",ROUND({col}{P_REC}*Config!$B$7,0))'; calc(cell,BRL0)
-        elif j==5: cell.value=f'=IF({col}{P_REC}="","",N({col}{P_CF})+N({col}{P_VA})+N({col}{P_PL})+{col}{P_IMP})'; calc(cell,BRL0)
-        elif j==6: cell.value=f'=IF({col}{P_REC}="","",{col}{P_REC}-{col}{P_SAI})'; calc(cell,BRL0)
+        if j<5: inp(cell,BRL0,center=True); cell.value=PV_EX[j][m]
+        elif j==5: cell.value=f'=IF({col}{P_REC}="","",ROUND({col}{P_REC}*Config!$B$7,0))'; calc(cell,BRL0)
+        elif j==6: cell.value=f'=IF({col}{P_REC}="","",N({col}{P_CF})+N({col}{P_VA})+N({col}{P_PL})+N({col}{P_PROV})+{col}{P_IMP})'; calc(cell,BRL0)
+        elif j==7: cell.value=f'=IF({col}{P_REC}="","",{col}{P_REC}-{col}{P_SAI})'; calc(cell,BRL0)
         else: cell.value=f'=IF(OR({col}{P_REC}="",{col}{P_REC}=0),"",{col}{P_RES}/{col}{P_REC})'; calc(cell,"0.0%")
-    if j<7: pv.cell(row=r,column=14,value=f'=IF(COUNT(B{r}:M{r})=0,"",SUM(B{r}:M{r}))'); calc(pv.cell(row=r,column=14),BRL0)
+    if j<8: pv.cell(row=r,column=14,value=f'=IF(COUNT(B{r}:M{r})=0,"",SUM(B{r}:M{r}))'); calc(pv.cell(row=r,column=14),BRL0)
     else: pv.cell(row=r,column=14,value=f'=IF(OR(N{P_REC}="",N{P_REC}=0),"",N{P_RES}/N{P_REC})'); calc(pv.cell(row=r,column=14),"0.0%")
-pv.cell(row=14,column=1,value="Uma boa previsão de custos fixos é a média dos últimos três meses; de receita, a produção típica da agenda (01) descontando glosa e prazo de convênio; de variáveis, repasse + materiais + taxas de cartão de um mês normal. Janeiro e julho costumam ser mais fracos.").font=F(size=9,color=LILAS)
-pv.merge_cells("A14:N14")
+pv.cell(row=15,column=1,value="Uma boa previsão de custos fixos é a média dos últimos três meses; de receita, a produção típica da agenda (01) descontando glosa e prazo de convênio; de variáveis, repasse + materiais + taxas de cartão de um mês normal; de 13º e férias, o total por mês do Painel da planilha 10. Janeiro e julho costumam ser mais fracos.").font=F(size=9,color=LILAS)
+pv.merge_cells("A15:N15")
 widths(pv,[40]+[11]*12+[14]); pv.freeze_panes="B5"; pv.sheet_view.showGridLines=False
 
 # ---------- Painel ----------
@@ -128,7 +139,7 @@ p.conditional_formatting.add("E5", FormulaRule(formula=['AND(ISNUMBER(E5),E5<0)'
 p["A7"]="Comparação com o mês anterior e com o previsto"; p["A7"].font=F(bold=True,size=13,color=UVA)
 hdr(p,8,["Linha","","Mês","Mês anterior","Variação","Previsto","Vs. previsto","Situação"]); p.merge_cells("A8:B8")
 COMP=[("Receita total",R_RECT,P_REC,"Maior é melhor"),("Custos fixos",R_CFT,P_CF,"Menor é melhor"),("Despesas variáveis",R_VAT,P_VA,"Menor é melhor"),
-      ("Pró-labore",R_PLT,P_PL,""),("Impostos provisionados",R_IMP,P_IMP,""),
+      ("Pró-labore",R_PLT,P_PL,""),("Provisão de 13º e férias",R_PROV,P_PROV,""),("Impostos provisionados",R_IMP,P_IMP,""),
       ("Total de saídas",R_SAI,P_SAI,"Menor é melhor"),("Resultado do mês",R_RES,P_RES,"Maior é melhor"),("Margem",R_MAR,P_MAR,"Maior é melhor")]
 C0=9; CN=C0+len(COMP)-1
 for i,(nome,r,pr,sent) in enumerate(COMP):
@@ -177,9 +188,9 @@ p.merge_cells(start_row=G0+19,start_column=1,end_row=G0+19,end_column=8)
 widths(p,(26,16,14,14,13,14,13,18)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
 
 como_usar(wb,"Resultado Mensal",[
- ("O que esta planilha faz","Uma DRE simplificada da clínica: receita por categoria (as mesmas do caixa), custos fixos, despesas variáveis (materiais, taxas de cartão, repasse à parceira, manutenção), pró-labore fixo, impostos provisionados como % da receita, resultado e margem, mês a mês. Compara o mês com o anterior e com o que você previu."),
+ ("O que esta planilha faz","Uma DRE simplificada da clínica: receita por categoria (as mesmas do caixa), custos fixos, despesas variáveis (materiais, taxas de cartão, repasse à parceira, manutenção), pró-labore fixo, a provisão de 13º e férias (planilha 10) e os impostos provisionados como % da receita, resultado e margem, mês a mês. Compara o mês com o anterior e com o que você previu. Reembolso de sócio fica fora da receita e fora do imposto."),
  ("Passo 1","Em Config, informe o ano, o mês de análise (o último mês fechado) e a % de impostos a provisionar (peça ao contador a alíquota efetiva)."),
- ("Passo 2","Em Resultado, preencha por mês o que entrou em cada categoria e o que saiu em cada linha de custo fixo, despesa variável e pró-labore. Os totais por categoria estão no Painel da planilha 09 · Caixa da clínica (\"De onde veio\" e \"Para onde foi o dinheiro\")."),
+ ("Passo 2","Em Resultado, preencha por mês o que entrou em cada categoria de receita e o que saiu em cada linha de custo fixo, despesa variável e pró-labore. Os totais por categoria estão no Painel da planilha 09 · Caixa da clínica (\"De onde veio\" e \"Para onde foi o dinheiro\"). Reembolso de sócio vai na linha própria, fora da receita. A provisão de 13º e férias você copia do Painel da planilha 10."),
  ("Passo 3","Em Previsto, escreva o que espera de receita, custos fixos, despesas variáveis e pró-labore para cada mês. Pode ser o mesmo valor o ano inteiro."),
  ("Passo 4","Abra Painel: receita, saídas, resultado e margem do mês, comparação com o mês anterior e com o previsto (variação da margem em p.p.), receita por categoria e o gráfico do ano."),
  ("Fim do mês","Depois de fechar o caixa, lance o mês aqui e troque o mês em Config. Leva 10 minutos. No exemplo, o mês analisado é agosto de 2026 (setembro ainda está em andamento)."),

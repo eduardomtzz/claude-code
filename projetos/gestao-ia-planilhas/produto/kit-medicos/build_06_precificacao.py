@@ -11,13 +11,13 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Custo-hora da planilha 05; impostos e margens valem para todos os procedimentos.",merge_to="F")
 campos=[("Nome da clínica",f"{dados.CLINICA} (exemplo fictício)",None),("Mês de referência","Setembro de 2026",None),("Data de referência","=TODAY()",DATA),
- ("Custo da hora de atendimento (R$)",dados.CUSTO_HORA,BRL),("Impostos e taxas sobre o que entra (%)",dados.ALIQ,PCT),("Margem mínima sobre o preço (%)",dados.MARGEM,PCT),
+ ("Custo da hora de atendimento (R$)",dados.CUSTO_HORA,BRL),("Impostos sobre o que entra (%)",dados.ALIQ,PCT),("Margem mínima sobre o preço (%)",dados.MARGEM,PCT),
  ("Margem alvo sobre o preço (%)",dados.MARGEM_ALVO,PCT),("Retornos por consulta (média)",dados.RETORNO_PROB,"0.00"),("Duração do retorno (minutos)",dados.DUR["Retorno"],"0")]
 for i,(a,v,fmt) in enumerate(campos):
     r=4+i; cfg.cell(row=r,column=1,value=a); rotulo(cfg.cell(row=r,column=1)); cfg.cell(row=r,column=2,value=v)
     if r==6: calc(cfg.cell(row=r,column=2),fmt)
     else: inp(cfg.cell(row=r,column=2),fmt,center=fmt is not None)
-notas={7:"Copie do Painel da planilha 05 (\"Custo da hora de atendimento\"). No exemplo, R$ 200,00 (R$ 28.000 ÷ 140 h).",8:"A mesma alíquota efetiva da planilha 05 (exemplo: 11 %; confira com o contador).",
+notas={7:"Copie do Painel da planilha 05 (\"Custo da hora de atendimento\"). No exemplo, R$ 200,00 (R$ 28.000 ÷ 140 h).",8:"A mesma alíquota efetiva da planilha 05 (exemplo: 11 %; confira com o contador). Só imposto: a taxa da maquininha não entra aqui (ela está na 16 e no resultado 18).",
  9:"Abaixo disso o procedimento não vale a pena. É o piso da faixa (a mesma margem da 05).",10:"A margem que a clínica quer de verdade. É o teto da faixa.",
  11:"Consulta que costuma gerar retorno sem cobrança: em média, quantos retornos por consulta. O tempo do retorno entra no custo da consulta.",12:"Minutos de um retorno (planilha 01, Config)."}
 for r,t in notas.items(): cfg.cell(row=r,column=3,value=t); nota(cfg.cell(row=r,column=3))
@@ -34,7 +34,7 @@ s=wb.create_sheet("Precificação",0)
 titulo(s,'=Config!$B$4&" · Precificação de consulta e procedimento · "&Config!$B$5',"Amarelo: procedimento, minutos, se gera retorno, material, preço particular praticado e tabelas de convênio. O resto é calculado: custo cheio, preço mínimo, preço alvo e margem por pagador.",merge_to="R")
 CONV_H=[f'=IF(Config!$B${15+j}="","",Config!$B${15+j})' for j in range(NCONV)]
 heads=["Procedimento","Minutos","Gera retorno?","Material (R$)","Tempo com retorno (min)","Custo cheio (R$)","Preço mínimo (R$)","Preço alvo (R$)","Particular praticado (R$)","Margem no particular","Situação"]
-for j in range(NCONV): heads+=[CONV_H[j],"Margem"]
+for j in range(NCONV): heads+=[CONV_H[j],f'=IF(Config!$B${15+j}="","","Margem")']
 hdr(s,T0-1,heads,height=40)
 for r in range(T0,TN+1):
     inp(s.cell(row=r,column=1)); inp(s.cell(row=r,column=2),"0",center=True); inp(s.cell(row=r,column=3),center=True); inp(s.cell(row=r,column=4),BRL,center=True)
@@ -44,7 +44,7 @@ for r in range(T0,TN+1):
     s.cell(row=r,column=8,value=f'=IF(A{r}="","",IFERROR(F{r}/{DIVALVO},""))'); calc(s.cell(row=r,column=8),BRL)
     inp(s.cell(row=r,column=9),BRL0,center=True)
     s.cell(row=r,column=10,value=f'=IF(OR(A{r}="",I{r}="",I{r}=0),"",(I{r}*(1-{IMP})-F{r})/I{r})'); calc(s.cell(row=r,column=10),PCT)
-    s.cell(row=r,column=11,value=f'=IF(J{r}="","",IF(I{r}<G{r},"Abaixo do mínimo",IF(I{r}<H{r},"Entre mínimo e alvo","No alvo ou acima")))'); calc(s.cell(row=r,column=11))
+    s.cell(row=r,column=11,value=f'=IF(OR(A{r}="",I{r}=""),"",IF(I{r}=0,"Sem cobrança",IF(I{r}<G{r},"Abaixo do mínimo",IF(I{r}<H{r},"Entre mínimo e alvo","No alvo ou acima"))))'); calc(s.cell(row=r,column=11))
     for j in range(NCONV):
         cv=12+2*j; cm=cv+1
         inp(s.cell(row=r,column=cv),BRL0,center=True)
@@ -72,12 +72,13 @@ R0=NT+3
 s.cell(row=R0,column=1,value="Resumo").font=F(bold=True,size=13,color=UVA)
 res=[("Custo da hora de atendimento (planilha 05)",f"={CH}",BRL),("Hora mínima a cobrar (custo-hora ÷ (1 − impostos − margem mínima))",f"=IFERROR({CH}/{DIVMIN},\"\")",BRL),
      ("Procedimentos com particular abaixo do mínimo",f'=COUNTIF({SK},"Abaixo do mínimo")&" de "&COUNTA({SA})',"@"),
-     ("Tabelas de convênio que não cobrem o custo cheio",f'=COUNTIF($T${T0}:$W${TN},"<0")',"0"),
+     ("Tabelas de convênio abaixo do custo cheio + imposto",f'=COUNTIF($T${T0}:$W${TN},"<0")',"0"),
      ("Maior prejuízo por atendimento em convênio (R$)",f'=-MIN($T${T0}:$W${TN})',BRL)]
 for i,(a,f_,fmt) in enumerate(res):
     r=R0+1+i; s.cell(row=r,column=1,value=a); calc(s.cell(row=r,column=1),center=False); s.cell(row=r,column=5,value=f_); calc(s.cell(row=r,column=5),fmt); s.cell(row=r,column=5).font=F(bold=True,color=UVA,size=10)
     s.merge_cells(start_row=r,start_column=1,end_row=r,end_column=4)
-s.cell(row=R0+6,column=1,value="\"Maior prejuízo\" = margem negativa × tabela do convênio: a célula mais vermelha da tabela, em reais por atendimento (colunas auxiliares T a W, ocultas).").font=F(size=9,color=LILAS)
+s.cell(row=R0+6,column=1,value="\"Abaixo do custo cheio + imposto\" conta as células de Margem negativas: a tabela do convênio, depois dos impostos, não paga o custo cheio do atendimento. É a mesma conta e o mesmo número do KPI \"Tabelas de convênio abaixo do custo cheio + imposto\" da planilha 08. \"Maior prejuízo\" = margem negativa × tabela do convênio: a célula mais vermelha da tabela, em reais por atendimento (colunas auxiliares T a W, ocultas).").font=F(size=9,color=LILAS)
+s.merge_cells(start_row=R0+6,start_column=1,end_row=R0+6,end_column=19); s.cell(row=R0+6,column=1).alignment=Alignment(wrap_text=True,vertical="top"); s.row_dimensions[R0+6].height=28
 # simular um procedimento novo
 Q0=R0+8
 s.cell(row=Q0,column=1,value="Simular um procedimento ou um preço novo").font=F(bold=True,size=13,color=UVA)
@@ -111,9 +112,9 @@ for i,(pnome,d,m,ret) in enumerate(dados.PROCEDIMENTOS):
 como_usar(wb,"Precificação de consulta e procedimento",[
  ("O que esta planilha faz","Calcula o custo cheio de cada consulta e procedimento (tempo × custo-hora + material, com o tempo de retorno embutido nas consultas), o preço mínimo (margem mínima) e o preço alvo (margem alvo), e mostra a margem do preço particular praticado e de cada tabela de convênio."),
  ("Passo 1","Em Config, copie o custo-hora da planilha 05, a alíquota de impostos e as margens mínima e alvo. Ajuste a média de retornos por consulta e a duração do retorno. Liste até 4 convênios."),
- ("Passo 2","Em Precificação, uma linha por procedimento: minutos, se gera retorno, material por atendimento, o preço particular que você pratica hoje e a tabela de cada convênio (as mesmas da planilha 08)."),
+ ("Passo 2","Em Precificação, uma linha por procedimento: minutos, se gera retorno, material por atendimento, o preço particular que você pratica hoje e a tabela de cada convênio. Copie os valores da planilha 08 · Tabela de preços: ela é a fonte única da tabela no kit (a 07 e a Config da 01 também copiam de lá)."),
  ("Passo 3","Leia a Situação e as margens: vermelho não cobre o custo cheio; amarelo cobre o custo mas não a margem mínima; verde está na faixa. Use o bloco \"Simular\" para testar um procedimento ou um preço novo antes de mudar a tabela."),
- ("Rotina","Revise quando o custo-hora mudar (05) ou uma vez por semestre. Depois de decidir, atualize a tabela de preços (08) e a Config da agenda (01)."),
+ ("Rotina","Revise quando o custo-hora mudar (05) ou uma vez por semestre. Decidiu mudar um preço? Atualize na ordem: 08 (tabela de preços, a fonte) → 06 (esta) → 07 (simulador) → 01 (Config da agenda). Assim os quatro arquivos continuam com o mesmo número."),
  ("Convênio abaixo do custo","Não decida só por esta tela: com horários vazios, uma tabela baixa ainda pode contribuir; com agenda cheia, toma o lugar de um particular. A planilha 07 faz essa conta com prazo de pagamento e glosa."),
  ("Com a IA","Copie a tabela Precificação (sem os nomes dos convênios, se preferir) e use o prompt \"Preço 02 · Revisar a tabela de preços pela margem\" da biblioteca do kit. A IA ajuda a explicar o número ao sócio; o preço é decisão da clínica."),
 ])

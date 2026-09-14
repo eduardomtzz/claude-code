@@ -6,7 +6,7 @@ from ssg import *
 import dados
 from openpyxl.chart import BarChart, Reference
 
-N=1200; R0=5; RN=R0+N-1; NCE=12; NCS=16; NREC=30
+N=1500; R0=5; RN=R0+N-1; NCE=12; NCS=16; NREC=30   # ≈ 80 lançamentos/mês no exemplo → folga de mais de 12 meses
 CAT_ENTRADA=dados.CAT_ENTRADA; CAT_SAIDA=dados.CAT_SAIDA
 FORMAS=["Pix","Dinheiro","Cartão de débito","Cartão de crédito","Transferência","Boleto"]
 
@@ -40,13 +40,15 @@ def build():
     notas=["Preencha categorias e recebedores de cima para baixo, sem pular linha: as listas suspensas de Lançamentos param na última linha preenchida.",
            "Saldo antes do 1º lançamento: o que havia na conta da clínica na data do primeiro lançamento (no exemplo, 01/01/2026).",
            "Particular à vista entra pelo fechamento do dia (uma linha por dia e forma de pagamento; o detalhe por paciente fica na agenda 01). Particular a prazo entra por paciente, quando a parcela é paga (14). Convênio entra por lote pago (13).",
+           "A receber (Pago? = Não): parcelas a prazo (14) e lotes de convênio enviados (13) com previsão de recebimento até o fim do mês de referência — vencidos e a vencer. O que tem previsão para depois do fim do mês fica fora e entra quando aquele mês chegar. Por isso \"A receber\" do Painel é menor que a soma do total em aberto da 13 com o da 14: aquelas duas olham a carteira inteira, esta olha o mês.",
+           "Quem lança: a RECEPÇÃO lança o fechamento do dia todo dia, no fechamento (planilha 04 · Checklist do dia). Na sexta, a sócia só CONFERE os cinco fechamentos da semana contra o extrato e marca o que caiu na conta (planilha 03 · Rotina da semana).",
            "Cartão: lance o valor bruto no dia da venda e, no fim do mês, uma saída \"Taxas de cartão\" com o total das taxas (a conciliação 16 calcula). Repasse à médica parceira é a saída do dia 10 (planilha 11). Lançamentos pagos do exemplo vão até 11/09/2026 (a última sexta)."]
     for i,t in enumerate(notas): cfg.cell(row=37+i,column=1,value=t); nota(cfg.cell(row=37+i,column=1))
     dv=lista("=Config!$L$5:$L$16"); dv.add("B6"); cfg.add_data_validation(dv)
     widths(cfg,(36,22,3,28,3,34,3,34,3,30,3,12)); cfg.sheet_view.showGridLines=False
     # ---------- Lançamentos ----------
     lan=wb.create_sheet("Lançamentos")
-    titulo(lan,"Lançamentos","Uma linha por entrada ou saída. Preencha o amarelo; mês e ano são calculados. Pago? = Não fica em A receber / A pagar e só entra no caixa quando virar Sim.",merge_to="K")
+    titulo(lan,"Lançamentos","Uma linha por entrada ou saída. Preencha o amarelo; mês e ano são calculados. Pago? = Não fica em A receber / A pagar e só entra no caixa quando virar Sim. Regra do A receber: pré-lance as parcelas (14) e os lotes de convênio (13) com previsão de recebimento ATÉ O FIM DO MÊS DE REFERÊNCIA — nem mais, nem menos. O que vence depois entra no mês seguinte.",merge_to="K")
     hdr(lan,4,["Data","Tipo","Categoria","Paciente ou convênio","Referência","Descrição","Valor","Forma","Pago?","Mês","Ano"])
     for r in range(R0,RN+1):
         for c in range(1,10): inp(lan.cell(row=r,column=c))
@@ -64,6 +66,7 @@ def build():
     for dv,rng_ in dvs: dv.add(rng_); lan.add_data_validation(dv)
     lan.conditional_formatting.add(f"A{R0}:K{RN}", FormulaRule(formula=[f'$B{R0}="Entrada"'], font=F(color=VERDE_T,size=10)))
     lan.conditional_formatting.add(f"A{R0}:K{RN}", FormulaRule(formula=[f'AND($A{R0}<>"",$I{R0}="Não")'], fill=fill(VERM)))
+    lan.cell(row=RN+2,column=1,value=f"Esta aba tem {N} linhas ({R0} a {RN}): com cerca de 80 lançamentos por mês, sobra mais de um ano. Para virar o ano, o mais simples é começar um arquivo novo e levar o saldo de 31/12 para o campo \"Saldo em caixa antes do 1º lançamento\" da Config.").font=F(size=9,color=LILAS)
     widths(lan,(12,10,30,26,18,46,14,15,8,6,7)); lan.freeze_panes="A5"; lan.sheet_view.showGridLines=False; lan.auto_filter.ref=f"A4:K{RN}"
     assert len(dados.LANCAMENTOS)<=N
     for i,row in enumerate(dados.LANCAMENTOS):
@@ -142,9 +145,10 @@ def build():
     como_usar(wb,"Caixa da clínica",[
      ("O que esta planilha faz","Você lança o que entra (fechamento do dia do particular, parcelas a prazo, lotes de convênio) e o que sai (custo fixo, pró-labore, repasse, materiais, taxas de cartão, impostos). Ela mostra o mês: entrou, saiu, sobrou, saldo acumulado, a receber, a pagar; para onde foi o dinheiro por categoria, de onde veio, por forma de pagamento e o ano mês a mês com gráfico."),
      ("Passo 1","Em Config, preencha o nome da clínica, o ano, o saldo que havia em caixa antes do primeiro lançamento e o mês do painel. Ajuste categorias e recebedores de cima para baixo, sem pular linha."),
-     ("Passo 2","Em Lançamentos, uma linha por movimento: data, tipo (entrada ou saída), categoria, paciente ou convênio (quando houver), referência, descrição, valor, forma e Pago?. Lote de convênio enviado e ainda não pago entra com Pago? = Não e aparece em A receber; quando cair na conta, troque para Sim e ajuste o valor pela glosa."),
+     ("Passo 2","Em Lançamentos, uma linha por movimento: data, tipo (entrada ou saída), categoria, paciente ou convênio (quando houver), referência, descrição, valor, forma e Pago?. Lote de convênio enviado e ainda não pago entra com Pago? = Não, na data da previsão, e aparece em A receber; quando cair na conta, troque para Sim e ajuste o valor pela glosa. Pré-lance só o que tem previsão até o fim do mês de referência: é essa a regra de A receber."),
      ("Passo 3","Em Painel, escolha o mês em Config e leia de cima para baixo. Só o que está com Pago? = Sim conta como caixa; o resto é previsão."),
-     ("Rotina de sexta","15 minutos: lançar os fechamentos do dia da semana (a recepção fecha o caixa todo dia, checklist 04), marcar as parcelas e os lotes que caíram na conta e conferir A receber contra o extrato. No fechamento do mês: lançar as taxas de cartão (16), olhar Sobrou e Saldo acumulado antes de decidir retirada extra ou gasto grande."),
+     ("Limite e como estender","A aba Lançamentos tem 1.500 linhas (5 a 1504). No exemplo são cerca de 80 lançamentos por mês (fechamento do dia por forma, parcelas, lotes, custos fixos, pró-labore, impostos), o que dá folga para mais de um ano inteiro. Perto do fim, desproteja a aba (Revisar > Desproteger planilha), copie a última linha para baixo e ajuste o número final nas fórmulas do Painel — ou, o mais simples, comece um arquivo por ano e leve o saldo de 31/12 para o campo \"Saldo em caixa antes do 1º lançamento\" da Config."),
+     ("Rotina de sexta","5 minutos: conferir os cinco fechamentos do dia da semana (quem lança é a recepção, todo dia, no checklist 04) e marcar as parcelas e os lotes que caíram na conta. Marcar as parcelas recebidas é outra rotina de sexta, na planilha 14. No fechamento do mês: lançar as taxas de cartão (16), olhar Sobrou e Saldo acumulado antes de decidir retirada extra ou gasto grande."),
      ("Ligação com as outras planilhas","O total de entradas do mês alimenta a planilha 10 (provisão de impostos) e a 17 (painel); as saídas de pró-labore e repasse, a 11; o saldo acumulado e o custo fixo, a 12 (reserva); as entradas por categoria, a 18 (resultado). Cada arquivo tem a própria aba de entrada amarela: copie os números do painel."),
      ("Com a IA","Copie \"Para onde foi o dinheiro\", \"De onde veio\" e \"O ano, mês a mês\" e use o prompt \"Caixa 01 · Explicar o mês do caixa\" da biblioteca do kit. Nunca cole nome de paciente na IA: use as tabelas do Painel, que só têm totais."),
     ])

@@ -5,9 +5,9 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 ## 1. Referência e regras do exemplo
 
 - **Hoje (data de referência, Config = HOJE())**: segunda-feira **14/09/2026**. **Sexta do painel**: **11/09/2026**. Nenhum lançamento pago (caixa, parcela, lote de convênio) tem data depois de 11/09/2026.
-- **Meses**: caixa (09) lançado de janeiro a 11/09/2026; agenda (01) registrada de 01/07/2026 a hoje + 21 dias (antes, a recepção só fechava o caixa do dia); **17 Painel da clínica** mostra **setembro em andamento**; **18 Resultado mensal** e **20 Resumo do mês** analisam **agosto de 2026** (último mês fechado; 20 = agosto × julho); **16 Conciliação** está em **agosto**; **19 Metas** = 3º trimestre (semana 11 de 13, 82 % decorrido).
+- **Meses**: caixa (09) lançado de janeiro a 11/09/2026; agenda (01) registrada de 01/06/2026 a hoje + 21 dias (antes, a recepção só fechava o caixa do dia); **17 Painel da clínica** mostra **setembro em andamento**; **18 Resultado mensal** e **20 Resumo do mês** analisam **agosto de 2026** (último mês fechado; 20 = agosto × julho); **16 Conciliação** está em **agosto**; **19 Metas** = 3º trimestre (semana 11 de 13, 82 % decorrido).
 - **Inadimplência (única no kit: 14, 17, 19, 20)** = vencido ÷ (pago + vencido), só do que foi combinado a prazo. Não é vencido ÷ em aberto.
-- **Alíquota de impostos** (05 a 10, 18): **11 %** (alíquota efetiva combinada com o contador; Simples anexo III/V simplificado). **Margem mínima** 30 %, **margem alvo** 45 %, **retornos por consulta** 0,4 × 20 min (embutidos no custo da consulta), **custo do dinheiro** (07) 1,5 % ao mês, **repasse** da médica parceira 50 % da produção.
+- **Alíquota de impostos** (05 a 10, 18): **11 %** (alíquota efetiva combinada com o contador; Simples anexo III/V simplificado; só imposto — a taxa da maquininha é despesa variável, conciliada na 16). **Margem mínima** 30 %, **margem alvo** 45 %, **retornos por consulta** 0,4 × 20 min (embutidos no custo da consulta), **custo do dinheiro** (07) 1,5 % ao mês, **repasse** da médica parceira 50 % da produção.
 - **Fontes de cadastro**: 01 · Agenda (abas Agenda e Pacientes) é a fonte da agenda e dos pacientes: 02 e 16 copiam a Agenda, 14 copia os Pacientes, 13 · Guias vem dos atendimentos de convênio. Particular à vista entra no caixa (09) pelo fechamento do dia (uma linha por dia e forma); particular a prazo vira parcela (14) e entra no caixa quando paga; convênio vira guia (13) e entra no caixa quando o lote é pago (menos a glosa); cartão entra pelo bruto no dia da venda e as taxas do mês saem numa linha só no fim do mês (o total da 16).
 - **Datas relativas**: agenda futura (01/02), vencimentos em aberto (14) e orçamentos abertos (15) são `=HOJE()+n`; ao abrir em outro dia, esses números deslizam. Histórico (atendimentos realizados, lotes, parcelas pagas, caixa) é fixo.
 - **Nada clínico**: procedimento é só o nome administrativo (consulta, retorno, ECG, MAPA, Holter, teste ergométrico, avaliação endócrina); pacientes têm nome fictício e contato fictício (prefixo 90000); sem diagnóstico, prontuário ou exame.
@@ -45,7 +45,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Queda de 10% | 10 % | 126,0 | R$ 222,22 | R$ 376,65 |
 | Queda de 20% | 20 % | 112,0 | R$ 250,00 | R$ 423,73 |
 | Queda de 30% | 30 % | 98,0 | R$ 285,71 | R$ 484,26 |
-| Agosto de 2026 realizado (horas atendidas dos sócios, planilha 01) | 32 % | 94,7 | R$ 295,67 | R$ 501,14 |
+| Agosto de 2026 realizado (horas atendidas dos sócios: Painel da 01 com Config = Agosto, coluna "Horas atendidas" da Dra. Carolina + do Dr. Paulo, sem a médica parceira) | 32 % | 94,7 | R$ 295,67 | R$ 501,14 |
 
 - A última linha usa as horas atendidas dos sócios em agosto (Painel da 01): o custo-hora real de agosto contra os R$ 200 planejados.
 **Precificação (06 = 08): custo cheio, mínimo, alvo e tabelas**
@@ -60,8 +60,8 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Teste ergométrico | 40 | Não | R$ 25 | R$ 158,33 | R$ 268,36 | R$ 359,85 | R$ 450 | 53,8 % | No alvo ou acima | R$ 140 | -24,1 % | R$ 125 | -37,7 % | R$ 110 | -54,9 % |
 | Avaliação endócrina | 40 | Sim | R$ 4 | R$ 164,00 | R$ 277,97 | R$ 372,73 | R$ 400 | 48,0 % | No alvo ou acima | R$ 130 | -37,2 % | — | — | — | — |
 
-- 06 Resumo: procedimentos com particular abaixo do mínimo: 0 de 7; tabelas de convênio que não cobrem o custo cheio: 14; maior prejuízo por atendimento em convênio: R$ 60,43. Simulação de exemplo (consulta estendida de 45 min a R$ 480): custo R$ 180,67, mínimo R$ 306,21, alvo R$ 410,61, margem 51,4 %.
-- 08 Tabela (volume de agosto, Painel da 01): produção do mês R$ 48.631; valor médio por hora R$ 410,97 (21 % contra a hora mínima); particular abaixo do mínimo: 0 de 7; tabelas de convênio abaixo do custo: 11.
+- 06 Resumo: procedimentos com particular abaixo do mínimo: 0 de 7; tabelas de convênio abaixo do custo cheio + imposto: 14; maior prejuízo por atendimento em convênio: R$ 60,43. Simulação de exemplo (consulta estendida de 45 min a R$ 480): custo R$ 180,67, mínimo R$ 306,21, alvo R$ 410,61, margem 51,4 %.
+- 08 Tabela (volume de agosto, Painel da 01): produção do mês R$ 48.631; valor médio por hora R$ 410,97 (21 % contra a hora mínima); particular abaixo do mínimo: 0 de 7; tabelas de convênio abaixo do custo cheio + imposto: 14 (o mesmo número do Resumo da 06).
 | Procedimento (08) | Realizados em agosto | Produção | Valor médio praticado | Contra o mínimo |
 |---|---|---|---|---|
 | Consulta | 130 | R$ 30.730 | R$ 236,38 | 7 % |
@@ -111,19 +111,19 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ## 3. Caixa mês a mês (09 · Caixa da clínica) e repasse (11)
 
-- Saldo em caixa antes do 1º lançamento (01/01/2026): **R$ 26.000**. Lançamentos: 732 linhas; 694 pagas.
+- Saldo em caixa antes do 1º lançamento (01/01/2026): **R$ 26.000**. Lançamentos: 723 linhas; 688 pagas.
 | Mês | Entrou | Saiu | Sobrou | Saldo ao fim do mês |
 |---|---|---|---|---|
 | Janeiro | R$ 33.270 | R$ 36.201 | −R$ 2.931 | R$ 23.069 |
 | Fevereiro | R$ 24.795 | R$ 37.090 | −R$ 12.295 | R$ 10.774 |
-| Março | R$ 47.880 | R$ 38.415 | R$ 9.465 | R$ 20.239 |
-| Abril | R$ 39.590 | R$ 41.013 | −R$ 1.423 | R$ 18.816 |
-| Maio | R$ 44.760 | R$ 39.976 | R$ 4.784 | R$ 23.600 |
-| Junho | R$ 43.855 | R$ 41.534 | R$ 2.321 | R$ 25.921 |
-| Julho | R$ 53.101 | R$ 43.427 | R$ 9.674 | R$ 35.595 |
-| Agosto | R$ 50.336 | R$ 41.620 | R$ 8.716 | R$ 44.311 |
-| Setembro | R$ 21.570 | R$ 13.630 | R$ 7.940 | R$ 52.251 |
-| **Jan–ago (8 meses fechados)** | **R$ 337.587** | **R$ 319.276** | **R$ 18.311** |  |
+| Março | R$ 48.330 | R$ 38.415 | R$ 9.915 | R$ 20.689 |
+| Abril | R$ 39.555 | R$ 41.062 | −R$ 1.507 | R$ 19.182 |
+| Maio | R$ 44.745 | R$ 39.972 | R$ 4.773 | R$ 23.955 |
+| Junho | R$ 44.160 | R$ 41.532 | R$ 2.628 | R$ 26.583 |
+| Julho | R$ 53.461 | R$ 43.567 | R$ 9.894 | R$ 36.477 |
+| Agosto | R$ 49.651 | R$ 41.660 | R$ 7.991 | R$ 44.468 |
+| Setembro | R$ 21.920 | R$ 13.630 | R$ 8.290 | R$ 52.758 |
+| **Jan–ago (8 meses fechados)** | **R$ 337.967** | **R$ 319.499** | **R$ 18.468** |  |
 | Setembro = até 11/09 (mês em andamento) |  |  |  |  |
 
 **Entradas por categoria (Pago? = Sim)**
@@ -132,14 +132,14 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 |---|---|---|---|---|---|---|---|
 | Janeiro | R$ 25.180 | R$ 0 | R$ 3.930 | R$ 2.660 | R$ 1.500 | R$ 0 | R$ 33.270 |
 | Fevereiro | R$ 15.870 | R$ 1.825 | R$ 3.420 | R$ 2.040 | R$ 1.640 | R$ 0 | R$ 24.795 |
-| Março | R$ 37.340 | R$ 3.990 | R$ 3.750 | R$ 1.530 | R$ 1.270 | R$ 0 | R$ 47.880 |
-| Abril | R$ 28.610 | R$ 4.195 | R$ 3.295 | R$ 1.555 | R$ 1.315 | R$ 620 | R$ 39.590 |
-| Maio | R$ 27.400 | R$ 6.280 | R$ 7.220 | R$ 2.610 | R$ 1.250 | R$ 0 | R$ 44.760 |
-| Junho | R$ 27.400 | R$ 8.680 | R$ 4.335 | R$ 2.155 | R$ 1.285 | R$ 0 | R$ 43.855 |
-| Julho | R$ 36.540 | R$ 6.760 | R$ 6.655 | R$ 1.570 | R$ 1.576 | R$ 0 | R$ 53.101 |
-| Agosto | R$ 33.860 | R$ 5.315 | R$ 7.320 | R$ 2.130 | R$ 1.711 | R$ 0 | R$ 50.336 |
-| Setembro | R$ 13.630 | R$ 1.960 | R$ 5.780 | R$ 0 | R$ 200 | R$ 0 | R$ 21.570 |
-| **Jan–ago** | **R$ 232.200** | **R$ 37.045** | **R$ 39.925** | **R$ 16.250** | **R$ 11.547** | **R$ 620** | **R$ 337.587** |
+| Março | R$ 37.790 | R$ 3.990 | R$ 3.750 | R$ 1.530 | R$ 1.270 | R$ 0 | R$ 48.330 |
+| Abril | R$ 28.610 | R$ 4.160 | R$ 3.295 | R$ 1.555 | R$ 1.315 | R$ 620 | R$ 39.555 |
+| Maio | R$ 27.800 | R$ 5.865 | R$ 7.220 | R$ 2.610 | R$ 1.250 | R$ 0 | R$ 44.745 |
+| Junho | R$ 28.560 | R$ 7.825 | R$ 4.335 | R$ 2.155 | R$ 1.285 | R$ 0 | R$ 44.160 |
+| Julho | R$ 37.700 | R$ 5.960 | R$ 6.655 | R$ 1.570 | R$ 1.576 | R$ 0 | R$ 53.461 |
+| Agosto | R$ 33.860 | R$ 4.630 | R$ 7.320 | R$ 2.130 | R$ 1.711 | R$ 0 | R$ 49.651 |
+| Setembro | R$ 13.630 | R$ 2.310 | R$ 5.780 | R$ 0 | R$ 200 | R$ 0 | R$ 21.920 |
+| **Jan–ago** | **R$ 235.370** | **R$ 34.255** | **R$ 39.925** | **R$ 16.250** | **R$ 11.547** | **R$ 620** | **R$ 337.967** |
 
 **Saídas por categoria (Pago? = Sim)**
 
@@ -148,47 +148,47 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Janeiro | R$ 18.000 | R$ 10.000 | R$ 1.120 | R$ 351 | R$ 3.100 | R$ 0 | R$ 3.630 | R$ 0 | R$ 36.201 |
 | Fevereiro | R$ 18.000 | R$ 10.000 | R$ 820 | R$ 265 | R$ 3.725 | R$ 0 | R$ 3.660 | R$ 620 | R$ 37.090 |
 | Março | R$ 20.000 | R$ 10.000 | R$ 1.550 | R$ 533 | R$ 3.255 | R$ 0 | R$ 2.727 | R$ 350 | R$ 38.415 |
-| Abril | R$ 18.000 | R$ 10.000 | R$ 1.260 | R$ 436 | R$ 6.050 | R$ 0 | R$ 5.267 | R$ 0 | R$ 41.013 |
-| Maio | R$ 18.000 | R$ 10.000 | R$ 1.420 | R$ 464 | R$ 4.385 | R$ 800 | R$ 4.287 | R$ 620 | R$ 39.976 |
-| Junho | R$ 19.500 | R$ 10.000 | R$ 1.510 | R$ 355 | R$ 5.245 | R$ 0 | R$ 4.924 | R$ 0 | R$ 41.534 |
-| Julho | R$ 21.591 | R$ 10.000 | R$ 1.300 | R$ 642 | R$ 4.720 | R$ 0 | R$ 4.824 | R$ 350 | R$ 43.427 |
-| Agosto | R$ 18.000 | R$ 10.000 | R$ 1.380 | R$ 484 | R$ 4.845 | R$ 450 | R$ 5.841 | R$ 620 | R$ 41.620 |
+| Abril | R$ 18.000 | R$ 10.000 | R$ 1.260 | R$ 436 | R$ 6.050 | R$ 0 | R$ 5.316 | R$ 0 | R$ 41.062 |
+| Maio | R$ 18.000 | R$ 10.000 | R$ 1.420 | R$ 464 | R$ 4.385 | R$ 800 | R$ 4.283 | R$ 620 | R$ 39.972 |
+| Junho | R$ 19.500 | R$ 10.000 | R$ 1.510 | R$ 355 | R$ 5.245 | R$ 0 | R$ 4.922 | R$ 0 | R$ 41.532 |
+| Julho | R$ 21.697 | R$ 10.000 | R$ 1.300 | R$ 642 | R$ 4.720 | R$ 0 | R$ 4.858 | R$ 350 | R$ 43.567 |
+| Agosto | R$ 18.000 | R$ 10.000 | R$ 1.380 | R$ 484 | R$ 4.845 | R$ 450 | R$ 5.881 | R$ 620 | R$ 41.660 |
 | Setembro | R$ 0 | R$ 7.900 | R$ 540 | R$ 0 | R$ 5.190 | R$ 0 | R$ 0 | R$ 0 | R$ 13.630 |
 
 - "Pró-labore dos sócios" inclui o pró-labore fixo (18.000/mês), as retiradas extras (Paulo 2.000 em 16/03; Carolina 1.500 em 19/06) e a distribuição de lucro dos trimestres fechados (paga dia 10 do mês seguinte, quando o resultado do trimestre após pró-labore passa de R$ 3.000). "Outras saídas" = despesas pessoais dos sócios pagas pela clínica (a acertar). "Outras entradas" = devolução de despesa pessoal (Carolina, 620 em 14/04).
 - Guia de impostos: paga dia 20, 11 % das entradas do mês anterior (sem Outras entradas); janeiro sobre dezembro/2025 (fictício, base 33.000). A guia de setembro (20/09) ainda não foi paga. Taxas de cartão: uma saída no último dia do mês (o total da 16). Repasse: dia 10, 50 % da produção da Dra. Renata no mês anterior.
-- Setembro: custos fixos com vencimento depois de 11/09, pró-labore (28/09), materiais (22/09) e a guia (20/09) estão como Pago? = Não → **A pagar R$ 25.997**. **A receber (Pago? = Não) R$ 12.642** = lotes de convênio enviados com previsão até 30/09 + parcelas a prazo vencidas e a vencer até 30/09.
-- **09 Painel (Config = Setembro)**: Entrou R$ 21.570 · Saiu R$ 13.630 · Sobrou R$ 7.940 · Saldo acumulado **R$ 52.251** · A receber R$ 12.642 · A pagar R$ 25.997.
+- Setembro: custos fixos com vencimento depois de 11/09, pró-labore (28/09), materiais (22/09) e a guia (20/09) estão como Pago? = Não → **A pagar R$ 25.922**. **A receber (Pago? = Não) R$ 11.497** = lotes de convênio enviados com previsão até 30/09 + parcelas a prazo vencidas e a vencer até 30/09.
+- **09 Painel (Config = Setembro)**: Entrou R$ 21.920 · Saiu R$ 13.630 · Sobrou R$ 8.290 · Saldo acumulado **R$ 52.758** · A receber R$ 11.497 · A pagar R$ 25.922.
 | Entradas por forma (09, setembro / ano) | No mês | % do mês | No ano | % do ano |
 |---|---|---|---|---|
-| Pix | R$ 6.180 | 29 % | R$ 134.015 | 37 % |
+| Pix | R$ 6.530 | 30 % | R$ 134.745 | 37 % |
 | Dinheiro | R$ 300 | 1 % | R$ 14.800 | 4 % |
 | Cartão de débito | R$ 2.800 | 13 % | R$ 46.970 | 13 % |
 | Cartão de crédito | R$ 6.310 | 29 % | R$ 89.670 | 25 % |
-| Transferência | R$ 5.980 | 28 % | R$ 73.702 | 21 % |
+| Transferência | R$ 5.980 | 27 % | R$ 73.702 | 20 % |
 | Boleto | R$ 0 | 0 % | R$ 0 | 0 % |
 
-| 11 · Parceira (mês / ano até setembro) | Produção no mês | Repasse devido no mês | Produção no ano | Repasse no ano | Pago no ano | A pagar | Fica com a clínica | Custo da estrutura (horas × R$ 71,43) | Margem da parceria |
-|---|---|---|---|---|---|---|---|---|---|
-| Dra. Renata Sousa | R$ 5.850 | R$ 2.925 | R$ 80.680 | R$ 40.340 | R$ 37.415 | R$ 2.925 | R$ 40.340 | R$ 14.600 | R$ 25.740 |
+| 11 · Parceira (mês / ano até setembro) | Produção no mês | Repasse devido no mês | Produção no ano | Repasse no ano | Pago no ano | A pagar | Fica com a clínica | Material e insumo (ano) | Margem da parceria (ano) | Custo indireto das horas (informativo) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Dra. Renata Sousa | R$ 5.850 | R$ 2.925 | R$ 80.680 | R$ 40.340 | R$ 37.415 | R$ 2.925 | R$ 40.340 | R$ 1.226 | R$ 39.114 | R$ 14.600 |
 
-| Repasse (11), mês a mês | Produção | Horas atendidas | Repasse devido (50 %) | Pago em | Valor pago | Fica com a clínica | Margem da parceria |
-|---|---|---|---|---|---|---|---|
-| Janeiro | R$ 7.450 | 17,7 | R$ 3.725 | 10/02/2026 | R$ 3.725 | R$ 3.725 | R$ 2.461 |
-| Fevereiro | R$ 6.510 | 18,3 | R$ 3.255 | 10/03/2026 | R$ 3.255 | R$ 3.255 | R$ 1.948 |
-| Março | R$ 12.100 | 28,0 | R$ 6.050 | 10/04/2026 | R$ 6.050 | R$ 6.050 | R$ 4.050 |
-| Abril | R$ 8.770 | 24,0 | R$ 4.385 | 10/05/2026 | R$ 4.385 | R$ 4.385 | R$ 2.671 |
-| Maio | R$ 10.490 | 26,7 | R$ 5.245 | 10/06/2026 | R$ 5.245 | R$ 5.245 | R$ 3.338 |
-| Junho | R$ 9.440 | 24,0 | R$ 4.720 | 10/07/2026 | R$ 4.720 | R$ 4.720 | R$ 3.006 |
-| Julho | R$ 9.690 | 28,0 | R$ 4.845 | 10/08/2026 | R$ 4.845 | R$ 4.845 | R$ 2.845 |
-| Agosto | R$ 10.380 | 23,7 | R$ 5.190 | 10/09/2026 | R$ 5.190 | R$ 5.190 | R$ 3.497 |
-| Setembro | R$ 5.850 | 14,0 | R$ 2.925 | — | — | R$ 2.925 | R$ 1.925 |
+| Repasse (11), mês a mês | Produção | Horas atendidas | Repasse devido (50 %) | Pago em | Valor pago | Fica com a clínica | Material e insumo | Margem da parceria | Custo indireto (inform.) |
+|---|---|---|---|---|---|---|---|---|---|
+| Janeiro | R$ 7.450 | 17,7 | R$ 3.725 | 10/02/2026 | R$ 3.725 | R$ 3.725 | R$ 106 | R$ 3.619 | R$ 1.264 |
+| Fevereiro | R$ 6.510 | 18,3 | R$ 3.255 | 10/03/2026 | R$ 3.255 | R$ 3.255 | R$ 110 | R$ 3.145 | R$ 1.307 |
+| Março | R$ 12.100 | 28,0 | R$ 6.050 | 10/04/2026 | R$ 6.050 | R$ 6.050 | R$ 168 | R$ 5.882 | R$ 2.000 |
+| Abril | R$ 8.770 | 24,0 | R$ 4.385 | 10/05/2026 | R$ 4.385 | R$ 4.385 | R$ 144 | R$ 4.241 | R$ 1.714 |
+| Maio | R$ 10.490 | 26,7 | R$ 5.245 | 10/06/2026 | R$ 5.245 | R$ 5.245 | R$ 160 | R$ 5.085 | R$ 1.907 |
+| Junho | R$ 9.440 | 24,0 | R$ 4.720 | 10/07/2026 | R$ 4.720 | R$ 4.720 | R$ 144 | R$ 4.576 | R$ 1.714 |
+| Julho | R$ 9.690 | 28,0 | R$ 4.845 | 10/08/2026 | R$ 4.845 | R$ 4.845 | R$ 168 | R$ 4.677 | R$ 2.000 |
+| Agosto | R$ 10.380 | 23,7 | R$ 5.190 | 10/09/2026 | R$ 5.190 | R$ 5.190 | R$ 142 | R$ 5.048 | R$ 1.693 |
+| Setembro | R$ 5.850 | 14,0 | R$ 2.925 | — | — | R$ 2.925 | R$ 84 | R$ 2.841 | R$ 1.000 |
 
 | 11 · Trimestre | Entradas (sem devoluções) | Saídas sem sócios | Pró-labore fixo | Resultado após pró-labore | Fechado? | Distribuível (50 %) | Já distribuído |
 |---|---|---|---|---|---|---|---|
-| 1º trimestre | R$ 105.945 | R$ 54.736 | R$ 54.000 | −R$ 2.791 | Sim | R$ 0 | R$ 0 |
-| 2º trimestre | R$ 127.585 | R$ 66.403 | R$ 54.000 | R$ 7.182 | Sim | R$ 3.591 | R$ 3.591 |
-| 3º trimestre | R$ 125.007 | R$ 58.116 | R$ 54.000 | R$ 12.891 | Em andamento | R$ 0 | R$ 0 |
+| 1º trimestre | R$ 106.395 | R$ 54.736 | R$ 54.000 | −R$ 2.341 | Sim | R$ 0 | R$ 0 |
+| 2º trimestre | R$ 127.840 | R$ 66.446 | R$ 54.000 | R$ 7.394 | Sim | R$ 3.697 | R$ 3.697 |
+| 3º trimestre | R$ 125.032 | R$ 58.190 | R$ 54.000 | R$ 12.842 | Em andamento | R$ 0 | R$ 0 |
 
 - 11 KPIs: repasse devido no mês R$ 2.925 (setembro até 11/09, pago em 10/10); a pagar no ano R$ 2.925; pró-labore combinado R$ 18.000/mês; a acertar com a clínica no ano R$ 5.440 (Carolina: retirada extra 1.500 + despesas pessoais 1.860 − devolução 620 = 2.740; Paulo: 2.000 + 700 = 2.700). Setembro: pró-labore ainda não pago (dia 28).
 
@@ -196,13 +196,13 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 | Linha da DRE | Julho | Agosto | Jan–ago (total) | Média jan–ago |
 |---|---|---|---|---|
-| Particular à vista | R$ 36.540 | R$ 33.860 | R$ 232.200 | R$ 29.025 |
-| Particular a prazo | R$ 6.760 | R$ 5.315 | R$ 37.045 | R$ 4.631 |
+| Particular à vista | R$ 37.700 | R$ 33.860 | R$ 235.370 | R$ 29.421 |
+| Particular a prazo | R$ 5.960 | R$ 4.630 | R$ 34.255 | R$ 4.282 |
 | Convênio · Saúde Total | R$ 6.655 | R$ 7.320 | R$ 39.925 | R$ 4.991 |
 | Convênio · MediPlan | R$ 1.570 | R$ 2.130 | R$ 16.250 | R$ 2.031 |
 | Convênio · Vida Care | R$ 1.576 | R$ 1.711 | R$ 11.547 | R$ 1.443 |
-| Outras entradas | R$ 0 | R$ 0 | R$ 620 | R$ 78 |
-| **Receita total** | R$ 53.101 | R$ 50.336 | R$ 337.587 | R$ 42.198 |
+| **Receita total** | R$ 53.461 | R$ 49.651 | R$ 337.347 | R$ 42.168 |
+| Reembolsos de sócios (fora da receita e do imposto) | R$ 0 | R$ 0 | R$ 620 | R$ 78 |
 | Custos fixos (8 linhas) | R$ 10.000 | R$ 10.000 | R$ 80.000 | R$ 10.000 |
 | Materiais e insumos | R$ 1.300 | R$ 1.380 | R$ 10.360 | R$ 1.295 |
 | Taxas de cartão | R$ 642 | R$ 484 | R$ 3.530 | R$ 441 |
@@ -210,24 +210,27 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Manutenção de equipamentos | R$ 0 | R$ 450 | R$ 1.250 | R$ 156 |
 | **Despesas variáveis** | R$ 6.662 | R$ 7.159 | R$ 50.465 | R$ 6.308 |
 | Pró-labore fixo (Carolina 9.000 + Paulo 9.000) | R$ 18.000 | R$ 18.000 | R$ 144.000 | R$ 18.000 |
-| Impostos provisionados (11 % da receita) | R$ 5.841 | R$ 5.537 | R$ 37.135 | R$ 4.642 |
-| **Total de saídas** | R$ 40.503 | R$ 40.696 | R$ 311.600 | R$ 38.950 |
-| **Resultado do mês** | R$ 12.598 | R$ 9.640 | R$ 25.987 | R$ 3.248 |
-| **Margem (resultado ÷ receita)** | **23,7 %** | **19,2 %** | 7,7 % | 3,5 % |
+| Provisão de 13º e férias (planilha 10) | R$ 1.962 | R$ 1.962 | R$ 15.696 | R$ 1.962 |
+| Impostos provisionados (11 % da receita) | R$ 5.881 | R$ 5.462 | R$ 37.109 | R$ 4.639 |
+| **Total de saídas** | R$ 42.505 | R$ 42.583 | R$ 327.270 | R$ 40.909 |
+| **Resultado do mês** | R$ 10.956 | R$ 7.068 | R$ 10.077 | R$ 1.260 |
+| **Margem (resultado ÷ receita)** | **20,5 %** | **14,2 %** | 3,0 % | -1,5 % |
 
-- Agosto: receita **R$ 50.336**, saídas **R$ 40.696**, resultado **R$ 9.640**, margem **19,2 %** (julho: 23,7 %). Previsto de agosto: receita 46.000, custos fixos 10.000, variáveis 6.000, pró-labore 18.000.
+- Agosto: receita **R$ 49.651**, saídas **R$ 42.583**, resultado **R$ 7.068**, margem **14,2 %** (julho: 20,5 %). Previsto de agosto: receita 46.000, custos fixos 10.000, variáveis 6.000, pró-labore 18.000, provisão de 13º e férias 1.962.
 | Comparação (18 Painel, agosto) | Mês | Mês anterior | Variação | Previsto | Vs. previsto | Situação |
 |---|---|---|---|---|---|---|
-| Receita total | R$ 50.336 | R$ 53.101 | -5,2 % | R$ 46.000 | +9,4 % | Dentro do previsto |
+| Receita total | R$ 49.651 | R$ 53.461 | -7,1 % | R$ 46.000 | +7,9 % | Dentro do previsto |
 | Custos fixos | R$ 10.000 | R$ 10.000 | +0,0 % | R$ 10.000 | +0,0 % | Dentro do previsto |
 | Despesas variáveis | R$ 7.159 | R$ 6.662 | +7,5 % | R$ 6.000 | +19,3 % | Fora do previsto |
 | Pró-labore | R$ 18.000 | R$ 18.000 | +0,0 % | R$ 18.000 | +0,0 % | Informativo |
-| Impostos provisionados | R$ 5.537 | R$ 5.841 | -5,2 % | R$ 5.060 | +9,4 % | Informativo |
-| Total de saídas | R$ 40.696 | R$ 40.503 | +0,5 % | R$ 39.060 | +4,2 % | Perto |
-| Resultado do mês | R$ 9.640 | R$ 12.598 | -23,5 % | R$ 6.940 | +38,9 % | Dentro do previsto |
-| Margem | 19,2 % | 23,7 % | -4,6 p,p, | 15,1 % | +4,1 p,p, | Dentro do previsto |
+| Provisão de 13º e férias | R$ 1.962 | R$ 1.962 | +0,0 % | R$ 1.962 | +0,0 % | Informativo |
+| Impostos provisionados | R$ 5.462 | R$ 5.881 | -7,1 % | R$ 5.060 | +7,9 % | Informativo |
+| Total de saídas | R$ 42.583 | R$ 42.505 | +0,2 % | R$ 41.022 | +3,8 % | Perto |
+| Resultado do mês | R$ 7.068 | R$ 10.956 | -35,5 % | R$ 4.978 | +42,0 % | Dentro do previsto |
+| Margem | 14,2 % | 20,5 % | -6,3 p,p, | 10,8 % | +3,4 p,p, | Dentro do previsto |
 
-- A DRE não inclui retiradas extras, distribuição de lucro nem despesas pessoais dos sócios (ficam na 11); por isso "Saiu no mês" do caixa é diferente do "Total de saídas" da DRE (impostos são provisão de 11 % da receita, e não a guia paga).
+- A DRE não inclui retiradas extras, distribuição de lucro nem despesas pessoais dos sócios (ficam na 11); por isso "Saiu no mês" do caixa é diferente do "Total de saídas" da DRE (impostos são provisão de 11 % da receita, e não a guia paga; a provisão de 13º e férias, R$ 1.962/mês, vem da planilha 10 e ainda não saiu do caixa).
+- Reembolso de sócio (a devolução de despesa pessoal de 14/04, R$ 620) fica numa linha própria, fora da receita e fora da base do imposto: a "Receita total" da 18 é o "Entrou no mês" da 09 menos essa linha, a mesma base das planilhas 10 e 11.
 
 ## 5. A semana de 11/09/2026 (17 · Painel da clínica, aba Dados)
 
@@ -237,21 +240,21 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Horas atendidas no mês | 51,8 | — | — | Informativo | 01 · Agenda e ocupação (Painel: Horas atendidas) |
 | Horas vazias no mês | 12,2 | — | — | Informativo | 01 · Agenda e ocupação (Painel: Horas vazias) |
 | Taxa de falta no mês (faltas ÷ (faltas + realizados)) | 5,3 % | 6,0 % | Menor é melhor | No alvo | 02 · Faltas e retornos (Painel: Taxa de falta) |
-| Pacientes na lista de retorno | 7 | 8 | Menor é melhor | No alvo | 02 · Faltas e retornos (Painel: Na lista de retorno) |
-| Entrou no mês (recebimentos) | R$ 21.570 | — | — | Informativo | 09 · Caixa da clínica (Painel: Entrou no mês) |
+| Pacientes na lista de retorno | 8 | 8 | Menor é melhor | No alvo | 02 · Faltas e retornos (Painel: Na lista de retorno) |
+| Entrou no mês (recebimentos) | R$ 21.920 | — | — | Informativo | 09 · Caixa da clínica (Painel: Entrou no mês) |
 | Saiu no mês (tudo o que saiu do caixa) | R$ 13.630 | — | — | Informativo | 09 · Caixa da clínica (Painel: Saiu no mês) |
-| Sobrou no mês | R$ 7.940 | — | — | Informativo | calculado aqui |
+| Sobrou no mês | R$ 8.290 | — | — | Informativo | calculado aqui |
 | Convênio a receber (lotes enviados e não pagos) | R$ 15.758 | — | — | Informativo | 13 · Convênios a receber (Painel: A receber) |
 | Convênio atrasado (previsão vencida) | R$ 1.727 | R$ 0 | Menor é melhor | Fora | 13 · Convênios a receber (Painel: Atrasado) |
 | Glosa no ano (glosa ÷ (pago + glosa)) | 5,5 % | 4,0 % | Menor é melhor | Fora | 13 · Convênios a receber (Painel: Glosa no ano %) |
-| Vencido (parcelas a prazo em atraso) | R$ 4.550 | R$ 4.000 | Menor é melhor | Fora | 14 · Parcelas e inadimplência (Painel: Vencido) |
-| Inadimplência a prazo (vencido ÷ (pago + vencido)) | 10,4 % | 8,0 % | Menor é melhor | Fora | 14 · Parcelas e inadimplência (Painel: Inadimplência) |
+| Vencido (parcelas a prazo em atraso) | R$ 3.775 | R$ 4.000 | Menor é melhor | No alvo | 14 · Parcelas e inadimplência (Painel: Vencido) |
+| Inadimplência a prazo (vencido ÷ (pago + vencido)) | 9,4 % | 8,0 % | Menor é melhor | Fora | 14 · Parcelas e inadimplência (Painel: Inadimplência) |
 | Orçamentos em aberto (quantidade) | 6 | — | — | Informativo | 15 · Orçamentos (Painel: Apresentado + Em análise) |
-| Orçamentos em aberto (valor) | R$ 3.460 | R$ 5.000 | Maior é melhor | Fora | 15 · Orçamentos (Painel: Em aberto) |
+| Orçamentos em aberto (valor) | R$ 3.460 | — | — | Informativo | 15 · Orçamentos (Painel: Em aberto) |
 
 ### Agenda (01 · Agenda e ocupação, Config = Setembro, horas disponíveis até ontem)
 
-- **Horas disponíveis 64,0 · atendidas 51,8 · ocupação 81,0 % · vazias 12,2 · faltas 6 · produção R$ 20.045**. Agenda: 939 linhas de 01/07 a 05/10/2026 (630 realizados, 55 faltas, 222 agendados/confirmados). Pacientes cadastrados: 156.
+- **Horas disponíveis 64,0 · atendidas 51,8 · ocupação 81,0 % · vazias 12,2 · faltas 6 · produção R$ 20.045**. Agenda: 1239 linhas de 01/06 a 05/10/2026 (895 realizados, 78 faltas, 222 agendados/confirmados). Pacientes cadastrados: 156.
 | Por profissional (01, setembro) | Disponíveis | Atendidas | Ocupação | Realizados | Faltas | Taxa de falta | Produção |
 |---|---|---|---|---|---|---|---|
 | Dra. Carolina Mendes | 24,0 | 22,0 | 92 % | 47 | 1 | 2 % | R$ 10.050 |
@@ -302,7 +305,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 - **Agosto fechado (01 com Config = Agosto)**: disponíveis 168,0 h · atendidas 118,3 h · ocupação 70,4 % · faltas 23 (8,4 %) · produção R$ 48.631.
 ### Faltas e retornos (02, Config = Setembro)
 
-- **Taxa de falta 5,3 % · faltas 6 · realizados 107 · cancelamentos 3 · remarcações 0 · na lista de retorno 7**.
+- **Taxa de falta 5,3 % · faltas 6 · realizados 107 · cancelamentos 3 · remarcações 0 · na lista de retorno 8**.
 | Dia da semana (02, setembro) | Realizados | Faltas | Taxa de falta | Cancel. | Remarc. |
 |---|---|---|---|---|---|
 | Segunda | 0 | 0 | — | 0 | 0 |
@@ -337,6 +340,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 | Lista de retorno (02) | Profissional | Pagador | Último atendimento | Procedimento | Retorno previsto | Dias além |
 |---|---|---|---|---|---|---|
+| Gabriel Fernandes | Dr. Paulo Andrade | Particular | 25/06/2026 | Consulta | 25/07/2026 | 51 |
 | Priscila Pinto | Dr. Paulo Andrade | Saúde Total | 09/07/2026 | Consulta | 08/08/2026 | 37 |
 | Roberta Almeida | Dr. Paulo Andrade | Saúde Total | 27/07/2026 | Consulta | 26/08/2026 | 19 |
 | Rafael Araújo | Dr. Paulo Andrade | MediPlan | 31/07/2026 | Consulta | 30/08/2026 | 15 |
@@ -347,10 +351,10 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ### Caixa, convênios, parcelas e orçamentos na sexta
 
-- Caixa de setembro até 11/09 (09): entrou **R$ 21.570**, saiu **R$ 13.630**, sobrou R$ 7.940; saldo acumulado R$ 52.251.
+- Caixa de setembro até 11/09 (09): entrou **R$ 21.920**, saiu **R$ 13.630**, sobrou R$ 8.290; saldo acumulado R$ 52.758.
 - Convênios (13): **a receber R$ 15.758** (lotes enviados e não pagos) · **atrasado R$ 1.727** (lote de junho da Vida Care) · recebido no ano R$ 73.702 · glosa no ano R$ 4.273 (**5,5 %**) · em recurso R$ 240.
-- Parcelas a prazo (14): vence em 7 dias R$ 1.360 · vence em 30 dias R$ 5.090 · em aberto (total) R$ 10.585 · **vencido R$ 4.550** em **16 parcelas** · **inadimplência 10,4 %** = R$ 4.550 ÷ (R$ 39.005 pago + R$ 4.550).
-- Orçamentos (15): em aberto **R$ 3.460** · previsão ponderada R$ 1.318 · **aprovado no trimestre R$ 8.510** (47 % da meta de R$ 18.000) · taxa de aprovação 72 % · dias até decidir (média) 6.
+- Parcelas a prazo (14): vence em 7 dias R$ 970 · vence em 30 dias R$ 4.705 · em aberto (total) R$ 9.855 · **vencido R$ 3.775** em **14 parcelas** · **inadimplência 9,4 %** = R$ 3.775 ÷ (R$ 36.565 pago + R$ 3.775).
+- Orçamentos (15): em aberto **R$ 3.460** · previsão ponderada R$ 1.318 · **aprovado no trimestre R$ 8.960** (50 % da meta de R$ 18.000) · taxa de aprovação 73 % · dias até decidir (média) 11.
 
 ## 6. Convênios (13 · Convênios a receber)
 
@@ -399,48 +403,52 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | MediPlan | set/2026 | 15 | R$ 1.445 | — | — | — | — | — | — | — | — | Em separação |
 | Vida Care | set/2026 | 6 | R$ 545 | — | — | — | — | — | — | — | — | Em separação |
 
-- Guias na aba Guias (jul–set): 239 (uma por atendimento de convênio realizado); glosadas: 2. Lotes de out/2025 a jun/2026 vêm dos registros anteriores à agenda (sem detalhe por guia).
+- Guias na aba Guias (jun–set): 353 (uma por atendimento de convênio realizado); glosadas: 6. Lotes de out/2025 a mai/2026 vêm dos registros anteriores à agenda (sem detalhe por guia).
 | Guias glosadas para recorrer (13 Painel) | Data | Paciente | Convênio | Procedimento | Profissional | Valor | Recurso |
 |---|---|---|---|---|---|---|---|
 | G2026-0577 | 09/07/2026 | Isabela Barbosa | Saúde Total | Avaliação endócrina | Dra. Renata Sousa | R$ 130 | — |
+| G2026-0495 | 18/06/2026 | Daniel Melo | Saúde Total | Consulta | Dra. Carolina Mendes | R$ 120 | Em recurso |
+| G2026-0481 | 16/06/2026 | Carlos Castro | Saúde Total | Consulta | Dra. Carolina Mendes | R$ 120 | Em recurso |
+| G2026-0483 | 16/06/2026 | Sérgio Teixeira | MediPlan | Consulta | Dr. Paulo Andrade | R$ 100 | — |
 | G2026-0582 | 10/07/2026 | Débora Machado | Saúde Total | ECG | Dr. Paulo Andrade | R$ 40 | — |
+| G2026-0527 | 25/06/2026 | Sérgio Batista | MediPlan | ECG | Dr. Paulo Andrade | R$ 35 | — |
 
 
 ## 7. Parcelas a prazo e inadimplência (14)
 
 | Faixa de atraso | Parcelas | Valor | % do vencido |
 |---|---|---|---|
-| 1 a 6 dias | 2 | R$ 320 | 7 % |
-| 7 a 14 dias | 2 | R$ 590 | 13 % |
-| 15 a 29 dias | 1 | R$ 450 | 10 % |
-| 30 dias ou mais | 11 | R$ 3.190 | 70 % |
+| 1 a 6 dias | 2 | R$ 320 | 8 % |
+| 7 a 14 dias | 0 | R$ 0 | 0 % |
+| 15 a 29 dias | 0 | R$ 0 | 0 % |
+| 30 dias ou mais | 12 | R$ 3.455 | 92 % |
 | Antes da régua | 0 | R$ 0 | 0 % |
 
 | Cobrar primeiro (14) | Paciente | Procedimento | Parcela | Vencimento | Valor | Dias de atraso | Faixa |
 |---|---|---|---|---|---|---|---|
 | 1 | Gabriel Reis | Avaliação endócrina | 1 | 09/04/2026 | R$ 400 | 158 | 30 dias ou mais |
-| 2 | Regina Teixeira | Consulta | 1 | 07/05/2026 | R$ 380 | 130 | 30 dias ou mais |
+| 2 | Priscila Reis | Avaliação endócrina | 1 | 07/05/2026 | R$ 400 | 130 | 30 dias ou mais |
 | 3 | Márcia Duarte | Avaliação endócrina | 1 | 12/02/2026 | R$ 200 | 214 | 30 dias ou mais |
-| 4 | Eduardo Lima | Consulta | 1 | 12/06/2026 | R$ 380 | 94 | 30 dias ou mais |
+| 4 | Helena Moreira | Consulta | 1 | 13/06/2026 | R$ 380 | 93 | 30 dias ou mais |
 | 5 | Mônica Martins | Consulta | 1 | 13/03/2026 | R$ 190 | 185 | 30 dias ou mais |
-| 6 | Paulo Reis | Consulta | 1 | 24/06/2026 | R$ 380 | 82 | 30 dias ou mais |
-| 7 | Otávio Nascimento | MAPA | 1 | 18/06/2026 | R$ 300 | 88 | 30 dias ou mais |
-| 8 | Otávio Cardoso | Consulta | 2 | 16/05/2026 | R$ 190 | 121 | 30 dias ou mais |
-| 9 | Viviane Ribeiro | Consulta | 1 | 17/07/2026 | R$ 380 | 59 | 30 dias ou mais |
-| 10 | Camila Freitas | Consulta | 2 | 19/05/2026 | R$ 190 | 118 | 30 dias ou mais |
+| 6 | Mariana Nascimento | Consulta | 1 | 19/06/2026 | R$ 380 | 87 | 30 dias ou mais |
+| 7 | Mariana Nascimento | Consulta | 1 | 27/06/2026 | R$ 380 | 79 | 30 dias ou mais |
+| 8 | Patrícia Fernandes | Consulta | 2 | 18/05/2026 | R$ 190 | 119 | 30 dias ou mais |
+| 9 | Rafael Dias | Consulta | 2 | 23/05/2026 | R$ 190 | 114 | 30 dias ou mais |
+| 10 | Cláudia Costa | Consulta | 1 | 22/07/2026 | R$ 380 | 54 | 30 dias ou mais |
 
 | Vencem nos próximos 30 dias (14) | Paciente | Procedimento | Parcela | Vencimento | Valor | Dias para vencer |
 |---|---|---|---|---|---|---|
 | 1 | Elaine Cardoso | Consulta | 1 | 16/09/2026 | R$ 190 | 2 |
 | 2 | Fábio Gomes | Avaliação endócrina | 1 | 17/09/2026 | R$ 400 | 3 |
 | 3 | Eduardo Lima | Consulta | 1 | 19/09/2026 | R$ 380 | 5 |
-| 4 | Márcia Duarte | Avaliação endócrina | 2 | 21/09/2026 | R$ 200 | 7 |
-| 5 | Rafael Barros | Consulta | 2 | 21/09/2026 | R$ 190 | 7 |
-| 6 | Cláudia Santos | Consulta | 1 | 23/09/2026 | R$ 380 | 9 |
-| 7 | Regina Duarte | Consulta | 2 | 25/09/2026 | R$ 190 | 11 |
-| 8 | Rodrigo Moreira | Teste ergométrico | 2 | 25/09/2026 | R$ 225 | 11 |
+| 4 | Eduardo Lima | Teste ergométrico | 2 | 22/09/2026 | R$ 225 | 8 |
+| 5 | Cláudia Santos | Consulta | 1 | 23/09/2026 | R$ 380 | 9 |
+| 6 | Rodrigo Moreira | Teste ergométrico | 2 | 25/09/2026 | R$ 225 | 11 |
+| 7 | Sérgio Martins | Consulta | 1 | 25/09/2026 | R$ 380 | 11 |
+| 8 | Rafael Pereira | Avaliação endócrina | 2 | 26/09/2026 | R$ 200 | 12 |
 
-- Total de parcelas cadastradas: 180 (pagas 141), de 60 pacientes; 54 atendimentos em 2 parcelas. Régua de cobrança: 1 dia (lembrete), 7 dias (mensagem da recepção), 15 dias (ligação com demonstrativo), 30 dias (conversa e plano de pagamento).
+- Total de parcelas cadastradas: 173 (pagas 134), de 60 pacientes; 55 atendimentos em 2 parcelas. Régua de cobrança: 1 dia (lembrete), 7 dias (mensagem da recepção), 15 dias (ligação com demonstrativo), 30 dias (conversa e plano de pagamento).
 
 ## 8. Orçamentos (15 · Apresentados × aprovados)
 
@@ -448,53 +456,54 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 |---|---|---|---|
 | Apresentado | 3 | R$ 2.060 | R$ 618 |
 | Em análise | 3 | R$ 1.400 | R$ 700 |
-| Aprovado (total) | 21 | R$ 8.510 | — |
+| Aprovado (total) | 22 | R$ 8.960 | — |
 | Recusado (total) | 5 | R$ 1.860 | — |
 | Sem retorno (total) | 3 | R$ 1.660 | — |
-| Valor médio dos aprovados | R$ 405 |  |  |
+| Valor médio dos aprovados | R$ 407 |  |  |
 
 | Data | Paciente | Profissional | Tipo | Itens | Valor | Etapa | Decisão | Motivo | Observação |
 |---|---|---|---|---|---|---|---|---|---|
-| 03/07/2026 | Gustavo Ferreira | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 09/07/2026 | — | Agendado para 09/07 |
-| 06/07/2026 (-70 dias) | Ana Costa | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Recusado | 15/07/2026 (-61 dias) | Preço | — |
-| 10/07/2026 | Lucas Lopes | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 23/07/2026 | — | Agendado para 24/07 |
-| 15/07/2026 | Eduardo Lima | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 23/07/2026 | — | Agendado para 24/07 |
-| 16/07/2026 | Débora Ramos | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 20/07/2026 | — | Agendado para 20/07 |
-| 17/07/2026 | Otávio Nascimento | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 24/07/2026 | — | Agendado para 28/07 |
-| 21/07/2026 (-55 dias) | Carlos Freitas | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Recusado | 30/07/2026 (-46 dias) | Vai fazer pelo convênio | — |
-| 27/07/2026 | Wagner Santos | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Aprovado | 31/07/2026 | — | Agendado para 03/08 |
-| 29/07/2026 | Marcelo Moreira | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 07/08/2026 | — | Agendado para 10/08 |
-| 30/07/2026 | Otávio Cardoso | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 04/08/2026 | — | Agendado para 06/08 |
+| 25/06/2026 | Helena Moreira | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Aprovado | 13/07/2026 | — | Agendado para 14/07 |
+| 26/06/2026 | Gustavo Ferreira | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 08/07/2026 | — | Agendado para 09/07 |
+| 06/07/2026 (-70 dias) | Ana Costa | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Recusado | 11/07/2026 (-65 dias) | Preço | — |
+| 13/07/2026 | Débora Ramos | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 17/07/2026 | — | Agendado para 20/07 |
+| 14/07/2026 | Wagner Santos | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Aprovado | 31/07/2026 | — | Agendado para 03/08 |
+| 15/07/2026 | Lucas Lopes | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 21/07/2026 | — | Agendado para 24/07 |
+| 15/07/2026 | Eduardo Lima | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 22/07/2026 | — | Agendado para 24/07 |
+| 16/07/2026 | Otávio Nascimento | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 24/07/2026 | — | Agendado para 28/07 |
+| 21/07/2026 (-55 dias) | Carlos Freitas | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Recusado | 25/07/2026 (-51 dias) | Vai fazer pelo convênio | — |
 | 31/07/2026 | Regina Duarte | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 07/08/2026 | — | Agendado para 11/08 |
-| 31/07/2026 | Regina Teixeira | Dr. Paulo Andrade | Check-up cardiológico | Consulta + ECG + teste ergométrico | R$ 960 | Aprovado | 17/08/2026 | — | Agendado para 20/08 |
-| 31/07/2026 (-45 dias) | Cláudia Costa | Dra. Carolina Mendes | Pacote de consultas | Consulta + 2 retornos (acompanhamento) | R$ 380 | Recusado | 03/08/2026 (-42 dias) | Sem indicação no momento | — |
-| 05/08/2026 (-40 dias) | Eduardo Lima | Dr. Paulo Andrade | Check-up cardiológico | Consulta + ECG + teste ergométrico | R$ 960 | Sem retorno | 08/08/2026 (-37 dias) | Vai pensar / sem retorno | — |
-| 07/08/2026 | Paulo Reis | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 25/08/2026 | — | Agendado para 25/08 |
-| 11/08/2026 | Viviane Ribeiro | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 17/08/2026 | — | Agendado para 20/08 |
-| 13/08/2026 (-32 dias) | Fábio Machado | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Recusado | 20/08/2026 (-25 dias) | Fez em outro lugar | — |
-| 14/08/2026 | Renato Dias | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 27/08/2026 | — | Agendado para 27/08 |
-| 17/08/2026 | Fernanda Freitas | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 04/09/2026 | — | Agendado para 04/09 |
-| 19/08/2026 (-26 dias) | Beatriz Gomes | Dra. Renata Sousa | Avaliação endócrina | Avaliação endócrina + retorno | R$ 400 | Sem retorno | 23/08/2026 (-22 dias) | Vai pensar / sem retorno | — |
-| 20/08/2026 | Roberta Araújo | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 21/08/2026 | — | Agendado para 25/08 |
-| 21/08/2026 | Eduardo Lima | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Aprovado | 08/09/2026 | — | Agendado para 10/09 |
-| 25/08/2026 | Rafael Dias | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Aprovado | 04/09/2026 | — | Agendado para 04/09 |
-| 25/08/2026 (-20 dias) | Carlos Fernandes | Dra. Carolina Mendes | Pacote de consultas | Consulta + 2 retornos (acompanhamento) | R$ 380 | Recusado | 01/09/2026 (-13 dias) | Preço | — |
-| 29/08/2026 (-16 dias) | Patrícia Dias | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Sem retorno | 02/09/2026 (-12 dias) | Vai pensar / sem retorno | — |
+| 31/07/2026 (-45 dias) | Cláudia Costa | Dra. Carolina Mendes | Pacote de consultas | Consulta + 2 retornos (acompanhamento) | R$ 380 | Recusado | 04/08/2026 (-41 dias) | Sem indicação no momento | — |
+| 03/08/2026 | Helena Moreira | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Aprovado | 14/08/2026 | — | Agendado para 17/08 |
+| 05/08/2026 (-40 dias) | Eduardo Lima | Dr. Paulo Andrade | Check-up cardiológico | Consulta + ECG + teste ergométrico | R$ 960 | Sem retorno | 15/08/2026 (-30 dias) | Vai pensar / sem retorno | — |
+| 07/08/2026 | Regina Teixeira | Dr. Paulo Andrade | Check-up cardiológico | Consulta + ECG + teste ergométrico | R$ 960 | Aprovado | 18/08/2026 | — | Agendado para 20/08 |
+| 07/08/2026 | Sérgio Martins | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 21/08/2026 | — | Agendado para 24/08 |
+| 13/08/2026 | Roberta Araújo | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 24/08/2026 | — | Agendado para 25/08 |
+| 13/08/2026 (-32 dias) | Fábio Machado | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Recusado | 22/08/2026 (-23 dias) | Fez em outro lugar | — |
+| 14/08/2026 | Rafael Barros | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 31/08/2026 | — | Agendado para 03/09 |
+| 14/08/2026 | Rafael Dias | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Aprovado | 03/09/2026 | — | Agendado para 04/09 |
+| 17/08/2026 | Paulo Reis | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 24/08/2026 | — | Agendado para 25/08 |
+| 19/08/2026 (-26 dias) | Beatriz Gomes | Dra. Renata Sousa | Avaliação endócrina | Avaliação endócrina + retorno | R$ 400 | Sem retorno | 28/08/2026 (-17 dias) | Vai pensar / sem retorno | — |
+| 21/08/2026 | Fernanda Freitas | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 02/09/2026 | — | Agendado para 04/09 |
+| 24/08/2026 | Rodrigo Moreira | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 10/09/2026 | — | Agendado para 02/10 |
+| 25/08/2026 (-20 dias) | Carlos Fernandes | Dra. Carolina Mendes | Pacote de consultas | Consulta + 2 retornos (acompanhamento) | R$ 380 | Recusado | 28/08/2026 (-17 dias) | Preço | — |
+| 28/08/2026 | Leandro Oliveira | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 11/09/2026 | — | Agendado para 22/09 |
+| 28/08/2026 | Gisele Ribeiro | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 10/09/2026 | — | Agendado para 05/10 |
+| 29/08/2026 (-16 dias) | Patrícia Dias | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Sem retorno | 05/09/2026 (-9 dias) | Vai pensar / sem retorno | — |
+| 31/08/2026 | Lucas Lopes | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Aprovado | 10/09/2026 | — | Agendado para 01/10 |
+| 01/09/2026 | Paulo Reis | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 09/09/2026 | — | Agendado para 17/09 |
 | 02/09/2026 (-12 dias) | Mariana Reis | Dr. Paulo Andrade | Exame cardiológico | MAPA + Holter | R$ 650 | Em análise | — | — | — |
+| 04/09/2026 | Wagner Lima | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 10/09/2026 | — | Agendado para 22/09 |
 | 05/09/2026 (-9 dias) | Beatriz Monteiro | Dra. Renata Sousa | Avaliação endócrina | Avaliação endócrina + retorno | R$ 400 | Em análise | — | — | — |
 | 08/09/2026 (-6 dias) | Rafael Dias | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Em análise | — | — | — |
 | 11/09/2026 (-3 dias) | Roberta Lima | Dr. Paulo Andrade | Check-up cardiológico | Consulta + ECG + teste ergométrico | R$ 960 | Apresentado | — | — | — |
 | 13/09/2026 (-1 dia) | Wagner Costa | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Apresentado | — | — | — |
 | 14/09/2026 (hoje) | Fábio Correia | Dr. Paulo Andrade | Exame cardiológico | MAPA + Holter | R$ 650 | Apresentado | — | — | — |
-| 15/09/2026 | Ana Costa | Dr. Paulo Andrade | Exame cardiológico | Holter | R$ 350 | Aprovado | 11/09/2026 | — | Agendado para 21/09 |
-| 18/09/2026 | Viviane Ribeiro | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Aprovado | 11/09/2026 | — | Agendado para 05/10 |
-| 21/09/2026 | Wagner Costa | Dr. Paulo Andrade | Exame cardiológico | MAPA | R$ 300 | Aprovado | 11/09/2026 | — | Agendado para 01/10 |
-| 30/09/2026 | Gisele Ribeiro | Dr. Paulo Andrade | Exame cardiológico | Teste ergométrico | R$ 450 | Aprovado | 11/09/2026 | — | Agendado para 05/10 |
 
 | Por tipo (15) | Orçamentos | Aprovados | Recusados / sem retorno | Taxa de aprovação | Valor aprovado | Em aberto |
 |---|---|---|---|---|---|---|
 | Check-up cardiológico | 3 | 1 | 1 | 50 % | R$ 960 | R$ 960 |
-| Exame cardiológico | 28 | 20 | 4 | 83 % | R$ 7.550 | R$ 2.100 |
+| Exame cardiológico | 29 | 21 | 4 | 84 % | R$ 8.000 | R$ 2.100 |
 | Avaliação endócrina | 2 | 0 | 1 | 0 % | R$ 0 | R$ 400 |
 | Pacote de consultas | 2 | 0 | 2 | 0 % | R$ 0 | R$ 0 |
 
@@ -509,7 +518,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ## 9. Cartão e taxas (16 · Conciliação, Config = Agosto)
 
-- **Agosto**: vendas no cartão e Pix R$ 31.820 · taxas **R$ 484,12** (1,52 %) · líquido R$ 31.335,88 · ainda vai cair R$ 10.898,71 · a conferir R$ 4.047,84. "As taxas do mês equivalem a 1.3 consultas particulares. Lance este total no caixa (09) como saída 'Taxas de cartão' no fim do mês."
+- **Agosto**: vendas no cartão e Pix R$ 31.820 · taxas **R$ 484,12** (1,52 %) · líquido R$ 31.335,88 · ainda vai cair R$ 12.388,26 · a conferir R$ 3.865,25. "As taxas do mês equivalem a 1.3 consultas particulares. Lance este total no caixa (09) como saída 'Taxas de cartão' no fim do mês."
 | Tipo (16, agosto) | Vendas | Bruto | Taxas | Taxa média | Líquido | % do bruto |
 |---|---|---|---|---|---|---|
 | Pix | 37 | R$ 13.380 | R$ 0,00 | 0,00 % | R$ 13.380 | 42 % |
@@ -517,85 +526,85 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Cartão de crédito à vista | 16 | R$ 5.840 | R$ 186,88 | 3,20 % | R$ 5.653 | 18 % |
 | Cartão de crédito parcelado | 12 | R$ 4.510 | R$ 175,89 | 3,90 % | R$ 4.334 | 14 % |
 
-- Taxas do exemplo (Config): Pix 0 %, débito 1,5 % (D+1), crédito à vista 3,2 % (D+30), crédito parcelado 3,9 % (parcelas de 30 em 30 dias); sem antecipação. Vendas na aba: 220 (01/07 a 11/09). Taxas de julho (saída do caixa em 31/07): R$ 641,77; de agosto (31/08): R$ 484,12.
+- Taxas do exemplo (Config): Pix 0 %, débito 1,5 % (D+1), crédito à vista 3,2 % (D+30), crédito parcelado 3,9 % (parcelas de 30 em 30 dias); sem antecipação. Vendas na aba: 298 (01/06 a 11/09). Taxas de julho (saída do caixa em 31/07): R$ 641,77; de agosto (31/08): R$ 484,12.
 
 ## 10. Metas do trimestre (19), reserva (12) e provisão (10)
 
-- 3º trimestre de 2026 (01/07 a 30/09): semana **11 de 13**, 82 % decorrido. Resultados-chave: 9 · atingidos 0 · em risco 6 · progresso médio 35 %.
+- 3º trimestre de 2026 (01/07 a 30/09): semana **11 de 13**, 82 % decorrido. Resultados-chave: 9 · atingidos 1 · em risco 6 · progresso médio 45 %.
 | Objetivo | Resultado-chave | Dono | Unid. | Partida (30/06) | Meta | Atual (14/09) | Progresso | Semáforo | Sentido | S1…S11 (sextas 03/07 → 11/09; S11 = atual) |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Agenda cheia, sem faltas | Ocupação da agenda nas últimas 4 semanas (%) | Bruna | % | 75,2 | 80,0 | 74,5 | 0 % | Em risco | Maior é melhor | 75,2 · 74,5 · 71,7 · 72,6 · 71,7 · 70,8 · 72,0 · 68,1 · 70,3 · 74,5 · 74,5 |
 |  | Taxa de falta nas últimas 4 semanas (%) | Bruna | % | 6,9 | 5,0 | 7,1 | 0 % | Em risco | Menor é melhor | 6,9 · 7,4 · 8,7 · 7,9 · 9,1 · 9,1 · 8,6 · 9,4 · 8,8 · 7,4 · 7,1 |
-|  | Pacientes na lista de retorno sem agendamento | Bruna | pacientes | 0,0 | 8,0 | 7,0 | 88 % | No ritmo | Menor é melhor | 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 1,0 · 1,0 · 2,0 · 4,0 · 7,0 |
+|  | Pacientes na lista de retorno sem agendamento | Bruna | pacientes | 0,0 | 8,0 | 8,0 | 100 % | Atingido | Menor é melhor | 0,0 · 0,0 · 0,0 · 0,0 · 1,0 · 1,0 · 2,0 · 2,0 · 3,0 · 5,0 · 8,0 |
 | Convênio sob controle | Glosa nos lotes pagos no ano (%) | Paulo | % | 6,1 | 4,0 | 5,5 | 29 % | Em risco | Menor é melhor | 6,1 · 5,6 · 5,6 · 5,8 · 5,8 · 5,8 · 5,8 · 5,8 · 5,8 · 5,8 · 5,5 |
-|  | Prazo real médio de pagamento dos lotes (dias) | Paulo | dias | 46,7 | 40,0 | 44,0 | 40 % | Em risco | Menor é melhor | 0,0 · 46,5 · 46,5 · 46,0 · 46,0 · 45,8 · 45,8 · 45,7 · 45,7 · 45,7 · 44,0 |
+|  | Prazo real médio de pagamento dos lotes (dias) | Paulo | dias | 46,7 | 40,0 | 44,0 | 40 % | Em risco | Menor é melhor | — · 46,5 · 46,5 · 46,0 · 46,0 · 45,8 · 45,8 · 45,7 · 45,7 · 45,7 · 44,0 |
 |  | Glosa recuperada por recurso no trimestre (R$) | Paulo | R$ | 0,0 | 1.000,0 | 200,0 | 20 % | Em risco | Maior é melhor | 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 200,0 |
-| Caixa previsível | Inadimplência a prazo: vencido ÷ (pago + vencido) (%) | Carolina | % | 9,5 | 8,0 | 10,4 | 0 % | Em risco | Menor é melhor | 11,0 · 9,0 · 10,6 · 10,0 · 9,6 · 10,5 · 9,2 · 9,4 · 10,9 · 9,7 · 10,4 |
+| Caixa previsível | Inadimplência a prazo: vencido ÷ (pago + vencido) (%) | Carolina | % | 10,9 | 8,0 | 9,4 | 52 % | Em risco | Menor é melhor | 10,6 · 9,8 · 10,9 · 10,7 · 10,0 · 10,9 · 9,5 · 10,8 · 10,1 · 8,8 · 9,4 |
 |  | Reserva guardada em conta separada (R$) | Carolina | R$ | 8.000,0 | 17.000,0 | 14.000,0 | 67 % | Atenção | Maior é melhor | 8.000,0 · 8.000,0 · 8.000,0 · 8.000,0 · 11.000,0 · 11.000,0 · 11.000,0 · 11.000,0 · 11.000,0 · 14.000,0 · 14.000,0 |
-|  | Conta de provisão de impostos, 13º e férias (R$) | Carolina | R$ | 8.200,0 | 21.937,0 | 17.500,0 | 68 % | Atenção | Maior é melhor | 8.200,0 · 8.200,0 · 8.200,0 · 8.200,0 · 11.300,0 · 11.300,0 · 11.300,0 · 11.300,0 · 11.300,0 · 14.400,0 · 17.500,0 |
+|  | Conta de provisão de impostos, 13º e férias (R$) | Carolina | R$ | 8.200,0 | 17.527,0 | 17.500,0 | 100 % | No ritmo | Maior é melhor | 8.200,0 · 8.200,0 · 8.200,0 · 8.200,0 · 11.300,0 · 11.300,0 · 11.300,0 · 11.300,0 · 11.300,0 · 14.400,0 · 17.500,0 |
 
-- **12 Reserva**: meta 3 meses de custo fixo × custo fixo médio R$ 28.000 (jun/jul/ago, com pró-labore) = **R$ 84.000**; reserva hoje **R$ 14.000**; falta R$ 70.000; cobre **0,5 meses**; semáforo "Vermelho: menos de 1 mês de custo fixo guardado"; com aporte de R$ 3.000/mês a meta chega em **Setembro/2028**. Saldo em caixa R$ 52.251 − compromissos não pagos R$ 25.997 = caixa livre R$ 26.254.
+- **12 Reserva**: meta 3 meses de custo fixo + pró-labore × custo fixo + pró-labore médio R$ 29.732 (jun/jul/ago, como a 09 mostra) = **R$ 89.197**; reserva hoje **R$ 14.000**; falta R$ 75.197; cobre **0,5 meses**; semáforo "Vermelho: menos de 1 mês de custo fixo + pró-labore guardado"; com aporte de R$ 3.000/mês a meta chega em **Novembro/2028**. Saldo em caixa R$ 52.758 − compromissos não pagos R$ 25.922 = caixa livre R$ 26.836.
 | Meta de caixa do trimestre (12) | Alvo | Atual | Progresso | Prazo | Situação |
 |---|---|---|---|---|---|
-| Reserva com 1 mês de custo fixo | R$ 28.000 | R$ 14.000 | 50 % | 31/12/2026 | Em andamento |
-| Receber R$ 130.000 no trimestre | R$ 130.000 | R$ 125.007 | 96 % | 30/09/2026 | Em andamento |
-| Conta de provisão de impostos com o saldo da planilha 10 | R$ 21.937 | R$ 17.500 | 80 % | 30/09/2026 | Em andamento |
+| Reserva com 1 mês de custo fixo + pró-labore | R$ 28.000 | R$ 14.000 | 50 % | 31/12/2026 | Em andamento |
+| Receber R$ 130.000 no trimestre | R$ 130.000 | R$ 125.032 | 96 % | 30/09/2026 | Em andamento |
+| Conta de provisão de impostos com o saldo de agosto (planilha 10) | R$ 17.527 | R$ 17.500 | 100 % | 30/09/2026 | Em andamento |
 
-- **10 Provisão (Config = Setembro, alíquota 11 %)**: 13º dos sócios 750 + 750 (reserva de dezembro decidida pelos sócios) e da recepcionista 198,00 (com FGTS), férias da recepcionista 264,00 por mês; entradas de setembro até 11/09 R$ 21.570; a separar no mês R$ 4.335; **saldo provisionado ao fim de setembro R$ 21.937**; compromisso do mês seguinte R$ 2.373; situação Coberto.
+- **10 Provisão (Config = Setembro, alíquota 11 %)**: 13º dos sócios 750 + 750 (reserva de dezembro decidida pelos sócios) e da recepcionista 198,00 (com FGTS), férias da recepcionista 264,00 por mês; entradas de setembro até 11/09 R$ 21.920; a separar no mês R$ 4.373; **saldo provisionado ao fim de setembro R$ 21.900**; compromisso do mês seguinte R$ 2.411; situação Coberto.
 | Mês (10) | Entradas (sem Outras) | Provisão 11 % | Total a separar | Guia paga no mês | Saldo provisionado |
 |---|---|---|---|---|---|
 | Janeiro | R$ 33.270 | R$ 3.660 | R$ 5.622 | R$ 3.630 | R$ 1.992 |
 | Fevereiro | R$ 24.795 | R$ 2.727 | R$ 4.689 | R$ 3.660 | R$ 3.021 |
-| Março | R$ 47.880 | R$ 5.267 | R$ 7.229 | R$ 2.727 | R$ 7.523 |
-| Abril | R$ 38.970 | R$ 4.287 | R$ 6.249 | R$ 5.267 | R$ 8.505 |
-| Maio | R$ 44.760 | R$ 4.924 | R$ 6.886 | R$ 4.287 | R$ 11.103 |
-| Junho | R$ 43.855 | R$ 4.824 | R$ 6.786 | R$ 4.924 | R$ 12.965 |
-| Julho | R$ 53.101 | R$ 5.841 | R$ 7.803 | R$ 4.824 | R$ 15.944 |
-| Agosto | R$ 50.336 | R$ 5.537 | R$ 7.499 | R$ 5.841 | R$ 17.602 |
-| Setembro | R$ 21.570 | R$ 2.373 | R$ 4.335 | R$ 0 | R$ 21.937 |
+| Março | R$ 48.330 | R$ 5.316 | R$ 7.278 | R$ 2.727 | R$ 7.572 |
+| Abril | R$ 38.935 | R$ 4.283 | R$ 6.245 | R$ 5.316 | R$ 8.501 |
+| Maio | R$ 44.745 | R$ 4.922 | R$ 6.884 | R$ 4.283 | R$ 11.102 |
+| Junho | R$ 44.160 | R$ 4.858 | R$ 6.820 | R$ 4.922 | R$ 13.000 |
+| Julho | R$ 53.461 | R$ 5.881 | R$ 7.843 | R$ 4.858 | R$ 15.985 |
+| Agosto | R$ 49.651 | R$ 5.462 | R$ 7.424 | R$ 5.881 | R$ 17.527 |
+| Setembro | R$ 21.920 | R$ 2.411 | R$ 4.373 | R$ 0 | R$ 21.900 |
 
 
 ## 11. Resumo do mês (20): agosto × julho de 2026
 
 | Indicador | Agosto | Julho | Variação | Meta | Vs. meta | Situação |
 |---|---|---|---|---|---|---|
-| Entrou no mês (recebimentos) | R$ 50.336 | R$ 53.101 | -5,2% | R$ 46.000 | +9,4% | No alvo |
-| Saídas do mês (custos, variáveis, pró-labore e impostos provisionados) | R$ 40.696 | R$ 40.503 | +0,5% | R$ 40.000 | +1,7% | Acima da meta |
-| Resultado do mês | R$ 9.640 | R$ 12.598 | -23,5% | R$ 5.000 | +92,8% | No alvo |
-| Margem do mês | 19,2% | 23,7% | -4,5 p.p. | 12,0% | +7,2 p.p. | No alvo |
+| Entrou no mês (recebimentos) | R$ 49.651 | R$ 53.461 | -7,1% | R$ 46.000 | +7,9% | No alvo |
+| Saídas do mês (custos, variáveis, pró-labore, provisões e impostos) | R$ 42.583 | R$ 42.505 | +0,2% | R$ 44.000 | -3,2% | No alvo |
+| Resultado do mês | R$ 7.068 | R$ 10.956 | -35,5% | R$ 5.000 | +41,4% | No alvo |
+| Margem do mês | 14,2% | 20,5% | -6,3 p.p. | 12,0% | +2,2 p.p. | No alvo |
 | Ocupação da agenda | 70,4% | 71,7% | -1,3 p.p. | 75,0% | -4,6 p.p. | Abaixo da meta |
 | Taxa de falta | 8,4% | 8,8% | -0,4 p.p. | 6,0% | +2,4 p.p. | Acima da meta |
 | Horas atendidas no mês | 118,3 h | 129,0 h | -8,3% | 140,0 h | -15,5% | Abaixo da meta |
 | Convênio a receber (lotes enviados) | R$ 12.077 | R$ 13.553 | -10,9% | — | — | informativo |
 | Glosa dos lotes pagos no mês | 5,6% | 4,3% | +1,3 p.p. | 4,0% | +1,6 p.p. | Acima da meta |
-| Vencido (parcelas a prazo) | R$ 4.040 | R$ 3.380 | +19,5% | R$ 4.000 | +1,0% | Acima da meta |
-| Inadimplência a prazo (vencido ÷ (pago + vencido)) | 9,8% | 9,6% | +0,2 p.p. | 8,0% | +1,8 p.p. | Acima da meta |
-| Orçamentos em aberto (valor) | R$ 1.730 | R$ 2.590 | -33,2% | R$ 5.000 | -65,4% | Abaixo da meta |
+| Vencido (parcelas a prazo) | R$ 4.005 | R$ 3.290 | +21,7% | R$ 4.000 | +0,1% | Acima da meta |
+| Inadimplência a prazo (vencido ÷ (pago + vencido)) | 10,5% | 10,0% | +0,5 p.p. | 8,0% | +2,5 p.p. | Acima da meta |
+| Orçamentos em aberto (valor) | R$ 2.700 | R$ 830 | +225,3% | — | — | informativo |
 
 (Valores como o Excel em português mostra; os separadores seguem o idioma do Excel.)
-- Destaques automáticos: • Maior melhora contra Julho: Taxa de falta (-0,4 p.p.), • Maior piora contra Julho: Margem do mês (-4,5 p.p.), • Mais longe da meta: Ocupação da agenda (-4,6 p.p. da meta. abaixo da meta), • Indicadores no alvo: 3 de 11 com meta,
-- Observações da clínica (célula amarela do exemplo): "Agosto fechou com a agenda da Dra. Renata mais cheia (dois turnos por semana desde julho) e o lote de julho da Saúde Total pago com glosa em recurso; o lote de junho da Vida Care ainda não caiu e entrou na cobrança ao convênio; as faltas de segunda de manhã continuam acima da média e a recepção começou a confirmação de véspera por mensagem."
+- Destaques automáticos: • Maior melhora contra Julho: Orçamentos em aberto (valor) (+225,3%), • Maior piora contra Julho: Margem do mês (-6,3 p.p.), • Mais longe da meta: Ocupação da agenda (-4,6 p.p. da meta. abaixo da meta), • Indicadores no alvo: 4 de 10 com meta,
+- Observações da clínica (célula amarela do exemplo): "Agosto fechou com a agenda da Dra. Renata mais cheia (dois turnos por semana desde julho) e o lote de junho da Saúde Total pago com glosa, parte dela em recurso; o lote de junho da Vida Care tinha previsão para 04/09 e ainda estava dentro do prazo no fechamento de agosto — em setembro venceu e entrou na cobrança ao convênio; as faltas de segunda de manhã continuam acima da média e a recepção começou a confirmação de véspera por mensagem."
 
-## 12. Histórico mensal (17 · Histórico; jan–ago = Painel mensal da 09, agenda desde julho, convênios/parcelas no fim de cada mês; setembro = Dados)
+## 12. Histórico mensal (17 · Histórico; jan–ago = Painel mensal da 09, agenda desde junho, convênios/parcelas no fim de cada mês; setembro = Dados)
 
 | Mês | Ocupação | Horas atendidas | Vazias | Taxa de falta | Lista de retorno | Entrou | Saiu | Sobrou | Convênio a receber | Atrasado | Glosa no mês | Vencido | Inadimpl. | Orçamentos abertos | Valor |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Janeiro | — | — | — | — | — | R$ 33.270 | R$ 36.201 | −R$ 2.931 | R$ 8.740 | R$ 0 | 5,7 % | R$ 0 | 0,0 % | — | — |
 | Fevereiro | — | — | — | — | — | R$ 24.795 | R$ 37.090 | −R$ 12.295 | R$ 8.350 | R$ 0 | 5,8 % | R$ 200 | 9,9 % | — | — |
-| Março | — | — | — | — | — | R$ 47.880 | R$ 38.415 | R$ 9.465 | R$ 7.836 | R$ 0 | 3,4 % | R$ 390 | 6,3 % | — | — |
-| Abril | — | — | — | — | — | R$ 39.590 | R$ 41.013 | −R$ 1.423 | R$ 13.011 | R$ 0 | 7,7 % | R$ 790 | 7,3 % | — | — |
-| Maio | — | — | — | — | — | R$ 44.760 | R$ 39.976 | R$ 4.784 | R$ 9.973 | R$ 0 | 4,9 % | R$ 2.120 | 11,5 % | — | — |
-| Junho | — | — | — | — | — | R$ 43.855 | R$ 41.534 | R$ 2.321 | R$ 12.239 | R$ 0 | 9,3 % | R$ 2.610 | 9,5 % | 0 | R$ 0 |
-| Julho | 72 % | 129,0 | 51,0 | 8,8 % | 0 | R$ 53.101 | R$ 43.427 | R$ 9.674 | R$ 13.553 | R$ 0 | 4,3 % | R$ 3.380 | 9,6 % | 5 | R$ 2.590 |
-| Agosto | 70 % | 118,3 | 49,7 | 8,4 % | 3 | R$ 50.336 | R$ 41.620 | R$ 8.716 | R$ 12.077 | R$ 0 | 5,6 % | R$ 4.040 | 9,8 % | 5 | R$ 1.730 |
-| Setembro | 81 % | 51,8 | 12,2 | 5,3 % | 7 | R$ 21.570 | R$ 13.630 | R$ 7.940 | R$ 15.758 | R$ 1.727 | 2,9 % | R$ 4.550 | 10,4 % | 6 | R$ 3.460 |
+| Março | — | — | — | — | — | R$ 48.330 | R$ 38.415 | R$ 9.915 | R$ 7.836 | R$ 0 | 3,4 % | R$ 390 | 6,3 % | — | — |
+| Abril | — | — | — | — | — | R$ 39.555 | R$ 41.062 | −R$ 1.507 | R$ 13.011 | R$ 0 | 7,7 % | R$ 790 | 7,3 % | — | — |
+| Maio | — | — | — | — | — | R$ 44.745 | R$ 39.972 | R$ 4.773 | R$ 9.973 | R$ 0 | 4,9 % | R$ 2.140 | 11,9 % | — | — |
+| Junho | 74 % | 123,7 | 44,3 | 8,0 % | 0 | R$ 44.160 | R$ 41.532 | R$ 2.628 | R$ 12.239 | R$ 0 | 9,3 % | R$ 2.900 | 10,9 % | 2 | R$ 650 |
+| Julho | 72 % | 129,0 | 51,0 | 8,8 % | 1 | R$ 53.461 | R$ 43.567 | R$ 9.894 | R$ 13.553 | R$ 0 | 4,3 % | R$ 3.290 | 10,0 % | 2 | R$ 830 |
+| Agosto | 70 % | 118,3 | 49,7 | 8,4 % | 4 | R$ 49.651 | R$ 41.660 | R$ 7.991 | R$ 12.077 | R$ 0 | 5,6 % | R$ 4.005 | 10,5 % | 7 | R$ 2.700 |
+| Setembro | 81 % | 51,8 | 12,2 | 5,3 % | 8 | R$ 21.920 | R$ 13.630 | R$ 8.290 | R$ 15.758 | R$ 1.727 | 2,9 % | R$ 3.775 | 9,4 % | 6 | R$ 3.460 |
 
-- Agenda: a planilha 01 começou em julho (antes fica em branco). Orçamentos: o funil (15) começou em junho. Glosa no mês = dos lotes pagos naquele mês; no Dados (setembro), o acumulado do ano.
+- Agenda: a planilha 01 começou em junho (antes fica em branco). Orçamentos: o funil (15) começou em junho. Glosa no mês = dos lotes pagos naquele mês; no Dados (setembro), o acumulado do ano.
 
 ## 13. Rotina (03) e checklist do dia (04)
 
-- **03 Rotina**: 9 rotinas (4 de segunda = 12 min, com a recepção; 5 de sexta = 18 min; **30 min/semana**); registradas S29 a S36 (20/07 a 07/09/2026); semana atual S37 · 14/09; aderência nas últimas 4 semanas **83 %**; rotina mais pulada: "Ligar ou mandar mensagem para a lista de retorno (02)".
-- **04 Checklist do dia**: dias registrados 52 (dias úteis de 01/07 a 11/09) · abertura completa nos últimos 20 dias 85 % · fechamento completo 55 % · dias com pendência 23 · itens pendentes no total 31. Item mais esquecido no fechamento: "Caixa do dia fechado e conferido (Pix, cartão, dinheiro)".
+- **03 Rotina**: 8 rotinas (3 de segunda = 12 min, com a recepção; 5 de sexta = 18 min; **30 min/semana**); registradas S29 a S36 (20/07 a 07/09/2026); semana atual S37 · 14/09; aderência nas últimas 4 semanas **84 %**; rotina mais pulada: "Conferir os fechamentos da semana no Caixa (09)".
+- **04 Checklist do dia**: dias registrados 73 (dias úteis de 01/06 a 11/09) · abertura completa nos últimos 20 dias 80 % · fechamento completo 55 % · dias com pendência 32 · itens pendentes no total 46. Item mais esquecido no fechamento: "Fechamento do dia lançado no Caixa (09)".
 
 ## 14. Nomes de prompt citados nas planilhas (a biblioteca de prompts deve usar exatamente estes)
 

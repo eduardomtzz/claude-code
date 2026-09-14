@@ -126,11 +126,11 @@ Olá, [Nome]. Lembrete da [Clínica]: a parcela [n de N] do [Procedimento], de [
 ```
 
 ### 09 · Atraso de 1 dia: lembrete gentil por WhatsApp
-**Quando:** no dia seguinte ao vencimento. Degrau 1 da régua: confirmar se o Pix ou o boleto chegou
-e reenviar, se preciso. Presume esquecimento.
+**Quando:** no dia seguinte ao vencimento. Degrau 1 da régua: confirmar se a chave Pix ou o link de
+pagamento chegou e reenviar, se preciso. Presume esquecimento.
 
 ```
-Olá, [Nome], tudo bem? A parcela [n de N] do [Procedimento], de [Valor], venceu ontem ([Data]) e ainda não identificamos o pagamento. Pode ser que a chave ou o link não tenha chegado: reenvio aqui. Pix: [Chave Pix] · [Link ou boleto]. Se já pagou, me avisa que eu confiro por aqui.
+Olá, [Nome], tudo bem? A parcela [n de N] do [Procedimento], de [Valor], venceu ontem ([Data]) e ainda não identificamos o pagamento. Pode ser que a chave ou o link não tenha chegado: reenvio aqui. Pix: [Chave Pix] · [Link de pagamento] (ou cartão na recepção). Se já pagou, me avisa que eu confiro por aqui.
 ```
 
 ### 10 · Atraso de 7 dias: mensagem da recepção com nova data (WhatsApp)
@@ -257,7 +257,7 @@ Quando precisar marcar de novo, é só chamar.
 | 7 dias | 10 | WhatsApp (recepção) | 2 · mensagem da recepção | Degrau 2, nova data oferecida |
 | 15 dias | 11 | Ligação da recepção + mensagem | 3 · ligação com demonstrativo | Degrau 3, opção proposta |
 | 30 dias | 12 | Conversa do médico ou da administração + e-mail | 4 · plano por escrito | Degrau 4, plano combinado |
-| Pagamento | 13 ou 14 | WhatsApp ou e-mail | — | Baixa na 14, entrada na 09 e nota fiscal |
+| Pagamento | 13 ou 14 | WhatsApp ou e-mail | — | Baixa na 14 e entrada no Caixa (09) pela recepção, com nota fiscal |
 | Encerramento | 15 | E-mail | — | Cadastro e prazo de guarda |
 
 Antes de qualquer mensagem: confira data e hora na Agenda (01) ou valor e vencimento na aba

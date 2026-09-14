@@ -75,9 +75,10 @@ for i,r in enumerate(rows):
 for o,(obj,krs) in enumerate(ex):
     for k,(kr,dono,un,ini,meta,atual,sent,obs,serie) in enumerate(krs):
         r=5+o*NK+k; assert serie[-1]==atual,(kr,serie[-1],atual)
-        for s_,v in enumerate(serie): w.cell(row=r,column=3+s_,value=v)
+        for s_,v in enumerate(serie): w.cell(row=r,column=3+s_,value="—" if v is None else v)
 w.conditional_formatting.add("C4:O4", FormulaRule(formula=['COLUMN()-2=Config!$B$9'], fill=fill(SOL), font=F(color=UVA,size=10,bold=True)))
-w.cell(row=RL+2,column=1,value="A coluna da semana atual fica destacada. Valores em % são digitados como 16,8 (não 0,168). No exemplo, S1 a S11 são as sextas de 03/07 a 11/09/2026.").font=F(size=9,color=LILAS)
+w.cell(row=RL+2,column=1,value="A coluna da semana atual fica destacada. Valores em % são digitados como 16,8 (não 0,168). Semana sem nada a medir: escreva \"—\" (não escreva 0, que puxa a série para baixo como se o resultado tivesse desabado). No exemplo, S1 a S11 são as sextas de 03/07 a 11/09/2026, e o prazo real dos lotes fica \"—\" na S1 porque nenhum lote foi pago naquela semana do trimestre.").font=F(size=9,color=LILAS)
+w.merge_cells(start_row=RL+2,start_column=1,end_row=RL+2,end_column=15); w.cell(row=RL+2,column=1).alignment=Alignment(wrap_text=True,vertical="top"); w.row_dimensions[RL+2].height=30
 widths(w,[44,10]+[7]*13); w.freeze_panes="C5"; w.sheet_view.showGridLines=False
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
@@ -122,8 +123,8 @@ como_usar(wb,"Metas do Trimestre",[
  ("O que esta planilha faz","Você define até 3 objetivos da clínica com até 3 resultados-chave cada (ponto de partida, meta, valor atual). Ela calcula o progresso, compara com o tempo já decorrido do trimestre e acende o semáforo: atingido, no ritmo, atenção ou em risco."),
  ("Passo 1","Em Config, preencha o trimestre, as datas de início e fim, deixe a data de referência em =HOJE() e liste as pessoas da clínica (de cima para baixo, sem pular linha)."),
  ("Passo 2","Em Metas, escreva cada objetivo e seus resultados-chave. Ponto de partida é o valor no dia 1; meta é onde quer chegar; valor atual é o número de hoje. Diga se maior ou menor é melhor. No exemplo, cada resultado-chave é um número de outra planilha do kit: ocupação e faltas (01, 02), glosa e atrasos (13), inadimplência, reserva e provisão (14, 12, 10)."),
- ("Passo 3","Toda sexta, atualize o valor atual (os números vêm dos painéis das planilhas de origem ou do Painel da clínica, 17) e copie para a coluna da semana em Semanas. O Painel mostra o resumo por objetivo e a lista completa com semáforo. No exemplo, S1 a S11 são as sextas de 03/07 a 11/09/2026."),
- ("Rotina","Sexta-feira, 10 minutos: atualizar os valores. Primeira segunda do mês: reunião de 20 minutos entre os sócios olhando o Painel."),
+ ("Passo 3","Toda sexta, atualize o valor atual (os números vêm do Painel da clínica, 17, ou dos painéis das planilhas de origem) e copie para a coluna da semana em Semanas. Semana sem número: escreva \"—\", não 0. O Painel mostra o resumo por objetivo e a lista completa com semáforo. No exemplo, S1 a S11 são as sextas de 03/07 a 11/09/2026."),
+ ("Rotina","Esta é uma planilha MENSAL. Na sexta, os valores já estão no Painel da clínica (17), que você atualiza em 3 minutos: copiar o número de cada resultado-chave para a coluna da semana em Semanas leva menos de um minuto e cabe nessa mesma parada. A conversa sobre as metas é mensal: primeira segunda do mês, 20 minutos entre os sócios olhando o Painel."),
  ("Com a IA","Copie a tabela \"Todos os resultados-chave\" e use o prompt \"Painel 05 · Meta realista para o trimestre\" ou \"Painel 06 · Meta × realizado: explicar o desvio\" da biblioteca do kit. No fim do trimestre, o modelo de apresentação \"Resultado do mês para os sócios\"."),
 ])
 proteger(wb); salvar(wb,"19-metas-do-trimestre.xlsx","Metas do Trimestre · Kit de Gestão para Médicos")

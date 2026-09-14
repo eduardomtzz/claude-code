@@ -16,13 +16,13 @@ cfg["A4"]="Nome da clínica"; cfg["B4"]=f"{dados.CLINICA} (exemplo fictício)"
 cfg["A5"]="Mês de referência"; cfg["B5"]="Setembro de 2026"
 cfg["A6"]="Data de referência"; cfg["B6"]="=TODAY()"
 cfg["A7"]="Margem mínima sobre o preço (%)"; cfg["B7"]=dados.MARGEM
-cfg["A8"]="Impostos e taxas sobre o que entra (%)"; cfg["B8"]=dados.ALIQ
+cfg["A8"]="Impostos sobre o que entra (%)"; cfg["B8"]=dados.ALIQ
 cfg["A9"]="Arredondar a hora mínima para múltiplos de (R$)"; cfg["B9"]=5
 cfg["A10"]="Duração de uma consulta (minutos), para o custo do horário vazio"; cfg["B10"]=30
 for r in range(4,11): rotulo(cfg.cell(row=r,column=1))
 inp(cfg["B4"]); inp(cfg["B5"]); calc(cfg["B6"],DATA); inp(cfg["B7"],PCT,center=True); inp(cfg["B8"],PCT,center=True); inp(cfg["B9"],BRL0,center=True); inp(cfg["B10"],"0",center=True)
 cfg["C7"]="Quanto do preço deve sobrar depois de pagar o custo da clínica. 30 % é um ponto de partida; ajuste ao seu mercado."
-cfg["C8"]="Percentual que sai de cada real recebido (impostos da PJ médica e taxas). No exemplo, 11 %: alíquota efetiva combinada com o contador (Simples, anexo III ou V, simplificado). Confira a sua com o contador."
+cfg["C8"]="Percentual de imposto que sai de cada real recebido pela PJ médica. No exemplo, 11 %: alíquota efetiva combinada com o contador (Simples, anexo III ou V, simplificado). Confira a sua com o contador. Só imposto: a taxa da maquininha NÃO entra aqui (ela é despesa variável, conciliada na 16 e lançada no caixa 09 e no resultado 18), e o convênio, que não passa na maquininha, pagaria a taxa sem dever."
 cfg["C9"]="Só para o número ficar redondo na tabela de preços."
 for r in (7,8,9): nota(cfg.cell(row=r,column=3))
 cfg["A12"]="Custo da hora de atendimento = (custos fixos + pró-labore dos sócios) ÷ horas de atendimento planejadas no mês. Hora mínima = custo-hora ÷ (1 − margem − impostos): a margem é sobre o preço, não sobre o custo."; nota(cfg["A12"])
@@ -41,7 +41,7 @@ widths(cfx,(40,18,60)); cfx.freeze_panes="A5"; cfx.sheet_view.showGridLines=Fals
 # ---------- Equipe ----------
 eq=wb.create_sheet("Equipe")
 titulo(eq,"Equipe, pró-labore e horas de atendimento","Uma linha por pessoa. Horas de atendimento: as horas de agenda planejadas no mês (turnos × semanas). Quem é pago por repasse não entra no custo-hora.",merge_to="K")
-hdr(eq,4,["Pessoa","Papel","Remuneração","Valor mensal (R$)","Já está nos custos fixos?","Horas de atendimento no mês","Entra no custo-hora?","Custo direto por hora","Custo-hora completo","Hora mínima a cobrar"],height=40)
+hdr(eq,4,["Pessoa","Papel","Remuneração","Valor mensal (R$)","Já está nos custos fixos?","Horas de atendimento planejadas no mês","Entra no custo-hora?","Custo direto por hora","Custo-hora completo","Hora mínima a cobrar"],height=40)
 IND_H="Painel!$B$20"; DIV="(1-Config!$B$7-Config!$B$8)"
 for r in range(P0,PN+1):
     inp(eq.cell(row=r,column=1)); inp(eq.cell(row=r,column=2)); inp(eq.cell(row=r,column=3),center=True); inp(eq.cell(row=r,column=4),BRL,center=True); inp(eq.cell(row=r,column=5),center=True)
@@ -52,32 +52,34 @@ for r in range(P0,PN+1):
 dv=lista('"Sim,Não"'); dv.add(f"E{P0}:E{PN}"); dv.add(f"G{P0}:G{PN}"); eq.add_data_validation(dv)
 dvr=lista('"Pró-labore,Salário,Repasse"'); dvr.add(f"C{P0}:C{PN}"); eq.add_data_validation(dvr)
 eq.cell(row=PN+2,column=1,value="Custo direto por hora = pró-labore ÷ horas de atendimento. Custo-hora completo = custo direto + rateio dos custos fixos por hora (calculado no Painel). Hora mínima = custo-hora completo ÷ (1 − margem − impostos).").font=F(size=9,color=LILAS)
-eq.cell(row=PN+3,column=1,value="Horas de atendimento planejadas: turnos da semana × 4,33 semanas (a planilha 01 mostra as disponíveis e as atendidas de verdade). Médico parceiro por repasse: \"Entra no custo-hora? = Não\"; a parte que fica com a clínica paga a estrutura que ele usa (planilha 11).").font=F(size=9,color=LILAS)
+eq.cell(row=PN+3,column=1,value="Horas de atendimento planejadas: turnos da semana × 4,33 semanas (a planilha 01 mostra as disponíveis e as atendidas de verdade). Médico parceiro por repasse: \"Entra no custo-hora? = Não\". O custo da estrutura já está inteiro dentro do custo-hora dos sócios; por isso, na planilha 11, o custo indireto por hora entra só como informação e a margem da parceria desconta o material, não a estrutura de novo.").font=F(size=9,color=LILAS)
 widths(eq,(24,30,14,16,14,14,12,14,14,14)); eq.freeze_panes="A5"; eq.sheet_view.showGridLines=False
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
 titulo(p,'=Config!$B$4&" · Custo da hora de atendimento · "&Config!$B$5',"Nada para digitar aqui, exceto os percentuais da sensibilidade e as horas atendidas de verdade. Custos vêm de Custos fixos, pessoas de Equipe, margem e impostos de Config.",merge_to="J")
 PD=f"Equipe!$D${P0}:$D${PN}"; PE=f"Equipe!$E${P0}:$E${PN}"; PF=f"Equipe!$F${P0}:$F${PN}"; PG=f"Equipe!$G${P0}:$G${PN}"
 kpi(p,4,1,"Custo total do mês","=B11",LAVANDA,UVA,fmt=BRL0)
-kpi(p,4,3,"Horas de atendimento no mês","=B12",LAVANDA,UVA,fmt="#,##0")
+kpi(p,4,3,"Horas de atendimento planejadas no mês","=B12",LAVANDA,UVA,fmt="#,##0")
 kpi(p,4,5,"Custo da hora de atendimento","=B13",SOL,UVA,fmt=BRL)
 kpi(p,4,7,"Hora mínima a cobrar","=B17",VERDE,VERDE_T,fmt=BRL)
 kpi(p,4,9,"Custo de um horário vazio","=B21",VERM,VERM_T,fmt=BRL)
+p["A6"]="A base do custo-hora são as horas de atendimento PLANEJADAS do mês (turnos × 4,33 semanas): é o preço que cobre o custo quando a agenda está cheia, e é ele que as planilhas 06, 07 e 08 usam. Como a agenda real nunca fica 100 % cheia, o bloco \"Sensibilidade\", no fim desta tela, mostra o custo-hora com as horas de fato atendidas (a última linha usa agosto, da planilha 01): é o número da conversa sobre faltas e horários vazios, não o da tabela de preços."
+nota(p["A6"]); p.merge_cells("A6:J6"); p["A6"].alignment=Alignment(wrap_text=True,vertical="top"); p.row_dimensions[6].height=30
 p["A7"]="Como chegamos ao número"; p["A7"].font=F(bold=True,size=13,color=UVA)
 hdr(p,8,["Passo","Valor","De onde vem"])
 linhas=[
  ("Custos fixos do mês",f"='Custos fixos'!B{CFT}",BRL,"Aba Custos fixos"),
  ("Pró-labore e salários fora dos custos fixos (de quem entra no custo-hora)",f'=SUMIFS({PD},{PE},"Não",{PG},"Sim")',BRL,"Aba Equipe: marcados \"Entra no custo-hora? = Sim\" e \"Já está nos custos fixos? = Não\""),
  ("Custo total do mês","=B9+B10",BRL,"Soma dos dois acima"),
- ("Horas de atendimento no mês (quem entra no custo-hora)",f'=SUMIFS({PF},{PG},"Sim")',"#,##0","Aba Equipe"),
+ ("Horas de atendimento planejadas no mês (quem entra no custo-hora)",f'=SUMIFS({PF},{PG},"Sim")',"#,##0","Aba Equipe: turnos da semana × 4,33 semanas"),
  ("Custo da hora de atendimento",'=IF(B12=0,"",B11/B12)',BRL,"Custo total ÷ horas de atendimento"),
  ("Margem mínima sobre o preço","=Config!$B$7",PCT,"Config"),
- ("Impostos e taxas sobre o que entra","=Config!$B$8",PCT,"Config"),
+ ("Impostos sobre o que entra","=Config!$B$8",PCT,"Config"),
  ("Hora mínima a cobrar (exata)",f'=IF(B13="","",IFERROR(B13/{DIV},""))',BRL,"Custo-hora ÷ (1 − margem − impostos)"),
  ("Hora mínima a cobrar (arredondada)",'=IF(B16="","",CEILING(B16,Config!$B$9))',BRL,"Arredondada para cima, no múltiplo de Config"),
  ("Custo direto médio por hora (pró-labore ÷ horas)",'=IF(B12=0,0,B10/B12)',BRL,"O que os sócios custam por hora de agenda"),
  ("Custos indiretos (custos fixos, com a recepção)","=B9",BRL,"Para ratear por hora de atendimento"),
- ("Custo indireto por hora de atendimento",'=IF(B12=0,0,B19/B12)',BRL,"Custos fixos ÷ horas de atendimento (estrutura, recepção, aluguel)"),
+ ("Custo indireto por hora de atendimento",'=IF(B12=0,0,B19/B12)',BRL,"Custos fixos ÷ horas de atendimento (estrutura, recepção, aluguel). Já está dentro do custo-hora acima: na 11 serve só para mostrar quanto vale a hora de sala"),
  ("Custo de um horário vazio (consulta de Config, em minutos)",'=IF(B13="","",B13*Config!$B$10/60)',BRL,"Custo-hora × duração da consulta: o que uma falta custa à clínica"),
 ]
 for i,(a,f_,fmt,c) in enumerate(linhas):
@@ -90,7 +92,7 @@ for r in range(9,22): p.merge_cells(start_row=r,start_column=3,end_row=r,end_col
 # por pessoa
 r0=24
 p.cell(row=r0,column=1,value="Por pessoa").font=F(bold=True,size=13,color=UVA)
-hdr(p,r0+1,["Pessoa","Papel","Remuneração","Horas de atendimento","Custo direto por hora","Custo-hora completo","Hora mínima a cobrar"],height=30)
+hdr(p,r0+1,["Pessoa","Papel","Remuneração","Horas planejadas","Custo direto por hora","Custo-hora completo","Hora mínima a cobrar"],height=30)
 for i in range(NP):
     r=r0+2+i; src=f"Equipe!$A${P0+i}"
     p.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(p.cell(row=r,column=1),center=False)
@@ -115,7 +117,7 @@ for i,q in enumerate((0,0.10,0.20,0.30)):
     p.cell(row=r,column=5,value=f'=IF(D{r}="","",IFERROR(D{r}/{DIV},""))'); calc(p.cell(row=r,column=5),BRL)
     p.cell(row=r,column=6,value=f'=IF(D{r}="","",D{r}-$D${s0+3})'); calc(p.cell(row=r,column=6),BRL)
 r=s0+7
-p.cell(row=r,column=1,value="Agosto de 2026 realizado (horas atendidas dos sócios, planilha 01)"); calc(p.cell(row=r,column=1),center=False)
+p.cell(row=r,column=1,value="Agosto de 2026 realizado (horas atendidas dos sócios: Painel da 01 com Config = Agosto, coluna \"Horas atendidas\" da Dra. Carolina + do Dr. Paulo, sem a médica parceira)"); calc(p.cell(row=r,column=1),center=False)
 h_ago=round(dados.horas_atendidas(8,prof=dados.CAR)+dados.horas_atendidas(8,prof=dados.PAU),1)
 p.cell(row=r,column=3,value=h_ago); inp(p.cell(row=r,column=3),"#,##0.0",center=True)
 p.cell(row=r,column=2,value=f'=IF(C{r}="","",1-C{r}/$B$12)'); calc(p.cell(row=r,column=2),PCT)

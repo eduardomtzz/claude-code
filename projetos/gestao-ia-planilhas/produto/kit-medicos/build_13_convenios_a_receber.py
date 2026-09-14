@@ -88,7 +88,7 @@ lo.conditional_formatting.add(f"A{R0}:R{RNL}", FormulaRule(formula=[f'OR($N{R0}=
 lo.conditional_formatting.add(f"A{R0}:R{RNL}", FormulaRule(formula=[f'$N{R0}="Em separação"'], font=F(color="8A86A0",size=10)))
 lo.conditional_formatting.add(f"R{R0}:R{RNL}", FormulaRule(formula=[f'AND(ISNUMBER(R{R0}),R{R0}<>0)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 lo.cell(row=RNL+2,column=1,value="Vermelho: previsão de pagamento vencida sem pagamento. Amarelo: glosa em recurso. Verde: paga. Cinza: guias em separação (lote ainda não enviado). Diferença em vermelho: o valor enviado não bate com as guias cadastradas na aba Guias para essa competência.").font=F(size=9,color=LILAS)
-lo.cell(row=RNL+3,column=1,value="Glosa = enviado − pago. Recurso aceito: digite o valor recuperado e a data (é uma entrada no caixa 09). No exemplo, os lotes de outubro/2025 a junho/2026 vêm dos registros anteriores à agenda; julho em diante bate com a aba Guias.").font=F(size=9,color=LILAS)
+lo.cell(row=RNL+3,column=1,value="Glosa = enviado − pago. Recurso aceito: digite o valor recuperado e a data (é uma entrada no caixa 09). No exemplo, os lotes de outubro/2025 a maio/2026 vêm dos registros anteriores à agenda; junho em diante bate com a aba Guias.").font=F(size=9,color=LILAS)
 widths(lo,(14,12,9,13,12,12,13,12,12,12,8,13,11,14,9,16,13,12)); lo.freeze_panes="C5"; lo.sheet_view.showGridLines=False; lo.auto_filter.ref=f"A4:R{RNL}"
 LA=f"Lotes!$A${R0}:$A${RNL}"; LB=f"Lotes!$B${R0}:$B${RNL}"; LC=f"Lotes!$C${R0}:$C${RNL}"; LD=f"Lotes!$D${R0}:$D${RNL}"; LE=f"Lotes!$E${R0}:$E${RNL}"; LF=f"Lotes!$F${R0}:$F${RNL}"
 LG=f"Lotes!$G${R0}:$G${RNL}"; LH=f"Lotes!$H${R0}:$H${RNL}"; LI=f"Lotes!$I${R0}:$I${RNL}"; LJ=f"Lotes!$J${R0}:$J${RNL}"; LL=f"Lotes!$L${R0}:$L${RNL}"; LM=f"Lotes!$M${R0}:$M${RNL}"
@@ -163,11 +163,15 @@ for k in range(1,TOP+1):
     r=G0+1+k; m=f'MATCH(LARGE({GN},{k}),{GN},0)'; g=f'LARGE({GN},{k})>0'
     p.cell(row=r,column=1,value=k); calc(p.cell(row=r,column=1))
     for col,src in zip((2,3,4,5,6,7,8,9),("A","B","C","D","E","F","G","I")):
-        p.cell(row=r,column=col,value=f'=IFERROR(IF({g},INDEX(Guias!${src}${R0}:${src}${RNG},{m}),""),"")'); calc(p.cell(row=r,column=col),center=(col not in (4,6,7)))
+        idx=f'INDEX(Guias!${src}${R0}:${src}${RNG},{m})'
+        # Recurso vazio: INDEX devolve 0; mostra "—" (= ainda não recorreu), como diz a nota abaixo da lista
+        expr=f'IF({idx}=0,"—",{idx})' if col==9 else idx
+        p.cell(row=r,column=col,value=f'=IFERROR(IF({g},{expr},""),"")'); calc(p.cell(row=r,column=col),center=(col not in (4,6,7)))
     p.cell(row=r,column=3).number_format=DATA; p.cell(row=r,column=8).number_format=BRL0
 p.conditional_formatting.add(f"A{G0+2}:I{G0+1+TOP}", FormulaRule(formula=[f'$I{G0+2}="Em recurso"'], fill=fill("FFF4CC")))
 p.conditional_formatting.add(f"A{G0+2}:I{G0+1+TOP}", FormulaRule(formula=[f'$I{G0+2}="Negado"'], font=F(color="8A86A0",size=10)))
-p.cell(row=G0+2+TOP,column=1,value="Recurso em branco = ainda não recorreu. Prazo para recorrer varia por contrato: confira antes. A planilha lista; o recurso é administrativo e é seu.").font=F(size=9,color=LILAS)
+p.conditional_formatting.add(f"I{G0+2}:I{G0+1+TOP}", FormulaRule(formula=[f'$I{G0+2}="—"'], font=F(color="B0A6C4",size=10)))
+p.cell(row=G0+2+TOP,column=1,value="Recurso com \"—\" = ainda não recorreu. Prazo para recorrer varia por contrato: confira antes. A planilha lista; o recurso é administrativo e é seu.").font=F(size=9,color=LILAS)
 bc=BarChart(); bc.type="bar"; bc.height=6; bc.width=12; bc.title="Glosa no ano por convênio (%)"; bc.style=2
 bc.add_data(Reference(p,min_col=6,min_row=10,max_row=10+len(dados.CONVENIOS)),titles_from_data=True); bc.set_categories(Reference(p,min_col=1,min_row=11,max_row=10+len(dados.CONVENIOS)))
 bc.series[0].graphicalProperties.solidFill="7A1F1F"; bc.legend=None; bc.x_axis.majorGridlines=None; bc.x_axis.number_format="0%"
@@ -195,7 +199,7 @@ como_usar(wb,"Convênios a receber",[
  ("Passo 2","Em Guias, uma linha por atendimento de convênio realizado (copie da Agenda da planilha 01: data, paciente, convênio, procedimento, profissional, valor). É a base do lote do mês."),
  ("Passo 3","Em Lotes, uma linha por convênio e mês: nº de guias, valor enviado e data de envio. Quando o pagamento cair, digite data e valor pago (a glosa é a diferença) e lance a entrada no caixa (09). Se recorrer, marque o recurso; se aceito, o valor recuperado e a data. Volte em Guias e marque as guias glosadas."),
  ("Passo 4","Em Painel: a receber, atrasado, glosa do ano (R$ e %), em recurso; por convênio (com prazo real × contratual), lotes em aberto, mês a mês e as guias glosadas para recorrer."),
- ("Rotina","Sexta: separar as guias da semana e conferir se todas estão na aba Guias. Dia 5: enviar o lote do mês anterior e registrar. No recebimento: pagamento, glosa e recurso. A planilha avisa o atraso; a cobrança ao convênio é sua."),
+ ("Rotina","Sexta, 3 minutos (rotina da semana, planilha 03): separar as guias da semana e conferir se todas estão na aba Guias. Dia 5: enviar o lote do mês anterior e registrar. No recebimento: pagamento, glosa e recurso. A planilha avisa o atraso; a cobrança ao convênio é sua."),
  ("Ligação com as outras planilhas","A receber e atrasado vão para o Painel da clínica (17); a glosa % por convênio alimenta o simulador (07); os lotes pagos são entradas do caixa (09). As metas do trimestre (19) acompanham glosa, atrasos e recuperado."),
  ("Com a IA","Copie \"Por convênio\" e use o prompt \"Recebíveis 01 · Resumir os convênios para o sócio\" da biblioteca do kit; para uma guia glosada, \"Recebíveis 03 · Recurso de glosa em linguagem administrativa\" (sem dados clínicos: só guia, procedimento, data e motivo administrativo)."),
 ])

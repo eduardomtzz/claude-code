@@ -6,7 +6,7 @@ import dados
 from openpyxl.chart import BarChart, Reference
 from datetime import time
 
-N=1200; R0=5; RN=R0+N-1
+N=3000; R0=5; RN=R0+N-1            # mesma capacidade da Agenda da 01 (3.000 linhas ≈ 10 meses)
 NPROF=8; NPAG=6; NPROC=12; TOP=25
 def off(sheet,col,r0,r1): return f"=OFFSET({sheet}!${col}${r0},0,0,MAX(1,COUNTA({sheet}!${col}${r0}:${col}${r1})),1)"
 NOME=f"{dados.CLINICA} (exemplo fictício)"
@@ -65,6 +65,7 @@ for dv,rng in dvs: dv.add(rng); ag.add_data_validation(dv)
 ag.conditional_formatting.add(f"A{R0}:T{RN}", FormulaRule(formula=[f'$H{R0}="Falta"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
 ag.conditional_formatting.add(f"A{R0}:T{RN}", FormulaRule(formula=[f'$T{R0}="Sim"'], fill=fill("FFF4CC")))
 ag.conditional_formatting.add(f"A{R0}:T{RN}", FormulaRule(formula=[f'OR($H{R0}="Cancelado",$H{R0}="Remarcado")'], font=F(color="8A86A0",size=10)))
+ag.cell(row=RN+3,column=1,value=f"Esta aba tem {N} linhas ({R0} a {RN}), a mesma capacidade da Agenda da planilha 01: com cerca de 300 atendimentos por mês, dá 10 meses. Para estender, desproteja a aba, copie a última linha para baixo e ajuste o número final nas fórmulas do Painel — ou comece um arquivo por ano, junto com a 01.").font=F(size=9,color=LILAS)
 ag.cell(row=RN+2,column=1,value="Vermelho: falta. Amarelo: paciente na lista de retorno (passou do retorno previsto e não tem nenhum horário depois). \"Voltou ou tem horário?\" olha qualquer atendimento posterior do paciente que não seja falta, cancelamento ou remarcação.").font=F(size=9,color=LILAS)
 widths(ag,(11,7,22,8,26,12,18,11,16,9,24,6,6,11,8,9,12,12,11,11)); ag.freeze_panes="F5"; ag.sheet_view.showGridLines=False; ag.auto_filter.ref=f"A4:T{RN}"
 for i,r_ in enumerate(dados.AGENDA):
@@ -163,7 +164,8 @@ como_usar(wb,"Faltas, remarcações e lista de retorno",[
  ("Passo 1","Em Config, confira as listas (iguais às da planilha 01) e, para cada procedimento, em quantos dias se espera o retorno. A data de referência fica em =HOJE()."),
  ("Passo 2","Em Agenda, cole as colunas A a K da Agenda da planilha 01 (a 01 é a fonte; não digite aqui uma agenda diferente). Toda sexta, cole de novo a agenda atualizada."),
  ("Passo 3","Em Painel, escolha o mês em Config. Leia de cima para baixo: taxa de falta, onde ela é maior, a tendência semanal, a lista de retorno e os reincidentes."),
- ("Rotina de segunda","10 minutos: a recepção liga ou manda mensagem para a lista de retorno (os 25 primeiros) e oferece as vagas dos próximos 7 dias (Painel da 01). Marque o retorno na 01: o paciente sai da lista sozinho."),
+ ("Rotina de segunda","4 minutos: a recepção liga ou manda mensagem para a lista de retorno (os 25 primeiros), oferece as vagas dos próximos 7 dias (Painel da 01) e registra as faltas da semana passada. Marque o retorno na 01: o paciente sai da lista sozinho. A rotina completa da semana (12 min na segunda, 18 na sexta) está na planilha 03."),
+ ("Limite e como estender","A aba Agenda tem 3.000 linhas (5 a 3004), a mesma da planilha 01: cerca de 10 meses com 300 atendimentos por mês. Perto do fim, copie a última linha para baixo (desproteja a aba antes) e ajuste o número final nas fórmulas do Painel, ou comece um arquivo por ano junto com a 01."),
  ("Ligação com as outras planilhas","O Painel da clínica (17) copia a taxa de falta do mês e o tamanho da lista de retorno daqui. As metas do trimestre (19) acompanham os dois."),
  ("Com a IA","Copie \"Por dia da semana\" e \"Por pagador\" e use o prompt \"Agenda 02 · Reduzir faltas sem brigar com o paciente\" da biblioteca do kit; para a lista de retorno, \"Agenda 03 · Mensagem de retorno educada\" (sem nomes: a IA não precisa deles)."),
 ])

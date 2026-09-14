@@ -7,7 +7,8 @@ Uso:
   python3 build_pdfs.py --pdf entrega   # também imprime os PDF (Chromium via Playwright) e grava os txt na pasta indicada
   python3 build_pdfs.py --pdf /tmp/x    # para conferir a diagramação sem tocar em entrega/
 As capturas do manual vêm de docs/tela-NN.png (geradas por ../telas.py); daqui saem os recortes docs/recorte-NN.png
-(só os cartões e a primeira tabela do painel, largura total) usados no manual.
+usados no manual: nas planilhas 01 a 05, cartões e primeira tabela; nas 06 a 20, só a faixa de cartões do alto do
+Painel (ou as primeiras colunas da tabela, quando não há cartões), para o texto sair legível na largura da página.
 """
 import markdown, pathlib, subprocess, re, sys, os, base64
 ROOT=pathlib.Path(__file__).resolve().parent
@@ -31,8 +32,9 @@ table{{border-collapse:collapse;width:100%;font-size:9.5pt;margin:6pt 0 12pt;pag
 tr{{page-break-inside:avoid;break-inside:avoid}} thead{{display:table-header-group}}
 th{{background:#3B1F5E;color:#fff;text-align:left;padding:5pt 7pt;font-family:'IBM Plex Mono';font-size:8pt;letter-spacing:.05em;text-transform:uppercase}}
 td{{padding:5pt 7pt;border-bottom:1px solid #DCD2EC;vertical-align:top}}
-/* Blocos de prompt e de mensagem podem quebrar de página (com 3 linhas mínimas de cada lado); o que não pode é o título ficar órfão. */
-pre,.pre{{background:#F3EEFB;border-left:4px solid #FFC83D;padding:9pt 11pt;font-family:'IBM Plex Mono';font-size:9pt;white-space:pre-wrap;word-wrap:break-word;border-radius:0 6px 6px 0;page-break-inside:auto;break-inside:auto;orphans:3;widows:3;line-height:1.45}}
+/* Blocos de prompt e de mensagem NUNCA quebram de página: quem seleciona o prompt no PDF não pode levar o rodapé junto.
+   Se um bloco for maior que uma página inteira, o navegador quebra assim mesmo (é o único caso), com 6 linhas mínimas de cada lado. */
+pre,.pre{{background:#F3EEFB;border-left:4px solid #FFC83D;padding:9pt 11pt;font-family:'IBM Plex Mono';font-size:9pt;white-space:pre-wrap;word-wrap:break-word;border-radius:0 6px 6px 0;page-break-inside:avoid;break-inside:avoid;orphans:6;widows:6;line-height:1.45}}
 code{{font-family:'IBM Plex Mono';font-size:9.5pt}}
 img{{max-width:100%;border:1px solid #DCD2EC;border-radius:6px;margin:4pt 0 10pt;page-break-inside:avoid}}
 strong{{color:#3B1F5E}}
@@ -43,21 +45,28 @@ blockquote{{margin:0;padding:6pt 12pt;background:#FFF4CC;border-radius:6px}}
 .capa .s{{font-size:13pt;color:#5A4A78;margin-top:14pt;max-width:120mm}} .capa .m{{font-family:'IBM Plex Mono';font-size:9pt;color:#7A5AA8}}
 input[type=checkbox]{{width:11pt;height:11pt;vertical-align:-1pt;margin-right:6pt}}
 ul.check{{list-style:none;padding-left:0}} ul.check li{{margin-bottom:6pt}}
-/* Biblioteca (21): título + "Quando usar" + "Cole" ficam juntos e colados ao início do prompt. */
+/* Biblioteca (21): título + "Quando usar" + "Cole" ficam juntos e colados ao início do prompt.
+   Texto do prompt um pouco mais compacto: como o bloco não pode quebrar, blocos menores deixam menos página em branco. */
 .cab{{page-break-inside:avoid;break-inside:avoid;page-break-after:avoid;break-after:avoid}}
-/* Mensagens (22): título + "Quando" colados ao início do texto; textos longos podem continuar na página seguinte. */
-.msgs .pre{{orphans:4;widows:4}} .msgs table{{page-break-inside:avoid;break-inside:avoid}}
+.prompts .pre{{font-size:8.6pt;line-height:1.36;padding:8pt 10pt}}
+.prompts h3{{margin:13pt 0 3pt}} .prompts p{{margin:0 0 6.5pt}} .prompts h2{{margin:18pt 0 6pt;padding-top:10pt}}
+/* Mensagens (22): título + "Quando" colados ao início do texto; o texto da mensagem também não quebra de página. */
+.msgs .pre{{orphans:6;widows:6;font-size:8.8pt;line-height:1.4}} .msgs table{{page-break-inside:avoid;break-inside:avoid}}
+.msgs h3{{margin:13pt 0 3pt}} .msgs p{{margin:0 0 6.5pt}}
 /* Guia LGPD e roteiro do contador: ajustes finos para a última linha não abrir página nova. */
-.lgpd .pre{{font-size:8.7pt;line-height:1.4}} .lgpd h2{{margin-top:18pt;padding-top:10pt}} .lgpd p{{margin:0 0 7pt}} .lgpd li{{margin-bottom:2pt}}
-.contador h2{{margin:18pt 0 6pt;padding-top:9pt}} .contador table{{font-size:9pt}} .contador td{{padding:4pt 6pt}}
+.lgpd{{font-size:10.6pt;line-height:1.44}} .lgpd .pre{{font-size:8.5pt;line-height:1.36;page-break-inside:auto;break-inside:auto;orphans:4;widows:4}} .lgpd h2{{margin-top:15pt;padding-top:9pt}} .lgpd p{{margin:0 0 6.5pt}} .lgpd li{{margin-bottom:1.5pt}}
+.lgpd h3{{margin:12pt 0 3pt}} .lgpd table{{font-size:9pt;margin:5pt 0 9pt}} .lgpd td{{padding:4pt 6pt}}
+.contador{{font-size:10.2pt;line-height:1.42}} .contador h2{{margin:13pt 0 4pt;padding-top:7pt;font-size:15pt}} .contador h3{{margin:10pt 0 3pt}}
+.contador table{{font-size:8.6pt;margin:4pt 0 8pt}} .contador td{{padding:3.5pt 5pt}} .contador th{{padding:4pt 5pt}} .contador p{{margin:0 0 6pt}} .contador li{{margin-bottom:1.5pt}}
 /* Manual: o título de cada planilha fica com o parágrafo seguinte e o recorte com a legenda; o resto pode quebrar
-   de página (uma planilha por página deixava metade da página vazia). Recortes em largura total, no máximo 50 mm. */
+   de página (uma planilha por página deixava metade da página vazia). Recortes em largura total da mancha (178 mm),
+   sem limite de altura: é o que mantém a captura legível. */
 .planilha{{margin-bottom:6pt}}
 .planilha p{{margin:0 0 4pt;line-height:1.36}} .planilha h3{{margin-top:8pt;page-break-after:avoid;break-after:avoid}}
 .planilha h3+p{{page-break-before:avoid;break-before:avoid}}
-figure.fig{{margin:4pt 0 6pt;text-align:center;page-break-inside:avoid;break-inside:avoid}}
-figure.fig img{{max-height:50mm;width:auto;max-width:100%;margin:0}}
-figure.fig figcaption{{font-family:'IBM Plex Mono';font-size:8pt;color:#7A5AA8;margin-top:3pt;letter-spacing:.03em}}
+figure.fig{{margin:5pt 0 7pt;text-align:center;page-break-inside:avoid;break-inside:avoid}}
+figure.fig img{{max-height:none;width:100%;max-width:100%;margin:0}}
+figure.fig figcaption{{font-family:'IBM Plex Mono';font-size:8pt;color:#7A5AA8;margin:3pt 0 0;letter-spacing:.03em}}
 /* Checklists (25): uma página, duas colunas explícitas, fonte legível. */
 body.check2{{font-size:10pt;line-height:1.32}}
 .check2 h1+p{{font-family:Figtree,system-ui,sans-serif;font-size:10.5pt;color:#5A4A78;margin:0 0 10pt}} .check2 h1{{font-size:22pt}}
@@ -74,9 +83,13 @@ TITULOS={'21-biblioteca-de-prompts-da-clinica':'Biblioteca de prompts da clínic
  '26-manual-de-implantacao':'Manual de implantação'}
 # ---------- recortes das capturas (x0,y0,x1,y1 em px da tela-NN.png; o fundo branco do pé é aparado depois) ----------
 RECORTES={'01':(0,0,1950,560),'02':(0,0,1950,660),'03':(0,0,1950,640),'04':(0,0,1950,700),'05':(0,0,1850,665),
- '06':(0,0,1950,480),'07':(0,0,1950,870),'08':(0,0,1950,540),'09':(0,0,1600,812),'10':(0,0,1950,720),'11':(0,0,1950,480),
- '12':(0,0,1950,720),'13':(0,0,2100,640),'14':(0,0,1950,780),'15':(0,0,1950,660),'16':(0,0,1950,660),'17':(0,0,2100,840),
- '18':(0,0,2100,640),'19':(0,0,1950,540),'20-painel':(0,0,2100,600),'20':(0,0,1950,720)}
+ # 4.6 a 4.20: só a faixa de cartões do alto do Painel (ou as primeiras colunas da tabela, quando não há cartões).
+ # Impressos em largura total (190 mm), o texto dos cartões fica em 6 pt ou mais; a tabela inteira, na mesma largura,
+ # cairia para 3-4 pt — por isso ela não entra no recorte e a legenda diz o que a captura mostra.
+ '06':(0,105,1164,500),'07':(0,0,1950,227),'08':(0,105,951,257),'09':(0,0,1950,230),'10':(0,0,1950,227),
+ '11':(0,0,1950,227),'12':(0,0,1950,238),'13':(0,0,2100,227),'14':(0,0,1950,230),'15':(0,0,1950,227),
+ '16':(0,0,1950,230),'17':(0,0,2100,468),'18':(0,0,2100,211),'19':(0,0,1950,210),
+ '20':(0,296,1000,712),'20-painel':(0,95,1131,600)}
 def recortes():
     from PIL import Image
     import numpy as np
@@ -196,7 +209,7 @@ await b.close();})();""")
 if __name__=='__main__':
     recortes()
     jobs=[build('26-manual-de-implantacao.md','26-manual-de-implantacao','Manual de implantação: <em>quatro semanas, cinco núcleos</em>','As 20 planilhas, a ordem para começar, a rotina de segunda e de sexta, e os erros comuns. Leia uma vez; depois é só rotina.',classe='manual'),
-      build('21-biblioteca-de-prompts-da-clinica.md','21-biblioteca-de-prompts-da-clinica','40 prompts <em>da clínica</em>','Explicar o mês ao sócio, escrever a cobrança educada, resumir os convênios, preparar a reunião com o contador, revisar a tabela de preços. Nenhum produz conteúdo clínico nem publicidade.',classe='prompts'),
+      build('21-biblioteca-de-prompts-da-clinica.md','21-biblioteca-de-prompts-da-clinica','41 prompts <em>da clínica</em>','Explicar o mês ao sócio, escrever a cobrança educada, resumir os convênios, preparar a reunião com o contador, revisar a tabela de preços. Nenhum produz conteúdo clínico nem publicidade.',classe='prompts'),
       build('22-mensagens-de-confirmacao-e-cobranca.md','22-mensagens-de-confirmacao-e-cobranca','15 mensagens de <em>confirmação e cobrança</em>','WhatsApp e e-mail, tom educado, campos entre colchetes, na régua da planilha 14. Mensagens de rotina da recepção, não peças de divulgação. Bônus do kit.',classe='msgs'),
       build('23-guia-lgpd-clinica-pequena.md','23-guia-lgpd-clinica-pequena','Guia LGPD para a <em>clínica pequena</em>','Dado de saúde é sensível: o que guardar, onde, por quanto tempo, quem acessa, e o que nunca colar em IA pública. Bônus do kit.',classe='lgpd'),
       build('24-roteiro-reuniao-com-o-contador.md','24-roteiro-reuniao-com-o-contador','Roteiro da reunião mensal <em>com o contador</em>','Pauta de 30 minutos, PJ médica, o que levar do kit, o que perguntar, o que anotar. Bônus do kit.',classe='contador'),

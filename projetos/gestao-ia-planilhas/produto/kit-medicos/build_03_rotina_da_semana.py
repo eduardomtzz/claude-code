@@ -47,6 +47,8 @@ for j,(lab,fml) in enumerate(rot):
     for k in range(W):
         c=ro.cell(row=r,column=C0+k,value=fml.format(c=L(C0+k))); calc(c, PCT if j==3 else "0")
 ro.cell(row=RT+5,column=2,value="Sim = feita; Não = pulada; vazio = semana ainda não registrada. Só as semanas registradas entram no Painel.").font=F(size=9,color=LILAS)
+ro.cell(row=RT+6,column=2,value="Quem lança o caixa: a recepção lança o fechamento do dia na planilha 09 todo dia, no fechamento (planilha 04 · Checklist do dia). Na sexta a sócia só CONFERE os cinco fechamentos da semana contra o extrato — por isso a rotina de sexta diz \"conferir\", e não \"lançar\".").font=F(size=9,color=LILAS)
+ro.merge_cells(start_row=RT+6,start_column=2,end_row=RT+6,end_column=4)
 dvd=lista('"Segunda,Terça,Quarta,Quinta,Sexta"'); dvd.add(f"A{R0}:A{RI}")
 dvr=lista(f"=OFFSET(Config!$B$9,0,0,MAX(1,COUNTA(Config!$B$9:$B${8+NRESP})),1)",strict=False); dvr.add(f"D{R0}:D{RI}")
 dvs=lista('"Sim,Não"'); dvs.add(f"{L(C0)}{R0}:{LW}{RI}")
@@ -59,10 +61,9 @@ ro.conditional_formatting.add(f"{L(C0)}3:{LW}4", FormulaRule(formula=[f'AND({L(C
 ro.conditional_formatting.add(f"A{R0}:D{RI}", FormulaRule(formula=[f'$A{R0}="Sexta"'], fill=fill(LAVANDA)))
 widths(ro,[10,56,9,22]+[6]*W); ro.freeze_panes=f"{L(C0)}{R0}"; ro.sheet_view.showGridLines=False
 itens=[("Segunda","Abrir a Agenda (01): olhar as vagas dos próximos 7 dias e a ocupação da semana",4,dados.BRU),
-       ("Segunda","Confirmar por mensagem os agendados da semana",3,dados.BRU),
-       ("Segunda","Ligar ou mandar mensagem para a lista de retorno (02)",3,dados.BRU),
-       ("Segunda","Registrar as faltas da semana passada e remarcar",2,dados.BRU),
-       ("Sexta","Lançar os fechamentos do dia da semana no Caixa (09)",5,dados.CAR),
+       ("Segunda","Confirmar por mensagem os agendados da semana",4,dados.BRU),
+       ("Segunda","Ligar para a lista de retorno (02) e registrar as faltas da semana passada",4,dados.BRU),
+       ("Sexta","Conferir os fechamentos da semana no Caixa (09)",5,dados.CAR),
        ("Sexta","Marcar parcelas recebidas e enviar a cobrança educada (14)",4,dados.BRU),
        ("Sexta","Separar as guias da semana e atualizar os lotes (13)",3,dados.BRU),
        ("Sexta","Atualizar os orçamentos apresentados e aprovados (15)",3,dados.BRU),
@@ -85,6 +86,7 @@ p["J5"]="Semana da data de referência"; p["K5"]=f'=MIN({W},MAX(1,INT(({HOJE}-{I
 p["J6"]="Semanas consideradas"; p["K6"]="=MIN(4,K4)"
 p["J7"]="Rotinas planejadas"; p["K7"]=f'=COUNTA(Rotina!$B${R0}:$B${RI})'
 for r in (4,5,6,7): nota(p.cell(row=r,column=10)); p.cell(row=r,column=11).font=F(size=9,color=LILAS); p.cell(row=r,column=11).alignment=Alignment(horizontal="center")
+p.column_dimensions["J"].hidden=True; p.column_dimensions["K"].hidden=True   # bloco auxiliar (contagem de semanas), fora da faixa de KPIs
 ULT="$K$4"; CUR="$K$5"; NS="$K$6"; NPL="$K$7"
 kpi(p,4,1,"Aderência (últimas 4 semanas)",f'=IF(OR({ULT}=0,{NPL}=0),"",SUMPRODUCT(({IDX}>={ULT}-3)*({IDX}<={ULT})*{FEI})/({NS}*{NPL}))',LAVANDA,UVA,fmt="0%")
 kpi(p,4,3,"Semana atual",f'="S"&{CUR}&" · "&TEXT({INI}+7*({CUR}-1),"dd/mm")',SOL,UVA,fmt="@")
@@ -134,7 +136,7 @@ widths(p,(12,56,10,22,10,10,11,26,3,26,12)); p.freeze_panes="A4"; p.sheet_view.s
 como_usar(wb,"Rotina da semana da clínica",[
  ("O que esta planilha faz","Fixa a rotina de gestão em dois momentos curtos: segunda (agenda, faltas e retornos) e sexta (caixa, guias, orçamentos e painel). Você marca, semana a semana, o que foi feito; o Painel mostra a aderência das últimas 4 semanas, por dia e por rotina."),
  ("Passo 1","Em Config, confira a data de referência (fica em =HOJE()), a segunda-feira da semana 1 (sugestão: a primeira do ano) e as pessoas da clínica."),
- ("Passo 2","Em Rotina, ajuste as linhas: dia, rotina, minutos e responsável. O exemplo soma 30 minutos por semana (12 na segunda, 18 na sexta), a maior parte com a recepção; mantenha curto, o que é longo não vira hábito."),
+ ("Passo 2","Em Rotina, ajuste as linhas: dia, rotina, minutos e responsável. O exemplo soma 30 minutos por semana (3 rotinas de segunda = 12 min; 5 de sexta = 18 min), a maior parte com a recepção; mantenha curto, o que é longo não vira hábito. O checklist do dia (04) é da recepção e corre por fora destes 30 minutos."),
  ("Passo 3","Toda segunda e toda sexta, depois de fazer a rotina, marque Sim (ou Não, se pulou) na coluna da semana. A coluna da semana atual fica destacada em amarelo."),
  ("Passo 4","Em Painel, veja a aderência das últimas 4 semanas registradas, a série das últimas 8 e qual rotina está sendo pulada. Menos de 70% em vermelho."),
  ("Exemplo","A clínica fictícia registrou de 20/07 a 07/09/2026 (S29 a S36). O Painel sempre olha as últimas semanas registradas, então o exemplo continua fazendo sentido em qualquer data. Em janeiro de 2027, troque a segunda-feira da semana 1 em Config (veja a nota lá)."),

@@ -31,7 +31,7 @@ ind=wb.create_sheet("Indicadores")
 titulo(ind,"Indicadores do mês","Até 12 indicadores (de cima para baixo, sem pular linha): nome, unidade, casas decimais, meta, se maior é melhor, valor do mês anterior e do mês atual. Copie os números do Painel da clínica (17, Histórico) e do Resultado mensal (18).",merge_to="H")
 hdr(ind,4,["Indicador","Unidade","Casas decimais","Meta do mês","Maior é melhor?","Mês anterior","Mês atual","Copie de (planilha do kit)"],height=30)
 ex=[("Entrou no mês (recebimentos)","R$",0,46000,"Sim",H7["entrou"],H8["entrou"],"09 · Caixa (Painel) ou 17 · Painel (Histórico)"),
-    ("Saídas do mês (custos, variáveis, pró-labore e impostos provisionados)","R$",0,40000,"Não",D7["saidas"],D8["saidas"],"18 · Resultado mensal (Total de saídas)"),
+    ("Saídas do mês (custos, variáveis, pró-labore, provisões e impostos)","R$",0,44000,"Não",D7["saidas"],D8["saidas"],"18 · Resultado mensal (Total de saídas)"),
     ("Resultado do mês","R$",0,5000,"Sim",D7["resultado"],D8["resultado"],"18 · Resultado mensal"),
     ("Margem do mês","%",1,12,"Sim",r1(D7["margem"]*100),r1(D8["margem"]*100),"18 · Resultado mensal"),
     ("Ocupação da agenda","%",1,75,"Sim",r1(H7["ocupacao"]*100),r1(H8["ocupacao"]*100),"01 · Agenda (Painel) ou 17 · Histórico"),
@@ -41,7 +41,7 @@ ex=[("Entrou no mês (recebimentos)","R$",0,46000,"Sim",H7["entrou"],H8["entrou"
     ("Glosa dos lotes pagos no mês","%",1,4,"Não",r1(H7["glosa_pct"]*100),r1(H8["glosa_pct"]*100),"13 · Convênios ou 17 · Histórico"),
     ("Vencido (parcelas a prazo)","R$",0,4000,"Não",H7["vencido"],H8["vencido"],"14 · Parcelas (fim do mês) ou 17 · Histórico"),
     ("Inadimplência a prazo (vencido ÷ (pago + vencido))","%",1,8,"Não",r1(H7["inadimplencia"]*100),r1(H8["inadimplencia"]*100),"14 · Parcelas e inadimplência ou 17 · Histórico"),
-    ("Orçamentos em aberto (valor)","R$",0,5000,"Sim",H7["orcamentos_valor"],H8["orcamentos_valor"],"15 · Orçamentos ou 17 · Histórico")]
+    ("Orçamentos em aberto (valor)","R$",0,None,"Sim",H7["orcamentos_valor"],H8["orcamentos_valor"],"15 · Orçamentos ou 17 · Histórico")]
 for i in range(NI):
     r=R0+i
     for c in range(1,8): inp(ind.cell(row=r,column=c),center=(c>1))
@@ -54,7 +54,7 @@ for i in range(NI):
 dv_sn=lista('"Sim,Não"'); dv_sn.add(f"E{R0}:E{RN}"); ind.add_data_validation(dv_sn)
 dv_cd=lista('"0,1,2"'); dv_cd.add(f"C{R0}:C{RN}"); ind.add_data_validation(dv_cd)
 dv_un=lista('"R$,%,un,h,pts"'); dv_un.add(f"B{R0}:B{RN}"); ind.add_data_validation(dv_un)
-ind.cell(row=RN+2,column=1,value='Para indicadores em %, digite 5,1 (não 0,051). "Maior é melhor?" = Não para saídas, vencido, inadimplência, glosa e taxa de falta. Meta em branco = informativo (ex.: convênio a receber é o que está no prazo, não um problema). Meta 0 funciona: a situação aparece, a distância em % não.').font=F(size=9,color=LILAS)
+ind.cell(row=RN+2,column=1,value='Para indicadores em %, digite 5,1 (não 0,051). "Maior é melhor?" = Não para saídas, vencido, inadimplência, glosa e taxa de falta. Meta em branco = informativo: é o caso de convênio a receber (o que está no prazo não é problema) e dos orçamentos em aberto (pouco orçamento pendente pode ser bom, se fechou tudo, ou ruim, se a recepção parou de apresentar — quem responde é a taxa de aprovação da 15). Meta 0 funciona: a situação aparece, a distância em % não.').font=F(size=9,color=LILAS)
 ind.merge_cells(start_row=RN+2,start_column=1,end_row=RN+2,end_column=8); ind.cell(row=RN+2,column=1).alignment=Alignment(wrap_text=True,vertical="top"); ind.row_dimensions[RN+2].height=30
 widths(ind,(52,9,10,13,12,13,13,40)); ind.freeze_panes="B5"; ind.sheet_view.showGridLines=False
 
@@ -99,7 +99,7 @@ rs["A1"]="Resumo do mês, pronto para a IA e para o contador"; rs["A1"].font=F(b
 rs["A2"]="Só a célula amarela é para digitar (observações da clínica). Copie o bloco único e cole no prompt \"Painel 01 · Explicar o mês ao sócio\" da biblioteca do kit, ou envie ao sócio e ao contador. Os números vêm do Painel."; nota(rs["A2"]); rs.merge_cells("A2:D2")
 rs["A4"]='="Resumo de "&Config!B6&" de "&Config!B5&" · "&Config!B4'; rs["A4"].font=F(bold=True,color=UVA); rs.merge_cells("A4:D4")
 rs["A5"]="Observações da clínica (opcional; entram no fim do bloco):"; rotulo(rs["A5"],bold=False)
-rs["A6"]="Agosto fechou com a agenda da Dra. Renata mais cheia (dois turnos por semana desde julho) e o lote de julho da Saúde Total pago com glosa em recurso; o lote de junho da Vida Care ainda não caiu e entrou na cobrança ao convênio; as faltas de segunda de manhã continuam acima da média e a recepção começou a confirmação de véspera por mensagem."
+rs["A6"]="Agosto fechou com a agenda da Dra. Renata mais cheia (dois turnos por semana desde julho) e o lote de junho da Saúde Total pago com glosa, parte dela em recurso; o lote de junho da Vida Care tinha previsão para 04/09 e ainda estava dentro do prazo no fechamento de agosto — em setembro venceu e entrou na cobrança ao convênio; as faltas de segunda de manhã continuam acima da média e a recepção começou a confirmação de véspera por mensagem."
 inp(rs["A6"]); [inp(rs[c+"6"]) for c in "BCD"]; rs.merge_cells("A6:D6"); rs["A6"].alignment=Alignment(wrap_text=True,vertical="top"); rs.row_dimensions[6].height=58
 F0=8
 def frase(i):

@@ -101,7 +101,8 @@ com o contador:
 | Documentos fiscais (notas, guias de imposto) | [ ] anos | contador | | |
 | Cadastro e contato de quem pediu orçamento e não fechou | [ ] meses | decisão da clínica | | |
 | Conversas de WhatsApp com pacientes | [ ] (após salvar no prontuário o que for clínico) | decisão da clínica | | |
-| Dados das planilhas do kit (nome, valor, data) | [ ] anos (o mesmo do financeiro) | contador | | |
+| Planilhas do kit sem nome de paciente (05 a 12, 16 a 20: valores, categorias e totais) | [ ] anos (o mesmo do financeiro) | contador | | |
+| Planilhas do kit com nome de paciente (01 Agenda e Pacientes, 02, 04, 13 Guias, 14 Parcelas, 15 Orçamentos) | [ ] | nome do paciente com procedimento é informação de saúde (seção 1): use como piso o prazo de guarda do prontuário, com quem cuida do jurídico | | |
 | Backups | [ ] versões / meses | decisão da clínica | | |
 
 Três regras que não dependem de prazo:
@@ -123,7 +124,7 @@ cômodo e é o maior risco. Regra simples:
 |---|---|---|
 | Médicos sócios | prontuário dos próprios pacientes e da clínica, financeiro, planilhas do kit | conta pessoal um do outro |
 | Médico parceiro | prontuário dos pacientes que atende; a própria produção (Planilha 11) | financeiro da clínica, prontuário de outros profissionais, Caixa (09) |
-| Recepção | agenda, cadastro, cobrança, guias de convênio, checklist do dia, Planilhas 1, 2, 4, 13, 14, 15 | conteúdo do prontuário, exames, laudos; Planilhas 5, 11, 12, 18 |
+| Recepção | agenda, cadastro, cobrança, guias de convênio, checklist do dia, Planilhas 1, 2, 4, 13, 14, 15; as abas de lançamento do Caixa (9) e da Conciliação de cartão (16), para lançar o fechamento do dia e marcar o que caiu no extrato | conteúdo do prontuário, exames, laudos; o Painel e as abas de análise da 9; Planilhas 5, 11, 12, 18 |
 | Contador | resumo do mês, notas, extratos, retiradas, totais por origem e categoria | qualquer dado de paciente: nome, guia, procedimento por pessoa |
 | Suporte de TI ou do sistema | o que for necessário para o serviço, com registro | prontuário sem supervisão; cópia de base de dados fora da clínica |
 | Operadoras de convênio | o que a guia e o contrato exigem | o que o contrato não exige (o médico decide o que vai na justificativa) |
@@ -142,6 +143,16 @@ Checklist de acesso:
 - [ ] A tela da recepção não fica visível da sala de espera; a impressora não fica com exame na
   bandeja.
 - [ ] Revisão de acessos a cada seis meses, junto com o inventário da seção 2.
+
+**Quem responde por privacidade: o encarregado.** A LGPD manda o controlador indicar um encarregado
+(art. 41): a pessoa que recebe as reclamações dos pacientes e da ANPD, presta os esclarecimentos e
+orienta a equipe. A Resolução CD/ANPD nº 2/2022 **dispensa o agente de tratamento de pequeno porte**
+— caso da maioria das clínicas pequenas — de indicar o encarregado, mas mantém a obrigação de
+**disponibilizar um canal de comunicação com o titular**. Na prática, duas saídas: nomear alguém por
+escrito (pode ser um dos sócios) e publicar nome e e-mail no aviso de privacidade (seção 9), ou não
+nomear e publicar só o canal. Nomear custa uma linha, e é a primeira pergunta que um advogado de
+LGPD faz. De um jeito ou de outro, quem atende esse canal precisa saber acionar a seção 8 (incidente)
+e responder no prazo da seção 3.
 
 ## 6. O que nunca colar em uma IA pública
 
@@ -167,7 +178,7 @@ vazamento aqui é o pior caso.
 **Pode, com cuidado:**
 
 - números de gestão sem identificação: horas, ocupação, faltas, valores, datas, procedimento como
-  nome administrativo, "Paciente A", "Convênio 1" (é assim que os 40 prompts do kit funcionam);
+  nome administrativo, "Paciente A", "Convênio 1" (é assim que os 41 prompts do kit funcionam);
 - textos seus, administrativos, sem dado de terceiro (rotina, pauta, mensagem padrão);
 - perguntas gerais de gestão, planilha e escrita.
 
@@ -250,7 +261,7 @@ regras do CFM/CRM; o aviso de privacidade é só o aviso.
 Aviso de privacidade · [Nome da clínica]
 Última atualização: [data]
 
-Quem somos. [Nome da clínica], CNPJ [ ], com responsável técnico [nome, CRM/UF nº], endereço [ ], é a responsável pelo tratamento dos dados pessoais descritos aqui. Contato para assuntos de privacidade: [e-mail].
+Quem somos. [Nome da clínica], CNPJ [ ], com responsável técnico [nome, CRM/UF nº], endereço [ ], é a responsável pelo tratamento dos dados pessoais descritos aqui. Encarregado pelo tratamento de dados pessoais (LGPD, art. 41): [nome], [e-mail]. (Clínica de pequeno porte que, pela Resolução CD/ANPD nº 2/2022, optar por não indicar encarregado: apague o nome e deixe só o canal — "Contato para assuntos de privacidade: [e-mail]".)
 
 Quais dados tratamos. (a) Dados de cadastro e contato (nome, documento, data de nascimento, telefone, e-mail, endereço, convênio e carteirinha). (b) Dados necessários ao atendimento, que incluem dados de saúde: histórico, exames, laudos, prescrições e o prontuário, mantidos pelo médico responsável. (c) Dados de pagamento (valores, forma de pagamento, notas fiscais). (d) Dados de navegação coletados por cookies no site, se você consentir.
 
@@ -286,6 +297,9 @@ Alterações. Este aviso pode ser atualizado; a data acima indica a versão vige
   equipe).
 - [ ] Aviso de privacidade com data de atualização recente, contato válido e responsável técnico
   correto.
+- [ ] Encarregado indicado (ou o canal de privacidade publicado, se a clínica usar a dispensa da
+  Resolução CD/ANPD nº 2/2022), com nome e e-mail que funcionam; a equipe sabe para quem repassar um
+  pedido de paciente.
 - [ ] Registro de incidentes lido; ações do último incidente concluídas.
 - [ ] Data da próxima revisão marcada na Rotina da semana (Planilha 3) como tarefa interna.
 

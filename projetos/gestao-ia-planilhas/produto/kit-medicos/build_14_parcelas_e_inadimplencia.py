@@ -33,6 +33,8 @@ for r in range(RG0,RG1+1):
     calc(cfg.cell(row=r,column=3)); cfg.row_dimensions[r].height=44
 cfg.cell(row=RG1+2,column=1,value="Os dias precisam estar em ordem crescente (ex.: 1, 7, 15, 30). Cada parcela vencida recebe a ação da maior faixa que ela já alcançou. Escreva as ações como você fala com o paciente: educado, direto e sem ameaça. Cobrança de paciente tem regras próprias (CDC e ética médica): nada de exposição ou constrangimento.").font=F(size=9,color=LILAS)
 cfg.cell(row=RG1+3,column=1,value="Os modelos de mensagem do bônus \"15 modelos de mensagem\" seguem esta mesma régua.").font=F(size=9,color=LILAS)
+cfg.cell(row=RG1+4,column=1,value="Regra que vale mais que a régua: quem tem parcela vencida em aberto não combina novo pagamento a prazo. O próximo atendimento é à vista (Pix, dinheiro ou cartão) ou fica para depois de acertar o que está em atraso — sem constrangimento e em particular. No exemplo do kit, nenhum paciente com parcela vencida recebeu crédito novo, e o mesmo vale para orçamento aprovado a prazo (planilha 15).").font=F(size=9,color=LILAS)
+cfg.cell(row=RG1+4,column=1).alignment=Alignment(wrap_text=True,vertical="top"); cfg.merge_cells(start_row=RG1+4,start_column=1,end_row=RG1+4,end_column=3); cfg.row_dimensions[RG1+4].height=30
 widths(cfg,(30,70,18,3,3,3,3,3)); cfg.sheet_view.showGridLines=False
 
 # ---------- Pacientes ----------
@@ -163,7 +165,7 @@ como_usar(wb,"Parcelas particulares e inadimplência",[
  ("Passo 2","Em Pacientes, cole os nomes e contatos da planilha 01 (aba Pacientes; a 01 é a fonte) de quem paga a prazo. É a lista que alimenta a escolha do paciente em Parcelas."),
  ("Passo 3","Em Parcelas, uma linha por parcela: paciente, procedimento, data do atendimento, número da parcela, vencimento e valor. Quando receber, marque Pago? = Sim e a data, e lance a mesma entrada no caixa (planilha 09, categoria \"Particular a prazo\"). O à vista não entra aqui."),
  ("Passo 4","Em Painel, veja o que vence em 7 e 30 dias, o vencido por faixa, a inadimplência (vencido ÷ (pago + vencido), a mesma conta das planilhas 17, 19 e 20) e a lista \"Cobrar primeiro\" com o texto da régua para cada parcela."),
- ("Rotina","Segunda-feira, 10 minutos: conferir o extrato, marcar as pagas, mandar as mensagens da lista \"Cobrar primeiro\". Sexta: lembrar quem vence na semana seguinte."),
+ ("Rotina","Sexta-feira, 4 minutos (rotina da semana, planilha 03): conferir o extrato, marcar as parcelas pagas, mandar as mensagens da lista \"Cobrar primeiro\" e lembrar quem vence na semana seguinte. Tudo numa passada só, na sexta."),
  ("Com a IA","Copie uma linha de \"Cobrar primeiro\" (sem o nome: procedimento, valor, dias, ação) e use o prompt \"Recebíveis 04 · Cobrança educada em três versões\" da biblioteca do kit, ou os 15 modelos de mensagem do bônus. Nunca cole dados do paciente que ele não autorizou."),
 ])
 proteger(wb); salvar(wb,"14-parcelas-e-inadimplencia.xlsx","Parcelas particulares e inadimplência · Kit de Gestão para Médicos")

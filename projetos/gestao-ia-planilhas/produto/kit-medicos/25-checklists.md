@@ -9,10 +9,10 @@ da planilha.
 - [ ] Abertura: guias e autorizações de convênio do dia separadas; troco e maquininha conferidos; salas prontas.
 - [ ] Abertura: tela da recepção fora da vista da sala de espera; nenhum exame na bandeja da impressora.
 - [ ] Fechamento: situação de cada horário marcada (Realizado, Falta, Cancelado, Remarcado) e forma de pagamento anotada (Planilha 1).
-- [ ] Fechamento: caixa do dia fechado e conferido (Pix, cartão, dinheiro); lançado no Caixa (Planilha 9), com nota fiscal emitida.
+- [ ] Fechamento: caixa do dia fechado e conferido pela recepção (Pix, cartão, dinheiro); lançado no Caixa (Planilha 9), com nota fiscal emitida; o sócio da semana confere na sexta.
 - [ ] Fechamento: guias do dia guardadas na pasta do lote (Planilha 13); retornos e exames aprovados agendados (Planilhas 1 e 15).
 - [ ] Fechamento: mensagem de falta enviada (modelo 03) e lembrete de véspera enviado para amanhã (modelo 02).
-- [ ] Fechamento: dia marcado no Checklist (Planilha 4); nada clínico em WhatsApp ou e-mail sem ir para o prontuário.
+- [ ] Fechamento: dia marcado no Checklist (Planilha 4); nada sobre a saúde do paciente escrito em WhatsApp ou e-mail (o que o paciente enviar vai para o prontuário e sai da conversa).
 
 ## Fechamento do mês
 - [ ] Agenda do mês fechada: nenhum horário passado sem situação (Planilhas 1 e 2).

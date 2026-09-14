@@ -10,8 +10,9 @@ Referência do exemplo: HOJE = segunda-feira 14/09/2026; a "sexta do painel" é 
 orçamentos abertos são relativos a HOJE (fórmula =HOJE()+n, via prazo_formula); histórico é fixo.
 
 Regra do dinheiro:
-- A agenda (01) registra desde 01/07/2026 (antes, a recepção só fechava o caixa do dia). O gerador produz janeiro a
-  junho também, mas só para alimentar caixa, lotes de convênio, parcelas a prazo e produção da parceira.
+- A agenda (01) registra desde 01/06/2026 (antes, a recepção só fechava o caixa do dia). O gerador produz janeiro a
+  maio também, mas só para alimentar caixa, lotes de convênio, parcelas a prazo e produção da parceira.
+  Junho entra para que o Histórico da 17 tenha o mês anterior ao trimestre e a "partida" das metas (19) seja reproduzível.
 - Particular à vista (Pix, dinheiro, cartão) entra no caixa (09) pelo fechamento do dia: uma linha por dia e forma.
 - Particular a prazo vira parcela (14); parcela paga <=> entrada no caixa na data do pagamento.
 - Convênio: cada atendimento realizado vira uma guia (13 · Guias); as guias do mês formam um lote por convênio,
@@ -26,8 +27,8 @@ CLINICA="Clínica Vida Plena"; CIDADE="Barueri/SP"
 HOJE=date(2026,9,14)          # segunda-feira de referência
 SEXTA=date(2026,9,11)         # última sexta (painel da semana)
 ANO=2026
-INICIO_AGENDA=date(2026,7,1)  # a agenda na planilha começou em julho
-INICIO_GERADOR=date(2026,1,5) # o gerador produz jan-jun só para caixa/lotes/parcelas (não aparece na agenda da 01)
+INICIO_AGENDA=date(2026,6,1)  # a agenda na planilha começou em junho
+INICIO_GERADOR=date(2026,1,5) # o gerador produz jan-maio só para caixa/lotes/parcelas (não aparece na agenda da 01)
 FUTURO=21                     # dias de agenda futura (relativa a hoje)
 ALIQ=0.11                     # alíquota efetiva de impostos do exemplo (única em todo o kit; "combinada com o contador")
 MARGEM=0.30                   # margem mínima sobre o preço (05/06/07/08)
@@ -241,12 +242,22 @@ def periodo(h): return "Manhã" if h<12*60 else "Tarde"
 # PARCELAS A PRAZO (14): particular com pagamento combinado depois (1 ou 2 parcelas de 30 em 30 dias).
 # ---------------------------------------------------------------------------------------------------------------
 def _parcelas():
+    """Parcelas do particular a prazo. Regra do exemplo (e do kit): a clínica não combina um novo pagamento a prazo
+    com quem já tem parcela vencida em aberto — nesse dia o atendimento é à vista (Pix). Por isso este gerador percorre
+    os atendimentos em ordem de data e, quando o paciente está inadimplente, troca a forma do atendimento na AGENDA."""
     rng=random.Random(14); out=[]
-    # o check-up (3 linhas do mesmo paciente no mesmo dia) é uma única cobrança
-    vistos=set()
-    for r in AGENDA_TODA:
-        if r["situacao"]!="Realizado" or r["forma"]!="A prazo": continue
+    vistos=set()          # o check-up (3 linhas do mesmo paciente no mesmo dia) é uma única cobrança
+    por_paciente={}       # paciente -> parcelas já combinadas
+    def inadimplente(pac,d):
+        return any(q["vencimento"]<d and (q["pagamento"] is None or q["pagamento"]>d) for q in por_paciente.get(pac,[]))
+    for r in sorted((x for x in AGENDA_TODA if x["situacao"]=="Realizado"),key=lambda x:(x["data"],x["hora"])):
+        if r["forma"]!="A prazo": continue
         chave=(r["data"],r["paciente"])
+        if inadimplente(r["paciente"],r["data"]):
+            # sem crédito novo: o atendimento do dia vira à vista (Pix) para todas as linhas do mesmo paciente
+            for x in AGENDA_TODA:
+                if x["data"]==r["data"] and x["paciente"]==r["paciente"] and x["forma"]=="A prazo": x["forma"]="Pix"; x["parcelas"]=None
+            continue
         if r["checkup"]:
             if chave in vistos: continue
             vistos.add(chave); valor=sum(x["valor"] for x in AGENDA_TODA if x["data"]==r["data"] and x["paciente"]==r["paciente"] and x["checkup"]); proc="Check-up cardiológico (consulta + ECG + teste ergométrico)"
@@ -259,8 +270,13 @@ def _parcelas():
             if venc<=SEXTA:
                 x=rng.random()
                 if x<0.87: pago=min(SEXTA,venc+timedelta(days=rng.choice([0,0,0,1,2,3,5])))
-            out.append(dict(paciente=r["paciente"],procedimento=proc,atendimento=r["data"],profissional=r["profissional"],n=k,total=n,vencimento=venc,valor=val,pago=pago is not None,pagamento=pago))
+            pc=dict(paciente=r["paciente"],procedimento=proc,atendimento=r["data"],profissional=r["profissional"],n=k,total=n,vencimento=venc,valor=val,pago=pago is not None,pagamento=pago)
+            out.append(pc); por_paciente.setdefault(r["paciente"],[]).append(pc)
+    out.sort(key=lambda p:(p["atendimento"],p["paciente"],p["n"]))
     for p in out: assert p["pagamento"] is None or p["pagamento"]<=SEXTA
+    for p in out:
+        assert not any(q["vencimento"]<p["atendimento"] and (q["pagamento"] is None or q["pagamento"]>p["atendimento"])
+                       for q in por_paciente[p["paciente"]] if q["atendimento"]<p["atendimento"]), p
     return out
 PARCELAS=_parcelas()
 def status_parcela(p,ref=HOJE):
@@ -346,7 +362,7 @@ def _orcamentos():
     rng=random.Random(15); out=[]; vistos=set()
     exames=("MAPA","Holter","Teste ergométrico")
     for r in AGENDA_TODA:
-        if r["pagador"]!="Particular" or r["profissional"]!=PAU or r["data"]<INICIO_AGENDA: continue   # aprovados viram exames na agenda visível (01)
+        if r["pagador"]!="Particular" or r["profissional"]!=PAU or r["data"]<date(2026,7,1): continue   # aprovados viram exames na agenda visível (01)
         if r["situacao"] in ("Falta","Cancelado","Remarcado"): continue
         chave=(r["data"],r["paciente"])
         if chave in vistos: continue
@@ -357,9 +373,11 @@ def _orcamentos():
             vistos.add(chave); itens=" + ".join(x["procedimento"] for x in mesmos); tipo="Exame cardiológico"; valor=sum(x["valor"] for x in mesmos)
         else: continue
         if rng.random()<0.45: continue      # nem todo exame passa por orçamento formal
-        apres=dia_util_ate(r["data"]-timedelta(days=rng.randint(4,18)))
+        # a decisão vem antes do atendimento e nunca depois da última sexta; a apresentação vem antes da decisão
+        dec=dia_util_ate(min(r["data"]-timedelta(days=1),SEXTA)-timedelta(days=rng.randint(0,2)))
+        apres=dia_util_ate(dec-timedelta(days=rng.randint(4,18)))
         if apres<date(2026,6,1): continue
-        dec=dia_util_ate(r["data"]-timedelta(days=rng.randint(0,3))); dec=min(max(dec,apres),SEXTA)
+        assert apres<=dec<=min(r["data"],SEXTA)
         out.append(dict(data=apres,paciente=r["paciente"],profissional=PAU,tipo=tipo,itens=itens,valor=valor,etapa="Aprovado",decisao=dec,motivo="",obs="Agendado para "+r["data"].strftime("%d/%m"),atendimento=r["data"]))
     # não aprovados e em aberto (sem atendimento correspondente)
     outros=[p for p in PACIENTES if p["convenio"]=="Particular"]
@@ -391,6 +409,10 @@ def taxa_cartao(r):
 def producao(prof,m,y=ANO,ate=SEXTA):
     return sum(r["valor"] for r in AGENDA_TODA if r["profissional"]==prof and r["situacao"]=="Realizado" and r["data"].month==m and r["data"].year==y and r["data"]<=ate)
 PRODUCAO_REN_DEZ=6200
+def material(prof,m,y=ANO,ate=SEXTA):
+    """Material e insumo dos atendimentos realizados de um profissional no mês (custo direto da parceria, 11)."""
+    return sum(MATERIAL[r["procedimento"]] for r in AGENDA_TODA if r["profissional"]==prof and r["situacao"]=="Realizado" and r["data"].month==m and r["data"].year==y and r["data"]<=ate)
+MATERIAL_REN_DEZ=120
 def lancamentos():
     """Tuplas (data, tipo, categoria, paciente ou convênio, referência, descrição, valor, forma, pago) de jan a set/2026."""
     ex=[]
@@ -405,11 +427,11 @@ def lancamentos():
     for (d,f),(v,n) in sorted(por_dia.items()):
         add(d,"Entrada","Particular à vista","","Fechamento do dia",f"Fechamento do dia · {n} atendimento{'s' if n>1 else ''} · {f.lower()}",v,f)
     # parcelas a prazo
-    fim_mes_ref=date(2026,9,30)
+    fim_mes_ref=date(2026,9,30)   # regra do exemplo: a receber = parcelas e lotes com previsão até o fim do mês de referência
     for p in PARCELAS:
         desc=f"{p['procedimento']} de {p['atendimento'].strftime('%d/%m')} · parcela {p['n']}/{p['total']}"
         if p["pago"]: add(p["pagamento"],"Entrada","Particular a prazo",p["paciente"],"Parcela",desc,p["valor"],"Pix")
-        elif p["vencimento"]<=fim_mes_ref: add(p["vencimento"],"Entrada","Particular a prazo",p["paciente"],"Parcela",desc+(" (vencida)" if p["vencimento"]<HOJE else " (a vencer)"),p["valor"],"Pix","Não")
+        elif p["vencimento"]<=fim_mes_ref: add(p["vencimento"],"Entrada","Particular a prazo",p["paciente"],"Parcela",desc+f" · vence {p['vencimento'].strftime('%d/%m')}",p["valor"],"Pix","Não")
     # lotes de convênio
     for l in LOTES:
         if l["envio"] is None: continue
@@ -417,7 +439,7 @@ def lancamentos():
         if l["pagamento"] is not None:
             if l["pagamento"].year==ANO: add(l["pagamento"],"Entrada",cat,l["convenio"],"Lote "+lote_txt(l),f"Pagamento do lote de {lote_txt(l)} ({l['n_guias']} guias"+(f", glosa de R$ {l['glosa']:,.0f}".replace(",",".") if l["glosa"] else "")+")",l["pago"],"Transferência")
             if l["recuperado"] and l["data_recuperacao"]: add(l["data_recuperacao"],"Entrada",cat,l["convenio"],"Lote "+lote_txt(l),f"Recurso de glosa aceito · lote de {lote_txt(l)}",l["recuperado"],"Transferência")
-        elif l["previsao"]<=fim_mes_ref: add(l["previsao"],"Entrada",cat,l["convenio"],"Lote "+lote_txt(l),f"Lote de {lote_txt(l)} enviado em {l['envio'].strftime('%d/%m')}"+(" (atrasado)" if l["previsao"]<HOJE else " (a receber)"),l["valor"],"Transferência","Não")
+        elif l["previsao"]<=fim_mes_ref: add(l["previsao"],"Entrada",cat,l["convenio"],"Lote "+lote_txt(l),f"Lote de {lote_txt(l)} enviado em {l['envio'].strftime('%d/%m')} · previsão {l['previsao'].strftime('%d/%m')}",l["valor"],"Transferência","Não")
     # custos fixos, pró-labore, repasse, impostos, materiais, taxas, manutenção
     for m in range(1,10):
         for c,v in CUSTOS_FIXOS:
@@ -555,12 +577,12 @@ def historico():
     out={}
     for m in range(1,10):
         ref=min(fim_mes(m),HOJE); e=estado(ref); t=TOTAIS[m]      # setembro = hoje, como a aba Dados da 17
-        ag=resumo_agenda(m,ANO,min(ref,SEXTA)) if m>=7 else None
+        ag=resumo_agenda(m,ANO,min(ref,SEXTA)) if m>=INICIO_AGENDA.month else None
         out[m]=dict(entrou=t["ent"],saiu=t["sai_total"],ocupacao=ag["ocupacao"] if ag else None,atendidas=ag["atendidas"] if ag else None,
                     taxa_falta=ag["taxa_falta"] if ag else None,faltas=ag["faltas"] if ag else None,producao=ag["producao"] if ag else None,
                     convenio=e["convenio_a_receber"],atrasado=e["convenio_atrasado"],glosa_pct=e["glosa_pct_mes"],vencido=e["vencido"],inadimplencia=e["inadimplencia"],
                     orcamentos_valor=e["orcamentos_valor"] if m>=6 else None,orcamentos_n=e["orcamentos_n"] if m>=6 else None,aprovados_mes=e["aprovados_mes"] if m>=6 else None,
-                    retorno=lista_retorno(ref) if m>=7 else None)
+                    retorno=lista_retorno(ref) if m>=INICIO_AGENDA.month else None)
     return out
 HISTORICO=historico()
 
@@ -568,23 +590,29 @@ HISTORICO=historico()
 # DRE (18), PROVISÃO (10), RESERVA E METAS (12, 19)
 # ---------------------------------------------------------------------------------------------------------------
 def dre(m):
+    """DRE simplificada da 18. Reembolso de sócio ("Outras entradas") fica FORA da receita e do imposto;
+    a provisão de 13º e férias (10) entra nas saídas, antes do resultado."""
     pc=TOTAIS[m]["por_cat"]
-    rec={c:pc.get(c,0) for c in CAT_ENTRADA}
+    rec={c:pc.get(c,0) for c in CAT_ENTRADA if c!="Outras entradas"}
+    reemb=pc.get("Outras entradas",0)
     fixos={c:pc.get(c,0) for c,_ in CUSTOS_FIXOS}
     var={c:pc.get(c,0) for c in CAT_VARIAVEIS}
     pro={n:v for n,v in PRO_LABORE}
     receita=sum(rec.values()); imp=round(receita*ALIQ)
-    saidas=sum(fixos.values())+sum(var.values())+sum(pro.values())+imp
-    return dict(receita=rec,fixos=fixos,variaveis=var,pro_labore=pro,receita_total=receita,impostos=imp,saidas=saidas,resultado=receita-saidas,margem=(receita-saidas)/receita if receita else 0)
+    pr=provisao_10()[m]; prov=round(pr["dec13"]+pr["ferias"])
+    saidas=sum(fixos.values())+sum(var.values())+sum(pro.values())+prov+imp
+    return dict(receita=rec,reembolsos=reemb,fixos=fixos,variaveis=var,pro_labore=pro,receita_total=receita,provisao=prov,impostos=imp,saidas=saidas,resultado=receita-saidas,margem=(receita-saidas)/receita if receita else 0)
 ENCARGOS=0.08   # FGTS sobre 13º e férias da recepcionista (exemplo; confirmar com o contador)
+_PROV_CACHE={}
 def provisao_10():
+    if _PROV_CACHE: return _PROV_CACHE
     dec13=sum(v/12*(1+ENCARGOS) for n,p,t,v,_ in PESSOAS if t=="Salário (já nos custos fixos)")+sum(v/12 for n,v in PRO_LABORE)
     ferias=sum(v*(1+1/3)/12*(1+ENCARGOS) for n,p,t,v,_ in PESSOAS if t=="Salário (já nos custos fixos)")
     out={}; sep=0; usado=0
     for m in range(1,10):
         ent=TOTAIS[m]["ent_sem_devol"]; imp=ent*ALIQ; sep+=imp+dec13+ferias; usado+=TOTAIS[m]["imp"]
         out[m]=dict(entradas=ent,imp=imp,dec13=dec13,ferias=ferias,separar=imp+dec13+ferias,usado=TOTAIS[m]["imp"],saldo=sep-usado)
-    return out
+    _PROV_CACHE.update(out); return out
 RESERVA_GUARDADA=14000; RESERVA_INICIO_TRI=8000; APORTE_RESERVA=3000
 PROVISAO_SEPARADA=17500
 META_APROVADO_TRI=18000       # meta de orçamentos aprovados no trimestre (15 e 19)
@@ -601,9 +629,10 @@ def glosa_ano(ref=HOJE,y=ANO):
     return g/(g+p) if g+p else 0
 def lotes_atrasados(ref): return sum(1 for l in LOTES if l["envio"] is not None and l["envio"]<=ref and (l["pagamento"] is None or l["pagamento"]>ref) and l["previsao"]<ref)
 def prazo_real(ref,desde=date(2026,7,1)):
-    """Dias médios entre o envio do lote e o pagamento, nos lotes pagos entre `desde` e `ref` (13: prazo real)."""
+    """Dias médios entre o envio do lote e o pagamento, nos lotes pagos entre `desde` e `ref` (13: prazo real).
+    None quando nenhum lote foi pago no período: a série da 19 mostra "—" e o gráfico não cai para zero."""
     L_=[(l["pagamento"]-l["envio"]).days for l in LOTES if l["pagamento"] is not None and desde<=l["pagamento"]<=ref]
-    return round(sum(L_)/len(L_),1) if L_ else 0
+    return round(sum(L_)/len(L_),1) if L_ else None
 def recuperado_tri(ref): return sum(l["recuperado"] for l in LOTES if l["data_recuperacao"] is not None and date(2026,7,1)<=l["data_recuperacao"]<=ref)
 def aprovados_tri(ref=HOJE): return sum(o["valor"] for o in ORCAMENTOS if o["etapa"]=="Aprovado" and date(2026,7,1)<=orc_dt(o["decisao"])<=ref)
 def metas_19():
@@ -615,23 +644,23 @@ def metas_19():
     prov=provisao_10()
     metas=[
      ("Agenda cheia, sem faltas",[
-       ("Ocupação da agenda nas últimas 4 semanas (%)",BRU,"%",r1(u4[0]["ocupacao"]),80.0,r1(ultimas_4_semanas(SEXTA)["ocupacao"]),"Maior é melhor","Painel da planilha 01 (horas atendidas ÷ disponíveis). Partida = primeira sexta de julho; atual = 4 semanas até 11/09.",[r1(x["ocupacao"]) for x in u4]),
+       ("Ocupação da agenda nas últimas 4 semanas (%)",BRU,"%",r1(u4[0]["ocupacao"]),80.0,r1(ultimas_4_semanas(SEXTA)["ocupacao"]),"Maior é melhor","Horas atendidas ÷ disponíveis nas 4 semanas até a sexta (Agenda da planilha 01). Partida = sexta 03/07, que olha 06/06 a 03/07: a agenda da 01 começa em 01/06, então dá para refazer a conta.",[r1(x["ocupacao"]) for x in u4]),
        ("Taxa de falta nas últimas 4 semanas (%)",BRU,"%",r1(u4[0]["taxa_falta"]),5.0,r1(ultimas_4_semanas(SEXTA)["taxa_falta"]),"Menor é melhor","Painel da planilha 02 (faltas ÷ (faltas + realizados)). Confirmação de véspera por mensagem e lista de espera.",[r1(x["taxa_falta"]) for x in u4]),
        ("Pacientes na lista de retorno sem agendamento",BRU,"pacientes",lista_retorno(S[0]),8,lista_retorno(HOJE),"Menor é melhor","Lista de retorno da planilha 02 (hoje). Ligar na segunda-feira; a rotina da semana (03) tem esse passo.",[lista_retorno(r) for r in S[:-1]]+[lista_retorno(HOJE)])]),
      ("Convênio sob controle",[
        ("Glosa nos lotes pagos no ano (%)",PAU,"%",r1(glosa_ano(ini)),4.0,r1(glosa_ano(HOJE)),"Menor é melhor","Painel da planilha 13 (\"Glosa no ano %\": glosa ÷ (pago + glosa) dos lotes pagos no ano). Conferir guias antes do envio (checklist do dia, 04).",[r1(glosa_ano(r)) for r in S]),
-       ("Prazo real médio de pagamento dos lotes (dias)",PAU,"dias",prazo_real(ini,date(2026,1,1)),40,prazo_real(HOJE),"Menor é melhor","Dias entre o envio e o pagamento dos lotes pagos no trimestre (Lotes da 13). Partida = média de janeiro a junho. Cobrar o convênio na sexta quando a previsão passar.",[prazo_real(r) for r in S]),
+       ("Prazo real médio de pagamento dos lotes (dias)",PAU,"dias",prazo_real(ini,date(2026,1,1)),40,prazo_real(HOJE),"Menor é melhor","Dias entre o envio e o pagamento dos lotes pagos no trimestre (aba Lotes da 13, colunas Data de envio e Data do pagamento). Partida = mesma conta nos lotes pagos de janeiro a junho, que estão na mesma aba. Semana sem lote pago fica \"—\".",[prazo_real(r) for r in S]),
        ("Glosa recuperada por recurso no trimestre (R$)",PAU,"R$",0,1000,recuperado_tri(SEXTA),"Maior é melhor","Coluna \"Valor recuperado\" da planilha 13 (lotes com recurso aceito, recebido de julho a setembro).",[recuperado_tri(r) for r in S])]),
      ("Caixa previsível",[
        ("Inadimplência a prazo: vencido ÷ (pago + vencido) (%)",CAR,"%",inad(ini),8.0,inad(HOJE),"Menor é melhor","Painel da planilha 14 (só o que foi combinado a prazo). Régua de cobrança educada na 14.",[inad(r) for r in S]),
        ("Reserva guardada em conta separada (R$)",CAR,"R$",RESERVA_INICIO_TRI,RESERVA_INICIO_TRI+3*APORTE_RESERVA,RESERVA_GUARDADA,"Maior é melhor","Aporte de R$ 3.000 no fechamento de cada mês (planilha 12). A meta do ano é 1 mês de custo fixo com pró-labore (R$ 28.000); a do trimestre, três aportes.",[reserva_em(r) for r in S]),
-       ("Conta de provisão de impostos, 13º e férias (R$)",CAR,"R$",8200,round(prov[9]["saldo"]),PROVISAO_SEPARADA,"Maior é melhor","Meta = saldo provisionado de setembro na planilha 10; atual = o que já está na conta separada (planilha 12).",
+       ("Conta de provisão de impostos, 13º e férias (R$)",CAR,"R$",8200,round(prov[8]["saldo"]),PROVISAO_SEPARADA,"Maior é melhor","Meta = saldo provisionado de AGOSTO na planilha 10 (último mês fechado; o de setembro ainda muda até o dia 30). Atual = o que já está na conta separada (planilha 12).",
         [8200,8200,8200,8200,11300,11300,11300,11300,11300,14400,17500])])]
     # S11 é a sexta 11/09; o "valor atual" é de hoje (14/09): a última coluna de Semanas recebe o valor atual, como na 17 (Dados = esta sexta)
     return [(obj,[kr[:8]+(kr[8][:-1]+[kr[5]],) for kr in krs]) for obj,krs in metas]
 
 if __name__=="__main__":
-    print(len(PACIENTES),"pacientes;",len(AGENDA_TODA),"atendimentos gerados;",len(AGENDA),"na agenda visível (desde 01/07);",len(GUIAS),"guias;",len(PARCELAS),"parcelas a prazo;",len(ORCAMENTOS),"orçamentos;",len(LANCAMENTOS),"lançamentos")
+    print(len(PACIENTES),"pacientes;",len(AGENDA_TODA),"atendimentos gerados;",len(AGENDA),"na agenda visível (desde 01/06);",len(GUIAS),"guias;",len(PARCELAS),"parcelas a prazo;",len(ORCAMENTOS),"orçamentos;",len(LANCAMENTOS),"lançamentos")
     from collections import Counter
     print("situações (agenda visível):",Counter(r["situacao"] for r in AGENDA))
     print("pagadores (realizados jul-set):",Counter(r["pagador"] for r in AGENDA if r["situacao"]=="Realizado"))

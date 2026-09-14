@@ -20,12 +20,12 @@ cfg["A7"]="Número do mês"; cfg["B7"]="=MATCH(B6,$H$5:$H$16,0)"
 cfg["A8"]="Trimestre do painel"; cfg["B8"]="=ROUNDUP(B7/3,0)"
 cfg["A9"]="Parte do lucro do trimestre distribuída aos sócios"; cfg["B9"]=dados.DISTRIB
 cfg["A10"]="Lucro mínimo do trimestre para haver distribuição"; cfg["B10"]=dados.LUCRO_MINIMO
-cfg["A11"]="Custo da estrutura por hora (planilha 05, \"custo indireto por hora\")"; cfg["B11"]=dados.CUSTO_INDIRETO_HORA
+cfg["A11"]="Custo indireto por hora (planilha 05; informativo)"; cfg["B11"]=dados.CUSTO_INDIRETO_HORA
 for r in range(4,12): rotulo(cfg.cell(row=r,column=1))
 inp(cfg["B4"]); inp(cfg["B5"],center=True); inp(cfg["B6"],center=True); calc(cfg["B7"]); calc(cfg["B8"]); inp(cfg["B9"],PCT,center=True); inp(cfg["B10"],BRL); inp(cfg["B11"],BRL)
 cfg["D9"]="Regra combinada entre os sócios: o restante do lucro fica na clínica (reserva e provisões). Trimestre com lucro abaixo do mínimo não distribui."
 cfg["D10"]="A distribuição é calculada só para trimestres já fechados (os três meses lançados em Resultado mensal e anteriores ao mês do painel)."
-cfg["D11"]="Para a \"margem da parceria\": o que a hora de sala, recepção e estrutura custa (custos fixos ÷ horas de atendimento: R$ 71,43 no exemplo), sem o pró-labore dos sócios, contra o que fica com a clínica do repasse."
+cfg["D11"]="Quanto vale a hora de sala, recepção e estrutura (custos fixos ÷ horas de atendimento: R$ 71,43 no exemplo). Serve só para MOSTRAR o tamanho da estrutura que o parceiro usa: esse custo NÃO é descontado da margem da parceria, porque a estrutura já está inteira dentro do custo-hora dos sócios na planilha 05 (10.000 de custo fixo ÷ 140 h) e o pró-labore dos dois sócios já cobre o mês. Descontar de novo cobraria a mesma estrutura duas vezes. A margem da parceria desconta só o que o parceiro consome de verdade: material e insumo."
 for r in (9,10,11): nota(cfg.cell(row=r,column=4)); cfg.cell(row=r,column=4).alignment=Alignment(wrap_text=True,vertical="top"); cfg.merge_cells(start_row=r,start_column=4,end_row=r,end_column=6); cfg.row_dimensions[r].height=32
 cfg["H4"]="Meses"; cfg["J4"]="Tipos de movimento"; rotulo(cfg["H4"]); rotulo(cfg["J4"])
 for i,m_ in enumerate(MESES): cfg.cell(row=5+i,column=8,value=m_).font=F(size=10,color=TINTA)
@@ -57,7 +57,7 @@ CH="Config!$B$11"
 # ---------- Repasse ----------
 rp=wb.create_sheet("Repasse")
 titulo(rp,"Repasse aos médicos parceiros","Uma linha por parceiro e mês. Amarelo: produção e horas atendidas (Painel da 01, por profissional, com o mês escolhido em Config) e o que foi pago. O resto é calculado.",merge_to="M")
-hdr(rp,4,["Mês","Ano","Parceiro","Produção do mês (R$)","Horas atendidas","% de repasse","Repasse devido (R$)","Pago em","Valor pago (R$)","Diferença (R$)","Fica com a clínica (R$)","Custo das horas usadas (R$)","Margem da parceria (R$)"],height=40)
+hdr(rp,4,["Mês","Ano","Parceiro","Produção do mês (R$)","Horas atendidas","% de repasse","Repasse devido (R$)","Pago em","Valor pago (R$)","Diferença (R$)","Fica com a clínica (R$)","Material e insumo do parceiro (R$)","Margem da parceria (R$)","Custo indireto das horas (informativo, R$)"],height=52)
 for r in range(RP0,RPN+1):
     inp(rp.cell(row=r,column=1),center=True); inp(rp.cell(row=r,column=2),center=True); inp(rp.cell(row=r,column=3)); inp(rp.cell(row=r,column=4),BRL0,center=True); inp(rp.cell(row=r,column=5),"#,##0.0",center=True)
     rp.cell(row=r,column=6,value=f'=IF(C{r}="","",IFERROR(INDEX(Config!$B${P0}:$B${PN},MATCH(C{r},Config!$A${P0}:$A${PN},0)),""))'); calc(rp.cell(row=r,column=6),PCT)
@@ -65,19 +65,20 @@ for r in range(RP0,RPN+1):
     inp(rp.cell(row=r,column=8),DATA,center=True); inp(rp.cell(row=r,column=9),BRL0,center=True)
     rp.cell(row=r,column=10,value=f'=IF(G{r}="","",IF(I{r}="",G{r},G{r}-I{r}))'); calc(rp.cell(row=r,column=10),BRL0)
     rp.cell(row=r,column=11,value=f'=IF(G{r}="","",D{r}-G{r})'); calc(rp.cell(row=r,column=11),BRL0)
-    rp.cell(row=r,column=12,value=f'=IF(OR(G{r}="",E{r}=""),"",E{r}*{CH})'); calc(rp.cell(row=r,column=12),BRL0)
-    rp.cell(row=r,column=13,value=f'=IF(L{r}="","",K{r}-L{r})'); calc(rp.cell(row=r,column=13),BRL0)
-    rp.cell(row=r,column=14,value=f'=IF(A{r}="","",MATCH(A{r},Config!$H$5:$H$16,0))'); rp.cell(row=r,column=14).font=F(color=CINZA,size=9)
-rp.column_dimensions["N"].hidden=True
+    inp(rp.cell(row=r,column=12),BRL0,center=True)
+    rp.cell(row=r,column=13,value=f'=IF(G{r}="","",K{r}-N(L{r}))'); calc(rp.cell(row=r,column=13),BRL0)
+    rp.cell(row=r,column=14,value=f'=IF(OR(G{r}="",E{r}=""),"",E{r}*{CH})'); calc(rp.cell(row=r,column=14),BRL0); rp.cell(row=r,column=14).font=F(color=LILAS,size=10)
+    rp.cell(row=r,column=15,value=f'=IF(A{r}="","",MATCH(A{r},Config!$H$5:$H$16,0))'); rp.cell(row=r,column=15).font=F(color=CINZA,size=9)
+rp.column_dimensions["O"].hidden=True
 for dv,rng_ in [(lista("=Config!$H$5:$H$16"),f"A{RP0}:A{RPN}"),(lista(f"={LPAR}",strict=False),f"C{RP0}:C{RPN}"),(DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),f"H{RP0}:H{RPN}")]:
     dv.add(rng_); rp.add_data_validation(dv)
 rp.conditional_formatting.add(f"J{RP0}:J{RPN}", FormulaRule(formula=[f'AND(ISNUMBER(J{RP0}),J{RP0}>0)'], fill=fill(AMARELO), font=F(color=UVA,size=10,bold=True)))
 rp.conditional_formatting.add(f"J{RP0}:J{RPN}", FormulaRule(formula=[f'AND(ISNUMBER(J{RP0}),J{RP0}<0)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 rp.conditional_formatting.add(f"M{RP0}:M{RPN}", FormulaRule(formula=[f'AND(ISNUMBER(M{RP0}),M{RP0}<0)'], font=F(color="C8402E",size=10,bold=True)))
-rp.cell(row=RPN+2,column=1,value="Diferença em amarelo: repasse devido e ainda não pago (ou pago a menos). Margem da parceria = o que fica com a clínica − custo da estrutura nas horas que o parceiro usou (custo indireto por hora da 05). Negativa em vermelho: a parceria não paga nem a sala; reveja o % ou a tabela.").font=F(size=9,color=LILAS)
+rp.cell(row=RPN+2,column=1,value="Diferença em amarelo: repasse devido e ainda não pago (ou pago a menos). Margem da parceria = o que fica com a clínica − material e insumo que o parceiro consome (o custo direto da parceria). O custo indireto das horas é só informativo: a estrutura já está paga dentro do custo-hora dos sócios (05), e descontá-la aqui cobraria a mesma sala duas vezes. Margem negativa em vermelho: o repasse combinado não cobre nem o material; reveja o % ou a tabela.").font=F(size=9,color=LILAS)
 rp.merge_cells(start_row=RPN+2,start_column=1,end_row=RPN+2,end_column=13); rp.cell(row=RPN+2,column=1).alignment=Alignment(wrap_text=True,vertical="top"); rp.row_dimensions[RPN+2].height=30
 rp.cell(row=RPN+3,column=1,value="No exemplo, a produção de janeiro a junho veio do fechamento do dia (a agenda na planilha 01 começou em julho); julho e agosto são o Painel da 01 por profissional; setembro está em andamento (até 11/09), sem repasse pago ainda.").font=F(size=9,color=LILAS)
-widths(rp,(11,7,24,15,11,10,14,12,13,12,14,14,14)); rp.freeze_panes="D5"; rp.sheet_view.showGridLines=False
+widths(rp,(11,7,24,15,11,10,14,12,13,12,14,15,14,17)); rp.freeze_panes="D5"; rp.sheet_view.showGridLines=False
 # exemplo: produção da parceira jan-set (dados.AGENDA_TODA); pagamentos = lançamentos "Repasse" da 09
 rep_pagos={}
 for d,t,c,quem,ref,desc,v,f,pago in dados.LANCAMENTOS:
@@ -85,6 +86,7 @@ for d,t,c,quem,ref,desc,v,f,pago in dados.LANCAMENTOS:
 for i,m in enumerate(range(1,10)):
     r=RP0+i; prod=dados.producao(dados.REN,m); horas=dados.horas_atendidas(m,prof=dados.REN)
     rp.cell(row=r,column=1,value=MESES[m-1]); rp.cell(row=r,column=2,value=2026); rp.cell(row=r,column=3,value=dados.REN); rp.cell(row=r,column=4,value=prod); rp.cell(row=r,column=5,value=round(horas,1))
+    rp.cell(row=r,column=12,value=dados.material(dados.REN,m))
     if m+1 in rep_pagos:
         d,v=rep_pagos[m+1]; rp.cell(row=r,column=8,value=d); rp.cell(row=r,column=9,value=v)
         assert v==round(prod*dados.REPASSE),(m,v,prod)
@@ -143,12 +145,12 @@ titulo(p,'=Config!B4&" · Repasse e pró-labore · "&Config!B6&" de "&Config!B5'
 M="Config!$B$7"; Y="Config!$B$5"; Q="Config!$B$8"
 RB=f"Retiradas!$B${R0}:$B${RN}"; RC=f"Retiradas!$C${R0}:$C${RN}"; RE=f"Retiradas!$E${R0}:$E${RN}"; RF=f"Retiradas!$F${R0}:$F${RN}"; RG=f"Retiradas!$G${R0}:$G${RN}"; RH=f"Retiradas!$H${R0}:$H${RN}"
 PB=f"Repasse!$B${RP0}:$B${RPN}"; PC_=f"Repasse!$C${RP0}:$C${RPN}"; PD=f"Repasse!$D${RP0}:$D${RPN}"; PE=f"Repasse!$E${RP0}:$E${RPN}"; PG=f"Repasse!$G${RP0}:$G${RPN}"; PI=f"Repasse!$I${RP0}:$I${RPN}"
-PJ=f"Repasse!$J${RP0}:$J${RPN}"; PK=f"Repasse!$K${RP0}:$K${RPN}"; PL=f"Repasse!$L${RP0}:$L${RPN}"; PM=f"Repasse!$M${RP0}:$M${RPN}"; PN_=f"Repasse!$N${RP0}:$N${RPN}"
+PJ=f"Repasse!$J${RP0}:$J${RPN}"; PK=f"Repasse!$K${RP0}:$K${RPN}"; PL=f"Repasse!$L${RP0}:$L${RPN}"; PM=f"Repasse!$M${RP0}:$M${RPN}"; PCUSTO=f"Repasse!$N${RP0}:$N${RPN}"; PN_=f"Repasse!$O${RP0}:$O${RPN}"
 def smes(tipo,soc): return f'SUMIFS({RE},{RB},{soc},{RC},"{tipo}",{RG},{M},{RH},{Y})'
 def sano(tipo,soc): return f'SUMIFS({RE},{RB},{soc},{RC},"{tipo}",{RG},"<="&{M},{RH},{Y})'
 # parceiros
 p["A7"]="Médicos parceiros: no mês do painel e no ano"; p["A7"].font=F(bold=True,size=13,color=UVA)
-hdr(p,8,["Parceiro","Produção no mês","Repasse devido no mês","Produção no ano","Repasse no ano","Pago no ano","A pagar","Fica com a clínica (ano)","Custo das horas (ano)","Margem da parceria (ano)"],height=40)
+hdr(p,8,["Parceiro","Produção no mês","Repasse devido no mês","Produção no ano","Repasse no ano","Pago no ano","A pagar","Fica com a clínica (ano)","Material e insumo (ano)","Margem da parceria (ano)","Custo indireto das horas (ano, informativo)"],height=52)
 for i in range(NPAR):
     r=9+i; src=f"Config!$A${P0+i}"
     p.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(p.cell(row=r,column=1),center=False)
@@ -161,11 +163,14 @@ for i in range(NPAR):
     p.cell(row=r,column=8,value=f'=IF({src}="","",D{r}-E{r})')
     p.cell(row=r,column=9,value=f'=IF({src}="","",SUMIFS({PL},{PC_},{src},{PB},{Y},{PN_},"<="&{M}))')
     p.cell(row=r,column=10,value=f'=IF({src}="","",H{r}-I{r})')
-    for c in range(2,11): calc(p.cell(row=r,column=c),BRL0)
+    p.cell(row=r,column=11,value=f'=IF({src}="","",SUMIFS({PCUSTO},{PC_},{src},{PB},{Y},{PN_},"<="&{M}))')
+    for c in range(2,12): calc(p.cell(row=r,column=c),BRL0)
     p.cell(row=r,column=7).font=F(bold=True,color=UVA,size=10); p.cell(row=r,column=10).font=F(bold=True,color=UVA,size=10)
+    p.cell(row=r,column=11).font=F(color=LILAS,size=10)
 p.conditional_formatting.add(f"G9:G{8+NPAR}", FormulaRule(formula=['AND(ISNUMBER(G9),G9>0)'], fill=fill(AMARELO), font=F(color=UVA,size=10,bold=True)))
 p.conditional_formatting.add(f"J9:J{8+NPAR}", FormulaRule(formula=['AND(ISNUMBER(J9),J9<0)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
-p.cell(row=9+NPAR,column=1,value="A pagar = repasse devido e ainda não pago (no exemplo, o de setembro, que sai dia 10 de outubro). Margem da parceria = o que fica com a clínica − custo da estrutura por hora × horas que o parceiro usou: se for negativa, a sala custa mais do que a parceria deixa."); nota(p.cell(row=9+NPAR,column=1))
+p.cell(row=9+NPAR,column=1,value="A pagar = repasse devido e ainda não pago (no exemplo, o de setembro, que sai dia 10 de outubro). Margem da parceria = o que fica com a clínica − material e insumo do parceiro. O custo indireto das horas (última coluna) é informativo: mostra quanto vale a estrutura que o parceiro ocupa, mas ela já está paga dentro do custo-hora dos sócios (05) — descontá-la de novo cobraria a mesma sala duas vezes."); nota(p.cell(row=9+NPAR,column=1))
+p.merge_cells(start_row=9+NPAR,start_column=1,end_row=9+NPAR,end_column=11); p.cell(row=9+NPAR,column=1).alignment=Alignment(wrap_text=True,vertical="top"); p.row_dimensions[9+NPAR].height=30
 # trimestres
 TQ=36
 p.cell(row=TQ-2,column=1,value="Lucro e distribuição por trimestre").font=F(bold=True,size=13,color=UVA)
@@ -234,11 +239,11 @@ for i in range(NS):
 p.conditional_formatting.add(f"G26:G{25+NS}", FormulaRule(formula=['AND(G26<>"",G26>0)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 p.conditional_formatting.add(f"J26:J{25+NS}", FormulaRule(formula=['AND(J26<>"",J26>0)'], fill=fill(AMARELO), font=F(color=UVA,size=10,bold=True)))
 p.cell(row=26+NS,column=1,value="A acertar com a clínica: o sócio devolve ou desconta da próxima distribuição de lucro. Distribuição devida = distribuível dos trimestres fechados × participação. Pró-labore, retiradas, repasse e distribuição têm tratamento tributário próprio: combine o formato com o contador."); nota(p.cell(row=26+NS,column=1))
-widths(p,(26,16,16,14,18,13,16,16,16,30)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
+widths(p,(24,14,15,13,14,12,13,14,14,15,17)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
 como_usar(wb,"Repasse aos médicos parceiros e pró-labore dos sócios",[
  ("O que esta planilha faz","Separa três dinheiros que costumam se misturar: o repasse dos médicos parceiros (% da produção do mês), o pró-labore fixo dos sócios e o que passou do combinado (retirada extra, despesa pessoal paga pela clínica). Mostra se a parceria paga a sala que usa e distribui o lucro de cada trimestre fechado por uma regra clara."),
- ("Passo 1","Em Config, cadastre os sócios (participação no lucro, pró-labore fixo), os parceiros (% de repasse, sobre produção ou recebido, dia de pagamento), a regra de distribuição e o custo da estrutura por hora (custo indireto por hora, Painel da 05)."),
- ("Passo 2","Em Repasse, uma linha por parceiro e mês: produção e horas atendidas (Painel da 01, por profissional, com o mês escolhido em Config) e, quando pagar, a data e o valor. O repasse pago é a mesma saída do caixa (09)."),
+ ("Passo 1","Em Config, cadastre os sócios (participação no lucro, pró-labore fixo), os parceiros (% de repasse, sobre produção ou recebido, dia de pagamento), a regra de distribuição e o custo indireto por hora (Painel da 05) — que entra só como informação, para mostrar o tamanho da estrutura que o parceiro usa."),
+ ("Passo 2","Em Repasse, uma linha por parceiro e mês: produção e horas atendidas (Painel da 01, por profissional, com o mês escolhido em Config), o material e insumo que os atendimentos dele consumiram e, quando pagar, a data e o valor. O repasse pago é a mesma saída do caixa (09)."),
  ("Passo 3","Em Resultado mensal, entradas e saídas da clínica sem nada dos sócios (Painel da 09). Em Retiradas, uma linha por movimento entre clínica e sócio: pró-labore, retirada extra, despesa pessoal, devolução e distribuição de lucro."),
  ("Passo 4","Em Painel, escolha o mês em Config: repasse devido e a pagar, margem da parceria, o que cada sócio retirou × o combinado no mês e no ano, o saldo a acertar e o lucro distribuível dos trimestres fechados contra o que já foi pago."),
  ("Rotina","Dia 10: pagar o repasse do mês anterior e lançar. Dia 28: pagar o pró-labore e lançar. No fechamento do mês: lançar despesas pessoais que passaram pela conta da clínica e combinar como zerar. No fim de cada trimestre: distribuir o lucro pela regra, não pelo humor do caixa."),

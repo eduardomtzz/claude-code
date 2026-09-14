@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Planilha 1 do Kit de Gestão para Médicos: Agenda e ocupação por profissional e sala. Gera 01-agenda-e-ocupacao.xlsx
 Fonte do cadastro de pacientes e da agenda do kit: 02 (faltas e retornos) e 16 (conciliação de cartão) copiam daqui.
-Exemplo: agenda de 01/07/2026 a hoje + 21 dias (dados.AGENDA); Painel em Setembro (em andamento, até ontem)."""
+Exemplo: agenda de 01/06/2026 a hoje + 21 dias (dados.AGENDA); Painel em Setembro (em andamento, até ontem)."""
 from ssg import *
 import dados
 from openpyxl.chart import BarChart, Reference
 from datetime import time
 
-N=1200; R0=5; RN=R0+N-1            # Agenda: linhas 5..1204
+N=3000; R0=5; RN=R0+N-1            # Agenda: linhas 5..3004 (≈ 300 atendimentos/mês → 10 meses por arquivo)
 NPAC=400; RP=R0+NPAC-1              # Pacientes: linhas 5..404
 NPROF=8; NSALA=6; NPAG=6; NPROC=12; NTUR=24; NFER=20
 T0=20; TN=T0+NTUR-1                 # turnos na Config: linhas 20..43
@@ -44,7 +44,7 @@ for i in range(NPROC):
     inp(cfg.cell(row=5+i,column=10)); inp(cfg.cell(row=5+i,column=11),"0",center=True); inp(cfg.cell(row=5+i,column=12),"0",center=True)
     for j in range(NPAG): inp(cfg.cell(row=5+i,column=13+j),BRL0,center=True)
 cfg["D14"]="Preencha as listas de cima para baixo, sem pular linha: as listas suspensas da Agenda param na última linha preenchida. Retorno em (dias) = prazo em que se espera o paciente de volta (0 = não se aplica); a planilha 02 usa isso na lista de retorno."; nota(cfg["D14"])
-cfg["D15"]="Tabela de preços: valor de cada procedimento para cada pagador. Célula vazia = não credenciado. A Agenda busca o valor aqui; é a mesma tabela da planilha 08."; nota(cfg["D15"])
+cfg["D15"]="Tabela de preços: valor de cada procedimento para cada pagador. Célula vazia = não credenciado. A Agenda busca o valor aqui. COPIE DA PLANILHA 08 (Tabela de preços): ela é a fonte única da tabela no kit; 06 e 07 também copiam de lá. Mudou um preço? Atualize a 08 primeiro e depois 06, 07 e esta Config."; nota(cfg["D15"])
 for i,(n,pap,tipo,v,h) in enumerate(dados.PESSOAS[:3]): cfg.cell(row=5+i,column=4,value=n); cfg.cell(row=5+i,column=5,value=dados.ESPECIALIDADE[n])
 for i,s in enumerate(dados.SALAS): cfg.cell(row=5+i,column=6,value=s)
 for i,pg in enumerate(dados.PAGADORES): cfg.cell(row=5+i,column=8,value=pg)
@@ -131,7 +131,8 @@ ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'OR($H{R0}="
 ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'OR($H{R0}="Agendado",$H{R0}="Confirmado")'], fill=fill(LAVANDA)))
 ag.conditional_formatting.add(f"I{R0}:I{RN}", FormulaRule(formula=[f'AND($H{R0}="Realizado",$M{R0}>0,$I{R0}="")'], fill=fill(VERM)))
 ag.cell(row=RN+2,column=1,value="Verde: realizado. Vermelho: falta. Lilás: agendado ou confirmado. Cinza: cancelado ou remarcado. Forma de pagamento em vermelho: atendimento realizado com valor e sem forma. Convênio: escolha \"Convênio\" (a guia vai para a planilha 13). A prazo: a parcela vai para a planilha 14. Cartão: a conciliação é a planilha 16.").font=F(size=9,color=LILAS)
-ag.cell(row=RN+3,column=1,value="No exemplo, a agenda na planilha começou em 01/07/2026 (antes, a recepção só fechava o caixa do dia). Datas até 11/09/2026 são fixas; de hoje em diante são relativas a hoje (=HOJE()+n).").font=F(size=9,color=LILAS)
+ag.cell(row=RN+3,column=1,value=f"No exemplo, a agenda na planilha começou em 01/06/2026 (antes, a recepção só fechava o caixa do dia). Datas até 11/09/2026 são fixas; de hoje em diante são relativas a hoje (=HOJE()+n).").font=F(size=9,color=LILAS)
+ag.cell(row=RN+4,column=1,value=f"Esta aba tem {N} linhas ({R0} a {RN}): cerca de 300 atendimentos por mês cabem 10 meses. Para estender, desproteja a aba (Revisar > Desproteger), selecione a última linha inteira, copie e cole nas linhas seguintes (as fórmulas das colunas brancas vêm juntas) e depois troque {RN} pelo novo número final nas fórmulas do Painel (Localizar e substituir). Ou comece um arquivo por ano, que é o mais simples.").font=F(size=9,color=LILAS)
 widths(ag,(11,7,22,8,26,12,18,11,17,9,26,8,11,6,6,11,8,9)); ag.freeze_panes="F5"; ag.sheet_view.showGridLines=False; ag.auto_filter.ref=f"A4:R{RN}"
 assert len(dados.AGENDA)<=N
 for i,r_ in enumerate(dados.AGENDA):
@@ -202,6 +203,8 @@ for i,dia in enumerate(["Segunda","Terça","Quarta","Quinta","Sexta","Sábado"])
         p.cell(row=r,column=c0+2,value=f'=IF({L(c0)}{r}=0,"",{L(c0+1)}{r}/{L(c0)}{r})'); calc(p.cell(row=r,column=c0+2),PCT)
     p.cell(row=r,column=8,value=f'=COUNTIFS({AP},A{r},{AH},"Falta",{MES})'); calc(p.cell(row=r,column=8))
 p.conditional_formatting.add(f"A{D0+2}:H{D0+7}", FormulaRule(formula=[f'AND($B{D0+2}=0,$E{D0+2}=0)'], font=F(color="B0A6C4",size=10)))
+p.cell(row=D0+8,column=1,value="Dia em cinza: nenhum turno disponível no período contado. As horas disponíveis só contam dias já passados e pulam os feriados de Config, então num mês em andamento um dia da semana pode aparecer zerado sem que a clínica tenha fechado. No exemplo (setembro), a segunda aparece assim: 07/09 é feriado e 14/09 é hoje, e as duas segundas anteriores ao mês não contam — Dra. Carolina e Dr. Paulo atendem normalmente às segundas.").font=F(size=9,color=LILAS)
+p.merge_cells(start_row=D0+8,start_column=1,end_row=D0+8,end_column=12); p.cell(row=D0+8,column=1).alignment=Alignment(wrap_text=True,vertical="top"); p.row_dimensions[D0+8].height=30
 for col in ("D","G"): p.conditional_formatting.add(f"{col}{D0+2}:{col}{D0+7}", FormulaRule(formula=[f'AND(ISNUMBER({col}{D0+2}),{col}{D0+2}<0.6)'], fill=fill(AMARELO)))
 # por procedimento e por pagador
 P0=D0+10
@@ -253,7 +256,8 @@ como_usar(wb,"Agenda e ocupação por profissional e sala",[
  ("Passo 2","Em Pacientes, uma linha por paciente: nome, pagador, profissional principal e contato. Só o necessário para agendar e cobrar; nada clínico. Esta aba é a fonte do cadastro de pacientes (a 14 copia daqui)."),
  ("Passo 3","Em Agenda, uma linha por horário: data, hora, profissional, sala, paciente, pagador, procedimento e situação. No fim do dia, a recepção marca Realizado, Falta, Cancelado ou Remarcado e a forma de pagamento (a planilha 04 tem esse passo no fechamento do dia)."),
  ("Passo 4","Em Painel, escolha o mês em Config: horas disponíveis (só dias já passados), atendidas, ocupação, horas vazias, faltas e produção; por profissional, por sala, por dia da semana e período, por procedimento e por pagador; e os próximos 7 dias com as vagas."),
- ("Rotina de segunda","10 minutos: olhar as vagas dos próximos 7 dias, oferecer horários à lista de retorno (02) e confirmar os agendados da semana. Sexta: conferir se todo atendimento realizado tem forma de pagamento e situação certas."),
+ ("Rotina de segunda","4 minutos: olhar as vagas dos próximos 7 dias e a ocupação da semana. Confirmar os agendados da semana é a rotina seguinte (mais 4 minutos). As duas estão na planilha 03 · Rotina da semana, que soma 12 minutos na segunda e 18 na sexta."),
+ ("Limite e como estender","A aba Agenda tem 3.000 linhas (5 a 3004): com cerca de 300 atendimentos por mês, dá 10 meses. Quando chegar perto do fim, copie a última linha preenchida para baixo (a aba precisa ser desprotegida em Revisar > Desproteger planilha) e ajuste o número final nas fórmulas do Painel, ou comece um arquivo por ano — é o mais simples e mantém o histórico separado. A aba Pacientes tem 400 linhas."),
  ("Ligação com as outras planilhas","A produção por profissional alimenta o repasse (11); os atendimentos de convênio viram guias (13); os a prazo, parcelas (14); os no cartão, a conciliação (16). O Painel da clínica (17) copia horas atendidas, ocupação e faltas daqui. A planilha 02 copia esta Agenda para medir faltas e montar a lista de retorno."),
  ("Com a IA","Copie \"Por dia da semana e período\" e \"Por profissional\" e use o prompt \"Agenda 01 · Onde a agenda esvazia\" da biblioteca do kit. Nunca cole a aba Pacientes ou a Agenda com nomes na IA: use só as tabelas do Painel."),
 ])

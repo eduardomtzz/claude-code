@@ -26,6 +26,7 @@ cfg["D4"]="Meses"; rotulo(cfg["D4"])
 for i,m in enumerate(MESES): cfg.cell(row=5+i,column=4,value=m).font=F(size=10,color=TINTA)
 dv=lista("=Config!$D$5:$D$16",allow_blank=False); dv.add("B5"); cfg.add_data_validation(dv)
 cfg["A11"]="Use a mesma planilha o ano inteiro: troque o mês aqui e, no fim de cada mês, copie a linha de Dados para o Histórico. Enquanto o mês não fecha, agenda e caixa são parciais e o Painel não os compara com o mês anterior (marque Sim no fechamento)."; nota(cfg["A11"])
+cfg["A12"]="Esta planilha só guarda totais: são 12 linhas de Dados e 12 de Histórico por ano, e nada envelhece. As planilhas de lançamento (01, 02, 09, 13, 14, 15, 16) têm um número fixo de linhas — cada \"Como usar\" diz quantas e como estender ou virar o ano."; nota(cfg["A12"])
 widths(cfg,(28,40,4,14)); cfg.sheet_view.showGridLines=False
 
 # ---------- Dados ----------
@@ -49,7 +50,7 @@ LINHAS=[
  ("venc","Vencido (parcelas a prazo em atraso)",E["vencido"],4000,"Menor é melhor","14 · Parcelas e inadimplência (Painel: Vencido)",BRL0),
  ("inad","Inadimplência a prazo (vencido ÷ (pago + vencido))",r1(E["inadimplencia"]),0.08,"Menor é melhor","14 · Parcelas e inadimplência (Painel: Inadimplência)","0.0%"),
  ("orcn","Orçamentos em aberto (quantidade)",E["orcamentos_n"],None,"","15 · Orçamentos (Painel: Apresentado + Em análise)","#,##0"),
- ("orcv","Orçamentos em aberto (valor)",E["orcamentos_valor"],5000,"Maior é melhor","15 · Orçamentos (Painel: Em aberto)",BRL0),
+ ("orcv","Orçamentos em aberto (valor)",E["orcamentos_valor"],None,"","15 · Orçamentos (Painel: Em aberto)",BRL0),
 ]
 ROW={k:R0+i for i,(k,*_) in enumerate(LINHAS)}
 RN=R0+len(LINHAS)-1
@@ -66,7 +67,7 @@ for i,(k,rot,val,lim,sent,fonte,fmt) in enumerate(LINHAS):
 dvs=lista('"Maior é melhor,Menor é melhor"'); dvs.add(f"D{R0}:D{RN}"); d.add_data_validation(dvs)
 for cor,txt,fnt in ((VERDE,"No alvo",VERDE_T),(AMARELO,"Perto","7A5200"),(VERM,"Fora",VERM_T)):
     d.conditional_formatting.add(f"F{R0}:F{RN}", FormulaRule(formula=[f'F{R0}="{txt}"'], fill=fill(cor), font=F(color=fnt,size=10,bold=(txt=="Fora"))))
-d.cell(row=RN+2,column=1,value="Linha sem limite fica \"Informativo\". \"Perto\" é até 10% do limite. Inadimplência = vencido ÷ (pago + vencido), a mesma conta da planilha 14. Convênio a receber é o que foi enviado e ainda está no prazo: informativo; o problema é o atrasado. Os valores desta sexta valem para o mês escolhido em Config; no fim do mês, copie a coluna B para a linha do mês em Histórico.").font=F(size=9,color=LILAS)
+d.cell(row=RN+2,column=1,value="Linha sem limite fica \"Informativo\". \"Perto\" é até 10% do limite. Inadimplência = vencido ÷ (pago + vencido), a mesma conta da planilha 14. Convênio a receber é o que foi enviado e ainda está no prazo: informativo; o problema é o atrasado. Orçamentos em aberto também são informativos: pouco orçamento pendente pode ser bom (fechou tudo) ou ruim (a recepção parou de apresentar) — quem diz é a taxa de aprovação da planilha 15, não o valor parado. Os valores desta sexta valem para o mês escolhido em Config; no fim do mês, copie a coluna B para a linha do mês em Histórico.").font=F(size=9,color=LILAS)
 d.merge_cells(start_row=RN+2,start_column=1,end_row=RN+2,end_column=6)
 d.cell(row=RN+3,column=1,value="As planilhas indicadas em \"Copie de\" são as do próprio kit. Se ainda não usa alguma, deixe a linha em branco: o painel mostra \"—\". No exemplo (sexta 11/09/2026) agenda e caixa são do mês em andamento: a comparação com agosto só aparece no fechamento.").font=F(size=9,color=LILAS)
 d.merge_cells(start_row=RN+3,start_column=1,end_row=RN+3,end_column=6)
@@ -98,7 +99,7 @@ for m in range(12):
                 v=hv(k,m+1)
                 if v is not None: cell.value=round(v,4) if isinstance(v,float) else v
 h.conditional_formatting.add("A5:A16", FormulaRule(formula=['ROW()-4=Config!$B$8'], fill=fill(SOL), font=F(color=UVA,size=10,bold=True)))
-h.cell(row=18,column=1,value="A linha do mês escolhido em Config fica destacada. Setembro repete os valores da aba Dados (mês em andamento, até 11/09). Entrou e Saiu = Painel mensal da planilha 09 (caixa real). Agenda: o registro na planilha 01 começou em julho; antes fica em branco. Orçamentos: o funil (15) começou em junho. Convênio, vencido e inadimplência: o que a clínica copiou no fim de cada mês. Glosa no mês = dos lotes pagos naquele mês (no Dados, o acumulado do ano).").font=F(size=9,color=LILAS)
+h.cell(row=18,column=1,value="A linha do mês escolhido em Config fica destacada. Setembro repete os valores da aba Dados (mês em andamento, até 11/09). Entrou e Saiu = Painel mensal da planilha 09 (caixa real). Agenda: o registro na planilha 01 começou em junho; antes fica em branco. Orçamentos: o funil (15) começou em junho. Convênio, vencido e inadimplência: o que a clínica copiou no fim de cada mês. Glosa no mês = dos lotes pagos naquele mês (no Dados, o acumulado do ano).").font=F(size=9,color=LILAS)
 h.merge_cells("A18:P18"); h["A18"].alignment=Alignment(wrap_text=True,vertical="top"); h.row_dimensions[18].height=44
 def serie_cols(k1,k2): return Reference(h,min_col=HCOL[k1],max_col=HCOL[k2],min_row=4,max_row=16)
 cats=Reference(h,min_col=1,max_col=1,min_row=5,max_row=16)
@@ -161,8 +162,8 @@ widths(p,(22,22,14,14,14,18,12,12,12,12)); p.freeze_panes="A4"; p.sheet_view.sho
 
 como_usar(wb,"Painel da Clínica",[
  ("O que esta planilha faz","Reúne em uma tela os números que já estão nas outras planilhas do kit: ocupação da agenda, horas atendidas e vazias, taxa de falta e lista de retorno, o que entrou, saiu e sobrou, convênio a receber e atrasado, glosa, vencido e inadimplência a prazo, orçamentos abertos. Cada número ganha um semáforo contra o limite que você definir e a comparação com o mês anterior."),
- ("Toda sexta (10 minutos)","Abra as planilhas 01 (agenda), 02 (faltas), 09 (caixa), 13 (convênios), 14 (parcelas) e 15 (orçamentos), copie os totais do Painel de cada uma para a coluna B da aba Dados. Pronto: o Painel se refaz. No exemplo, a sexta é 11/09/2026 e cada número é exatamente o que está no Painel da planilha de origem."),
- ("Limites e metas","Na aba Dados, coluna C, escreva o limite de cada indicador (ex.: ocupação de 75 %, taxa de falta de 6 %, glosa de 4 %, inadimplência de 8 %) e diga se maior ou menor é melhor. Linha sem limite fica informativa."),
+ ("Toda sexta (3 minutos)","Abra as planilhas 01 (agenda), 02 (faltas), 09 (caixa), 13 (convênios), 14 (parcelas) e 15 (orçamentos), copie os totais do Painel de cada uma para a coluna B da aba Dados. Pronto: o Painel se refaz. No exemplo, a sexta é 11/09/2026 e cada número é exatamente o que está no Painel da planilha de origem."),
+ ("Limites e metas","Na aba Dados, coluna C, escreva o limite de cada indicador (ex.: ocupação de 75 %, taxa de falta de 6 %, glosa de 4 %, inadimplência de 8 %) e diga se maior ou menor é melhor. Linha sem limite fica informativa — é o caso de convênio a receber e dos orçamentos em aberto, que sozinhos não dizem se a clínica vai bem ou mal."),
  ("Fim do mês","Copie a coluna B da aba Dados para a linha do mês em Histórico. Os gráficos de caixa e de agenda usam essa aba; o Painel busca ali o mês anterior."),
  ("Config","Escolha o mês do painel e mantenha a data de referência em =HOJE(). O título do Painel se ajusta."),
  ("Com a IA","O Painel é a tela da rotina de sexta. Para o texto do mês (sócio, contador), use a planilha 20 · Resumo do mês e o prompt \"Painel 01 · Explicar o mês ao sócio\" da biblioteca."),

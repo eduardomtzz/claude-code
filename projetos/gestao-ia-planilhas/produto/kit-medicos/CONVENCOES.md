@@ -5,7 +5,8 @@ Leia também `../revisao-interna-2.md` (Relatório A: os defeitos que os revisor
 1. **Helpers**: `from ssg import *` (cores, F, fill, hdr, inp, calc, kpi, lista, widths, como_usar, proteger, salvar) e
    `import dados`. `dados.py` é a FONTE ÚNICA do exemplo: clínica (PESSOAS, TURNOS, SALAS, FERIADOS), custos fixos, convênios
    (prazo e glosa histórica), procedimentos (duração, material, retorno) e TABELA de preços por pagador, ~156 pacientes
-   (PACIENTES), agenda gerada turno a turno (AGENDA_TODA de 05/01 a hoje + 21 dias; AGENDA = o que aparece na 01, desde 01/07),
+   (PACIENTES), agenda gerada turno a turno (AGENDA_TODA de 05/01 a hoje + 21 dias; AGENDA = o que aparece na 01, desde 01/06 — junho entra
+para o Histórico da 17 ter o mês anterior ao trimestre e a "partida" das metas da 19 ser reproduzível),
    parcelas a prazo (PARCELAS), guias e lotes de convênio (GUIAS, LOTES), orçamentos (ORCAMENTOS), lançamentos do caixa
    (LANCAMENTOS, gerados dos fechamentos do dia, parcelas pagas, lotes pagos e saídas), totais mensais (TOTAIS), estado em
    qualquer data (estado), histórico da 17 (HISTORICO), agenda por mês (resumo_agenda, faltas, lista_retorno), DRE (dre),
@@ -55,7 +56,7 @@ Leia também `../revisao-interna-2.md` (Relatório A: os defeitos que os revisor
 10. **Verificação obrigatória** antes de entregar: copiar o .xlsx para o scratchpad e rodar
     `python3 /root/.claude/skills/synced/*/xlsx/scripts/recalc.py <copia> 300` → zero erros; ler a cópia com `data_only=True` e
     conferir 3 valores do painel contra `dados.py`. Nunca recalcular o original. Depois, com as 20 cópias recalculadas na
-    mesma pasta: `python3 verifica_coerencia.py <pasta>` (0 falhas; hoje são 518 verificações) e
+    mesma pasta: `python3 verifica_coerencia.py <pasta>` (0 falhas; hoje são 677 verificações) e
     `python3 cache_valores.py <pasta>` (grava só os valores calculados nos .xlsx originais, para a pré-visualização em
     celular/Drive não aparecer vazia; não use "abrir e salvar" no LibreOffice, que reescreve estilos, gráficos e colunas
     ocultas). Regerar `NUMEROS.md` com `python3 numeros.py <pasta>` (inclui a lista dos nomes de prompt citados) e as telas
@@ -67,3 +68,32 @@ Leia também `../revisao-interna-2.md` (Relatório A: os defeitos que os revisor
 13. **Prompts citados** nos "Como usar" usam nomes provisórios no formato "Grupo NN · Título" (Agenda, Preço, Caixa,
     Recebíveis, Painel). A lista completa está no fim de `NUMEROS.md`: quem escrever a biblioteca de prompts usa exatamente
     esses nomes (ou troca aqui e regera as 20).
+
+14. **Fonte única da tabela de preços**: a planilha **08** é onde o preço é decidido. A 06 (precificação), a 07 (simulador) e a
+    Config da 01 (agenda) COPIAM de lá e dizem isso no texto. Ordem de atualização quando um preço muda: **08 → 06 → 07 → 01**.
+    Procedimento novo: 01 e 02 (Config), 08, 06, 07. Convênio novo: 01, 02, 06, 07, 08, 09 (categorias) e 13 (Config).
+15. **Capacidade das abas de lançamento** (dita no "Como usar" de cada planilha, com o jeito de estender ou de virar o ano):
+    01 · Agenda 3.000 linhas (≈ 10 meses a 300 atendimentos/mês), 02 · Agenda 3.000 (cópia da 01), 09 · Lançamentos 1.500
+    (≈ 80/mês, mais de um ano), 16 · Vendas 2.000 (≈ 100 pagamentos/mês), 13 · Guias 1.500 e Lotes 150, 14 · Parcelas 400,
+    15 · Orçamentos 300, 04 · Checklist 300 dias, 01/14 · Pacientes 400.
+16. **Regras de conteúdo fixadas na revisão** (valem para todo build e para o exemplo):
+    - **A receber (09)** = parcelas (14) e lotes (13) com previsão de recebimento **até o fim do mês de referência**. A regra está
+      escrita em `Lançamentos!A2` e na Config. Descrições de lançamento nunca trazem rótulo que envelhece ("(vencida)", "(a vencer)",
+      "(atrasado)"): use a data ("· vence dd/mm", "· previsão dd/mm").
+    - **Custo-hora (05)** = custo total ÷ horas de atendimento **planejadas** (turnos × 4,33 semanas). É essa base que 06, 07 e 08
+      usam. As horas realmente atendidas aparecem só na sensibilidade da 05 (última linha: agosto da 01), com nota no Painel.
+    - **"Tabela de convênio abaixo do custo cheio + imposto"** é a ÚNICA definição (margem negativa depois dos 11 %), com esse
+      rótulo e o mesmo número na 06 (Resumo) e na 08 (KPI e coluna).
+    - **Margem da parceria (11)** = o que fica com a clínica − material e insumo do parceiro. O custo indireto por hora (05) entra
+      só como informação: a estrutura já está dentro do custo-hora dos sócios e não pode ser cobrada duas vezes.
+    - **18** tem linha de **provisão de 13º e férias** (da 10) antes do resultado, e **reembolsos de sócios** (a categoria "Outras
+      entradas" da 09) numa linha própria, fora da receita e fora da base do imposto — a mesma base da 10 e da 11.
+    - **Crédito**: o exemplo nunca combina pagamento a prazo (14) nem orçamento aprovado a prazo (15) com paciente que tem parcela
+      vencida em aberto; nesse dia o atendimento é à vista.
+    - **Orçamentos (15)**: a data da decisão é sempre ≥ a da apresentação, e nenhuma das duas fica no futuro; orçamento ligado a
+      agendamento futuro fica "Aprovado" com as duas datas no passado e o agendamento na observação.
+    - **Rotina da semana (03)**: 12 minutos na segunda (01: 4 · confirmação: 4 · 02: 4) e 18 na sexta (09 conferir: 5 · 14: 4 ·
+      13: 3 · 15: 3 · 17: 3). A recepção lança o fechamento do dia na 09 todo dia (04); na sexta a sócia CONFERE. 12, 16 e 19 são
+      mensais/quinzenais e dizem isso; a 04 é o roteiro diário da recepção (3 + 10 min), fora dos 30 minutos dos sócios.
+    - **Meta de provisão (12 e 19)** = saldo provisionado do último mês **fechado** (agosto), não o do mês em andamento.
+    - "Custo fixo" na 12 é **custo fixo + pró-labore** e o rótulo diz isso (nas 05, 09 e 18, "custo fixo" é só a estrutura).
