@@ -18,7 +18,10 @@
 <link rel="apple-touch-icon" href="/assets/img/icone-512.png">
 <link rel="preload" href="/assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/fonts.css">
+<style>/* Fontes auto-hospedadas: subset latino, arquivos variáveis do Google Fonts */
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:600 800;font-display:swap;src:url(/assets/fonts/bricolage-grotesque.woff2) format('woff2');}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:400 700;font-display:swap;src:url(/assets/fonts/figtree.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/ibm-plex-mono-500.woff2) format('woff2');}</style>
 <link rel="stylesheet" href="/assets/css/site.css">
 <script>window.SSG={pixelId:""};</script>
 </head>
@@ -53,7 +56,7 @@
     <figure class="tela tela--mock" aria-label="Planilhas do kit em um notebook e em um celular, com escritório fictício">
       <div class="tela__barra"><span></span><span></span><span></span><b>20 planilhas · computador e celular</b></div>
       <p class="tela__titulo">Vinte planilhas prontas, no computador e no celular. Você digita; os painéis fazem o resto:</p>
-      <img src="/assets/advogados/hero-mockup.webp" alt="Notebook mostrando o Painel do Escritório e celular mostrando a Agenda de Prazos, com escritório fictício" width="1200" height="812" fetchpriority="high">
+      <img src="/assets/advogados/hero-mockup.webp" srcset="/assets/advogados/hero-mockup-640.webp 640w, /assets/advogados/hero-mockup.webp 1200w" sizes="(max-width: 859px) calc(100vw - 32px), 560px" alt="Notebook mostrando o Painel do Escritório e celular mostrando a Agenda de Prazos, com escritório fictício" width="1200" height="812" fetchpriority="high">
       <ul class="tela__chips">
         <li>O semáforo mostra o que vence primeiro</li>
         <li>O custo-hora diz quanto cobrar</li>
@@ -99,7 +102,7 @@
       <p class="lead">A aula 5, completa. É assim que as outras sete funcionam: tela real, narração e legenda, direto ao que fazer.</p>
     </div>
     <figure class="video video--largo">
-      <video controls preload="none" playsinline poster="/assets/advogados/poster-aula-05.jpg" width="1280" height="720" aria-label="Aula 5: custo-hora e proposta de honorários">
+      <video controls preload="none" playsinline poster="/assets/advogados/poster-aula-05-960.webp" width="1280" height="720" aria-label="Aula 5: custo-hora e proposta de honorários">
         <source src="/assets/advogados/videos/aula-05-custo-hora-e-proposta.mp4" type="video/mp4">
         <track kind="captions" src="/assets/advogados/videos/aula-05-custo-hora-e-proposta.vtt" srclang="pt-BR" label="Português" default>
       </video>
@@ -132,11 +135,11 @@
       <p class="lead">Quatro planilhas por núcleo, todas com o escritório fictício Ferraz &amp; Lima preenchido como exemplo, fórmulas protegidas e aba "Como usar". Excel, Google Sheets e celular.</p>
     </div>
     <div class="inv inv--10">
-      <article class="inv__item"><img src="/assets/advogados/mock-prazos.webp" alt="Agenda de Prazos, em um notebook e em um celular" width="1200" height="750" loading="lazy"><div class="inv__txt"><span class="tag tag--sol">1 · Prazos</span><h3>Agenda, andamento, rotina, checklist</h3><p><b>Responde:</b> o que vence primeiro e em que pé está cada caso? <b>Sai:</b> semáforo por dias, casos parados, rotina de segunda e checklist de abertura e encerramento.</p></div></article>
-      <article class="inv__item"><img src="/assets/advogados/mock-honorarios.webp" alt="Custo-Hora e Simulador de Honorários, em um notebook e em um celular" width="1200" height="750" loading="lazy"><div class="inv__txt"><span class="tag tag--sol">2 · Honorários</span><h3>Custo-hora, simulador, proposta, tabela</h3><p><b>Responde:</b> quanto custa a minha hora e quanto cobrar por este caso? <b>Sai:</b> hora mínima, comparação fixo × hora × êxito × misto, proposta pronta para o cliente e tabela de referência.</p></div></article>
-      <article class="inv__item"><img src="/assets/advogados/mock-caixa.webp" alt="Caixa do Escritório, em um notebook e em um celular" width="1200" height="750" loading="lazy"><div class="inv__txt"><span class="tag tag--sol">3 · Caixa</span><h3>Caixa, provisão, pró-labore, reserva</h3><p><b>Responde:</b> cadê o dinheiro e quanto posso retirar? <b>Sai:</b> entrou, saiu, sobrou; provisão de impostos e 13º; pró-labore separado; reserva de três meses.</p></div></article>
-      <article class="inv__item"><img src="/assets/advogados/mock-carteira.webp" alt="Carteira de Clientes e Casos, em um notebook e em um celular" width="1200" height="750" loading="lazy"><div class="inv__txt"><span class="tag tag--sol">4 · Carteira</span><h3>Carteira, parcelas, funil, horas</h3><p><b>Responde:</b> quanto ainda vai entrar e quem atrasou? <b>Sai:</b> a receber por cliente, régua de cobrança, propostas em aberto e horas por caso contra o contratado.</p></div></article>
-      <article class="inv__item"><img src="/assets/advogados/mock-painel.webp" alt="Painel do Escritório, em um notebook e em um celular" width="1200" height="750" loading="lazy"><div class="inv__txt"><span class="tag tag--sol">5 · Painel</span><h3>Painel, resultado, metas, resumo</h3><p><b>Responde:</b> o escritório deu lucro e estamos no ritmo? <b>Sai:</b> painel de sexta em uma tela, resultado do mês, metas do trimestre e o resumo que a IA transforma em texto.</p></div></article>
+      <article class="inv__item"><img src="/assets/advogados/mock-prazos.webp" srcset="/assets/advogados/mock-prazos-640.webp 640w, /assets/advogados/mock-prazos.webp 1200w" sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 979px) 50vw, 380px" alt="Agenda de Prazos, em um notebook e em um celular" width="1200" height="750" loading="lazy" decoding="async"><div class="inv__txt"><span class="tag tag--sol">1 · Prazos</span><h3>Agenda, andamento, rotina, checklist</h3><p><b>Responde:</b> o que vence primeiro e em que pé está cada caso? <b>Sai:</b> semáforo por dias, casos parados, rotina de segunda e checklist de abertura e encerramento.</p></div></article>
+      <article class="inv__item"><img src="/assets/advogados/mock-honorarios.webp" srcset="/assets/advogados/mock-honorarios-640.webp 640w, /assets/advogados/mock-honorarios.webp 1200w" sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 979px) 50vw, 380px" alt="Custo-Hora e Simulador de Honorários, em um notebook e em um celular" width="1200" height="750" loading="lazy" decoding="async"><div class="inv__txt"><span class="tag tag--sol">2 · Honorários</span><h3>Custo-hora, simulador, proposta, tabela</h3><p><b>Responde:</b> quanto custa a minha hora e quanto cobrar por este caso? <b>Sai:</b> hora mínima, comparação fixo × hora × êxito × misto, proposta pronta para o cliente e tabela de referência.</p></div></article>
+      <article class="inv__item"><img src="/assets/advogados/mock-caixa.webp" srcset="/assets/advogados/mock-caixa-640.webp 640w, /assets/advogados/mock-caixa.webp 1200w" sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 979px) 50vw, 380px" alt="Caixa do Escritório, em um notebook e em um celular" width="1200" height="750" loading="lazy" decoding="async"><div class="inv__txt"><span class="tag tag--sol">3 · Caixa</span><h3>Caixa, provisão, pró-labore, reserva</h3><p><b>Responde:</b> cadê o dinheiro e quanto posso retirar? <b>Sai:</b> entrou, saiu, sobrou; provisão de impostos e 13º; pró-labore separado; reserva de três meses.</p></div></article>
+      <article class="inv__item"><img src="/assets/advogados/mock-carteira.webp" srcset="/assets/advogados/mock-carteira-640.webp 640w, /assets/advogados/mock-carteira.webp 1200w" sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 979px) 50vw, 380px" alt="Carteira de Clientes e Casos, em um notebook e em um celular" width="1200" height="750" loading="lazy" decoding="async"><div class="inv__txt"><span class="tag tag--sol">4 · Carteira</span><h3>Carteira, parcelas, funil, horas</h3><p><b>Responde:</b> quanto ainda vai entrar e quem atrasou? <b>Sai:</b> a receber por cliente, régua de cobrança, propostas em aberto e horas por caso contra o contratado.</p></div></article>
+      <article class="inv__item"><img src="/assets/advogados/mock-painel.webp" srcset="/assets/advogados/mock-painel-640.webp 640w, /assets/advogados/mock-painel.webp 1200w" sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 979px) 50vw, 380px" alt="Painel do Escritório, em um notebook e em um celular" width="1200" height="750" loading="lazy" decoding="async"><div class="inv__txt"><span class="tag tag--sol">5 · Painel</span><h3>Painel, resultado, metas, resumo</h3><p><b>Responde:</b> o escritório deu lucro e estamos no ritmo? <b>Sai:</b> painel de sexta em uma tela, resultado do mês, metas do trimestre e o resumo que a IA transforma em texto.</p></div></article>
     </div>
     <p class="hero__transp" style="margin-top:18px">Nenhuma planilha contém peça, modelo de petição ou orientação jurídica. O kit é gestão do escritório.</p>
   </div>
@@ -177,9 +180,9 @@ Números:
       </div>
     </div>
     <div class="bonus">
-      <div class="bonus__item"><img src="/assets/advogados/thumb-cobranca.jpg" alt="Modelos de mensagens de cobrança" width="300" height="400" loading="lazy"><p><b>15 mensagens de cobrança e confirmação:</b> lembrete antes do vencimento, atraso de 1 a 30 dias, confirmação de pagamento, encerramento. Tom educado, campos para preencher.</p></div>
-      <div class="bonus__item"><img src="/assets/advogados/thumb-lgpd.jpg" alt="Guia LGPD para escritório pequeno" width="300" height="400" loading="lazy"><p><b>Guia LGPD para escritório pequeno:</b> o que guardar, onde, por quanto tempo, e o que nunca colar em IA pública. Com aviso de privacidade modelo.</p></div>
-      <div class="bonus__item"><img src="/assets/advogados/thumb-contador.jpg" alt="Roteiro da reunião com o contador" width="300" height="400" loading="lazy"><p><b>Roteiro da reunião mensal com o contador:</b> pauta de 30 minutos, o que levar do kit, o que perguntar. Mais 3 modelos de apresentação e 3 checklists.</p></div>
+      <div class="bonus__item"><img src="/assets/advogados/thumb-cobranca.webp" alt="Modelos de mensagens de cobrança" width="300" height="400" loading="lazy" decoding="async"><p><b>15 mensagens de cobrança e confirmação:</b> lembrete antes do vencimento, atraso de 1 a 30 dias, confirmação de pagamento, encerramento. Tom educado, campos para preencher.</p></div>
+      <div class="bonus__item"><img src="/assets/advogados/thumb-lgpd.webp" alt="Guia LGPD para escritório pequeno" width="300" height="400" loading="lazy" decoding="async"><p><b>Guia LGPD para escritório pequeno:</b> o que guardar, onde, por quanto tempo, e o que nunca colar em IA pública. Com aviso de privacidade modelo.</p></div>
+      <div class="bonus__item"><img src="/assets/advogados/thumb-contador.webp" alt="Roteiro da reunião com o contador" width="300" height="400" loading="lazy" decoding="async"><p><b>Roteiro da reunião mensal com o contador:</b> pauta de 30 minutos, o que levar do kit, o que perguntar. Mais 3 modelos de apresentação e 3 checklists.</p></div>
     </div>
   </div>
 </section>

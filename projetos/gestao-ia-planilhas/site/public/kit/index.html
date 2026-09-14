@@ -18,7 +18,10 @@
 <link rel="apple-touch-icon" href="/assets/img/icone-512.png">
 <link rel="preload" href="/assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/fonts.css">
+<style>/* Fontes auto-hospedadas: subset latino, arquivos variáveis do Google Fonts */
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:600 800;font-display:swap;src:url(/assets/fonts/bricolage-grotesque.woff2) format('woff2');}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:400 700;font-display:swap;src:url(/assets/fonts/figtree.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/ibm-plex-mono-500.woff2) format('woff2');}</style>
 <link rel="stylesheet" href="/assets/css/site.css">
 <script>window.SSG={pixelId:""};</script>
 </head>
@@ -53,7 +56,7 @@
     <figure class="tela tela--mock" aria-label="As três planilhas do kit em um notebook e em um celular, com dados fictícios">
       <div class="tela__barra"><span></span><span></span><span></span><b>3 planilhas · computador e celular</b></div>
       <p class="tela__titulo">Três planilhas prontas, no computador e no celular. Você só digita os números. O resto elas fazem:</p>
-      <img src="/assets/kit/hero-mockup.webp" alt="Notebook mostrando o painel do Relatório Mensal Pronto e celular mostrando o painel de Ganhos e Gastos, com dados fictícios" width="1200" height="812" fetchpriority="high">
+      <img src="/assets/kit/hero-mockup.webp" srcset="/assets/kit/hero-mockup-640.webp 640w, /assets/kit/hero-mockup.webp 1200w" sizes="(max-width: 859px) calc(100vw - 32px), 560px" alt="Notebook mostrando o painel do Relatório Mensal Pronto e celular mostrando o painel de Ganhos e Gastos, com dados fictícios" width="1200" height="812" fetchpriority="high">
       <ul class="tela__chips">
         <li>Ordenam a semana e a carga de cada dia</li>
         <li>Escrevem as frases do relatório do mês</li>
@@ -100,31 +103,31 @@
     </div>
     <div class="inv">
       <article class="inv__item">
-        <img src="/assets/kit/mock-semana.webp" alt="Planilha Semana Organizada, aba Hoje, em um notebook e em um celular" width="1200" height="750" loading="lazy">
+        <img src="/assets/kit/mock-semana.webp" srcset="/assets/kit/mock-semana-640.webp 640w, /assets/kit/mock-semana.webp 1200w" sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 979px) 50vw, 380px" alt="Planilha Semana Organizada, aba Hoje, em um notebook e em um celular" width="1200" height="750" loading="lazy" decoding="async">
         <div class="inv__txt"><span class="tag tag--lilas">planilha</span><h3>Semana Organizada</h3><p>Tarefas com prazo, impacto e urgência. A aba Hoje mostra o que fazer primeiro, a carga dos próximos 7 dias e o resumo por pessoa.</p></div>
       </article>
       <article class="inv__item">
-        <img src="/assets/kit/mock-relatorio.webp" alt="Planilha Relatório Mensal Pronto, aba Painel, em um notebook e em um celular" width="1200" height="750" loading="lazy">
+        <img src="/assets/kit/mock-relatorio.webp" srcset="/assets/kit/mock-relatorio-640.webp 640w, /assets/kit/mock-relatorio.webp 1200w" sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 979px) 50vw, 380px" alt="Planilha Relatório Mensal Pronto, aba Painel, em um notebook e em um celular" width="1200" height="750" loading="lazy" decoding="async">
         <div class="inv__txt"><span class="tag tag--lilas">planilha</span><h3>Relatório Mensal Pronto</h3><p>Até 12 indicadores por mês. Variação, meta, situação em verde ou vermelho, gráfico, e uma aba que escreve sozinha as frases do relatório.</p></div>
       </article>
       <article class="inv__item">
-        <img src="/assets/kit/mock-ganhos.webp" alt="Planilha Ganhos e Gastos, aba Painel, em um notebook e em um celular" width="1200" height="750" loading="lazy">
+        <img src="/assets/kit/mock-ganhos.webp" srcset="/assets/kit/mock-ganhos-640.webp 640w, /assets/kit/mock-ganhos.webp 1200w" sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 979px) 50vw, 380px" alt="Planilha Ganhos e Gastos, aba Painel, em um notebook e em um celular" width="1200" height="750" loading="lazy" decoding="async">
         <div class="inv__txt"><span class="tag tag--lilas">planilha</span><h3>Ganhos e Gastos</h3><p>Entradas e saídas. Quanto sobrou, para onde foi o dinheiro, quantos meses de reserva você tem, o ano mês a mês.</p></div>
       </article>
       <article class="inv__item inv__item--doc">
-        <img src="/assets/kit/prompts.jpg" alt="Página da biblioteca de prompts" width="579" height="819" loading="lazy">
+        <img src="/assets/kit/prompts.webp" alt="Página da biblioteca de prompts" width="579" height="819" loading="lazy" decoding="async">
         <div class="inv__txt"><span class="tag tag--lilas">pdf + txt</span><h3>Biblioteca de 40 prompts</h3><p>Seis grupos: organizar, analisar, escrever, apresentar, revisar, aprender. Cada um com quando usar, o prompt pronto, exemplo e o que conferir.</p></div>
       </article>
       <article class="inv__item inv__item--doc">
-        <img src="/assets/kit/manual.jpg" alt="Página do mini-manual" width="496" height="702" loading="lazy">
+        <img src="/assets/kit/manual.webp" alt="Página do mini-manual" width="496" height="702" loading="lazy" decoding="async">
         <div class="inv__txt"><span class="tag tag--lilas">pdf · 7 páginas</span><h3>Mini-manual</h3><p>Como abrir, preencher em 15 minutos, a rotina da semana e os erros comuns.</p></div>
       </article>
       <article class="inv__item">
-        <img src="/assets/kit/poster-02-relatorio-mensal-pronto.jpg" alt="Cena do vídeo de demonstração do Relatório Mensal Pronto" width="1280" height="720" loading="lazy">
+        <img src="/assets/kit/poster-02-relatorio-mensal-pronto.webp" srcset="/assets/kit/poster-02-relatorio-mensal-pronto-640.webp 640w, /assets/kit/poster-02-relatorio-mensal-pronto.webp 1280w" sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 979px) 50vw, 380px" alt="Cena do vídeo de demonstração do Relatório Mensal Pronto" width="1280" height="720" loading="lazy" decoding="async">
         <div class="inv__txt"><span class="tag tag--lilas">3 vídeos · 1 min cada</span><h3>Demonstrações em vídeo</h3><p>Tela real, narração e legenda. Você vê funcionando antes de abrir.</p></div>
       </article>
       <article class="inv__item">
-        <img src="/assets/kit/slides.jpg" alt="Os 8 slides do modelo de apresentação" width="1130" height="1290" loading="lazy">
+        <img src="/assets/kit/slides.webp" srcset="/assets/kit/slides-640.webp 640w, /assets/kit/slides.webp 1130w" sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 979px) 50vw, 380px" alt="Os 8 slides do modelo de apresentação" width="1130" height="1290" loading="lazy" decoding="async">
         <div class="inv__txt"><span class="tag tag--sol">bônus</span><h3>8 slides + checklist</h3><p>Modelo de apresentação do relatório mensal (PowerPoint, abre no Google Slides) e a página "antes de enviar".</p></div>
       </article>
     </div>
@@ -181,7 +184,7 @@ Números:
         <li class="passo"><h3>Entregar</h3><p>Revisa com o checklist e manda: relatório, e-mail, apresentação.</p></li>
       </ol>
       <figure class="video">
-        <video controls preload="none" playsinline poster="/assets/kit/poster-01-semana-organizada.jpg" width="1280" height="720" aria-label="Demonstração da planilha Semana Organizada, 57 segundos">
+        <video controls preload="none" playsinline poster="/assets/kit/poster-01-semana-organizada-960.webp" width="1280" height="720" aria-label="Demonstração da planilha Semana Organizada, 57 segundos">
           <source src="/assets/kit/videos/01-semana-organizada.mp4" type="video/mp4">
           <track kind="captions" src="/assets/kit/videos/01-semana-organizada.vtt" srclang="pt-BR" label="Português" default>
         </video>

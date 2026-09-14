@@ -60,6 +60,50 @@ for VID_SRC, VID_DST in [(ROOT.parent / 'produto' / 'kit-essencial' / 'entrega' 
             (VID_DST / (f.stem + '.vtt')).write_text(vtt, encoding='utf-8')
     print('vídeos copiados de', VID_SRC.relative_to(ROOT.parent))
 
+# Otimização de imagens (padrão para todas as páginas): JPG/PNG de produto viram WebP, imagens largas ganham
+# variante 640 px com srcset (celular baixa 1/3), posters de vídeo são reduzidos a 960 px, imagens lazy recebem
+# decoding=async e o CSS das fontes vai inline no <head> (uma requisição a menos no caminho crítico).
+def otimizar_imagens():
+    try: from PIL import Image
+    except ImportError: print('AVISO: Pillow ausente, imagens não otimizadas'); return
+    PUB = ROOT / 'public'
+    def webp(src, dst, largura=None, q=82):
+        if dst.exists() and dst.stat().st_mtime >= src.stat().st_mtime: return
+        im = Image.open(src); im = im.convert('RGBA' if im.mode in ('RGBA', 'LA', 'P') else 'RGB')
+        if largura and im.width > largura: im = im.resize((largura, round(im.height * largura / im.width)), Image.LANCZOS)
+        im.save(dst, 'WEBP', quality=q, method=6)
+    def caminho(url): return PUB / url.lstrip('/')
+    fontes_css = (PUB / 'assets' / 'css' / 'fonts.css').read_text(encoding='utf-8').strip()
+    for html in PUB.rglob('*.html'):
+        t = html.read_text(encoding='utf-8')
+        def img(m):
+            tag = m.group(0)
+            src = re.search(r' src="(/assets/[^"]+)"', tag)
+            if not src or '/assets/img/' in src.group(1): return tag
+            url = src.group(1); f = caminho(url)
+            if not f.exists(): return tag
+            if f.suffix.lower() in ('.jpg', '.jpeg', '.png'):
+                novo = f.with_suffix('.webp'); webp(f, novo); url2 = url.rsplit('.', 1)[0] + '.webp'
+                tag = tag.replace(f'src="{url}"', f'src="{url2}"'); url, f = url2, novo
+            w = re.search(r' width="(\d+)"', tag)
+            if w and int(w.group(1)) >= 900 and 'srcset=' not in tag:
+                p640 = f.with_name(f.stem + '-640.webp'); webp(f, p640, 640); u640 = url[:-5] + '-640.webp'
+                sizes = '(max-width: 859px) calc(100vw - 32px), 560px' if 'fetchpriority="high"' in tag else '(max-width: 639px) calc(100vw - 32px), (max-width: 979px) 50vw, 380px'
+                tag = tag.replace(f'src="{url}"', f'src="{url}" srcset="{u640} 640w, {url} {w.group(1)}w" sizes="{sizes}"')
+            if 'loading="lazy"' in tag and 'decoding=' not in tag: tag = tag.replace('loading="lazy"', 'loading="lazy" decoding="async"')
+            return tag
+        t = re.sub(r'<img [^>]*>', img, t)
+        def poster(m):
+            url = m.group(1); f = caminho(url)
+            if not f.exists() or f.suffix.lower() == '.webp': return m.group(0)
+            novo = f.with_name(f.stem + '-960.webp'); webp(f, novo, 960)
+            return f'poster="{url.rsplit(".", 1)[0]}-960.webp"'
+        t = re.sub(r'poster="(/assets/[^"]+)"', poster, t)
+        t = t.replace('<link rel="stylesheet" href="/assets/css/fonts.css">', f'<style>{fontes_css}</style>')
+        html.write_text(t, encoding='utf-8')
+    print('imagens otimizadas (webp, srcset 640, posters 960, fontes inline)')
+otimizar_imagens()
+
 (ROOT / 'public' / 'sitemap.xml').write_text(
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     ''.join(f'  <url><loc>{u}</loc></url>\n' for u in sitemap) + '</urlset>\n', encoding='utf-8')
