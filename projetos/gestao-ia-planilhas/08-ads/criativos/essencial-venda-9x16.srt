@@ -1,23 +1,23 @@
 1
-00:00:00,000 --> 00:00:06,150
+00:00:00,000 --> 00:00:06,200
 Toda segunda, a mesma planilha. Todo dia trinta, o relatório do zero. Toda reunião, os slides na véspera.
 
 2
-00:00:06,650 --> 00:00:12,150
+00:00:06,700 --> 00:00:12,200
 Isso custa umas seis horas por semana. Trezentas horas por ano montando o que já podia estar pronto.
 
 3
-00:00:12,650 --> 00:00:20,820
+00:00:12,700 --> 00:00:20,850
 O Kit IA no Trabalho resolve em três passos. Você preenche a planilha pronta. Cola os números no prompt. A IA escreve, você revisa e entrega.
 
 4
-00:00:21,320 --> 00:00:27,840
+00:00:21,350 --> 00:00:27,840
 Não é promessa: são três planilhas reais, quarenta prompts prontos, manual e vídeos. No computador ou no celular.
 
 5
-00:00:28,340 --> 00:00:34,470
+00:00:28,340 --> 00:00:34,480
 Um analista cobraria mais de cem reais por hora para montar isso. O kit custa trinta e sete. Uma vez.
 
 6
-00:00:34,970 --> 00:00:40,740
+00:00:34,980 --> 00:00:40,750
 Kit IA no Trabalho Essencial. Trinta e sete reais. Sete dias para desistir. Comece hoje.
