@@ -23,12 +23,14 @@ cfg["A6"]="Ano"; cfg["B6"]=2026
 cfg["A7"]="Data de referência (hoje)"; cfg["B7"]="=TODAY()"
 cfg["A8"]="Número do mês"; cfg["B8"]="=MATCH(B5,$D$5:$D$16,0)"
 cfg["A9"]="Mês anterior"; cfg["B9"]='=IF(B8>1,INDEX($D$5:$D$16,B8-1),"")'
-for r in range(4,10): rotulo(cfg.cell(row=r,column=1))
-inp(cfg["B4"]); inp(cfg["B5"]); inp(cfg["B6"]); inp(cfg["B7"],DATA); calc(cfg["B8"]); calc(cfg["B9"])
+cfg["A10"]="Mês do painel já fechou? (Sim/Não)"; cfg["B10"]="Não"
+for r in range(4,11): rotulo(cfg.cell(row=r,column=1))
+inp(cfg["B4"]); inp(cfg["B5"]); inp(cfg["B6"]); inp(cfg["B7"],DATA); calc(cfg["B8"]); calc(cfg["B9"]); inp(cfg["B10"])
+dvf=lista('"Sim,Não"',allow_blank=False); dvf.add("B10"); cfg.add_data_validation(dvf)
 cfg["D4"]="Meses"; rotulo(cfg["D4"])
 for i,m in enumerate(MESES): cfg.cell(row=5+i,column=4,value=m).font=F(size=10,color=TINTA)
 dv=lista("=Config!$D$5:$D$16",allow_blank=False); dv.add("B5"); cfg.add_data_validation(dv)
-cfg["A11"]="Use a mesma planilha o ano inteiro: troque o mês aqui e, no fim de cada mês, copie a linha de Dados para o Histórico."; nota(cfg["A11"])
+cfg["A11"]="Use a mesma planilha o ano inteiro: troque o mês aqui e, no fim de cada mês, copie a linha de Dados para o Histórico. Enquanto o mês não fecha, horas e caixa são parciais e o Painel não os compara com o mês anterior (marque Sim no fechamento)."; nota(cfg["A11"])
 widths(cfg,(28,40,4,14)); cfg.sheet_view.showGridLines=False
 
 # ---------- Dados (entrada semanal) ----------
@@ -146,14 +148,15 @@ for i,(k,rot,val_,lim,sent,fonte,fmt) in enumerate(LINHAS):
     p.cell(row=r,column=5,value=f"=Dados!F{s}"); calc(p.cell(row=r,column=5))
     hc=L(HCOL[k])
     p.cell(row=r,column=6,value=f'=IF(Config!$B$8<=1,"—",IF(INDEX(Histórico!${hc}$5:${hc}$16,Config!$B$8-1)="","—",INDEX(Histórico!${hc}$5:${hc}$16,Config!$B$8-1)))'); calc(p.cell(row=r,column=6),fmt)
+    parcial='IF(Config!$B$10<>"Sim","no fechamento",' if k in ("horas","fatur","entrou","saiu","sobrou") else '('  # acumulados do mês: só comparam quando o mês fechou
     if fmt in (PCT,"0.0%"):   # indicador em %: variação em pontos percentuais, como na planilha 18
-        p.cell(row=r,column=7,value=f'=IF(OR(C{r}="—",F{r}="—"),"—",(C{r}-F{r})*100)'); calc(p.cell(row=r,column=7),'+0.0" p.p.";-0.0" p.p.";0.0" p.p."')
+        p.cell(row=r,column=7,value=f'={parcial}IF(OR(C{r}="—",F{r}="—"),"—",(C{r}-F{r})*100))'); calc(p.cell(row=r,column=7),'+0.0" p.p.";-0.0" p.p.";0.0" p.p."')
     else:
-        p.cell(row=r,column=7,value=f'=IF(OR(C{r}="—",F{r}="—",F{r}=0),"—",(C{r}-F{r})/ABS(F{r}))'); calc(p.cell(row=r,column=7),"+0.0%;-0.0%;0.0%")
+        p.cell(row=r,column=7,value=f'={parcial}IF(OR(C{r}="—",F{r}="—",F{r}=0),"—",(C{r}-F{r})/ABS(F{r})))'); calc(p.cell(row=r,column=7),"+0.0%;-0.0%;0.0%")
 TN=T0+len(LINHAS)-1
 for cor,txt,fnt in ((VERDE,"No alvo",VERDE_T),(AMARELO,"Perto","7A5200"),(VERM,"Fora",VERM_T)):
     p.conditional_formatting.add(f"E{T0}:E{TN}", FormulaRule(formula=[f'E{T0}="{txt}"'], fill=fill(cor), font=F(color=fnt,size=10,bold=(txt=="Fora"))))
-p.cell(row=TN+2,column=1,value="Fora do alvo primeiro: prazos atrasados e vencido pedem ação na segunda-feira (planilhas 01 e 14). Variação de indicadores em % é em pontos percentuais (p.p.). No meio do mês, horas e caixa ainda estão parciais: compare com o mês anterior só no fechamento. A planilha avisa; o controle é do escritório.").font=F(size=9,color=LILAS)
+p.cell(row=TN+2,column=1,value="Fora do alvo primeiro: prazos atrasados e vencido pedem ação na segunda-feira (planilhas 01 e 14). Variação de indicadores em % é em pontos percentuais (p.p.). No meio do mês, horas e caixa ainda estão parciais: a variação deles só aparece quando Config diz que o mês fechou. A planilha avisa; o controle é do escritório.").font=F(size=9,color=LILAS)
 p.cell(row=TN+2,column=1).alignment=Alignment(wrap_text=True,vertical="top"); p.row_dimensions[TN+2].height=30
 p.merge_cells(start_row=TN+2,start_column=1,end_row=TN+2,end_column=10)
 p.cell(row=TN+3,column=1,value='Para transformar esta tela em texto para o sócio ou o contador, use a planilha 20 · Resumo do mês e o prompt "Painel 01 · Explicar o mês ao sócio".').font=F(size=9,color=LILAS)
