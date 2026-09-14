@@ -19,7 +19,8 @@
     "_nota": "Trocar pelos links reais da Kiwify quando a conta existir. Enquanto vazio, o botão leva ao bloco de preço.",
     "kit_essencial": "#preco",
     "area_download": "#",
-    "kit_completo": "#preco"
+    "kit_completo": "#preco",
+    "kit_advogados": "#preco"
   },
   "aula1_dur": "2:25 min",
   "aula2_dur": "2:36 min",
@@ -28,5 +29,13 @@
   "aula5_dur": "2:27 min",
   "aula6_dur": "2:16 min",
   "aula7_dur": "2:11 min",
-  "aula8_dur": "2:41 min"
+  "aula8_dur": "2:41 min",
+  "adv_aula1_dur": "2:30 min",
+  "adv_aula2_dur": "2:30 min",
+  "adv_aula3_dur": "2:30 min",
+  "adv_aula4_dur": "2:30 min",
+  "adv_aula5_dur": "2:30 min",
+  "adv_aula6_dur": "2:30 min",
+  "adv_aula7_dur": "2:30 min",
+  "adv_aula8_dur": "2:30 min"
 }
