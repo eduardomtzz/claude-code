@@ -15,7 +15,7 @@ linhas=[
  ("As 7 regras","1. Cabeçalho na linha 1, uma coluna por informação. 2. Uma linha por registro; nada de linhas em branco ou subtotais no meio. 3. Datas como data, números como número, texto como texto. 4. Categorias vêm de lista, não digitadas à mão. 5. Nada mesclado. 6. O que é calculado fica em coluna própria, com fórmula igual do topo ao fim. 7. Os totais e as análises ficam em outra aba."),
  ("Passo 1","Na aba Base, apague os exemplos e cole os seus dados respeitando o cabeçalho. Troque os nomes das colunas para o seu caso; mantenha uma informação por coluna."),
  ("Passo 2","Use a aba Listas para as categorias. Cada coluna de categoria da Base aponta para uma lista; assim ninguém escreve \"marketing\", \"Marketing\" e \"MKT\" como três coisas diferentes."),
- ("Passo 3","Rode o Checklist de limpeza: ele conta linhas em branco, duplicadas, datas inválidas, categorias fora da lista e valores negativos. Zerou tudo, a base está pronta."),
+ ("Passo 3","Rode o Checklist de limpeza. Ele mostra quantas linhas estão preenchidas e conta: linhas com data mas sem valor; linhas com valor mas sem data; datas fora do intervalo (antes de 2020 ou no futuro); categorias fora da lista; clientes fora da lista; status em branco; quantidade zero ou em branco; e possíveis lançamentos em dobro (mesmo dia, cliente, descrição e valor). O último item, células mescladas, você confere à mão. Tudo OK, a base está pronta."),
  ("Passo 4","Na aba Resumo, o exemplo de análise por categoria e mês feito só com SOMASES e CONT.SES. A aula 2 mostra como montar a tabela dinâmica a partir desta Base."),
  ("Com a IA","Copie 20 a 30 linhas da Base (sem dados pessoais) e use \"Estruturar 03: desenhar as colunas\" para adaptar ao seu caso, ou \"Analisar 08: resumo executivo de uma tabela grande\"."),
  ("Legenda","Células amarelas: você preenche. Brancas: calculadas."),
@@ -26,7 +26,7 @@ linhas=[
 ]
 for i,(a,b) in enumerate(linhas,start=4):
     u.cell(row=i,column=1,value=a).font=F(bold=True,color=UVA); u.cell(row=i,column=2,value=b).font=F(color=TINTA)
-    u.cell(row=i,column=2).alignment=Alignment(wrap_text=True,vertical="top"); u.cell(row=i,column=1).alignment=Alignment(vertical="top"); u.row_dimensions[i].height=58 if i==5 else 46
+    u.cell(row=i,column=2).alignment=Alignment(wrap_text=True,vertical="top"); u.cell(row=i,column=1).alignment=Alignment(vertical="top"); u.row_dimensions[i].height=58 if i==5 else (72 if i==8 else 46)
 u.column_dimensions["A"].width=20; u.column_dimensions["B"].width=95; u.sheet_view.showGridLines=False
 # ---------- Listas ----------
 ls=wb.create_sheet("Listas")

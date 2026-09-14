@@ -1,19 +1,19 @@
 // Modelo: resultado do trimestre, 12 slides
 const {C,H,novo,rodape,titulo,cards,lista,capa,fecho}=require('./slides_base');
-const ROD='Kit IA no Trabalho · Completo · modelo do Seu Sócio Gestor. Troque os textos; mantenha a estrutura.';
+const ROD='Kit IA no Trabalho · modelo v1.0 · set/2026';
 const p=novo('Resultado do trimestre · modelo de 12 slides');
 let s=capa(p,'Resultado do 3º trimestre','Prisma Comunicação · reunião de diretoria · 6 de outubro de 2026','Em uma frase: receita recorrente cresceu 52% e a meta de contratos foi batida; entrega no prazo e retrabalho ficaram para trás.',ROD);
-s.addNotes('Capa. A frase em itálico é a conclusão do trimestre em uma linha. Escreva por último.');
+s.addNotes('Modelo do Seu Sócio Gestor: troque os textos e mantenha a estrutura. Capa. A frase em itálico é a conclusão do trimestre em uma linha. Escreva por último.');
 // 2 resumo
 s=p.addSlide(); s.background={color:C.BR}; titulo(s,'O trimestre em três números','Dados da planilha Metas do Trimestre e do Relatório Mensal Pronto.');
-cards(p,s,[['R$ 27,4 mil','Receita recorrente mensal','de R$ 18 mil em julho para R$ 27,4 mil em setembro (meta: R$ 30 mil)'],['24','Propostas enviadas','meta batida em setembro; conversão de 57% nas fechadas'],['3 de 9','Metas em risco','entrega no prazo, retrabalho e horas extras: veja os slides 7 a 9']],1.7,2.6,0);
+cards(p,s,[['R$ 27,4 mil','Receita recorrente mensal','de R$ 18 mil em julho para R$ 27,4 mil em setembro (meta: R$ 30 mil)'],['24','Propostas enviadas','meta batida em setembro; conversão de 57% nas fechadas'],['3 de 9','Metas em risco','entrega no prazo, retrabalho e horas extras: veja os slides 5 a 7']],1.7,2.6,0);
 s.addText('Nove resultados-chave: 1 atingido, 5 no ritmo ou em atenção, 3 em risco.',{x:0.5,y:4.5,w:9,h:0.4,fontFace:H,fontSize:13,color:C.TINTA,isTextBox:true,margin:0});
 rodape(p,s,false,ROD); s.addNotes('Resumo. Três números, o melhor, o que bateu meta e o que preocupa. Sem esconder o terceiro.');
 // 3 metas painel
 s=p.addSlide(); s.background={color:C.BR}; titulo(s,'Onde cada objetivo chegou','Progresso médio por objetivo contra 100% do trimestre. Fonte: Metas do Trimestre, aba Painel.');
-s.addChart(p.charts.BAR,[{name:'Progresso',labels:['Crescer receita recorrente','Entregar no prazo','Reduzir retrabalho','Organizar a casa'],values:[81,53,57,71]}],
+s.addChart(p.charts.BAR,[{name:'Progresso',labels:['Crescer receita recorrente','Entregar no prazo','Reduzir retrabalho','Organizar a casa'],values:[82,53,57,58]}],
  {x:0.5,y:1.6,w:6,h:3.4,barDir:'bar',chartColors:[C.UVA],showValue:true,dataLabelPosition:'outEnd',dataLabelFontSize:10,dataLabelColor:C.TINTA,dataLabelFormatCode:'0"%"',catAxisLabelColor:C.CINZA,valAxisLabelColor:C.CINZA,valGridLine:{color:'E6DFF2',size:0.5},catGridLine:{style:'none'},showLegend:false,valAxisMinVal:0,valAxisMaxVal:100,showTitle:false});
-lista(s,['#Leitura','Receita: quase lá; falta um contrato mensal.','Prazo e retrabalho: o gargalo é o mesmo, aprovação do cliente.','Casa: relatório mensal saiu no dia 5 em dois dos três meses.'],6.8,1.7,2.8,3.2,11.5);
+lista(s,['#Leitura','Receita: quase lá; falta um contrato mensal.','Prazo e retrabalho: o gargalo é o mesmo, aprovação do cliente.','Casa: relatório no dia 5 em dois dos três meses; horas extras ainda em 14 h.'],6.8,1.7,2.8,3.2,11.5);
 rodape(p,s,false,ROD); s.addNotes('Gráfico de barras horizontais por objetivo. Clique no gráfico > Editar dados. Barra é a % média dos resultados-chave.');
 // 4 objetivo 1
 s=p.addSlide(); s.background={color:C.BR}; titulo(s,'Receita recorrente subiu de R$ 18 mil para R$ 27,4 mil por mês','Objetivo 1 · Crescer a receita recorrente · 3 resultados-chave.');
@@ -38,11 +38,11 @@ cards(p,s,[['2 de 3','Relatórios enviados até o dia 5','meta 3; em setembro sa
 lista(s,['#Leitura','As horas extras concentram-se na última semana do mês, junto do fechamento.','#Ação','Antecipar o fechamento financeiro para o dia 28 e usar a rotina da planilha Orçamento.'],0.5,3.75,9,1.4,11);
 rodape(p,s,false,ROD); s.addNotes('Objetivo 4. Mesma estrutura do slide 5.');
 // 8 financeiro
-s=p.addSlide(); s.background={color:C.BR}; titulo(s,'Financeiro: receita 1% acima do previsto, despesa 4% acima','Orçamento Previsto × Realizado, julho a setembro (R$ mil).');
+s=p.addSlide(); s.background={color:C.BR}; titulo(s,'Financeiro: receita 2% abaixo do previsto e despesa 5% acima','Previsto × Realizado, julho a setembro (R$ mil). Resultado: R$ 30,9 mil contra R$ 46,6 mil previstos.');
 s.addChart(p.charts.BAR,[{name:'Previsto',labels:['Receita','Despesa','Resultado'],values:[276,229.4,46.6]},{name:'Realizado',labels:['Receita','Despesa','Resultado'],values:[271.5,240.6,30.9]}],
  {x:0.5,y:1.6,w:5.6,h:3.4,barDir:'col',chartColors:[C.LILC,C.UVA],showValue:true,dataLabelPosition:'outEnd',dataLabelFontSize:9,dataLabelFormatCode:'0',catAxisLabelColor:C.CINZA,valAxisLabelColor:C.CINZA,valGridLine:{color:'E6DFF2',size:0.5},catGridLine:{style:'none'},showLegend:true,legendPos:'b',legendFontSize:10,showTitle:false});
-lista(s,['#O que estourou','Freelancers: +19% (campanha do Bistrô).','Marketing e mídia: +30% (teste de anúncios).','Softwares: +16% (duas assinaturas novas).','#O que fazer','Congelar assinaturas; mídia só com meta de conversão.'],6.4,1.7,3.2,3.3,11.5);
-rodape(p,s,false,ROD); s.addNotes('Financeiro do trimestre. Os três números vêm da aba "O ano, mês a mês" somando os três meses.');
+lista(s,['#O que faltou','Projetos: 3% abaixo do previsto; mensalidades no previsto.','#O que estourou','Freelancers: +23% (campanha do Bistrô).','Marketing e mídia: +29% (teste de anúncios).','Softwares: +13% (duas assinaturas novas).','#O que fazer','Congelar assinaturas; mídia só com meta de conversão.'],6.4,1.7,3.2,3.3,11.5);
+rodape(p,s,false,ROD); s.addNotes('Financeiro do trimestre. Os três números vêm da aba "O ano, mês a mês" somando os três meses; os desvios por categoria, da aba Realizado somada no trimestre.');
 // 9 funil
 s=p.addSlide(); s.background={color:C.BR}; titulo(s,'Comercial: R$ 87,5 mil ganhos, R$ 125 mil em aberto, conversão de 57%','Funil de Propostas em 30/09. Previsão ponderada: R$ 55 mil.');
 s.addChart(p.charts.BAR,[{name:'Valor (R$ mil)',labels:['Contato','Reunião feita','Proposta enviada','Negociação'],values:[16.3,31,49.5,28.2]}],
@@ -59,7 +59,7 @@ riscos.forEach((r,i)=>{const y=1.7+i*1.05; s.addShape(p.shapes.ROUNDED_RECTANGLE
 rodape(p,s,false,ROD); s.addNotes('Riscos. Apresentar antes das decisões mostra que você pensou no que pode dar errado. Use o prompt Produzir 20.');
 // 11 metas próximas
 s=p.addSlide(); s.background={color:C.BR}; titulo(s,'Metas do 4º trimestre','Quatro objetivos, nove resultados-chave. Detalhe na planilha Metas do Trimestre.');
-const mt=[['Crescer receita recorrente','R$ 35 mil/mês · 4 contratos novos','Ana'],['Entregar no prazo','90% na data · 1 etapa atrasada/semana','Bruno'],['Reduzir retrabalho','2 rodadas/peça · 70% aprovadas de primeira','Carla'],['Organizar a casa','Relatório dia 5 em 3 de 3 · 8 h extras/mês','Ana']];
+const mt=[['Crescer receita recorrente','R$ 35 mil/mês · 4 contratos novos · 30 propostas','Ana'],['Entregar no prazo','90% na data · 1 etapa atrasada/semana','Bruno'],['Reduzir retrabalho','2 rodadas/peça · 70% aprovadas de primeira','Carla'],['Organizar a casa','Relatório dia 5 em 3 de 3 · 8 h extras/mês','Ana']];
 mt.forEach((m,i)=>{const y=1.65+i*0.82; s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:0.5,y:y,w:9,h:0.7,fill:{color:i%2?C.BR:C.LAV},line:{color:'DCD2EC',width:0.75},rectRadius:0.08});
   s.addText(m[0],{x:0.7,y:y+0.08,w:3.2,h:0.55,fontFace:H,fontSize:12,bold:true,color:C.UVA,isTextBox:true,margin:0,valign:'middle'});
   s.addText(m[1],{x:4.0,y:y+0.08,w:4.2,h:0.55,fontFace:H,fontSize:11,color:C.TINTA,isTextBox:true,margin:0,valign:'middle'});

@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+"""Regera as capturas docs/tela-*.png dos dois kits a partir dos .xlsx de entrega/,
+com LibreOffice em locale pt-BR (separadores brasileiros) e recálculo forçado.
+Uso: python3 telas.py [essencial|completo|todos] [filtro-de-nome]"""
+import subprocess, pathlib, sys, os, json, shutil
+ROOT=pathlib.Path(__file__).resolve().parent
+S=pathlib.Path('/tmp/claude-0/-home-user-claude-code/a6ac5a85-3495-54eb-8ee2-ee26ae091f81/scratchpad')
+PROFILE=S/'lo-ptbr'; WORK=S/'telas-work'; WORK.mkdir(exist_ok=True)
+# nome do png -> (arquivo, aba, largura css, altura css)   (sizes = png/1.5)
+ESS={
+ 'tela-semana-tarefas':('01-semana-organizada.xlsx','Tarefas',1300,681),
+ 'tela-semana-hoje':('01-semana-organizada.xlsx','Hoje',1100,1118),
+ 'tela-relatorio-painel':('02-relatorio-mensal-pronto.xlsx','Painel',1100,1458),
+ 'tela-relatorio-resumo':('02-relatorio-mensal-pronto.xlsx','Resumo',1300,681),
+ 'tela-ganhos-painel':('03-ganhos-e-gastos.xlsx','Painel',1100,1458),
+ 'tela-ganhos-lancamentos':('03-ganhos-e-gastos.xlsx','Lançamentos',1300,681),
+}
+COMP={
+ 'tela-projetos-painel':('04-projetos-e-prazos.xlsx','Painel',1100,1080),
+ 'tela-projetos-linha':('04-projetos-e-prazos.xlsx','Linha do tempo',1200,800),
+ 'tela-projetos-etapas':('04-projetos-e-prazos.xlsx','Etapas',1300,700),
+ 'tela-ata-aberto':('05-ata-e-pendencias.xlsx','Em aberto',1100,1100),
+ 'tela-ata-resumo':('05-ata-e-pendencias.xlsx','Resumo',1100,1000),
+ 'tela-ata-pendencias':('05-ata-e-pendencias.xlsx','Pendências',1300,600),
+ 'tela-metas-painel':('06-metas-do-trimestre.xlsx','Painel',1100,840),
+ 'tela-metas-metas':('06-metas-do-trimestre.xlsx','Metas',1400,700),
+ 'tela-orcamento-painel':('07-orcamento-previsto-x-realizado.xlsx','Painel',1200,1170),
+ 'tela-orcamento-previsto':('07-orcamento-previsto-x-realizado.xlsx','Previsto',1400,700),
+ 'tela-funil-painel':('08-funil-de-propostas.xlsx','Painel',1200,1040),
+ 'tela-funil-propostas':('08-funil-de-propostas.xlsx','Propostas',1400,650),
+ 'tela-horas-painel':('09-horas-e-custo-por-projeto.xlsx','Painel',1200,930),
+ 'tela-horas-lancamento':('09-horas-e-custo-por-projeto.xlsx','Horas',1200,650),
+ 'tela-base-base':('10-base-limpa.xlsx','Base',1400,700),
+ 'tela-base-checklist':('10-base-limpa.xlsx','Checklist',1200,600),
+ 'tela-base-resumo':('10-base-limpa.xlsx','Resumo',1300,688),
+}
+JS=r"""const {chromium}=require('playwright');
+(async()=>{const [,, html, spec]=process.argv; const itens=JSON.parse(spec);
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium',headless:true,args:['--no-sandbox','--disable-gpu']});
+const p=await b.newPage({viewport:{width:1400,height:900},deviceScaleFactor:1.5});
+await p.goto('file://'+html); await p.waitForTimeout(600);
+const hs=await p.$$('h1');
+for(const it of itens){ let ok=false;
+  for(const el of hs){const t=(await el.innerText()).replace(/\s+/g,' ').trim();
+    if(/^Sheet \d+: /.test(t) && t.slice(t.indexOf(': ')+2)===it.aba){const bb=await el.boundingBox(); await p.screenshot({path:it.out,fullPage:true,clip:{x:0,y:bb.y+40,width:it.w,height:it.h}}); ok=true; break;}}
+  console.log(ok?'ok':'FALTOU', it.aba, it.out);}
+await b.close();})();"""
+(WORK/'shot.js').write_text(JS)
+def gera(kit,tabela,filtro=None):
+    ent=ROOT/f'kit-{kit}'/'entrega'; docs=ROOT/f'kit-{kit}'/'docs'
+    por_arquivo={}
+    for nome,(arq,aba,w,h) in tabela.items():
+        if filtro and filtro not in nome: continue
+        por_arquivo.setdefault(arq,[]).append(dict(aba=aba,w=w,h=h,out=str(docs/f'{nome}.png')))
+    for arq,itens in por_arquivo.items():
+        src=ent/arq; dst=WORK/arq; shutil.copy2(src,dst); html=WORK/(dst.stem+'.html'); html.unlink(missing_ok=True)
+        subprocess.run(['soffice','--headless',f'-env:UserInstallation=file://{PROFILE}','--convert-to','html','--outdir',str(WORK),str(dst)],
+                       env={**os.environ,'SAL_USE_VCLPLUGIN':'svp'},check=True,capture_output=True,timeout=300)
+        r=subprocess.run(['node',str(WORK/'shot.js'),str(html),json.dumps(itens)],env={**os.environ,'NODE_PATH':str(S/'pw'/'node_modules')},capture_output=True,text=True)
+        print(arq,r.stdout.strip(),r.stderr.strip()[:300])
+kit=sys.argv[1] if len(sys.argv)>1 else 'todos'; filtro=sys.argv[2] if len(sys.argv)>2 else None
+if kit in('essencial','todos'): gera('essencial',ESS,filtro)
+if kit in('completo','todos'): gera('completo',COMP,filtro)

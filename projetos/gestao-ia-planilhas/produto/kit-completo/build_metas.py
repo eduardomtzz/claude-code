@@ -63,6 +63,20 @@ for i,r in enumerate(rows):
     w.cell(row=rr,column=1,value=f'=IF(Metas!B{r}="","",Metas!B{r})'); calc(w.cell(row=rr,column=1),center=False)
     w.cell(row=rr,column=2,value=f'=IF(Metas!B{r}="","",Metas!F{r})'); calc(w.cell(row=rr,column=2))
     for s_ in range(13): inp(w.cell(row=rr,column=3+s_),center=True)
+# exemplo: histórico S1..S11 (painel em 13/09/2026 = semana 11 de 13). A S11 é igual ao "Valor atual" da aba Metas.
+# Receita recorrente: R$ 18 mil em julho (S1-S4), 22,5 mil em agosto (S5-S9), 27,4 mil em setembro (S10-S11), como no modelo de slides 16.
+hist={5:[0,0,0,0,1,1,1,1,1,2,2],                                   # contratos mensais novos
+      6:[18000,18000,18000,18000,22500,22500,22500,22500,22500,27400,27400],  # receita recorrente mensal
+      7:[2,4,7,9,11,13,15,18,20,22,24],                             # propostas enviadas (acumulado)
+      9:[4,4,5,4,3,4,3,3,4,3,3],                                    # etapas atrasadas por semana
+      10:[60,60,67,67,75,75,80,80,78,82,82],                         # projetos entregues na data (%)
+      13:[3.2,3.1,3.1,3.0,3.0,2.9,2.9,2.9,2.8,2.8,2.8],              # rodadas de revisão por peça
+      14:[40,42,45,48,50,52,55,56,58,60,60],                         # peças aprovadas de primeira (%)
+      17:[0,0,0,0,0,1,1,1,1,2,2],                                    # relatório mensal enviado até o dia 5
+      18:[20,20,20,18,17,16,16,15,15,14,14]}                         # horas extras no mês
+for r,vals in hist.items():
+    assert vals[-1]==m.cell(row=r,column=7).value, (r,vals[-1],m.cell(row=r,column=7).value)
+    for s_,v in enumerate(vals): w.cell(row=r,column=3+s_,value=v)
 w.conditional_formatting.add(f"C4:O4", FormulaRule(formula=['COLUMN()-2=Config!$B$9'], fill=fill(SOL), font=F(color=UVA,size=10,bold=True)))
 widths(w,[40,10]+[7]*13); w.freeze_panes="C5"; w.sheet_view.showGridLines=False
 # ---------- Painel ----------

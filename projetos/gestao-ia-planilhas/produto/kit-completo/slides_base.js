@@ -8,7 +8,7 @@ function simbolo(p,s,x,y,k,dark){ const c1=dark?C.LILC:C.LILAS, c2=dark?C.BR:C.U
   s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:x+0.10*k,y:y+0.22*k,w:0.42*k,h:0.14*k,fill:{color:c2},rectRadius:0.06*k,line:{color:c2}});
   s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:x+0.20*k,y:y+0.04*k,w:0.42*k,h:0.14*k,fill:{color:c2},rectRadius:0.06*k,line:{color:c2}});
   s.addShape(p.shapes.OVAL,{x:x+0.62*k,y:y+0.44*k,w:0.13*k,h:0.13*k,fill:{color:C.SOL},line:{color:C.SOL}}); }
-function rodape(p,s,dark,txt){ s.addText(txt,{x:0.5,y:5.22,w:7.5,h:0.25,fontFace:H,fontSize:8,color:dark?C.LILC:C.LILAS,isTextBox:true,margin:0}); simbolo(p,s,9.0,5.05,0.55,dark); }
+function rodape(p,s,dark,txt){ s.addText(txt,{x:0.5,y:5.24,w:7.5,h:0.22,fontFace:H,fontSize:7,color:dark?C.LILAS:C.LILC,isTextBox:true,margin:0}); simbolo(p,s,9.0,5.05,0.55,dark); }
 function titulo(s,txt,sub){ s.addText(txt,{x:0.5,y:0.35,w:9,h:0.8,fontFace:H,fontSize:24,bold:true,color:C.UVA,isTextBox:true,margin:0,valign:'top',fit:'shrink'});
   if(sub) s.addText(sub,{x:0.5,y:1.12,w:9,h:0.35,fontFace:H,fontSize:12,color:C.CINZA,isTextBox:true,margin:0}); }
 function cards(p,s,itens,y,h,destaque){ itens.forEach((k,i)=>{const x=0.5+i*(9/itens.length); const w=9/itens.length-0.2; const d=(i===destaque);

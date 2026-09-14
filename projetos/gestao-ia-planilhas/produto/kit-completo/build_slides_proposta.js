@@ -1,9 +1,9 @@
 // Modelo: proposta comercial, 10 slides
 const {C,H,novo,rodape,titulo,cards,lista,capa,fecho}=require('./slides_base');
-const ROD='Kit IA no Trabalho · Completo · modelo do Seu Sócio Gestor. Troque os textos; mantenha a estrutura.';
+const ROD='Kit IA no Trabalho · modelo v1.0 · set/2026';
 const p=novo('Proposta comercial · modelo de 10 slides');
 let s=capa(p,'Proposta: site e captação de matrículas','Para Escola Nova Era · preparada por Prisma Comunicação · 15 de setembro de 2026','Válida até 30 de setembro de 2026.',ROD);
-s.addNotes('Capa. Título é o que o cliente compra, não o nome do serviço. Validade sempre na capa.');
+s.addNotes('Modelo do Seu Sócio Gestor: troque os textos e mantenha a estrutura. Capa. Título é o que o cliente compra, não o nome do serviço. Validade sempre na capa.');
 // 2 entendimento
 s=p.addSlide(); s.background={color:C.BR}; titulo(s,'O que entendemos do seu momento','Três frases sobre o problema, com as palavras que vocês usaram na reunião.');
 lista(s,['A escola cresceu para 320 alunos e o site atual não mostra a proposta pedagógica nem recebe matrícula.','As matrículas chegam por WhatsApp e se perdem: em 2026, 40 famílias interessadas não tiveram resposta em 48 horas.','A meta para 2027 é 380 alunos, com campanha em outubro e novembro.'],0.5,1.7,9,3.2,14);

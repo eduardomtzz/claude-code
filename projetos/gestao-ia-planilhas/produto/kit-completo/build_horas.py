@@ -29,8 +29,8 @@ for i in range(NPROJ):
     r=24+i
     for c in (1,2,3,4,5): inp(cfg.cell(row=r,column=c))
     cfg.cell(row=r,column=3).alignment=Alignment(horizontal="center"); cfg.cell(row=r,column=4).number_format=BRL0; cfg.cell(row=r,column=5).alignment=Alignment(horizontal="center")
-dvst=lista('"Em andamento,Concluído,Interno"'); dvst.add(f"E24:E{23+NPROJ}"); cfg.add_data_validation(dvst)
-cfg.cell(row=24+NPROJ+1,column=1,value="Custo mensal: salário + encargos, ou o valor que a pessoa cobra por mês. Horas disponíveis: 160 para tempo integral, menos reuniões e folgas (140 é realista).").font=F(size=9,color=LILAS)
+dvst=lista('"Em andamento,Concluído,Interno,Proposta"'); dvst.add(f"E24:E{23+NPROJ}"); cfg.add_data_validation(dvst)
+cfg.cell(row=24+NPROJ+1,column=1,value="Custo mensal: salário + encargos, ou o valor que a pessoa cobra por mês. Horas disponíveis: 160 para tempo integral, menos reuniões e folgas (140 é realista). Status Proposta: projeto ainda não fechado; entra na lista para você já orçar, mas sem horas lançadas.").font=F(size=9,color=LILAS)
 widths(cfg,(30,18,20,16,14,3,3,12)); cfg.sheet_view.showGridLines=False
 # ---------- Horas ----------
 h=wb.create_sheet("Horas")
@@ -70,7 +70,7 @@ for i in range(NPROJ):
     p.cell(row=r,column=7,value=f'=IF({src}="","",Config!$D${24+i})'); calc(p.cell(row=r,column=7),BRL0)
     p.cell(row=r,column=8,value=f'=IF(OR({src}="",G{r}=""),"",G{r}-F{r})'); calc(p.cell(row=r,column=8),BRL0)
     p.cell(row=r,column=9,value=f'=IF(OR({src}="",G{r}="",G{r}=0),"",H{r}/G{r})'); calc(p.cell(row=r,column=9),"0%")
-    p.cell(row=r,column=10,value=f'=IF({src}="","",IF(Config!$E${24+i}="Interno","Interno",IF(AND(E{r}<>"",E{r}>1),"Estourou as horas",IF(AND(I{r}<>"",I{r}<0.2),"Margem baixa",IF(AND(E{r}<>"",E{r}>0.85,Config!$E${24+i}="Em andamento"),"Perto do limite","Saudável")))))'); calc(p.cell(row=r,column=10))
+    p.cell(row=r,column=10,value=f'=IF({src}="","",IF(Config!$E${24+i}="Interno","Interno",IF(Config!$E${24+i}="Proposta","Proposta",IF(AND(E{r}<>"",E{r}>1),"Estourou as horas",IF(AND(I{r}<>"",I{r}<0.2),"Margem baixa",IF(AND(E{r}<>"",E{r}>0.85,Config!$E${24+i}="Em andamento"),"Perto do limite","Saudável"))))))'); calc(p.cell(row=r,column=10))
 p.conditional_formatting.add(f"J9:J{8+NPROJ}", FormulaRule(formula=['OR(J9="Estourou as horas",J9="Margem baixa")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 p.conditional_formatting.add(f"J9:J{8+NPROJ}", FormulaRule(formula=['J9="Perto do limite"'], fill=fill("FFF4CC")))
 p.conditional_formatting.add(f"J9:J{8+NPROJ}", FormulaRule(formula=['J9="Saudável"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
@@ -100,7 +100,7 @@ for i,(a,b,c) in enumerate(pes):
     for k,v in enumerate((a,b,c),start=1): cfg.cell(row=11+i,column=k,value=v)
 proj=[("Site novo · Loja Verde","Loja Verde",560,24000,"Em andamento"),("Campanha de fim de ano · Bistrô 42","Bistrô 42",300,38000,"Em andamento"),
       ("Relatório anual · Horizonte","Horizonte",130,16000,"Em andamento"),("Identidade visual · Padaria do Sol","Padaria do Sol",70,9500,"Concluído"),
-      ("Redes sociais · Clínica Bem-Estar","Clínica Bem-Estar",130,13500,"Em andamento"),("Comercial e propostas","Interno",0,0,"Interno"),("Gestão e reuniões","Interno",0,0,"Interno")]
+      ("Redes sociais · Clínica Bem-Estar","Clínica Bem-Estar",40,4500,"Proposta"),("Comercial e propostas","Interno",0,0,"Interno"),("Gestão e reuniões","Interno",0,0,"Interno")]
 for i,row in enumerate(proj):
     for k,v in enumerate(row,start=1): cfg.cell(row=24+i,column=k,value=v)
 random.seed(11); rows=[]
@@ -109,26 +109,37 @@ atv={"Site novo · Loja Verde":["Wireframe","Layout","Textos","Implementação",
      "Comercial e propostas":["Proposta","Reunião comercial"],"Gestão e reuniões":["Semanal","Financeiro","Planejamento"]}
 aloc={"Ana":[("Site novo · Loja Verde",0.2),("Relatório anual · Horizonte",0.3),("Comercial e propostas",0.25),("Gestão e reuniões",0.25)],
       "Bruno":[("Site novo · Loja Verde",0.45),("Campanha de fim de ano · Bistrô 42",0.3),("Identidade visual · Padaria do Sol",0.15),("Gestão e reuniões",0.1)],
-      "Carla":[("Campanha de fim de ano · Bistrô 42",0.4),("Site novo · Loja Verde",0.2),("Redes sociais · Clínica Bem-Estar",0.3),("Gestão e reuniões",0.1)],
+      "Carla":[("Campanha de fim de ano · Bistrô 42",0.4),("Site novo · Loja Verde",0.2),("Comercial e propostas",0.3),("Gestão e reuniões",0.1)],
       "Diego":[("Site novo · Loja Verde",0.6),("Comercial e propostas",0.1),("Gestão e reuniões",0.3)]}
+# Início e fim de cada projeto iguais a 04-projetos-e-prazos (Config). Antes do início ninguém lança horas nele;
+# a parte da agenda que sobra vai para "Comercial e propostas" (julho e agosto foram de propostas, ver 08-funil).
+periodo={"Site novo · Loja Verde":(date(2026,8,10),None),"Campanha de fim de ano · Bistrô 42":(date(2026,9,1),None),
+         "Relatório anual · Horizonte":(date(2026,9,8),None),"Identidade visual · Padaria do Sol":(date(2026,7,15),date(2026,9,5))}
+def aloc_dia(al,d):
+    ativos=[(pj,fr) for pj,fr in al if pj not in periodo or (periodo[pj][0]<=d and (periodo[pj][1] is None or d<=periodo[pj][1]))]
+    s=sum(fr for _,fr in ativos); out=[(pj,min(fr/s,fr*1.5)) for pj,fr in ativos]
+    sobra=1-sum(fr for _,fr in out)
+    if sobra>0.01:
+        out=[(pj,fr+sobra) if pj=="Comercial e propostas" else (pj,fr) for pj,fr in out]
+        if not any(pj=="Comercial e propostas" for pj,_ in out): out.append(("Comercial e propostas",sobra))
+    return out
 d=date(2026,7,1)
 while d<=date(2026,9,12):
     if d.weekday()<5:
         for pessoa,al in aloc.items():
             total=random.choice([6,7,7,8,8,8.5,9])
-            for pj,fr in al:
-                if pj=="Identidade visual · Padaria do Sol" and d>date(2026,9,5): continue
+            for pj,fr in aloc_dia(al,d):
                 hrs=round(total*fr*random.uniform(0.7,1.3)*2)/2
                 if hrs<=0: continue
                 fat="Não" if pj in ("Comercial e propostas","Gestão e reuniões") else "Sim"
                 rows.append((d,pessoa,pj,random.choice(atv[pj]),hrs,fat))
     d+=timedelta(days=1)
-rows=rows[:N]
+assert len(rows)<=N, len(rows)
 for i,row in enumerate(rows):
     for c,v in zip((1,2,3,4,5,9),row): h.cell(row=R0+i,column=c,value=v)
 como_usar(wb,"Horas e Custo por Projeto",[
  ("O que esta planilha faz","Cada pessoa lança as horas por projeto; ela transforma em custo (pelo custo-hora), compara com as horas orçadas e o valor cobrado, mostra a margem de cada projeto e a ocupação de cada pessoa no mês."),
- ("Passo 1","Em Config, cadastre as pessoas com custo mensal e horas disponíveis (o custo-hora é calculado), e os projetos com horas orçadas, valor cobrado e status. Projetos internos (comercial, gestão) entram com status Interno."),
+ ("Passo 1","Em Config, cadastre as pessoas com custo mensal e horas disponíveis (o custo-hora é calculado), e os projetos com horas orçadas, valor cobrado e status. Projetos internos (comercial, gestão) entram com status Interno; proposta ainda não fechada pode entrar como Proposta, sem horas."),
  ("Passo 2","Em Horas, uma linha por pessoa, por dia, por projeto: data, pessoa, projeto, atividade, horas e se é faturável."),
  ("Passo 3","Em Painel, escolha o mês em Config. Por projeto: horas usadas contra orçadas, custo, margem e situação. Por pessoa: ocupação e horas faturáveis."),
  ("Rotina","Cada pessoa lança no fim do dia (2 minutos) ou na sexta (10 minutos). Dia 1 do mês: olhe margem por projeto antes de precificar o próximo."),
