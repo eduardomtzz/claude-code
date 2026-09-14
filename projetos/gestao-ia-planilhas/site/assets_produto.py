@@ -16,7 +16,7 @@ def pagina(pdf,dst,pag,w):
 for nome,tela in [('semana','tela-semana-hoje'),('relatorio','tela-relatorio-painel'),('ganhos','tela-ganhos-painel')]:
     card(DE/'docs'/f'{tela}.png',A/'kit'/f'{nome}.jpg')
 card(DE/'docs'/'tela-relatorio-resumo.png',A/'kit'/'relatorio-resumo.jpg',1200,628)
-for nome,tela,h in [('projetos','tela-projetos-painel',676),('ata','tela-ata-aberto',676),('metas','tela-metas-painel',676),('orcamento','tela-orcamento-painel',673),('funil','tela-funil-painel',673),('horas','tela-horas-painel',673),('base','tela-base-checklist',586)]:
+for nome,tela,h in [('projetos','tela-projetos-painel',676),('ata','tela-ata-aberto',676),('metas','tela-metas-painel',676),('orcamento','tela-orcamento-painel',673),('funil','tela-funil-painel',673),('horas','tela-horas-painel',673),('base','tela-base-base',586)]:
     card(DC/'docs'/f'{tela}.png',A/'completo'/f'{nome}.jpg',1200,h)
 # miniaturas de PDF (página com conteúdo, não a capa)
 pagina(DE/'entrega'/'04-biblioteca-de-prompts.pdf',A/'kit'/'prompts.jpg',2,579)
