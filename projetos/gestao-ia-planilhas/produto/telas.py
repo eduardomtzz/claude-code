@@ -73,7 +73,21 @@ def gera(kit,tabela,filtro=None):
                        env={**os.environ,'SAL_USE_VCLPLUGIN':'svp'},check=True,capture_output=True,timeout=300)
         r=subprocess.run(['node',str(WORK/'shot.js'),str(html),json.dumps(itens)],env={**os.environ,'NODE_PATH':str(S/'pw'/'node_modules')},capture_output=True,text=True)
         print(arq,r.stdout.strip(),r.stderr.strip()[:300])
+def gera_auto(kit,largura=1300,altura=900,filtro=None):
+    """Captura automática: a aba principal (primeira que não é 'Como usar') de cada .xlsx de entrega/, como tela-NN.png,
+    e também a aba Painel quando existir e não for a principal (tela-NN-painel.png)."""
+    import openpyxl
+    ent=ROOT/f'kit-{kit}'/'entrega'; tabela={}
+    for arq in sorted(ent.glob('[0-9][0-9]-*.xlsx')):
+        nn=arq.name[:2]
+        if filtro and filtro not in arq.name: continue
+        abas=[a for a in openpyxl.load_workbook(arq,read_only=True).sheetnames if a!='Como usar']
+        if not abas: continue
+        tabela[f'tela-{nn}']=(arq.name,abas[0],largura,altura)
+        if 'Painel' in abas and abas[0]!='Painel': tabela[f'tela-{nn}-painel']=(arq.name,'Painel',largura,altura)
+    gera(kit,tabela)
 kit=sys.argv[1] if len(sys.argv)>1 else 'todos'; filtro=sys.argv[2] if len(sys.argv)>2 else None
+if kit=='advogados': gera_auto('advogados',filtro=filtro); sys.exit()
 if kit in('essencial','todos'): gera('essencial',ESS,filtro)
 if kit in('completo','todos'):
     gera('completo',COMP,filtro)
