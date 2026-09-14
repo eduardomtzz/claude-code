@@ -75,4 +75,8 @@ def gera(kit,tabela,filtro=None):
         print(arq,r.stdout.strip(),r.stderr.strip()[:300])
 kit=sys.argv[1] if len(sys.argv)>1 else 'todos'; filtro=sys.argv[2] if len(sys.argv)>2 else None
 if kit in('essencial','todos'): gera('essencial',ESS,filtro)
-if kit in('completo','todos'): gera('completo',COMP,filtro)
+if kit in('completo','todos'):
+    gera('completo',COMP,filtro)
+    # as capturas das planilhas 01-03 são as mesmas do Essencial: copia para o Completo (manual e aulas usam)
+    for png in (ROOT/'kit-essencial'/'docs').glob('tela-*.png'):
+        if (ROOT/'kit-completo'/'docs'/png.name).exists(): shutil.copy2(png, ROOT/'kit-completo'/'docs'/png.name)

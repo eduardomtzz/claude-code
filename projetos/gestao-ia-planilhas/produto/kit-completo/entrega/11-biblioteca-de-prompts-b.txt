@@ -80,6 +80,7 @@ Colunas da base: [cole o cabeçalho].
 
 ### Estruturar 06 · O gráfico certo para a pergunta
 **Quando usar:** antes de inserir um gráfico. A aula 4 explica o porquê de cada tipo.
+*Amplia o Analisar 07 (Gráfico certo para o dado) da Biblioteca A: lá, um gráfico; aqui, vários de uma vez, com eixos e título.*
 
 ```
 Para cada pergunta abaixo, diga o tipo de gráfico ideal (barra, coluna, linha, área, pizza só se couber, tabela) e o motivo em uma frase, mais o que colocar no eixo X, no eixo Y e no título (título deve ser a conclusão, não o tema).
@@ -199,6 +200,7 @@ Tabela de busca: [aba e colunas]. Onde vai a fórmula: [aba e coluna].
 
 ### Produzir 06 · Tabela dinâmica passo a passo
 **Quando usar:** para resumir uma base de 500 linhas em 3 cliques (aula 2 mostra na tela).
+*Amplia o Aprender 02 (Montar uma tabela dinâmica) da Biblioteca A: acrescenta filtros, contagem, formato em R$ e a conferência do total.*
 
 ```
 Me guie, passo a passo e com os nomes exatos dos menus, para criar uma tabela dinâmica no [Excel/Google Sheets] que mostre [ex.: valor total por categoria nas linhas e por mês nas colunas, só status Pago]. Diga o que arrastar para Linhas, Colunas, Valores e Filtros, como mudar de soma para contagem, como formatar em R$ e como atualizar quando entrar dado novo.
@@ -329,6 +331,7 @@ Assunto e números: [cole]
 
 ### Produzir 20 · Perguntas difíceis da diretoria e como responder
 **Quando usar:** antes de apresentar. Prepara você para o que vão perguntar.
+*Amplia o Apresentar 03 (Perguntas prováveis e respostas) da Biblioteca A: aqui a IA faz o papel do diretor cético e marca o que os seus números não respondem.*
 
 ```
 Você é um diretor cético que vai assistir à apresentação abaixo. Liste as 8 perguntas mais prováveis, das mais difíceis para as mais fáceis, e para cada uma: a resposta curta (2 frases) com o número que sustenta, e o que fazer se eu não souber responder. Marque as perguntas que os números que tenho não conseguem responder.
