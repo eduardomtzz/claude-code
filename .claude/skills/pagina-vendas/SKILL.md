@@ -60,3 +60,11 @@ para exercício de direitos.
 
 Código completo, `README.md` com deploy e variáveis, `checklist.md` marcado, captura
 de tela mobile e desktop em `site/screenshots/` gerada com Chromium local.
+
+## Padrão visual dos prints de produto (decisão do Eduardo, 2026-09-14)
+
+Nunca mostrar captura crua de planilha na página. Toda tela de produto aparece dentro de um mockup de
+notebook (aba principal) com um celular ao lado (segunda aba), gerado por `site/mockups_cards.py`
+(cards do inventário, `public/assets/<kit>/mock-<nome>.webp`) e por `08-ads/criativos/build_mockup.py`
+(herói e criativos). Sempre com título de contexto e chips explicando o que a tela faz. Vale para todos
+os kits, presentes e futuros.
