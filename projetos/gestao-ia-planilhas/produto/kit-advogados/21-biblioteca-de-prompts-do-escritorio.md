@@ -127,7 +127,7 @@ as juntadas para quarta, delegar a preparação à estagiária, criar um semáfo
 ### Prazos 04 · Distribuir a semana entre as pessoas
 **Quando usar:** quando uma pessoa está com o mês estourado e a outra folgada, ou quando entra
 alguém novo. Junta prazos e horas.
-**Cole:** Planilha 1 · aba Prazos (semana) e Planilha 16 (horas do mês por pessoa até hoje).
+**Cole:** Planilha 1 · aba Prazos (semana) e Planilha 16 (Horas por Caso, aba Painel, quadro por pessoa).
 
 ```
 Ajude-me a redistribuir o trabalho da semana em um escritório de advocacia. Não é para decidir estratégia de nenhum caso; é agenda. Regras: [ex.: audiências e prazos de mérito ficam com o responsável do caso; preparação de documentos, contato com cliente, protocolo e organização podem ir para a estagiária; ninguém passa de 9 horas por dia].
@@ -299,7 +299,7 @@ de 161% para 109%; parcelar em 9 não muda a margem, mas atrasa o caixa em 3 mes
 ### Honorários 06 · Montar a tabela de referência interna
 **Quando usar:** depois de três meses com o kit, quando a Planilha 16 já tem histórico de horas por tipo
 de caso. Cria faixas para as propostas ficarem coerentes entre si.
-**Cole:** Planilha 16 (horas por caso), colunas Área, Modalidade, Horas estimadas, Horas gastas, Valor
+**Cole:** Planilha 16 (Horas por Caso, aba Painel), colunas Área, Modalidade, Horas estimadas, Horas gastas, Valor
 contratado (casos encerrados e ativos); a Planilha 8 · aba Nossos casos tem o valor por hora já calculado.
 
 ```
