@@ -10,17 +10,17 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. O custo-hora vem da planilha 05; margens mínima e alvo definem a faixa de cada serviço.",merge_to="H")
 campos=[("Nome do escritório",f"{dados.ESCRITORIO} (exemplo fictício)",None),("Mês de referência","Setembro de 2026",None),("Data de referência","=TODAY()",DATA),
- ("Custo-hora do escritório (R$)",66.07,BRL),("Impostos e taxas sobre o que entra (%)",0.08,PCT),("Margem mínima sobre o preço (%)",0.30,PCT),("Margem alvo sobre o preço (%)",0.45,PCT),("Folga para horas não previstas (%)",0.20,PCT)]
+ ("Custo-hora do escritório (R$)",dados.CUSTO_HORA,BRL),("Impostos e taxas sobre o que entra (%)",dados.ALIQ,PCT),("Margem mínima sobre o preço (%)",dados.MARGEM,PCT),("Margem alvo sobre o preço (%)",dados.MARGEM_ALVO,PCT),("Folga para horas não previstas (%)",dados.FOLGA_HORAS,PCT)]
 for i,(a,v,fmt) in enumerate(campos):
     r=4+i; cfg.cell(row=r,column=1,value=a); rotulo(cfg.cell(row=r,column=1)); cfg.cell(row=r,column=2,value=v)
     if r==6: calc(cfg.cell(row=r,column=2),fmt)
     else: inp(cfg.cell(row=r,column=2),fmt,center=fmt is not None)
-cfg["A12"]="Hora mínima (R$)"; cfg["B12"]="=IFERROR(B7*(1+B11)/(1-B8-B9),\"\")"; cfg["A13"]="Hora alvo (R$)"; cfg["B13"]="=IFERROR(B7*(1+B11)/(1-B8-B10),\"\")"
+cfg["A12"]="Hora mínima com folga (20 % de horas não previstas) (R$)"; cfg["B12"]="=IFERROR(B7*(1+B11)/(1-B8-B9),\"\")"; cfg["A13"]="Hora alvo com folga (R$)"; cfg["B13"]="=IFERROR(B7*(1+B11)/(1-B8-B10),\"\")"
 for r in (12,13): rotulo(cfg.cell(row=r,column=1)); calc(cfg.cell(row=r,column=2),BRL); cfg.cell(row=r,column=2).font=F(bold=True,color=UVA,size=10)
 cfg["C7"]="Copie do Painel da planilha 05 (\"Custo-hora do escritório\")."; cfg["C8"]="Exemplo; confira com o contador."
 cfg["C9"]="Abaixo disso o caso não vale a pena. Define o piso da faixa. A mesma margem desejada da planilha 05."; cfg["C10"]="A margem que você quer de verdade. Define o teto da faixa."
 cfg["C11"]="Caso costuma consumir mais horas que o estimado; a folga protege a faixa. Igual à folga de horas da planilha 06."
-cfg["C12"]="Custo-hora × (1 + folga) ÷ (1 − impostos − margem mínima)."; cfg["C13"]="Custo-hora × (1 + folga) ÷ (1 − impostos − margem alvo)."
+cfg["C12"]="Custo-hora × (1 + folga) ÷ (1 − impostos − margem mínima). É a hora mínima da planilha 05 (R$ 106,57 → R$ 110) com 20 % de folga para horas não previstas: por isso é maior. A tabela usa esta, mais protegida, porque a faixa é fixada antes de conhecer o caso."; cfg["C13"]="Custo-hora × (1 + folga) ÷ (1 − impostos − margem alvo)."
 for r in range(7,14): nota(cfg.cell(row=r,column=3))
 cfg["A14"]="Listas (preencha de cima para baixo, sem pular linha)"; rotulo(cfg["A14"])
 listas={5:("Áreas",dados.AREAS),7:("Tipos de serviço",TIPOS),9:("Modalidades",dados.TIPOS_HON)}
@@ -33,8 +33,8 @@ widths(cfg,(40,16,60,3,18,3,26,3,14)); cfg.sheet_view.showGridLines=False
 HMIN="Config!$B$12"; HALVO="Config!$B$13"
 # ---------- Nossos casos ----------
 k=wb.create_sheet("Nossos casos")
-titulo(k,"O que cobramos hoje","Uma linha por caso: valor contratado e horas estimadas. O valor por hora é comparado com a hora mínima e a hora alvo de Config.",merge_to="L")
-hdr(k,4,["Nº do processo ou caso","Cliente","Área","Modalidade","Fase","Valor contratado (R$)","Horas estimadas","Valor por hora (R$)","Contra a hora mínima","Situação","Falta até o mínimo (R$)","Ordem"],height=32)
+titulo(k,"O que cobramos hoje","Uma linha por caso (copie da planilha 13 · Carteira, aba Casos: a 13 é a fonte; horas estimadas da 16). O valor por hora é comparado com a hora mínima com folga e a hora alvo de Config.",merge_to="L")
+hdr(k,4,["Nº do processo ou caso","Cliente","Área","Modalidade","Fase","Valor contratado (R$)","Horas estimadas","Valor por hora (R$)","Contra a hora mínima com folga","Situação","Falta até o mínimo (R$)","Ordem"],height=32)
 for r in range(C0,CN+1):
     for c in (1,2,3,4,5,6,7): inp(k.cell(row=r,column=c))
     for c in (3,4,5,7): k.cell(row=r,column=c).alignment=Alignment(horizontal="center")
@@ -49,14 +49,14 @@ k.conditional_formatting.add(f"J{C0}:J{CN}", FormulaRule(formula=[f'$J{C0}="Abai
 k.conditional_formatting.add(f"J{C0}:J{CN}", FormulaRule(formula=[f'$J{C0}="Na faixa"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
 k.conditional_formatting.add(f"J{C0}:J{CN}", FormulaRule(formula=[f'$J{C0}="Acima do alvo"'], fill=fill(LAVANDA)))
 k.cell(row=CN+2,column=1,value="Em êxito e misto, o valor contratado é o esperado (só entra no fim). \"Falta até o mínimo\" = hora mínima × horas estimadas − valor contratado. \"Ordem\" é coluna auxiliar da lista do Painel.").font=F(size=9,color=LILAS)
-widths(k,(26,26,14,12,12,16,10,14,12,18,16,10)); k.freeze_panes=f"A{C0}"; k.sheet_view.showGridLines=False; k.auto_filter.ref=f"A4:L{CN}"
+widths(k,(26,26,14,12,12,16,10,14,12,18,16,10)); k.column_dimensions["L"].hidden=True; k.freeze_panes=f"A{C0}"; k.sheet_view.showGridLines=False; k.auto_filter.ref=f"A4:L{CN}"
 KF=f"'Nossos casos'!$F${C0}:$F${CN}"; KG=f"'Nossos casos'!$G${C0}:$G${CN}"; KH=f"'Nossos casos'!$H${C0}:$H${CN}"; KJ=f"'Nossos casos'!$J${C0}:$J${CN}"
 KK=f"'Nossos casos'!$K${C0}:$K${CN}"; KL=f"'Nossos casos'!$L${C0}:$L${CN}"; KC=f"'Nossos casos'!$C${C0}:$C${CN}"; KA=f"'Nossos casos'!$A${C0}:$A${CN}"
 # ---------- Referência ----------
 p=wb.create_sheet("Referência",0)
 titulo(p,'=Config!$B$4&" · Tabela de referência de honorários · "&Config!$B$5',"Tabela interna: faixa de valor por área e tipo de serviço, calculada do custo-hora. Amarelo: horas típicas e modalidade. Abaixo, o que cobramos hoje contra a referência.",merge_to="K")
-kpi(p,4,1,"Hora mínima",f"={HMIN}",LAVANDA,UVA,fmt=BRL)
-kpi(p,4,3,"Hora alvo",f"={HALVO}",SOL,UVA,fmt=BRL)
+kpi(p,4,1,"Hora mínima com folga",f"={HMIN}",LAVANDA,UVA,fmt=BRL)
+kpi(p,4,3,"Hora alvo com folga",f"={HALVO}",SOL,UVA,fmt=BRL)
 kpi(p,4,5,"Casos abaixo do mínimo",f'=COUNTIF({KJ},"Abaixo do mínimo")&" de "&(COUNTIF({KJ},"Abaixo do mínimo")+COUNTIF({KJ},"Na faixa")+COUNTIF({KJ},"Acima do alvo"))',VERM,VERM_T,fmt="@")
 kpi(p,4,7,"Falta até o mínimo",f"=SUM({KK})",VERM,VERM_T,fmt=BRL0)
 kpi(p,4,9,"Valor por hora médio",f'=IFERROR(SUM({KF})/SUM({KG}),0)',VERDE,VERDE_T,fmt=BRL)
@@ -70,7 +70,7 @@ for r in range(T0,TN+1):
     p.cell(row=r,column=8,value=f'=IF(OR(F{r}="",G{r}=""),"",(F{r}+G{r})/2)'); calc(p.cell(row=r,column=8),BRL0)
     p.cell(row=r,column=9,value=f'=IF(A{r}="","",IF(E{r}="Hora","Cobre a hora entre a mínima e a alvo; a faixa é o total esperado",IF(E{r}="Êxito","Percentual que, na chance esperada, fique dentro da faixa",IF(E{r}="Misto","Entrada perto do mínimo; o êxito leva ao máximo","Caso simples perto do mínimo; complexo perto do máximo"))))'); calc(p.cell(row=r,column=9),center=False); nota(p.cell(row=r,column=9))
 for dv,rng in ((lista(LST("E")),f"A{T0}:A{TN}"),(lista(LST("G")),f"B{T0}:B{TN}"),(lista(LST("I")),f"E{T0}:E{TN}")): dv.add(rng); p.add_data_validation(dv)
-p.cell(row=TN+1,column=1,value="Mínimo = horas de × hora mínima. Máximo = horas até × hora alvo (as duas já incluem a folga de horas de Config). Abaixo do mínimo, o caso paga o custo mas não a margem que o escritório precisa.").font=F(size=9,color=LILAS)
+p.cell(row=TN+1,column=1,value="Mínimo = horas de × hora mínima com folga. Máximo = horas até × hora alvo com folga (as duas incluem os 20 % de horas não previstas de Config; por isso a hora mínima daqui é maior que a da planilha 05). Abaixo do mínimo, o caso paga o custo mas não a margem que o escritório precisa.").font=F(size=9,color=LILAS)
 # comparação por área
 A0=TN+4
 p.cell(row=A0,column=1,value="O que cobramos hoje, por área").font=F(bold=True,size=13,color=UVA)
@@ -120,11 +120,11 @@ for i,cs in enumerate(dados.CASOS):
     for c,v in enumerate((cs["numero"],cs["cliente"],cs["area"],cs["tipo_hon"],cs["fase"],cs["valor_contratado"],cs["horas_estimadas"]),start=1): k.cell(row=C0+i,column=c,value=v)
 como_usar(wb,"Tabela de referência de honorários",[
  ("O que esta planilha faz","Cria a tabela interna de honorários do escritório: para cada área e tipo de serviço, uma faixa mínima e máxima calculada do custo-hora, com horas típicas e modalidade recomendada. Depois compara o que já está contratado com essa referência e aponta os casos abaixo do mínimo."),
- ("Passo 1","Em Config, o custo-hora (da planilha 05), impostos, as margens mínima e alvo e a folga para horas não previstas. Isso vira hora mínima e hora alvo."),
+ ("Passo 1","Em Config, o custo-hora (da planilha 05), impostos, as margens mínima e alvo e a folga para horas não previstas. Isso vira a hora mínima com folga e a hora alvo com folga: a hora mínima da 05 (R$ 110 no exemplo) acrescida de 20 % de horas não previstas (R$ 127,88)."),
  ("Passo 2","Em Referência, ajuste as horas típicas (de e até) e a modalidade de cada linha. Adicione linhas para os serviços que o escritório faz. A faixa em reais é calculada."),
  ("Passo 3","Em Nossos casos, uma linha por caso com valor contratado e horas estimadas. A situação mostra se está abaixo do mínimo, na faixa ou acima do alvo."),
  ("Passo 4","No topo de Referência: quantos casos estão abaixo do mínimo, quanto falta e o valor por hora médio por área. Use a faixa ao montar a proposta (planilha 07)."),
  ("Rotina","Revise a tabela a cada trimestre, junto com o custo-hora. Antes de aceitar caso novo, confira a faixa."),
- ("Com a IA","Copie \"O que cobramos hoje, por área\" e peça à IA para apontar onde o escritório está cobrando abaixo do custo e sugerir uma conversa de reajuste. Os valores da tabela são do seu escritório, não uma tabela oficial."),
+ ("Com a IA","Copie \"O que cobramos hoje, por área\" e use o prompt \"Honorários 06 · Montar a tabela de referência interna\" da biblioteca do kit para apontar onde o escritório está cobrando abaixo do custo e sugerir uma conversa de reajuste. Os valores da tabela são do seu escritório, não uma tabela oficial."),
 ])
 proteger(wb); salvar(wb,"08-tabela-de-referencia.xlsx","Tabela de referência de honorários · Kit de Gestão para Advogados")

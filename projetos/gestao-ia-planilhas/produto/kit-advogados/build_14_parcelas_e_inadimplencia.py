@@ -4,8 +4,6 @@ Gera 14-parcelas-e-inadimplencia.xlsx (Como usar, Painel, Config, Parcelas, Caso
 from ssg import *
 import dados
 from openpyxl.chart import BarChart, Reference
-from datetime import timedelta
-import random
 
 NP=400; R0=5; RNP=R0+NP-1          # Parcelas: linhas 5..404
 NC=200; RNC=R0+NC-1                # Casos (entrada): linhas 5..204
@@ -38,7 +36,7 @@ widths(cfg,(30,70,18,3,3,3,3,3)); cfg.sheet_view.showGridLines=False
 
 # ---------- Casos (entrada) ----------
 cs=wb.create_sheet("Casos")
-titulo(cs,"Casos (entrada)","Copie daqui da planilha 13 (Carteira): número, cliente, modalidade e valor. As colunas brancas somam as parcelas de cada caso.",merge_to="J")
+titulo(cs,"Casos (entrada)","Copie da planilha 13 · Carteira (aba Casos; a 13 é a fonte): número, cliente, modalidade e valor. As colunas brancas somam as parcelas de cada caso.",merge_to="J")
 hdr(cs,4,["Número do processo ou referência","Cliente","Modalidade","Valor contratado (R$)","Parcelas","Valor em parcelas (R$)","Pago (R$)","Em aberto (R$)","Vencido (R$)","Diferença contratado − parcelas"])
 PA=f"Parcelas!$A${R0}:$A${RNP}"; PE=f"Parcelas!$E${R0}:$E${RNP}"; PH=f"Parcelas!$H${R0}:$H${RNP}"
 for r in range(R0,RNC+1):
@@ -52,7 +50,7 @@ for r in range(R0,RNC+1):
 dvm=lista('"Fixo,Hora,Êxito,Misto"'); dvm.add(f"C{R0}:C{RNC}"); cs.add_data_validation(dvm)
 cs.conditional_formatting.add(f"J{R0}:J{RNC}", FormulaRule(formula=[f'AND(ISNUMBER(J{R0}),J{R0}<>0)'], fill=fill("FFF4CC")))
 cs.conditional_formatting.add(f"I{R0}:I{RNC}", FormulaRule(formula=[f'AND(ISNUMBER(I{R0}),I{R0}>0)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
-cs.cell(row=RNC+2,column=1,value="Casos por hora ou só por êxito normalmente não têm parcelas fixas: cadastre-os aqui mesmo assim, para a lista de casos ficar completa, e lance parcelas só quando houver um combinado de pagamento. Diferença em amarelo: o valor parcelado não fecha com o contratado.").font=F(size=9,color=LILAS)
+cs.cell(row=RNC+2,column=1,value="Casos por hora: lance uma parcela por fatura mensal (a diferença em amarelo é o que ainda não foi faturado). Êxito e a parte de êxito do misto só viram parcela no fim do caso: até lá a diferença é o êxito esperado. Cadastre todos os casos, mesmo sem parcela, para a lista ficar completa.").font=F(size=9,color=LILAS)
 widths(cs,(28,28,12,16,9,16,14,14,14,18)); cs.freeze_panes="B5"; cs.sheet_view.showGridLines=False; cs.auto_filter.ref=f"A4:J{RNC}"
 
 # ---------- Parcelas ----------
@@ -72,7 +70,7 @@ for r in range(R0,RNP+1):
     pr.cell(row=r,column=12,value=f'=IF(H{r}<>"Vencida","",IF({nivel}=0,"Aguardar: ainda não chegou ao primeiro passo da régua.",INDEX({RA},{nivel})))'); calc(pr.cell(row=r,column=12),center=False)
     pr.cell(row=r,column=13,value=f'=IF(H{r}="Vencida",E{r}*I{r}+ROW()/100000,0)'); pr.cell(row=r,column=13).font=F(color=CINZA,size=9)
     pr.cell(row=r,column=14,value=f'=IF(AND(H{r}="A vencer",J{r}<={JL}),100000-J{r}-ROW()/100000,0)'); pr.cell(row=r,column=14).font=F(color=CINZA,size=9)
-pr.column_dimensions["M"].hidden=True; pr.column_dimensions["N"].hidden=True
+pr.column_dimensions["M"].hidden=True; pr.column_dimensions["N"].hidden=True   # colunas auxiliares das listas do Painel
 dvs=[lista(off("Casos","A",R0,RNC),strict=False), lista('"Sim,Não"'),
      DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),
      DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True),
@@ -82,7 +80,7 @@ pr.conditional_formatting.add(f"A{R0}:L{RNP}", FormulaRule(formula=[f'$H{R0}="Ve
 pr.conditional_formatting.add(f"A{R0}:L{RNP}", FormulaRule(formula=[f'AND($H{R0}="A vencer",$J{R0}<={JC})'], fill=fill("FFF4CC")))
 pr.conditional_formatting.add(f"A{R0}:L{RNP}", FormulaRule(formula=[f'$H{R0}="Paga"'], font=F(color=VERDE_T,size=10)))
 pr.conditional_formatting.add(f"G{R0}:G{RNP}", FormulaRule(formula=[f'AND($F{R0}="Sim",$G{R0}="")'], fill=fill(VERM)))
-pr.cell(row=RNP+2,column=1,value="Vermelho: vencida. Amarelo: vence na janela curta. Verde: paga. Data do pagamento em vermelho: marcada como paga sem data. Vencimentos do exemplo são relativos a hoje.").font=F(size=9,color=LILAS)
+pr.cell(row=RNP+2,column=1,value="Vermelho: vencida. Amarelo: vence na janela curta. Verde: paga. Data do pagamento em vermelho: marcada como paga sem data. No exemplo, as parcelas pagas têm data fixa (cada uma é uma entrada do caixa, planilha 09) e as em aberto têm vencimento relativo a hoje.").font=F(size=9,color=LILAS)
 widths(pr,(28,26,9,12,13,8,13,13,9,9,16,60)); pr.freeze_panes="C5"; pr.sheet_view.showGridLines=False; pr.auto_filter.ref=f"A4:L{RNP}"
 
 # ---------- Painel ----------
@@ -95,8 +93,8 @@ kpi(p,4,3,'="Vence em até "&'+JL+'&" dias"',f'=SUMIFS({PE},{PH},"A vencer",{PJ}
 kpi(p,4,5,"Em aberto (total)",f'=SUMIFS({PE},{PH},"A vencer")+SUMIFS({PE},{PH},"Vencida")',LAVANDA,UVA,fmt=BRL0)
 kpi(p,4,7,"Vencido (R$)",f'=SUMIFS({PE},{PH},"Vencida")',VERM,VERM_T,fmt=BRL0)
 kpi(p,4,9,"Parcelas vencidas",f'=COUNTIFS({PH},"Vencida")',VERM,VERM_T,fmt="0")
-kpi(p,4,11,"Inadimplência",f'=IFERROR(G5/(G5+SUMIFS({PE},{PH},"Paga")),0)',VERM,VERM_T,fmt=PCT)
-p["A7"]="Inadimplência = valor vencido ÷ tudo o que já venceu (pago + vencido). Mede quanto do que deveria ter entrado ainda não entrou."; nota(p["A7"]); p.merge_cells("A7:L7")
+kpi(p,4,11,"Inadimplência (vencido ÷ (pago + vencido))",f'=IFERROR(G5/(G5+SUMIFS({PE},{PH},"Paga")),0)',VERM,VERM_T,fmt="0.0%")
+p["A7"]="Inadimplência = vencido ÷ (pago + vencido): de tudo o que já venceu, quanto ainda não entrou. É a definição usada em todo o kit (17, 19, 20). Outra conta possível, vencido ÷ em aberto (vencido + a vencer), mede a carteira futura e dá um número maior; não a use para comparar com estas planilhas."; nota(p["A7"]); p.merge_cells("A7:L7"); p["A7"].alignment=Alignment(wrap_text=True,vertical="top"); p.row_dimensions[7].height=30
 p["A9"]="Vencidas por faixa de atraso"; p["A9"].font=F(bold=True,size=13,color=UVA)
 hdr(p,10,["Faixa","Parcelas","Valor (R$)","% do vencido","Ação da régua"]); p.merge_cells("E10:H10")
 for i in range(4):
@@ -150,34 +148,12 @@ regua=[(1,"Lembrete gentil por WhatsApp ou e-mail: confirmar se o boleto ou o li
 for i,(d,t) in enumerate(regua): cfg.cell(row=RG0+i,column=1,value=d); cfg.cell(row=RG0+i,column=2,value=t)
 for i,c in enumerate(dados.CASOS):
     for col,v in zip((1,2,3,4),(c["numero"],c["cliente"],c["tipo_hon"],c["valor_contratado"])): cs.cell(row=R0+i,column=col,value=v)
-rng=random.Random(14); linhas=[]; H=dados.HOJE
-def split(v,n,shares=None):
-    shares=shares or [1/n]*n; vals=[int(round(v*s/10))*10 for s in shares]; vals[-1]=v-sum(vals[:-1]); return vals
-for c in dados.CASOS:
-    if c["tipo_hon"] not in ("Fixo","Misto"): continue
-    v=c["valor_contratado"]; frac=round(c["recebido"]/v,2); ab=c["abertura"]
-    if frac==1.0: n=rng.choice([2,3,4]); vals=split(v,n); pagas=n
-    elif frac==0.0: n=rng.choice([2,3]); vals=split(v,n); pagas=0
-    elif frac==0.5: vals=split(v,2); pagas=1
-    elif frac==0.6: vals=split(v,5); pagas=3
-    elif frac==0.3: vals=split(v,3,[0.3,0.35,0.35]); pagas=1
-    else: raise ValueError(frac)
-    n=len(vals); abertas=n-pagas
-    off1=rng.choice([-38,-24,-11,-5,-2,4,9,16,26]) if abertas else None
-    if pagas==n:  # tudo pago no passado: parcelas mensais desde a abertura, comprimidas se o caso é recente
-        passo=min(30,max(7,(H-ab).days//(n+1))); vencs=[ab+timedelta(days=passo*(k+1)) for k in range(n)]
-    else:  # pagas terminam 30 dias antes da primeira em aberto; em aberto são relativas a hoje
-        primeiro=H+timedelta(days=off1-30*pagas)
-        if primeiro<=ab: primeiro=ab+timedelta(days=7)
-        passo=min(30,max(7,(H+timedelta(days=off1)-primeiro).days//max(1,pagas)))
-        vencs=[primeiro+timedelta(days=passo*k) for k in range(pagas)]
-    for k in range(n):
-        if k<pagas:
-            venc=vencs[k]; pg=venc+timedelta(days=rng.choice([-2,-1,0,0,1,3,5]))
-            if pg>H: pg=H-timedelta(days=1)
-            linhas.append((c["numero"],k+1,venc,vals[k],"Sim",pg))
-        else:
-            linhas.append((c["numero"],k+1,dados.prazo_formula(off1+30*(k-pagas)),vals[k],"Não",None))
+# parcelas: o cronograma contratado de cada caso (dados.PARCELAS): pagas com data fixa; em aberto com vencimento relativo a hoje
+linhas=[]
+for p in dados.PARCELAS():
+    c=p["caso"]
+    if p["pago"]: linhas.append((c["numero"],p["n"],p["vencimento"],p["valor"],"Sim",p["pagamento"]))
+    else: linhas.append((c["numero"],p["n"],dados.prazo_formula(dados.dias(p["vencimento"])),p["valor"],"Não",None))
 assert len(linhas)<=NP
 for i,(num,k,venc,val,pago,pg) in enumerate(linhas):
     r=R0+i; pr.cell(row=r,column=1,value=num); pr.cell(row=r,column=3,value=k); pr.cell(row=r,column=4,value=venc); pr.cell(row=r,column=5,value=val); pr.cell(row=r,column=6,value=pago)
@@ -187,10 +163,10 @@ print(len(linhas),"parcelas no exemplo")
 como_usar(wb,"Parcelas e Inadimplência",[
  ("O que esta planilha faz","Você lança as parcelas combinadas com cada cliente e marca as pagas; ela mostra o que vence nos próximos dias, o que já venceu por faixa de atraso, a inadimplência e a lista de quem cobrar primeiro, com a ação sugerida da régua de cobrança."),
  ("Passo 1","Em Config, ajuste as janelas (7 e 30 dias) e a régua: a partir de quantos dias de atraso fazer o quê. Escreva as ações do seu jeito, educadas e diretas."),
- ("Passo 2","Em Casos, cole a lista de casos da planilha 13 (número, cliente, modalidade, valor contratado). É a lista que alimenta a escolha do caso em Parcelas."),
- ("Passo 3","Em Parcelas, uma linha por parcela: caso, número da parcela, vencimento e valor. Quando receber, marque Pago? = Sim e a data do pagamento. Honorário por hora ou só por êxito entra só quando houver um combinado de pagamento."),
- ("Passo 4","Em Painel, veja o que vence em 7 e 30 dias, o vencido por faixa, a inadimplência e a lista \"Cobrar primeiro\" com o texto da régua para cada parcela."),
+ ("Passo 2","Em Casos, cole a lista de casos da planilha 13 · Carteira (número, cliente, modalidade, valor contratado); a 13 é a fonte do cadastro. É a lista que alimenta a escolha do caso em Parcelas."),
+ ("Passo 3","Em Parcelas, uma linha por parcela: caso, número da parcela, vencimento e valor. Quando receber, marque Pago? = Sim e a data do pagamento, e lance a mesma entrada no caixa (planilha 09). Honorário por hora entra como fatura mensal; êxito, só no fim do caso."),
+ ("Passo 4","Em Painel, veja o que vence em 7 e 30 dias, o vencido por faixa, a inadimplência (vencido ÷ (pago + vencido), a mesma conta das planilhas 17, 19 e 20) e a lista \"Cobrar primeiro\" com o texto da régua para cada parcela."),
  ("Rotina","Segunda-feira, 10 minutos: conferir o extrato, marcar as pagas, mandar as mensagens da lista \"Cobrar primeiro\". Sexta: confirmar as que vencem na semana seguinte."),
- ("Com a IA","Copie uma linha de \"Cobrar primeiro\" (cliente, parcela, valor, dias, ação) e use o prompt \"Escrever cobrança educada\" da biblioteca ou os 15 modelos de mensagem do bônus. Nunca cole dados que o cliente não autorizou compartilhar."),
+ ("Com a IA","Copie uma linha de \"Cobrar primeiro\" (cliente, parcela, valor, dias, ação) e use o prompt \"Clientes 03 · Cobrança educada em três versões\" da biblioteca (ou \"Clientes 02 · Quem cobrar primeiro\" para a lista inteira) ou os 15 modelos de mensagem do bônus. Nunca cole dados que o cliente não autorizou compartilhar."),
 ])
 proteger(wb); salvar(wb,"14-parcelas-e-inadimplencia.xlsx","Parcelas e Inadimplência · Kit de Gestão para Advogados")

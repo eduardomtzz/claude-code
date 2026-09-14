@@ -8,13 +8,14 @@ NS=8; NPAR=12; NR=100; R0=9; RN=R0+NR-1     # serviços na proposta, parcelas, l
 wb=Workbook()
 # ---------- Config ----------
 cfg=wb.active; cfg.title="Config"
-titulo(cfg,"Configurações","Células amarelas: você preenche. Os dados do escritório aparecem no cabeçalho da proposta.",merge_to="J")
+titulo(cfg,"Configurações","Células amarelas: você preenche. Os dados do escritório aparecem no cabeçalho da proposta: antes da primeira proposta real, troque o nome (tire o \"(exemplo fictício)\"), telefone, e-mail e endereço.",merge_to="J")
 campos=[("Nome do escritório",f"{dados.ESCRITORIO} (exemplo fictício)"),("Mês de referência","Setembro de 2026"),("Data de referência","=TODAY()"),
  ("Telefone e WhatsApp","(11) 0000-0000"),("E-mail","contato@exemplo.com.br"),("Endereço","Rua Exemplo, 100 · São Paulo · SP"),("Responsável pela proposta",dados.PESSOAS[0][0])]
 for i,(a,v) in enumerate(campos):
     r=4+i; cfg.cell(row=r,column=1,value=a); rotulo(cfg.cell(row=r,column=1)); cfg.cell(row=r,column=2,value=v)
     if r==6: calc(cfg.cell(row=r,column=2),DATA)
     else: inp(cfg.cell(row=r,column=2))
+cfg["A11"]="O nome acima sai impresso no cabeçalho e na assinatura da proposta. Apague o \"(exemplo fictício)\" antes de enviar a primeira proposta."; nota(cfg["A11"])
 cfg["A12"]="Listas (preencha de cima para baixo, sem pular linha)"; rotulo(cfg["A12"])
 listas={4:("Áreas",dados.AREAS),6:("Modalidades",dados.TIPOS_HON),8:("Formas de pagamento",["Pix","Transferência","Boleto","Cartão"]),10:("Situações",["Enviada","Fechada","Perdida"])}
 for col,(nome,vals) in listas.items():
@@ -29,7 +30,7 @@ DT="$E$4"
 titulo(p,'=Config!$B$4&" · Proposta de honorários · "&TEXT(DAY($E$4),"00")&"/"&TEXT(MONTH($E$4),"00")&"/"&YEAR($E$4)',
        "Preencha o amarelo. A tabela abaixo sai pronta para imprimir em A4 (Arquivo > Imprimir) ou salvar em PDF e enviar ao cliente.",merge_to="E")
 p["A3"]='=Config!$B$7&" · "&Config!$B$8&" · "&Config!$B$9'; nota(p["A3"]); p.merge_cells("A3:E3")
-cab=[("Proposta nº","2026-014",None,"Data",'=TODAY()',DATA),("Cliente",dados.CLIENTES[7][0],None,"Válida por (dias)",15,"0"),
+cab=[("Proposta nº",dados.PROP_NUM_ATUAL,None,"Data",'=TODAY()',DATA),("Cliente",dados.CLIENTES[7][0],None,"Válida por (dias)",15,"0"),
      ("Contato do cliente","roberto@exemplo.com.br",None,"Válida até","=E4+E5",DATA),("Área","Cível",None,"Modalidade","Misto",None)]
 for i,(a,v,fa,d,e,fe) in enumerate(cab):
     r=4+i
@@ -139,28 +140,20 @@ g.conditional_formatting.add(f"L{R0}:L{RN}", FormulaRule(formula=[f'LEFT($L{R0},
 g.conditional_formatting.add(f"J{R0}:J{RN}", FormulaRule(formula=[f'$J{R0}="Fechada"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
 g.conditional_formatting.add(f"J{R0}:J{RN}", FormulaRule(formula=[f'$J{R0}="Perdida"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
 widths(g,(10,12,26,14,40,12,16,10,12,11,12,30,34)); g.freeze_panes=f"A{R0}"; g.sheet_view.showGridLines=False; g.auto_filter.ref=f"A{R0-1}:M{RN}"
-C=dict((c[0],c) for c in dados.CLIENTES)
-reg=[("2026-005",date(2026,6,10),"Padaria do Sol Ltda","Revisão dos contratos com fornecedores","Fixo",4800,15,"Fechada",date(2026,6,18),""),
-     ("2026-006",date(2026,6,22),"Ana Beatriz Moreira","Processo trabalhista · fase inicial","Êxito",6000,15,"Perdida",date(2026,7,5),"Fechou com outro escritório"),
-     ("2026-007",date(2026,7,1),"Construtora Horizonte","Disputa sobre contrato de obra","Misto",12000,15,"Fechada",date(2026,7,10),"Entrada de 30%"),
-     ("2026-008",date(2026,7,8),"Carlos Eduardo Nunes","Pedido de benefício · acompanhamento","Êxito",5000,15,"Fechada",date(2026,7,15),"Valor estimado; recebe no fim"),
-     ("2026-009",date(2026,7,20),"Loja Verde Comércio","Assessoria mensal (12 meses)","Fixo",14400,20,"Perdida",date(2026,8,4),"Achou caro; retomar em janeiro"),
-     ("2026-010",date(2026,8,3),"Fernanda Castro","Acordo entre as partes","Fixo",7000,15,"Fechada",date(2026,8,10),""),
-     ("2026-011",date(2026,8,12),"Bistrô 42","Processo trabalhista · defesa","Hora",8500,15,"Perdida",date(2026,8,28),"Estimativa de 65 horas; preferiu valor fixo"),
-     ("2026-012","=TODAY()-12","Clínica Bem-Estar","Contratos com convênios","Fixo",9600,15,"Enviada",None,"Reunião de apresentação feita"),
-     ("2026-013","=TODAY()-20","Escola Aurora","Cobrança de mensalidades em atraso","Misto",6500,15,"Enviada",None,"Sem retorno; ligar"),
-     ("2026-014","=TODAY()","Roberto Almeida","Discussão de contrato de prestação de serviços","Misto",4500,15,"Enviada",None,"Mais 15% de êxito · é a proposta da aba Proposta")]
-for i,(n,d,cli,serv,mod,val,vd,sit,resp,obs) in enumerate(reg):
-    r=R0+i
-    for c,v in zip((1,2,3,4,5,6,7,8,10,11,13),(n,d,cli,C[cli][2],serv,mod,val,vd,sit,resp,obs)):
+# exemplo: as 10 propostas mais recentes já enviadas do funil da planilha 15 (mesmos clientes, valores e situação), da mais nova para a mais antiga
+def _dt(x): return None if x is None else (dados.prazo_formula(x) if isinstance(x,int) else x)
+for i,p in enumerate(dados.propostas_registro_07(NR if NR<10 else 10)):
+    r=R0+i; sit=dados.SIT_07.get(p["etapa"],"Enviada")
+    obs=p["obs"] if sit!="Perdida" else (p["motivo"]+(" · "+p["obs"] if p["obs"] else ""))
+    for c,v in zip((1,2,3,4,5,6,7,8,10,11,13),(p["numero"],_dt(p["proposta"]),p["cliente"],p["area"],p["servico"],p["modalidade"],p["valor"],15,sit,_dt(p["fechamento"]),obs)):
         if v is not None: g.cell(row=r,column=c,value=v)
 como_usar(wb,"Proposta de honorários",[
  ("O que esta planilha faz","Monta a proposta de honorários pronta para o cliente (etapas, valores, entrada, parcelas com datas, validade) e guarda o registro das propostas enviadas com situação e alerta de validade."),
  ("Passo 1","Em Config, dados do escritório (aparecem no cabeçalho) e as listas de áreas, modalidades, formas de pagamento e situações."),
  ("Passo 2","Em Proposta, preencha o amarelo: número, data, cliente, etapas com valor, percentual de êxito (se houver), entrada, parcelas e intervalo. O cronograma e a validade são calculados."),
  ("Passo 3","Imprima ou salve em PDF (Arquivo > Imprimir; já está ajustado para uma página A4) e envie. Depois anote a proposta na aba Registro."),
- ("Passo 4","Em Registro, atualize a situação quando o cliente responder. O topo mostra quantas estão aguardando, fechadas, perdidas e a taxa de fechamento."),
+ ("Passo 4","Em Registro, atualize a situação quando o cliente responder. O topo mostra quantas estão aguardando, fechadas, perdidas e a taxa de fechamento. No exemplo, o Registro traz as 10 propostas mais recentes do funil da planilha 15 (as mesmas, com os mesmos valores); a 15 guarda o funil completo com etapas, origem e motivo de perda."),
  ("Rotina","Sexta-feira, 5 minutos: olhe os alertas do Registro e retome contato com quem está perto de vencer."),
- ("Com a IA","Copie a proposta e peça à IA para revisar clareza e tom antes de enviar, ou para escrever a mensagem de acompanhamento de uma proposta sem resposta. Os valores vêm do Simulador (planilha 06)."),
+ ("Com a IA","Copie a proposta e use o prompt \"Honorários 04 · Texto de apresentação da proposta\" da biblioteca do kit antes de enviar, ou \"Honorários 02 · Revisar a proposta pela margem\" para conferir o valor. Os valores vêm do Simulador (planilha 06)."),
 ])
 proteger(wb); salvar(wb,"07-proposta-de-honorarios.xlsx","Proposta de honorários · Kit de Gestão para Advogados")

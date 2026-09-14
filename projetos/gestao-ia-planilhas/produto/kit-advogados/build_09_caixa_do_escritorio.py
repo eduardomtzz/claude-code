@@ -1,94 +1,14 @@
-#!/usr/bin/env python3
 """Planilha 9 do Kit de Gestão para Advogados: Caixa do escritório. Gera 09-caixa-do-escritorio.xlsx
-As funções de exemplo (lancamentos_exemplo, totais_mensais) são reaproveitadas por build_10, 11 e 12
-para que as quatro planilhas do Núcleo 3 contem a mesma história."""
+O exemplo (lançamentos) vem de dados.LANCAMENTOS: entradas = parcelas pagas dos casos da carteira (13/14), saídas = custos fixos,
+pró-labore, impostos, custas e movimentos dos sócios. As planilhas 10, 11, 12, 17, 18 e 20 leem os mesmos totais (dados.TOTAIS)."""
 from ssg import *
 import dados
 from openpyxl.chart import BarChart, Reference
-from datetime import date, timedelta
-import random
 
 N=600; R0=5; RN=R0+N-1; NCE=12; NCS=16; NCLI=30
-CAT_ENTRADA=["Honorários fixos","Honorários por hora","Honorários de êxito","Consultoria e pareceres","Reembolso de custas","Outras entradas"]
-CAT_SAIDA=["Pró-labore dos sócios"]+[c for c,_ in dados.CUSTOS_FIXOS]+["Impostos e taxas","Custas e despesas de processo","Deslocamento e viagens","Outras saídas"]
-CAT_HON={"Fixo":"Honorários fixos","Hora":"Honorários por hora","Êxito":"Honorários de êxito","Misto":"Honorários fixos"}
-PROLABORE=[(n,v) for n,p,v,_ in dados.PESSOAS if p.startswith("Sóci")]
-DISTRIB_EXEMPLO=0.5  # parte do lucro do trimestre distribuída aos sócios no exemplo (regra fictícia dos sócios)
-ALIQ_EXEMPLO=0.08  # alíquota efetiva usada só no exemplo (escolha fictícia do escritório com o contador)
-DIA_FIXO={"Aluguel e condomínio":5,"Contador":10,"Sistemas e assinaturas":8,"Telefone e internet":12,"Anuidades OAB e cursos":15,
-          "Marketing e site":20,"Estagiária (bolsa)":5,"Material, correio e outros":18}
-
-def lancamentos_exemplo():
-    """Lista de tuplas (data, tipo, categoria, cliente, caso, descrição, valor, forma, pago) de jan a set/2026."""
-    rng=random.Random(9); ex=[]
-    def add(d,t,c,cli,caso,desc,v,f="Pix",p="Sim"): ex.append((d,t,c,cli,caso,desc,v,f,p))
-    ini=date(2026,1,1); lim=dados.HOJE-timedelta(days=5)
-    for k in dados.CASOS:
-        rec=k["recebido"]
-        if rec<=0: continue
-        n=3 if rec>=8000 else (2 if rec>=3500 else 1)
-        primeiro=k["abertura"]+timedelta(days=rng.randint(7,20))
-        passo=rng.randint(75,130) if k["abertura"].year<2026 else rng.randint(30,70)
-        partes=[round(rec/n/100)*100]*n; partes[-1]=rec-sum(partes[:-1])
-        for i in range(n):
-            d=primeiro+timedelta(days=i*passo)
-            if d>lim: d=lim-timedelta(days=rng.randint(2,50))
-            if d<ini: continue  # recebido em 2025 já está no saldo inicial
-            add(d,"Entrada",CAT_HON[k["tipo_hon"]],k["cliente"],k["numero"],f"Honorários · parcela {i+1}/{n}",partes[i],rng.choice(["Pix","Pix","Transferência","Boleto"]))
-    # honorários de casos encerrados antes de 2026 ainda parcelados e pareceres avulsos (fora da carteira de 38 casos)
-    for m in range(1,7): add(date(2026,m,10),"Entrada","Honorários fixos","Loja Verde Comércio","Encerrado em 2025 · parcelamento",f"Honorários · parcela {m+6}/12",2000,"Boleto")
-    for m in range(1,10): add(date(2026,m,15),"Entrada","Honorários fixos","Oficina Mecânica Central","Encerrado em 2025 · parcelamento",f"Honorários · parcela {m+3}/12",1500,"Pix")
-    pareceres=[(1,"Padaria do Sol Ltda",1800),(2,"Clínica Bem-Estar",3200),(3,"Agência Prisma",2400),(4,"Escola Aurora",1600),(5,"Transportadora Rota Sul",2900),
-               (6,"Loja Verde Comércio",2200),(7,"Construtora Horizonte",3600),(8,"Bistrô 42",1900),(9,"Padaria do Sol Ltda",2600)]
-    for m,cli,v in pareceres:
-        if m<9 or v<=2600: add(date(2026,m,min(22,4+m*2)),"Entrada","Consultoria e pareceres",cli,"Consultivo avulso","Parecer e reunião de orientação",v,"Pix")
-    add(date(2026,3,9),"Entrada","Reembolso de custas","Construtora Horizonte",dados.CASOS[2]["numero"],"Reembolso de custas periciais",780,"Transferência")
-    add(date(2026,8,12),"Entrada","Reembolso de custas","Roberto Almeida",dados.CASOS[25]["numero"],"Reembolso de custas de distribuição",310,"Pix")
-    add(date(2026,9,25),"Entrada","Honorários fixos","Construtora Horizonte",dados.CASOS[2]["numero"],"Honorários · parcela final (a receber)",4500,"Boleto","Não")
-    add(date(2026,9,30),"Entrada","Consultoria e pareceres","Clínica Bem-Estar",dados.CASOS[8]["numero"],"Parecer societário (a receber)",3000,"Pix","Não")
-    custas=[(1,"Ana Beatriz Moreira",1,"Custas iniciais",260),(2,"Transportadora Rota Sul",10,"Custas de distribuição",420),(3,"Construtora Horizonte",2,"Honorários periciais adiantados",780),
-            (4,"Agência Prisma",16,"Custas de recurso",540),(5,"Ana Beatriz Moreira",1,"Diligência de oficial de justiça",130),(6,"Roberto Almeida",25,"Custas de distribuição",310),
-            (7,"Luciana Farias",15,"Certidões e cópias",95),(8,"Bistrô 42",24,"Custas de execução",380),(9,"Escola Aurora",12,"Certidões",70)]
-    for m,cli,idx,desc,v in custas: add(date(2026,m,rng.randint(3,26)),"Saída","Custas e despesas de processo",cli,dados.CASOS[idx]["numero"],desc,v,"Boleto")
-    for m in range(1,10):
-        for c,v in dados.CUSTOS_FIXOS:
-            d=date(2026,m,DIA_FIXO[c]); pago="Não" if (m==9 and c=="Contador") else "Sim"
-            add(d,"Saída",c,"","",{"Contador":"Honorários do contador","Estagiária (bolsa)":"Bolsa da estagiária · Júlia Prado","Aluguel e condomínio":"Aluguel e condomínio da sala"}.get(c,c),v,"Boleto" if c in("Aluguel e condomínio","Contador","Telefone e internet") else "Cartão",pago)
-        for n_,v in PROLABORE: add(date(2026,m,28),"Saída","Pró-labore dos sócios","","",f"Pró-labore · {n_}",v,"Transferência","Não" if m==9 else "Sim")
-        if m in(2,5,8): add(date(2026,m,rng.randint(6,22)),"Saída","Deslocamento e viagens","","","Combustível e estacionamento (audiências)",rng.choice([180,240,310]),"Cartão")
-    # imposto do exemplo: pago dia 20 sobre as entradas recebidas no mês anterior (alíquota efetiva fictícia de 8 %)
-    ent_mes={m:sum(v for d,t,c,cli,caso,desc,v,f,p in ex if t=="Entrada" and p=="Sim" and d.month==m) for m in range(1,10)}
-    for m in range(1,10):
-        base=ent_mes.get(m-1,20600)  # janeiro: sobre dezembro/2025 (fictício)
-        add(date(2026,m,20),"Saída","Impostos e taxas","","","Guia de impostos do mês anterior (alíquota efetiva combinada com o contador)",round(base*ALIQ_EXEMPLO),"Boleto","Não" if m==9 else "Sim")
-    # movimentos sócio × escritório (detalhados na planilha 11): despesa pessoal paga pela conta do escritório, devolução, retirada extra
-    for m in (2,5,8): add(date(2026,m,6),"Saída","Outras saídas","","","Despesa pessoal · Marina Ferraz · plano de saúde particular (a acertar)",480,"Boleto")
-    for m in (3,7): add(date(2026,m,11),"Saída","Outras saídas","","","Despesa pessoal · Rafael Lima · combustível particular (a acertar)",300,"Cartão")
-    add(date(2026,4,14),"Entrada","Outras entradas","","","Devolução de despesa pessoal · Marina Ferraz",480,"Pix")
-    add(date(2026,3,16),"Saída","Pró-labore dos sócios","","","Retirada extra · Rafael Lima · adiantamento para viagem",1500,"Transferência")
-    add(date(2026,6,19),"Saída","Pró-labore dos sócios","","","Retirada extra · Marina Ferraz · reforma em casa",2000,"Transferência")
-    # distribuição de lucro: 50 % do resultado do trimestre fechado (após pró-labore fixo), dividido meio a meio, paga no dia 10 do mês seguinte
-    for q,(m_ini,m_pag) in enumerate(((1,4),(4,7)),start=1):
-        lucro=sum(v if t=="Entrada" else -v for d,t,c,cli,caso,desc,v,f,p in ex if p=="Sim" and m_ini<=d.month<=m_ini+2 and not desc.startswith(("Retirada extra","Despesa pessoal","Devolução","Distribuição")))
-        cota=round(lucro*DISTRIB_EXEMPLO/len(PROLABORE))
-        for n_,_ in PROLABORE: add(date(2026,m_pag,10),"Saída","Pró-labore dos sócios","","",f"Distribuição de lucro · {q}º trimestre · {n_}",cota,"Transferência")
-    ex.sort(key=lambda x:(x[0],x[1]))
-    return ex
-
-def totais_mensais(ex=None):
-    """Dict mês -> dict(ent, devol, sai, pessoal, pro, extra, distrib, fixo, imp) só com o que está Pago? = Sim, jan a dez/2026.
-    ent: entradas (inclui devol); sai: saídas sem pró-labore/retiradas (inclui pessoal); pro: pró-labore fixo; extra: retiradas extras;
-    distrib: distribuição de lucro; fixo: custos fixos + pró-labore fixo; imp: impostos."""
-    ex=ex or lancamentos_exemplo(); out={}
-    fixos={c for c,_ in dados.CUSTOS_FIXOS}
-    for m in range(1,13):
-        L_=[x for x in ex if x[0].month==m and x[8]=="Sim"]
-        pro=sum(x[6] for x in L_ if x[5].startswith("Pró-labore"))
-        out[m]=dict(ent=sum(x[6] for x in L_ if x[1]=="Entrada"),devol=sum(x[6] for x in L_ if x[5].startswith("Devolução")),
-                    sai=sum(x[6] for x in L_ if x[1]=="Saída" and x[2]!="Pró-labore dos sócios"),pessoal=sum(x[6] for x in L_ if x[5].startswith("Despesa pessoal")),
-                    pro=pro,extra=sum(x[6] for x in L_ if x[5].startswith("Retirada extra")),distrib=sum(x[6] for x in L_ if x[5].startswith("Distribuição")),
-                    fixo=sum(x[6] for x in L_ if x[2] in fixos)+pro,imp=sum(x[6] for x in L_ if x[2]=="Impostos e taxas"))
-    return out
+CAT_ENTRADA=dados.CAT_ENTRADA; CAT_SAIDA=dados.CAT_SAIDA
+lancamentos_exemplo=lambda: dados.LANCAMENTOS      # compatibilidade com quem importava daqui
+totais_mensais=lambda ex=None: dados.TOTAIS
 
 def build():
     wb=Workbook()
@@ -99,7 +19,7 @@ def build():
     cfg["A5"]="Ano do painel"; cfg["B5"]=2026
     cfg["A6"]="Mês do painel"; cfg["B6"]="Setembro"
     cfg["A7"]="Número do mês"; cfg["B7"]="=MATCH(B6,$L$5:$L$16,0)"
-    cfg["A8"]="Saldo em caixa antes do 1º lançamento"; cfg["B8"]=22000
+    cfg["A8"]="Saldo em caixa antes do 1º lançamento"; cfg["B8"]=dados.SALDO_INICIAL
     cfg["A9"]="Data de referência"; cfg["B9"]="=TODAY()"
     for r in range(4,10): rotulo(cfg.cell(row=r,column=1))
     inp(cfg["B4"]); inp(cfg["B5"],center=True); inp(cfg["B6"],center=True); calc(cfg["B7"]); inp(cfg["B8"],BRL); calc(cfg["B9"],DATA)
@@ -118,7 +38,8 @@ def build():
         cfg.cell(row=5+i,column=8,value=f'=IF({k}<={NE},INDEX($D$5:$D${4+NCE},{k}),IF({k}<={NE}+{NS},INDEX($F$5:$F${4+NCS},{k}-{NE}),""))').font=F(size=9,color=CINZA)
     notas=["Preencha categorias e clientes de cima para baixo, sem pular linha: as listas suspensas de Lançamentos param na última linha preenchida.",
            "Saldo antes do 1º lançamento: o que havia na conta do escritório na data do primeiro lançamento (no exemplo, 01/01/2026, já contando honorários recebidos em 2025).",
-           "Pró-labore dos sócios é uma categoria de saída como qualquer outra: o que sai do caixa do escritório para a pessoa física. A separação detalhada fica na planilha 11."]
+           "Pró-labore dos sócios é uma categoria de saída como qualquer outra: o que sai do caixa do escritório para a pessoa física. A separação detalhada fica na planilha 11.",
+           "Exemplo: cada entrada de honorários é uma parcela paga da planilha 14 (Parcelas), dos casos da 13 (Carteira). Pago? = Não são as parcelas já vencidas e as que vencem até o fim do mês (faturadas); o cronograma completo fica na 14. Lançamentos pagos vão até 11/09/2026 (a última sexta)."]
     for i,t in enumerate(notas): cfg.cell(row=37+i,column=1,value=t); nota(cfg.cell(row=37+i,column=1))
     dv=lista("=Config!$L$5:$L$16"); dv.add("B6"); cfg.add_data_validation(dv)
     widths(cfg,(36,22,3,26,3,30,3,30,3,28,3,12)); cfg.sheet_view.showGridLines=False
@@ -143,7 +64,7 @@ def build():
     lan.conditional_formatting.add(f"A{R0}:K{RN}", FormulaRule(formula=[f'$B{R0}="Entrada"'], font=F(color=VERDE_T,size=10)))
     lan.conditional_formatting.add(f"A{R0}:K{RN}", FormulaRule(formula=[f'AND($A{R0}<>"",$I{R0}="Não")'], fill=fill(VERM)))
     widths(lan,(12,10,28,26,26,40,14,13,8,6,7)); lan.freeze_panes="A5"; lan.sheet_view.showGridLines=False; lan.auto_filter.ref=f"A4:K{RN}"
-    for i,row in enumerate(lancamentos_exemplo()):
+    for i,row in enumerate(dados.LANCAMENTOS):
         for c,v in enumerate(row,start=1): lan.cell(row=R0+i,column=c,value=v)
     # ---------- Painel ----------
     p=wb.create_sheet("Painel",0)
@@ -224,13 +145,10 @@ def build():
      ("Passo 2","Em Lançamentos, uma linha por movimento: data, tipo (entrada ou saída), categoria, cliente, caso, descrição, valor, forma e Pago?. Honorário faturado e ainda não recebido entra com Pago? = Não e aparece em A receber; quando cair na conta, troque para Sim."),
      ("Passo 3","Em Painel, escolha o mês em Config e leia de cima para baixo. Só o que está com Pago? = Sim conta como caixa; o resto é previsão."),
      ("Rotina de sexta","15 minutos: lançar o que entrou e saiu na semana, conferir A receber contra o extrato e marcar Sim no que caiu. No fechamento do mês, olhar Sobrou e Saldo acumulado antes de decidir retirada extra ou gasto grande."),
-     ("Ligação com as outras planilhas","O total de entradas do mês alimenta a planilha 10 (provisão de impostos); as saídas de pró-labore, a 11; o saldo acumulado e o custo fixo, a 12 (reserva). Cada arquivo tem a própria aba de entrada amarela: copie os números do painel."),
-     ("Com a IA","Copie \"Para onde foi o dinheiro\" e \"O ano, mês a mês\" e use o prompt \"Explicar o mês ao sócio\" da biblioteca do kit. Nunca cole nome de cliente ou número de processo na IA sem necessidade: use a coluna Categoria."),
+     ("Ligação com as outras planilhas","O total de entradas do mês alimenta a planilha 10 (provisão de impostos) e a 17 (painel); as saídas de pró-labore, a 11; o saldo acumulado e o custo fixo, a 12 (reserva); as entradas por categoria, a 18 (resultado). Cada arquivo tem a própria aba de entrada amarela: copie os números do painel. Cada honorário lançado aqui é uma parcela marcada como paga na 14."),
+     ("Com a IA","Copie \"Para onde foi o dinheiro\" e \"O ano, mês a mês\" e use o prompt \"Caixa 01 · Explicar o mês do caixa\" da biblioteca do kit. Nunca cole nome de cliente ou número de processo na IA sem necessidade: use a coluna Categoria."),
     ])
     proteger(wb); salvar(wb,"09-caixa-do-escritorio.xlsx","Caixa do escritório · Kit de Gestão para Advogados")
 
 if __name__=="__main__":
-    ex=lancamentos_exemplo(); print(len(ex),"lançamentos de exemplo")
-    for m,t in totais_mensais(ex).items():
-        if t["ent"] or t["sai"]: print(MESES[m-1][:3],t)
-    build()
+    print(len(dados.LANCAMENTOS),"lançamentos de exemplo"); build()

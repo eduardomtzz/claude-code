@@ -4,7 +4,7 @@ from ssg import *
 import dados
 N=300; R0=5; RN=R0+N-1; NIT=10; NRESP=10; TOP=15
 CA=5; CE=CA+NIT           # colunas dos itens: abertura E..N (5..14), encerramento O..X (15..24)
-CPA,CPE,CNA,CNE,CTOT,CFAL,CKEY=25,26,27,28,29,30,31   # Y % abertura, Z % encerramento, AA, AB pendências, AC total, AD o que falta, AE chave
+CPA,CPE,CNA,CNE,CTOT,CFAL,CKEY,CAUX=25,26,27,28,29,30,31,32   # Y % abertura, Z % encerramento, AA, AB pendências, AC total, AD o que falta, AE chave, AF auxiliar do texto
 wb=Workbook()
 # ---------- Config ----------
 cfg=wb.active; cfg.title="Config"
@@ -32,12 +32,12 @@ cfg["A24"]="Os itens são administrativos (o que precisa estar em ordem para o c
 widths(cfg,(30,40,4,40,4,20)); cfg.sheet_view.showGridLines=False
 # ---------- Checklist ----------
 ck=wb.create_sheet("Checklist")
-titulo(ck,"Checklist por caso","Uma linha por caso. Em cada item marque Sim, Não ou N/A (não se aplica). Vazio conta como pendente. Os itens de encerramento só contam quando a situação é Encerrado.",merge_to="P")
+titulo(ck,"Checklist por caso","Uma linha por caso (copie número, cliente e responsável da planilha 13 · Carteira, aba Casos: a 13 é a fonte). Em cada item marque Sim, Não ou N/A (não se aplica). Vazio conta como pendente. Os itens de encerramento só contam quando a situação é Encerrado.",merge_to="P")
 HOJE="Config!$B$5"; NAB="Config!$B$21"; NEN="Config!$D$21"
 g1=ck.cell(row=3,column=CA,value="Abertura"); g2=ck.cell(row=3,column=CE,value="Encerramento")
 for g in (g1,g2): g.font=F(bold=True,color=UVA,size=10); g.alignment=Alignment(horizontal="center")
 ck.merge_cells(start_row=3,start_column=CA,end_row=3,end_column=CA+NIT-1); ck.merge_cells(start_row=3,start_column=CE,end_row=3,end_column=CE+NIT-1)
-heads=["Número","Cliente","Responsável","Situação"]+[f'=IF(Config!$B${10+i}="","",Config!$B${10+i})' for i in range(NIT)]+[f'=IF(Config!$D${10+i}="","",Config!$D${10+i})' for i in range(NIT)]+["% abertura","% encerramento","Pendências de abertura","Pendências de encerramento","Pendências","O que falta","Chave"]
+heads=["Número","Cliente","Responsável","Situação"]+[f'=IF(Config!$B${10+i}="","",Config!$B${10+i})' for i in range(NIT)]+[f'=IF(Config!$D${10+i}="","",Config!$D${10+i})' for i in range(NIT)]+["% abertura","% encerramento","Pendências de abertura","Pendências de encerramento","Pendências","O que falta","Chave","Auxiliar"]
 hdr(ck,4,heads,height=64)
 for i in range(NIT):
     ck.cell(row=4,column=CA+i).fill=fill(LILAS); ck.cell(row=4,column=CE+i).fill=fill("5B3F87")
@@ -50,9 +50,11 @@ for r in range(R0,RN+1):
     ck.cell(row=r,column=CNA,value=f'=IF(A{r}="","",MAX(0,{NAB}-COUNTIF({AB(r)},"Sim")-COUNTIF({AB(r)},"N/A")))'); calc(ck.cell(row=r,column=CNA))
     ck.cell(row=r,column=CNE,value=f'=IF(OR(A{r}="",D{r}<>"Encerrado"),"",MAX(0,{NEN}-COUNTIF({EN(r)},"Sim")-COUNTIF({EN(r)},"N/A")))'); calc(ck.cell(row=r,column=CNE))
     ck.cell(row=r,column=CTOT,value=f'=IF(A{r}="","",{L(CNA)}{r}+IF({L(CNE)}{r}="",0,{L(CNE)}{r}))'); calc(ck.cell(row=r,column=CTOT))
-    partes=[f'IF(AND(Config!$B${10+i}<>"",{L(CA+i)}{r}<>"Sim",{L(CA+i)}{r}<>"N/A"),Config!$B${10+i},"")' for i in range(NIT)]
-    partes+=[f'IF(AND($D{r}="Encerrado",Config!$D${10+i}<>"",{L(CE+i)}{r}<>"Sim",{L(CE+i)}{r}<>"N/A"),Config!$D${10+i},"")' for i in range(NIT)]
-    ck.cell(row=r,column=CFAL,value=f'=IF(A{r}="","",_xlfn.TEXTJOIN("; ",TRUE,{",".join(partes)}))'); calc(ck.cell(row=r,column=CFAL),center=False)
+    # "O que falta" sem UNIRTEXTO (Excel 2016 e Google Sheets): a coluna auxiliar AF concatena "item; " por IF e AD tira o "; " final
+    partes=[f'IF(AND(Config!$B${10+i}<>"",{L(CA+i)}{r}<>"Sim",{L(CA+i)}{r}<>"N/A"),Config!$B${10+i}&"; ","")' for i in range(NIT)]
+    partes+=[f'IF(AND($D{r}="Encerrado",Config!$D${10+i}<>"",{L(CE+i)}{r}<>"Sim",{L(CE+i)}{r}<>"N/A"),Config!$D${10+i}&"; ","")' for i in range(NIT)]
+    ck.cell(row=r,column=CAUX,value=f'=IF(A{r}="","",{"&".join(partes)})'); ck.cell(row=r,column=CAUX).font=F(color=CINZA,size=9)
+    ck.cell(row=r,column=CFAL,value=f'=IF(OR(A{r}="",{L(CAUX)}{r}=""),"",LEFT({L(CAUX)}{r},LEN({L(CAUX)}{r})-2))'); calc(ck.cell(row=r,column=CFAL),center=False)
     ck.cell(row=r,column=CKEY,value=f'=IF(OR(A{r}="",{L(CTOT)}{r}=0),0,{L(CTOT)}{r}*100-ROW()/100000)'); ck.cell(row=r,column=CKEY).font=F(color=CINZA,size=9)
 dvr=lista(f"=OFFSET(Config!$F$10,0,0,MAX(1,COUNTA(Config!$F$10:$F${9+NRESP})),1)",strict=False); dvr.add(f"C{R0}:C{RN}")
 dvs=lista('"Em andamento,Encerrado"'); dvs.add(f"D{R0}:D{RN}")
@@ -65,12 +67,11 @@ ck.conditional_formatting.add(IT, FormulaRule(formula=[f'{L(CA)}{R0}="N/A"'], fo
 ck.conditional_formatting.add(f"{L(CE)}{R0}:{L(CE+NIT-1)}{RN}", FormulaRule(formula=[f'$D{R0}<>"Encerrado"'], fill=fill("F2F0F5"), font=F(color="B0A6C4",size=10)))
 ck.conditional_formatting.add(f"A{R0}:D{RN}", FormulaRule(formula=[f'AND(ISNUMBER(${L(CTOT)}{R0}),${L(CTOT)}{R0}>0)'], font=F(color="C8402E",size=10,bold=True)))
 ck.conditional_formatting.add(f"{L(CPA)}{R0}:{L(CPE)}{RN}", FormulaRule(formula=[f'AND(ISNUMBER({L(CPA)}{R0}),{L(CPA)}{R0}<1)'], font=F(color="C8402E",size=10,bold=True)))
-widths(ck,[28,26,16,14]+[11]*(2*NIT)+[10,12,11,12,11,60,6]); ck.column_dimensions[L(CKEY)].hidden=True
+widths(ck,[28,26,16,14]+[11]*(2*NIT)+[10,12,11,12,11,60,6,6]); ck.column_dimensions[L(CKEY)].hidden=True; ck.column_dimensions[L(CAUX)].hidden=True
 ck.freeze_panes=f"{L(CA)}{R0}"; ck.sheet_view.showGridLines=False; ck.auto_filter.ref=f"A4:{L(CFAL)}{RN}"
 # exemplos: os 38 casos de dados.py
-PEND_AB={0:{0:"Não"},15:{4:"Não"},11:{4:""},23:{2:"Não"},24:{1:"Não"},28:{7:"",8:""},29:{3:"Não"}}
-PEND_EN={5:{5:"Não"},13:{2:"",5:"Não"},36:{3:"Não"}}
 for i,c in enumerate(dados.CASOS):
+    PEND_AB={i:dados.PEND_ABERTURA.get(c["chave"],{})}; PEND_EN={i:dados.PEND_ENCERRAMENTO.get(c["chave"],{})}
     r=R0+i; enc=c["fase"]=="Encerrado"
     ck.cell(row=r,column=1,value=c["numero"]); ck.cell(row=r,column=2,value=c["cliente"]); ck.cell(row=r,column=3,value=c["responsavel"]); ck.cell(row=r,column=4,value="Encerrado" if enc else "Em andamento")
     for j in range(len(ABERT)):
@@ -144,7 +145,7 @@ widths(p,(6,28,26,14,16,11,13,11,34,12)); p.freeze_panes="A4"; p.sheet_view.show
 como_usar(wb,"Checklist de abertura e encerramento de caso",[
  ("O que esta planilha faz","Para cada caso, marca os itens administrativos que precisam estar em ordem na abertura (contrato, procuração, documentos, honorário, cadastro no caixa) e no encerramento (última parcela, arquivo, devolução, avaliação). Calcula o % concluído por caso e mostra no Painel quem está com pendência."),
  ("Passo 1","Em Config, ajuste os itens de abertura e de encerramento ao jeito do escritório e cadastre os responsáveis. Preencha de cima para baixo, sem pular linha."),
- ("Passo 2","Em Checklist, apague os exemplos e cadastre uma linha por caso. Em cada item, marque Sim, Não ou N/A (não se aplica). Vazio conta como pendente, de propósito: caso novo começa com tudo pendente."),
+ ("Passo 2","Em Checklist, apague os exemplos e cadastre uma linha por caso (número, cliente e responsável copiados da planilha 13 · Carteira, que é a fonte do cadastro). Em cada item, marque Sim, Não ou N/A (não se aplica). Vazio conta como pendente, de propósito: caso novo começa com tudo pendente."),
  ("Passo 3","Ao encerrar um caso, mude a situação para Encerrado: os itens de encerramento passam a contar. Enquanto o caso está em andamento, essa parte fica cinza."),
  ("Passo 4","Em Painel, resolva primeiro os casos com mais pendências e olhe \"Item mais esquecido\": se o mesmo item pende em vários casos, o problema é a rotina, não o caso."),
  ("Rotina","Na abertura de cada caso, 3 minutos para criar a linha. Na sexta, junto com o caixa, confira os encerrados do mês: caso encerrado sem a última parcela cobrada é dinheiro parado."),

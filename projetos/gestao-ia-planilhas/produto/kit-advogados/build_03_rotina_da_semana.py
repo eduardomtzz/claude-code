@@ -16,6 +16,7 @@ for c in ("A4","A5","A6"): rotulo(cfg[c])
 inp(cfg["B4"]); inp(cfg["B5"],DATA); inp(cfg["B6"],DATA)
 cfg["C5"]="Deixe =HOJE() para acompanhar o dia; troque por uma data para simular outro dia."; nota(cfg["C5"])
 cfg["C6"]="Sugestão: a primeira segunda-feira do ano. As 52 colunas da aba Rotina contam a partir daqui. O exemplo está preenchido de 20/07 a 07/09/2026 (S29 a S36)."; nota(cfg["C6"])
+cfg["C7"]="Virada do ano: em janeiro de 2027, salve uma cópia desta planilha, troque a data acima pela primeira segunda-feira de 2027 (04/01/2027) e limpe as marcações da aba Rotina. As 52 semanas recomeçam."; nota(cfg["C7"])
 cfg["A8"]=f"Responsáveis (até {NRESP})"; rotulo(cfg["A8"])
 for i in range(NRESP): inp(cfg.cell(row=9+i,column=2))
 for i,(n,_,_,_) in enumerate(dados.PESSOAS): cfg.cell(row=9+i,column=2,value=n)
@@ -80,7 +81,7 @@ p=wb.create_sheet("Painel",0)
 titulo(p,'=Config!$B$4&" · Aderência à rotina · "&TEXT(Config!$B$5,"dd/mm/yyyy")',"Nada para digitar aqui: tudo vem de Config e Rotina. Aderência = rotinas feitas ÷ rotinas planejadas nas últimas 4 semanas registradas.",merge_to="H")
 IDX=f"Rotina!${L(C0)}$2:${LW}$2"; DAT=f"Rotina!${L(C0)}$3:${LW}$3"; FEI=f"Rotina!${L(C0)}${RT}:${LW}${RT}"; REG=f"Rotina!${L(C0)}${RT+1}:${LW}${RT+1}"; PLA=f"Rotina!${L(C0)}${RT+2}:${LW}${RT+2}"; MIN_=f"Rotina!${L(C0)}${RT+4}:${LW}${RT+4}"
 # células de apoio (linha 3, discretas)
-p["J4"]="Última semana registrada"; p["K4"]=f'=IFERROR(_xlfn.MAXIFS({IDX},{REG},">0"),0)'
+p["J4"]="Última semana registrada"; p["K4"]=f'=SUMPRODUCT(MAX(({REG}>0)*{IDX}))'  # sem MÁXIMOSES (Excel 2016 e Google Sheets)
 p["J5"]="Semana da data de referência"; p["K5"]=f'=MIN({W},MAX(1,INT(({HOJE}-{INI})/7)+1))'
 p["J6"]="Semanas consideradas"; p["K6"]="=MIN(4,K4)"
 p["J7"]="Rotinas planejadas"; p["K7"]=f'=COUNTA(Rotina!$B${R0}:$B${RI})'
@@ -138,7 +139,7 @@ como_usar(wb,"Rotina da semana do escritório",[
  ("Passo 2","Em Rotina, ajuste as linhas: dia, rotina, minutos e responsável. O exemplo soma 30 minutos por semana; mantenha curto, o que é longo não vira hábito."),
  ("Passo 3","Toda segunda e toda sexta, depois de fazer a rotina, marque Sim (ou Não, se pulou) na coluna da semana. A coluna da semana atual fica destacada em amarelo."),
  ("Passo 4","Em Painel, veja a aderência das últimas 4 semanas registradas, a série das últimas 8 e qual rotina está sendo pulada. Menos de 70% em vermelho."),
- ("Exemplo","O escritório fictício registrou de 20/07 a 07/09/2026 (S29 a S36). O Painel sempre olha as últimas semanas registradas, então o exemplo continua fazendo sentido em qualquer data."),
+ ("Exemplo","O escritório fictício registrou de 20/07 a 07/09/2026 (S29 a S36). O Painel sempre olha as últimas semanas registradas, então o exemplo continua fazendo sentido em qualquer data. Em janeiro de 2027, troque a segunda-feira da semana 1 em Config (veja a nota lá)."),
  ("Com a IA","Copie a tabela \"Por rotina\" e use o prompt \"Prazos 02 · Rotina de segunda em 30 minutos\" da biblioteca do kit."),
 ])
 proteger(wb); salvar(wb,"03-rotina-da-semana.xlsx","Rotina da semana do escritório · Kit de Gestão para Advogados")

@@ -50,7 +50,7 @@ def como_usar(wb,nome,linhas,pos=0):
     base=linhas+[
      ("Legenda","Células amarelas: você preenche. Brancas: calculadas. Não é preciso mexer em nada fora do amarelo."),
      ("Proteção","Fórmulas protegidas sem senha. Para editar: Revisar > Desproteger planilha (Excel) ou Dados > Proteger intervalos (Google Sheets)."),
-     ("Requisitos","Excel 2019 ou mais novo, Microsoft 365 ou Google Sheets. No celular abre nos aplicativos; para preencher, use o computador."),
+     ("Requisitos","Excel 2016 ou mais novo, Microsoft 365 ou Google Sheets (só funções do Excel 2007+; nada de MÍNIMOSES, MÁXIMOSES ou UNIRTEXTO). No celular abre nos aplicativos; para preencher, use o computador."),
      ("Google Sheets","Faça upload no Google Drive e abra com o Google Sheets. Fórmulas, listas, cores e gráficos funcionam."),
      ("Exemplos","Ferraz & Lima Advocacia é um escritório fictício. Clientes, processos, nomes e valores são inventados. Apague-os antes de começar. Datas de prazo do exemplo são relativas a hoje."),
      ("Suporte","suporte@seusociogestor.com.br · resposta em até 5 dias úteis · reembolso em até 7 dias pelo mesmo canal.")]

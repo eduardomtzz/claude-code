@@ -3,7 +3,7 @@ Kit de Gestão para Advogados · Seu Sócio Gestor · versão 1.0 · setembro de
 Comece por aqui: 26-manual-de-implantacao.pdf (20 minutos de leitura), a aula 1 e a planilha 05-custo-hora.xlsx.
 O manual organiza a implantação em 4 semanas, um núcleo por semana. Não abra as 20 de uma vez.
 
-Planilhas (Excel 2019+, Microsoft 365 e Google Sheets), em 5 núcleos:
+Planilhas (Excel 2016 ou mais novo, Microsoft 365 e Google Sheets), em 5 núcleos:
   Prazos       01-agenda-de-prazos.xlsx                 02-andamento-por-processo.xlsx
                03-rotina-da-semana.xlsx                 04-checklist-abertura-e-encerramento.xlsx
   Honorários   05-custo-hora.xlsx                       06-simulador-de-honorarios.xlsx
@@ -14,7 +14,7 @@ Planilhas (Excel 2019+, Microsoft 365 e Google Sheets), em 5 núcleos:
                15-funil-de-propostas.xlsx               16-horas-por-caso.xlsx
   Painel       17-painel-do-escritorio.xlsx             18-resultado-mensal.xlsx
                19-metas-do-trimestre.xlsx               20-resumo-do-mes.xlsx
-  As planilhas 01, 02, 03, 04 e 13 usam MÍNIMOSES, MÁXIMOSES e UNIRTEXTO: no Excel 2016 ou anterior aparece "#NOME?".
+  Todas as fórmulas são do Excel 2007 em diante (sem MÍNIMOSES, MÁXIMOSES ou UNIRTEXTO): abrem no Excel 2016.
 Prompts: 21-biblioteca-de-prompts-do-escritorio (40 prompts em 5 grupos: Prazos, Honorários, Caixa, Clientes, Painel), em PDF e txt.
 Bônus: 22-mensagens-de-cobranca-e-confirmacao.pdf (15 modelos) · 23-guia-lgpd-escritorio-pequeno.pdf · 24-roteiro-reuniao-com-o-contador.pdf
 Referência: 25-checklists.pdf (abertura de caso, fechamento do mês, antes de enviar a proposta) · 26-manual-de-implantacao.pdf

@@ -3,7 +3,6 @@
 Exemplo alimentado pelos lançamentos da planilha 09 (build_09_caixa_do_escritorio)."""
 from ssg import *
 import dados
-import build_09_caixa_do_escritorio as caixa
 
 NS=6; N=400; R0=5; RN=R0+N-1
 TIPOS=["Pró-labore","Retirada extra","Despesa pessoal paga pelo escritório","Devolução ao escritório","Distribuição de lucro"]
@@ -18,8 +17,8 @@ cfg["A5"]="Ano"; cfg["B5"]=2026
 cfg["A6"]="Mês do painel"; cfg["B6"]="Setembro"
 cfg["A7"]="Número do mês"; cfg["B7"]="=MATCH(B6,$H$5:$H$16,0)"
 cfg["A8"]="Trimestre do painel"; cfg["B8"]="=ROUNDUP(B7/3,0)"
-cfg["A9"]="Parte do lucro do trimestre distribuída aos sócios"; cfg["B9"]=0.5
-cfg["A10"]="Lucro mínimo do trimestre para haver distribuição"; cfg["B10"]=3000
+cfg["A9"]="Parte do lucro do trimestre distribuída aos sócios"; cfg["B9"]=dados.DISTRIB
+cfg["A10"]="Lucro mínimo do trimestre para haver distribuição"; cfg["B10"]=dados.LUCRO_MINIMO
 for r in range(4,11): rotulo(cfg.cell(row=r,column=1))
 inp(cfg["B4"]); inp(cfg["B5"],center=True); inp(cfg["B6"],center=True); calc(cfg["B7"]); calc(cfg["B8"]); inp(cfg["B9"],PCT,center=True); inp(cfg["B10"],BRL)
 cfg["D9"]="Regra combinada entre os sócios: o restante do lucro fica no escritório (reserva e provisões). Trimestre com lucro abaixo do mínimo não distribui."
@@ -56,11 +55,11 @@ for i in range(12):
     rm.cell(row=r,column=5,value=f"=B{r}-C{r}-D{r}"); calc(rm.cell(row=r,column=5),BRL)
     rm.cell(row=r,column=6,value=TRIMS[i//3]); calc(rm.cell(row=r,column=6))
 rm.conditional_formatting.add("E5:E16", FormulaRule(formula=['E5<0'], font=F(color="C8402E",size=10,bold=True)))
-rm["A18"]="Saídas sem sócios = Saiu no mês (Painel da planilha 09) menos pró-labore, retiradas extras, distribuição de lucro e despesas pessoais dos sócios. Meses não fechados ficam em branco."; nota(rm["A18"])
+rm["A18"]="Entradas = Entrou no mês (Painel da planilha 09) menos devoluções dos sócios (Outras entradas). Saídas sem sócios = Saiu no mês menos pró-labore, retiradas extras, distribuição de lucro e despesas pessoais dos sócios. Meses não fechados ficam em branco (setembro: até 11/09)."; nota(rm["A18"])
 widths(rm,(14,18,22,20,20,14)); rm.sheet_view.showGridLines=False
-tot=caixa.totais_mensais()
+tot=dados.TOTAIS
 for m in range(1,10):
-    rm.cell(row=4+m,column=2,value=tot[m]["ent"]-tot[m]["devol"]); rm.cell(row=4+m,column=3,value=tot[m]["sai"]-tot[m]["pessoal"])
+    rm.cell(row=4+m,column=2,value=tot[m]["ent_sem_devol"]); rm.cell(row=4+m,column=3,value=tot[m]["sai"]-tot[m]["pessoal"])
 # ---------- Retiradas ----------
 re_=wb.create_sheet("Retiradas")
 titulo(re_,"Retiradas e movimentos sócio × escritório","Uma linha por movimento entre a conta do escritório e a pessoa física de cada sócio. Preencha o amarelo; mês e ano são calculados.",merge_to="H")
@@ -81,7 +80,7 @@ widths(re_,(12,20,34,44,14,22,6,7)); re_.freeze_panes="A5"; re_.sheet_view.showG
 # exemplo: movimentos dos sócios extraídos dos lançamentos da planilha 09
 pref={"Pró-labore ·":"Pró-labore","Retirada extra ·":"Retirada extra","Despesa pessoal ·":"Despesa pessoal paga pelo escritório","Devolução de despesa pessoal ·":"Devolução ao escritório","Distribuição de lucro ·":"Distribuição de lucro"}
 rows=[]
-for d,t,c,cli,caso,desc,v,f,pago in caixa.lancamentos_exemplo():
+for d,t,c,cli,caso,desc,v,f,pago in dados.LANCAMENTOS:
     if pago!="Sim": continue
     for pr,tipo in pref.items():
         if desc.startswith(pr):
@@ -178,6 +177,6 @@ como_usar(wb,"Pró-labore e separação pessoa física × escritório",[
  ("Passo 3","Em Retiradas, uma linha por movimento entre escritório e sócio: pró-labore pago, retirada extra, despesa pessoal paga pelo escritório, devolução e distribuição de lucro (com o trimestre de referência)."),
  ("Passo 4","Em Painel, escolha o mês em Config: o que cada sócio retirou × o combinado no mês e no ano, o saldo a acertar e o lucro distribuível dos trimestres fechados contra o que já foi pago."),
  ("Rotina","Todo dia 28: pagar o pró-labore e lançar. No fechamento do mês: lançar despesas pessoais que passaram pela conta do escritório e combinar como zerar. No fim de cada trimestre: distribuir o lucro pela regra, não pelo humor do caixa."),
- ("Com a IA","Copie \"No ano, por sócio\" e \"Lucro e distribuição por trimestre\" e use o prompt \"Explicar o mês ao sócio\" da biblioteca do kit para preparar a conversa entre os sócios."),
+ ("Com a IA","Copie \"No ano, por sócio\" e \"Lucro e distribuição por trimestre\" e use o prompt \"Caixa 06 · Separar o que é do escritório e o que é pessoal\" da biblioteca do kit para preparar a conversa entre os sócios."),
 ])
 proteger(wb); salvar(wb,"11-pro-labore.xlsx","Pró-labore e separação pessoa física × escritório · Kit de Gestão para Advogados")

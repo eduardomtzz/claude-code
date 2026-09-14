@@ -44,7 +44,8 @@ for r in range(R0,RNL+1):
     cl.cell(row=r,column=7,value=f'=IF(A{r}="","",SUMIFS({CI},{CB},A{r}))'); calc(cl.cell(row=r,column=7),BRL0)
     cl.cell(row=r,column=8,value=f'=IF(A{r}="","",F{r}-G{r})'); calc(cl.cell(row=r,column=8),BRL0)
     cl.cell(row=r,column=9,value=f'=IF(OR(A{r}="",F{r}=0),"",G{r}/F{r})'); calc(cl.cell(row=r,column=9),PCT)
-    cl.cell(row=r,column=10,value=f'=IF(A{r}="","",IF(_xlfn.MAXIFS({CK},{CB},A{r})=0,"",_xlfn.MAXIFS({CK},{CB},A{r})))'); calc(cl.cell(row=r,column=10),DATA)
+    mx=f'SUMPRODUCT(MAX(({CB}=A{r})*{CK}))'   # sem MÁXIMOSES (Excel 2016 e Google Sheets)
+    cl.cell(row=r,column=10,value=f'=IF(A{r}="","",IF({mx}=0,"",{mx}))'); calc(cl.cell(row=r,column=10),DATA)
     cl.cell(row=r,column=11,value=f'=IF(OR(A{r}="",F{r}=0),0,F{r}-ROW()/100000)'); cl.cell(row=r,column=11).font=F(color=CINZA,size=9)
 cl.column_dimensions["K"].hidden=True
 dvt=lista('"PF,PJ"'); dvt.add(f"B{R0}:B{RNL}"); cl.add_data_validation(dvt)
@@ -54,7 +55,7 @@ widths(cl,(30,8,16,8,11,16,16,16,11,16)); cl.freeze_panes="B5"; cl.sheet_view.sh
 
 # ---------- Casos ----------
 cs=wb.create_sheet("Casos")
-titulo(cs,"Casos","Uma linha por caso. Cliente, área, fase, responsável e modalidade vêm de listas; tipo, a receber e situação são calculados.",merge_to="M")
+titulo(cs,"Casos","Uma linha por caso: esta aba é a fonte do cadastro de casos do kit (as planilhas 01, 02, 04, 08, 14 e 16 copiam daqui). Cliente, área, fase, responsável e modalidade vêm de listas; tipo, a receber e situação são calculados.",merge_to="M")
 hdr(cs,4,["Número do processo ou referência","Cliente","Tipo","Área","Fase","Responsável","Modalidade","Valor contratado (R$)","Recebido (R$)","A receber (R$)","Abertura","Situação","% recebido"])
 for r in range(R0,RNC+1):
     for c in (1,2,4,5,6,7,8,9,11): inp(cs.cell(row=r,column=c))
@@ -70,7 +71,7 @@ dvs=[lista(CLI_L,strict=False), lista(AREAS_L), lista(FASES_L), lista(RESP_L), l
 for dv,rng in zip(dvs,[f"B{R0}:B{RNC}",f"D{R0}:D{RNC}",f"E{R0}:E{RNC}",f"F{R0}:F{RNC}",f"G{R0}:G{RNC}",f"K{R0}:K{RNC}",f"H{R0}:I{RNC}"]): dv.add(rng); cs.add_data_validation(dv)
 cs.conditional_formatting.add(f"I{R0}:I{RNC}", FormulaRule(formula=[f'AND(ISNUMBER(I{R0}),I{R0}>H{R0})'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 cs.conditional_formatting.add(f"A{R0}:M{RNC}", FormulaRule(formula=[f'$L{R0}="Encerrado"'], font=F(color="8A86A0",size=10)))
-cs.cell(row=RNC+2,column=1,value="Recebido em vermelho: está maior que o valor contratado; confira o contrato ou o valor lançado. Linhas cinza: casos encerrados.").font=F(size=9,color=LILAS)
+cs.cell(row=RNC+2,column=1,value="Recebido em vermelho: está maior que o valor contratado; confira o contrato ou o valor lançado. Linhas cinza: casos encerrados. Recebido = soma das parcelas pagas do caso na planilha 14 (2025 e 2026); em misto, o contratado inclui o êxito esperado.").font=F(size=9,color=LILAS)
 widths(cs,(28,28,7,15,13,16,12,16,14,14,12,11,10)); cs.freeze_panes="C5"; cs.sheet_view.showGridLines=False; cs.auto_filter.ref=f"A4:M{RNC}"
 
 # ---------- Painel ----------
@@ -127,6 +128,7 @@ for i,s in enumerate(("Ativo","Encerrado")):
     p.cell(row=r,column=5,value=f'=C{r}-D{r}'); calc(p.cell(row=r,column=5),BRL0)
     p.cell(row=r,column=6,value=f'=IFERROR(D{r}/C{r},0)'); calc(p.cell(row=r,column=6),PCT)
 p.cell(row=rs+4,column=1,value="A receber dos casos encerrados é honorário devido e ainda não recebido: vale conferir antes de arquivar. Fonte: abas Casos e Clientes.").font=F(size=9,color=LILAS)
+p.cell(row=rs+5,column=1,value="A receber (carteira) = contratado − recebido. Inclui o êxito esperado dos casos ativos e o que ainda não virou parcela; não é atraso. O que já venceu e não foi pago está na planilha 14 (Vencido).").font=F(size=9,color=LILAS)
 bc=BarChart(); bc.type="bar"; bc.height=7; bc.width=15; bc.title="Contratado × recebido por área"; bc.style=2
 bc.add_data(Reference(p,min_col=4,max_col=5,min_row=a1-1,max_row=b1),titles_from_data=True); bc.set_categories(Reference(p,min_col=1,min_row=a1,max_row=b1))
 bc.series[0].graphicalProperties.solidFill="B89BE0"; bc.series[1].graphicalProperties.solidFill="3B1F5E"; bc.legend.position="b"; bc.x_axis.majorGridlines=None
@@ -149,7 +151,7 @@ como_usar(wb,"Carteira de Clientes e Casos",[
  ("O que esta planilha faz","Você cadastra os clientes e os casos com valor contratado e recebido; ela calcula o que falta receber, agrupa por área, responsável e modalidade, mostra os cinco maiores clientes e separa casos ativos de encerrados. Responde \"quanto ainda vai entrar?\"."),
  ("Passo 1","Em Config, confira o nome do escritório e as listas: áreas, fases, responsáveis e modalidades de honorário. Preencha de cima para baixo, sem pular linha."),
  ("Passo 2","Em Clientes, uma linha por cliente, com tipo (PF ou PJ) e área principal. O nome daqui alimenta a lista de clientes em Casos."),
- ("Passo 3","Em Casos, uma linha por caso: número do processo (ou uma referência sua, para consultivo), cliente, área, fase, responsável, modalidade, valor contratado, recebido até hoje e data de abertura. Atualize o recebido a cada pagamento."),
+ ("Passo 3","Em Casos, uma linha por caso: número do processo (ou uma referência sua, para consultivo), cliente, área, fase, responsável, modalidade, valor contratado, recebido até hoje e data de abertura. Atualize o recebido a cada pagamento (é a soma das parcelas pagas na planilha 14). Esta aba é a fonte do cadastro: as planilhas 01, 02, 04, 08, 14 e 16 copiam daqui."),
  ("Passo 4","Em Painel, leia contratado, recebido e a receber, os totais por área e por responsável, o top 5 de clientes e ativos × encerrados. Nada para digitar lá."),
  ("Rotina","Sexta-feira, 10 minutos: atualizar recebidos e fases. Dia 1 do mês: copiar o Painel para o Resumo do mês (planilha 20)."),
  ("Com a IA","Copie a tabela \"Por área\" e o \"Top 5 clientes\" e use o prompt \"Clientes 01 · Resumir a carteira para o sócio\" da biblioteca para preparar a reunião de sócios ou a conversa com o contador."),

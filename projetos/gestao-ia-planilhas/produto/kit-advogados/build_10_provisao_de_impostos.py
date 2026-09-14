@@ -4,7 +4,6 @@ Exemplo alimentado pelos totais mensais da planilha 09 (build_09_caixa_do_escrit
 from ssg import *
 import dados
 from openpyxl.chart import BarChart, Reference
-import build_09_caixa_do_escritorio as caixa
 
 NP=8  # pessoas na equipe (linhas amarelas)
 PCT1="0.0%"
@@ -16,7 +15,7 @@ cfg["A4"]="Escritório"; cfg["B4"]=f"{dados.ESCRITORIO} (exemplo fictício)"
 cfg["A5"]="Ano"; cfg["B5"]=2026
 cfg["A6"]="Mês do painel"; cfg["B6"]="Setembro"
 cfg["A7"]="Número do mês"; cfg["B7"]="=MATCH(B6,$H$5:$H$16,0)"
-cfg["A8"]="Alíquota efetiva de impostos sobre as entradas"; cfg["B8"]=0.08
+cfg["A8"]="Alíquota efetiva de impostos sobre as entradas"; cfg["B8"]=dados.ALIQ
 cfg["A9"]="Adicional sobre férias / recesso"; cfg["B9"]=1/3
 cfg["A10"]="Encargos sobre 13º e férias"; cfg["B10"]=0
 cfg["A11"]="Mês em que o 13º é pago"; cfg["B11"]="Dezembro"
@@ -57,7 +56,7 @@ for i,(n_,papel,custo,_) in enumerate(dados.PESSOAS):
 widths(cfg,(40,16,18,26,16,16,3,12)); cfg.sheet_view.showGridLines=False
 # ---------- Entradas e pagamentos ----------
 en=wb.create_sheet("Entradas e pagamentos")
-titulo(en,"Entradas e pagamentos do ano","Amarelo: o que entrou no caixa em cada mês (total do Painel da planilha 09) e o que foi efetivamente pago de impostos, 13º e férias.",merge_to="H")
+titulo(en,"Entradas e pagamentos do ano","Amarelo: o que entrou no caixa em cada mês (Entrou no mês do Painel da planilha 09, sem a categoria Outras entradas) e o que foi efetivamente pago de impostos, 13º e férias.",merge_to="H")
 hdr(en,4,["Mês","Entradas recebidas","Impostos pagos","13º pago","Férias / recesso pagos","Total usado no mês"])
 for i in range(12):
     r=5+i
@@ -67,11 +66,12 @@ for i in range(12):
 en.cell(row=17,column=1,value="Total"); en.cell(row=17,column=1).font=F(bold=True,color=UVA,size=10); en.cell(row=17,column=1).border=borda
 for c in (2,3,4,5,6):
     en.cell(row=17,column=c,value=f"=SUM({L(c)}5:{L(c)}16)"); en.cell(row=17,column=c).font=F(bold=True,color=UVA,size=10); en.cell(row=17,column=c).border=borda; en.cell(row=17,column=c).number_format=BRL
-en["A19"]="Deixe em branco os meses que ainda não fecharam. Impostos pagos: o valor das guias quitadas no mês (no exemplo, a guia de setembro ainda não foi paga: ver planilha 09)."; nota(en["A19"])
+en["A19"]="Deixe em branco os meses que ainda não fecharam. Impostos pagos: o valor das guias quitadas no mês (no exemplo, a guia de setembro ainda não foi paga: ver planilha 09). Setembro mostra o que entrou até 11/09."; nota(en["A19"])
+en["A20"]="Entradas recebidas = Entrou no mês (Painel da 09) menos \"Outras entradas\" (no exemplo, a devolução de despesa pessoal de abril, R$ 480, que não é receita e não paga imposto)."; nota(en["A20"])
 widths(en,(14,18,16,14,20,18)); en.sheet_view.showGridLines=False
-tot=caixa.totais_mensais()
+tot=dados.TOTAIS
 for m in range(1,10):
-    en.cell(row=4+m,column=2,value=tot[m]["ent"]-tot[m]["devol"])
+    en.cell(row=4+m,column=2,value=tot[m]["ent_sem_devol"])
     if tot[m]["imp"]: en.cell(row=4+m,column=3,value=tot[m]["imp"])
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
@@ -124,10 +124,10 @@ widths(p,(13,13,13,13,13,14,13,14,13,14,15,14,13)); p.freeze_panes="A4"; p.sheet
 como_usar(wb,"Provisão de impostos, 13º e férias",[
  ("O que esta planilha faz","Separa, todo mês, o dinheiro do imposto sobre o que entrou, do 13º e das férias / recesso da equipe. Mostra quanto deveria estar guardado, quanto já foi usado e avisa quando o que está separado não cobre o compromisso do mês seguinte."),
  ("Passo 1","Em Config, digite a alíquota efetiva que o escritório combinou com o contador (a planilha não afirma qual é a sua), o adicional de férias, os encargos (se houver), os meses de pagamento do 13º e das férias e a equipe com Sim / Não em cada provisão."),
- ("Passo 2","Em Entradas e pagamentos, uma linha por mês: o total que entrou (copie de Entrou no mês do Painel da planilha 09) e o que foi pago de impostos, 13º e férias. Meses não fechados ficam em branco."),
+ ("Passo 2","Em Entradas e pagamentos, uma linha por mês: o total que entrou (copie de Entrou no mês do Painel da planilha 09, sem Outras entradas) e o que foi pago de impostos, 13º e férias. Meses não fechados ficam em branco."),
  ("Passo 3","Em Painel, escolha o mês em Config. A tabela mostra o ano inteiro; a linha do mês fica destacada. Alerta em vermelho = separar mais dinheiro antes do próximo compromisso."),
  ("Rotina","No fechamento de cada mês (dia 5): lançar as entradas do mês anterior, transferir o valor de A separar no mês para a conta de provisão e conferir se o extrato dessa conta bate com Saldo provisionado."),
  ("Com o contador","Leve esta aba para a reunião mensal: alíquota, provisões e o que foi pago. Ajuste Config sempre que o contador mudar a orientação. Confirme alíquotas com o contador."),
- ("Com a IA","Copie a tabela do Painel e use o prompt \"Preparar a reunião com o contador\" da biblioteca do kit para montar a pauta e as perguntas."),
+ ("Com a IA","Copie a tabela do Painel e use o prompt \"Caixa 04 · Preparar a reunião mensal com o contador\" ou \"Caixa 05 · Perguntas sobre a provisão de impostos, 13º e férias\" da biblioteca do kit para montar a pauta e as perguntas."),
 ])
 proteger(wb); salvar(wb,"10-provisao-de-impostos.xlsx","Provisão de impostos, 13º e férias · Kit de Gestão para Advogados")

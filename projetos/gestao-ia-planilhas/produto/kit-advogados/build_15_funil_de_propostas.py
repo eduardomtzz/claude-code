@@ -4,7 +4,6 @@ Adaptação do funil do Kit Completo (08). Gera 15-funil-de-propostas.xlsx (Como
 from ssg import *
 import dados
 from openpyxl.chart import BarChart, Reference
-from datetime import date
 
 N=300; R0=5; RN=R0+N-1
 NL=10; L0=18; L1=L0+NL-1           # listas da Config: linhas 18..27
@@ -21,7 +20,7 @@ cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. As probabilidades por etapa alimentam a previsão ponderada.",merge_to="J")
 cfg["A4"]="Escritório"; cfg["B4"]=NOME_ESC
 cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
-cfg["A6"]="Meta de honorários fechados no trimestre (R$)"; cfg["B6"]=60000
+cfg["A6"]="Meta de honorários fechados no trimestre (R$)"; cfg["B6"]=dados.META_FECHADO_TRI
 cfg["A7"]="Proposta parada há mais de (dias)"; cfg["B7"]=14
 for r in range(4,8): rotulo(cfg.cell(row=r,column=1))
 inp(cfg["B4"]); inp(cfg["B5"],DATA); inp(cfg["B6"],BRL0); inp(cfg["B7"],center=True)
@@ -150,29 +149,11 @@ for i,v in enumerate(dados.AREAS): cfg.cell(row=L0+i,column=1,value=v)
 for i,v in enumerate(["Indicação de cliente","Site e Google","Instagram","Cliente antigo","Parceria (contador, imobiliária)","Evento ou palestra"]): cfg.cell(row=L0+i,column=3,value=v)
 for i,v in enumerate(["Preço","Fechou com outro escritório","Desistiu da demanda","Sem resposta","Fora da área de atuação","Prazo de atendimento"]): cfg.cell(row=L0+i,column=5,value=v)
 for i,(nome,_,_,_) in enumerate(dados.PESSOAS[:2]): cfg.cell(row=L0+i,column=7,value=nome)
-for i,v in enumerate(["Assessoria mensal","Ação trabalhista","Defesa em reclamação trabalhista","Revisão de benefício","Planejamento previdenciário","Cobrança judicial","Contratos e consultoria","Divórcio e partilha","Inventário","Recuperação de crédito"]): cfg.cell(row=L0+i,column=9,value=v)
-M="Marina Ferraz"; Rf="Rafael Lima"; T=dados.prazo_formula
-# cliente, área, serviço, origem, responsável, valor, etapa, entrada (fixa), última mov., fechamento previsto, fechamento (fixa), motivo
-ex=[("Padaria do Sol Ltda","Empresarial","Assessoria mensal","Cliente antigo",M,9600,"Fechada",date(2026,6,8),date(2026,6,29),date(2026,7,3),date(2026,6,29),""),
-    ("Ana Beatriz Moreira","Trabalhista","Ação trabalhista","Indicação de cliente",Rf,6000,"Fechada",date(2026,6,15),date(2026,7,7),date(2026,7,10),date(2026,7,7),""),
-    ("Construtora Horizonte","Cível","Cobrança judicial","Cliente antigo",M,12500,"Fechada",date(2026,7,1),date(2026,7,22),date(2026,7,31),date(2026,7,22),""),
-    ("Carlos Eduardo Nunes","Previdenciário","Revisão de benefício","Site e Google",Rf,4800,"Fechada",date(2026,7,13),date(2026,7,28),date(2026,8,5),date(2026,7,28),""),
-    ("Loja Verde Comércio","Empresarial","Contratos e consultoria","Parceria (contador, imobiliária)",M,7200,"Fechada",date(2026,7,20),date(2026,8,11),date(2026,8,14),date(2026,8,11),""),
-    ("Marcos Vinícius Teles","Previdenciário","Planejamento previdenciário","Instagram",Rf,3900,"Fechada",date(2026,8,3),date(2026,8,19),date(2026,8,28),date(2026,8,19),""),
-    ("Escola Aurora","Cível","Assessoria mensal","Cliente antigo",M,8400,"Fechada",date(2026,8,10),date(2026,9,1),date(2026,9,4),date(2026,9,1),""),
-    ("Bistrô 42","Trabalhista","Defesa em reclamação trabalhista","Indicação de cliente",Rf,5200,"Perdida",date(2026,6,22),date(2026,7,14),date(2026,7,17),date(2026,7,14),"Preço"),
-    ("Fernanda Castro","Família","Divórcio e partilha","Site e Google",M,6500,"Perdida",date(2026,7,6),date(2026,7,27),date(2026,7,31),date(2026,7,27),"Fechou com outro escritório"),
-    ("Roberto Almeida","Cível","Recuperação de crédito","Cliente antigo",M,9800,"Perdida",date(2026,7,15),date(2026,8,12),date(2026,8,14),date(2026,8,12),"Desistiu da demanda"),
-    ("Oficina Mecânica Central","Trabalhista","Ação trabalhista","Evento ou palestra",Rf,4400,"Perdida",date(2026,8,4),date(2026,8,25),date(2026,8,28),date(2026,8,25),"Sem resposta"),
-    ("Agência Prisma","Empresarial","Contratos e consultoria","Instagram",M,11000,"Perdida",date(2026,8,12),date(2026,9,2),date(2026,9,4),date(2026,9,2),"Preço"),
-    ("Transportadora Rota Sul","Trabalhista","Assessoria mensal","Cliente antigo",Rf,14400,"Negociação",date(2026,8,17),T(-4),T(6),None,""),
-    ("Clínica Bem-Estar","Empresarial","Contratos e consultoria","Cliente antigo",M,6800,"Negociação",date(2026,8,24),T(-17),T(-2),None,""),
-    ("Patrícia Gomes","Família","Inventário","Indicação de cliente",M,10500,"Proposta enviada",date(2026,8,26),T(-16),T(12),None,""),
-    ("José Antônio Ribeiro","Previdenciário","Revisão de benefício","Site e Google",Rf,4200,"Proposta enviada",date(2026,8,31),T(-20),T(-6),None,""),
-    ("Helena Duarte","Trabalhista","Ação trabalhista","Indicação de cliente",Rf,5800,"Reunião feita",date(2026,9,2),T(-3),T(20),None,""),
-    ("Luciana Farias","Cível","Cobrança judicial","Parceria (contador, imobiliária)",M,7900,"Reunião feita",date(2026,9,4),T(-2),T(25),None,""),
-    ("Construtora Horizonte","Empresarial","Assessoria mensal","Cliente antigo",M,13200,"Contato",date(2026,9,9),T(-1),T(30),None,""),
-    ("Marcos Vinícius Teles","Família","Divórcio e partilha","Cliente antigo",M,5600,"Contato",date(2026,9,11),None,T(35),None,"")]
+for i,v in enumerate(["Assessoria mensal (12 meses)","Ação trabalhista","Defesa em reclamação trabalhista","Revisão de benefício","Planejamento previdenciário","Cobrança judicial","Contratos e consultoria","Contratos com convênios","Divórcio e partilha","Inventário"]): cfg.cell(row=L0+i,column=9,value=v)
+# exemplo: o funil único do kit (dados.PROPOSTAS). As 10 propostas mais recentes já enviadas aparecem também no Registro da 07,
+# e as fechadas em 2026 são casos da carteira (13), abertos no mês do fechamento. Datas abertas em dias relativos a hoje.
+def _dt(x): return None if x is None else (dados.prazo_formula(x) if isinstance(x,int) else x)
+ex=[(p["cliente"],p["area"],p["servico"],p["origem"],p["responsavel"],p["valor"],p["etapa"],p["entrada"],_dt(p["ultima_mov"]),_dt(p["fech_previsto"]),p["fechamento"],p["motivo"]) for p in dados.PROPOSTAS]
 for i,row in enumerate(ex):
     for c,v in enumerate(row,start=1):
         if v is not None and v!="": pr.cell(row=R0+i,column=c,value=v)
@@ -185,6 +166,7 @@ como_usar(wb,"Funil de Propostas",[
  ("Passo 3","Ao fechar, mude a etapa para Fechada ou Perdida e preencha a data. Se perdida, anote o motivo: é a parte mais valiosa da planilha."),
  ("Passo 4","Em Painel, veja o funil, a previsão ponderada, a lista \"O que mexer primeiro\", a taxa de fechamento por área e origem e os motivos de perda."),
  ("Rotina","Sexta-feira, 10 minutos: atualizar etapas e datas, retomar as paradas. Dia 1 do mês: comparar o fechado com a meta e olhar os motivos de perda."),
- ("Com a IA","Copie \"O que mexer primeiro\" e use o prompt \"Clientes 06 · Por que as propostas não fecham\" da biblioteca para escrever a mensagem ao cliente; copie \"Motivos de perda\" e use \"Revisar a proposta de honorários\". A proposta fechada vira caso na planilha 13 (Carteira)."),
+ ("Com a IA","Copie \"Motivos de perda\" e use o prompt \"Clientes 06 · Por que as propostas não fecham\" da biblioteca; para uma proposta parada, \"Honorários 02 · Revisar a proposta pela margem\" antes de retomar o contato. A proposta fechada vira caso na planilha 13 (Carteira)."),
+ ("Exemplo","O funil traz 20 propostas de junho a setembro de 2026: as 7 fechadas viraram casos na planilha 13 (abertura no mês do fechamento) e as 10 mais recentes já enviadas são as mesmas do Registro da planilha 07."),
 ])
 proteger(wb); salvar(wb,"15-funil-de-propostas.xlsx","Funil de Propostas · Kit de Gestão para Advogados")

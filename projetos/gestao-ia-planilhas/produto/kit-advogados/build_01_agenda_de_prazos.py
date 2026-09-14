@@ -2,7 +2,7 @@
 """Planilha 1 do Kit de Gestão para Advogados: Agenda de prazos e audiências. Gera 01-agenda-de-prazos.xlsx"""
 from ssg import *
 import dados
-N=400; R0=5; RN=R0+N-1; NRESP=10; NTIPO=20; TOP=15
+N=400; R0=5; RN=R0+N-1; NRESP=10; NTIPO=20; TOP=30
 wb=Workbook()
 # ---------- Config ----------
 cfg=wb.active; cfg.title="Config"
@@ -20,11 +20,11 @@ cfg["A9"]=f"Responsáveis (até {NRESP})"; cfg["D9"]=f"Tipos de prazo (até {NTI
 for i in range(NRESP): inp(cfg.cell(row=10+i,column=2))
 for i in range(NTIPO): inp(cfg.cell(row=10+i,column=4))
 for i,(n,_,_,_) in enumerate(dados.PESSOAS): cfg.cell(row=10+i,column=2,value=n)
-TIPOS=["Contestação","Réplica","Audiência de conciliação","Audiência de instrução","Manifestação sobre laudo","Alegações finais",
-       "Recurso ordinário","Contrarrazões","Embargos","Cumprimento de sentença","Juntada de documentos","Reunião com cliente","Prazo interno"]
+TIPOS=dados.TIPOS_PRAZO
 for i,t in enumerate(TIPOS): cfg.cell(row=10+i,column=4,value=t)
 cfg["A31"]="Preencha responsáveis e tipos de cima para baixo, sem pular linha: as listas suspensas param na última linha preenchida."; nota(cfg["A31"])
 cfg["A32"]="O tipo de prazo é só um rótulo para organizar a agenda. Conte os dias e confira a data na fonte oficial: a planilha avisa, não calcula prazo."; nota(cfg["A32"])
+cfg["A33"]="No exemplo, a estagiária (Júlia Prado) responde pelos prazos de juntada de documentos; o caso continua com o sócio responsável (por isso ela tem prazos aqui e nenhum caso nas planilhas 02, 04 e 13)."; nota(cfg["A33"])
 widths(cfg,(40,26,4,30,4,4)); cfg.sheet_view.showGridLines=False
 # ---------- Prazos ----------
 pz=wb.create_sheet("Prazos")
@@ -49,23 +49,8 @@ pz.conditional_formatting.add(f"A{R0}:I{RN}", FormulaRule(formula=[f'LEFT($I{R0}
 pz.conditional_formatting.add(f"A{R0}:I{RN}", FormulaRule(formula=[f'$I{R0}="Feito"'], font=F(color="8A86A0",size=10)))
 widths(pz,(28,26,24,12,16,8,36,7,14,6)); pz.column_dimensions["J"].hidden=True
 pz.freeze_panes="C5"; pz.sheet_view.showGridLines=False; pz.auto_filter.ref=f"A4:I{RN}"
-# exemplos: prazos dos casos ativos de dados.py + extras futuros e dois já cumpridos
-C=dados.CASOS
-ex=[]
-obs={-3:"Confirmar com o cliente ainda hoje",-1:"Aguardando documentos do cliente",0:"Pasta separada na mesa",1:"",2:"Cliente confirmou presença",
-     3:"",4:"Levar via impressa",6:"",8:"",10:"",13:"",15:"Rascunho começado",18:"",22:"",27:"",35:"",42:"",60:""}
-for c in C:
-    d=c["proximo_prazo_dias"]
-    if d is None: continue
-    resp=c["responsavel"]
-    if c["descricao_prazo"]=="Juntada de documentos": resp="Júlia Prado"
-    ex.append((c["numero"],c["cliente"],c["descricao_prazo"],dados.prazo_formula(d),resp,"",obs.get(d,"")))
-extras=[(2,"Audiência de instrução",9,None,"Sala 3, 14h; testemunha avisada"),(12,"Reunião com cliente",5,None,"Alinhar próximos passos"),
-        (16,"Juntada de documentos",12,"Júlia Prado","Pedir 2 comprovantes ao cliente"),(22,"Audiência de conciliação",20,None,""),
-        (10,"Manifestação sobre laudo",24,None,""),(25,"Reunião com cliente",31,None,"Revisão semestral do contrato"),(3,"Juntada de documentos",45,"Júlia Prado",""),
-        (15,"Juntada de documentos",-6,"Júlia Prado","Entregue no protocolo"),(17,"Reunião com cliente",-10,None,"Feita por vídeo")]
-for i,t,d,resp,o in extras:
-    c=C[i]; ex.append((c["numero"],c["cliente"],t,dados.prazo_formula(d),resp or c["responsavel"],"Sim" if d<0 else "",o))
+# exemplos: prazos dos casos ativos de dados.py (o prazo principal de cada caso é a "próxima ação" da planilha 02) + compromissos extras e dois já cumpridos
+ex=[(num,cli,t,dados.prazo_formula(d),resp,"Sim" if feito else "",o) for num,cli,t,d,resp,feito,o in dados.PRAZOS()]
 for i,row in enumerate(ex):
     for col,v in enumerate(row,start=1):
         if v!="": pz.cell(row=R0+i,column=col,value=v)
@@ -81,7 +66,7 @@ kpi(p,4,7,f'="De "&({AL}+1)&" a "&{JAN}&" dias"',f'=COUNTIFS({PI},"Até "&{JAN}&
 kpi(p,4,9,"Abertos no total",f'=COUNTIF({PJ},">0")+COUNTIFS({PI},"Sem data")',LAVANDA,UVA)
 kpi(p,4,11,"Feitos",f'=COUNTIFS({PI},"Feito")',VERDE,VERDE_T)
 p["A7"]="O que vence primeiro"; p["A7"].font=F(bold=True,size=13,color=UVA)
-p["A8"]=f"Ordem: atrasados (mais tempo de atraso primeiro), hoje, depois os mais próximos. Mostra os {TOP} primeiros; os demais ficam na aba Prazos, que pode ser filtrada por situação."; nota(p["A8"]); p.merge_cells("A8:L8")
+p["A8"]=f"Ordem: atrasados (mais tempo de atraso primeiro), hoje, depois os mais próximos. Mostra os {TOP} primeiros (cabe a semana inteira); os demais ficam na aba Prazos, que pode ser filtrada por situação."; nota(p["A8"]); p.merge_cells("A8:L8")
 hdr(p,9,["#","Processo","Cliente","Tipo de prazo","Data","Dias","Situação","Responsável"])
 for k in range(1,TOP+1):
     r=9+k; m=f'MATCH(LARGE({PJ},{k}),{PJ},0)'; g=f'LARGE({PJ},{k})>0'
@@ -104,8 +89,10 @@ for i in range(NRESP):
     p.cell(row=r,column=4,value=f'=IF({src}="","",COUNTIFS({PE_},{src},{PI},"Atrasado"))'); calc(p.cell(row=r,column=4))
     p.cell(row=r,column=5,value=f'=IF({src}="","",COUNTIFS({PE_},{src},{PI},"Hoje"))'); calc(p.cell(row=r,column=5))
     p.cell(row=r,column=6,value=f'=IF({src}="","",COUNTIFS({PE_},{src},{PI},"Até "&{AL}&" dias"))'); calc(p.cell(row=r,column=6))
-    mf=f'_xlfn.MINIFS({PD},{PE_},{src},{PJ},">0")'
-    p.cell(row=r,column=7,value=f'=IF({src}="","",IFERROR(IF({mf}=0,"",{mf}),""))'); calc(p.cell(row=r,column=7),DATA)
+    # menor data em aberto do responsável, sem MÍNIMOSES (Excel 2016 e Google Sheets): datas fora da condição viram 1E+10 e saem do MIN
+    cond=f'(({PE_}={src})*({PJ}>0))'
+    mf=f'SUMPRODUCT(MIN({cond}*{PD}+(1-{cond})*1E+10))'
+    p.cell(row=r,column=7,value=f'=IF({src}="","",IFERROR(IF({mf}>=1E+10,"",{mf}),""))'); calc(p.cell(row=r,column=7),DATA)
     p.cell(row=r,column=8,value=f'=IF({src}="","",COUNTIFS({PE_},{src},{PI},"Feito"))'); calc(p.cell(row=r,column=8))
 p.conditional_formatting.add(f"D{r0+2}:D{r0+1+NRESP}", FormulaRule(formula=[f'AND(ISNUMBER(D{r0+2}),D{r0+2}>0)'], font=F(color="C8402E",size=10,bold=True)))
 p.cell(row=r0+2+NRESP,column=1,value="Prazos sem responsável não entram nesta tabela: confira na aba Prazos, filtrando a coluna Responsável por vazio.").font=F(size=9,color=LILAS)
@@ -133,6 +120,7 @@ como_usar(wb,"Agenda de prazos e audiências",[
  ("Passo 2","Em Prazos, apague os exemplos e registre uma linha por prazo: processo, cliente, tipo (lista), data, responsável (lista) e observação. Quando cumprir, marque Sim em Feito: a linha fica cinza e sai do painel."),
  ("Passo 3","Em Painel, leia de cima para baixo: quadros de contagem, lista \"O que vence primeiro\", carga por responsável e os próximos 7 dias."),
  ("Rotina de segunda","10 minutos: abra o Painel, resolva ou reagende os atrasados, confirme com cada responsável os prazos da semana e registre os prazos novos que chegaram."),
+ ("Exemplo","Os prazos do exemplo são os dos 38 casos da planilha 13 · Carteira (a 13 é a fonte do cadastro de casos); o prazo principal de cada caso é a mesma \"próxima ação\" da planilha 02. Audiência já realizada não conta como atraso: marque Feito."),
  ("Limite","A planilha organiza e avisa. A contagem do prazo, a conferência da data na fonte oficial e o cumprimento continuam sendo responsabilidade de quem responde pelo caso."),
  ("Com a IA","Copie a tabela \"O que vence primeiro\" e use o prompt \"Prazos 04 · Distribuir a semana entre as pessoas\" da biblioteca do kit."),
 ])

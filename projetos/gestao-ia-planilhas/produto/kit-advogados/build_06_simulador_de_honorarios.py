@@ -11,8 +11,8 @@ titulo(cfg,"Configurações","Células amarelas: você preenche. Impostos, marge
 cfg["A4"]="Nome do escritório"; cfg["B4"]=f"{dados.ESCRITORIO} (exemplo fictício)"
 cfg["A5"]="Mês de referência"; cfg["B5"]="Setembro de 2026"
 cfg["A6"]="Data de referência"; cfg["B6"]="=TODAY()"
-cfg["A7"]="Impostos e taxas sobre o que entra (%)"; cfg["B7"]=0.08
-cfg["A8"]="Margem desejada sobre o preço (%)"; cfg["B8"]=0.30
+cfg["A7"]="Impostos e taxas sobre o que entra (%)"; cfg["B7"]=dados.ALIQ
+cfg["A8"]="Margem desejada sobre o preço (%)"; cfg["B8"]=dados.MARGEM
 cfg["A9"]="Chance de êxito mínima para aceitar êxito puro (%)"; cfg["B9"]=0.60
 cfg["A10"]="Folga mínima de chance acima do ponto de equilíbrio (pontos)"; cfg["B10"]=0.15
 cfg["A11"]="Folga mínima de horas no valor fixo (%)"; cfg["B11"]=0.20
@@ -41,11 +41,11 @@ IMP="Config!$B$7"; MARG="Config!$B$8"; CHMIN="Config!$B$9"; FOLGA="Config!$B$10"
 # 1. o caso
 s["A7"]="1. O caso"; s["A7"].font=F(bold=True,size=13,color=UVA)
 campos=[("Cliente","Cliente",None),("Área","Cível",None),("O que será feito (resumo)","Discussão de contrato de prestação de serviços",None),
- ("Custo-hora do escritório (R$)",66.07,BRL),("Valor em discussão (R$)",60000,BRL0),("Chance de êxito estimada (%)",0.55,PCT)]
+ ("Custo-hora do escritório (R$)",dados.CUSTO_HORA,BRL),("Valor em discussão (R$)",60000,BRL0),("Chance de êxito estimada (%)",0.55,PCT)]
 for i,(a,v,fmt) in enumerate(campos):
     r=8+i; s.cell(row=r,column=1,value=a); rotulo(s.cell(row=r,column=1)); s.cell(row=r,column=2,value=v); inp(s.cell(row=r,column=2),fmt,center=fmt is not None)
 s["B8"]=dados.CLIENTES[7][0]
-s["C11"]="Copie da planilha 05 · Custo-hora (Painel, \"Custo-hora do escritório\")."; nota(s["C11"])
+s["C11"]="Copie da planilha 05 · Custo-hora (Painel, \"Custo-hora do escritório\"). No exemplo, R$ 66,0714 (18.500 ÷ 280 h): a hora mínima abaixo fica igual à da 05 (R$ 106,57)."; nota(s["C11"])
 s["C12"]="Quanto o cliente recebe, deixa de pagar ou economiza se o caso der certo. Base do cálculo de êxito."; nota(s["C12"])
 s["C13"]="Sua estimativa honesta. Ela define o valor esperado e o risco das modalidades com êxito."; nota(s["C13"])
 s["A14"]="Valor esperado da causa (R$)"; rotulo(s["A14"]); s["B14"]="=B12*B13"; calc(s["B14"],BRL0); s["C14"]="Valor em discussão × chance. É o que se espera receber, em média."; nota(s["C14"])
@@ -83,7 +83,7 @@ M0=DT+5
 s.cell(row=M0-2,column=1,value="4. O que você pretende cobrar em cada modalidade").font=F(bold=True,size=13,color=UVA)
 hdr(s,M0-1,["Modalidade","Valor","Como funciona"])
 mod_in=[("Fixo · valor fechado (R$)",7000,BRL0,"Um valor pelo caso inteiro, independente das horas. Risco: o caso consumir mais horas que o estimado."),
- ("Hora · valor da hora cobrada (R$)",130,BRL,"Cobra as horas trabalhadas. Risco baixo para o escritório; o cliente pode questionar as horas."),
+ ("Hora · valor da hora cobrada (R$)",dados.VALOR_HORA_COBRADA,BRL,"Cobra as horas trabalhadas. Risco baixo para o escritório; o cliente pode questionar as horas."),
  ("Êxito · % sobre o resultado",0.25,PCT,"Só recebe se o caso der certo, no fim. Risco: trabalhar e não receber."),
  ("Misto · entrada fixa (R$)",4500,BRL0,"Uma parte fixa no início (cobre o custo) mais um percentual sobre o resultado."),
  ("Misto · % sobre o resultado",0.15,PCT,"")]
@@ -102,9 +102,9 @@ rows=[
   f'=IF({HT}=0,"Alto",IF(({FX}*{LIQ}-{DESP})/{CH}/{HT}-1>={FOLGAH},"Baixo",IF(({FX}*{LIQ}-{DESP})/{CH}>={HT},"Médio","Alto")))',
   f'="Folga de horas: "&ROUND((({FX}*{LIQ}-{DESP})/{CH}/{HT}-1)*100,0)&"% (mínimo para risco baixo: "&ROUND({FOLGAH}*100,0)&"%)"'),
  ("Hora",f"={HR}*{HT}",f"=E{{r}}",
-  f'="Hora mínima sem prejuízo: R$ "&ROUND({CUSTO}/({HT}*{LIQ}),2)&" (você cobra R$ "&{HR}&")"',
+  f'="Hora mínima sem prejuízo: R$ "&FIXED({CUSTO}/({HT}*{LIQ}),2)&" (você cobra R$ "&FIXED({HR},2)&")"',   # FIXED usa o separador do idioma do Excel (pt-BR: 1.234,56)
   f'=IF({HR}>=$B$15,"Baixo",IF({HR}*{HT}*{LIQ}>={CUSTO},"Médio","Alto"))',
-  f'=IF({HR}>=$B$15,"A hora cobrada cobre custo, impostos e margem desejada","A hora cobrada fica abaixo da hora mínima com margem (R$ "&ROUND($B$15,2)&")")'),
+  f'=IF({HR}>=$B$15,"A hora cobrada cobre custo, impostos e margem desejada","A hora cobrada fica abaixo da hora mínima com margem (R$ "&FIXED($B$15,2)&")")'),
  ("Êxito",f"={EX}*{VE}",f"=-{CUSTO}",
   f'="Chance mínima de êxito para não ter prejuízo: "&ROUND({CUSTO}/({EX}*{VC}*{LIQ})*100,0)&"% (estimada: "&ROUND({PCH}*100,0)&"%)"',
   f'=IF(OR({PCH}<{CHMIN},{PCH}<{CUSTO}/({EX}*{VC}*{LIQ})+{FOLGA}),"Alto","Médio")',
@@ -164,6 +164,7 @@ como_usar(wb,"Simulador de honorários",[
  ("Passo 3","Blocos 2 e 3: horas por etapa e despesas do caso, marcando o que o cliente reembolsa."),
  ("Passo 4","Bloco 4: o valor que você pretende cobrar em cada modalidade. Mude os números e veja a comparação e a recomendação no topo mudarem na hora."),
  ("Rotina","Antes de cada proposta: 10 minutos. Depois, leve a modalidade escolhida para a planilha 07 (Proposta de honorários)."),
- ("Com a IA","Copie o bloco 5 e peça à IA para explicar ao sócio por que a modalidade recomendada é a melhor, ou para listar perguntas que faltam antes de fechar o valor. A decisão continua sua."),
+ ("Com a IA","Copie o bloco 5 e use o prompt \"Honorários 07 · Fixo, hora, êxito ou misto: perguntas antes de escolher\" da biblioteca do kit para listar o que falta perguntar antes de fechar o valor. A decisão continua sua."),
+ ("Números em texto","As frases da comparação (\"Hora mínima sem prejuízo: R$ ...\") usam a função FIXED: o separador de milhar e de decimal segue o idioma do Excel (no Excel em português: 1.234,56)."),
 ])
 proteger(wb); salvar(wb,"06-simulador-de-honorarios.xlsx","Simulador de honorários · Kit de Gestão para Advogados")

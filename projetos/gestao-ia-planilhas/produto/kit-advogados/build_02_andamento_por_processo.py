@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Planilha 2 do Kit de Gestão para Advogados: Andamento por processo. Gera 02-andamento-por-processo.xlsx"""
 from ssg import *
-import dados, random
-from datetime import timedelta
+import dados
 N=300; R0=5; RN=R0+N-1; NL=10; TOP=12
 wb=Workbook()
 # ---------- Config ----------
@@ -27,7 +26,7 @@ cfg["A22"]="Mantenha a fase \"Encerrado\" com esse nome: é ela que tira o caso 
 widths(cfg,(44,20,4,20,4,20,4,4)); cfg.sheet_view.showGridLines=False
 # ---------- Processos ----------
 ps=wb.create_sheet("Processos")
-titulo(ps,"Processos","Uma linha por caso. Preencha as colunas amarelas; dias, situação e parado são calculados. A cada movimentação, atualize a fase, a próxima ação e a data da última atualização.",merge_to="N")
+titulo(ps,"Processos","Uma linha por caso (copie o cadastro da planilha 13 · Carteira, aba Casos: a 13 é a fonte). Preencha as colunas amarelas; dias, situação e parado são calculados. A cada movimentação, atualize a fase, a próxima ação e a data da última atualização.",merge_to="N")
 hdr(ps,4,["Número","Cliente","Área","Fase","Responsável","Próxima ação","Data da próxima ação","Última atualização","Observação","Dias para a ação","Situação","Dias sem atualizar","Parado?","Chave"])
 HOJE="Config!$B$5"; PAR="Config!$B$6"
 for r in range(R0,RN+1):
@@ -52,25 +51,19 @@ ps.conditional_formatting.add(f"A{R0}:M{RN}", FormulaRule(formula=[f'$K{R0}="Enc
 ps.conditional_formatting.add(f"M{R0}:M{RN}", FormulaRule(formula=[f'$M{R0}="Sim"'], font=F(color="C8402E",size=10,bold=True)))
 widths(ps,(28,26,14,12,16,36,13,13,30,10,16,11,9,6)); ps.column_dimensions["N"].hidden=True
 ps.freeze_panes="C5"; ps.sheet_view.showGridLines=False; ps.auto_filter.ref=f"A4:M{RN}"
-# exemplos: os 38 casos de dados.py
-rng=random.Random(7)
+# exemplos: os 38 casos de dados.py; a próxima ação é o prazo principal do caso (o mesmo da planilha 01), coerente com a fase
 ACAO={"Audiência de conciliação":"Audiência de conciliação (confirmar presença do cliente)","Audiência de instrução":"Audiência de instrução (avisar testemunhas)",
-      "Reunião com cliente":"Reunião com o cliente","Juntada de documentos":"Juntar documentos enviados pelo cliente"}
-consult=[("Enviar proposta de honorários",6),("Reunião de alinhamento com o cliente",14),("Aguardando retorno do cliente",None),("Enviar o resumo combinado ao cliente",-2)]
-PARADOS={0:48,4:41,6:36,8:52,33:67}
+      "Reunião com cliente":"Reunião com o cliente","Juntada de documentos":"Juntar documentos enviados pelo cliente","Entrega de parecer":"Entregar o parecer ao cliente",
+      "Minuta de acordo":"Enviar a minuta de acordo","Homologação do acordo":"Acompanhar a homologação do acordo","Cumprimento de sentença":"Iniciar o cumprimento de sentença",
+      "Manifestação sobre a penhora":"Manifestar sobre a penhora"}
 for i,c in enumerate(dados.CASOS):
     r=R0+i; fase=c["fase"]; d=c["proximo_prazo_dias"]
-    acao=""; dt=None; obs=""
-    if fase=="Consultivo":
-        acao,d=consult[[8,26,31,33].index(i)]
-        if d is None: obs="Cliente pediu tempo para decidir"
-    elif fase!="Encerrado":
+    acao=""; dt=None; obs=dados.OBS_ANDAMENTO.get(c["chave"],"")
+    if fase!="Encerrado":
         desc=c["descricao_prazo"]; acao=ACAO.get(desc,f"Protocolar: {desc.lower()}")
     if d is not None: dt=dados.prazo_formula(d)
-    if fase=="Encerrado": ult=c["abertura"]+timedelta(days=rng.randint(60,200)); ult=min(ult,dados.HOJE-timedelta(days=5)); obs="Encerrado; conferir checklist de encerramento"
-    else: ult=dados.prazo_formula(-PARADOS.get(i,rng.randint(1,24)))
-    if i==23: obs="Aguardando documentos do cliente"
-    if i in PARADOS and fase!="Consultivo": obs="Sem movimentação; verificar andamento"
+    if fase=="Encerrado": ult=c["encerramento"]; obs=obs or "Encerrado; conferir checklist de encerramento"
+    else: ult=dados.prazo_formula(-c["ultima_atualizacao_dias"])
     vals=(c["numero"],c["cliente"],c["area"],fase,c["responsavel"],acao,dt,ult,obs)
     for col,v in enumerate(vals,start=1):
         if v not in ("",None): ps.cell(row=r,column=col,value=v)
@@ -110,7 +103,7 @@ for i in range(NL):
 p.conditional_formatting.add(f"K9:L{8+NL}", FormulaRule(formula=['AND(ISNUMBER(K9),K9>0)'], font=F(color="C8402E",size=10,bold=True)))
 r0=9+NL+2
 p.cell(row=r0,column=1,value="Por responsável").font=F(bold=True,size=13,color=UVA)
-hdr(p,r0+1,["Responsável","Casos ativos","Ação atrasada","Esta semana","Sem próxima ação","Parados","Ação mais próxima"])
+hdr(p,r0+1,["Responsável","Casos ativos","Ação atrasada","Esta semana","Sem próxima ação","Parados","Próxima ação a partir de hoje"])
 for i in range(NL):
     r=r0+2+i; src=f"Config!$F${10+i}"
     p.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(p.cell(row=r,column=1),center=False)
@@ -119,9 +112,12 @@ for i in range(NL):
     p.cell(row=r,column=4,value=f'=IF({src}="","",COUNTIFS({PE_},{src},{PK},"Hoje")+COUNTIFS({PE_},{src},{PK},"Esta semana"))'); calc(p.cell(row=r,column=4))
     p.cell(row=r,column=5,value=f'=IF({src}="","",COUNTIFS({PE_},{src},{PK},"Sem próxima ação"))'); calc(p.cell(row=r,column=5))
     p.cell(row=r,column=6,value=f'=IF({src}="","",COUNTIFS({PE_},{src},{PM},"Sim"))'); calc(p.cell(row=r,column=6))
-    mf=f'_xlfn.MINIFS({PG},{PE_},{src},{PD},"<>Encerrado",{PG},">0")'
-    p.cell(row=r,column=7,value=f'=IF({src}="","",IFERROR(IF({mf}=0,"",{mf}),""))'); calc(p.cell(row=r,column=7),DATA)
+    # menor data de ação de hoje em diante, sem MÍNIMOSES (Excel 2016 e Google Sheets): datas fora da condição viram 1E+10 e saem do MIN
+    cond=f'(({PE_}={src})*({PD}<>"Encerrado")*({PG}>={HOJE}))'
+    mf=f'SUMPRODUCT(MIN({cond}*{PG}+(1-{cond})*1E+10))'
+    p.cell(row=r,column=7,value=f'=IF({src}="","",IFERROR(IF({mf}>=1E+10,"",{mf}),""))'); calc(p.cell(row=r,column=7),DATA)
 p.conditional_formatting.add(f"C{r0+2}:C{r0+1+NL}", FormulaRule(formula=[f'AND(ISNUMBER(C{r0+2}),C{r0+2}>0)'], font=F(color="C8402E",size=10,bold=True)))
+p.cell(row=r0+2+NL,column=1,value="Próxima ação a partir de hoje: a data mais próxima entre as ações de hoje em diante; as atrasadas estão na coluna \"Ação atrasada\".").font=F(size=9,color=LILAS)
 r1=r0+NL+4
 p.cell(row=r1,column=1,value=f'="Parados há mais de "&{PAR}&" dias (os mais antigos primeiro)"').font=F(bold=True,size=13,color=UVA)
 p.cell(row=r1+1,column=1,value=f"Mostra os {TOP} casos ativos há mais tempo sem atualização. Um caso parado pode estar apenas aguardando o andamento; o painel avisa para que alguém confira.").font=F(size=9,color=LILAS); p.merge_cells(start_row=r1+1,start_column=1,end_row=r1+1,end_column=12)
@@ -139,10 +135,11 @@ widths(p,(22,12,13,12,16,12,14,18,10,11,13,10)); p.freeze_panes="A4"; p.sheet_vi
 como_usar(wb,"Andamento por processo",[
  ("O que esta planilha faz","Uma linha por caso com fase, responsável, próxima ação e data. O Painel mostra quantos casos há em cada fase e área, a carga de cada pessoa e quais casos estão parados há mais tempo sem atualização."),
  ("Passo 1","Em Config, confira a data de referência (fica em =HOJE()), o número de dias para considerar um caso parado, e as listas de fases, áreas e responsáveis. Preencha de cima para baixo, sem pular linha."),
- ("Passo 2","Em Processos, apague os exemplos e cadastre os seus casos: número, cliente, área, fase, responsável, próxima ação com data, e a data da última atualização."),
+ ("Passo 2","Em Processos, apague os exemplos e cadastre os seus casos: número, cliente, área, fase, responsável, próxima ação com data, e a data da última atualização. O cadastro (número, cliente, área, fase, responsável) é o mesmo da planilha 13 · Carteira: copie de lá e mantenha a 13 como fonte."),
  ("Passo 3","A cada movimentação, atualize a fase, a próxima ação e a data da última atualização. Ao encerrar, mude a fase para Encerrado: o caso sai das contagens de ativos."),
  ("Passo 4","Em Painel, confira os casos com ação atrasada, os sem próxima ação (ninguém sabe o próximo passo) e os parados há mais de N dias."),
  ("Rotina de segunda","5 minutos depois da Agenda de prazos: casos parados e sem próxima ação. Decida a ação e a data; se o caso só aguarda o andamento, registre isso na observação e atualize a data."),
+ ("Exemplo","Caso consultivo não tem número de processo (referência CONS-ano-nº) e a próxima ação é entrega de parecer ou reunião. A próxima ação de cada caso é coerente com a fase (inicial: contestação, réplica, juntada, conciliação; instrução: audiência, laudo, alegações finais; sentença: embargos, recurso; recurso: contrarrazões; execução: cumprimento, penhora; acordo: minuta, homologação)."),
  ("Com a IA","Copie a tabela \"Parados\" ou \"Por responsável\" e use o prompt \"Prazos 05 · Resumo de andamento para o sócio\" da biblioteca do kit."),
 ])
 proteger(wb); salvar(wb,"02-andamento-por-processo.xlsx","Andamento por processo · Kit de Gestão para Advogados")

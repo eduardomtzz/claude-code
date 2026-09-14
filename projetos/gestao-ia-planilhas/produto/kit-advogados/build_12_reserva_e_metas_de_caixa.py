@@ -4,7 +4,7 @@ Exemplo alimentado pelos totais mensais da planilha 09 (build_09_caixa_do_escrit
 from ssg import *
 import dados
 from openpyxl.chart import LineChart, Reference
-import build_09_caixa_do_escritorio as caixa
+from datetime import date
 
 NPROJ=24; NM=3
 wb=Workbook()
@@ -16,7 +16,7 @@ cfg["A5"]="Data de referência"; cfg["B5"]="=TODAY()"
 cfg["A6"]="Mês de início da projeção"; cfg["B6"]="Outubro"
 cfg["A7"]="Ano de início da projeção"; cfg["B7"]=2026
 cfg["A8"]="Meta de reserva (meses de custo fixo)"; cfg["B8"]=3
-cfg["A9"]="Aporte mensal planejado para a reserva"; cfg["B9"]=3000
+cfg["A9"]="Aporte mensal planejado para a reserva"; cfg["B9"]=dados.APORTE_RESERVA
 for r in range(4,10): rotulo(cfg.cell(row=r,column=1))
 inp(cfg["B4"]); calc(cfg["B5"],DATA); inp(cfg["B6"],center=True); inp(cfg["B7"],center=True); inp(cfg["B8"],"0",center=True); inp(cfg["B9"],BRL)
 cfg["D8"]="Três meses de custo fixo é a meta usual para um escritório pequeno; ajuste conforme a variação das entradas."; nota(cfg["D8"])
@@ -31,28 +31,28 @@ cfg["A16"]="Custo fixo médio"; cfg["B16"]="=IFERROR(AVERAGE(B13:B15),0)"
 rotulo(cfg["A16"]); calc(cfg["B16"],BRL); cfg["B16"].font=F(bold=True,color=UVA,size=10)
 cfg["D13"]="Copie de \"Para onde foi o dinheiro\" (Painel da planilha 09): aluguel, contador, sistemas, equipe, pró-labore fixo e o resto que se repete todo mês. Impostos e custas ficam fora."; nota(cfg["D13"]); cfg["D13"].alignment=Alignment(wrap_text=True,vertical="top"); cfg.merge_cells("D13:F15")
 cfg["A18"]="Situação hoje"; rotulo(cfg["A18"])
-cfg["A19"]="Saldo em caixa do escritório (conta corrente)"; cfg["B19"]=40795
-cfg["A20"]="Compromissos já lançados e ainda não pagos"; cfg["B20"]=14733
+cfg["A19"]="Saldo em caixa do escritório (conta corrente)"; cfg["B19"]=dados.TOTAIS[9]["saldo"]
+cfg["A20"]="Compromissos já lançados e ainda não pagos"; cfg["B20"]=dados.a_pagar()
 cfg["A21"]="Caixa livre"; cfg["B21"]="=B19-B20"
-cfg["A22"]="Reserva já guardada (conta separada)"; cfg["B22"]=12000
+cfg["A22"]="Reserva já guardada (conta separada)"; cfg["B22"]=dados.RESERVA_GUARDADA
 for r in (19,20,21,22): rotulo(cfg.cell(row=r,column=1))
 inp(cfg["B19"],BRL); inp(cfg["B20"],BRL); calc(cfg["B21"],BRL); inp(cfg["B22"],BRL)
-cfg["D19"]="Saldo acumulado e A pagar do Painel da planilha 09."; nota(cfg["D19"])
+cfg["D19"]="Saldo acumulado (setembro) e A pagar do Painel da planilha 09, em 14/09/2026."; nota(cfg["D19"])
 cfg["D22"]="O que já está numa conta separada só para a reserva. Se ainda não separou, deixe 0."; nota(cfg["D22"])
 cfg["A24"]="Metas de caixa do trimestre (3)"; rotulo(cfg["A24"])
 hdr(cfg,25,["Meta","Valor alvo","Valor atual","Prazo"])
 for i in range(3):
     r=26+i; inp(cfg.cell(row=r,column=1)); inp(cfg.cell(row=r,column=2),BRL); inp(cfg.cell(row=r,column=3),BRL); inp(cfg.cell(row=r,column=4),DATA,center=True)
 dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True); dvd.add("D26:D28"); cfg.add_data_validation(dvd)
-cfg["A30"]="Metas que se medem em reais e crescem até o alvo (reserva, recebimentos, provisão separada). Atualize o valor atual toda sexta. Datas de prazo do exemplo são relativas a hoje."; nota(cfg["A30"])
+cfg["A30"]="Metas que se medem em reais e crescem até o alvo (reserva, recebimentos, provisão separada). Atualize o valor atual toda sexta. No exemplo os prazos são datas fixas (fim do trimestre e do ano)."; nota(cfg["A30"])
 widths(cfg,(44,18,3,30,12,12,3,12)); cfg.sheet_view.showGridLines=False
 # exemplo
-tot=caixa.totais_mensais()
+tot=dados.TOTAIS
 for i,m in enumerate((6,7,8)): cfg.cell(row=13+i,column=1,value=MESES[m-1]); cfg.cell(row=13+i,column=2,value=tot[m]["fixo"])
-rec_tri=sum(tot[m]["ent"]-tot[m]["devol"] for m in (7,8,9))
-metas=[("Reserva com 1 mês de custo fixo",tot[8]["fixo"],12000,dados.prazo_formula(108)),
-       ("Receber R$ 65.000 no trimestre",65000,rec_tri,dados.prazo_formula(16)),
-       ("Conta de provisão de impostos com o saldo da planilha 10",11750,9400,dados.prazo_formula(16))]
+rec_tri=sum(tot[m]["ent_sem_devol"] for m in (7,8,9))
+metas=[("Reserva com 1 mês de custo fixo",tot[8]["fixo"],dados.RESERVA_GUARDADA,date(2026,12,31)),
+       ("Receber R$ 75.000 no trimestre",75000,rec_tri,date(2026,9,30)),
+       ("Conta de provisão de impostos com o saldo da planilha 10",round(dados.provisao_10()[9]["saldo"]),dados.PROVISAO_SEPARADA,date(2026,9,30))]
 for i,row in enumerate(metas):
     for c,v in enumerate(row,start=1): cfg.cell(row=26+i,column=c,value=v)
 # ---------- Painel ----------
@@ -72,7 +72,7 @@ p["B7"].font=F(bold=True,size=11,color=UVA); p.merge_cells("B7:F7")
 p.conditional_formatting.add("B7", FormulaRule(formula=['LEFT(B7,8)="Vermelho"'], fill=fill(VERM), font=F(color=VERM_T,size=11,bold=True)))
 p.conditional_formatting.add("B7", FormulaRule(formula=['LEFT(B7,7)="Amarelo"'], fill=fill(AMARELO), font=F(color=UVA,size=11,bold=True)))
 p.conditional_formatting.add("B7", FormulaRule(formula=['LEFT(B7,5)="Verde"'], fill=fill(VERDE), font=F(color=VERDE_T,size=11,bold=True)))
-p["G7"]=f'="Contando o caixa livre (R$ "&ROUND(Config!$B$21,0)&"): "&ROUND(IF({MED}=0,0,(C5+Config!$B$21)/{MED}),1)&" meses"'; nota(p["G7"]); p.merge_cells("G7:J7")
+p["G7"]=f'="Contando o caixa livre (R$ "&FIXED(Config!$B$21,0)&"): "&FIXED(IF({MED}=0,0,(C5+Config!$B$21)/{MED}),1)&" meses"'; nota(p["G7"]); p.merge_cells("G7:J7")   # FIXED: separadores no idioma do Excel (pt-BR: 26.062 e 2,1)
 p.cell(row=P0-2,column=1,value="Projeção da reserva, mês a mês").font=F(bold=True,size=13,color=UVA)
 hdr(p,P0-1,["Mês","Saldo no início","Aporte","Saldo no fim","% da meta","Atingiu?","Barra","Meta"]); p.merge_cells(start_row=P0-1,start_column=7,end_row=P0-1,end_column=9)
 M0="MATCH(Config!$B$6,Config!$H$5:$H$16,0)"
@@ -121,6 +121,7 @@ como_usar(wb,"Reserva de três meses e metas de caixa",[
  ("Passo 2","Ainda em Config, escreva as três metas de caixa do trimestre: nome, valor alvo, valor atual e prazo. Metas que se medem em reais e crescem até o alvo."),
  ("Passo 3","Em Painel: meta, reserva, falta, meses cobertos, semáforo e o mês em que a meta é atingida. A projeção mostra 24 meses; a linha verde é o mês da virada."),
  ("Rotina","Toda sexta, 5 minutos: atualizar o valor atual das metas. No fechamento do mês: transferir o aporte para a conta da reserva e atualizar o saldo e o custo fixo em Config."),
- ("Com a IA","Copie o Painel e use o prompt \"Explicar o mês ao sócio\" da biblioteca do kit para decidir aporte e metas do próximo trimestre com o sócio."),
+ ("Com a IA","Copie o Painel e use o prompt \"Caixa 07 · Plano para a reserva de três meses\" da biblioteca do kit para decidir aporte e metas do próximo trimestre com o sócio."),
+ ("Números em texto","A frase \"Contando o caixa livre\" usa a função FIXED: os separadores seguem o idioma do Excel (em português: R$ 26.062 e 2,1 meses)."),
 ])
 proteger(wb); salvar(wb,"12-reserva-e-metas-de-caixa.xlsx","Reserva de três meses e metas de caixa · Kit de Gestão para Advogados")

@@ -2,7 +2,7 @@
 """Planilha 19 do Kit de Gestão para Advogados: Metas do Trimestre do escritório. Gera 19-metas-do-trimestre.xlsx
 Adaptação do Metas do Trimestre (Kit Completo) ao escritório: 3 objetivos com até 3 resultados-chave cada,
 valor da semana em Semanas (S1..S13), progresso × tempo decorrido e semáforo.
-Exemplo: 3º trimestre de 2026, painel em 14/09/2026 (semana 11 de 13). Números batem com as planilhas 17 e 18."""
+Exemplo: 3º trimestre de 2026, painel em 14/09/2026 (semana 11 de 13). Cada resultado-chave é um número que existe nas planilhas 10, 12, 14, 15 e 16 (dados.metas_19)."""
 from ssg import *
 import dados
 from datetime import date
@@ -55,23 +55,14 @@ for cor,txt,fnt in ((VERDE,"Atingido",VERDE_T),("E6F4EA","No ritmo",VERDE_T),(AM
 for o in range(NO): m.row_dimensions[5+o*NK].height=18
 m.cell(row=RL+2,column=1,value="Semáforo: Atingido (100%); No ritmo (progresso até 10 pontos abaixo do tempo decorrido); Atenção (até 25 pontos abaixo); Em risco (mais que isso). A planilha avisa; a ação é do escritório.").font=F(size=9,color=LILAS)
 m.merge_cells(start_row=RL+2,start_column=1,end_row=RL+2,end_column=12)
-widths(m,(28,44,14,10,12,10,11,11,12,11,16,30)); m.freeze_panes="C5"; m.sheet_view.showGridLines=False
-MAR,RAF,JUL=[p[0] for p in dados.PESSOAS]
-ex=[("Receita recorrente do consultivo",[
-        ("Contratos de consultivo mensal ativos",MAR,"contratos",3,6,5,"Maior é melhor","Clínica Bem-Estar e Agência Prisma fecharam em agosto e setembro."),
-        ("Receita recorrente mensal do consultivo (R$)",MAR,"R$",4500,9000,7200,"Maior é melhor","Mesmo valor da linha \"Consultivo mensal\" da planilha 18."),
-        ("Propostas de consultivo enviadas no trimestre",RAF,"propostas",0,12,10,"Maior é melhor","")]),
-    ("Inadimplência abaixo de 10% do a receber",[
-        ("Inadimplência: vencido ÷ parcelas em aberto (%)",RAF,"%",18.6,10,17.4,"Menor é melhor","Painel da planilha 14: R$ 26.590 vencidos."),
-        ("Parcelas vencidas",JUL,"parcelas",10,3,8,"Menor é melhor","Régua de cobrança da planilha 14."),
-        ("Cobranças enviadas na data da régua (%)",JUL,"%",40,100,90,"Maior é melhor","")]),
-    ("Prazos sem atraso",[
-        ("Prazos atrasados na sexta-feira",MAR,"prazos",5,0,7,"Menor é melhor","Piorou em setembro: 7 atrasados na planilha 01. Prioridade da segunda-feira."),
-        ("Prazos lançados na agenda no mesmo dia (%)",JUL,"%",60,100,85,"Maior é melhor",""),
-        ("Rotinas de segunda-feira feitas (semanas)",RAF,"semanas",0,13,10,"Maior é melhor","Planilha 03 · Rotina da semana.")])]
+for r in range(5,RL+1): m.cell(row=r,column=12).alignment=Alignment(wrap_text=True,vertical="top"); m.cell(row=r,column=2).alignment=Alignment(wrap_text=True,vertical="top"); m.row_dimensions[r].height=44
+m.cell(row=RL+3,column=1,value="Inadimplência = vencido ÷ (pago + vencido), a mesma conta das planilhas 14, 17 e 20 (não é vencido ÷ em aberto). Valores em % digitados como 5,1 (não 0,051).").font=F(size=9,color=LILAS)
+widths(m,(28,44,14,10,12,10,11,11,12,11,16,40)); m.freeze_panes="C5"; m.sheet_view.showGridLines=False
+# exemplo: 3 objetivos com resultados-chave que existem nas outras planilhas (dados.metas_19): partida = 30/06, atual = sexta 11/09
+ex=dados.metas_19()
 for o,(obj,krs) in enumerate(ex):
     m.cell(row=5+o*NK,column=1,value=obj)
-    for k,(kr,dono,un,ini,meta,atual,sent,obs) in enumerate(krs):
+    for k,(kr,dono,un,ini,meta,atual,sent,obs,serie) in enumerate(krs):
         r=5+o*NK+k
         for c,v in zip((2,3,4,5,6,7,11,12),(kr,dono,un,ini,meta,atual,sent,obs)): m.cell(row=r,column=c,value=v)
 # ---------- Semanas ----------
@@ -83,20 +74,11 @@ for i,r in enumerate(rows):
     w.cell(row=rr,column=1,value=f'=IF(Metas!B{r}="","",Metas!B{r})'); calc(w.cell(row=rr,column=1),center=False)
     w.cell(row=rr,column=2,value=f'=IF(Metas!B{r}="","",Metas!F{r})'); calc(w.cell(row=rr,column=2))
     for s_ in range(13): inp(w.cell(row=rr,column=3+s_),center=True)
-# exemplo: S1..S11 (painel em 14/09/2026 = semana 11 de 13). S11 é igual ao "Valor atual" da aba Metas.
-# S1-S4 = julho, S5-S9 = agosto, S10-S11 = setembro; fim de julho (S4) e de agosto (S9) batem com o Histórico da planilha 17.
-hist={5:[3,3,3,4,4,4,4,5,5,5,5],                                          # contratos de consultivo
-      6:[4500,4500,4500,4500,6000,6000,6000,6000,6000,7200,7200],          # receita recorrente (planilha 18)
-      7:[1,2,3,4,5,5,6,7,8,9,10],                                          # propostas de consultivo (acumulado)
-      8:[18.6,18.4,18.9,19.7,19.2,18.3,17.8,17.1,17.1,17.6,17.4],          # inadimplência (%), como na 14 e no Histórico da 17
-      9:[10,10,9,9,9,8,8,7,8,8,8],                                         # parcelas vencidas
-      10:[40,50,50,60,60,70,70,75,80,90,90],                               # cobranças na data (%)
-      11:[6,5,6,4,5,4,4,3,5,6,7],                                          # prazos atrasados na sexta (jul=4, ago=5, set=7 na 17)
-      12:[60,65,70,70,75,80,80,85,85,85,85],                               # prazos lançados no mesmo dia (%)
-      13:[1,2,3,4,4,5,6,7,8,9,10]}                                         # rotinas de segunda feitas (acumulado)
-for r,vals in hist.items():
-    assert vals[-1]==m.cell(row=r,column=7).value, (r,vals[-1],m.cell(row=r,column=7).value)
-    for s_,v in enumerate(vals): w.cell(row=r,column=3+s_,value=v)
+# exemplo: S1..S11 = sextas de 03/07 a 11/09/2026 (painel em 14/09/2026 = semana 11 de 13). S11 é igual ao "Valor atual" da aba Metas.
+for o,(obj,krs) in enumerate(ex):
+    for k,(kr,dono,un,ini,meta,atual,sent,obs,serie) in enumerate(krs):
+        r=5+o*NK+k; assert serie[-1]==atual,(kr,serie[-1],atual)
+        for s_,v in enumerate(serie): w.cell(row=r,column=3+s_,value=v)
 w.conditional_formatting.add("C4:O4", FormulaRule(formula=['COLUMN()-2=Config!$B$9'], fill=fill(SOL), font=F(color=UVA,size=10,bold=True)))
 w.cell(row=RL+2,column=1,value="A coluna da semana atual fica destacada. Valores em % são digitados como 16,8 (não 0,168).").font=F(size=9,color=LILAS)
 widths(w,[44,10]+[7]*13); w.freeze_panes="C5"; w.sheet_view.showGridLines=False
@@ -127,8 +109,8 @@ for i,r in enumerate(rows):
     rr=R_T+2+i
     p.cell(row=rr,column=1,value=f'=IF(Metas!B{r}="","",Metas!B{r})'); calc(p.cell(row=rr,column=1),center=False)
     p.cell(row=rr,column=2,value=f'=IF(Metas!B{r}="","",Metas!C{r})'); calc(p.cell(row=rr,column=2))
-    p.cell(row=rr,column=3,value=f'=IF(Metas!B{r}="","",Metas!G{r})'); calc(p.cell(row=rr,column=3),"#,##0.##")
-    p.cell(row=rr,column=4,value=f'=IF(Metas!B{r}="","",Metas!F{r})'); calc(p.cell(row=rr,column=4),"#,##0.##")
+    p.cell(row=rr,column=3,value=f'=IF(Metas!B{r}="","",Metas!G{r})'); calc(p.cell(row=rr,column=3),"#,##0.#")
+    p.cell(row=rr,column=4,value=f'=IF(Metas!B{r}="","",Metas!F{r})'); calc(p.cell(row=rr,column=4),"#,##0.#")
     p.cell(row=rr,column=5,value=f'=IF(Metas!B{r}="","",Metas!H{r})'); calc(p.cell(row=rr,column=5),PCT)
     p.cell(row=rr,column=6,value=f'=IF(Metas!B{r}="","",Metas!I{r})'); calc(p.cell(row=rr,column=6),PCT)
     p.cell(row=rr,column=7,value=f'=IF(Metas!B{r}="","",Metas!J{r})'); calc(p.cell(row=rr,column=7))
@@ -142,9 +124,9 @@ widths(p,(44,14,10,10,11,10,11,24)); p.freeze_panes="A4"; p.sheet_view.showGridL
 como_usar(wb,"Metas do Trimestre",[
  ("O que esta planilha faz","Você define até 3 objetivos do escritório com até 3 resultados-chave cada (ponto de partida, meta, valor atual). Ela calcula o progresso, compara com o tempo já decorrido do trimestre e acende o semáforo: atingido, no ritmo, atenção ou em risco."),
  ("Passo 1","Em Config, preencha o trimestre, as datas de início e fim, deixe a data de referência em =HOJE() e liste as pessoas do escritório (de cima para baixo, sem pular linha)."),
- ("Passo 2","Em Metas, escreva cada objetivo e seus resultados-chave. Ponto de partida é o valor no dia 1; meta é onde quer chegar; valor atual é o número de hoje. Diga se maior ou menor é melhor. Exemplos do escritório: receita recorrente do consultivo, inadimplência abaixo de 10%, prazos sem atraso."),
- ("Passo 3","Toda sexta, atualize o valor atual (os números vêm do Painel do escritório, planilha 17) e copie para a coluna da semana em Semanas. O Painel mostra o resumo por objetivo e a lista completa com semáforo."),
+ ("Passo 2","Em Metas, escreva cada objetivo e seus resultados-chave. Ponto de partida é o valor no dia 1; meta é onde quer chegar; valor atual é o número de hoje. Diga se maior ou menor é melhor. No exemplo, cada resultado-chave é um número de outra planilha do kit: inadimplência e reserva (14, 12), horas faturáveis e casos em alerta (16), propostas fechadas e paradas (15)."),
+ ("Passo 3","Toda sexta, atualize o valor atual (os números vêm dos painéis das planilhas de origem ou do Painel do escritório, 17) e copie para a coluna da semana em Semanas. O Painel mostra o resumo por objetivo e a lista completa com semáforo. No exemplo, S1 a S11 são as sextas de 03/07 a 11/09/2026."),
  ("Rotina","Sexta-feira, 10 minutos: atualizar os valores. Primeira segunda do mês: reunião de 20 minutos entre os sócios olhando o Painel."),
- ("Com a IA","Copie a tabela \"Todos os resultados-chave\" e use o prompt \"Meta realista para o trimestre\" ou \"Explicar o mês\" da biblioteca do kit. No fim do trimestre, o modelo de apresentação \"Resultado do mês para os sócios\"."),
+ ("Com a IA","Copie a tabela \"Todos os resultados-chave\" e use o prompt \"Painel 05 · Meta realista para o trimestre\" ou \"Painel 06 · Meta × realizado: explicar o desvio\" da biblioteca do kit. No fim do trimestre, o modelo de apresentação \"Resultado do mês para os sócios\"."),
 ])
 proteger(wb); salvar(wb,"19-metas-do-trimestre.xlsx","Metas do Trimestre · Kit de Gestão para Advogados")

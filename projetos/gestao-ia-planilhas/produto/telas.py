@@ -84,8 +84,9 @@ def gera_auto(kit,largura=1300,altura=900,filtro=None):
         abas=[a for a in openpyxl.load_workbook(arq,read_only=True).sheetnames if a!='Como usar']
         if not abas: continue
         LARG={'17':1500,'13':1400,'18':1400,'20':1400}
-        tabela[f'tela-{nn}']=(arq.name,abas[0],LARG.get(nn,largura),altura)
-        if 'Painel' in abas and abas[0]!='Painel': tabela[f'tela-{nn}-painel']=(arq.name,'Painel',largura,altura)
+        principal='Resumo' if 'Resumo' in abas else abas[0]   # 20: tela-20 = Resumo (texto), tela-20-painel = Painel (manual e aulas)
+        tabela[f'tela-{nn}']=(arq.name,principal,LARG.get(nn,largura),altura)
+        if 'Painel' in abas and principal!='Painel': tabela[f'tela-{nn}-painel']=(arq.name,'Painel',LARG.get(nn,largura),altura)
     gera(kit,tabela)
 kit=sys.argv[1] if len(sys.argv)>1 else 'todos'; filtro=sys.argv[2] if len(sys.argv)>2 else None
 if kit=='advogados': gera_auto('advogados',filtro=filtro); sys.exit()

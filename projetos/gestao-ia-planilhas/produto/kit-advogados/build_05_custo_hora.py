@@ -13,8 +13,8 @@ titulo(cfg,"Configurações","Células amarelas: você preenche. Margem e impost
 cfg["A4"]="Nome do escritório"; cfg["B4"]=f"{dados.ESCRITORIO} (exemplo fictício)"
 cfg["A5"]="Mês de referência"; cfg["B5"]="Setembro de 2026"
 cfg["A6"]="Data de referência"; cfg["B6"]="=TODAY()"
-cfg["A7"]="Margem desejada sobre o preço (%)"; cfg["B7"]=0.30
-cfg["A8"]="Impostos e taxas sobre o que entra (%)"; cfg["B8"]=0.08
+cfg["A7"]="Margem desejada sobre o preço (%)"; cfg["B7"]=dados.MARGEM
+cfg["A8"]="Impostos e taxas sobre o que entra (%)"; cfg["B8"]=dados.ALIQ
 cfg["A9"]="Arredondar a hora mínima para múltiplos de (R$)"; cfg["B9"]=5
 for r in range(4,10): rotulo(cfg.cell(row=r,column=1))
 inp(cfg["B4"]); inp(cfg["B5"]); calc(cfg["B6"],DATA); inp(cfg["B7"],PCT,center=True); inp(cfg["B8"],PCT,center=True); inp(cfg["B9"],BRL0,center=True)
@@ -23,6 +23,7 @@ cfg["C8"]="Percentual que sai de cada real recebido (imposto do escritório e ta
 cfg["C9"]="Só para o número ficar redondo na proposta."
 for r in (7,8,9): nota(cfg.cell(row=r,column=3))
 cfg["A11"]="A hora mínima a cobrar é: custo-hora ÷ (1 − margem − impostos). Assim a margem é calculada sobre o preço, e não sobre o custo."; nota(cfg["A11"])
+cfg["A12"]="Esta é a hora mínima do kit (no exemplo: R$ 106,57, arredondada para R$ 110). A planilha 06 usa a mesma conta; a planilha 08 acrescenta uma folga de 20 % para horas não previstas e por isso mostra um valor maior (\"hora mínima com folga\")."; nota(cfg["A12"])
 widths(cfg,(46,26,90)); cfg.sheet_view.showGridLines=False
 # ---------- Custos fixos ----------
 cfx=wb.create_sheet("Custos fixos")
@@ -59,7 +60,7 @@ kpi(p,4,1,"Custo total do mês","=B11",LAVANDA,UVA,fmt=BRL0)
 kpi(p,4,3,"Horas faturáveis no mês","=B12",LAVANDA,UVA,fmt="#,##0")
 kpi(p,4,5,"Custo-hora do escritório","=B13",SOL,UVA,fmt=BRL)
 kpi(p,4,7,"Hora mínima a cobrar","=B17",VERDE,VERDE_T,fmt=BRL)
-kpi(p,4,9,"Ocupação da equipe","=B21",LAVANDA,UVA,fmt=PCT)
+kpi(p,4,9,"Tempo faturável (planejado)","=B21",LAVANDA,UVA,fmt=PCT)
 p["A7"]="Como chegamos ao número"; p["A7"].font=F(bold=True,size=13,color=UVA)
 hdr(p,8,["Passo","Valor","De onde vem"])
 linhas=[
@@ -75,7 +76,7 @@ linhas=[
  ("Custos indiretos (custos fixos menos pessoas já contadas neles)",f'=B9-SUMIFS({PC},{PD},"Sim")',BRL,"Para ratear entre as pessoas"),
  ("Custo indireto por hora faturável",'=IF(B12=0,0,B18/B12)',BRL,"Custos indiretos ÷ horas faturáveis"),
  ("Horas de trabalho no mês (todas as pessoas)",f"=SUM({PE})","#,##0","Aba Pessoas"),
- ("Ocupação da equipe (faturáveis ÷ trabalho)",'=IF(B20=0,"",B12/B20)',PCT,"Quanto do tempo pago vira hora cobrável"),
+ ("Tempo faturável planejado (horas faturáveis ÷ horas de trabalho)",'=IF(B20=0,"",B12/B20)',PCT,"Quanto do tempo pago vira hora cobrável (a planilha 16 mede o realizado contra a meta)"),
 ]
 for i,(a,f_,fmt,c) in enumerate(linhas):
     r=9+i
@@ -124,7 +125,7 @@ widths(p,(44,16,16,16,16,16,16,14,14,14)); p.freeze_panes="A4"; p.sheet_view.sho
 for i,(nome,valor) in enumerate(dados.CUSTOS_FIXOS):
     cfx.cell(row=CF0+i,column=1,value=nome); cfx.cell(row=CF0+i,column=2,value=valor)
 cfx.cell(row=CF0+6,column=3,value="Mesma pessoa da aba Pessoas (marcada \"Sim\" lá)")
-horas_trab={"Marina Ferraz":160,"Rafael Lima":160,"Júlia Prado":120}
+horas_trab=dados.HORAS_TRABALHO
 nomes_fixos=[n.lower() for n,_ in dados.CUSTOS_FIXOS]
 for i,(nome,papel,custo,hf) in enumerate(dados.PESSOAS):
     r=P0+i; ja="Sim" if any(papel.split(" ")[0].lower() in n for n in nomes_fixos) else "Não"
@@ -136,6 +137,6 @@ como_usar(wb,"Custo-hora do escritório",[
  ("Passo 3","Em Config, a margem que você quer sobre o preço e o percentual de impostos e taxas que sai de cada recebimento (confira com o contador)."),
  ("Passo 4","Em Painel: custo-hora do escritório, hora mínima a cobrar, custo-hora de cada pessoa e a sensibilidade. Use a hora mínima nas planilhas 06 (Simulador) e 08 (Tabela de referência)."),
  ("Rotina","Revise uma vez por trimestre ou quando mudar aluguel, equipe ou pró-labore. Leva 10 minutos."),
- ("Com a IA","Copie \"Como chegamos ao número\" e peça à IA para explicar o custo-hora ao sócio em linguagem simples, ou para sugerir o que fazer se a ocupação estiver abaixo de 50%."),
+ ("Com a IA","Copie \"Como chegamos ao número\" e use o prompt \"Honorários 01 · Entender o meu custo-hora\" da biblioteca do kit para explicar o custo-hora ao sócio em linguagem simples, ou para sugerir o que fazer se a ocupação estiver abaixo de 50%."),
 ])
 proteger(wb); salvar(wb,"05-custo-hora.xlsx","Custo-hora do escritório · Kit de Gestão para Advogados")
