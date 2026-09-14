@@ -61,6 +61,15 @@ Os 40 prompts estão em "04-biblioteca-de-prompts" (PDF e TXT). Os 3 vídeos est
 Os 80 prompts estão nas bibliotecas "11-a" e "11-b" (PDF e TXT). As 8 aulas estão na pasta "videos".
 ```
 
+**Advogados:**
+```
+1. Abra o "26-manual-de-implantacao.pdf" e assista à aula 1 (2 min). Os cinco núcleos e a rotina, antes de qualquer planilha.
+2. Abra "05-custo-hora.xlsx", troque os custos fixos e as horas pelos seus: quinze minutos e você sabe quanto custa a sua hora.
+3. Amanhã: "01-agenda-de-prazos.xlsx" com os prazos desta semana. O semáforo faz o resto.
+Os 40 prompts estão em "21-biblioteca-de-prompts-do-escritorio" (PDF e TXT). As 8 aulas estão na pasta "videos".
+Regra número um: nunca cole nome de cliente ou número de processo real em IA pública.
+```
+
 ```
 REQUISITOS
 Excel 2016 ou mais novo (inclusive Microsoft 365) ou Google Sheets. No celular, abre nos aplicativos
@@ -103,6 +112,7 @@ no campo indicado e compare com a ordem da planilha.
 
 **Essencial:** `O vídeo 1 (57 s) mostra tudo isso na tela.`
 **Completo:** `A aula 1 (2 min 25 s) explica por que definir quem lê e quando antes de abrir o Excel. Vale ver antes.`
+**Advogados (substitui os passos acima):** `Abra "05-custo-hora.xlsx". Troque os custos fixos, o pró-labore e as horas faturáveis pelos seus. A hora mínima a cobrar aparece no painel. Compare com o que você cobrou no último caso. A aula 3 mostra na tela.`
 
 ```
 Dúvida? Responda este e-mail.
@@ -155,6 +165,7 @@ Semana organizada. Agora o relatório do mês, que costuma atrasar.
 
 **Essencial:** `Quer apresentar? O modelo de 8 slides ("06-modelo-apresentacao-8-slides.pptx") já tem a ordem certa. E o "07-checklist-antes-de-enviar.pdf" fecha o trabalho.`
 **Completo:** `A aula 5 (2 min 26 s) faz esse caminho inteiro na tela. Para apresentar, use o modelo de 8 slides ("15-modelo-relatorio-mensal-8-slides.pptx") e o prompt "Apresentar 01".`
+**Advogados (substitui os passos acima):** `Assunto: A proposta de honorários com margem. Abra "06-simulador-de-honorarios.xlsx" com um caso real: horas por etapa, custo-hora, margem. Compare fixo, hora, êxito e misto. Depois "07-proposta-de-honorarios.xlsx" monta a tabela para o cliente. A aula 5 mostra tudo na tela.`
 
 ```
 Seu Sócio Gestor
