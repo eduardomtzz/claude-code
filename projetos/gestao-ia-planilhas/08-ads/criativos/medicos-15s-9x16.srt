@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:03,500
+Você atende o dia
+inteiro. E a clínica?
+
+2
+00:00:03,500 --> 00:00:07,002
+Vinte planilhas prontas para
+a clínica: agenda, preço,
+
+3
+00:00:07,002 --> 00:00:08,170
+caixa e convênios.
+
+4
+00:00:08,170 --> 00:00:11,670
+Quarenta prompts, oito
+aulas e modelos de slides.
+
+5
+00:00:11,670 --> 00:00:15,290
+Seiscentos e noventa e
+sete reais. Comece hoje.

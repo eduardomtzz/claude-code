@@ -3,7 +3,7 @@
 Versão condensada do build_criativo_venda.py: 4 cenas (dor → solução com mockup animado → o que vem dentro →
 preço + CTA), narração ≤ ~40 palavras (Piper, provisório até a chave do Google TTS), legenda gravada na imagem
 (muita gente vê sem som), logo no topo, preço no último frame por ≥ 2,5 s. Áudio = narração + silêncio (sem trilha).
-Uso: python3 build_criativo_15s.py <essencial|completo|advogados>
+Uso: python3 build_criativo_15s.py <essencial|completo|advogados|medicos>
 Saída: <produto>-15s-9x16.mp4 + .srt + frames-<produto>-15s.jpg (1 frame por segundo)."""
 import sys, json, subprocess, pathlib, base64, os, html as _html
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]/'produto'/'kit-completo'))
@@ -29,6 +29,11 @@ CFG={
   sol=dict(fala='O Kit Completo: dez planilhas prontas e a IA escreve com os seus números.',min=4.5,h='Com método. <em>Não no braço.</em>',ctx='Kit IA no Trabalho · Completo · tela real da planilha',chips=['Estruturar','Preencher','Perguntar','Entregar'],num=True),
   prova=dict(fala='Oitenta prompts, oito aulas e modelos de slides.',min=3.5,selos=['10 planilhas prontas','80 prompts de IA','8 aulas curtas','3 modelos de slides']),
   fim=dict(fala='Cento e noventa e sete reais. Comece hoje.',min=3.5,tt='Kit IA no Trabalho <em>Completo</em>',preco='Comprar por R$ 197',nota='10 planilhas · 80 prompts · 8 aulas · 3 modelos<br>Pix ou 12× · acesso imediato · 7 dias para desistir')),
+ 'medicos':dict(
+  dor=dict(fala='Você atende o dia inteiro. E a clínica?',min=3.5,h='Você atende. <em>E a clínica?</em>',itens=['Agenda com buraco, sem medir','Convênio aceito sem calcular','Imposto junto com o 13º']),
+  sol=dict(fala='Vinte planilhas prontas para a clínica: agenda, preço, caixa e convênios.',min=4.5,h='Cinco núcleos. <em>Uma rotina.</em>',ctx='Kit de Gestão para Médicos · tela real',chips=['Agenda','Preço','Caixa','Recebíveis','Painel'],num=False),
+  prova=dict(fala='Quarenta prompts, oito aulas e modelos de slides.',min=3.5,selos=['20 planilhas prontas','40 prompts de IA','8 aulas curtas','3 modelos de slides']),
+  fim=dict(fala='Seiscentos e noventa e sete reais. Comece hoje.',min=3.5,tt='Kit de Gestão <em>para Médicos</em>',preco='Comprar por R$ 697',nota='20 planilhas · 40 prompts · 8 aulas · 3 modelos<br>Pix ou 12× · acesso imediato · 7 dias para desistir')),
  'advogados':dict(
   dor=dict(fala='Você advoga o dia inteiro. E o escritório?',min=3.5,h='Você advoga. <em>E o escritório?</em>',itens=['Prazo: caderno, celular, e-mail','"Quanto fica?" de cabeça','Imposto junto com o 13º']),
   sol=dict(fala='Vinte planilhas prontas para o escritório: prazos, honorários e caixa.',min=4.5,h='Cinco núcleos. <em>Uma rotina.</em>',ctx='Kit de Gestão para Advogados · tela real',chips=['Prazos','Honorários','Caixa','Carteira','Painel'],num=False),

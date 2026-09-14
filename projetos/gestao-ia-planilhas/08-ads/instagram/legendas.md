@@ -1,6 +1,6 @@
-# Legendas dos 15 primeiros posts · Instagram @seusociogestor
+# Legendas dos 18 primeiros posts · Instagram @seusociogestor
 
-Ordem de publicação: 1 a 12 (o feed mostra do 12 para o 1). Imagens em `post-NN-1080x1350.png` (4:5).
+Ordem de publicação: 1 a 18 (o feed mostra do 18 para o 1). Imagens em `post-NN-1080x1350.png` (4:5).
 Regras: sem promessa de resultado, sem escassez falsa, preço sempre dito, link na bio para a página do produto.
 Hashtags: poucas e específicas, no fim. Tom: direto, útil, sem "você" acusatório.
 
@@ -180,12 +180,46 @@ Tela real, escritório fictício. Kit de Gestão para Advogados, R$ 497. Link na
 
 ---
 
+**16 · Kit para Médicos**
+Você atende o dia inteiro. A clínica, quem administra?
+
+Vinte planilhas prontas em cinco núcleos: agenda que se mede, preço pela hora de atendimento, caixa com provisão e repasse, convênios e parcelas sem surpresa, e o painel de sexta. Você preenche; a planilha mede a ocupação e as faltas, calcula o custo da sua hora e mostra se o mês deu lucro.
+
+Não é software médico, não é prontuário, não tem mensalidade. R$ 697 uma vez, ou 12× no cartão. 7 dias para desistir. Link na bio.
+#gestaodeclinicas #consultoriomedico #medicos #gestaomedica
+
+---
+
+**17 · Cinco núcleos**
+Agenda, preço, caixa, convênios e painel.
+
+1. Agenda: ocupação por profissional e sala, faltas e remarcações, lista de retorno, rotina de segunda e sexta, checklist do dia.
+2. Preço: custo da hora de atendimento, precificação de consulta e procedimento, simulador convênio × particular, tabela de referência.
+3. Caixa: caixa da clínica, provisão de impostos, 13º e férias, repasse aos parceiros e pró-labore separados, reserva de três meses.
+4. Recebíveis: convênios a receber com glosa e recurso, parcelas com cobrança educada, orçamentos apresentados × aprovados, conciliação de cartão.
+5. Painel: painel de sexta, resultado do mês, metas do trimestre, resumo para a IA e para o contador.
+
+Nada clínico, nada de prontuário: é gestão da clínica. Com 40 prompts, 8 aulas curtas e manual de 4 semanas. R$ 697, uma vez.
+#gestaodeclinicas #medicos #planilhas
+
+---
+
+**18 · O convênio na conta**
+O convênio paga em 60 dias, com glosa. Vale a pena?
+
+O Custo da Hora de Atendimento diz quanto cada consulta custa para acontecer (estrutura, hora do médico e material). O Simulador Convênio × Particular pega a tabela de cada convênio, desconta prazo, glosa esperada e imposto, e mostra o líquido por hora contra a hora mínima a cobrar. A conta fica pronta antes de você assinar ou renovar.
+
+Tela real, clínica de exemplo. Kit de Gestão para Médicos, R$ 697. Link na bio.
+#convenios #glosa #consultoriomedico #gestaomedica
+
+---
+
 ## Stories
 
-Versões 9:16 das mesmas 15 peças em `stories/story-NN-1080x1920.png` (prévia em `stories/previa-stories.jpg`).
+Versões 9:16 das mesmas 18 peças em `stories/story-NN-1080x1920.png` (prévia em `stories/previa-stories.jpg`).
 Geradas por `python3 build_posts.py --stories [n]`, com zona segura de 250 px no topo e 340 px na base.
 
 - Use a mesma legenda do post correspondente (o story não tem legenda visível; ela serve para o texto do sticker ou para responder DMs).
-- Cole o sticker de link sobre a linha "Link na bio · seusociogestor.com.br", apontando para a página do produto: Essencial (R$ 37), Completo (R$ 197) ou Advogados (R$ 497). Nos 6 institucionais, link para a home.
+- Cole o sticker de link sobre a linha "Link na bio · seusociogestor.com.br", apontando para a página do produto: Essencial (R$ 37), Completo (R$ 197), Advogados (R$ 497) ou Médicos (R$ 697). Nos 6 institucionais, link para a home.
 - Publique o story no mesmo dia do post de feed correspondente, ou como "repost" do feed com o story por cima.
 - Não adicione texto do Instagram sobre o título ou o CTA; os 250 px do topo e os 340 px da base já estão livres para a interface.

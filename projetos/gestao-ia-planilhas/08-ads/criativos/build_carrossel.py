@@ -2,11 +2,11 @@
 """Carrosséis de anúncio (Meta Ads, feed e Instagram), 1080×1350, 6 cartões por produto.
 Estrutura fixa (regra do dono): 1 dor → 2 custo → 3 solução (mockup) → 4 prova (inventário real)
 → 5 valor (do zero × kit) → 6 preço + CTA. Saída em carrossel/<produto>-NN-1080x1350.png e
-carrossel/previa-<produto>.jpg. Uso: python3 build_carrossel.py [essencial|completo|advogados]"""
+carrossel/previa-<produto>.jpg. Uso: python3 build_carrossel.py [essencial|completo|advogados|medicos]"""
 import pathlib, base64, subprocess, os, sys, json
 ROOT=pathlib.Path(__file__).resolve().parent; PROJ=ROOT.parents[1]
 S=pathlib.Path('/tmp/claude-0/-home-user-claude-code/a6ac5a85-3495-54eb-8ee2-ee26ae091f81/scratchpad')
-DE=PROJ/'produto'/'kit-essencial'/'docs'; DC=PROJ/'produto'/'kit-completo'/'docs'; DA=PROJ/'produto'/'kit-advogados'/'docs'
+DE=PROJ/'produto'/'kit-essencial'/'docs'; DC=PROJ/'produto'/'kit-completo'/'docs'; DA=PROJ/'produto'/'kit-advogados'/'docs'; DM=PROJ/'produto'/'kit-medicos'/'docs'
 AS=PROJ/'site'/'public'/'assets'; FONTS=AS/'fonts'; OUT=ROOT/'carrossel'; TRAB=ROOT/'trabalho-carrossel'
 b64=lambda p: base64.b64encode(pathlib.Path(p).read_bytes()).decode()
 def img(p): return f"data:image/{'webp' if str(p).endswith('.webp') else 'png'};base64,{b64(p)}"
@@ -201,6 +201,40 @@ PRODUTOS={
 {comparacao(400,('Software jurídico','Com o kit'),[('Preço','A partir de R$ 220 por mês*','R$ 497, uma vez'),('Em 12 meses','R$ 2.640 ou mais','R$ 497'),('Arquivos','Acesso enquanto paga','Seus, para sempre'),('Custo-hora','Você calcula na mão','A planilha calcula'),('Impostos','Provisão no susto','Separada todo mês')])}
 <div class="nota" style="position:absolute;left:72px;right:72px;top:1120px;font-size:21px">*Menor plano público de um software de gestão jurídica, consultado em set/2026. Software cuida de publicação e petição; o kit cuida do dinheiro e do tempo do escritório. Um não substitui o outro.</div>'''),
  ('uva',preco('R$ 497','ou 12× no cartão · acesso imediato após a aprovação',['20 planilhas em 5 núcleos (Excel, Sheets e celular)','40 prompts do escritório com exemplo','8 aulas curtas + manual de implantação','3 modelos de apresentação e 3 bônus','7 dias para desistir, sem explicar'],'Comprar por R$ 497','Pix ou 12× no cartão · 7 dias para desistir')),
+]),
+'medicos':dict(nome='Kit de Gestão para Médicos',url='seusociogestor.com.br/medicos',cartoes=[
+ ('uva',f'''
+<div class="eyebrow">Kit de Gestão para Médicos</div>
+<div class="t h" style="font-size:92px;top:210px">Você atende o dia inteiro. A clínica, <em>quem administra?</em></div>
+<div class="sub" style="top:670px;font-size:36px">Agenda com buraco, tabela do convênio sem calcular, imposto no susto. Vinte planilhas prontas cuidam do dinheiro e do tempo da clínica.</div>
+<div class="pill" style="position:absolute;right:72px;top:1120px;height:96px;font-size:38px;padding:0 40px">Arraste para ver <span style="margin-left:16px">→</span></div>'''),
+ ('creme',f'''
+<div class="eyebrow">O custo de aceitar a tabela</div>
+<div class="t h" style="font-size:80px">A consulta custa R$ 131. O convênio paga <em>R$ 120.</em></div>
+<div style="position:absolute;left:72px;right:72px;top:500px;display:grid;grid-template-columns:1fr 1fr;gap:20px">
+  <div class="card"><span class="mono" style="font-size:22px;text-transform:uppercase;letter-spacing:.06em">Convênio · consulta</span><b class="big" style="font-size:70px;margin:10px 0 2px">R$ 120</b><span>tabela, paga em 30 dias</span><b class="big" style="font-size:58px;margin:18px 0 2px;color:#C8402E">R$ 101,85</b><span>líquido após glosa e imposto</span></div>
+  <div class="card" style="background:#FFF7DD;border-color:#FFC83D"><span class="mono" style="font-size:22px;text-transform:uppercase;letter-spacing:.06em">Custo cheio da consulta</span><b class="big" style="font-size:70px;margin:10px 0 2px">R$ 130,67</b><span>estrutura, hora e material</span><b class="big" style="font-size:58px;margin:18px 0 2px;color:#1E7A3E">R$ 221,47</b><span>preço mínimo com margem</span></div>
+</div>
+<div class="card" style="position:absolute;left:72px;right:72px;top:872px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 34px"><span style="font-size:29px;line-height:1.25;color:#5A4A78">Cada consulta desse convênio,<br>no exemplo:</span><b class="big" style="font-size:72px;margin:0;color:#C8402E">−R$ 28,82</b></div>
+<div class="sub" style="top:1060px;font-size:29px">Prazo, glosa e imposto fora da conta, e ninguém percebe. Números da clínica de exemplo, planilhas Custo da Hora e Simulador; os seus, você confere nas suas.</div>'''),
+ ('creme',f'''
+<div class="eyebrow">A solução</div>
+<div class="t h" style="font-size:70px">20 planilhas em 5 núcleos: agenda, preço, caixa, recebíveis <em>e painel.</em></div>
+<div class="sub" style="top:440px;font-size:28px">Telas reais do kit, no computador e no celular:</div>
+{dispositivos(72,486,0.66,DM/'tela-17.png',DM/'tela-01.png','Painel da Clínica','Agenda e Ocupação')}
+{chips(['Agenda: ocupação e faltas','Custo da hora: quanto cobrar','Caixa: repasse e imposto separados'],1096)}'''),
+ ('lav',f'''
+<div class="eyebrow">O que vem dentro</div>
+<div class="t h" style="font-size:70px;top:190px">Cinco núcleos, <em>vinte planilhas.</em></div>
+{inventario(300,[(AS/'medicos'/'mock-agenda.webp','1 · Agenda'),(AS/'medicos'/'mock-preco.webp','2 · Preço'),(AS/'medicos'/'mock-caixa.webp','3 · Caixa'),(AS/'medicos'/'mock-convenios.webp','4 · Recebíveis'),(AS/'medicos'/'mock-painel.webp','5 · Painel'),
+  ('txt','<b style="font-size:28px;margin-bottom:10px">E mais</b>'+lista_txt(['40 prompts e 8 aulas curtas','Manual de 4 semanas','3 modelos de slides e 3 bônus'],25))],h=240)}
+<div class="nota" style="position:absolute;left:72px;top:1080px">Nada clínico, nada de prontuário: é gestão da clínica.<br>Telas reais · clínica de exemplo</div>'''),
+ ('creme',f'''
+<div class="eyebrow">Faça a conta</div>
+<div class="t h" style="font-size:80px">Mensalidade ou <em>uma vez?</em></div>
+{comparacao(400,('Software de clínica','Com o kit'),[('Preço','A partir de R$ 62 por mês*','R$ 697, uma vez'),('Em 12 meses','R$ 744 ou mais','R$ 697'),('Arquivos','Acesso enquanto paga','Seus, para sempre'),('Custo da hora','Você calcula na mão','A planilha calcula'),('Convênio','Glosa só no extrato','Prazo e glosa na conta')])}
+<div class="nota" style="position:absolute;left:72px;right:72px;top:1120px;font-size:21px">*Menor plano público de um software de clínica, consultado em set/2026. Software cuida de agenda online e prontuário; o kit cuida do dinheiro e do tempo da clínica. Um não substitui o outro.</div>'''),
+ ('uva',preco('R$ 697','ou 12× no cartão · acesso imediato após a aprovação',['20 planilhas em 5 núcleos (Excel, Sheets e celular)','40 prompts da clínica com exemplo','8 aulas curtas + manual de implantação','3 modelos de apresentação e 3 bônus','7 dias para desistir, sem explicar'],'Comprar por R$ 697','Pix ou 12× no cartão · 7 dias para desistir')),
 ]),
 }
 NOMES_ETAPA=['A dor','O custo','A solução','O que vem dentro','Faça a conta','Preço']

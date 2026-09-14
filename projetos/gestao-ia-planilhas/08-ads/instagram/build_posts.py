@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
-"""15 posts de feed do Instagram (1080×1350) com direção visual única: 6 institucionais, 3 do Essencial, 3 do Completo,
-3 do Kit para Advogados. Também gera a prévia do feed (3 colunas, ordem de publicação invertida).
+"""18 posts de feed do Instagram (1080×1350) com direção visual única: 6 institucionais, 3 do Essencial, 3 do Completo,
+3 do Kit para Advogados, 3 do Kit para Médicos. Também gera a prévia do feed (3 colunas, ordem de publicação invertida).
 
 Uso:
   python3 build_posts.py [n]            feed 4:5   -> post-NN-1080x1350.png + previa-feed.jpg
   python3 build_posts.py --stories [n]  stories 9:16 -> stories/story-NN-1080x1920.png + stories/previa-stories.jpg
 
-Stories/Reels: as mesmas 15 peças (mesmos títulos e blocos de conteúdo), em 1080×1920, com zona segura de 250 px no
+Stories/Reels: as mesmas 18 peças (mesmos títulos e blocos de conteúdo), em 1080×1920, com zona segura de 250 px no
 topo e 340 px na base (áreas cobertas pela interface do Instagram). Elementos maiores, mockups maiores, e rodapé de CTA
 "Link na bio · seusociogestor.com.br" com o preço nos posts de produto. O render avisa (ESTOURO / PILULA) quando algo
 sai da zona segura ou quando uma pílula/tag quebra linha."""
 import pathlib, base64, subprocess, os, sys, json
 ROOT=pathlib.Path(__file__).resolve().parent; PROJ=ROOT.parents[1]
 S=pathlib.Path('/tmp/claude-0/-home-user-claude-code/a6ac5a85-3495-54eb-8ee2-ee26ae091f81/scratchpad')
-DE=PROJ/'produto'/'kit-essencial'/'docs'; DC=PROJ/'produto'/'kit-completo'/'docs'; DA=PROJ/'produto'/'kit-advogados'/'docs'; FONTS=PROJ/'site'/'public'/'assets'/'fonts'
+DE=PROJ/'produto'/'kit-essencial'/'docs'; DC=PROJ/'produto'/'kit-completo'/'docs'; DA=PROJ/'produto'/'kit-advogados'/'docs'; DM=PROJ/'produto'/'kit-medicos'/'docs'; FONTS=PROJ/'site'/'public'/'assets'/'fonts'
 b64=lambda p: base64.b64encode(pathlib.Path(p).read_bytes()).decode()
 LOGO=(PROJ/'03-marca'/'logo'/'logo-horizontal.svg').read_text(); LOGOB=(PROJ/'03-marca'/'logo'/'logo-branco.svg').read_text()
 EMP=(PROJ/'03-marca'/'logo'/'logo-empilhado.svg').read_text(); EMPB=(PROJ/'03-marca'/'logo'/'logo-empilhado-branco.svg').read_text()
@@ -94,7 +94,8 @@ T={1:'Você sabe fazer o seu trabalho. A gestão dele <em>veio sem manual.</em>'
    8:'Sete arquivos, <em>todos seus.</em>',9:'Você digita as tarefas. A aba Hoje <em>decide a ordem.</em>',
    10:'10 planilhas, 80 prompts e 8 aulas curtas. <em>Método, não braço.</em>',11:'Dez planilhas, <em>uma pergunta cada.</em>',
    12:'É para você se <em>entrega para alguém.</em>',13:'Você advoga o dia inteiro. O escritório, <em>quem administra?</em>',
-   14:'Cinco núcleos, <em>vinte planilhas.</em>',15:'Quanto custa <em>a sua hora?</em>'}
+   14:'Cinco núcleos, <em>vinte planilhas.</em>',15:'Quanto custa <em>a sua hora?</em>',
+   16:'Você atende o dia inteiro. A clínica, <em>quem administra?</em>',17:'Agenda, preço, caixa, convênios <em>e painel.</em>',18:'O convênio paga em 60 dias. <em>Vale a pena?</em>'}
 SUB1='O Seu Sócio Gestor é o sócio que cuida da parte que ninguém te ensinou: planilhas prontas, prompts de IA e manual. Você baixa, preenche e fecha o mês.'
 def pills1(h=84,fs=32,p=34):
     st=f'height:{h}px;font-size:{fs}px;padding:0 {p}px'
@@ -136,10 +137,14 @@ def tiles_html(pad='24px 26px',nfs=24,bfs=30): return ''.join(f'<div class="card
 SUB11='Todas com exemplo preenchido, fórmulas protegidas e aba "Como usar". Excel, Google Sheets e celular.'
 NUCLEOS14=[('Prazos','agenda com semáforo, andamento, rotina, checklist'),('Honorários','custo-hora, simulador, proposta, tabela de referência'),('Caixa','caixa, provisão de impostos, pró-labore, reserva'),
            ('Carteira','clientes e casos, parcelas e cobrança, funil, horas'),('Painel','painel de sexta, resultado, metas, resumo para a IA')]
-def nucleos14(pad='20px 30px',num=(60,30),bfs=34,sfs=None):
+def nucleos14(pad='20px 30px',num=(60,30),bfs=34,sfs=None,itens=None):
     s=f' style="display:block;font-size:{sfs}px"' if sfs else ''
-    return ''.join(f'<div class="card" style="display:flex;gap:24px;align-items:center;padding:{pad}"><div class="num" style="width:{num[0]}px;height:{num[0]}px;font-size:{num[1]}px">{i+1}</div><div><b style="font-size:{bfs}px">{b}</b><span{s}>{t}</span></div></div>' for i,(b,t) in enumerate(NUCLEOS14))
+    return ''.join(f'<div class="card" style="display:flex;gap:24px;align-items:center;padding:{pad}"><div class="num" style="width:{num[0]}px;height:{num[0]}px;font-size:{num[1]}px">{i+1}</div><div><b style="font-size:{bfs}px">{b}</b><span{s}>{t}</span></div></div>' for i,(b,t) in enumerate(itens or NUCLEOS14))
 SUB14='Nada de peça ou orientação jurídica. É gestão do escritório. R$ 497, uma vez.'
+NUCLEOS17=[('Agenda','ocupação por sala, faltas, lista de retorno, rotina'),('Preço','custo da hora, precificação, simulador de convênio'),('Caixa','caixa, provisão de impostos e 13º, repasse, reserva'),
+           ('Recebíveis','convênios e glosa, parcelas, orçamentos, cartão'),('Painel','painel de sexta, resultado, metas, resumo para a IA')]
+SUB17='Nada clínico, nada de prontuário: é gestão da clínica. R$ 697, uma vez.'
+CARDS18=[('Custo cheio da consulta','hora de atendimento + material'),('Tabela, prazo e glosa','o líquido real de cada convênio'),('Líquido por hora','contra a hora mínima a cobrar')]
 POSTS=[]
 def post(n,tema,eyebrow,rod_dir,corpo):
     POSTS.append((n,tema,f'<div class="topo">{LOGOB if tema=="uva" else LOGO}</div><div class="eyebrow">{eyebrow}</div>{corpo}<div class="rod"><span>seusociogestor.com.br</span><span>{rod_dir}</span></div>'))
@@ -233,6 +238,25 @@ post(15,'lav','15 · custo-hora','Kit de Gestão para Advogados',f'''
   {cards_lado(CARDS15)}
 </div>
 <div style="position:absolute;left:72px;top:1150px" class="pill">Comprar por R$ 497</div>''')
+# ---------- 3 do Kit para Médicos ----------
+post(16,'creme','16 · para médicos','Kit de Gestão para Médicos',f'''
+<div class="t h" style="font-size:80px">{T[16]}</div>
+{dispositivos(72,470,0.7,DM/'tela-17.png',DM/'tela-01.png','Painel da Clínica','Agenda e Ocupação',2.6)}
+<div style="position:absolute;left:72px;top:1150px" class="pill">Comprar por R$ 697</div>
+<div class="mono" style="position:absolute;left:560px;top:1170px;font-size:24px;color:#7A5AA8;line-height:1.35">Pix ou 12× no cartão<br>7 dias para desistir</div>''')
+post(17,'uva','17 · cinco núcleos','Kit de Gestão para Médicos',f'''
+<div class="t h" style="font-size:84px">{T[17]}</div>
+<div style="position:absolute;left:72px;right:72px;top:430px;display:grid;gap:18px">
+  {nucleos14(itens=NUCLEOS17)}
+</div>
+<div class="sub" style="top:1185px;font-size:28px">{SUB17}</div>''')
+post(18,'lav','18 · convênio na conta','Kit de Gestão para Médicos',f'''
+<div class="t h" style="font-size:80px">{T[18]}</div>
+{fone_so(600,440,340,DM/'tela-07.png',2.2,'Tela real. Clínica de exemplo.')}
+<div style="position:absolute;left:72px;top:520px;width:440px;display:grid;gap:18px">
+  {cards_lado(CARDS18)}
+</div>
+<div style="position:absolute;left:72px;top:1150px" class="pill">Comprar por R$ 697</div>''')
 
 # ---------- Stories 9:16: mesmas peças, coluna útil de 352 a 1520 px ----------
 STORIES=[]
@@ -269,6 +293,10 @@ story(12,'lav','12 · para quem é','Kit Completo · R$ 197',linhas(LIN12,'#DCD2
 story(13,'creme','13 · para advogados','Kit Advogados · R$ 497',mock_story(DA/'tela-17.png',DA/'tela-01.png','Painel do Escritório','Agenda de Prazos'),CTA_ADV,tsize=84)
 story(14,'uva','14 · cinco núcleos','Kit Advogados · R$ 497',f'<div style="display:grid;gap:14px">{nucleos14("16px 30px",(62,32),35,28)}</div><div class="sub" style="margin-top:30px;font-size:29px">{SUB14}</div>',CTA_ADV)
 story(15,'lav','15 · custo-hora','Kit Advogados · R$ 497',fone_story(DA/'tela-05.png',2.2,'Tela real. Escritório fictício.',CARDS15),CTA_ADV,tsize=88)
+CTA_MED=cta('Comprar por R$ 697','Pix ou 12× no cartão<br>7 dias para desistir')
+story(16,'creme','16 · para médicos','Kit Médicos · R$ 697',mock_story(DM/'tela-17.png',DM/'tela-01.png','Painel da Clínica','Agenda e Ocupação'),CTA_MED,tsize=84)
+story(17,'uva','17 · cinco núcleos','Kit Médicos · R$ 697',f'<div style="display:grid;gap:14px">{nucleos14("16px 30px",(62,32),35,28,itens=NUCLEOS17)}</div><div class="sub" style="margin-top:30px;font-size:29px">{SUB17}</div>',CTA_MED)
+story(18,'lav','18 · convênio na conta','Kit Médicos · R$ 697',fone_story(DM/'tela-07.png',2.2,'Tela real. Clínica de exemplo.',CARDS18),CTA_MED,tsize=88)
 
 # ---------- render ----------
 out=ROOT/'trabalho'; out.mkdir(exist_ok=True); jobs=[]
@@ -289,12 +317,12 @@ subprocess.run(['node',str(out/'shot.js')],check=True,env={**os.environ,'NODE_PA
 if not alvo:
     from PIL import Image
     N=len(PECAS)
-    if STORY:   # prévia dos stories: 5 colunas × 3 linhas, ordem 1..15
+    if STORY:   # prévia dos stories: 5 colunas, ordem 1..N
         ims=[Image.open(dest/f'story-{n:02d}-1080x1920.png').resize((216,384)) for n in range(1,N+1)]
-        g=Image.new('RGB',(5*216+4*6,3*384+2*6),'#fff')
+        rows=(N+4)//5; g=Image.new('RGB',(5*216+4*6,rows*384+(rows-1)*6),'#fff')
         for i,im in enumerate(ims): g.paste(im,((i%5)*222,(i//5)*390))
         g.save(dest/'previa-stories.jpg',quality=85); print('prévia stories ok')
-    else:       # prévia do feed: 3 colunas, do mais recente (15) ao mais antigo (1)
+    else:       # prévia do feed: 3 colunas, do mais recente (N) ao mais antigo (1)
         ims=[Image.open(ROOT/f'post-{n:02d}-1080x1350.png').resize((360,450)) for n in range(N,0,-1)]
         rows=(N+2)//3; g=Image.new('RGB',(3*360+2*6,rows*450+(rows-1)*6),'#fff')
         for i,im in enumerate(ims): g.paste(im,((i%3)*366,(i//3)*456))

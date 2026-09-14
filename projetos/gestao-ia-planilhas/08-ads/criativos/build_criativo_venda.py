@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Criativo de VENDA 9:16 do Kit Essencial: dor → custo → solução (infográfico animado) → prova → valor → preço."""
+"""Criativo de VENDA 9:16 por produto (essencial, completo, advogados, medicos): dor → custo → solução (infográfico
+animado) → prova → valor → preço. Uso: python3 build_criativo_venda.py <produto>. Saída: <produto>-venda-9x16.mp4 + .srt +
+frames-<produto>-venda.jpg (1 frame a cada 2 s). Narração via produto/kit-completo/tts.py (Piper até a chave do Google TTS)."""
 import sys, json, subprocess, pathlib, base64, os
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]/'produto'/'kit-completo'))
 import video_engine as V
@@ -38,6 +40,15 @@ CFG['advogados']=dict(
    {'tipo':'prova','fala':'Não é promessa: vinte planilhas reais, quarenta prompts, oito aulas curtas e três modelos de apresentação. No computador ou no celular.','min':7.5,'selos':['20 planilhas prontas','40 prompts','8 aulas curtas','3 modelos de slides']},
    {'tipo':'valor','fala':'Software jurídico custa a partir de duzentos e vinte reais por mês, todo mês. O kit custa quatrocentos e noventa e sete. Uma vez, em até doze vezes.','min':7.5,'c1':('software','R$ 220+','por mês, todo mês'),'c2':('o kit','R$ 497','uma vez, ou 12× no cartão'),'rod':'Menos que três meses do software, e os arquivos ficam com você'},
    {'tipo':'fim','fala':'Kit de Gestão para Advogados. Quatrocentos e noventa e sete reais. Sete dias para desistir. Comece hoje.','min':6.0,'tt':'Kit de Gestão <em>para Advogados</em>','preco':'Comprar por R$ 497','nota':'20 planilhas · 40 prompts · 8 aulas · 3 modelos<br>Pix ou 12× · acesso imediato · 7 dias para desistir'},
+  ])
+CFG['medicos']=dict(
+  cenas=[
+   {'tipo':'dor','fala':'A agenda tem buraco, e ninguém mede. O convênio manda a tabela, e você aceita sem calcular. E o imposto chega junto com o décimo terceiro.','min':8.5,'h':'Você atende. <em class="esc">E a clínica?</em>','itens':['Agenda com buraco, sem medir','Tabela do convênio sem calcular','Imposto junto com o 13º'],'rod':'e ninguém sabe se o mês deu lucro'},
+   {'tipo':'custo','fala':'Na clínica de exemplo, uma consulta custa cerca de cento e trinta reais. O convênio paga cento e vinte, em trinta dias, com glosa.','min':7.0,'h':'Quanto custa uma consulta?','pre':'R$ ','num':130,'passo':3,'unid':'','small':'é o custo cheio de uma consulta de 30 min','leg':'O convênio paga R$ 120, em 30 dias, com glosa. Números da clínica de exemplo, planilha Custo da Hora.'},
+   {'tipo':'fluxo','fala':'O Kit de Gestão para Médicos tem cinco núcleos. Agenda que se mede. Preço pela hora. Caixa com provisão. Recebíveis sem surpresa. E o painel de sexta.','min':9.0,'h':'Cinco núcleos. <em>Uma rotina.</em>','passos':[('Agenda','ocupação, faltas e lista de retorno'),('Preço','custo da hora + material + margem'),('Caixa','impostos, 13º e repasse separados'),('Recebíveis e painel','glosa, parcelas e uma tela na sexta')],'t':[1.4,3.6,5.8,7.8],'rod':'Kit de Gestão para Médicos'},
+   {'tipo':'prova','fala':'Não é promessa: vinte planilhas reais, quarenta prompts, oito aulas curtas e três modelos de apresentação. Tela real, clínica de exemplo.','min':7.0,'selos':['20 planilhas prontas','40 prompts','8 aulas curtas','3 modelos de slides']},
+   {'tipo':'valor','fala':'Software de clínica custa a partir de sessenta e dois reais por mês. O kit cuida do dinheiro da clínica por seiscentos e noventa e sete, uma vez, em até doze vezes.','min':7.5,'c1':('software de clínica','R$ 62+','por mês, todo mês'),'c2':('o kit','R$ 697','uma vez, ou 12× no cartão'),'rod':'Menos que um ano do software, uma vez. Um não substitui o outro.'},
+   {'tipo':'fim','fala':'Kit de Gestão para Médicos. Seiscentos e noventa e sete reais. Sete dias para desistir. Comece hoje.','min':6.0,'tt':'Kit de Gestão <em>para Médicos</em>','preco':'Comprar por R$ 697','nota':'20 planilhas · 40 prompts · 8 aulas · 3 modelos<br>Pix ou 12× · acesso imediato · 7 dias para desistir'},
   ])
 CENAS=CFG[PROD]['cenas']
 CSS=f"""
@@ -105,8 +116,8 @@ def html(cenas):
             partes.append(f'<div class="cena dor" id="c{i}"><div class="topo">{LOGO}</div><div class="t h">{c["h"]}</div><ul class="lista">{its}</ul><div class="rod">{c["rod"]}</div></div>')
             extra.append(f'[0.4,1.9,3.6].forEach((s,k)=>setTimeout(()=>document.getElementById("d"+k).classList.add("on"),(T{i}+s)*1000));')
         elif c['tipo']=='custo':
-            partes.append(f'<div class="cena custo" id="c{i}"><div class="topo">{LOGO}</div><div class="t h">Quanto isso custa?</div><div class="num"><span id="cnum">0</span> {c["unid"]}<small>{c["small"]}</small></div><div class="barra"><i id="cbar"></i></div><div class="leg">{c["leg"]}</div></div>')
-            extra.append(f'setTimeout(()=>{{document.getElementById("cbar").style.width="100%"; let n=0; const iv=setInterval(()=>{{n+={c["passo"]}; if(n>={c["num"]}){{n={c["num"]};clearInterval(iv);}} document.getElementById("cnum").textContent=n;}},60);}},(T{i}+0.5)*1000);')
+            partes.append(f'<div class="cena custo" id="c{i}"><div class="topo">{LOGO}</div><div class="t h">{c.get("h","Quanto isso custa?")}</div><div class="num">{c.get("pre","")}<span id="cnum">0</span> {c["unid"]}<small>{c["small"]}</small></div><div class="barra"><i id="cbar"></i></div><div class="leg">{c["leg"]}</div></div>')
+            extra.append(f'setTimeout(()=>{{document.getElementById("cbar").style.width="100%"; let n=0; const iv=setInterval(()=>{{n+={c["passo"]}; if(n>={c["num"]}){{n={c["num"]};clearInterval(iv);}} document.getElementById("cnum").textContent=n.toLocaleString("pt-BR");}},60);}},(T{i}+0.5)*1000);')
         elif c['tipo']=='fluxo':
             ps=c['passos']; comp=' fluxo--4' if len(ps)>3 else ''
             inner=''.join(f'<div class="p" id="f{k}"><div class="n">{k+1}</div><div><b>{a}</b><span>{b}</span></div></div>'+('<div class="seta">▼</div>' if k<len(ps)-1 else '') for k,(a,b) in enumerate(ps))
@@ -152,4 +163,7 @@ subprocess.run(['ffmpeg','-y','-loglevel','error','-i',str(out/'gravacao.webm'),
 srt=[]; t=0.0
 def ts(x): h=int(x//3600); m=int(x%3600//60); s=x%60; return f'{h:02d}:{m:02d}:{s:06.3f}'.replace('.',',')
 for i,c in enumerate(CENAS): srt.append(f"{i+1}\n{ts(t)} --> {ts(t+c['dur']-PAUSA)}\n{c['fala']}\n"); t+=c['dur']
-(ROOT/f'{PROD}-venda-9x16.srt').write_text('\n'.join(srt)); print(f'{total:.1f}s', final)
+(ROOT/f'{PROD}-venda-9x16.srt').write_text('\n'.join(srt))
+frames=ROOT/f'frames-{PROD}-venda.jpg'   # 1 frame a cada 2 s, 10 por linha (cobre até 60 s)
+subprocess.run(['ffmpeg','-y','-loglevel','error','-i',str(final),'-vf','fps=0.5,scale=-1:640,tile=10x3:padding=6:color=white','-frames:v','1','-q:v','3',str(frames)],check=True)
+print(f'{total:.1f}s', final, frames)
