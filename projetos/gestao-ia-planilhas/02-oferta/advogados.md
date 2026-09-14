@@ -49,7 +49,7 @@ tarefa administrativa, cliente inadimplente.
 ## Produto: 20 planilhas em 5 núcleos
 
 Formato: Excel 2019+/Microsoft 365 e Google Sheets, fórmulas protegidas sem senha, escritório fictício
-preenchido ("Ferraz & Lima Advocacia", 2 sócios, 1 estagiária, 38 casos ativos, dados de setembro de
+preenchido ("Ferraz & Lima Advocacia", 2 sócios, 1 estagiária, 38 casos (30 ativos), dados de setembro de
 2026, datas relativas a hoje onde houver prazo), aba "Como usar" em cada arquivo, formato brasileiro.
 Só dados administrativos fictícios: nome de cliente inventado, número de processo inventado, valor e
 data. **Nada de conteúdo jurídico.**
@@ -82,7 +82,7 @@ Reaproveitamento honesto do que já existe: 3, 12, 15, 16, 19 e 20 derivam de pl
 outras 14 são novas.
 
 Acompanha:
-- **Manual de implantação** (PDF, 20 a 30 páginas): quatro semanas, um núcleo por semana, com a rotina de
+- **Manual de implantação** (PDF, cerca de 20 páginas): quatro semanas, as 20 planilhas distribuídas, com a rotina de
   segunda (prazos) e de sexta (caixa e painel).
 - **8 aulas em vídeo** (2 a 3 min, tela real, narração por IA, legenda gravada): uma por núcleo, mais
   custo-hora, proposta e fechamento do mês.
