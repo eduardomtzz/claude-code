@@ -83,7 +83,8 @@ def gera_auto(kit,largura=1300,altura=900,filtro=None):
         if filtro and filtro not in arq.name: continue
         abas=[a for a in openpyxl.load_workbook(arq,read_only=True).sheetnames if a!='Como usar']
         if not abas: continue
-        tabela[f'tela-{nn}']=(arq.name,abas[0],largura,altura)
+        LARG={'17':1500,'13':1400,'18':1400,'20':1400}
+        tabela[f'tela-{nn}']=(arq.name,abas[0],LARG.get(nn,largura),altura)
         if 'Painel' in abas and abas[0]!='Painel': tabela[f'tela-{nn}-painel']=(arq.name,'Painel',largura,altura)
     gera(kit,tabela)
 kit=sys.argv[1] if len(sys.argv)>1 else 'todos'; filtro=sys.argv[2] if len(sys.argv)>2 else None

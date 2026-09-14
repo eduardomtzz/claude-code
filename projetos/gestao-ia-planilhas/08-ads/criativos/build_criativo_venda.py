@@ -30,6 +30,15 @@ CFG={
    {'tipo':'fim','fala':'Kit IA no Trabalho Completo. Cento e noventa e sete reais. Sete dias para desistir. Comece hoje.','min':6.0,'tt':'Kit IA no Trabalho <em>Completo</em>','preco':'Comprar por R$ 197','nota':'10 planilhas · 80 prompts · 8 aulas · 3 modelos<br>Pix ou 12× · acesso imediato · 7 dias para desistir'},
   ]),
 }
+CFG['advogados']=dict(
+  cenas=[
+   {'tipo':'dor','fala':'O prazo está no caderno, no celular e no e-mail. O cliente pergunta quanto fica e você responde de cabeça. E o imposto chega junto com o décimo terceiro.','min':8.5,'h':'Você advoga. <em class="esc">E o escritório?</em>','itens':['Prazo: caderno, celular, e-mail','"Quanto fica?" de cabeça','Imposto junto com o 13º'],'rod':'e ninguém sabe se o mês deu lucro'},
+   {'tipo':'custo','fala':'Um caso de quarenta horas cobrado abaixo do custo da sua hora. Isso acontece toda vez que o honorário é chute.','min':6.5,'num':40,'passo':1,'unid':'h','small':'trabalhadas num caso cobrado no chute','leg':'Sem custo-hora, a proposta sai errada. E você só descobre no fim.'},
+   {'tipo':'fluxo','fala':'O Kit de Gestão para Advogados tem cinco núcleos. Prazos com semáforo. Honorário pela hora. Caixa com provisão. Carteira viva. E o painel de sexta.','min':9.5,'h':'Cinco núcleos. <em>Uma rotina.</em>','passos':[('Prazos','semáforo por dias, rotina de segunda'),('Honorários','custo-hora × horas + margem'),('Caixa','impostos, 13º e pró-labore separados'),('Carteira e painel','quem deve, quanto, e uma tela na sexta')],'t':[1.4,3.6,5.8,7.8],'rod':'Kit de Gestão para Advogados'},
+   {'tipo':'prova','fala':'Não é promessa: vinte planilhas reais, quarenta prompts, oito aulas curtas e três modelos de apresentação. No computador ou no celular.','min':7.5,'selos':['20 planilhas prontas','40 prompts','8 aulas curtas','3 modelos de slides']},
+   {'tipo':'valor','fala':'Software jurídico custa a partir de duzentos e vinte reais por mês, todo mês. O kit custa quatrocentos e noventa e sete. Uma vez, em até doze vezes.','min':7.5,'c1':('software','R$ 220+','por mês, todo mês'),'c2':('o kit','R$ 497','uma vez, ou 12× no cartão'),'rod':'Menos que três meses do software, e os arquivos ficam com você'},
+   {'tipo':'fim','fala':'Kit de Gestão para Advogados. Quatrocentos e noventa e sete reais. Sete dias para desistir. Comece hoje.','min':6.0,'tt':'Kit de Gestão <em>para Advogados</em>','preco':'Comprar por R$ 497','nota':'20 planilhas · 40 prompts · 8 aulas · 3 modelos<br>Pix ou 12× · acesso imediato · 7 dias para desistir'},
+  ])
 CENAS=CFG[PROD]['cenas']
 CSS=f"""
 @font-face{{font-family:'Bricolage Grotesque';font-weight:600 800;src:url(data:font/woff2;base64,{b64(FONTS/'bricolage-grotesque.woff2')}) format('woff2')}}
