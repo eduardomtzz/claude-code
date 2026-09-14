@@ -1,4 +1,4 @@
-# Legendas dos 12 primeiros posts · Instagram @seusociogestor
+# Legendas dos 15 primeiros posts · Instagram @seusociogestor
 
 Ordem de publicação: 1 a 12 (o feed mostra do 12 para o 1). Imagens em `post-NN-1080x1350.png` (4:5).
 Regras: sem promessa de resultado, sem escassez falsa, preço sempre dito, link na bio para a página do produto.
@@ -177,3 +177,15 @@ Custos fixos mais pró-labore, divididos pelas horas que você consegue faturar.
 
 Tela real, escritório fictício. Kit de Gestão para Advogados, R$ 497. Link na bio.
 #honorarios #advocacia #custohora
+
+---
+
+## Stories
+
+Versões 9:16 das mesmas 15 peças em `stories/story-NN-1080x1920.png` (prévia em `stories/previa-stories.jpg`).
+Geradas por `python3 build_posts.py --stories [n]`, com zona segura de 250 px no topo e 340 px na base.
+
+- Use a mesma legenda do post correspondente (o story não tem legenda visível; ela serve para o texto do sticker ou para responder DMs).
+- Cole o sticker de link sobre a linha "Link na bio · seusociogestor.com.br", apontando para a página do produto: Essencial (R$ 37), Completo (R$ 197) ou Advogados (R$ 497). Nos 6 institucionais, link para a home.
+- Publique o story no mesmo dia do post de feed correspondente, ou como "repost" do feed com o story por cima.
+- Não adicione texto do Instagram sobre o título ou o CTA; os 250 px do topo e os 340 px da base já estão livres para a interface.
