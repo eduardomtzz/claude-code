@@ -28,12 +28,18 @@ CSS=f"""
 .fone .notch{{position:absolute;left:50%;top:14px;transform:translateX(-50%);width:36%;height:26px;background:#1F1235;border-radius:0 0 18px 18px;z-index:2}}
 .tag{{position:absolute;background:#3B1F5E;color:#fff;font-family:'IBM Plex Mono';font-size:22px;padding:10px 18px;border-radius:999px;z-index:5}}
 """
+def zoom_fone(img, fw, fh):
+    """Largura da captura no celular: nunca menor que o dobro da tela e grande o bastante para a imagem
+    cobrir a altura do aparelho (sem faixa branca embaixo)."""
+    from PIL import Image
+    w, h = Image.open(img).size
+    return int(max(fw * 2.0, fh * w / h))
 def dispositivos(x,y,escala,lap='tela-relatorio-painel.png',fone='tela-ganhos-painel.png',tag1='Relatório Mensal Pronto',tag2='Ganhos e Gastos',docs=None):
     docs=docs or DOCS
     lw=int(1100*escala); lh=int(660*escala); fw=int(330*escala); fh=int(680*escala); ft=max(20,int(22*escala))
     return f'''<div class="cena" style="left:{x}px;top:{y}px;width:{lw+int(180*escala)}px;height:{lh+int(200*escala)}px">
       <div class="lap" style="left:0;top:0;width:{lw}px"><div class="scr" style="height:{lh-int(52*escala)}px"><img src="data:image/png;base64,{b64(docs/lap)}"></div><div class="base"></div></div>
-      <div class="fone" style="left:{lw-int(150*escala)}px;top:{int(140*escala)}px;width:{fw}px;height:{fh}px"><div class="notch"></div><div class="scr" style="height:100%"><img src="data:image/png;base64,{b64(docs/fone)}" style="width:{int(fw*2.0)}px;left:{-int(fw*0.02)}px;top:0"></div></div>
+      <div class="fone" style="left:{lw-int(150*escala)}px;top:{int(140*escala)}px;width:{fw}px;height:{fh}px"><div class="notch"></div><div class="scr" style="height:100%"><img src="data:image/png;base64,{b64(docs/fone)}" style="width:{zoom_fone(docs/fone,fw,fh)}px;left:{-int(fw*0.02)}px;top:0"></div></div>
       <div class="tag" style="left:{int(40*escala)}px;top:{lh-int(20*escala)}px;font-size:{ft}px;padding:{int(ft*.45)}px {int(ft*.8)}px">{tag1}</div>
       <div class="tag" style="right:0;top:{int(140*escala)+fh+int(16*escala)}px;font-size:{ft}px;padding:{int(ft*.45)}px {int(ft*.8)}px">{tag2}</div>
     </div>'''
