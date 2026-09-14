@@ -3,7 +3,7 @@ BIBLIOTECA DE PROMPTS DA CLÍNICA · KIT DE GESTÃO PARA MÉDICOS
 
 Versão 1.0 · setembro de 2026 · Seu Sócio Gestor
 
-40 prompts em 5 grupos, um para cada núcleo do kit: Agenda, Preço, Caixa, Recebíveis e Painel. Cada um tem: quando usar, de qual planilha vem o bloco a colar, o prompt pronto (troque o que está entre colchetes), um exemplo com a clínica fictícia e o que conferir na resposta. Funcionam no ChatGPT, no Copilot, no Gemini e no Claude, inclusive nas versões gratuitas.
+41 prompts em 5 grupos, um para cada núcleo do kit: Agenda, Preço, Caixa, Recebíveis e Painel. Cada um tem: quando usar, de qual planilha vem o bloco a colar, o prompt pronto (troque o que está entre colchetes), um exemplo com a clínica fictícia e o que conferir na resposta. Funcionam no ChatGPT, no Copilot, no Gemini e no Claude, inclusive nas versões gratuitas.
 
 ========================================
 REGRA DE OURO: O QUE NUNCA ENTRA EM UMA IA PÚBLICA
@@ -21,33 +21,33 @@ Como usar: copie o prompt inteiro, cole na IA, substitua os colchetes, cole o bl
 
 Sobre os exemplos: usam a clínica fictícia do kit, Clínica Vida Plena (dois sócios, a Dra. Carolina Mendes, clínica médica, e o Dr. Paulo Andrade, cardiologia; uma médica parceira por repasse, a Dra. Renata Sousa, endocrinologia; a recepcionista Bruna Carvalho; três convênios fictícios: Saúde Total, MediPlan e Vida Care), na mesma data das 20 planilhas: segunda-feira 14/09/2026, com a agenda e o caixa de setembro em andamento e agosto como último mês fechado. Os números são os que aparecem nas planilhas. Para você reconhecer as linhas, os exemplos citam os nomes inventados da planilha; no bloco colado na IA, eles já viraram Paciente A, B, C.
 
-Os prompts têm o número com que as planilhas os citam na aba "Como usar"; por isso o grupo Caixa vai de 01 a 09 sem o 03 (são oito prompts, como nos outros grupos).
+Os prompts têm o número com que as planilhas os citam na aba "Como usar": Agenda, Preço, Recebíveis e Painel vão de 01 a 08, e o grupo Caixa, de 01 a 09.
 
 ========================================
 DE ONDE VEM CADA BLOCO
 ========================================
 
 Planilha do kit · Aba que você copia · Usada nos prompts
-1 Agenda e ocupação · Painel (tabelas por profissional, sala, dia e período; próximos 7 dias) · Agenda 01, 07, 08, Preço 08, Painel 07
-2 Faltas e retornos · Painel (por dia, pagador, profissional; lista de retorno sem nomes) · Agenda 02, 03
+1 Agenda e ocupação · Painel (tabelas por profissional, sala, dia e período; próximos 7 dias) · Agenda 01, 07, Preço 08, Caixa 07, Painel 07
+2 Faltas e retornos · Painel (por dia, pagador, profissional; lista de retorno sem nomes) · Agenda 02, 03, 07
 3 Rotina da semana · Rotina e Painel ("Por rotina") · Agenda 05, 07, 08
 4 Checklist do dia · Painel ("O que faltou") · Agenda 06
 5 Custo da hora de atendimento · Painel ("Como chegamos ao número"), Custos fixos, Equipe · Preço 01, Caixa 03, Painel 07
 6 Precificação · Precificação (a tabela e o bloco Simular) · Preço 02, 05
 7 Simulador convênio × particular · Simulador (quadros 2, 3 e 4) · Preço 03, 06, 08
 8 Tabela de preços · Tabela e "Valor por hora por pagador" · Preço 04, 06, 07
-9 Caixa da clínica · Painel ("Para onde foi", "De onde veio", "O ano mês a mês") · Caixa 01, 03, 06
+9 Caixa da clínica · Painel ("Para onde foi", "De onde veio", "O ano mês a mês") · Caixa 01, 03, 08
 10 Provisão de impostos, 13º e férias · Painel · Caixa 04, 05
-11 Repasse e pró-labore · Painel ("Médicos parceiros", "Sócios no ano"), Retiradas · Caixa 06, 07, Painel 07
-12 Reserva e metas de caixa · Painel · Caixa 08
-13 Convênios a receber · Painel ("Por convênio", "Lotes em aberto", guias glosadas sem nomes) · Recebíveis 01, 03, 08
+11 Repasse e pró-labore · Painel ("Médicos parceiros", "Sócios no ano") · Caixa 07, Painel 07
+12 Reserva e metas de caixa · Painel · Preço 08, Caixa 08
+13 Convênios a receber · Painel ("Por convênio", "Lotes em aberto", guias glosadas sem nomes) · Preço 06, Recebíveis 01, 03, 08
 14 Parcelas e inadimplência · Painel ("Cobrar primeiro", sem nomes; a régua está em Config) · Recebíveis 02, 04, 06, 07
-15 Orçamentos · Painel (funil, motivos de recusa, por tipo) · Agenda 04, Recebíveis 05, Preço 07
+15 Orçamentos · Painel (funil, motivos de recusa, por tipo) · Agenda 04, Preço 07, Recebíveis 05, Painel 05
 16 Conciliação de cartão · Painel ("Por tipo de pagamento") · Caixa 09
-17 Painel da clínica · Painel · Painel 07, 08
-18 Resultado mensal · Painel e Resultado (mês e mês anterior) · Caixa 02, Painel 02
-19 Metas do trimestre · Metas ("Todos os resultados-chave") · Painel 05, 06
-20 Resumo do mês · Resumo ("Bloco único para copiar") · Painel 01, 02, 03, 04, Caixa 04
+17 Painel da clínica · Painel e Histórico · Agenda 08, Painel 05, 07, 08
+18 Resultado mensal · Painel e Resultado (mês e mês anterior) · Caixa 02, Painel 02, 05
+19 Metas do trimestre · Metas ("Todos os resultados-chave") · Painel 06
+20 Resumo do mês · Resumo ("Bloco único para copiar") · Caixa 04, Painel 01, 02, 03
 
 ========================================
 GRUPO 1 · AGENDA E ROTINA (8)
@@ -115,8 +115,8 @@ Nossas particularidades: [ex.: a recepção fecha o caixa todo dia; o lote de co
 Rotina de exemplo para adaptar:
 [cole as linhas da aba Rotina]
 ---- fim ----
-Exemplo: Entrada: dois sócios, uma parceira, uma recepcionista; caixa fechado todo dia pela recepção; lote de convênio dia 5; a rotina de exemplo do kit (4 passos de segunda com a recepção, 5 de sexta; a mais pulada é "ligar para a lista de retorno", feita em 1 de 4 semanas). Saída: segunda com 4 passos em 12 minutos (vagas dos próximos 7 dias, confirmações da semana, lista de retorno, faltas da semana passada) e sexta com 5 passos em 18 minutos (fechamentos do dia no caixa, parcelas e cobrança, guias e lotes, orçamentos, painel com 3 decisões); a conciliação do cartão ficou para a sexta seguinte, alternando.
-Confira: se a soma dos minutos bate e se a IA não inventou uma planilha que o kit não tem. A rotina só funciona se a lista de retorno tiver dono: no exemplo, foi a rotina mais pulada.
+Exemplo: Entrada: dois sócios, uma parceira, uma recepcionista; caixa fechado todo dia pela recepção; lote de convênio dia 5; a rotina de exemplo do kit (3 passos de segunda com a recepção, 5 de sexta; o exemplo registra da semana 29 (20/07) em diante, com 84 % de aderência nas últimas 4 semanas, e a rotina mais pulada é "conferir os fechamentos da semana no Caixa (09)", feita em 2 de 4 semanas). Saída: segunda com 3 passos em 12 minutos (vagas dos próximos 7 dias, confirmações da semana, lista de retorno e faltas da semana passada) e sexta com 5 passos em 18 minutos (conferir no caixa os fechamentos do dia que a recepção lançou, parcelas e cobrança, guias e lotes, orçamentos, painel com 3 decisões); a conciliação do cartão ficou para a sexta seguinte, alternando.
+Confira: se a soma dos minutos bate e se a IA não inventou uma planilha que o kit não tem. Toda rotina precisa de dono: no exemplo, a mais pulada é justamente a única que não é da recepção.
 
 Agenda 06 · Pendências do dia viram tarefas da recepção
 -------------------------------------------------------
@@ -128,20 +128,20 @@ Transforme a lista de pendências administrativas abaixo, de uma clínica médic
 Lista:
 [cole aqui]
 ---- fim ----
-Exemplo: Entrada: os 23 dias com pendência da Vida Plena (52 dias registrados de 01/07 a 11/09; abertura completa em 85 % dos últimos 20 dias, fechamento em 55 %; 31 itens pendentes; o mais esquecido: "Caixa do dia fechado e conferido (Pix, cartão, dinheiro)"; depois "Fechamento do dia lançado no Caixa (09)" e "Guias do dia conferidas e guardadas para o lote"). Saída: quatro tarefas ("fechar e conferir o caixa antes de desligar a maquininha", "lançar o fechamento no Caixa (09) com a planilha aberta na tela", "guias na pasta do lote ao fim de cada turno", "retornos agendados na saída do paciente"), o momento de cada uma e a sugestão: imprimir o checklist de fechamento (bônus 25) e deixar ao lado do computador da recepção.
-Confira: o que é de fato responsabilidade da recepção e o que o sócio precisa fazer (o Caixa 09 do exemplo é lançado pela Dra. Carolina na sexta).
+Exemplo: Entrada: os 32 dias com pendência da Vida Plena (73 dias registrados de 01/06 a 11/09; abertura completa em 80 % dos últimos 20 dias, fechamento em 55 %; 46 itens pendentes; o mais esquecido: "Fechamento do dia lançado no Caixa (09)"; depois "Caixa do dia fechado e conferido (Pix, cartão, dinheiro)" e "Guias do dia conferidas e guardadas para o lote"). Saída: quatro tarefas ("lançar o fechamento no Caixa (09) com a planilha aberta na tela, antes de sair", "fechar e conferir o caixa antes de desligar a maquininha", "guias na pasta do lote ao fim de cada turno", "retornos agendados na saída do paciente"), o momento de cada uma e a sugestão: imprimir o checklist de fechamento (bônus 25) e deixar ao lado do computador da recepção.
+Confira: o que é de fato responsabilidade da recepção e o que o sócio precisa fazer. No exemplo, quem lança o fechamento do dia no Caixa (09) é a recepção, todo dia; a sócia da semana é quem confere na sexta (saldo, A receber e extrato).
 
 Agenda 07 · Pauta da reunião de segunda com a recepção
 ------------------------------------------------------
-Quando usar: para a conversa de 10 minutos de segunda entre o sócio da semana e a recepção, com os números da semana na mão.
+Quando usar: para a conversa de 12 minutos de segunda entre o sócio da semana e a recepção, com os números da semana na mão.
 Cole: Planilha 1 · aba Painel, "Próximos 7 dias" (agendados, confirmados, vagas) e os cartões do Painel da Planilha 2 (taxa de falta, lista de retorno); Planilha 3 · Rotina (linhas de segunda).
 
 ---- prompt: copie daqui ----
-Monte a pauta de uma reunião de 10 minutos de segunda-feira entre o sócio e a recepção de uma clínica médica. Objetivo: todo mundo sair sabendo o que confirmar, o que oferecer e o que travou. Estrutura: 1) números da semana (horários agendados × confirmados por dia, vagas, faltas da semana passada, lista de retorno); 2) o que ficou pendente na semana passada (checklist do dia) e como resolver, sem culpa; 3) quem confirmar hoje e quais vagas oferecer à lista de retorno; 4) pendências com pacientes (parcela em aberto, orçamento sem resposta), sem nomes; 5) uma decisão que precisa ser tomada hoje. Diga quantos minutos cada item leva. Nada clínico.
+Monte a pauta de uma reunião de 12 minutos de segunda-feira entre o sócio e a recepção de uma clínica médica. Objetivo: todo mundo sair sabendo o que confirmar, o que oferecer e o que travou. Estrutura: 1) números da semana (horários agendados × confirmados por dia, vagas, faltas da semana passada, lista de retorno); 2) o que ficou pendente na semana passada (checklist do dia) e como resolver, sem culpa; 3) quem confirmar hoje e quais vagas oferecer à lista de retorno; 4) pendências com pacientes (parcela em aberto, orçamento sem resposta), sem nomes; 5) uma decisão que precisa ser tomada hoje. Diga quantos minutos cada item leva. Nada clínico.
 Dados:
 [cole aqui]
 ---- fim ----
-Exemplo: Entrada: semana de 14/09 da Vida Plena: quinta 17/09 com 19 agendados e nenhum confirmado (2,8 horas de vaga), sexta com 9 agendados e 0,5 hora de vaga; 6 faltas em setembro, 7 pacientes na lista de retorno; 2 dias da semana passada com fechamento incompleto; 6 orçamentos em aberto (R$ 3.460); decisão: oferecer as vagas de quinta à lista de retorno ou segurar para encaixe. Saída: pauta de cinco itens em 10 minutos, com o item 3 marcado como "confirmar os 19 de quinta até quarta à tarde" e o item 5 como "decidir hoje".
+Exemplo: Entrada: semana de 14/09 da Vida Plena: quinta 17/09 com 19 agendados e nenhum confirmado (2,8 horas de vaga), sexta com 9 agendados e 0,5 hora de vaga; 6 faltas em setembro, 7 pacientes na lista de retorno; 2 dias da semana passada com fechamento incompleto; 6 orçamentos em aberto (R$ 3.460); decisão: oferecer as vagas de quinta à lista de retorno ou segurar para encaixe. Saída: pauta de cinco itens em 12 minutos, com o item 3 marcado como "confirmar os 19 de quinta até quarta à tarde" e o item 5 como "decidir hoje".
 Confira: só o que está na planilha; a IA gosta de acrescentar itens genéricos ("alinhamento de equipe"). Nomes de pacientes ficam na planilha, não na pauta.
 
 Agenda 08 · Semana revisada na sexta
@@ -154,7 +154,7 @@ Faça a revisão semanal de uma clínica médica pequena. Com a lista abaixo (ho
 Lista:
 [cole aqui]
 ---- fim ----
-Exemplo: Entrada: semana de 7 a 11/09 da Vida Plena: 49 atendimentos realizados e 3 faltas (5,8 %), feriado na segunda 07/09; R$ 21.570 entrados em setembro até sexta; lote de julho da Saúde Total pago em 08/09 (R$ 5.780, glosa R$ 170) e os três lotes de agosto enviados em 08/09 (R$ 9.631); lote de junho da Vida Care atrasado desde 04/09 (R$ 1.727); 16 parcelas vencidas (R$ 4.550); 4 orçamentos aprovados na sexta (R$ 1.400); a rotina "ligar para a lista de retorno" não foi feita. Saída: os quatro blocos, causa provável do que travou ("a semana curta comeu a segunda, e a lista de retorno depende da segunda"), ajuste "mover a lista de retorno para a terça em semana de feriado" e a mensagem pronta para o sócio.
+Exemplo: Entrada: semana de 7 a 11/09 da Vida Plena: 49 atendimentos realizados e 3 faltas (5,8 %), feriado na segunda 07/09; R$ 21.920 entrados em setembro até sexta; lote de julho da Saúde Total pago em 08/09 (R$ 5.780, glosa R$ 170) e os três lotes de agosto enviados em 08/09 (R$ 9.631); lote de junho da Vida Care atrasado desde 04/09 (R$ 1.727); 14 parcelas vencidas (R$ 3.775); 6 orçamentos aprovados na semana (R$ 2.350); a rotina "atualizar os orçamentos apresentados e aprovados (15)" não foi feita. Saída: os quatro blocos, causa provável do que travou ("a sexta ficou apertada com os três lotes de agosto e a atualização dos orçamentos foi a primeira a cair"), ajuste "atualizar os orçamentos na quinta, quando a sexta tiver envio de lote" e a mensagem pronta para o sócio.
 Confira: a causa provável é hipótese; a IA não viu a semana.
 
 ========================================
@@ -212,7 +212,7 @@ Vou colar a tabela de preços de uma clínica médica com o volume do mês fecha
 Tabela:
 [cole aqui]
 ---- fim ----
-Exemplo: Entrada: agosto da Vida Plena na Planilha 8: 130 consultas (R$ 30.730; valor médio R$ 236,38, +7 % contra o mínimo de R$ 221,47), 18 ECG (valor médio R$ 78,67, −38 % contra o mínimo de R$ 126,55), 8 MAPA (R$ 168,12), 10 Holter (R$ 249), 8 testes ergométricos (R$ 283,75), 30 avaliações endócrinas (R$ 346); produção R$ 48.631; valor médio por hora R$ 410,97 (+21 % contra a hora mínima); 11 tabelas de convênio abaixo do custo. Saída: "o ECG é o único procedimento com valor médio abaixo do mínimo, e é o mix: 13 dos 18 foram por convênio a R$ 32 a R$ 40"; consulta a +7 % porque 48 % das 130 foram particulares; a conta do que muda se o ECG particular subir de R$ 130 para R$ 170 (o alvo); três decisões com ganho e perda.
+Exemplo: Entrada: agosto da Vida Plena na Planilha 8: 130 consultas (R$ 30.730; valor médio R$ 236,38, +7 % contra o mínimo de R$ 221,47), 18 ECG (valor médio R$ 78,67, −38 % contra o mínimo de R$ 126,55), 8 MAPA (R$ 168,12), 10 Holter (R$ 249), 8 testes ergométricos (R$ 283,75), 30 avaliações endócrinas (R$ 346); produção R$ 48.631; valor médio por hora R$ 410,97 (+21 % contra a hora mínima); 14 tabelas de convênio abaixo do custo cheio mais o imposto. Saída: "o ECG é o único procedimento com valor médio abaixo do mínimo, e é o mix: 10 dos 18 foram por convênio, a R$ 32 (Vida Care) ou R$ 40 (Saúde Total)"; consulta a +7 % porque 48 % das 130 foram particulares; a conta do que muda se o ECG particular subir de R$ 130 para R$ 170 (o alvo); três decisões com ganho e perda.
 Confira: os realizados por pagador (Planilha 1, "Por pagador") antes de aceitar a explicação de mix. Referência de mercado é opcional e sua; a divulgação de preços segue as regras do CFM/CRM.
 
 Preço 05 · Quanto cobrar por este procedimento
@@ -249,7 +249,7 @@ Cole: Planilha 15 · a linha do orçamento sem nome (itens, valor, etapa) e a ma
 A recepção de uma clínica médica recebeu um pedido de desconto em um orçamento: [itens, ex.: teste ergométrico], R$ [ ]; o paciente pediu [ex.: 20 % de desconto / dividir em 4 vezes]. A margem do procedimento no preço cheio é [ ] % e o preço mínimo da clínica é R$ [ ]. Minha posição: posso [ex.: parcelar em até 3 vezes sem juros no cartão, oferecer desconto de 5 % no Pix] e não posso [ex.: baixar do preço mínimo].
 Escreva a resposta em até 100 palavras, para WhatsApp: reconheça o pedido em uma frase, exponha a posição com clareza, ofereça as alternativas concretas e feche com um próximo passo (agendar ou pensar com calma). Sem justificar com o caso do paciente, sem tom defensivo, sem frase de venda e sem prometer nada sobre o exame. Antes do texto, calcule o que cada alternativa faz com a margem.
 ---- fim ----
-Exemplo: Entrada: teste ergométrico a R$ 450 (custo cheio R$ 158,33, mínimo R$ 268,36, margem 53,8 %), paciente pediu 20 % de desconto; posso parcelar em 3 vezes no cartão (taxa de 3,9 %) ou dar 5 % no Pix; não posso baixar de R$ 400. Saída: cálculo (20 % de desconto leva a R$ 360, abaixo do piso que a clínica definiu; 5 % no Pix leva a R$ 427,50 com margem de 51 %; 3 vezes no cartão custa R$ 17,55 de taxa) e resposta de 90 palavras com as duas alternativas.
+Exemplo: Entrada: teste ergométrico a R$ 450 (custo cheio R$ 158,33, mínimo R$ 268,36, margem 53,8 %), paciente pediu 20 % de desconto; posso parcelar em 3 vezes no cartão (taxa de 3,9 %) ou dar 5 % no Pix; não posso baixar de R$ 400. Saída: cálculo (20 % de desconto leva a R$ 360: ainda acima do preço mínimo da planilha, R$ 268,36, mas abaixo do piso de R$ 400 que a própria clínica definiu para este exame; 5 % no Pix leva a R$ 427,50 com margem de 52,0 %; 3 vezes no cartão custa R$ 17,55 de taxa) e resposta de 90 palavras com as duas alternativas.
 Confira: o que a clínica realmente pode ceder; a IA tende a oferecer mais do que você disse. Desconto e parcelamento são condições comerciais, não podem virar texto de divulgação sem revisão pelas regras do CFM/CRM.
 
 Preço 08 · Antes de aceitar um convênio novo: a conta de horas e de caixa
@@ -261,11 +261,11 @@ Cole: Planilha 1 · aba Painel (horas vazias por profissional e sala), Planilha 
 Estou decidindo se aceito o credenciamento de um convênio novo em uma clínica médica pequena. Não avalie o contrato nem regras da ANS; avalie a capacidade da clínica. Dados: tabela proposta para consulta R$ [ ] e para [procedimentos] R$ [ ]; prazo de pagamento [dias]; glosa esperada [ ] % (uso a média dos convênios que já tenho); horas vazias hoje por profissional e sala [ ]; custo cheio da consulta R$ [ ]; contribuição por atendimento com agenda vazia R$ [ ]; caixa livre R$ [ ]; reserva R$ [ ]; custo fixo mensal R$ [ ].
 Responda: 1) cabe na agenda? (quantos atendimentos por semana o convênio traria e onde eles entrariam sem tirar particular); 2) cabe no caixa? (quanto dinheiro fica preso no prazo de pagamento em regime, com o volume estimado); 3) o que teria de sair ou ser adiado para caber; 4) três condições que eu poderia colocar na conversa para reduzir o risco de gestão (volume máximo por semana, procedimentos incluídos, prazo); 5) uma versão menor do mesmo sim (um turno, um profissional, três meses de teste). Não me diga o que decidir.
 ---- fim ----
-Exemplo: Entrada: um convênio propondo consulta a R$ 110 e ECG a R$ 38, prazo de 45 dias; glosa esperada 6 %; horas vazias na Vida Plena: Sala 2 com 8,2 horas em setembro, Dr. Paulo Andrade com 34 % de agenda livre; custo cheio da consulta R$ 130,67; contribuição com agenda vazia de um convênio parecido (MediPlan): R$ 77,55 por consulta; caixa livre R$ 26.254; reserva R$ 14.000; custo fixo R$ 28.000 com pró-labore. Saída: "cabe na agenda só na Sala 2, à tarde: até 16 consultas por semana sem tirar particular"; cerca de R$ 2.600 presos no prazo em regime; condições (só consulta e ECG, teto de 16 por semana, envio de lote dia 5); versão menor: quinta à tarde por três meses.
+Exemplo: Entrada: um convênio propondo consulta a R$ 110 e ECG a R$ 38, prazo de 45 dias; glosa esperada 6 %; horas vazias na Vida Plena: Sala 2 com 8,2 horas em setembro, Dr. Paulo Andrade com 34 % de agenda livre; custo cheio da consulta R$ 130,67; contribuição com agenda vazia de um convênio parecido (MediPlan): R$ 77,55 por consulta; caixa livre R$ 26.836; reserva R$ 14.000; custo fixo R$ 28.000 com pró-labore. Saída: "cabe na agenda só na Sala 2, à tarde: até 16 consultas por semana sem tirar particular"; cerca de R$ 2.600 presos no prazo em regime; condições (só consulta e ECG, teto de 16 por semana, envio de lote dia 5); versão menor: quinta à tarde por três meses.
 Confira: as horas vazias de verdade (a Planilha 1 mostra por dia e período); a contribuição por atendimento vem do quadro 3 da 07, não da IA. Contrato e regras de credenciamento: leia antes de assinar.
 
 ========================================
-GRUPO 3 · CAIXA E CONTADOR (8)
+GRUPO 3 · CAIXA E CONTADOR (9)
 ========================================
 
 Caixa 01 · Explicar o mês do caixa
@@ -279,7 +279,7 @@ Números:
 [cole o painel]
 Contexto: [o que aconteceu de diferente no mês].
 ---- fim ----
-Exemplo: Entrada: o Painel de agosto da Vida Plena (Config = Agosto): entrou R$ 50.336 (particular à vista R$ 33.860, particular a prazo R$ 5.315, Saúde Total R$ 7.320, MediPlan R$ 2.130, Vida Care R$ 1.711), saiu R$ 41.620 (pró-labore R$ 18.000, custos fixos R$ 10.000, guia de impostos R$ 5.841, repasse à Dra. Renata R$ 4.845, materiais R$ 1.380, taxas de cartão R$ 484, manutenção R$ 450, despesa pessoal a acertar R$ 620), sobrou R$ 8.716, saldo R$ 44.311; julho: entrou R$ 53.101 e sobrou R$ 9.674. Contexto: "julho teve a distribuição do 2º trimestre e agosto teve manutenção do equipamento". Saída: 190 palavras em linguagem de conversa e a decisão sugerida: "levar R$ 3.000 para a reserva, que cobre só meio mês de custo fixo".
+Exemplo: Entrada: o Painel de agosto da Vida Plena (Config = Agosto): entrou R$ 49.651 (particular à vista R$ 33.860, particular a prazo R$ 4.630, Saúde Total R$ 7.320, MediPlan R$ 2.130, Vida Care R$ 1.711), saiu R$ 41.660 (pró-labore R$ 18.000, custos fixos R$ 10.000, guia de impostos R$ 5.881, repasse à Dra. Renata R$ 4.845, materiais R$ 1.380, taxas de cartão R$ 484, manutenção R$ 450, despesa pessoal a acertar R$ 620), sobrou R$ 7.991, saldo R$ 44.468; julho: entrou R$ 53.461 e sobrou R$ 9.894. Contexto: "julho teve a distribuição do 2º trimestre e agosto teve manutenção do equipamento". Saída: 190 palavras em linguagem de conversa e a decisão sugerida: "levar R$ 3.000 para a reserva, que cobre só meio mês de custo fixo".
 Confira: números e a decisão. Se a sobra parece grande, veja se a guia de impostos e o repasse do mês foram lançados.
 
 Caixa 02 · Comparar dois meses do resultado
@@ -294,8 +294,24 @@ Mês 1 ([nome]):
 Mês 2 ([nome]):
 [cole]
 ---- fim ----
-Exemplo: Entrada: julho e agosto da Vida Plena na Planilha 18 (receita R$ 53.101 para R$ 50.336; despesas variáveis R$ 6.662 para R$ 7.159; total de saídas R$ 40.503 para R$ 40.696; resultado R$ 12.598 para R$ 9.640; margem 23,7 % para 19,2 %). Saída: tabela com as linhas, receita −5,2 % (piorou), custos fixos estável, variáveis +7,5 % (piorou: manutenção de R$ 450 e repasse maior), resultado −23,5 % (piorou), margem −4,5 p.p. e a conclusão: "a queda é de receita particular à vista (R$ 36.540 para R$ 33.860), não de custo; os convênios até subiram".
+Exemplo: Entrada: julho e agosto da Vida Plena na Planilha 18 (receita R$ 53.461 para R$ 49.651; despesas variáveis R$ 6.662 para R$ 7.159; total de saídas R$ 42.505 para R$ 42.583; resultado R$ 10.956 para R$ 7.068; margem 20,5 % para 14,2 %). Saída: tabela com as linhas, receita −7,1 % (piorou), custos fixos estável, variáveis +7,5 % (piorou: manutenção de R$ 450 e repasse maior), resultado −35,5 % (piorou), margem −6,3 p.p. e a conclusão: "a queda é de receita particular à vista (R$ 37.700 para R$ 33.860), não de custo; os convênios até subiram".
 Confira: sinais de "menor é melhor" e as porcentagens; a IA erra conta de variação.
+
+Caixa 03 · Cortar custo fixo sem cortar atendimento
+---------------------------------------------------
+Quando usar: quando o custo da hora subiu, a sobra do mês encolheu ou o custo fixo passou do que a clínica combinou, e você quer saber o que dá para cortar sem mexer no que o paciente sente.
+Cole: Planilha 5 · aba Custos fixos (as linhas do mês, uma a uma) e a Planilha 9 · aba Painel ("Para onde foi o dinheiro", com os custos fixos ao lado das outras saídas do mês).
+
+---- prompt: copie daqui ----
+Sou dono de uma clínica médica pequena e quero revisar o custo fixo sem piorar o atendimento. Vou colar duas listas: os custos fixos do mês, linha por linha, e para onde foi o dinheiro do caixa no mês (todas as categorias de saída). Horas de atendimento planejadas por mês: [140]. Margem mínima [30] % e impostos [11] %.
+Responda: 1) ordene os custos fixos por peso, em R$ e em % do fixo e do total que saiu do caixa; 2) separe em três grupos: o que o paciente sente se sumir, o que a equipe sente e o que ninguém sente; 3) para cada linha do terceiro grupo, o que dá para renegociar, trocar de plano, cancelar ou juntar, e uma pergunta para eu levar ao fornecedor; 4) refaça a conta do custo da hora e da hora mínima com o corte proposto, mostrando o antes e o depois; 5) o que NÃO cortar, e por quê. Não sugira demitir ninguém, não sugira cortar material de atendimento, limpeza, seguro, anuidade de conselho nem contador, e não sugira captar pacientes: a decisão é da clínica.
+Custos fixos:
+[cole a aba Custos fixos]
+Para onde foi o dinheiro no mês:
+[cole o Painel da 09]
+---- fim ----
+Exemplo: Entrada: os custos fixos da Clínica Vida Plena (aluguel e condomínio R$ 3.900, recepção R$ 3.100, contador R$ 600, sistema de agenda e assinaturas R$ 300, energia, água, internet e telefone R$ 550, limpeza e material de escritório R$ 450, marketing e site R$ 650, anuidade do CRM, seguro e cursos R$ 450; total R$ 10.000) e o Painel do Caixa de agosto (saiu R$ 41.660: pró-labore R$ 18.000, custos fixos R$ 10.000, guia de impostos R$ 5.881, repasse à parceira R$ 4.845, materiais R$ 1.380, taxas de cartão R$ 484, manutenção R$ 450, despesa pessoal a acertar R$ 620); 140 horas planejadas. Saída: aluguel e recepção são R$ 7.000, 70 % do custo fixo, e o fixo inteiro é 24 % do que saiu do caixa em agosto; no grupo "ninguém sente", o sistema de agenda (R$ 300, com assinatura antiga duplicada) e parte do marketing; com um corte de R$ 700 por mês, o custo fixo cai para R$ 9.300, o custo-hora de R$ 200,00 para R$ 195,00, a hora mínima de R$ 338,98 para R$ 330,51 e o custo da estrutura por hora de R$ 71,43 para R$ 66,43 — R$ 8.400 por ano, o equivalente a 22 consultas particulares de R$ 380; não cortar: seguro, anuidade do CRM, contador e limpeza.
+Confira: refaça a conta do custo-hora com o novo total (a planilha 05 faz sozinha quando você muda a linha) e veja se o corte não é só adiamento (assinatura anual que volta em janeiro). Corte que mexe em pessoa é assunto trabalhista: fale com o contador e com quem cuida do jurídico antes.
 
 Caixa 04 · Preparar a reunião mensal com o contador
 ---------------------------------------------------
@@ -308,7 +324,7 @@ Resumo do mês:
 [cole aqui]
 Dúvidas que já tenho: [liste]
 ---- fim ----
-Exemplo: Entrada: o Resumo de agosto da Vida Plena (receita R$ 50.336, saídas R$ 40.696, resultado R$ 9.640, margem 19,2 %; provisão acumulada na Planilha 10 R$ 17.602 ao fim de agosto e guia de 20/09 prevista em R$ 5.537; repasse à Dra. Renata R$ 5.190 pago em 10/09; R$ 5.440 a acertar com os sócios no ano) e a dúvida "a glosa entra na base do imposto ou só o que o convênio pagou?". Saída: lista de 7 itens para enviar (só totais), pauta de 4 blocos (5 + 10 + 10 + 5 min), 8 perguntas ("a alíquota efetiva de 11 % continua certa para o faturamento dos últimos 12 meses?", "como formalizar o repasse à parceira?") e a tabela vazia.
+Exemplo: Entrada: o Resumo de agosto da Vida Plena (receita R$ 49.651, saídas R$ 42.583, resultado R$ 7.068, margem 14,2 %; provisão acumulada na Planilha 10 R$ 17.527 ao fim de agosto e guia de 20/09 prevista em R$ 5.462; repasse à Dra. Renata R$ 5.190 pago em 10/09; R$ 5.440 a acertar com os sócios no ano) e a dúvida "a glosa entra na base do imposto ou só o que o convênio pagou?". Saída: lista de 7 itens para enviar (só totais), pauta de 4 blocos (5 + 10 + 10 + 5 min), 8 perguntas ("a alíquota efetiva de 11 % continua certa para o faturamento dos últimos 12 meses?", "como formalizar o repasse à parceira?") e a tabela vazia.
 Confira: as perguntas são para o contador responder; não use a resposta da IA como resposta dele.
 
 Caixa 05 · Perguntas sobre provisão de impostos, 13º e férias
@@ -321,7 +337,7 @@ Sou dono de uma clínica médica (pessoa jurídica) e provisiono impostos, 13º 
 Números:
 [cole aqui]
 ---- fim ----
-Exemplo: Entrada: setembro da Vida Plena até 11/09: entradas R$ 21.570, alíquota 11 %, provisão R$ 2.373, mais R$ 1.698 de 13º (R$ 750 de cada sócio, decididos pelos sócios, e R$ 198 da recepcionista) e R$ 264 de férias (R$ 4.335 a separar no mês); saldo provisionado R$ 21.937; compromisso do mês seguinte R$ 2.373; guia de agosto (R$ 5.537) vence em 20/09. Saída: conta conferida, saldo suficiente para 90 dias, cinco perguntas ("o repasse pago à médica parceira reduz a base?", "o convênio retém algum imposto no pagamento do lote?") e a regra: "separar cerca de R$ 1.100 por semana (o total a separar do mês dividido por quatro)".
+Exemplo: Entrada: setembro da Vida Plena até 11/09: entradas R$ 21.920, alíquota 11 %, provisão R$ 2.411, mais R$ 1.698 de 13º (R$ 750 de cada sócio, decididos pelos sócios, e R$ 198 da recepcionista) e R$ 264 de férias (R$ 4.373 a separar no mês); saldo provisionado R$ 21.900; compromisso do mês seguinte R$ 2.411; guia de agosto (R$ 5.462) vence em 20/09. Saída: conta conferida, saldo suficiente para 90 dias, cinco perguntas ("o repasse pago à médica parceira reduz a base?", "o convênio retém algum imposto no pagamento do lote?") e a regra: "separar cerca de R$ 1.100 por semana (o total a separar do mês dividido por quatro)".
 Confira: a alíquota é a que o contador disse, não a que a IA sugerir. Se ela sugerir alguma, ignore.
 
 Caixa 06 · Separar o que é da clínica e o que é pessoal
@@ -334,7 +350,7 @@ Vou colar lançamentos de um extrato bancário misturado (clínica médica e vid
 Lançamentos:
 [cole aqui]
 ---- fim ----
-Exemplo: Entrada: 48 lançamentos de junho da conta da Vida Plena, descrição resumida. Saída: tabela classificada, 5 linhas em "Não sei" (farmácia, posto, restaurante), retirada extra de R$ 1.500 da Dra. Carolina em 19/06 além do pró-labore de R$ 9.000 (a lançar na Planilha 11 como retirada extra) e dois lançamentos pessoais pagos pela clínica (R$ 620, a acertar).
+Exemplo: Entrada: os 94 lançamentos de agosto da conta da Vida Plena, descrição resumida. Saída: tabela classificada, 5 linhas em "Não sei" (farmácia, posto, restaurante), o pró-labore de R$ 9.000 de cada sócio em 28/08 (dentro do combinado) e um lançamento pessoal pago pela clínica: R$ 620 do plano de saúde da família da Dra. Carolina, em 06/08, a lançar na aba Retiradas da Planilha 11 como despesa pessoal a acertar. No ano, o a acertar soma R$ 5.440 (Carolina R$ 2.740, Paulo R$ 2.700), e a única retirada extra da Carolina foi R$ 1.500 em 19/06.
 Confira: cada "Não sei" e as retiradas; corrija na tabela e só então lance na planilha. O tratamento de cada retirada (pró-labore, distribuição, adiantamento) é assunto do contador.
 
 Caixa 07 · Conversa sobre o repasse com o médico parceiro
@@ -358,8 +374,8 @@ Cole: Planilha 12 · aba Painel (meta, reserva atual, falta, meses cobertos, mê
 Monte um plano para uma clínica médica chegar a três meses de custo fixo em reserva. Dados: custo fixo mensal com pró-labore R$ [ ]; reserva atual R$ [ ]; sobra média mensal dos últimos 3 meses R$ [ ]; entradas previstas fora do comum nos próximos 6 meses: [ex.: recuperação de glosa em recurso, R$ 240, sem data certa]; meses de receita menor: [ex.: janeiro e julho].
 Responda: 1) a meta em reais e quantos meses faltam no ritmo atual; 2) três ritmos (conservador, provável, ambicioso) com o valor a separar por mês e a data de chegada; 3) regras: o que a reserva pode pagar e o que não pode; 4) o que fazer com uma entrada extraordinária quando vier. Não conte com a entrada extraordinária no cenário provável.
 ---- fim ----
-Exemplo: Entrada: custo fixo mensal R$ 28.000 com pró-labore (meta de 3 meses: R$ 84.000), reserva R$ 14.000, sobra média dos últimos 3 meses R$ 8.777 (junho R$ 2.321, julho R$ 9.674, agosto R$ 8.716), sem entrada extraordinária certa; janeiro e fevereiro fecharam negativos. Saída: faltam R$ 70.000; conservador R$ 3.000 por mês (24 meses: setembro de 2028, como na Planilha 12), provável R$ 5.000 (14 meses), ambicioso R$ 7.000 (10 meses); regra: "a reserva paga custo fixo e repasse em mês fraco; não paga equipamento nem retirada extra"; entrada extraordinária: 50 % para a reserva até a meta.
-Confira: a sobra média (que a planilha calcula) e se o ritmo cabe no pró-labore combinado. O resultado após pró-labore do 3º trimestre (Planilha 11) diz quanto sobra de verdade.
+Exemplo: Entrada: custo fixo mensal com pró-labore R$ 29.732 (média de junho, julho e agosto; meta de 3 meses: R$ 89.197), reserva R$ 14.000, sobra média dos três últimos meses fechados R$ 6.838 (junho R$ 2.628, julho R$ 9.894, agosto R$ 7.991), sem entrada extraordinária certa; janeiro e fevereiro fecharam negativos. Saída: faltam R$ 75.197; conservador R$ 3.000 por mês (26 meses: novembro de 2028, como na Planilha 12), provável R$ 5.000 (16 meses), ambicioso R$ 6.500 (12 meses, quase toda a sobra média, e por isso só com o mês de junho fora da curva explicado); regra: "a reserva paga custo fixo e repasse em mês fraco; não paga equipamento nem retirada extra"; entrada extraordinária: 50 % para a reserva até a meta.
+Confira: a sobra média, refazendo a conta com os três meses que você colou (a IA erra média), e se o ritmo cabe no pró-labore combinado. O resultado após pró-labore do 3º trimestre (Planilha 11) diz quanto sobra de verdade.
 
 Caixa 09 · A taxa da maquininha está comendo a margem?
 ------------------------------------------------------
@@ -372,7 +388,7 @@ Responda: 1) quanto as taxas custaram no mês e no ano projetado, e a quantas co
 Dados:
 [cole aqui]
 ---- fim ----
-Exemplo: Entrada: agosto da Vida Plena: R$ 31.820 em Pix e cartão; taxas R$ 484,12 (1,52 %); Pix 37 vendas, R$ 13.380, sem taxa; débito 22 vendas, R$ 8.090, R$ 121,35 (1,5 %, cai em 1 dia); crédito à vista R$ 5.840, R$ 186,88 (3,2 %); crédito parcelado 12 vendas, R$ 4.510, R$ 175,89 (3,9 %, cai de 30 em 30 dias); ainda vai cair R$ 10.899; consulta particular R$ 380. Saída: "R$ 484 no mês equivalem a 1,3 consultas; no ano, cerca de R$ 5.800"; o parcelado pesa na taxa e no prazo (R$ 4.510 pingando em até 3 meses); migrar 30 % do parcelado para Pix com 3 % de desconto troca R$ 53 de taxa por R$ 41 de desconto e adianta o dinheiro; três decisões com ganho e perda.
+Exemplo: Entrada: agosto da Vida Plena: R$ 31.820 em Pix e cartão; taxas R$ 484,12 (1,52 %); Pix 37 vendas, R$ 13.380, sem taxa; débito 22 vendas, R$ 8.090, R$ 121,35 (1,5 %, cai em 1 dia); crédito à vista R$ 5.840, R$ 186,88 (3,2 %); crédito parcelado 12 vendas, R$ 4.510, R$ 175,89 (3,9 %, cai de 30 em 30 dias); ainda vai cair R$ 12.388; consulta particular R$ 380. Saída: "R$ 484 no mês equivalem a 1,3 consultas; no ano, cerca de R$ 5.800"; o parcelado pesa na taxa e no prazo (R$ 4.510 pingando em até 3 meses); migrar 30 % do parcelado para Pix com 3 % de desconto troca R$ 53 de taxa por R$ 41 de desconto e adianta o dinheiro; três decisões com ganho e perda.
 Confira: as taxas do contrato da operadora (Config da 16) e se o parcelamento é com ou sem juros. Repasse de custo de cartão ao consumidor tem regra própria: pergunte ao contador antes.
 
 ========================================
@@ -389,7 +405,7 @@ Resuma a posição dos convênios de uma clínica médica para um sócio, em at�
 Convênios:
 [cole aqui]
 ---- fim ----
-Exemplo: Entrada: a Vida Plena em 11/09: a receber R$ 15.758, atrasado R$ 1.727 (lote de junho do Vida Care, previsto para 04/09), em recurso R$ 240 (lote de junho da Saúde Total), glosa no ano R$ 4.273 (5,5 %); Saúde Total 3,3 % de glosa e prazo real de 32 dias (contrato 30), MediPlan 7,5 % e 47 dias (45), Vida Care 11,3 % e 61 dias (60); lotes de agosto enviados em 08/09 (R$ 9.631); MediPlan de julho previsto para 19/09 (R$ 2.875). Saída: 190 palavras: "o Vida Care é 3 % do líquido e 33 % da glosa"; o MediPlan pesa mais no caixa (R$ 6.305 presos a 47 dias); vence em 30 dias R$ 4.602; perguntas: "as duas guias glosadas de julho já foram recorridas?", "o lote de junho do Vida Care já foi cobrado ao convênio?".
+Exemplo: Entrada: a Vida Plena em 11/09: a receber R$ 15.758, atrasado R$ 1.727 (lote de junho do Vida Care, previsto para 04/09), em recurso R$ 240 (lote de junho da Saúde Total), glosa no ano R$ 4.273 (5,5 %); Saúde Total 3,3 % de glosa e prazo real de 32 dias (contrato 30), MediPlan 7,5 % e 47 dias (45), Vida Care 11,3 % e 61 dias (60); lotes de agosto enviados em 08/09 (R$ 9.631); MediPlan de julho previsto para 19/09 (R$ 2.875). Saída: 190 palavras: "o Vida Care é 3 % do líquido e 33 % da glosa"; o MediPlan pesa mais no caixa (R$ 6.305 presos a 47 dias); vence nos próximos 30 dias R$ 8.955 (MediPlan de julho R$ 2.875 em 19/09, Vida Care de julho R$ 1.525 em 04/10 e Saúde Total de agosto R$ 4.555 em 08/10), fora o lote atrasado; perguntas: "as duas guias glosadas de julho já foram recorridas?", "o lote de junho do Vida Care já foi cobrado ao convênio?".
 Confira: a divisão a receber × atrasado e a glosa % (glosa ÷ (pago + glosa) dos lotes pagos, a mesma conta em todo o kit).
 
 Recebíveis 02 · Quem cobrar primeiro
@@ -402,7 +418,7 @@ Ordene as parcelas atrasadas de uma clínica médica abaixo para eu decidir quem
 Parcelas:
 [cole aqui]
 ---- fim ----
-Exemplo: Entrada: as 16 parcelas vencidas da Vida Plena em 14/09 (R$ 4.550): 11 com 30 dias ou mais (R$ 3.190; entre elas Paciente A, avaliação endócrina, R$ 400, 158 dias; Paciente B, consulta, R$ 380, 130 dias; Paciente C, R$ 200, 214 dias), 1 entre 15 e 29 dias (R$ 450), 2 entre 7 e 14 (R$ 590), 2 entre 1 e 6 (R$ 320, nunca atrasaram). Saída: os 11 antigos como prioridade 1 no degrau 30 (conversa e plano por escrito), as 2 de 1 a 6 dias como prioridade 2 no degrau 1 (lembrete leve, primeiro atraso), a de 15 a 29 como prioridade 2 no degrau 15 (ligação com demonstrativo); e a observação: "R$ 3.190 estão há mais de 30 dias: mensagem já não resolve; agende as conversas".
+Exemplo: Entrada: as 14 parcelas vencidas da Vida Plena em 14/09 (R$ 3.775): 12 com 30 dias ou mais (R$ 3.455; entre elas Paciente A, avaliação endócrina, R$ 400, 158 dias; Paciente B, avaliação endócrina, R$ 400, 130 dias; Paciente C, R$ 200, 214 dias) e 2 entre 1 e 6 dias (R$ 320, nunca atrasaram); nenhuma nas faixas de 7 a 14 e de 15 a 29. Saída: os 12 antigos como prioridade 1 no degrau 30 (conversa e plano por escrito) e as 2 de 1 a 6 dias como prioridade 2 no degrau 1 (lembrete leve, primeiro atraso); e a observação: "R$ 3.455 estão há mais de 30 dias: mensagem já não resolve; agende as conversas".
 Confira: o histórico de atraso; a planilha só sabe o que foi lançado. Cobrança de paciente sem exposição nem constrangimento (CDC e ética médica): revise cada sugestão.
 
 Recebíveis 03 · Recurso de glosa em linguagem administrativa
@@ -438,7 +454,7 @@ Analise o funil de orçamentos de uma clínica médica (exames e pacotes particu
 Orçamentos:
 [cole aqui]
 ---- fim ----
-Exemplo: Entrada: os 32 orçamentos da Vida Plena desde julho: 21 aprovados (R$ 8.510), 5 recusados (R$ 1.860), 3 sem retorno (R$ 1.660), 6 em aberto (R$ 3.460); taxa de aprovação 72 %; exames cardiológicos 83 % (20 de 24 decididos), pacotes de consultas 0 de 2 e avaliação endócrina 0 de 1; motivos: "vai pensar / sem retorno" 3 (R$ 1.660), preço 2 (R$ 680), fez em outro lugar 1, vai fazer pelo convênio 1, sem indicação no momento 1; 6 dias em média até decidir. Saída: aprovação alta em exame e nula em pacote; "sem retorno" é o maior motivo, não preço; hipótese "o orçamento sai sem data de retomada"; três testes (retomar no 3º dia com o Agenda 04, oferecer a data do exame junto com o valor, apresentar o pacote só depois da consulta).
+Exemplo: Entrada: os 36 orçamentos da Vida Plena desde junho: 22 aprovados (R$ 8.960), 5 recusados (R$ 1.860), 3 sem retorno (R$ 1.660), 6 em aberto (R$ 3.460); taxa de aprovação 73 %; exames cardiológicos 84 % (21 de 25 decididos), pacotes de consultas 0 de 2 e avaliação endócrina 0 de 1; motivos: "vai pensar / sem retorno" 3 (R$ 1.660), preço 2 (R$ 680), fez em outro lugar 1, vai fazer pelo convênio 1, sem indicação no momento 1; 11 dias em média até decidir. Saída: aprovação alta em exame e nula em pacote; "sem retorno" é o maior motivo, não preço; hipótese "o orçamento sai sem data de retomada"; três testes (retomar no 3º dia com o Agenda 04, oferecer a data do exame junto com o valor, apresentar o pacote só depois da consulta).
 Confira: as taxas por grupo com poucos orçamentos (2 pacotes) não provam nada; olhe o tamanho da amostra. Orçamento é ato administrativo: a indicação do exame é do médico.
 
 Recebíveis 06 · Roteiro de ligação de cobrança
@@ -491,7 +507,7 @@ Meus comentários: [o que aconteceu, por quê].
 Números:
 [cole o bloco da aba Resumo]
 ---- fim ----
-Exemplo: Entrada: o bloco único de agosto da Planilha 20 da Clínica Vida Plena (entrou R$ 50.336, saiu R$ 40.696, resultado R$ 9.640 e margem 19,2 %; ocupação 70,4 % e 118,3 horas atendidas; taxa de falta 8,4 %; convênio a receber R$ 12.077 e glosa dos lotes pagos no mês 5,6 %; vencido R$ 4.040 e inadimplência a prazo 9,8 %; orçamentos em aberto R$ 1.730); comentário: "a Dra. Renata teve dois turnos com falta em sequência; o MediPlan glosou três guias de consulta por código de procedimento errado; o Vida Care pagou o lote de julho; o repasse da Renata saiu no dia 10". Saída: texto de 240 palavras com um "[explicar]" na agenda (o bloco da 20 não traz ocupação por sala: acrescente a da Planilha 1 à mão) e a decisão: "recorrer das três glosas do MediPlan até o dia 20 e confirmar por mensagem, na véspera, os retornos da terça de manhã".
+Exemplo: Entrada: o bloco único de agosto da Planilha 20 da Clínica Vida Plena (entrou R$ 49.651, saiu R$ 42.583, resultado R$ 7.068 e margem 14,2 %; ocupação 70,4 % e 118,3 horas atendidas; taxa de falta 8,4 %; convênio a receber R$ 12.077 e glosa dos lotes pagos no mês 5,6 %; vencido R$ 4.005 e inadimplência a prazo 10,5 %; orçamentos em aberto R$ 2.700); comentário: "a Dra. Renata teve duas faltas no mesmo turno em 06/08; o lote de junho da Saúde Total foi pago em 05/08 com R$ 240 de glosa, que entrou em recurso; o lote de maio do Vida Care caiu em 05/08; o repasse da Renata saiu no dia 10". Saída: texto de 240 palavras com um "[explicar]" na agenda (o bloco da 20 não traz ocupação por sala: acrescente a da Planilha 1 à mão) e a decisão: "recorrer das duas guias glosadas de julho (Saúde Total, R$ 170) até o dia 20 e confirmar por mensagem, na véspera, os retornos da terça de manhã".
 Confira: cada "[explicar]" e se nenhum número foi alterado. O bloco da 20 só tem totais: nunca acrescente nome de paciente nos comentários.
 
 Painel 02 · Relatório mensal para os sócios
@@ -505,7 +521,7 @@ Meus comentários: [o que aconteceu].
 Números:
 [cole o bloco da aba Resumo e a comparação do Painel da 18]
 ---- fim ----
-Exemplo: Entrada: agosto e julho da Vida Plena; comentário: "a manutenção de R$ 450 foi única; a recepção começou a confirmação de véspera em agosto". Saída: relatório de 280 palavras: resultado R$ 9.640 (julho: R$ 12.598), destaques (receita 9,4 % acima do previsto; convênios pagos R$ 11.161, os três maiores do ano; taxa de falta caiu para 8,4 %), atenções (margem −4,5 p.p.; vencido R$ 4.040 e inadimplência 9,8 % acima da meta de 8 %; ocupação 70,4 % contra meta de 75 %; um "[explicar]" na agenda) e próximos passos com dono.
+Exemplo: Entrada: agosto e julho da Vida Plena; comentário: "a manutenção de R$ 450 foi única; a recepção começou a confirmação de véspera em agosto". Saída: relatório de 280 palavras: resultado R$ 7.068 (julho: R$ 10.956), destaques (receita 7,9 % acima do previsto; convênios pagos R$ 11.161, o maior mês de convênio do ano; taxa de falta caiu para 8,4 %), atenções (margem −6,3 p.p.; vencido R$ 4.005 e inadimplência 10,5 % acima da meta de 8 %; ocupação 70,4 % contra meta de 75 %; um "[explicar]" na agenda) e próximos passos com dono.
 Confira: que o "extraordinário" apareça como tal e não como tendência.
 
 Painel 03 · Roteiro de 8 slides para a reunião de sócios
@@ -532,7 +548,7 @@ Com base no relatório abaixo, liste as 8 perguntas mais prováveis que um sóci
 Relatório:
 [cole]
 ---- fim ----
-Exemplo: Entrada: o relatório de agosto do Painel 02. Saída: 8 perguntas ("por que a margem caiu de 23,7 % para 19,2 % se os convênios pagaram mais?", "quanto do a receber dos convênios vai virar glosa?", "a provisão cobre a guia de setembro?", "vale manter o Vida Care?"), respostas curtas e as três mais difíceis marcadas.
+Exemplo: Entrada: o relatório de agosto do Painel 02. Saída: 8 perguntas ("por que a margem caiu de 20,5 % para 14,2 % se os convênios pagaram mais?", "quanto do a receber dos convênios vai virar glosa?", "a provisão cobre a guia de setembro?", "vale manter o Vida Care?"), respostas curtas e as três mais difíceis marcadas.
 Confira: as respostas devem ser as suas; use as da IA como rascunho.
 
 Painel 05 · Meta realista para o trimestre
@@ -546,7 +562,7 @@ Histórico mês a mês:
 [cole]
 Orçamentos abertos: [valor e quantidade]
 ---- fim ----
-Exemplo: Entrada: receita de março a agosto (R$ 47.880, 39.590, 44.760, 43.855, 53.101, 50.336), resultado, ocupação de julho e agosto (71,7 % e 70,4 %), taxa de falta (8,8 % e 8,4 %), glosa dos lotes pagos no mês (4,3 % e 5,6 %), inadimplência (9,6 % e 9,8 %), 6 orçamentos abertos somando R$ 3.460. Saída: receita mensal conservadora em torno de R$ 44.000, provável R$ 48.000, ambiciosa R$ 52.000 (com a Sala 2 acima de 75 %); ocupação provável 74 %; e a ameaça ao conservador: "outubro tem feriado e o Dr. Paulo tira férias em novembro".
+Exemplo: Entrada: receita de março a agosto (R$ 48.330, 39.555, 44.745, 44.160, 53.461, 49.651), resultado, ocupação de julho e agosto (71,7 % e 70,4 %), taxa de falta (8,8 % e 8,4 %), glosa dos lotes pagos no mês (4,3 % e 5,6 %), inadimplência (10,0 % e 10,5 %), 6 orçamentos abertos somando R$ 3.460. Saída: receita mensal conservadora em torno de R$ 44.000, provável R$ 48.000, ambiciosa R$ 52.000 (com a Sala 2 acima de 75 %); ocupação provável 74 %; e a ameaça ao conservador: "outubro tem feriado e o Dr. Paulo tira férias em novembro".
 Confira: a sazonalidade que você conhece (férias, feriados, congresso); a IA só viu seis meses.
 
 Painel 06 · Meta × realizado: explicar o desvio
@@ -560,7 +576,7 @@ Metas:
 [cole]
 Hoje é [data]; o trimestre vai de [data] a [data].
 ---- fim ----
-Exemplo: Entrada: 14/09/2026, 3º trimestre (semana 11 de 13, 82 % decorrido); os 9 resultados-chave da Vida Plena: ocupação nas últimas 4 semanas 74,5 % (meta 80 %, partida 75,2 %); taxa de falta 7,1 % (meta 5 %); lista de retorno 7 (meta 8, no ritmo); glosa no ano 5,5 % (meta 4 %); prazo real dos lotes 44 dias (meta 40); glosa recuperada R$ 200 (meta R$ 1.000); inadimplência 10,4 % (meta 8 %); reserva R$ 14.000 (meta R$ 17.000); conta de provisão R$ 17.500 (meta R$ 21.937). Saída: 6 em risco, 2 em atenção, 1 no ritmo; os dois mais atrás (ocupação, que caiu em vez de subir; glosa recuperada, 20 %); causas e ações ("recorrer das duas guias glosadas de julho esta semana", "oferecer as vagas de quinta à tarde à lista de retorno").
+Exemplo: Entrada: 14/09/2026, 3º trimestre (semana 11 de 13, 82 % decorrido); os 9 resultados-chave da Vida Plena: ocupação nas últimas 4 semanas 74,5 % (meta 80 %, partida 75,2 %); taxa de falta 7,1 % (meta 5 %); lista de retorno 8 (meta 8, atingido); glosa no ano 5,5 % (meta 4 %); prazo real dos lotes 44 dias (meta 40); glosa recuperada R$ 200 (meta R$ 1.000); inadimplência 9,4 % (meta 8 %); reserva R$ 14.000 (meta R$ 17.000); conta de provisão R$ 17.500 (meta R$ 17.527). Saída: 6 em risco, 1 em atenção, 1 no ritmo, 1 atingido, progresso médio 45 %; os dois mais atrás (ocupação, que caiu em vez de subir; glosa recuperada, 20 %); causas e ações ("recorrer das duas guias glosadas de julho esta semana", "oferecer as vagas de quinta à tarde à lista de retorno").
 Confira: a conta do ritmo por semana; refaça você.
 
 Painel 07 · Trazer um médico parceiro ou abrir um turno: os números antes da decisão
@@ -573,7 +589,7 @@ Vou tomar a decisão: [ex.: trazer um segundo médico parceiro por repasse de 50
 Dados:
 [cole]
 ---- fim ----
-Exemplo: Entrada: "trazer um segundo parceiro para a Sala 2 na segunda e na quarta à tarde"; a Sala 2 tem 4 turnos por semana e 8,2 horas vazias em setembro (66 % de ocupação); a Sala 1 tem 6 turnos e 90 %; custo da estrutura R$ 71,43 por hora; a parceria atual (Dra. Renata) deixa com a clínica R$ 5.190 em agosto por 23,7 horas e a margem da parceria no ano é R$ 25.740; caixa livre R$ 26.254; reserva R$ 14.000; vencido R$ 4.550. Saída: os dados sustentam que há sala e recepção ociosas nas tardes de segunda e quarta; não respondem se há demanda; custo da decisão perto de zero fixo (repasse é variável), mas o novo turno precisa de cerca de R$ 1.150 de produção por mês só para pagar a estrutura das 16 horas; versão reversível: um turno por três meses, com data de revisão.
+Exemplo: Entrada: "trazer um segundo parceiro para a Sala 2 na segunda e na quarta à tarde"; a Sala 2 tem 4 turnos por semana e 8,2 horas vazias em setembro (66 % de ocupação); a Sala 1 tem 6 turnos e 90 %; custo da estrutura R$ 71,43 por hora; a parceria atual (Dra. Renata) deixa com a clínica R$ 5.190 em agosto por 23,7 horas e a margem da parceria no ano é R$ 39.114; caixa livre R$ 26.836; reserva R$ 14.000; vencido R$ 3.775. Saída: os dados sustentam que há sala e recepção ociosas nas tardes de segunda e quarta; não respondem se há demanda; custo da decisão perto de zero fixo (repasse é variável), mas dois turnos de 4 horas por semana são cerca de 32 horas por mês, que custam R$ 2.286 de estrutura (32 × R$ 71,43); como a clínica fica com metade da produção no repasse de 50 %, o novo turno precisa de cerca de R$ 4.600 de produção por mês só para pagar a estrutura; versão reversível: um turno por três meses, com data de revisão.
 Confira: as horas vazias por sala (Planilha 1) e o custo da estrutura por hora (05), que a IA chuta. A formalização da parceria é pergunta para o contador e para quem cuida do jurídico.
 
 Painel 08 · Segunda opinião sobre uma decisão da clínica

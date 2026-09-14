@@ -20,13 +20,14 @@ Planilhas (Excel 2016 ou mais novo, Microsoft 365 e Google Sheets), em 5 núcleo
   com setembro em andamento e agosto como último mês fechado. Nada clínico: só nome, contato, valor e data.
   Apague o exemplo e digite o seu.
 Prompts: 21-biblioteca-de-prompts-da-clinica.pdf e 21-biblioteca-de-prompts-da-clinica.txt
-  (40 prompts em 5 grupos: Agenda, Preço, Caixa, Recebíveis, Painel; o .txt é texto puro, para copiar no celular).
+  (41 prompts em 5 grupos: Agenda, Preço, Caixa, Recebíveis, Painel; o .txt é texto puro, para copiar no celular).
 Bônus: 22-mensagens-de-confirmacao-e-cobranca.pdf e 22-mensagens-de-confirmacao-e-cobranca.txt (15 modelos, na régua da planilha 14)
        23-guia-lgpd-clinica-pequena.pdf · 24-roteiro-reuniao-com-o-contador.pdf
 Referência: 25-checklists.pdf (abertura e fechamento do dia, fechamento do mês, antes de fechar um convênio) · 26-manual-de-implantacao.pdf
 Modelos de apresentação (.pptx): 27 (resultado do mês para os sócios, 8 slides) · 28 (proposta de parceria para médico, 10) · 29 (convênios e caixa para o contador, 8)
   27-modelo-resultado-do-mes-8-slides.pptx · 28-modelo-proposta-de-parceria-10-slides.pptx · 29-modelo-convenios-para-o-contador-8-slides.pptx
-  A marca do kit está só no slide mestre: apague lá uma vez (Exibir > Slide mestre) e some de todos os slides.
+  A marca do kit (o símbolo no canto) está nos dois layouts, Claro e Escuro: em Exibir > Slide mestre,
+  apague o símbolo nos dois layouts e ele some de todos os slides. Nenhum slide tem marca solta.
   No Google Slides: Arquivo > Importar slides (ou fazer upload do .pptx no Drive e abrir).
 Aulas (pasta videos/): 8 aulas em mp4, de 2 a 3 minutos, com legenda .srt. Ordem: 01 a 08.
   aula-01-antes-de-abrir-a-planilha              Antes de abrir a planilha: os cinco núcleos e a rotina

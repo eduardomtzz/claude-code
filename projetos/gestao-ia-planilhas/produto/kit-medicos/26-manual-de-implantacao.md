@@ -265,7 +265,7 @@ semanas; reincidentes.
 **Detalhe que importa:** a série das 8 semanas é o quadro mais útil: no exemplo, a falta caiu de
 10,9 % (semana de 27/07) para 4,0 % (31/08) depois que a recepção começou a confirmação de véspera;
 setembro está em 5,3 %, com a sexta de manhã em 15,4 % e o Vida Care em 12,5 %. A lista de retorno
-(7 pacientes, 5 do Dr. Paulo Andrade) vale para hoje: o paciente sai dela sozinho quando o retorno é
+(8 pacientes, 6 do Dr. Paulo Andrade) vale para hoje: o paciente sai dela sozinho quando o retorno é
 marcado na 01. Ligar para a lista de retorno foi a rotina mais pulada da clínica fictícia.
 
 ### 4.3 Rotina da semana da clínica (arquivo 03)
@@ -278,11 +278,11 @@ pulada.
 
 ![Planilha 03 · aba Painel](docs/recorte-03.png)
 
-**Detalhe que importa:** a rotina é de 12 minutos na segunda e 18 na sexta, quase tudo com a
-recepção (30 minutos por semana), com 83 % de aderência nas últimas 4 semanas; o exemplo registra da
-semana 29 (20/07) em diante. Abaixo de 70 % fica vermelho. A rotina mais pulada merece ser encurtada,
-delegada ou trocada de dia, não bronca: no exemplo, "ligar ou mandar mensagem para a lista de
-retorno" foi feita em 1 de 4 semanas.
+**Detalhe que importa:** a rotina é de 12 minutos na segunda (3 passos) e 18 na sexta (5 passos),
+quase tudo com a recepção (30 minutos por semana), com 84 % de aderência nas últimas 4 semanas; o
+exemplo registra da semana 29 (20/07) em diante. Abaixo de 70 % fica vermelho. A rotina mais pulada
+merece ser encurtada, delegada ou trocada de dia, não bronca: no exemplo, "conferir os fechamentos da
+semana no Caixa (09)" foi feita em 2 de 4 semanas — e é a única que não é da recepção.
 
 ### 4.4 Checklist de abertura e fechamento do dia (arquivo 04)
 **Responde:** o dia abriu com a agenda confirmada e as guias separadas, e fechou com o caixa
@@ -296,9 +296,9 @@ responsáveis; em Checklist, uma linha por dia e, em cada item, Sim, Não ou N/A
 ![Planilha 04 · aba Painel](docs/recorte-04.png)
 
 **Detalhe que importa:** vazio conta como pendente, de propósito: o dia só fecha quando tudo está
-marcado. No exemplo (52 dias, de 01/07 a 11/09), a abertura fica completa em 85 % dos dias e o
-fechamento em 55 %; o item mais esquecido é "Caixa do dia fechado e conferido (Pix, cartão,
-dinheiro)". Se o mesmo item pende em vários dias, o problema é a rotina, não o dia. Quem lança o
+marcado. No exemplo (73 dias, de 01/06 a 11/09), a abertura fica completa em 80 % dos dias e o
+fechamento em 55 %; o item mais esquecido é "Fechamento do dia lançado no Caixa (09)". Se o mesmo
+item pende em vários dias, o problema é a rotina, não o dia. Quem lança o
 fechamento do dia no Caixa (09) é a recepção, no mesmo dia; o sócio da semana confere na sexta. Sem
 esse lançamento diário, o caixa vira reconstrução de memória.
 
@@ -397,9 +397,9 @@ Caixa 08 (plano para a reserva).
 ![Planilha 09 · aba Painel (Config = Setembro): os cartões do alto](docs/recorte-09.png)
 
 **Detalhe que importa:** só Pago? = Sim conta como caixa; lote de convênio enviado e parcela a
-receber entram com Não e viram Sim quando caem (no exemplo, setembro até 11/09: entrou R$ 21.570,
-saiu R$ 13.630, saldo R$ 52.251, a receber R$ 12.642, a pagar R$ 25.997; agosto fechado: entrou
-R$ 50.336, saiu R$ 41.620). O particular à vista entra pelo fechamento do dia (uma linha por dia e
+receber entram com Não e viram Sim quando caem (no exemplo, setembro até 11/09: entrou R$ 21.920,
+saiu R$ 13.630, saldo R$ 52.758, a receber R$ 11.497, a pagar R$ 25.922; agosto fechado: entrou
+R$ 49.651, saiu R$ 41.660). O particular à vista entra pelo fechamento do dia (uma linha por dia e
 forma); o cartão entra pelo bruto e as taxas do mês saem numa linha só no fim do mês (o total da
 16). É a planilha que alimenta a 10, a 11, a 12 e a 18.
 
@@ -415,8 +415,8 @@ situação; o ano mês a mês com gráfico.
 
 **Detalhe que importa:** provisão = entradas × alíquota efetiva (11 % no exemplo, a mesma da 05 à
 08 e da 18), mais 13º (R$ 750 de cada sócio, por decisão dos sócios, e R$ 198 da recepcionista) e
-férias (R$ 264 por mês); saldo provisionado ao fim de setembro R$ 21.937, compromisso do mês seguinte
-R$ 2.373. A planilha separa dinheiro; não apura imposto e não afirma qual é a sua alíquota nem o seu
+férias (R$ 264 por mês); saldo provisionado ao fim de setembro R$ 21.900, compromisso do mês seguinte
+R$ 2.411. A planilha separa dinheiro; não apura imposto e não afirma qual é a sua alíquota nem o seu
 anexo do Simples: isso vem do contador (bônus 24). Compare o saldo provisionado com o extrato da
 conta separada todo dia 5.
 
@@ -438,7 +438,7 @@ agosto R$ 10.380 de produção, R$ 5.190 pagos em 10/09; setembro até 11/09, R$
 No ano, a Dra. Renata produziu R$ 80.680, a clínica ficou com R$ 40.340 e a estrutura das horas dela
 custou R$ 14.600: a parceria paga a sala. Fora do combinado = retiradas extras + despesas pessoais
 pagas pela clínica − devoluções (R$ 5.440 a acertar no ano); a distribuição só sai de trimestre
-fechado (2º trimestre: R$ 3.591 pagos em julho). Como formalizar o repasse é assunto do contador.
+fechado (2º trimestre: R$ 3.697 pagos em julho). Como formalizar o repasse é assunto do contador.
 
 ### 4.12 Reserva de três meses e metas de caixa (arquivo 12)
 **Responde:** quantos meses de custo fixo a reserva cobre, quando chego à meta e como vão as metas de
@@ -453,8 +453,9 @@ projeção de 24 meses com gráfico, metas com barra de progresso.
 ![Planilha 12 · aba Painel: os cartões do alto](docs/recorte-12.png)
 
 **Detalhe que importa:** a projeção supõe aporte igual todo mês, sem rendimento (no exemplo: meta
-R$ 84.000 = 3 × R$ 28.000; reserva R$ 14.000, que cobre meio mês; aporte de R$ 3.000 chega em setembro
-de 2028). Caixa livre = saldo (R$ 52.251) − compromissos não pagos (R$ 25.997) = R$ 26.254: é esse
+R$ 89.197 = 3 × R$ 29.732, o custo fixo com pró-labore médio de junho, julho e agosto; reserva
+R$ 14.000, que cobre meio mês; aporte de R$ 3.000 chega em novembro de 2028). Caixa livre = saldo
+(R$ 52.758) − compromissos não pagos (R$ 25.922) = R$ 26.836: é esse
 número, e não o saldo, que diz o que pode virar aporte. Quando a reserva bater a meta, a decisão
 (manter, reduzir, distribuir) é dos sócios.
 
@@ -475,8 +476,10 @@ recorrer.
 (no exemplo, 5,5 % no ano: Saúde Total 3,3 % e prazo real de 32 dias, MediPlan 7,5 % e 47 dias, Vida
 Care 11,3 % e 61 dias). A receber R$ 15.758; atrasado R$ 1.727 (lote de junho do Vida Care, previsto
 para 04/09); em recurso R$ 240. Lote pago vira entrada no Caixa (09) pelo valor pago; recurso aceito
-vira entrada "Recurso de glosa". As duas guias glosadas para recorrer são de julho: recurso é
-administrativo (código, tabela, autorização); se o motivo for clínico, é o médico quem escreve.
+vira entrada "Recurso de glosa". No exemplo, a lista "Guias glosadas para recorrer" tem 6 guias
+(R$ 545 no total), duas delas já em recurso; as duas de julho (Saúde Total, R$ 170) ainda não foram.
+Recurso é administrativo (código, tabela, autorização); se o motivo for clínico, é o médico quem
+escreve.
 
 ### 4.14 Parcelas particulares e inadimplência (arquivo 14)
 **Responde:** o que vence, o que já venceu, qual é a inadimplência e quem cobrar primeiro, com qual
@@ -491,8 +494,8 @@ faixa com a ação da régua, "Cobrar primeiro" e as que vencem nos próximos 30
 ![Planilha 14 · aba Painel: os cartões do alto](docs/recorte-14.png)
 
 **Detalhe que importa:** inadimplência = vencido ÷ (pago + vencido), só do que foi combinado a prazo,
-a mesma conta nas planilhas 17, 19 e 20 (no exemplo: R$ 4.550 ÷ (R$ 39.005 + R$ 4.550) = 10,4 %; 16
-parcelas vencidas, 11 delas há 30 dias ou mais). A régua do exemplo tem quatro degraus (1 dia:
+a mesma conta nas planilhas 17, 19 e 20 (no exemplo: R$ 3.775 ÷ (R$ 36.565 + R$ 3.775) = 9,4 %; 14
+parcelas vencidas, 12 delas há 30 dias ou mais). A régua do exemplo tem quatro degraus (1 dia:
 lembrete gentil por WhatsApp; 7: mensagem da recepção com nova data; 15: ligação da recepção com o
 demonstrativo; 30: conversa do médico ou da administração e plano por escrito), sem ameaça e sem
 constrangimento; as mensagens estão no bônus 22. A conversa com o paciente é sua; o atendimento não
@@ -511,8 +514,8 @@ decidir; funil, "Retomar contato primeiro", por tipo e profissional, motivos de 
 ![Planilha 15 · aba Painel: os cartões do alto](docs/recorte-15.png)
 
 **Detalhe que importa:** previsão ponderada = valor × probabilidade da etapa (no exemplo, 6 abertos
-somando R$ 3.460, previsão R$ 1.318; aprovado no trimestre R$ 8.510, 47 % da meta de R$ 18.000; taxa de
-aprovação 72 %). O motivo da recusa é a parte mais valiosa da planilha: no exemplo, "vai pensar / sem
+somando R$ 3.460, previsão R$ 1.318; aprovado no trimestre R$ 8.960, 50 % da meta de R$ 18.000; taxa de
+aprovação 73 %). O motivo da recusa é a parte mais valiosa da planilha: no exemplo, "vai pensar / sem
 retorno" pesa mais que "preço". Orçamento é ato administrativo da recepção; a indicação do exame é
 do médico, e retomar contato não é insistir (modelo 06 do bônus 22). Aprovado vira horário na 01 e,
 se a prazo, parcela na 14.
@@ -549,8 +552,8 @@ texto do mês, Painel 01 com a planilha 20.
 
 **Detalhe que importa:** é a planilha mais simples do kit de propósito: 14 números copiados à mão em
 10 minutos, dos painéis das 01, 02, 09, 13, 14 e 15 (no exemplo, os da sexta 11/09: ocupação 81 %,
-taxa de falta 5,3 %, entrou R$ 21.570, convênio a receber R$ 15.758 e atrasado R$ 1.727, vencido
-R$ 4.550, 6 orçamentos abertos). Linha sem limite fica "Informativo". No meio do mês, agenda e caixa
+taxa de falta 5,3 %, entrou R$ 21.920, convênio a receber R$ 15.758 e atrasado R$ 1.727, vencido
+R$ 3.775, 6 orçamentos abertos). Linha sem limite fica "Informativo". No meio do mês, agenda e caixa
 estão parciais: a variação deles só aparece quando Config diz que o mês fechou. Fora do alvo
 primeiro: convênio atrasado, vencido e glosa pedem ação na segunda (13, 14).
 
@@ -568,10 +571,11 @@ por mês.
 
 **Detalhe que importa:** DRE simplificada por regime de caixa: entra o recebido, sai o pago, e os
 impostos entram como % da receita (11 %) para o resultado não parecer maior do que é. No exemplo,
-agosto: receita R$ 50.336, custos fixos R$ 10.000, despesas variáveis R$ 7.159 (materiais, taxas de
-cartão, repasse à parceira, manutenção), pró-labore R$ 18.000, impostos provisionados R$ 5.537, total
-de saídas R$ 40.696, resultado R$ 9.640, margem 19,2 % (julho: 23,7 %). Retiradas extras, distribuição
-de lucro e despesas pessoais ficam na 11, não aqui; por isso "Saiu no mês" do Caixa (R$ 41.620) é
+agosto: receita R$ 49.651, custos fixos R$ 10.000, despesas variáveis R$ 7.159 (materiais, taxas de
+cartão, repasse à parceira, manutenção), pró-labore R$ 18.000, provisão de 13º e férias R$ 1.962,
+impostos provisionados R$ 5.462, total de saídas R$ 42.583, resultado R$ 7.068, margem 14,2 % (julho:
+20,5 %). Retiradas extras, distribuição de lucro e despesas pessoais ficam na 11, não aqui; e a
+provisão de 13º e férias ainda não saiu do caixa; por isso "Saiu no mês" do Caixa (R$ 41.660) é
 diferente do "Total de saídas" da DRE. Meses futuros ficam em branco.
 
 ### 4.19 Metas do trimestre da clínica (arquivo 19)
@@ -588,8 +592,8 @@ histórico de 13 semanas.
 até 10 pontos abaixo, "No ritmo"; até 25, "Atenção"; além, "Em risco". Onde menor é melhor (taxa de
 falta, glosa, inadimplência), a conta inverte sozinha. No exemplo, cada resultado-chave é um número
 de outra planilha do kit (ocupação e falta da 01 e 02, glosa e prazo da 13, inadimplência da 14,
-reserva da 12, provisão da 10): 9 resultados-chave, 6 em risco, progresso médio 35 % com 82 % do
-trimestre decorrido. Meta em risco pede olhar a rotina (03) antes de mexer na meta.
+reserva da 12, provisão da 10): 9 resultados-chave, 1 atingido e 6 em risco, progresso médio 45 % com
+82 % do trimestre decorrido. Meta em risco pede olhar a rotina (03) antes de mexer na meta.
 
 ### 4.20 Resumo do mês para a IA e para o contador (arquivo 20)
 **Responde:** como foi o mês, indicador por indicador, em texto pronto para o sócio, o contador e a
@@ -606,9 +610,9 @@ automáticos e o **bloco único para copiar**.
 ![Planilha 20 · aba Painel: as três primeiras colunas (indicador, agosto e julho)](docs/recorte-20-painel.png)
 
 **Detalhe que importa:** o bloco só tem totais da clínica, sem paciente nem procedimento por pessoa:
-é o único texto do kit pronto para colar na IA sem tratamento. Em %, digite 19,2 e não 0,192. Todo
-mês, mova "Mês atual" para "Mês anterior" (o exemplo compara agosto com julho: 3 de 11 indicadores
-com meta no alvo; a maior piora é a margem, −4,5 p.p.). A observação da clínica é o porquê dos
+é o único texto do kit pronto para colar na IA sem tratamento. Em %, digite 14,2 e não 0,142. Todo
+mês, mova "Mês atual" para "Mês anterior" (o exemplo compara agosto com julho: 4 de 10 indicadores
+com meta no alvo; a maior piora é a margem, −6,3 p.p.). A observação da clínica é o porquê dos
 números, e também ela não leva nome de paciente.
 
 ## 5. Usar a IA com segurança (leia antes do primeiro prompt)
@@ -701,7 +705,7 @@ convênio" (25); convênio na Config das 01, 06, 07, 08, 09 e 13, escrito igual.
 | Lote pago e o caixa não subiu | Entrada do lote ainda com Pago? = Não, ou lançada pelo valor enviado em vez do pago | Troque para Sim e ajuste o valor pela glosa; a glosa não entra no caixa |
 | Repasse diferente do que o parceiro calculou | Produção do parceiro na 11 diferente do Painel da 01, ou base combinada (produção × recebido) diferente | Copie a produção do Painel da 01 com o mês certo; confira a base em Config da 11 |
 | Provisão zerada | Alíquota em branco em Config, ou entradas não lançadas | Peça a alíquota efetiva ao contador e lance as entradas do mês |
-| Percentual estranho no Resumo do mês | Digitou 0,192 em vez de 19,2 | Em Indicadores, percentuais são digitados como 19,2 |
+| Percentual estranho no Resumo do mês | Digitou 0,142 em vez de 14,2 | Em Indicadores, percentuais são digitados como 14,2 |
 | Progresso maior que 100 % nas Metas | Meta igual ao ponto de partida | Meta e ponto de partida precisam ser diferentes |
 | Data virou número | Célula formatada como número | Selecione a coluna e mude o formato para data |
 | Fórmula sumiu | Você digitou por cima de uma célula branca | Desfaça (Ctrl+Z) ou baixe o arquivo original de novo |
