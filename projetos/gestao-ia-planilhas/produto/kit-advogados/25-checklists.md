@@ -19,7 +19,7 @@ quando o mês fecha, antes de a proposta sair. Imprima ou deixe aberta ao lado d
 ## Fechamento do mês
 - [ ] Todas as horas do mês lançadas por todo mundo (Planilha 16); nenhum caso ativo com zero horas sem explicação.
 - [ ] Caixa conciliado com o extrato do banco (Planilha 9); diferença zero ou explicada.
-- [ ] Parcelas recebidas baixadas; atrasadas com o degrau da régua e a data do último contato (Planilha 14).
+- [ ] Parcelas recebidas baixadas, com nota fiscal emitida; atrasadas com o degrau da régua e a data do último contato (Planilha 14).
 - [ ] Retiradas dos sócios lançadas na aba Retiradas; nenhum movimento sem classificar (Planilha 11).
 - [ ] Provisão do mês transferida para a conta separada (Planilha 10).
 - [ ] Reserva alimentada ou o motivo de não alimentar registrado (Planilha 12).
@@ -27,7 +27,7 @@ quando o mês fecha, antes de a proposta sair. Imprima ou deixe aberta ao lado d
 - [ ] Casos encerrados no mês passaram pelo checklist de encerramento (Planilha 4).
 - [ ] Propostas do mês atualizadas: fechadas, perdidas com motivo, abertas com próximo contato (Planilha 15).
 - [ ] Resultado do mês conferido: três números refeitos à mão (Planilha 18).
-- [ ] Resumo do mês gerado e enviado ao contador com 2 dias de antecedência (Planilha 20, bônus 24).
+- [ ] Resumo do mês gerado e enviado ao contador com 2 dias de antecedência, só com totais (Planilha 20, bônus 24).
 - [ ] Mês explicado ao sócio (prompt Painel 01) e decisões anotadas com data.
 
 ## Antes de enviar a proposta

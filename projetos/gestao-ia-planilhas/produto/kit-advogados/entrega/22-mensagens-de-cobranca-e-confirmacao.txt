@@ -1,0 +1,253 @@
+15 MENSAGENS DE COBRANÇA E CONFIRMAÇÃO · KIT DE GESTÃO PARA ADVOGADOS
+=====================================================================
+
+Versão 1.0 · setembro de 2026 · Seu Sócio Gestor · bônus
+
+Quinze modelos curtos de e-mail e WhatsApp para o dia a dia administrativo do escritório: contratação, parcelas, atraso, documentos, audiência, encerramento, opinião do cliente. Troque o que está entre colchetes, apague o que não se aplica e envie. Cada modelo tem a versão para e-mail (com assunto) ou para WhatsApp (mais curta); adapte uma na outra quando precisar.
+
+========================================
+ANTES DE USAR: SEIS REGRAS DA CASA
+========================================
+
+1. Cobrar é administrativo, não é briga. Presuma esquecimento até o terceiro contato. A régua da Planilha 14 (aba Config) diz em que degrau a parcela está e a mensagem acompanha o degrau: 1 dia, lembrete gentil (modelo 04); 7 dias, mensagem do responsável pelo caso (05); 15 dias, e-mail com o demonstrativo e proposta de renegociação (06); 30 dias, ligação ou reunião e plano por escrito (07).
+2. Nada de ameaça. Nenhum modelo cita consequência processual, suspensão de atendimento, juros ou "medidas cabíveis". O que acontece quando o cliente não paga está no seu contrato e no Código de Ética; é decisão sua, dita em conversa, não em mensagem padrão.
+3. Nada sobre o caso. As mensagens tratam de dinheiro, documentos e agenda. Andamento, estratégia e resultado ficam para a conversa com o advogado responsável.
+4. Um pedido por mensagem. Valor, data, forma de pagamento e o caminho mais fácil para resolver.
+5. Sem "prezado" em excesso e sem juridiquês. Cliente entende "parcela", "vencimento", "Pix".
+6. Registre. Depois de enviar, anote data, canal e degrau junto da parcela (a Planilha 14 mostra a ação sugerida por faixa de atraso; o registro do contato é seu, na planilha ou no histórico do número do escritório). Sem registro, a próxima cobrança começa do zero.
+
+Campos usados: [Nome], [Escritório], [Responsável], [Serviço], [Valor], [Parcela n de N], [Data], [Chave Pix], [Telefone], [Link], [Prazo], [Local].
+
+========================================
+CONTRATAÇÃO
+========================================
+
+01 · Confirmação de contratação (e-mail)
+----------------------------------------
+Quando: no mesmo dia da assinatura do contrato. Fecha o combinado administrativo.
+
+---- mensagem: copie daqui ----
+Assunto: Bem-vindo(a) ao [Escritório]: como vamos trabalhar
+
+Olá, [Nome].
+
+Obrigado pela confiança. Seu contrato para [Serviço] está assinado e o caso já foi aberto aqui no escritório.
+
+Como funciona daqui em diante:
+- Responsável: [Responsável]. Quem também atende: [nome da equipe].
+- Canal: [WhatsApp do escritório / e-mail]. Respondemos em até [1 dia útil].
+- Pagamento: [N] parcelas de [Valor], vencendo dia [dia] de cada mês, por [Pix/boleto]. A primeira vence em [Data]. A nota fiscal de cada parcela vai por e-mail.
+- Documentos: precisamos de [lista curta] até [Prazo]. Pode enviar por [canal].
+- Andamento: você recebe um resumo sempre que houver novidade relevante e pode perguntar a qualquer momento.
+
+Em caso de dúvida sobre valores ou prazos de pagamento, o contrato assinado é o que vale.
+
+Até breve,
+[Responsável] · [Escritório] · [Telefone]
+---- fim ----
+
+02 · Confirmação de contratação (WhatsApp)
+------------------------------------------
+Quando: cliente que prefere WhatsApp; envie junto com o PDF do contrato assinado.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]! Aqui é [Responsável], do [Escritório]. Contrato assinado e caso aberto. Resumo do combinado: [N] parcelas de [Valor], dia [dia], por [Pix/boleto]; primeira em [Data]. Precisamos de [documentos] até [Prazo]. Respondemos por aqui em até [1 dia útil]. Qualquer dúvida, é só chamar.
+---- fim ----
+
+========================================
+PARCELAS: A RÉGUA DA PLANILHA 14
+========================================
+
+Os modelos 03 a 07 seguem a régua de cobrança da aba Config da Planilha 14, na ordem: lembrete antes do vencimento (03), 1 dia de atraso (04), 7 dias (05), 15 dias (06), 30 dias (07). Cada parcela vencida recebe a ação da maior faixa que ela já alcançou; a aba Painel mostra, parcela por parcela, qual é o degrau de hoje.
+
+03 · Lembrete de parcela, 3 dias antes (WhatsApp)
+-------------------------------------------------
+Quando: para todo cliente, sempre. Evita a maior parte dos atrasos.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]. Lembrete do [Escritório]: a parcela [n de N], de [Valor], vence em [Data]. Pix: [Chave Pix] (ou o boleto em anexo). Se já pagou, ignore esta mensagem. Obrigado!
+---- fim ----
+
+04 · Atraso de 1 dia: lembrete gentil (WhatsApp ou e-mail)
+----------------------------------------------------------
+Quando: no dia seguinte ao vencimento. Degrau 1 da régua: confirmar se o boleto ou o link de pagamento chegou e reenviar, se preciso. Presume esquecimento.
+
+---- mensagem: copie daqui ----
+Olá, [Nome], tudo bem? A parcela [n de N], de [Valor], venceu ontem ([Data]) e ainda não identificamos o pagamento. Pode ser que o boleto ou o link não tenha chegado: reenvio aqui. Pix: [Chave Pix] · Boleto: [Link ou anexo]. Se já pagou, me avisa que eu confiro por aqui.
+---- fim ----
+
+05 · Atraso de 7 dias: mensagem do responsável pelo caso (WhatsApp)
+-------------------------------------------------------------------
+Quando: uma semana depois, se não houve resposta ao lembrete. Degrau 2: quem escreve é o advogado responsável pelo caso (não a secretaria), pergunta se houve imprevisto e já oferece uma nova data.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]. Aqui é [Responsável]. A parcela [n de N], de [Valor], venceu em [Data] e ainda está em aberto; mandamos um lembrete no dia [data do contato anterior]. Aconteceu algum imprevisto? Se ajudar, podemos combinar uma nova data: [Data + 7 dias] funciona para você? Pix: [Chave Pix]. Se já pagou, me envie o comprovante para eu dar baixa.
+---- fim ----
+
+06 · Atraso de 15 dias: demonstrativo e proposta de renegociação (e-mail)
+-------------------------------------------------------------------------
+Quando: duas semanas de atraso, sem acordo. Degrau 3: e-mail com o demonstrativo das parcelas em aberto e uma proposta concreta de renegociação (nova data ou divisão do valor). O demonstrativo sai da aba Parcelas da Planilha 14, filtrada pelo cliente.
+
+---- mensagem: copie daqui ----
+Assunto: Parcelas em aberto: demonstrativo e proposta de nova data
+
+Olá, [Nome].
+
+Segue o demonstrativo do que está em aberto no contrato de [Serviço]:
+- Parcela [n de N], vencida em [Data]: [Valor]
+- [Parcela seguinte, se houver]
+Total em aberto: [Valor total].
+
+Tentei contato em [datas]. Para resolver de forma simples, proponho uma destas alternativas:
+1. Pagamento do total até [Data + 7 dias] pelo Pix [Chave Pix].
+2. Divisão do valor em aberto em [2] parcelas, com vencimentos em [Data 1] e [Data 2].
+
+Me responda até [Prazo] com a opção que funciona, ou me diga outra que caiba para você. Se já pagou, envie o comprovante para eu dar baixa.
+
+Atenciosamente,
+[Responsável] · [Escritório] · [Telefone]
+---- fim ----
+
+07 · Atraso de 30 dias: ligação ou reunião e plano por escrito (roteiro + e-mail)
+------------------------------------------------------------------------------
+Quando: um mês de atraso. Degrau 4: a mensagem não resolve mais; marque uma ligação ou reunião, combine um plano de pagamento e registre por escrito o que foi combinado e a nova data. O que acontece se o plano não for cumprido é conversa sua, conforme o contrato.
+
+---- mensagem: copie daqui ----
+Roteiro da ligação (até 5 minutos):
+1. Abertura, sem rodeio: "Estou ligando sobre a parcela de [Valor], vencida em [Data]. Quero combinar com você um jeito de resolver."
+2. Pergunta aberta: "O que aconteceu com esse pagamento?" Ouça e anote.
+3. Plano: ofereça no máximo três saídas que caibam no seu caixa: [pagar até (data) / dividir em (n) vezes / nova data única].
+4. Fechamento: repita o combinado em voz alta ("então fica: [n] parcelas de [Valor], dia [dia], a primeira em [Data]") e avise que vai confirmar por escrito agora.
+
+E-mail de confirmação, enviado no mesmo dia:
+Assunto: Confirmação do combinado: parcela de [Data]
+
+Olá, [Nome].
+
+Conforme conversamos hoje por [telefone / reunião], fica combinado: [descreva o plano: valor, número de parcelas, datas], por [Pix (Chave Pix) / boleto]. Vou enviar o lembrete três dias antes de cada data.
+
+Obrigado pela conversa. Se algo mudar, me avise antes do vencimento.
+
+[Responsável] · [Escritório] · [Telefone]
+---- fim ----
+
+08 · Confirmação de pagamento (WhatsApp)
+----------------------------------------
+Quando: no mesmo dia em que o pagamento entrar. Confirmar cria o hábito de pagar.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]! Recebemos a parcela [n de N], de [Valor]. Obrigado. A nota fiscal vai por e-mail. Próxima: [Data] (ou: "essa era a última; o contrato está quitado").
+---- fim ----
+
+09 · Confirmação de quitação (e-mail)
+-------------------------------------
+Quando: na última parcela. É só a confirmação administrativa: a nota fiscal de serviço de cada recebimento é obrigatória e é emitida à parte (o contador orienta o sistema e o prazo); este e-mail não substitui nota nem recibo.
+
+---- mensagem: copie daqui ----
+Assunto: Honorários quitados: [Serviço]
+
+Olá, [Nome].
+
+Confirmamos o recebimento da última parcela ([n de N], [Valor]) em [Data]. Os honorários referentes a [Serviço] estão quitados. A nota fiscal desta parcela segue em anexo (ou: foi enviada em [Data]).
+
+Ficamos à disposição.
+
+[Responsável] · [Escritório] · [Telefone]
+---- fim ----
+
+========================================
+DOCUMENTOS E AGENDA
+========================================
+
+10 · Pedido de documentos (e-mail)
+----------------------------------
+Quando: na abertura do caso ou quando surgir a necessidade. Lista curta, prazo, canal.
+
+---- mensagem: copie daqui ----
+Assunto: Documentos para [Serviço]: até [Prazo]
+
+Olá, [Nome].
+
+Para seguirmos, precisamos dos documentos abaixo até [Prazo]:
+- [Documento 1]
+- [Documento 2]
+- [Documento 3]
+
+Pode enviar por [canal: e-mail / WhatsApp / pasta compartilhada]. Foto legível do celular serve, desde que apareça a página inteira. Se algum item não existir ou for difícil de conseguir, me avise para pensarmos numa alternativa.
+
+Obrigado,
+[Responsável] · [Escritório]
+---- fim ----
+
+11 · Lembrete de documentos pendentes (WhatsApp)
+------------------------------------------------
+Quando: dois dias antes do prazo interno, se ainda falta algo.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]. Ainda faltam [documento(s)] para o seu caso. Consegue enviar até [Prazo]? Sem eles a próxima etapa fica parada. Se estiver difícil, me diga e a gente vê um jeito.
+---- fim ----
+
+12 · Aviso de audiência ou reunião: só logística (WhatsApp)
+-----------------------------------------------------------
+Quando: assim que a data for marcada, e de novo dois dias antes. Nada sobre o conteúdo; a orientação é feita pelo advogado, em conversa.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]. Ficou marcada a [audiência / reunião / perícia] do seu caso: [Data], às [hora], em [Local ou link da videoconferência]. Chegue [30 minutos] antes com [documento com foto]. [Responsável] estará com você. Vamos combinar uma conversa de preparação em [Data]: qual horário fica melhor?
+---- fim ----
+
+13 · Confirmação de reunião no escritório (WhatsApp)
+----------------------------------------------------
+Quando: no dia anterior a qualquer atendimento presencial ou por vídeo.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]. Confirmando nossa reunião amanhã, [Data], às [hora], [no escritório: endereço / por vídeo: link]. Duração prevista: [40 minutos]. Se precisar remarcar, me avise até [hora limite]. Até lá!
+---- fim ----
+
+========================================
+ENCERRAMENTO
+========================================
+
+14 · Encerramento do caso (e-mail)
+----------------------------------
+Quando: com o checklist de encerramento da Planilha 4 completo. Nada sobre o resultado.
+
+---- mensagem: copie daqui ----
+Assunto: Encerramento: [Serviço]
+
+Olá, [Nome].
+
+O trabalho referente a [Serviço] foi encerrado no escritório em [Data]. Obrigado pela confiança ao longo desse período.
+
+Pendências: [nenhuma / a última parcela de [Valor] vence em [Data]].
+Seus documentos originais: [devolvidos em mãos em [Data] / disponíveis para retirada / enviados por [meio]].
+Guardamos uma cópia do que foi produzido por [prazo definido pelo escritório], conforme nossa política de privacidade; depois disso, é apagada com segurança.
+
+Se surgir qualquer questão relacionada, é só entrar em contato.
+
+[Responsável] · [Escritório] · [Telefone]
+---- fim ----
+
+15 · Pedido de opinião sobre o atendimento (WhatsApp, uma semana depois do encerramento)
+------------------------------------------------------------------------------
+Quando: só para clientes com o caso encerrado e sem pendência financeira. Opcional, privado (a resposta vem para você, não para um site) e sobre o atendimento, não sobre o resultado. Serve para melhorar a rotina do escritório e para alimentar o item "Avaliação do cliente pedida" da Planilha 4.
+Atenção: este modelo não pede avaliação pública nem indicação. Publicidade, captação e uso de depoimentos de clientes na advocacia são regulados pelo Código de Ética e Disciplina da OAB e pelo Provimento 205/2021; antes de qualquer uso público de opinião de cliente (site, redes, Google), revise com quem cuida do jurídico do escritório.
+
+---- mensagem: copie daqui ----
+Olá, [Nome]! Espero que esteja tudo bem. Seu caso com o [Escritório] foi encerrado há uma semana e eu gostaria de ouvir, em uma ou duas frases, como foi o atendimento: o que funcionou e o que a gente deveria fazer melhor (contato, prazos de resposta, clareza sobre valores). Pode responder aqui mesmo; é opcional e fica só entre nós. Obrigado mais uma vez!
+---- fim ----
+
+========================================
+REGISTRO E CADÊNCIA
+========================================
+
+Momento · Modelo · Canal · Degrau da Planilha 14 · Registrar (data e canal)
+3 dias antes · 03 · WhatsApp · antes da régua · Lembrete
+1 dia depois · 04 · WhatsApp ou e-mail · 1 · lembrete gentil · Degrau 1
+7 dias · 05 · WhatsApp (responsável pelo caso) · 2 · mensagem do responsável · Degrau 2, nova data oferecida
+15 dias · 06 · E-mail · 3 · demonstrativo e renegociação · Degrau 3, opção proposta
+30 dias · 07 · Ligação ou reunião + e-mail · 4 · plano por escrito · Degrau 4, plano combinado
+Pagamento · 08 ou 09 · WhatsApp ou e-mail · — · Baixa e nota fiscal
+
+Antes de qualquer mensagem: confira o valor e a data na aba Parcelas; verifique se o pagamento não entrou na conta hoje; use o nome como o cliente prefere ser chamado. Envie de um número ou e-mail do escritório, não do celular pessoal.
+
+Suporte: suporte@seusociogestor.com.br · Reembolso em até 7 dias.

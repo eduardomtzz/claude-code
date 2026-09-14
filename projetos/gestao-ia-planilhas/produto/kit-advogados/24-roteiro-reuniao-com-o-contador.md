@@ -12,7 +12,7 @@ aqui: o custo é o mesmo e o resultado é outro.
 | O que enviar | De onde vem no kit | Por quê |
 |---|---|---|
 | Resumo do mês (bloco de texto) | Planilha 20 · aba Resumo | Uma página com receita, despesas, pró-labore, provisão e recebíveis |
-| Entradas por cliente e tipo (fixo, hora, êxito) | Planilha 9 · aba Painel | O contador precisa saber o que foi recebido de PF e de PJ e se teve nota |
+| Entradas por tipo (fixo, hora, êxito, consultoria) e totais de PF e de PJ | Planilha 9 · aba Painel ("De onde veio o dinheiro") | O contador precisa dos totais recebidos de PF e de PJ e das notas emitidas; não precisa de nome de cliente nem de número de processo |
 | Saídas por categoria | Planilha 9 · aba Painel | Separar o que é despesa do escritório do que é pessoal |
 | Retiradas dos sócios | Planilha 11 · aba Retiradas | Pró-labore combinado × retirado de verdade |
 | Provisão acumulada e vencimentos | Planilha 10 · aba Painel | Conferir se o que está separado cobre o que vence |
@@ -21,8 +21,11 @@ aqui: o custo é o mesmo e o resultado é outro.
 | Notas emitidas e recebidas | Sistema da prefeitura, e-mail | O que o contador já tem, mas confira que bateu |
 | Contratos novos do mês (só a página de honorários) | Pasta do caso | Serve para o contador saber o que vai entrar; sem conteúdo do caso |
 
-Não mande a Planilha 13 (Carteira) inteira nem qualquer coisa com o conteúdo dos casos. O contador
-precisa de valores, datas, tipo de pessoa (PF/PJ) e nota; não precisa saber do que se trata o processo.
+Não mande a Planilha 13 (Carteira) inteira, a lista de parcelas da 14 nem qualquer coisa com o
+conteúdo dos casos. O anexo enviado ao contador leva só totais (por tipo de honorário, por categoria
+de saída, por faixa de atraso): sem nome de cliente e sem número de processo. O contador precisa de
+valores, datas, tipo de pessoa (PF/PJ) e nota; não precisa saber do que se trata o processo. Se ele
+pedir o detalhe de um recebimento, mande a nota fiscal daquele recebimento, não a planilha.
 
 ## A pauta de 30 minutos
 
@@ -37,8 +40,11 @@ Perguntas para fazer, nesta ordem:
 1. A alíquota que uso na Planilha 10 continua a certa para este mês? Mudou alguma faixa?
 2. A provisão acumulada de R$ [valor] cobre o que vence nos próximos 90 dias? Qual é o buraco, se
    houver?
-3. Tem algo que recebi neste mês que entra na base de cálculo de um jeito diferente (recebimento de
-   PF sem nota, êxito, reembolso de custas, honorário de sucumbência)?
+3. Todo recebimento de honorário, de pessoa física ou jurídica, exige nota fiscal de serviço: as
+   notas do mês batem com as entradas do caixa? Se algum recebimento entrou sem nota (Pix de PF
+   direto na conta, por exemplo), como regularizar: emitir a nota agora com a data certa, o que
+   muda na guia e o que fazer para não repetir? E o que entra na base de um jeito diferente
+   (êxito, reembolso de custas, honorário de sucumbência)?
 4. Todas as notas do mês foram emitidas? Falta alguma? Alguma retenção que eu não vi?
 5. 13º e férias da equipe: quanto separar por mês a partir de agora?
 6. Há alguma obrigação, declaração ou guia com vencimento nos próximos 60 dias que dependa de mim?
@@ -62,7 +68,7 @@ Feche com a data da próxima reunião.
 |---|---|---|---|---|
 | Alíquota da Planilha 10 | | Atualizar Config da Planilha 10 | | |
 | Buraco na provisão | | Ajustar valor semanal separado | | |
-| Notas faltando | | Emitir até | | |
+| Notas faltando ou recebimento sem nota | | Emitir ou regularizar até | | |
 | Movimentos "Não sei" | | Lançar na aba Retiradas da Planilha 11 | | |
 | Obrigações nos próximos 60 dias | | Colocar na Agenda de prazos (Planilha 1) como tarefa interna | | |
 | | | | | |

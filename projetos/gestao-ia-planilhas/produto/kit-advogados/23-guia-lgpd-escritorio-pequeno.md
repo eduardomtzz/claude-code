@@ -159,7 +159,7 @@ em ordem de retorno:
 7. **Um e-mail de teste de golpe** para a equipe a cada seis meses, para ninguém clicar em "seu
    processo foi atualizado, veja o anexo": 20 minutos.
 
-## 8. Se algo vazar: o que fazer nas primeiras 48 horas
+## 8. Se algo vazar: o que fazer nos primeiros 3 dias
 
 Vazamento é qualquer situação em que dado pessoal foi visto, copiado, perdido ou ficou acessível
 por quem não devia: celular perdido, e-mail enviado para a pessoa errada, link aberto na nuvem,
@@ -172,11 +172,12 @@ invasão de conta, papel esquecido no fórum. Não é hora de julgar; é hora de
    na prática e vai ser pedido depois.
 3. **Avaliar (dia 1).** Com quem cuida do jurídico do escritório: há risco ou dano relevante para as
    pessoas afetadas (dado sensível, financeiro, de menor, volume grande)? Essa avaliação decide o passo 4.
-4. **Comunicar (prazo definido na avaliação).** A LGPD prevê comunicação à ANPD e aos titulares quando
-   o incidente pode acarretar risco ou dano relevante, em prazo razoável definido pela autoridade
-   (consulte a regulamentação vigente da ANPD na data do incidente). Quem decide se comunica, o que e
-   quando é a análise jurídica, não este guia. Cliente afetado costuma preferir saber por você antes
-   de saber por outro caminho.
+4. **Comunicar (até 3 dias úteis).** A LGPD prevê comunicação à ANPD e aos titulares quando o
+   incidente pode acarretar risco ou dano relevante; o regulamento da ANPD (Resolução CD/ANPD nº
+   15/2024) fixa o prazo de 3 dias úteis contados do conhecimento do incidente para a comunicação à
+   autoridade, com o formulário próprio dela. Confirme a regra vigente na data do incidente: quem
+   decide se comunica, o que e quando é a análise jurídica, não este guia. Cliente afetado costuma
+   preferir saber por você antes de saber por outro caminho.
 5. **Corrigir (semana 1).** O que permitiu o incidente (senha fraca, link aberto, celular sem
    bloqueio) entra na lista da seção 7 e é resolvido antes de qualquer outra coisa.
 6. **Aprender (mês 1).** Uma linha no registro de incidentes do escritório (basta uma planilha com

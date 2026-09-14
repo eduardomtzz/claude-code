@@ -1,7 +1,8 @@
 Kit de Gestão para Advogados · Seu Sócio Gestor · versão 1.0 · setembro de 2026
 
 Comece por aqui: 26-manual-de-implantacao.pdf (20 minutos de leitura), a aula 1 e a planilha 05-custo-hora.xlsx.
-O manual organiza a implantação em 4 semanas, um núcleo por semana. Não abra as 20 de uma vez.
+O manual organiza a implantação em 4 semanas, cinco ou seis planilhas por semana, e diz qual aula ver em cada uma.
+Não abra as 20 de uma vez.
 
 Planilhas (Excel 2016 ou mais novo, Microsoft 365 e Google Sheets), em 5 núcleos:
   Prazos       01-agenda-de-prazos.xlsx                 02-andamento-por-processo.xlsx
@@ -14,22 +15,28 @@ Planilhas (Excel 2016 ou mais novo, Microsoft 365 e Google Sheets), em 5 núcleo
                15-funil-de-propostas.xlsx               16-horas-por-caso.xlsx
   Painel       17-painel-do-escritorio.xlsx             18-resultado-mensal.xlsx
                19-metas-do-trimestre.xlsx               20-resumo-do-mes.xlsx
-  Todas as fórmulas são do Excel 2007 em diante (sem MÍNIMOSES, MÁXIMOSES ou UNIRTEXTO): abrem no Excel 2016.
-Prompts: 21-biblioteca-de-prompts-do-escritorio (40 prompts em 5 grupos: Prazos, Honorários, Caixa, Clientes, Painel), em PDF e txt.
-Bônus: 22-mensagens-de-cobranca-e-confirmacao.pdf (15 modelos) · 23-guia-lgpd-escritorio-pequeno.pdf · 24-roteiro-reuniao-com-o-contador.pdf
+  Todas as fórmulas usam só funções que existem desde o Excel 2007: abrem no Excel 2016 ou mais novo, sem macros.
+  As 20 vêm preenchidas com o mesmo escritório fictício (Ferraz & Lima Advocacia), na mesma data: segunda-feira
+  14/09/2026, com setembro em andamento e agosto como último mês fechado. Apague o exemplo e digite o seu.
+Prompts: 21-biblioteca-de-prompts-do-escritorio.pdf e 21-biblioteca-de-prompts-do-escritorio.txt
+  (40 prompts em 5 grupos: Prazos, Honorários, Caixa, Clientes, Painel; o .txt é texto puro, para copiar no celular).
+Bônus: 22-mensagens-de-cobranca-e-confirmacao.pdf e 22-mensagens-de-cobranca-e-confirmacao.txt (15 modelos, na régua da planilha 14)
+       23-guia-lgpd-escritorio-pequeno.pdf · 24-roteiro-reuniao-com-o-contador.pdf
 Referência: 25-checklists.pdf (abertura de caso, fechamento do mês, antes de enviar a proposta) · 26-manual-de-implantacao.pdf
 Modelos de apresentação (.pptx): 27 (resultado do mês, 8 slides) · 28 (proposta de honorários, 10) · 29 (carteira para o contador, 8)
+  A marca do kit está só no slide mestre: apague lá uma vez (Exibir > Slide mestre) e some de todos os slides.
   No Google Slides: Arquivo > Importar slides (ou fazer upload do .pptx no Drive e abrir).
 Aulas (pasta videos/): 8 aulas em mp4, de 2 a 3 minutos, com legenda .srt. Ordem: 01 a 08.
-  aula-01-antes-de-abrir-a-planilha           Antes de abrir a planilha: os cinco núcleos e a rotina
-  aula-02-agenda-de-prazos-e-andamento        Agenda de prazos e andamento
-  aula-03-custo-hora-do-escritorio            Custo-hora do escritório
-  aula-04-simulador-e-tabela-de-honorarios    Simulador e tabela de honorários
-  aula-05-custo-hora-e-proposta               Custo-hora e proposta: quanto cobrar por este caso
-  aula-06-caixa-provisao-e-pro-labore         Caixa, provisão e pró-labore
-  aula-07-carteira-parcelas-e-cobranca        Carteira, parcelas e cobrança educada
-  aula-08-painel-de-sexta-e-fechamento        Painel de sexta e fechamento do mês com o contador
+  aula-01-antes-de-abrir-a-planilha           Antes de abrir a planilha: os cinco núcleos e a rotina (2:28)
+  aula-02-agenda-de-prazos-e-andamento        Agenda de prazos e andamento (2:19)
+  aula-03-custo-hora-do-escritorio            Custo-hora do escritório (2:20)
+  aula-04-simulador-e-tabela-de-honorarios    Simulador e tabela de honorários (2:15)
+  aula-05-custo-hora-e-proposta               Custo-hora e proposta: quanto cobrar por este caso (2:44)
+  aula-06-caixa-provisao-e-pro-labore         Caixa, provisão e pró-labore (2:33)
+  aula-07-carteira-parcelas-e-cobranca        Carteira, parcelas e cobrança (2:38)
+  aula-08-painel-de-sexta-e-fechamento        Painel de sexta e fechamento (2:47)
 
+Rotina: 12 minutos na segunda (prazos) e 18 na sexta (caixa e painel); proposta em 20 minutos na primeira vez, 5 nas seguintes.
 Regras de ouro: preencha só as células amarelas; nunca cole nome de cliente ou número de processo real em IA pública
 (use Cliente A, Processo 1); confira cada número que a IA escrever; alíquota e regime são assunto do seu contador.
 O kit é gestão do escritório: nenhuma planilha ou prompt produz peça, parecer ou cálculo de prazo processual.

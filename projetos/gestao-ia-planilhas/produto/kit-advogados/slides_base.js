@@ -1,15 +1,23 @@
-// helpers comuns dos modelos de apresentação do Kit de Gestão para Advogados (derivado do slides_base.js do Kit Completo)
+// helpers comuns dos modelos de apresentação do Kit de Gestão para Advogados (derivado do slides_base.js do Kit Completo).
+// Marca: só no slide mestre (um símbolo pequeno no canto), para o usuário apagar em uma edição; nada de logo ou rodapé
+// "modelo v1.0" solto em cada slide. O aviso de modelo vai só nas notas do apresentador (NOTA0).
 const pptxgen = require('pptxgenjs');
 const C={UVA:'3B1F5E', SOL:'FFC83D', LILAS:'7A5AA8', LILC:'B89BE0', LAV:'F3EEFB', TINTA:'1F1235', BR:'FFFFFF', CINZA:'5A4A78', VERDE:'DDF3E7', VERDE_T:'155E3C', VERM:'FBE4E4', VERM_T:'7A1F1F', GRADE:'E6DFF2', BORDA:'DCD2EC'};
 const H='Arial';
 const ROD='Kit de Gestão para Advogados · modelo v1.0 · set/2026';
-function novo(titulo){ const p=new pptxgen(); p.layout='LAYOUT_16x9'; p.author='Kit de Gestão para Advogados'; p.title=titulo; return p; }
-function simbolo(p,s,x,y,k,dark){ const c1=dark?C.LILC:C.LILAS, c2=dark?C.BR:C.UVA;
-  s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:x,y:y+0.40*k,w:0.42*k,h:0.14*k,fill:{color:c1},rectRadius:0.06*k,line:{color:c1}});
-  s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:x+0.10*k,y:y+0.22*k,w:0.42*k,h:0.14*k,fill:{color:c2},rectRadius:0.06*k,line:{color:c2}});
-  s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:x+0.20*k,y:y+0.04*k,w:0.42*k,h:0.14*k,fill:{color:c2},rectRadius:0.06*k,line:{color:c2}});
-  s.addShape(p.shapes.OVAL,{x:x+0.62*k,y:y+0.44*k,w:0.13*k,h:0.13*k,fill:{color:C.SOL},line:{color:C.SOL}}); }
-function rodape(p,s,dark,txt){ s.addText(txt||ROD,{x:0.5,y:5.24,w:7.5,h:0.22,fontFace:H,fontSize:7,color:dark?C.LILAS:C.LILC,isTextBox:true,margin:0}); simbolo(p,s,9.0,5.05,0.55,dark); }
+const NOTA0='Modelo do Kit de Gestão para Advogados (v1.0, set/2026): troque os textos e mantenha a estrutura. O símbolo do canto está no slide mestre (Exibir > Slide mestre): apague lá uma vez e some de todos. ';
+function simboloObjs(x,y,k,dark){ const c1=dark?C.LILC:C.LILAS, c2=dark?C.BR:C.UVA; return [
+  {rect:{x:x,y:y+0.40*k,w:0.42*k,h:0.14*k,fill:{color:c1},line:{color:c1},rectRadius:0.06*k}},
+  {rect:{x:x+0.10*k,y:y+0.22*k,w:0.42*k,h:0.14*k,fill:{color:c2},line:{color:c2},rectRadius:0.06*k}},
+  {rect:{x:x+0.20*k,y:y+0.04*k,w:0.42*k,h:0.14*k,fill:{color:c2},line:{color:c2},rectRadius:0.06*k}},
+  {rect:{x:x+0.62*k,y:y+0.44*k,w:0.13*k,h:0.13*k,fill:{color:C.SOL},line:{color:C.SOL},rectRadius:0.065*k}} ]; }
+function novo(titulo){ const p=new pptxgen(); p.layout='LAYOUT_16x9'; p.author='Kit de Gestão para Advogados'; p.title=titulo;
+  p.defineSlideMaster({title:'CLARO',background:{color:C.BR},objects:simboloObjs(9.1,5.1,0.5,false)});
+  p.defineSlideMaster({title:'ESCURO',background:{color:C.UVA},objects:simboloObjs(9.1,5.1,0.5,true)});
+  return p; }
+function slide(p,dark){ const s=p.addSlide({masterName:dark?'ESCURO':'CLARO'});
+  const orig=s.addNotes.bind(s); s.addNotes=(txt)=>orig(ROD+' · '+txt); return s; }   // aviso de modelo só nas notas, em todo slide
+function rodape(){ /* mantido por compatibilidade: a marca está no mestre; nada é desenhado por slide */ }
 function titulo(s,txt,sub){ s.addText(txt,{x:0.5,y:0.35,w:9,h:0.8,fontFace:H,fontSize:24,bold:true,color:C.UVA,isTextBox:true,margin:0,valign:'top',fit:'shrink'});
   if(sub) s.addText(sub,{x:0.5,y:1.12,w:9,h:0.35,fontFace:H,fontSize:12,color:C.CINZA,isTextBox:true,margin:0}); }
 function cards(p,s,itens,y,h,destaque){ itens.forEach((k,i)=>{const x=0.5+i*(9/itens.length); const w=9/itens.length-0.2; const d=(i===destaque);
@@ -25,14 +33,14 @@ function tabela(s,cab,linhas,x,y,colW,fs,rowH,alinhamentos){ const al=alinhament
   linhas.forEach((l,i)=>rows.push(l.map((t,j)=>{ let txt=String(t); const b=txt.startsWith('!'); if(b) txt=txt.slice(1);
     return {text:txt,options:{bold:b,color:C.TINTA,fill:{color:i%2?C.BR:C.LAV},fontSize:fs,align:A[al[j]],valign:'middle'}}; })));
   s.addTable(rows,{x:x,y:y,w:colW.reduce((a,b)=>a+b,0),colW:colW,rowH:rowH||0.38,fontFace:H,border:{type:'solid',color:C.BORDA,pt:0.75},margin:0.06}); }
-function capa(p,titulo_,sub,frase,rod){ const s=p.addSlide(); s.background={color:C.UVA}; simbolo(p,s,0.5,0.5,1.0,true);
+function capa(p,titulo_,sub,frase){ const s=slide(p,true);
   s.addText(titulo_,{x:0.5,y:1.9,w:9,h:0.9,fontFace:H,fontSize:36,bold:true,color:C.BR,isTextBox:true,margin:0,fit:'shrink'});
   s.addText(sub,{x:0.5,y:2.85,w:9,h:0.4,fontFace:H,fontSize:16,color:C.LILC,isTextBox:true,margin:0});
-  if(frase) s.addText(frase,{x:0.5,y:3.6,w:8.5,h:0.7,fontFace:H,fontSize:14,color:C.BR,italic:true,isTextBox:true,margin:0});
-  rodape(p,s,true,rod); return s; }
-function fecho(p,titulo_,itens,rod){ const s=p.addSlide(); s.background={color:C.UVA};
+  if(frase) s.addText(frase,{x:0.5,y:3.6,w:8.5,h:0.9,fontFace:H,fontSize:14,color:C.BR,italic:true,isTextBox:true,margin:0,valign:'top'});
+  return s; }
+function fecho(p,titulo_,itens,fs){ const s=slide(p,true);
   s.addText(titulo_,{x:0.5,y:0.6,w:9,h:0.9,fontFace:H,fontSize:30,bold:true,color:C.BR,isTextBox:true,margin:0,fit:'shrink'});
   const arr=itens.map((t,i)=>({text:t,options:{bullet:true,breakLine:i<itens.length-1}}));
-  s.addText(arr,{x:0.5,y:1.7,w:9,h:3,fontFace:H,fontSize:16,color:C.BR,isTextBox:true,margin:0,valign:'top',paraSpaceAfter:10});
-  rodape(p,s,true,rod); return s; }
-module.exports={pptxgen,C,H,ROD,novo,simbolo,rodape,titulo,cards,lista,tabela,capa,fecho};
+  s.addText(arr,{x:0.5,y:1.7,w:8.5,h:2.9,fontFace:H,fontSize:fs||15,color:C.BR,isTextBox:true,margin:0,valign:'top',paraSpaceAfter:8});
+  return s; }
+module.exports={pptxgen,C,H,ROD,NOTA0,novo,slide,rodape,titulo,cards,lista,tabela,capa,fecho};

@@ -3,14 +3,16 @@
 Versão 1.0 · setembro de 2026 · Seu Sócio Gestor · bônus
 
 Quinze modelos curtos de e-mail e WhatsApp para o dia a dia administrativo do escritório: contratação,
-parcelas, atraso, documentos, audiência, encerramento, avaliação. Troque o que está entre colchetes,
-apague o que não se aplica e envie. Cada modelo tem a versão para e-mail (com assunto) ou para
-WhatsApp (mais curta); adapte uma na outra quando precisar.
+parcelas, atraso, documentos, audiência, encerramento, opinião do cliente. Troque o que está entre
+colchetes, apague o que não se aplica e envie. Cada modelo tem a versão para e-mail (com assunto) ou
+para WhatsApp (mais curta); adapte uma na outra quando precisar.
 
 ## Antes de usar: seis regras da casa
 
 1. **Cobrar é administrativo, não é briga.** Presuma esquecimento até o terceiro contato. A régua da
-   Planilha 14 diz em que degrau a parcela está; a mensagem só acompanha o degrau.
+   Planilha 14 (aba Config) diz em que degrau a parcela está e a mensagem acompanha o degrau: 1 dia,
+   lembrete gentil (modelo 04); 7 dias, mensagem do responsável pelo caso (05); 15 dias, e-mail com o
+   demonstrativo e proposta de renegociação (06); 30 dias, ligação ou reunião e plano por escrito (07).
 2. **Nada de ameaça.** Nenhum modelo cita consequência processual, suspensão de atendimento, juros ou
    "medidas cabíveis". O que acontece quando o cliente não paga está no seu contrato e no Código de
    Ética; é decisão sua, dita em conversa, não em mensagem padrão.
@@ -42,7 +44,7 @@ Obrigado pela confiança. Seu contrato para [Serviço] está assinado e o caso j
 Como funciona daqui em diante:
 - Responsável: [Responsável]. Quem também atende: [nome da equipe].
 - Canal: [WhatsApp do escritório / e-mail]. Respondemos em até [1 dia útil].
-- Pagamento: [N] parcelas de [Valor], vencendo dia [dia] de cada mês, por [Pix/boleto]. A primeira vence em [Data].
+- Pagamento: [N] parcelas de [Valor], vencendo dia [dia] de cada mês, por [Pix/boleto]. A primeira vence em [Data]. A nota fiscal de cada parcela vai por e-mail.
 - Documentos: precisamos de [lista curta] até [Prazo]. Pode enviar por [canal].
 - Andamento: você recebe um resumo sempre que houver novidade relevante e pode perguntar a qualquer momento.
 
@@ -61,7 +63,12 @@ Olá, [Nome]! Aqui é [Responsável], do [Escritório]. Contrato assinado e caso
 
 ---
 
-## Parcelas
+## Parcelas: a régua da Planilha 14
+
+Os modelos 03 a 07 seguem a régua de cobrança da aba Config da Planilha 14, na ordem: lembrete antes
+do vencimento (03), 1 dia de atraso (04), 7 dias (05), 15 dias (06), 30 dias (07). Cada parcela
+vencida recebe a ação da maior faixa que ela já alcançou; a aba Painel mostra, parcela por parcela,
+qual é o degrau de hoje.
 
 ### 03 · Lembrete de parcela, 3 dias antes (WhatsApp)
 **Quando:** para todo cliente, sempre. Evita a maior parte dos atrasos.
@@ -70,57 +77,68 @@ Olá, [Nome]! Aqui é [Responsável], do [Escritório]. Contrato assinado e caso
 Olá, [Nome]. Lembrete do [Escritório]: a parcela [n de N], de [Valor], vence em [Data]. Pix: [Chave Pix] (ou o boleto em anexo). Se já pagou, ignore esta mensagem. Obrigado!
 ```
 
-### 04 · Atraso de 1 dia (WhatsApp)
-**Quando:** no dia seguinte ao vencimento. Presume esquecimento.
+### 04 · Atraso de 1 dia: lembrete gentil (WhatsApp ou e-mail)
+**Quando:** no dia seguinte ao vencimento. Degrau 1 da régua: confirmar se o boleto ou o link de
+pagamento chegou e reenviar, se preciso. Presume esquecimento.
 
 ```
-Olá, [Nome], tudo bem? A parcela [n de N], de [Valor], venceu ontem ([Data]) e ainda não identificamos o pagamento. Pode ter passado despercebido. Pix: [Chave Pix]. Se já pagou, me avisa que eu confiro por aqui.
+Olá, [Nome], tudo bem? A parcela [n de N], de [Valor], venceu ontem ([Data]) e ainda não identificamos o pagamento. Pode ser que o boleto ou o link não tenha chegado: reenvio aqui. Pix: [Chave Pix] · Boleto: [Link ou anexo]. Se já pagou, me avisa que eu confiro por aqui.
 ```
 
-### 05 · Atraso de 7 dias (e-mail)
-**Quando:** uma semana depois, se não houve resposta ao primeiro contato.
+### 05 · Atraso de 7 dias: mensagem do responsável pelo caso (WhatsApp)
+**Quando:** uma semana depois, se não houve resposta ao lembrete. Degrau 2: quem escreve é o advogado
+responsável pelo caso (não a secretaria), pergunta se houve imprevisto e já oferece uma nova data.
 
 ```
-Assunto: Parcela de [Data] em aberto
+Olá, [Nome]. Aqui é [Responsável]. A parcela [n de N], de [Valor], venceu em [Data] e ainda está em aberto; mandamos um lembrete no dia [data do contato anterior]. Aconteceu algum imprevisto? Se ajudar, podemos combinar uma nova data: [Data + 7 dias] funciona para você? Pix: [Chave Pix]. Se já pagou, me envie o comprovante para eu dar baixa.
+```
+
+### 06 · Atraso de 15 dias: demonstrativo e proposta de renegociação (e-mail)
+**Quando:** duas semanas de atraso, sem acordo. Degrau 3: e-mail com o demonstrativo das parcelas em
+aberto e uma proposta concreta de renegociação (nova data ou divisão do valor). O demonstrativo sai
+da aba Parcelas da Planilha 14, filtrada pelo cliente.
+
+```
+Assunto: Parcelas em aberto: demonstrativo e proposta de nova data
 
 Olá, [Nome].
 
-Entro em contato sobre a parcela [n de N], de [Valor], vencida em [Data]. Enviei um lembrete no dia [data do contato anterior] e ainda não identificamos o pagamento.
+Segue o demonstrativo do que está em aberto no contrato de [Serviço]:
+- Parcela [n de N], vencida em [Data]: [Valor]
+- [Parcela seguinte, se houver]
+Total em aberto: [Valor total].
 
-Se houver algum imprevisto, me diga: é mais simples combinar uma nova data do que deixar acumular. Se já pagou, envie o comprovante para eu dar baixa.
+Tentei contato em [datas]. Para resolver de forma simples, proponho uma destas alternativas:
+1. Pagamento do total até [Data + 7 dias] pelo Pix [Chave Pix].
+2. Divisão do valor em aberto em [2] parcelas, com vencimentos em [Data 1] e [Data 2].
 
-Pix: [Chave Pix] · Boleto atualizado: [Link ou anexo]
+Me responda até [Prazo] com a opção que funciona, ou me diga outra que caiba para você. Se já pagou, envie o comprovante para eu dar baixa.
 
-Obrigado,
+Atenciosamente,
 [Responsável] · [Escritório] · [Telefone]
 ```
 
-### 06 · Atraso de 15 dias (WhatsApp + ligação)
-**Quando:** duas semanas de atraso. A mensagem marca a ligação; a conversa é onde se resolve.
+### 07 · Atraso de 30 dias: ligação ou reunião e plano por escrito (roteiro + e-mail)
+**Quando:** um mês de atraso. Degrau 4: a mensagem não resolve mais; marque uma ligação ou reunião,
+combine um plano de pagamento e registre por escrito o que foi combinado e a nova data. O que acontece
+se o plano não for cumprido é conversa sua, conforme o contrato.
 
 ```
-Olá, [Nome]. A parcela [n de N], de [Valor], está em aberto desde [Data]. Já mandei dois lembretes e fiquei sem retorno, então prefiro conversar: posso te ligar [hoje à tarde / amanhã de manhã]? Se preferir, me diga o melhor horário. A ideia é encontrar uma forma que funcione para você.
-```
+Roteiro da ligação (até 5 minutos):
+1. Abertura, sem rodeio: "Estou ligando sobre a parcela de [Valor], vencida em [Data]. Quero combinar com você um jeito de resolver."
+2. Pergunta aberta: "O que aconteceu com esse pagamento?" Ouça e anote.
+3. Plano: ofereça no máximo três saídas que caibam no seu caixa: [pagar até (data) / dividir em (n) vezes / nova data única].
+4. Fechamento: repita o combinado em voz alta ("então fica: [n] parcelas de [Valor], dia [dia], a primeira em [Data]") e avise que vai confirmar por escrito agora.
 
-### 07 · Atraso de 30 dias (e-mail)
-**Quando:** um mês de atraso, depois da ligação (ou sem conseguir falar). Convida para regularizar;
-o que acontece depois disso é conversa sua, conforme o contrato.
-
-```
-Assunto: Vamos regularizar a parcela de [Data]?
+E-mail de confirmação, enviado no mesmo dia:
+Assunto: Confirmação do combinado: parcela de [Data]
 
 Olá, [Nome].
 
-A parcela [n de N], de [Valor], está em aberto há 30 dias (vencimento em [Data]). Tentei contato em [datas] e não conseguimos fechar uma solução.
+Conforme conversamos hoje por [telefone / reunião], fica combinado: [descreva o plano: valor, número de parcelas, datas], por [Pix (Chave Pix) / boleto]. Vou enviar o lembrete três dias antes de cada data.
 
-Proponho uma destas alternativas:
-1. Pagamento até [Data + 5 dias] pelo Pix [Chave Pix].
-2. Divisão desta parcela em duas, com vencimentos em [Data 1] e [Data 2].
-3. Uma conversa de 10 minutos para combinarmos outro caminho: [Telefone].
+Obrigado pela conversa. Se algo mudar, me avise antes do vencimento.
 
-Me responda até [Prazo] com a opção que funciona. Quero resolver isso de forma simples, para seguirmos com o trabalho tranquilos.
-
-Atenciosamente,
 [Responsável] · [Escritório] · [Telefone]
 ```
 
@@ -128,18 +146,20 @@ Atenciosamente,
 **Quando:** no mesmo dia em que o pagamento entrar. Confirmar cria o hábito de pagar.
 
 ```
-Olá, [Nome]! Recebemos a parcela [n de N], de [Valor]. Obrigado. Próxima: [Data] (ou: "essa era a última; o contrato está quitado").
+Olá, [Nome]! Recebemos a parcela [n de N], de [Valor]. Obrigado. A nota fiscal vai por e-mail. Próxima: [Data] (ou: "essa era a última; o contrato está quitado").
 ```
 
 ### 09 · Confirmação de quitação (e-mail)
-**Quando:** na última parcela. Vale como recibo simples; o contador diz se você precisa emitir outro documento.
+**Quando:** na última parcela. É só a confirmação administrativa: a nota fiscal de serviço de cada
+recebimento é obrigatória e é emitida à parte (o contador orienta o sistema e o prazo); este e-mail
+não substitui nota nem recibo.
 
 ```
 Assunto: Honorários quitados: [Serviço]
 
 Olá, [Nome].
 
-Confirmamos o recebimento da última parcela ([n de N], [Valor]) em [Data]. Os honorários referentes a [Serviço] estão quitados.
+Confirmamos o recebimento da última parcela ([n de N], [Valor]) em [Data]. Os honorários referentes a [Serviço] estão quitados. A nota fiscal desta parcela segue em anexo (ou: foi enviada em [Data]).
 
 Ficamos à disposição.
 
@@ -214,26 +234,31 @@ Se surgir qualquer questão relacionada, é só entrar em contato.
 [Responsável] · [Escritório] · [Telefone]
 ```
 
-### 15 · Pedido de avaliação (WhatsApp, uma semana depois do encerramento)
-**Quando:** só para clientes com o caso encerrado e sem pendência financeira. Opcional, e sobre o
-atendimento, não sobre o resultado.
+### 15 · Pedido de opinião sobre o atendimento (WhatsApp, uma semana depois do encerramento)
+**Quando:** só para clientes com o caso encerrado e sem pendência financeira. Opcional, privado
+(a resposta vem para você, não para um site) e sobre o atendimento, não sobre o resultado. Serve para
+melhorar a rotina do escritório e para alimentar o item "Avaliação do cliente pedida" da Planilha 4.
+**Atenção:** este modelo não pede avaliação pública nem indicação. Publicidade, captação e uso de
+depoimentos de clientes na advocacia são regulados pelo Código de Ética e Disciplina da OAB e pelo
+Provimento 205/2021; antes de qualquer uso público de opinião de cliente (site, redes, Google), revise
+com quem cuida do jurídico do escritório.
 
 ```
-Olá, [Nome]! Espero que esteja tudo bem. Se puder, deixa uma avaliação sobre o atendimento do [Escritório] em [Link]. Leva um minuto e ajuda outras pessoas a nos encontrar. É totalmente opcional. Obrigado mais uma vez!
+Olá, [Nome]! Espero que esteja tudo bem. Seu caso com o [Escritório] foi encerrado há uma semana e eu gostaria de ouvir, em uma ou duas frases, como foi o atendimento: o que funcionou e o que a gente deveria fazer melhor (contato, prazos de resposta, clareza sobre valores). Pode responder aqui mesmo; é opcional e fica só entre nós. Obrigado mais uma vez!
 ```
 
 ---
 
 ## Registro e cadência
 
-| Momento | Modelo | Canal | Registrar (data e canal) |
-|---|---|---|---|
-| 3 dias antes | 03 | WhatsApp | Lembrete |
-| 1 dia depois | 04 | WhatsApp | Degrau 1 |
-| 7 dias | 05 | E-mail | Degrau 2 |
-| 15 dias | 06 + ligação | WhatsApp e telefone | Degrau 3, combinado |
-| 30 dias | 07 | E-mail | Degrau 4, opção escolhida |
-| Pagamento | 08 ou 09 | WhatsApp ou e-mail | Baixa |
+| Momento | Modelo | Canal | Degrau da Planilha 14 | Registrar (data e canal) |
+|---|---|---|---|---|
+| 3 dias antes | 03 | WhatsApp | antes da régua | Lembrete |
+| 1 dia depois | 04 | WhatsApp ou e-mail | 1 · lembrete gentil | Degrau 1 |
+| 7 dias | 05 | WhatsApp (responsável pelo caso) | 2 · mensagem do responsável | Degrau 2, nova data oferecida |
+| 15 dias | 06 | E-mail | 3 · demonstrativo e renegociação | Degrau 3, opção proposta |
+| 30 dias | 07 | Ligação ou reunião + e-mail | 4 · plano por escrito | Degrau 4, plano combinado |
+| Pagamento | 08 ou 09 | WhatsApp ou e-mail | — | Baixa e nota fiscal |
 
 Antes de qualquer mensagem: confira o valor e a data na aba Parcelas; verifique se o pagamento não
 entrou na conta hoje; use o nome como o cliente prefere ser chamado. Envie de um número ou e-mail do
