@@ -89,7 +89,7 @@ def gera_auto(kit,largura=1300,altura=900,filtro=None):
         if 'Painel' in abas and principal!='Painel': tabela[f'tela-{nn}-painel']=(arq.name,'Painel',LARG.get(nn,largura),altura)
     gera(kit,tabela)
 kit=sys.argv[1] if len(sys.argv)>1 else 'todos'; filtro=sys.argv[2] if len(sys.argv)>2 else None
-if kit=='advogados': gera_auto('advogados',filtro=filtro); sys.exit()
+if kit in('advogados','medicos'): gera_auto(kit,filtro=filtro); sys.exit()
 if kit in('essencial','todos'): gera('essencial',ESS,filtro)
 if kit in('completo','todos'):
     gera('completo',COMP,filtro)
