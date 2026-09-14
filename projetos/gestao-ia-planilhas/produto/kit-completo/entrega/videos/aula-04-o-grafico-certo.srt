@@ -1,39 +1,176 @@
 1
-00:00:00,000 --> 00:00:06,780
-Aula quatro. O gráfico certo para cada pergunta. Seis minutos, e você nunca mais usa pizza com doze fatias.
+00:00:00,000 --> 00:00:03,025
+Aula quatro. O gráfico certo para cada
+pergunta.
 
 2
-00:00:07,880 --> 00:00:19,990
-Assim como a planilha, o gráfico responde uma pergunta. Escreva a pergunta primeiro. Como a receita evoluiu no ano? Qual categoria pesa mais? Previsto contra realizado? Cada pergunta tem um tipo de gráfico, e só um.
+00:00:03,025 --> 00:00:06,680
+Dois minutos, e você nunca mais usa pizza
+com doze fatias.
 
 3
-00:00:21,090 --> 00:00:39,270
-A tabela de tradução. Evolução no tempo: linha. Comparação entre categorias: barras, horizontais se os nomes forem longos. Previsto contra realizado: colunas lado a lado. Divisão do total: barras empilhadas ou, no máximo, pizza com até cinco fatias. Dois números por item: tabela, não gráfico.
+00:00:07,780 --> 00:00:10,867
+Assim como a planilha, o gráfico responde
+uma pergunta.
 
 4
-00:00:40,370 --> 00:00:51,400
-Evolução: o Relatório Mensal usa linha, com a meta tracejada. A pergunta é como o indicador andou no ano e se passou da meta. Doze pontos, uma linha, uma referência. Nada mais.
+00:00:10,867 --> 00:00:14,179
+Escreva a pergunta primeiro. Como a
+receita evoluiu no ano?
 
 5
-00:00:52,500 --> 00:01:01,220
-Comparação de pares: o Orçamento usa colunas lado a lado, previsto e realizado por mês. Duas cores da marca, legenda embaixo, sem linha de grade pesada.
+00:00:14,179 --> 00:00:17,098
+Qual categoria pesa mais? Previsto contra
+realizado?
 
 6
-00:01:02,320 --> 00:01:10,390
-Comparação entre etapas com nome longo: o Funil usa barras horizontais. O nome cabe, o olho compara comprimento, que é o que a gente compara melhor.
+00:00:17,098 --> 00:00:19,680
+Cada pergunta tem um tipo de gráfico, e só
+um.
 
 7
-00:01:11,490 --> 00:01:23,220
-O título do gráfico é a conclusão, não o tema. Receita mensal é tema. Receita cresceu pelo terceiro mês e passou a meta é conclusão. Quem lê só o título tem que entender o gráfico. Vale para slide também.
+00:00:20,780 --> 00:00:23,771
+A tabela de tradução. Evolução no tempo:
+linha.
 
 8
-00:01:24,320 --> 00:01:35,980
-O que evitar. Três D e sombra. Pizza com mais de cinco fatias, ou pizza para comparar meses. Dois eixos no mesmo gráfico. Mais de duas cores. E barra com eixo que não começa no zero, que engana.
+00:00:23,771 --> 00:00:28,480
+Comparação entre categorias: barras,
+horizontais se os nomes forem longos.
 
 9
-00:01:37,080 --> 00:01:46,580
-O prompt Estruturar zero seis faz a tradução para as suas perguntas: tipo de gráfico, eixo X, eixo Y e o título. Use antes de inserir o gráfico, não depois.
+00:00:28,480 --> 00:00:31,470
+Previsto contra realizado: colunas lado a
+lado.
 
 10
-00:01:47,680 --> 00:01:58,110
-Resumo da aula quatro. Pergunta primeiro. Linha para tempo, barra para comparação, colunas lado a lado para previsto e realizado. Título é conclusão. Sem três D, sem pizza grande.
+00:00:31,470 --> 00:00:36,434
+Divisão do total: barras empilhadas ou, no
+máximo, pizza com até cinco fatias.
+
+11
+00:00:36,434 --> 00:00:39,170
+Dois números por item: tabela, não
+gráfico.
+
+12
+00:00:40,270 --> 00:00:44,115
+Evolução: o Relatório Mensal usa linha,
+com a meta tracejada.
+
+13
+00:00:44,115 --> 00:00:48,086
+A pergunta é como o indicador andou no ano
+e se passou da meta.
+
+14
+00:00:48,086 --> 00:00:50,860
+Um ponto por mês, uma linha, uma
+referência.
+
+15
+00:00:50,860 --> 00:00:51,490
+Nada mais.
+
+16
+00:00:52,590 --> 00:00:55,930
+Comparação de pares: o Orçamento usa
+colunas lado a lado,
+
+17
+00:00:55,930 --> 00:00:57,630
+previsto e realizado por mês.
+
+18
+00:00:57,630 --> 00:01:01,380
+Duas cores da marca, legenda embaixo, sem
+linha de grade pesada.
+
+19
+00:01:02,480 --> 00:01:06,528
+Comparação entre etapas com nome longo: o
+Funil usa barras horizontais,
+
+20
+00:01:06,528 --> 00:01:07,327
+uma por etapa.
+
+21
+00:01:07,327 --> 00:01:11,660
+O nome cabe, o olho compara comprimento,
+que é o que a gente compara melhor.
+
+22
+00:01:12,760 --> 00:01:15,485
+O título do gráfico é a conclusão, não o
+tema.
+
+23
+00:01:15,485 --> 00:01:16,789
+Receita mensal é tema.
+
+24
+00:01:16,789 --> 00:01:20,462
+Receita cresceu pelo terceiro mês e passou
+a meta é conclusão.
+
+25
+00:01:20,462 --> 00:01:23,247
+Quem lê só o título tem que entender o
+gráfico.
+
+26
+00:01:23,247 --> 00:01:24,610
+Vale para slide também.
+
+27
+00:01:25,710 --> 00:01:27,582
+O que evitar. Três D e sombra.
+
+28
+00:01:27,582 --> 00:01:31,389
+Pizza com mais de cinco fatias, ou pizza
+para comparar meses.
+
+29
+00:01:31,389 --> 00:01:34,385
+Dois eixos no mesmo gráfico. Mais de duas
+cores.
+
+30
+00:01:34,385 --> 00:01:37,630
+E barra com eixo que não começa no zero,
+que engana.
+
+31
+00:01:38,730 --> 00:01:42,929
+O prompt Estruturar zero seis faz a
+tradução para as suas perguntas:
+
+32
+00:01:42,929 --> 00:01:45,585
+tipo de gráfico, eixo X, eixo Y e o
+título.
+
+33
+00:01:45,585 --> 00:01:48,240
+Use antes de inserir o gráfico, não
+depois.
+
+34
+00:01:49,340 --> 00:01:51,765
+Resumo da aula quatro. Pergunta primeiro.
+
+35
+00:01:51,765 --> 00:01:54,131
+Linha para tempo, barra para comparação,
+
+36
+00:01:54,131 --> 00:01:56,852
+colunas lado a lado para previsto e
+realizado.
+
+37
+00:01:56,852 --> 00:01:59,750
+Título é conclusão. Sem três D, sem pizza
+grande.

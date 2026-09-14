@@ -1,41 +1,195 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:08.540
-Aula um. Pensar antes de abrir o Excel. Esta aula tem seis minutos e é a mais importante do kit: ela evita a tarde perdida arrumando coluna.
+00:00:00.000 --> 00:00:02.377
+Aula um. Pensar antes de abrir o Excel.
 
 2
-00:00:09.640 --> 00:00:23.340
-Quase todo mundo abre o Excel primeiro e pensa depois. Aí a planilha vira um monstro de vinte colunas que ninguém preenche. A regra do método é simples: a planilha responde uma pergunta. Se você não sabe a pergunta, ainda não é hora de abrir o arquivo.
+00:00:02.377 --> 00:00:05.789
+Esta aula tem dois minutos e é a mais
+importante do kit:
 
 3
-00:00:24.440 --> 00:00:41.010
-São três perguntas. Quem lê. Com que frequência. Para decidir o quê. Um controle de propostas, por exemplo: quem lê sou eu, toda sexta, para decidir quais propostas cobrar. Pronto: a planilha precisa mostrar as propostas abertas, ordenadas por tempo parado. Todo o resto é enfeite.
+00:00:05.789 --> 00:00:08.410
+ela evita a tarde perdida arrumando
+coluna.
 
 4
-00:00:42.110 --> 00:00:57.690
-Na Biblioteca B, o prompt Estruturar zero um faz esse exercício com você em cinco minutos. Você descreve a necessidade em poucas frases e a IA devolve a tabela com a pergunta, quem lê, o dado de entrada e a saída. O mais útil é a última parte: o que não deve entrar.
+00:00:09.510 --> 00:00:12.479
+Quase todo mundo abre o Excel primeiro e
+pensa depois.
 
 5
-00:00:58.790 --> 00:01:11.920
-Depois do prompt, teste a frase: você preenche isso; a planilha mostra aquilo, para fulano, toda sexta. Se a frase não fecha, falta decidir alguma coisa. O prompt Estruturar zero dois escreve essa frase e sugere o nome do arquivo.
+00:00:12.479 --> 00:00:16.218
+Aí a planilha vira um monstro de vinte
+colunas que ninguém preenche.
 
 6
-00:01:13.020 --> 00:01:28.080
-Toda planilha do kit segue a mesma anatomia. Uma aba de lançamento, como esta, a Base: uma linha por registro, uma coluna por informação, cabeçalho na linha um, nada mesclado, nada de total no meio. É a estrutura que a tabela dinâmica lê e que a IA entende.
+00:00:16.218 --> 00:00:19.626
+A regra do método é simples: a planilha
+responde uma pergunta.
 
 7
-00:01:29.180 --> 00:01:45.550
-As sete regras da base limpa estão na aba Como usar da planilha dez. Vale ler duas vezes. A mais quebrada é a quatro: categoria digitada à mão. Marketing com M maiúsculo, marketing com m minúsculo e M K T viram três coisas diferentes, e o painel erra. Lista resolve.
+00:00:19.626 --> 00:00:23.200
+Se você não sabe a pergunta, ainda não é
+hora de abrir o arquivo.
 
 8
-00:01:46.650 --> 00:01:59.000
-A planilha Base Limpa tem um checklist que conta o que está errado: linhas sem valor, datas fora do intervalo, categorias fora da lista, status em branco, duplicadas. Tudo zerado, a base está pronta para análise.
+00:00:24.300 --> 00:00:27.164
+São três perguntas. Quem lê. Com que
+frequência.
 
 9
-00:02:00.100 --> 00:02:15.320
-Última coisa. Se a sua pergunta cabe numa das dez planilhas do kit, use a planilha, não invente. Se não cabe, o prompt Estruturar zero três desenha as colunas para você, e a Base Limpa é o molde. Na próxima aula, a base vira tabela dinâmica em dez minutos.
+00:00:27.164 --> 00:00:28.298
+Para decidir o quê.
 
 10
-00:02:16.420 --> 00:02:24.360
-Resumo da aula um. Quem lê, quando, para decidir o quê. Prompt Estruturar zero um. Base limpa com as sete regras. Só então, o Excel.
+00:00:28.298 --> 00:00:32.237
+Um controle de propostas, por exemplo:
+quem lê sou eu, toda sexta,
+
+11
+00:00:32.237 --> 00:00:34.385
+para decidir quais propostas cobrar.
+
+12
+00:00:34.385 --> 00:00:39.398
+Pronto: a planilha precisa mostrar as
+propostas abertas, ordenadas por tempo parado.
+
+13
+00:00:39.398 --> 00:00:40.770
+Todo o resto é enfeite.
+
+14
+00:00:41.870 --> 00:00:42.824
+Na Biblioteca B,
+
+15
+00:00:42.824 --> 00:00:47.176
+o prompt Estruturar zero um faz esse
+exercício com você em cinco minutos.
+
+16
+00:00:47.176 --> 00:00:52.184
+Você descreve a necessidade em poucas
+frases e a IA devolve a tabela com a pergunta,
+
+17
+00:00:52.184 --> 00:00:54.390
+quem lê, o dado de entrada e a saída.
+
+18
+00:00:54.390 --> 00:00:57.490
+O mais útil é a última parte: o que não
+deve entrar.
+
+19
+00:00:58.590 --> 00:01:03.024
+Depois do prompt, teste a frase: você
+preenche isso; a planilha mostra aquilo,
+
+20
+00:01:03.024 --> 00:01:07.230
+para fulano, toda sexta. Se a frase não
+fecha, falta decidir alguma coisa.
+
+21
+00:01:07.230 --> 00:01:11.550
+O prompt Estruturar zero dois escreve essa
+frase e sugere o nome do arquivo.
+
+22
+00:01:12.650 --> 00:01:15.273
+Toda planilha do kit segue a mesma
+anatomia.
+
+23
+00:01:15.273 --> 00:01:19.147
+Uma aba de lançamento, como esta, a Base:
+uma linha por registro,
+
+24
+00:01:19.147 --> 00:01:22.962
+uma coluna por informação, cabeçalho na
+linha um, nada mesclado,
+
+25
+00:01:22.962 --> 00:01:27.790
+nada de total no meio. É a estrutura que a
+tabela dinâmica lê e que a IA entende.
+
+26
+00:01:28.890 --> 00:01:33.139
+As sete regras da base limpa estão na aba
+Como usar da planilha dez.
+
+27
+00:01:33.139 --> 00:01:37.762
+Vale ler duas vezes. A mais quebrada é a
+quatro: categoria digitada à mão.
+
+28
+00:01:37.762 --> 00:01:39.387
+Marketing com M maiúsculo,
+
+29
+00:01:39.387 --> 00:01:44.385
+marketing com m minúsculo e M K T viram
+três coisas diferentes, e o painel erra.
+
+30
+00:01:44.385 --> 00:01:45.260
+Lista resolve.
+
+31
+00:01:46.360 --> 00:01:50.249
+A planilha Base Limpa tem um checklist que
+conta o que está errado:
+
+32
+00:01:50.249 --> 00:01:54.196
+linhas sem valor, datas fora do intervalo,
+categorias fora da lista,
+
+33
+00:01:54.196 --> 00:01:58.550
+status em branco, duplicadas. Tudo zerado,
+a base está pronta para análise.
+
+34
+00:01:59.650 --> 00:02:00.406
+Última coisa.
+
+35
+00:02:00.406 --> 00:02:05.174
+Se a sua pergunta cabe numa das dez
+planilhas do kit, use a planilha, não invente.
+
+36
+00:02:05.174 --> 00:02:09.360
+Se não cabe, o prompt Estruturar zero três
+desenha as colunas para você,
+
+37
+00:02:09.360 --> 00:02:10.813
+e a Base Limpa é o molde.
+
+38
+00:02:10.813 --> 00:02:14.360
+Na próxima aula, a base vira tabela
+dinâmica em três cliques.
+
+39
+00:02:15.460 --> 00:02:18.828
+Resumo da aula um. Quem lê, quando, para
+decidir o quê.
+
+40
+00:02:18.828 --> 00:02:22.318
+Prompt Estruturar zero um. Base limpa com
+as sete regras.
+
+41
+00:02:22.318 --> 00:02:23.420
+Só então, o Excel.

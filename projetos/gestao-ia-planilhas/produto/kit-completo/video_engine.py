@@ -8,6 +8,10 @@ VOZ=S/'voz'/'pt_BR-faber-medium.onnx'
 FONTS=ROOT.parents[1]/'site'/'public'/'assets'/'fonts'
 LOGO=(ROOT.parents[1]/'03-marca'/'logo'/'logo-horizontal.svg').read_text()
 W,H=1280,720
+# layout vertical: tela (topo 84) · faixa da legenda gravada (FAIXA) · barra roxa (BARRA_H) · rodapé (BARRA_B)
+BARRA_H,BARRA_B,FAIXA=64,18,70
+TELA_H=H-84-(BARRA_H+BARRA_B+FAIXA)  # 484
+LEG_MARGEM,LEG_TAM=BARRA_H+BARRA_B+6,26  # legenda gravada: base 6 px acima da barra, corpo 26 px
 PAUSA=1.1  # segundos de respiro após cada fala
 
 def b64(p): return base64.b64encode(pathlib.Path(p).read_bytes()).decode()
@@ -22,9 +26,9 @@ CSS=f"""
 .cena{{position:absolute;inset:0;opacity:0;transition:opacity .5s}} .cena.on{{opacity:1}}
 .topo{{position:absolute;top:22px;left:32px;width:220px;z-index:5}}
 .topo svg{{width:220px;height:auto}}
-.tela{{position:absolute;left:32px;top:84px;width:{W-64}px;height:{H-84-118}px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid #DCD2EC;box-shadow:0 18px 40px -24px rgba(31,18,53,.45)}}
+.tela{{position:absolute;left:32px;top:84px;width:{W-64}px;height:{TELA_H}px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid #DCD2EC;box-shadow:0 18px 40px -24px rgba(31,18,53,.45)}}
 .tela img{{position:absolute;left:0;top:0;transform-origin:0 0;transition:transform 1.6s cubic-bezier(.4,0,.2,1)}}
-.legenda{{position:absolute;left:32px;right:32px;bottom:26px;height:74px;background:#3B1F5E;color:#fff;border-radius:14px;display:flex;align-items:center;padding:0 28px;font-size:28px;font-weight:600;letter-spacing:-.01em;z-index:6}}
+.legenda{{position:absolute;left:32px;right:32px;bottom:{BARRA_B}px;height:{BARRA_H}px;background:#3B1F5E;color:#fff;border-radius:14px;display:flex;align-items:center;padding:0 28px;font-size:28px;font-weight:600;letter-spacing:-.01em;z-index:6}}
 .legenda b{{background:#FFC83D;color:#3B1F5E;border-radius:999px;padding:4px 14px;font-size:16px;margin-right:18px;font-family:'Bricolage Grotesque';font-weight:800;letter-spacing:0;white-space:nowrap}}
 .capa{{background:#3B1F5E;color:#fff;padding:70px 90px}} .capa .t{{font-family:'Bricolage Grotesque';font-weight:800;font-size:76px;line-height:1.02;letter-spacing:-.02em;margin-top:150px;max-width:1000px}}
 .capa .t em{{font-style:normal;background:linear-gradient(transparent 62%,#FFC83D 62%)}} .capa .s{{font-size:30px;color:#D9C8F5;margin-top:22px}} .capa .k{{font-family:'Bricolage Grotesque';font-weight:600;font-size:22px;color:#FFC83D;margin-top:60px}}
@@ -57,12 +61,15 @@ def html_video(nome, rot, cenas):
             partes.append(f'<div class="cena fim" id="c{i}"><div class="t">{esc(c["fala"])}</div><div class="s">Suporte por e-mail · reembolso em 7 dias · pagamento único</div><div class="site">seusociogestor.com.br</div></div>')
     durs=[c['dur'] for c in cenas]
     js=f"""
-const durs={json.dumps(durs)}; const W={W-64}, H={H-84-118};
+const durs={json.dumps(durs)}; const W={W-64}, H={TELA_H};
 function foco(img){{ const [fx,fy,fw,fh]=img.dataset.foco.split(',').map(Number); const nw=img.naturalWidth, nh=img.naturalHeight;
   const base=W/nw; // escala para caber na largura
   const sx=W/(nw*fw), sy=H/(nh*fh); const s=Math.min(sx,sy, base*3.2);
-  const tx=-fx*nw*s + (W-fw*nw*s)/2, ty=-fy*nh*s + Math.max(0,(H-fh*nh*s)/2);
-  return `translate(${{tx}}px, ${{Math.min(0,ty)}}px) scale(${{s}})`; }}
+  let tx=-fx*nw*s + (W-fw*nw*s)/2, ty=-fy*nh*s + (H-fh*nh*s)/2;
+  // sem faixa em branco: se a imagem cobre o quadro, mantém dentro; se não cobre, encosta em cima/esquerda
+  tx = nw*s>=W ? Math.min(0,Math.max(W-nw*s,tx)) : 0;
+  ty = nh*s>=H ? Math.min(0,Math.max(H-nh*s,ty)) : 0;
+  return `translate(${{tx}}px, ${{ty}}px) scale(${{s}})`; }}
 document.querySelectorAll('.tela img').forEach(img=>{{ const nw=img.naturalWidth||1650; img.style.transform=`scale(${{W/nw}})`; }});
 let t=0; durs.forEach((d,i)=>{{ setTimeout(()=>{{ document.querySelectorAll('.cena.on').forEach(e=>e.classList.remove('on')); const c=document.getElementById('c'+i); c.classList.add('on');
    const img=c.querySelector('.tela img'); if(img){{ img.style.transform=`scale(${{W/img.naturalWidth}})`; setTimeout(()=>{{img.style.transform=foco(img);}},900); }} }}, t*1000); t+=d; }});
@@ -98,7 +105,7 @@ const v=p.video(); await ctx.close(); const f=await v.path(); fs.renameSync(f,pa
     # legendas .srt (cues curtos) escritas antes do mux, e gravadas na imagem acima da barra roxa
     import sys as _s; _s.path.insert(0,str(ROOT.parent)); import legendas as _lg
     srt_path=ROOT/'entrega'/'videos'/f'{nome}.srt'; srt_path.write_text(_lg.cues(cenas,PAUSA))
-    subprocess.run(['ffmpeg','-y','-loglevel','error','-i',str(out/'gravacao.webm'),'-i',str(out/'narracao.wav'),'-map','0:v','-map','1:a','-vf',_lg.filtro(srt_path),'-c:v','libx264','-preset','medium','-crf','21','-pix_fmt','yuv420p','-r','30','-c:a','aac','-b:a','128k','-shortest','-movflags','+faststart',str(final)],check=True)
+    subprocess.run(['ffmpeg','-y','-loglevel','error','-i',str(out/'gravacao.webm'),'-i',str(out/'narracao.wav'),'-map','0:v','-map','1:a','-vf',_lg.filtro(srt_path,LEG_MARGEM,LEG_TAM,H),'-c:v','libx264','-preset','medium','-crf','21','-pix_fmt','yuv420p','-r','30','-c:a','aac','-b:a','128k','-shortest','-movflags','+faststart',str(final)],check=True)
     print(nome, f'{total:.1f}s', final)
 
 if __name__=='__main__':
