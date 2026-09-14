@@ -23,12 +23,12 @@ s.addText('Das 318 horas, 72 são da estagiária. Casos ativos por fase: 6 inici
 rodape(p,s,false,ROD); s.addNotes('Prazos. Sete atrasados é o pior número do ano (o histórico do painel mostra 3, 2, 4, 1, 5, 6, 4, 5, 7). Não discuta caso a caso aqui: a lista com número do processo está na Agenda de prazos. Aqui a pergunta é: o que muda na rotina de segunda?');
 // 4 horas x faturado
 s=p.addSlide(); s.background={color:C.BR}; titulo(s,'Horas × faturado por sócio','Receita do mês por hora faturável, comparada ao custo-hora do escritório (planilha 05).');
-s.addChart(p.charts.BAR,[{name:'R$ por hora faturável',labels:['Marina Ferraz','Rafael Lima','Custo-hora do escritório'],values:[199,117,84]}],
+s.addChart(p.charts.BAR,[{name:'R$ por hora faturável',labels:['Marina Ferraz','Rafael Lima','Custo-hora do escritório'],values:[199,117,73]}],
  {x:0.5,y:1.6,w:4.3,h:3.3,barDir:'col',chartColors:[C.UVA],showValue:true,dataLabelPosition:'outEnd',dataLabelFontSize:10,dataLabelColor:C.TINTA,dataLabelFormatCode:'"R$ "0',
   catAxisLabelColor:C.CINZA,catAxisLabelFontSize:9,valAxisLabelColor:C.CINZA,valAxisLabelFontSize:9,valGridLine:{color:C.GRADE,size:0.5},catGridLine:{style:'none'},showLegend:false,valAxisMinVal:0,valAxisMaxVal:240,showTitle:false});
 tabela(s,['Pessoa','Horas','Faturáveis','Entrou','R$/h'],
  [['Marina Ferraz',128,96,'19.100',199],['Rafael Lima',118,88,'10.300',117],['Júlia Prado',72,42,'—','—'],['!Total','!318','!226','!29.400','!130']],5.0,1.65,[1.5,0.65,0.85,0.85,0.65],9.5,[0.4,0.36,0.36,0.36,0.36]);
-lista(s,['#Leitura','12 casos ativos já passaram das horas estimadas (8 da Marina, 4 do Rafael): candidatos a revisão de honorário ou aditivo.','Custo-hora de R$ 84 = (custo fixo + pró-labore) ÷ 220 horas faturáveis dos sócios.'],5.0,3.6,4.5,1.4,10.5);
+lista(s,['#Leitura','12 casos ativos já passaram das horas estimadas (8 da Marina, 4 do Rafael): candidatos a revisão de honorário ou aditivo.','Custo-hora dos sócios de R$ 73, calculado na planilha 05 (custo direto + rateio dos fixos ÷ horas faturáveis).'],5.0,3.6,4.5,1.4,10.5);
 rodape(p,s,false,ROD); s.addNotes('Horas por pessoa vêm da planilha 16 (Horas por caso e por pessoa); o "entrou" por sócio, do Caixa (09) filtrado por responsável do caso. Clique no gráfico > Editar dados para trocar os valores. A estagiária não fatura direto, por isso os traços.');
 // 5 caixa
 s=p.addSlide(); s.background={color:C.BR}; titulo(s,'Caixa: entrou × saiu nos últimos três meses','Caixa do escritório (09), aba Painel. Saiu inclui custo fixo, pró-labore e impostos do mês.');
