@@ -58,10 +58,10 @@ body:not(.manual) h3+p{{page-break-after:avoid;break-after:avoid}}
 .dic td:nth-child(5) code{{font-size:8pt;overflow-wrap:anywhere;word-break:break-all}}
 .dic h2{{page-break-after:avoid}}
 /* Checklists: uma página, duas colunas (planilha e relatório à esquerda; apresentação e envio à direita). */
-.check2 body{{font-size:10.5pt}}
+.check2 body{{font-size:9.2pt}}
 .cols{{column-count:2;column-gap:10mm;column-fill:auto}}
 .cols h2{{margin:0 0 6pt;border:0;padding-top:0;font-size:13.5pt;break-after:avoid}}
-.cols h2+ul{{break-before:avoid}} .cols ul.check{{margin:0 0 14pt}} .cols ul.check li{{margin-bottom:5pt;break-inside:avoid;line-height:1.4}}
+.cols h2+ul{{break-before:avoid}} .cols ul.check{{margin:0 0 14pt}} .cols ul.check li{{margin-bottom:3pt;break-inside:avoid;line-height:1.3}}
 .cols .quebra{{break-before:column}}
 """
 DIC_COLS='<colgroup><col style="width:5%"><col style="width:19%"><col style="width:15%"><col style="width:33%"><col style="width:28%"></colgroup>'
@@ -89,7 +89,7 @@ def build(md_path, pdf_name, titulo, sub, capa=True, classe=''):
     if classe=='check2':
         # título e subtítulo fora das colunas; os quatro checklists em duas colunas, quebra antes de "Apresentação"
         cabeca,resto=html.split('<h2>',1); resto='<h2>'+resto
-        resto=re.sub(r'<h2>(Fechamento[^<]*)</h2>',r'<h2 class="quebra">\1</h2>',resto,count=1)
+        pass  # três checklists: deixa as colunas encherem sozinhas (sem quebra forçada)
         rodape=''
         m=re.search(r'<p>seusociogestor\.com\.br.*?</p>\s*$',resto,flags=re.S)
         if m: rodape=m.group(0); resto=resto[:m.start()]

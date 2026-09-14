@@ -139,6 +139,6 @@ como_usar(wb,"Rotina da semana do escritório",[
  ("Passo 3","Toda segunda e toda sexta, depois de fazer a rotina, marque Sim (ou Não, se pulou) na coluna da semana. A coluna da semana atual fica destacada em amarelo."),
  ("Passo 4","Em Painel, veja a aderência das últimas 4 semanas registradas, a série das últimas 8 e qual rotina está sendo pulada. Menos de 70% em vermelho."),
  ("Exemplo","O escritório fictício registrou de 20/07 a 07/09/2026 (S29 a S36). O Painel sempre olha as últimas semanas registradas, então o exemplo continua fazendo sentido em qualquer data."),
- ("Com a IA","Copie a tabela \"Por rotina\" e use o prompt \"Rotina 01: encurtar a rotina que não está sendo cumprida\" da biblioteca do kit."),
+ ("Com a IA","Copie a tabela \"Por rotina\" e use o prompt \"Prazos 02 · Rotina de segunda em 30 minutos\" da biblioteca do kit."),
 ])
 proteger(wb); salvar(wb,"03-rotina-da-semana.xlsx","Rotina da semana do escritório · Kit de Gestão para Advogados")

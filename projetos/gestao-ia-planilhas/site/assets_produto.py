@@ -12,6 +12,8 @@ def card(src,dst,w=1200,h=654):
 def pagina(pdf,dst,pag,w):
     doc=fitz.open(pdf); p=doc[pag]; pix=p.get_pixmap(matrix=fitz.Matrix(2,2)); im=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)
     im=im.resize((w,int(im.height*w/im.width)),Image.LANCZOS); im.save(dst,quality=82,optimize=True,progressive=True); print(dst.name,im.size,'pág.',pag+1)
+def thumb(src,box,out):
+    im=Image.open(src).crop(box).resize((300,400),Image.LANCZOS); im.save(out,quality=82,optimize=True,progressive=True); print(out.name)
 # cards das planilhas (recorte do topo do painel, 1200×654)
 for nome,tela in [('semana','tela-semana-hoje'),('relatorio','tela-relatorio-painel'),('ganhos','tela-ganhos-painel')]:
     card(DE/'docs'/f'{tela}.png',A/'kit'/f'{nome}.jpg')
@@ -51,8 +53,6 @@ def grade(pptx,dst,cols,cw):
 grade(DE/'entrega'/'06-modelo-apresentacao-8-slides.pptx',A/'kit'/'slides.jpg',2,560)
 grade(DC/'entrega'/'16-modelo-resultado-do-trimestre-12-slides.pptx',A/'completo'/'slides-trimestre.jpg',3,393)
 # miniaturas 3:4 dos bônus do Completo
-def thumb(src,box,out):
-    im=Image.open(src).crop(box).resize((300,400),Image.LANCZOS); im.save(out,quality=82,optimize=True,progressive=True); print(out.name)
 thumb(A/'completo'/'slides-trimestre.jpg',(0,0,300,400),A/'completo'/'thumb-slides.jpg')
 thumb(A/'completo'/'dicionario.jpg',(0,120,450,720),A/'completo'/'thumb-dicionario.jpg')
 thumb(A/'completo'/'manual.jpg',(0,0,450,600),A/'completo'/'thumb-manual.jpg')

@@ -134,6 +134,6 @@ como_usar(wb,"Agenda de prazos e audiências",[
  ("Passo 3","Em Painel, leia de cima para baixo: quadros de contagem, lista \"O que vence primeiro\", carga por responsável e os próximos 7 dias."),
  ("Rotina de segunda","10 minutos: abra o Painel, resolva ou reagende os atrasados, confirme com cada responsável os prazos da semana e registre os prazos novos que chegaram."),
  ("Limite","A planilha organiza e avisa. A contagem do prazo, a conferência da data na fonte oficial e o cumprimento continuam sendo responsabilidade de quem responde pelo caso."),
- ("Com a IA","Copie a tabela \"O que vence primeiro\" e use o prompt \"Prazos 02: montar a agenda da semana por responsável\" da biblioteca do kit."),
+ ("Com a IA","Copie a tabela \"O que vence primeiro\" e use o prompt \"Prazos 04 · Distribuir a semana entre as pessoas\" da biblioteca do kit."),
 ])
 proteger(wb); salvar(wb,"01-agenda-de-prazos.xlsx","Agenda de prazos e audiências · Kit de Gestão para Advogados")

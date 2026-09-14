@@ -152,6 +152,6 @@ como_usar(wb,"Carteira de Clientes e Casos",[
  ("Passo 3","Em Casos, uma linha por caso: número do processo (ou uma referência sua, para consultivo), cliente, área, fase, responsável, modalidade, valor contratado, recebido até hoje e data de abertura. Atualize o recebido a cada pagamento."),
  ("Passo 4","Em Painel, leia contratado, recebido e a receber, os totais por área e por responsável, o top 5 de clientes e ativos × encerrados. Nada para digitar lá."),
  ("Rotina","Sexta-feira, 10 minutos: atualizar recebidos e fases. Dia 1 do mês: copiar o Painel para o Resumo do mês (planilha 20)."),
- ("Com a IA","Copie a tabela \"Por área\" e o \"Top 5 clientes\" e use o prompt \"Resumir a carteira\" da biblioteca para preparar a reunião de sócios ou a conversa com o contador."),
+ ("Com a IA","Copie a tabela \"Por área\" e o \"Top 5 clientes\" e use o prompt \"Clientes 01 · Resumir a carteira para o sócio\" da biblioteca para preparar a reunião de sócios ou a conversa com o contador."),
 ])
 proteger(wb); salvar(wb,"13-carteira-de-clientes-e-casos.xlsx","Carteira de Clientes e Casos · Kit de Gestão para Advogados")

@@ -143,6 +143,6 @@ como_usar(wb,"Andamento por processo",[
  ("Passo 3","A cada movimentação, atualize a fase, a próxima ação e a data da última atualização. Ao encerrar, mude a fase para Encerrado: o caso sai das contagens de ativos."),
  ("Passo 4","Em Painel, confira os casos com ação atrasada, os sem próxima ação (ninguém sabe o próximo passo) e os parados há mais de N dias."),
  ("Rotina de segunda","5 minutos depois da Agenda de prazos: casos parados e sem próxima ação. Decida a ação e a data; se o caso só aguarda o andamento, registre isso na observação e atualize a data."),
- ("Com a IA","Copie a tabela \"Parados\" ou \"Por responsável\" e use o prompt \"Carteira 03: resumo da situação dos casos para a reunião de sócios\" da biblioteca do kit."),
+ ("Com a IA","Copie a tabela \"Parados\" ou \"Por responsável\" e use o prompt \"Prazos 05 · Resumo de andamento para o sócio\" da biblioteca do kit."),
 ])
 proteger(wb); salvar(wb,"02-andamento-por-processo.xlsx","Andamento por processo · Kit de Gestão para Advogados")

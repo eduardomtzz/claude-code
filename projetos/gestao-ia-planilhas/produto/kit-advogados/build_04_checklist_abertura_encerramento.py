@@ -148,6 +148,6 @@ como_usar(wb,"Checklist de abertura e encerramento de caso",[
  ("Passo 3","Ao encerrar um caso, mude a situação para Encerrado: os itens de encerramento passam a contar. Enquanto o caso está em andamento, essa parte fica cinza."),
  ("Passo 4","Em Painel, resolva primeiro os casos com mais pendências e olhe \"Item mais esquecido\": se o mesmo item pende em vários casos, o problema é a rotina, não o caso."),
  ("Rotina","Na abertura de cada caso, 3 minutos para criar a linha. Na sexta, junto com o caixa, confira os encerrados do mês: caso encerrado sem a última parcela cobrada é dinheiro parado."),
- ("Com a IA","Copie a coluna \"O que falta\" de um caso e use o prompt \"Cobrança 04: pedir ao cliente os documentos ou a assinatura que faltam\" da biblioteca do kit."),
+ ("Com a IA","Copie a coluna \"O que falta\" de um caso e use o prompt \"Prazos 07 · Pendências de abertura e encerramento viram tarefas\" da biblioteca do kit."),
 ])
 proteger(wb); salvar(wb,"04-checklist-abertura-e-encerramento.xlsx","Checklist de abertura e encerramento de caso · Kit de Gestão para Advogados")

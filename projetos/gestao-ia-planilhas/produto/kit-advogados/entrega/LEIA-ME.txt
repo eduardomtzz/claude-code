@@ -1,0 +1,39 @@
+Kit de Gestão para Advogados · Seu Sócio Gestor · versão 1.0 · setembro de 2026
+
+Comece por aqui: 26-manual-de-implantacao.pdf (20 minutos de leitura), a aula 1 e a planilha 05-custo-hora.xlsx.
+O manual organiza a implantação em 4 semanas, um núcleo por semana. Não abra as 20 de uma vez.
+
+Planilhas (Excel 2019+, Microsoft 365 e Google Sheets), em 5 núcleos:
+  Prazos       01-agenda-de-prazos.xlsx                 02-andamento-por-processo.xlsx
+               03-rotina-da-semana.xlsx                 04-checklist-abertura-e-encerramento.xlsx
+  Honorários   05-custo-hora.xlsx                       06-simulador-de-honorarios.xlsx
+               07-proposta-de-honorarios.xlsx           08-tabela-de-referencia.xlsx
+  Caixa        09-caixa-do-escritorio.xlsx              10-provisao-de-impostos.xlsx
+               11-pro-labore.xlsx                       12-reserva-e-metas-de-caixa.xlsx
+  Carteira     13-carteira-de-clientes-e-casos.xlsx     14-parcelas-e-inadimplencia.xlsx
+               15-funil-de-propostas.xlsx               16-horas-por-caso.xlsx
+  Painel       17-painel-do-escritorio.xlsx             18-resultado-mensal.xlsx
+               19-metas-do-trimestre.xlsx               20-resumo-do-mes.xlsx
+  As planilhas 01, 02, 03, 04 e 13 usam MÍNIMOSES, MÁXIMOSES e UNIRTEXTO: no Excel 2016 ou anterior aparece "#NOME?".
+Prompts: 21-biblioteca-de-prompts-do-escritorio (40 prompts em 5 grupos: Prazos, Honorários, Caixa, Clientes, Painel), em PDF e txt.
+Bônus: 22-mensagens-de-cobranca-e-confirmacao.pdf (15 modelos) · 23-guia-lgpd-escritorio-pequeno.pdf · 24-roteiro-reuniao-com-o-contador.pdf
+Referência: 25-checklists.pdf (abertura de caso, fechamento do mês, antes de enviar a proposta) · 26-manual-de-implantacao.pdf
+Modelos de apresentação (.pptx): 27 (resultado do mês, 8 slides) · 28 (proposta de honorários, 10) · 29 (carteira para o contador, 8)
+  No Google Slides: Arquivo > Importar slides (ou fazer upload do .pptx no Drive e abrir).
+Aulas (pasta videos/): 8 aulas em mp4, de 2 a 3 minutos, com legenda .srt. Ordem: 01 a 08.
+  aula-01-antes-de-abrir-a-planilha           Antes de abrir a planilha: os cinco núcleos e a rotina
+  aula-02-agenda-de-prazos-e-andamento        Agenda de prazos e andamento
+  aula-03-custo-hora-do-escritorio            Custo-hora do escritório
+  aula-04-simulador-e-proposta-de-honorarios  Simulador e proposta de honorários
+  aula-05-caixa-provisao-e-pro-labore         Caixa, provisão e pró-labore
+  aula-06-carteira-parcelas-e-cobranca        Carteira, parcelas e cobrança
+  aula-07-painel-de-sexta-e-resultado-do-mes  Painel de sexta e resultado do mês
+  aula-08-fechamento-do-mes-com-o-contador    Fechamento do mês com o contador e a IA
+
+Regras de ouro: preencha só as células amarelas; nunca cole nome de cliente ou número de processo real em IA pública
+(use Cliente A, Processo 1); confira cada número que a IA escrever; alíquota e regime são assunto do seu contador.
+O kit é gestão do escritório: nenhuma planilha ou prompt produz peça, parecer ou cálculo de prazo processual.
+Ferraz & Lima Advocacia e todas as pessoas, clientes e processos citados são fictícios.
+
+Suporte: suporte@seusociogestor.com.br (até 5 dias úteis). Arrependimento em 7 dias pelo mesmo e-mail ou pela página do pedido.
+ZTRAINING SERVICE LTDA · CNPJ 68.796.613/0001-10 · seusociogestor.com.br

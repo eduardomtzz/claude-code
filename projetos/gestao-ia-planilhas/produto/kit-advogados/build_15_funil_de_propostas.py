@@ -185,6 +185,6 @@ como_usar(wb,"Funil de Propostas",[
  ("Passo 3","Ao fechar, mude a etapa para Fechada ou Perdida e preencha a data. Se perdida, anote o motivo: é a parte mais valiosa da planilha."),
  ("Passo 4","Em Painel, veja o funil, a previsão ponderada, a lista \"O que mexer primeiro\", a taxa de fechamento por área e origem e os motivos de perda."),
  ("Rotina","Sexta-feira, 10 minutos: atualizar etapas e datas, retomar as paradas. Dia 1 do mês: comparar o fechado com a meta e olhar os motivos de perda."),
- ("Com a IA","Copie \"O que mexer primeiro\" e use o prompt \"Retomar proposta parada\" da biblioteca para escrever a mensagem ao cliente; copie \"Motivos de perda\" e use \"Revisar a proposta de honorários\". A proposta fechada vira caso na planilha 13 (Carteira)."),
+ ("Com a IA","Copie \"O que mexer primeiro\" e use o prompt \"Clientes 06 · Por que as propostas não fecham\" da biblioteca para escrever a mensagem ao cliente; copie \"Motivos de perda\" e use \"Revisar a proposta de honorários\". A proposta fechada vira caso na planilha 13 (Carteira)."),
 ])
 proteger(wb); salvar(wb,"15-funil-de-propostas.xlsx","Funil de Propostas · Kit de Gestão para Advogados")
