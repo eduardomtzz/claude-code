@@ -1,4 +1,4 @@
 docs/*.html
 __pycache__/
 *.zip
-videos/
+/videos/

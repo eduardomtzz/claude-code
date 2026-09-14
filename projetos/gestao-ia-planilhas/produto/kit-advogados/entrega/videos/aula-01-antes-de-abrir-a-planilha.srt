@@ -1,187 +1,185 @@
-WEBVTT
-
 1
-00:00:00.000 --> 00:00:03.702
+00:00:00,000 --> 00:00:03,737
 Aula um. Antes de abrir a planilha: os
 cinco núcleos e a rotina.
 
 2
-00:00:03.702 --> 00:00:05.784
+00:00:03,737 --> 00:00:05,840
 Antes de qualquer arquivo, o método:
 
 3
-00:00:05.784 --> 00:00:09.370
+00:00:05,840 --> 00:00:09,460
 o que cada planilha responde e em que dia
 da semana ela entra.
 
 4
-00:00:10.470 --> 00:00:13.777
+00:00:10,560 --> 00:00:13,890
 Prazo no caderno, honorário no chute,
 imposto sem provisão,
 
 5
-00:00:13.777 --> 00:00:16.244
+00:00:13,890 --> 00:00:16,373
 conta pessoal misturada com a do
 escritório.
 
 6
-00:00:16.244 --> 00:00:20.840
+00:00:16,373 --> 00:00:21,000
 O kit organiza isso em cinco núcleos, com
 uma rotina de trinta minutos por semana.
 
 7
-00:00:21.940 --> 00:00:27.418
+00:00:22,100 --> 00:00:27,626
 Cinco núcleos, quatro planilhas cada.
 Prazos: agenda, andamento, rotina e checklist.
 
 8
-00:00:27.418 --> 00:00:30.874
+00:00:27,626 --> 00:00:31,113
 Honorários: custo-hora, simulador,
 proposta e tabela.
 
 9
-00:00:30.874 --> 00:00:34.200
+00:00:31,113 --> 00:00:34,469
 Caixa: lançamentos, provisão, pró-labore e
 reserva.
 
 10
-00:00:34.200 --> 00:00:37.069
+00:00:34,469 --> 00:00:37,364
 Carteira: clientes, parcelas, funil e
 horas.
 
 11
-00:00:37.069 --> 00:00:38.830
+00:00:37,364 --> 00:00:39,140
 E o painel, que junta tudo.
 
 12
-00:00:39.930 --> 00:00:44.290
+00:00:40,240 --> 00:00:44,586
 É aqui que tudo termina: o Painel do
 escritório, planilha dezessete.
 
 13
-00:00:44.290 --> 00:00:49.675
+00:00:44,586 --> 00:00:49,954
 Prazos da semana e atrasados, horas do
 mês, o que entrou e saiu, a receber, vencido,
 
 14
-00:00:49.675 --> 00:00:52.240
+00:00:49,954 --> 00:00:52,510
 propostas abertas. Uma tela, toda sexta.
 
 15
-00:00:53.340 --> 00:00:56.539
+00:00:53,610 --> 00:00:56,800
 Embaixo, os semáforos: cada indicador com
 limite ou meta,
 
 16
-00:00:56.539 --> 00:00:58.840
+00:00:56,800 --> 00:00:59,095
 situação e comparação com o mês anterior.
 
 17
-00:00:58.840 --> 00:01:00.804
+00:00:59,095 --> 00:01:01,054
 Fora do alvo em vermelho, primeiro.
 
 18
-00:01:00.804 --> 00:01:04.620
+00:01:01,054 --> 00:01:04,860
 A planilha avisa; quem decide o que fazer
 na segunda é o escritório.
 
 19
-00:01:05.720 --> 00:01:07.681
+00:01:05,960 --> 00:01:07,927
 A rotina está na planilha três.
 
 20
-00:01:07.681 --> 00:01:11.097
+00:01:07,927 --> 00:01:11,352
 Segunda-feira: quatro rotinas de prazos,
 doze minutos.
 
 21
-00:01:11.097 --> 00:01:15.652
+00:01:11,352 --> 00:01:15,919
 Sexta-feira: cinco rotinas de caixa,
 cobrança e painel, dezoito minutos.
 
 22
-00:01:15.652 --> 00:01:20.080
+00:01:15,919 --> 00:01:20,360
 Trinta minutos por semana, e o painel
 mostra se a rotina foi cumprida.
 
 23
-00:01:21.180 --> 00:01:25.543
+00:01:21,460 --> 00:01:25,786
 Segunda é dia de prazo. Abrir a agenda e
 resolver ou reagendar os atrasados.
 
 24
-00:01:25.543 --> 00:01:28.757
+00:01:25,786 --> 00:01:28,974
 Confirmar com cada responsável o que vence
 em sete dias.
 
 25
-00:01:28.757 --> 00:01:33.120
+00:01:28,974 --> 00:01:33,300
 Registrar o que chegou. Atualizar fase e
 próxima ação dos casos que andaram.
 
 26
-00:01:34.220 --> 00:01:37.939
+00:01:34,400 --> 00:01:38,070
 Sexta é dia de dinheiro. Lançar entradas e
 saídas no caixa.
 
 27
-00:01:37.939 --> 00:01:42.161
+00:01:38,070 --> 00:01:42,238
 Marcar parcelas recebidas e atrasadas.
 Registrar as horas por caso.
 
 28
-00:01:42.161 --> 00:01:46.510
+00:01:42,238 --> 00:01:46,530
 Enviar a cobrança educada. Olhar o painel
 e anotar até três decisões.
 
 29
-00:01:47.610 --> 00:01:52.008
+00:01:47,630 --> 00:01:51,993
 A aba Rotina recebe Sim ou Não por semana,
 e o painel calcula a aderência:
 
 30
-00:01:52.008 --> 00:01:55.574
+00:01:51,993 --> 00:01:55,531
 sessenta e sete por cento na primeira
 semana, cem na quinta.
 
 31
-00:01:55.574 --> 00:02:00.210
+00:01:55,531 --> 00:02:00,130
 A rotina mais pulada é a que merece ser
 encurtada, delegada ou trocada de dia.
 
 32
-00:02:01.310 --> 00:02:05.666
+00:02:01,230 --> 00:02:05,625
 Para adaptar a rotina ao seu escritório,
 use o prompt Prazos zero dois:
 
 33
-00:02:05.666 --> 00:02:08.979
+00:02:05,625 --> 00:02:08,968
 quantas pessoas, quais planilhas, as
 particularidades.
 
 34
-00:02:08.979 --> 00:02:13.334
+00:02:08,968 --> 00:02:13,364
 A IA monta os blocos de segunda e sexta
 com passos, quem faz e minutos.
 
 35
-00:02:13.334 --> 00:02:14.500
+00:02:13,364 --> 00:02:14,540
 Cole na aba Rotina.
 
 36
-00:02:15.600 --> 00:02:18.890
+00:02:15,640 --> 00:02:18,918
 Resumo da aula um. Cinco núcleos, uma
 pergunta cada.
 
 37
-00:02:18.890 --> 00:02:21.420
+00:02:18,918 --> 00:02:21,440
 Segunda é prazo, sexta é caixa e painel.
 
 38
-00:02:21.420 --> 00:02:23.065
+00:02:21,440 --> 00:02:23,079
 Trinta minutos por semana.
 
 39
-00:02:23.065 --> 00:02:27.050
+00:02:23,079 --> 00:02:27,050
 Na próxima aula, a agenda de prazos e o
 andamento por processo.

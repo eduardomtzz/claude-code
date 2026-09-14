@@ -1,0 +1,213 @@
+1
+00:00:00,000 --> 00:00:03,032
+Aula sete. Carteira, parcelas e cobrança
+educada.
+
+2
+00:00:03,032 --> 00:00:07,177
+Planilhas treze a dezesseis: quanto ainda
+vai entrar, quem atrasou,
+
+3
+00:00:07,177 --> 00:00:10,580
+quanto vai fechar e qual caso consome mais
+do que paga.
+
+4
+00:00:11,680 --> 00:00:14,428
+Carteira de clientes e casos, planilha
+treze.
+
+5
+00:00:14,428 --> 00:00:17,175
+Contratado, trezentos e setenta e quatro
+mil.
+
+6
+00:00:17,175 --> 00:00:19,740
+Recebido, duzentos e quarenta e cinco mil.
+
+7
+00:00:19,740 --> 00:00:24,136
+A receber, cento e vinte e oito mil:
+sessenta e seis por cento recebido.
+
+8
+00:00:24,136 --> 00:00:26,700
+É a resposta para quanto ainda vai entrar.
+
+9
+00:00:27,800 --> 00:00:32,006
+Por área: empresarial concentra cento e
+trinta e nove mil contratados;
+
+10
+00:00:32,006 --> 00:00:34,589
+cível recebeu só quarenta e nove por
+cento.
+
+11
+00:00:34,589 --> 00:00:37,293
+Por responsável e por modalidade logo
+abaixo.
+
+12
+00:00:37,293 --> 00:00:42,160
+Êxito contratado e não recebido é normal;
+fixo com metade recebida pede cobrança.
+
+13
+00:00:43,260 --> 00:00:45,894
+Parcelas e inadimplência, planilha
+catorze.
+
+14
+00:00:45,894 --> 00:00:48,588
+Vence em sete dias, sete mil duzentos e
+dez.
+
+15
+00:00:48,588 --> 00:00:50,487
+Em aberto, sessenta e seis mil.
+
+16
+00:00:50,487 --> 00:00:53,917
+Vencido, vinte e seis mil e quinhentos em
+oito parcelas:
+
+17
+00:00:53,917 --> 00:00:59,000
+inadimplência de dezessete por cento. Cada
+parcela da proposta vira uma linha aqui.
+
+18
+00:01:00,100 --> 00:01:04,005
+A régua de cobrança fica em Config e
+aparece por faixa de atraso.
+
+19
+00:01:04,005 --> 00:01:05,928
+Um a seis dias: lembrete gentil.
+
+20
+00:01:05,928 --> 00:01:09,352
+Sete a catorze: mensagem perguntando se
+houve imprevisto.
+
+21
+00:01:09,352 --> 00:01:12,476
+Quinze a vinte e nove: demonstrativo e
+renegociação.
+
+22
+00:01:12,476 --> 00:01:15,120
+Trinta ou mais: ligação e plano por
+escrito.
+
+23
+00:01:16,220 --> 00:01:20,940
+Cobrar primeiro: as parcelas vencidas em
+ordem de valor vezes dias de atraso.
+
+24
+00:01:20,940 --> 00:01:25,538
+Helena Duarte, dois mil setecentos e
+sessenta, trinta e oito dias: ligação.
+
+25
+00:01:25,538 --> 00:01:28,358
+Luciana Farias, sete mil, onze dias:
+mensagem.
+
+26
+00:01:28,358 --> 00:01:32,220
+O prompt Clientes zero dois monta essa
+ordem com justificativa.
+
+27
+00:01:33,320 --> 00:01:37,460
+O bônus de quinze mensagens segue a mesma
+régua: lembrete, imprevisto,
+
+28
+00:01:37,460 --> 00:01:38,703
+demonstrativo, plano.
+
+29
+00:01:38,703 --> 00:01:42,843
+E-mail e WhatsApp, sem ameaça, sem
+juridiquês, um pedido por mensagem.
+
+30
+00:01:42,843 --> 00:01:43,730
+Para o seu tom,
+
+31
+00:01:43,730 --> 00:01:47,930
+o prompt Clientes zero três escreve a
+cobrança educada em três versões.
+
+32
+00:01:49,030 --> 00:01:51,119
+Funil de propostas, planilha quinze.
+
+33
+00:01:51,119 --> 00:01:55,181
+Sessenta e oito mil em aberto, previsão
+ponderada de vinte e oito mil.
+
+34
+00:01:55,181 --> 00:01:59,476
+Fechado no trimestre, quarenta e dois mil,
+setenta e um por cento da meta.
+
+35
+00:01:59,476 --> 00:02:04,060
+Embaixo, o que mexer primeiro: previsão
+vencida e paradas, maior valor no topo.
+
+36
+00:02:05,160 --> 00:02:07,180
+Horas por caso, planilha dezesseis.
+
+37
+00:02:07,180 --> 00:02:11,566
+Duzentas e oitenta e duas horas no mês,
+setenta e sete por cento faturáveis.
+
+38
+00:02:11,566 --> 00:02:15,259
+Casos para olhar primeiro: os que
+estouraram as horas estimadas.
+
+39
+00:02:15,259 --> 00:02:18,664
+Padaria do Sol, quarenta e três horas
+contra trinta e sete;
+
+40
+00:02:18,664 --> 00:02:21,030
+margem de mil seiscentos e vinte e cinco.
+
+41
+00:02:22,130 --> 00:02:25,357
+Resumo da aula sete. A carteira diz quanto
+vai entrar.
+
+42
+00:02:25,357 --> 00:02:27,867
+Parcelas e régua dizem quem cobrar e como.
+
+43
+00:02:27,867 --> 00:02:29,660
+O funil diz quanto vai fechar.
+
+44
+00:02:29,660 --> 00:02:33,186
+Horas por caso mostram o caso que consome
+mais do que paga.
+
+45
+00:02:33,186 --> 00:02:37,070
+Na próxima aula, o painel de sexta e o
+fechamento com o contador.

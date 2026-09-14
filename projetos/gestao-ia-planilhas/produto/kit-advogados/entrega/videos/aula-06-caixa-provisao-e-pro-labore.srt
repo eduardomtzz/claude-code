@@ -1,0 +1,196 @@
+1
+00:00:00,000 --> 00:00:02,393
+Aula seis. Caixa, provisão e pró-labore.
+
+2
+00:00:02,393 --> 00:00:05,265
+Planilhas nove a doze: para onde foi o
+dinheiro,
+
+3
+00:00:05,265 --> 00:00:08,017
+quanto separar para imposto e décimo
+terceiro,
+
+4
+00:00:08,017 --> 00:00:10,470
+o que é do sócio e o que é do escritório.
+
+5
+00:00:11,570 --> 00:00:13,663
+Caixa do escritório, planilha nove.
+
+6
+00:00:13,663 --> 00:00:17,012
+Setembro até o dia catorze: entrou dez mil
+e oitocentos,
+
+7
+00:00:17,012 --> 00:00:21,496
+saiu cinco mil novecentos e setenta,
+sobrou quatro mil oitocentos e trinta.
+
+8
+00:00:21,496 --> 00:00:26,280
+Saldo acumulado, quarenta mil. Só o que
+está marcado como pago conta como caixa.
+
+9
+00:00:27,380 --> 00:00:32,212
+Para onde foi o dinheiro: por categoria,
+com o mês anterior e o acumulado do ano.
+
+10
+00:00:32,212 --> 00:00:36,268
+Aluguel, quarenta e sete por cento do mês;
+estagiária, vinte e três.
+
+11
+00:00:36,268 --> 00:00:39,788
+Pró-labore e impostos em zero porque ainda
+não foram pagos.
+
+12
+00:00:39,788 --> 00:00:41,100
+Embaixo, de onde veio.
+
+13
+00:00:42,200 --> 00:00:46,601
+A aba Lançamentos é simples: data, entrada
+ou saída, categoria da lista,
+
+14
+00:00:46,601 --> 00:00:50,575
+cliente e caso, valor, pago sim ou não.
+Cinco minutos toda sexta.
+
+15
+00:00:50,575 --> 00:00:52,898
+Quando o saldo não bate com o extrato,
+
+16
+00:00:52,898 --> 00:00:55,710
+o prompt Caixa zero oito ajuda a achar o
+erro.
+
+17
+00:00:56,810 --> 00:01:00,749
+Planilha dez, Provisão de impostos, décimo
+terceiro e férias.
+
+18
+00:01:00,749 --> 00:01:05,076
+Entradas do mês, dez mil e oitocentos. A
+separar, dois mil e vinte.
+
+19
+00:01:05,076 --> 00:01:10,308
+Saldo que deveria estar na conta separada,
+onze mil setecentos e quarenta e sete.
+
+20
+00:01:10,308 --> 00:01:11,470
+Situação: coberto.
+
+21
+00:01:12,570 --> 00:01:17,031
+O ano mês a mês: entradas, provisão de
+impostos pela alíquota de Config,
+
+22
+00:01:17,031 --> 00:01:21,740
+décimo terceiro e férias em parcelas
+mensais, total a separar, usado, saldo.
+
+23
+00:01:21,740 --> 00:01:22,855
+Janeiro em alerta.
+
+24
+00:01:22,855 --> 00:01:27,440
+A planilha separa dinheiro; a apuração do
+imposto continua com o contador.
+
+25
+00:01:28,540 --> 00:01:30,806
+Planilha onze, Pró-labore e retiradas.
+
+26
+00:01:30,806 --> 00:01:33,787
+Combinado, doze mil por mês, seis para
+cada sócio.
+
+27
+00:01:33,787 --> 00:01:34,800
+Retiradas extras,
+
+28
+00:01:34,800 --> 00:01:39,391
+despesas pessoais pagas pelo escritório e
+devoluções entram na aba Retiradas.
+
+29
+00:01:39,391 --> 00:01:42,790
+Fora do combinado no ano: cinco mil e
+sessenta a acertar.
+
+30
+00:01:43,890 --> 00:01:44,307
+No ano:
+
+31
+00:01:44,307 --> 00:01:49,187
+Marina retirou dois mil extras e mil
+quatrocentos e quarenta em despesas pessoais,
+
+32
+00:01:49,187 --> 00:01:53,650
+devolveu quatrocentos e oitenta. A
+acertar, dois mil novecentos e sessenta.
+
+33
+00:01:53,650 --> 00:01:56,090
+Não é bronca; é conta clara entre sócios.
+
+34
+00:01:56,090 --> 00:01:58,530
+O prompt Caixa zero seis ajuda a separar.
+
+35
+00:01:59,630 --> 00:02:01,914
+Planilha doze, Reserva de três meses.
+
+36
+00:02:01,914 --> 00:02:06,049
+Meta: três meses de custo fixo, cinquenta
+e cinco mil e quinhentos.
+
+37
+00:02:06,049 --> 00:02:10,555
+Reserva hoje, doze mil: zero vírgula seis
+mês coberto, semáforo vermelho.
+
+38
+00:02:10,555 --> 00:02:15,740
+Com aporte de três mil por mês, a meta
+chega em dezembro de dois mil e vinte e sete.
+
+39
+00:02:16,840 --> 00:02:20,875
+Resumo da aula seis. Caixa: lançar toda
+sexta, só o pago conta.
+
+40
+00:02:20,875 --> 00:02:24,654
+Provisão: separar imposto, décimo e férias
+antes de gastar.
+
+41
+00:02:24,654 --> 00:02:27,728
+Pró-labore combinado e conta clara entre
+sócios.
+
+42
+00:02:27,728 --> 00:02:32,340
+Reserva de três meses. Na próxima aula, a
+carteira e a cobrança educada.

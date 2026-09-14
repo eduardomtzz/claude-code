@@ -1,0 +1,215 @@
+1
+00:00:00,000 --> 00:00:03,452
+Aula cinco. Custo-hora e proposta: quanto
+cobrar por este caso.
+
+2
+00:00:03,452 --> 00:00:04,986
+Três planilhas em sequência,
+
+3
+00:00:04,986 --> 00:00:09,040
+do custo da hora do escritório até a
+tabela pronta para enviar ao cliente.
+
+4
+00:00:10,140 --> 00:00:13,626
+Chegou um caso novo e a pergunta é uma só:
+quanto cobrar?
+
+5
+00:00:13,626 --> 00:00:18,030
+A resposta vem em três passos. Custo-hora
+do escritório, planilha cinco.
+
+6
+00:00:18,030 --> 00:00:21,088
+Simulador, planilha seis. Proposta,
+planilha sete.
+
+7
+00:00:21,088 --> 00:00:23,840
+Vinte minutos na primeira vez; depois,
+cinco.
+
+8
+00:00:24,940 --> 00:00:29,166
+Passo um, o custo-hora. Custo total do
+mês, dezoito mil e quinhentos,
+
+9
+00:00:29,166 --> 00:00:32,168
+dividido por duzentas e oitenta horas
+faturáveis:
+
+10
+00:00:32,168 --> 00:00:34,495
+sessenta e seis reais e sete centavos.
+
+11
+00:00:34,495 --> 00:00:37,619
+Com margem e impostos, a hora mínima é
+cento e dez.
+
+12
+00:00:37,619 --> 00:00:39,640
+Esse número vai para o simulador.
+
+13
+00:00:40,740 --> 00:00:42,134
+Passo dois, o simulador.
+
+14
+00:00:42,134 --> 00:00:45,967
+Roberto Almeida, discussão de contrato,
+sessenta mil em discussão,
+
+15
+00:00:45,967 --> 00:00:49,975
+cinquenta e cinco por cento de chance.
+Custo-hora colado do passo um.
+
+16
+00:00:49,975 --> 00:00:53,460
+Hora mínima para este caso: cento e seis e
+cinquenta e seis.
+
+17
+00:00:54,560 --> 00:00:59,677
+Cinquenta e três horas estimadas, custo de
+três mil novecentos e cinquenta e dois.
+
+18
+00:00:59,677 --> 00:01:00,924
+Recomendação: misto,
+
+19
+00:01:00,924 --> 00:01:05,292
+entrada de quatro mil e quinhentos mais
+quinze por cento do resultado.
+
+20
+00:01:05,292 --> 00:01:09,660
+Margem esperada, quatro mil setecentos e
+quarenta e dois, risco baixo.
+
+21
+00:01:10,760 --> 00:01:15,471
+Passo três, a proposta. Número, cliente,
+contato, área, objeto do serviço.
+
+22
+00:01:15,471 --> 00:01:19,418
+Validade de quinze dias. Modalidade misto,
+vinda do simulador.
+
+23
+00:01:19,418 --> 00:01:23,175
+A tabela de serviços e etapas descreve o
+que está incluído,
+
+24
+00:01:23,175 --> 00:01:24,830
+sem promessa de resultado.
+
+25
+00:01:25,930 --> 00:01:30,419
+Quatro etapas: análise inicial, fase
+inicial, acompanhamento até a decisão,
+
+26
+00:01:30,419 --> 00:01:35,327
+encerramento. Cinquenta e três horas,
+quatro mil e quinhentos de honorários fixos,
+
+27
+00:01:35,327 --> 00:01:39,577
+mais quinze por cento de êxito sobre o
+resultado efetivamente recebido.
+
+28
+00:01:39,577 --> 00:01:42,330
+Os números do simulador, agora para o
+cliente.
+
+29
+00:01:43,430 --> 00:01:47,032
+Condições: entrada de quarenta por cento,
+mil e oitocentos,
+
+30
+00:01:47,032 --> 00:01:52,038
+e três parcelas de novecentos. O
+cronograma calcula as datas a partir da proposta.
+
+31
+00:01:52,038 --> 00:01:56,800
+Imprima em A4 ou salve em PDF. Depois, as
+parcelas entram na planilha catorze.
+
+32
+00:01:57,900 --> 00:02:02,402
+Antes de enviar, o prompt Honorários zero
+dois revisa a proposta pela margem:
+
+33
+00:02:02,402 --> 00:02:05,443
+cole horas, custo-hora e valor, sem nome
+do cliente,
+
+34
+00:02:05,443 --> 00:02:07,489
+e a IA mostra onde a margem aperta.
+
+35
+00:02:07,489 --> 00:02:10,822
+O Honorários zero quatro escreve o texto
+de apresentação.
+
+36
+00:02:10,822 --> 00:02:12,050
+Você revisa e assina.
+
+37
+00:02:13,150 --> 00:02:14,812
+Quanto cobrar por este caso.
+
+38
+00:02:14,812 --> 00:02:18,373
+Sessenta e seis reais por hora vezes
+cinquenta e três horas:
+
+39
+00:02:18,373 --> 00:02:21,222
+três mil novecentos e cinquenta e dois de
+custo.
+
+40
+00:02:21,222 --> 00:02:25,437
+Proposta: quatro mil e quinhentos fixos
+mais quinze por cento de êxito.
+
+41
+00:02:25,437 --> 00:02:28,820
+Margem esperada, quatro mil setecentos e
+quarenta e dois.
+
+42
+00:02:29,920 --> 00:02:32,641
+Resumo da aula cinco. O custo-hora dá o
+piso.
+
+43
+00:02:32,641 --> 00:02:36,147
+O simulador escolhe a modalidade pela
+margem e pelo risco.
+
+44
+00:02:36,147 --> 00:02:39,110
+A proposta traduz para o cliente, com
+cronograma.
+
+45
+00:02:39,110 --> 00:02:43,100
+Na próxima aula, o caixa: entradas,
+saídas, provisão e pró-labore.

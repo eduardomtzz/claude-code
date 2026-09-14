@@ -1,0 +1,181 @@
+1
+00:00:00,000 --> 00:00:02,822
+Aula quatro. Simulador e tabela de
+honorários.
+
+2
+00:00:02,822 --> 00:00:07,179
+Planilhas seis e oito: comparar fixo,
+hora, êxito e misto para um caso,
+
+3
+00:00:07,179 --> 00:00:09,510
+e manter o preço coerente entre casos.
+
+4
+00:00:10,610 --> 00:00:14,390
+O caso do exemplo: Roberto Almeida, cível,
+discussão de contrato.
+
+5
+00:00:14,390 --> 00:00:18,519
+Custo-hora copiado da planilha cinco.
+Valor em discussão, sessenta mil.
+
+6
+00:00:18,519 --> 00:00:23,055
+Chance de êxito estimada, cinquenta e
+cinco por cento, uma estimativa honesta.
+
+7
+00:00:23,055 --> 00:00:24,160
+Só isso é digitado.
+
+8
+00:00:25,260 --> 00:00:29,945
+Horas estimadas por etapa: reunião
+inicial, estudo, redação, acompanhamento,
+
+9
+00:00:29,945 --> 00:00:31,486
+audiências, encerramento.
+
+10
+00:00:31,486 --> 00:00:35,924
+Cinquenta e três horas, custo de três mil
+novecentos e cinquenta e dois.
+
+11
+00:00:35,924 --> 00:00:38,575
+O gráfico compara a margem esperada de
+cada
+
+12
+00:00:38,575 --> 00:00:41,780
+modalidade com o que acontece se o caso
+for perdido.
+
+13
+00:00:42,880 --> 00:00:46,141
+No topo, a resposta: modalidade
+recomendada, misto.
+
+14
+00:00:46,141 --> 00:00:49,787
+Margem esperada, quatro mil setecentos e
+quarenta e dois.
+
+15
+00:00:49,787 --> 00:00:50,554
+Risco baixo.
+
+16
+00:00:50,554 --> 00:00:55,158
+A regra: maior margem esperada entre as
+modalidades com risco aceitável.
+
+17
+00:00:55,158 --> 00:00:58,100
+Compare também a coluna se o caso for
+perdido.
+
+18
+00:00:59,200 --> 00:01:00,549
+As quatro modalidades.
+
+19
+00:01:00,549 --> 00:01:04,474
+Fixo: um valor pelo caso inteiro; o risco
+é consumir mais horas.
+
+20
+00:01:04,474 --> 00:01:08,399
+Hora: cobra o que gastar. Êxito: só recebe
+no fim, se der certo.
+
+21
+00:01:08,399 --> 00:01:12,262
+Misto: entrada que cobre o custo, mais
+percentual no resultado.
+
+22
+00:01:12,262 --> 00:01:16,310
+O prompt Honorários zero sete traz as
+perguntas antes de escolher.
+
+23
+00:01:17,410 --> 00:01:19,644
+Planilha oito, Tabela de referência.
+
+24
+00:01:19,644 --> 00:01:23,865
+Hora mínima cento e vinte e sete, hora
+alvo cento e sessenta e oito,
+
+25
+00:01:23,865 --> 00:01:28,643
+calculadas do custo-hora. Dois de trinta e
+oito casos estão abaixo do mínimo;
+
+26
+00:01:28,643 --> 00:01:31,250
+faltam oitocentos e quarenta e sete reais.
+
+27
+00:01:32,350 --> 00:01:37,364
+A faixa por área e tipo de serviço: horas
+típicas de e até, modalidade recomendada,
+
+28
+00:01:37,364 --> 00:01:39,116
+mínimo, máximo e ponto médio.
+
+29
+00:01:39,116 --> 00:01:44,009
+Consultoria pontual, de trezentos e
+oitenta e quatro a mil trezentos e cinquenta.
+
+30
+00:01:44,009 --> 00:01:47,150
+Você preenche as horas típicas; a faixa é
+calculada.
+
+31
+00:01:48,250 --> 00:01:50,725
+Embaixo, os casos atuais contra a
+referência.
+
+32
+00:01:50,725 --> 00:01:53,090
+Não é para reajustar contrato em
+andamento.
+
+33
+00:01:53,090 --> 00:01:56,885
+É para a próxima proposta do mesmo tipo
+não sair diferente por humor.
+
+34
+00:01:56,885 --> 00:02:00,680
+O prompt Honorários zero seis monta a
+tabela a partir dos seus casos.
+
+35
+00:02:01,780 --> 00:02:05,677
+Resumo da aula quatro. Simulador: horas
+por etapa, custo do caso,
+
+36
+00:02:05,677 --> 00:02:08,435
+modalidade com maior margem e risco
+aceitável.
+
+37
+00:02:08,435 --> 00:02:11,072
+Tabela de referência: faixa por área e
+tipo.
+
+38
+00:02:11,072 --> 00:02:14,010
+Na próxima aula, do custo-hora à proposta
+pronta.

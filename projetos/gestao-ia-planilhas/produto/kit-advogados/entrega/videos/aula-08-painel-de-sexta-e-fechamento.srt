@@ -1,0 +1,213 @@
+1
+00:00:00,000 --> 00:00:03,672
+Aula oito. Painel de sexta e fechamento do
+mês com o contador.
+
+2
+00:00:03,672 --> 00:00:07,758
+Planilhas dezessete a vinte: uma tela toda
+sexta, o resultado do mês,
+
+3
+00:00:07,758 --> 00:00:10,600
+as metas do trimestre e o resumo que vira
+texto.
+
+4
+00:00:11,700 --> 00:00:16,594
+Toda sexta, dez minutos: copie os totais
+das outras planilhas para a aba Dados.
+
+5
+00:00:16,594 --> 00:00:20,559
+O Painel monta a tela: catorze prazos na
+semana, sete atrasados,
+
+6
+00:00:20,559 --> 00:00:24,090
+vinte e nove mil que entraram, vinte e
+seis mil vencidos.
+
+7
+00:00:25,190 --> 00:00:29,860
+Semáforos: limite ou meta por indicador,
+situação, mês anterior e variação.
+
+8
+00:00:29,860 --> 00:00:32,414
+Prazos atrasados, sete contra zero: fora.
+
+9
+00:00:32,414 --> 00:00:35,278
+Vencido, vinte e seis mil contra quinze:
+fora.
+
+10
+00:00:35,278 --> 00:00:40,260
+Fora do alvo primeiro: é o que vira ação
+na segunda, nas planilhas um e catorze.
+
+11
+00:00:41,360 --> 00:00:46,006
+Resultado mensal, planilha dezoito.
+Receita, vinte e nove mil e quatrocentos.
+
+12
+00:00:46,006 --> 00:00:47,756
+Saídas, vinte mil e duzentos.
+
+13
+00:00:47,756 --> 00:00:52,282
+Resultado, nove mil cento e trinta e seis,
+margem de trinta e um por cento.
+
+14
+00:00:52,282 --> 00:00:55,057
+Cada linha contra o mês anterior e o
+previsto.
+
+15
+00:00:55,057 --> 00:00:57,290
+Lucro de verdade, não saldo da conta.
+
+16
+00:00:58,390 --> 00:01:01,964
+Metas do trimestre, planilha dezenove.
+Semana onze de treze.
+
+17
+00:01:01,964 --> 00:01:06,194
+Nove resultados-chave, três em risco:
+inadimplência, parcelas vencidas,
+
+18
+00:01:06,194 --> 00:01:11,138
+prazos atrasados. Em risco na sexta é
+conversa na segunda, não no fim do trimestre.
+
+19
+00:01:11,138 --> 00:01:13,700
+O prompt Painel zero seis explica o
+desvio.
+
+20
+00:01:14,800 --> 00:01:19,787
+Planilha vinte, Resumo do mês. A aba
+Indicadores recebe os doze números do mês;
+
+21
+00:01:19,787 --> 00:01:24,775
+o Painel compara com o mês anterior e com
+a meta: verde no alvo, vermelho fora.
+
+22
+00:01:24,775 --> 00:01:29,699
+Entrou, saiu, sobrou, margem, horas,
+prazos atrasados, vencido, inadimplência,
+
+23
+00:01:29,699 --> 00:01:30,330
+propostas.
+
+24
+00:01:31,430 --> 00:01:35,890
+A aba Resumo escreve as frases: entrou
+vinte e nove mil e quatrocentos,
+
+25
+00:01:35,890 --> 00:01:40,035
+mais dez por cento contra agosto, meta
+trinta mil, abaixo da meta.
+
+26
+00:01:40,035 --> 00:01:45,186
+Só a célula amarela é digitada: as
+observações do escritório, sem nome de cliente.
+
+27
+00:01:45,186 --> 00:01:47,070
+Destaques automáticos embaixo.
+
+28
+00:01:48,170 --> 00:01:51,237
+Lá embaixo, o bloco único para copiar:
+indicadores,
+
+29
+00:01:51,237 --> 00:01:53,582
+destaques e observações em um texto só.
+
+30
+00:01:53,582 --> 00:01:57,852
+É o que você cola no prompt e o que vai
+para o sócio e para o contador.
+
+31
+00:01:57,852 --> 00:02:01,520
+Antes de colar em IA pública, releia
+procurando nome próprio.
+
+32
+00:02:02,620 --> 00:02:06,825
+O prompt Painel zero um, Explicar o mês ao
+sócio: cole o bloco único,
+
+33
+00:02:06,825 --> 00:02:08,715
+acrescente os seus comentários,
+
+34
+00:02:08,715 --> 00:02:12,920
+e a IA devolve até duzentas e cinquenta
+palavras na estrutura pedida.
+
+35
+00:02:12,920 --> 00:02:16,577
+Onde falta informação, ela escreve
+explicar entre colchetes.
+
+36
+00:02:16,577 --> 00:02:18,040
+Você preenche e confere.
+
+37
+00:02:19,140 --> 00:02:21,738
+Fechamento com o contador, uma vez por
+mês.
+
+38
+00:02:21,738 --> 00:02:26,692
+O bloco único e o prompt Caixa zero quatro
+preparam a reunião: o que enviar antes,
+
+39
+00:02:26,692 --> 00:02:29,713
+a pauta, as perguntas sobre provisão e
+pró-labore.
+
+40
+00:02:29,713 --> 00:02:32,250
+O roteiro do bônus dá a ordem da conversa.
+
+41
+00:02:33,350 --> 00:02:34,126
+Fim do curso.
+
+42
+00:02:34,126 --> 00:02:38,900
+Segunda é prazo, sexta é caixa e painel,
+dia trinta é resumo, prompt e contador.
+
+43
+00:02:38,900 --> 00:02:41,646
+Vinte planilhas, quarenta prompts, uma
+rotina.
+
+44
+00:02:41,646 --> 00:02:44,331
+Dúvida sobre os arquivos: suporte por
+e-mail.
+
+45
+00:02:44,331 --> 00:02:46,420
+O resto é fazer na segunda que vem.
