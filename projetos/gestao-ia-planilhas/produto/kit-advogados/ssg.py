@@ -13,7 +13,8 @@ thin=Side(style="thin", color="DCD2EC"); borda=Border(left=thin,right=thin,top=t
 KIT="Kit de Gestão para Advogados · Seu Sócio Gestor · versão 1.0 (setembro de 2026)"
 
 def titulo(ws,texto,sub=None,merge_to="J"):
-    ws["A1"]=texto; ws["A1"].font=F(bold=True,size=16,color=UVA)
+    ws["A1"]=texto; ws["A1"].font=F(bold=True,size=16,color=UVA); ws.merge_cells(f"A1:{merge_to}1")
+    ws["A1"].alignment=Alignment(horizontal="left",vertical="center",wrap_text=False); ws.row_dimensions[1].height=28
     if sub:
         ws["A2"]=sub; ws["A2"].font=F(italic=True,size=10,color=LILAS); ws.merge_cells(f"A2:{merge_to}2")
 def hdr(ws,row,vals,start=1,height=26):

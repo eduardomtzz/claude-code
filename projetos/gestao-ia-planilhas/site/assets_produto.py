@@ -24,6 +24,17 @@ pagina(DE/'entrega'/'05-mini-manual.pdf',A/'kit'/'manual.jpg',3,496)
 pagina(DE/'entrega'/'07-checklist-antes-de-enviar.pdf',A/'kit'/'checklist.jpg',0,496)
 pagina(DC/'entrega'/'12-dicionario-de-formulas.pdf',A/'completo'/'dicionario.jpg',0,600)
 pagina(DC/'entrega'/'14-manual-do-metodo.pdf',A/'completo'/'manual.jpg',3,600)
+# Kit Advogados: cards por núcleo, miniaturas dos bônus e herói
+DA=PROJ/'produto'/'kit-advogados'
+if (DA/'docs'/'tela-17.png').exists():
+    (A/'advogados').mkdir(exist_ok=True)
+    for nome,tela in [('prazos','tela-01'),('honorarios','tela-05'),('caixa','tela-09'),('carteira','tela-13'),('painel','tela-17')]:
+        card(DA/'docs'/f'{tela}.png',A/'advogados'/f'{nome}.jpg',1200,675)
+    for nome,pdf in [('cobranca','22-mensagens-de-cobranca-e-confirmacao'),('lgpd','23-guia-lgpd-escritorio-pequeno'),('contador','24-roteiro-reuniao-com-o-contador')]:
+        src=DA/'entrega'/f'{pdf}.pdf'
+        if src.exists():
+            pagina(src,A/'advogados'/f'{nome}.jpg',1,600)
+            thumb(A/'advogados'/f'{nome}.jpg',(0,0,450,600),A/'advogados'/f'thumb-{nome}.jpg')
 # grades de slides (pptx → pdf via LibreOffice → grade)
 import subprocess, tempfile
 SOFFICE='/root/.claude/skills/synced/196a43ae-ea62-4685-8684-e86dad1734fb_be351cae-a2b1-428f-a734-2c8f11d7ae5e/pptx/scripts/office/soffice.py'
