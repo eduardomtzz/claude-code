@@ -1,4 +1,4 @@
-"""Helpers comuns das planilhas do Seu Sócio Gestor (mesmo padrão visual do Kit Essencial)."""
+"""Helpers comuns das planilhas do Seu Sócio Gestor (mesmo padrão visual do Kit Essencial e do Kit Advogados)."""
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side, Protection
 from openpyxl.worksheet.datavalidation import DataValidation
@@ -10,7 +10,7 @@ MESES=["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","S
 BRL='"R$" #,##0.00;[Red]-"R$" #,##0.00'; BRL0='"R$" #,##0;[Red]-"R$" #,##0'; DATA="dd/mm/yyyy"; PCT="0%"
 F=lambda **k: Font(name="Arial", **k); fill=lambda c: PatternFill("solid", fgColor=c)
 thin=Side(style="thin", color="DCD2EC"); borda=Border(left=thin,right=thin,top=thin,bottom=thin)
-KIT="Kit de Gestão para Advogados · Seu Sócio Gestor · versão 1.0 (setembro de 2026)"
+KIT="Kit de Gestão para Médicos · Seu Sócio Gestor · versão 1.0 (setembro de 2026)"
 
 def titulo(ws,texto,sub=None,merge_to="J"):
     ws["A1"]=texto; ws["A1"].font=F(bold=True,size=16,color=UVA); ws.merge_cells(f"A1:{merge_to}1")
@@ -51,15 +51,33 @@ def como_usar(wb,nome,linhas,pos=0):
      ("Legenda","Células amarelas: você preenche. Brancas: calculadas. Não é preciso mexer em nada fora do amarelo."),
      ("Proteção","Fórmulas protegidas sem senha. Para editar: Revisar > Desproteger planilha (Excel) ou Dados > Proteger intervalos (Google Sheets)."),
      ("Requisitos","Excel 2016 ou mais novo, Microsoft 365 ou Google Sheets (só funções do Excel 2007+; nada de MÍNIMOSES, MÁXIMOSES ou UNIRTEXTO). No celular abre nos aplicativos; para preencher, use o computador."),
+     ("Dados de pacientes","Guarde só o que a gestão precisa (nome, contato, valor, data). Nada de diagnóstico, prontuário ou exame nestas planilhas: o kit é gestão, não é prontuário. Veja o guia LGPD do kit antes de colar qualquer tabela em uma IA."),
      ("Google Sheets","Faça upload no Google Drive e abra com o Google Sheets. Fórmulas, listas, cores e gráficos funcionam."),
-     ("Exemplos","Ferraz & Lima Advocacia é um escritório fictício. Clientes, processos, nomes e valores são inventados. Apague-os antes de começar. Datas de prazo do exemplo são relativas a hoje."),
+     ("Exemplos","Clínica Vida Plena é uma clínica fictícia. Pacientes, convênios, nomes, contatos e valores são inventados; não há nenhum dado clínico. Apague o exemplo antes de começar. Agenda futura e vencimentos em aberto do exemplo são relativos a hoje."),
      ("Suporte","suporte@seusociogestor.com.br · resposta em até 5 dias úteis · reembolso em até 7 dias pelo mesmo canal.")]
     for i,(a,b) in enumerate(base,start=4):
         u.cell(row=i,column=1,value=a).font=F(bold=True,color=UVA); u.cell(row=i,column=2,value=b).font=F(color=TINTA)
         u.cell(row=i,column=2).alignment=Alignment(wrap_text=True,vertical="top"); u.cell(row=i,column=1).alignment=Alignment(vertical="top"); u.row_dimensions[i].height=46
     u.column_dimensions["A"].width=20; u.column_dimensions["B"].width=95; u.sheet_view.showGridLines=False
     return u
+PRINCIPAIS=("Painel","Precificação","Simulador","Tabela","Resumo")
+def ajusta_textos(ws,ate=10):
+    """Nas abas principais, mescla títulos de seção (14/13 pt) e notas (9 pt lilás) da coluna A até a coluna `ate` quando a linha
+    está vazia à direita, para o texto não quebrar na largura da coluna A (na tela e na captura)."""
+    if ws.title not in PRINCIPAIS: return
+    merged=[r for r in ws.merged_cells.ranges]
+    def em_mescla(r,c): return any(m.min_row<=r<=m.max_row and m.min_col<=c<=m.max_col for m in merged)
+    for r in range(3,ws.max_row+1):
+        c=ws.cell(row=r,column=1); v=c.value
+        if not isinstance(v,str) or em_mescla(r,1): continue
+        f=c.font; titulo_=(f.bold and f.size and f.size>=13); nota_=(f.size==9 and f.color is not None and f.color.rgb and str(f.color.rgb).endswith(LILAS))
+        if not (titulo_ or (nota_ and len(v)>=25)): continue
+        if any(ws.cell(row=r,column=k).value is not None or em_mescla(r,k) or ws.cell(row=r,column=k).fill.fgColor.rgb.endswith(AMARELO) for k in range(2,ate+1)): continue
+        ws.merge_cells(start_row=r,start_column=1,end_row=r,end_column=ate)
+        c.alignment=Alignment(horizontal="left",vertical="top",wrap_text=nota_)
+        if nota_ and len(v)>180 and (ws.row_dimensions[r].height or 15)<28: ws.row_dimensions[r].height=30
 def proteger(wb):
+    for ws in wb.worksheets: ajusta_textos(ws)
     for ws in wb.worksheets:
         ws.protection.sheet=True; ws.protection.formatColumns=False; ws.protection.formatRows=False
         ws.protection.selectLockedCells=False; ws.protection.sort=False; ws.protection.autoFilter=False
