@@ -293,6 +293,7 @@ p{margin:0 0 1em;max-width:65ch}
 .obrigado__card ol{padding-left:20px}
 .obrigado__card li{margin-bottom:6px}
 .obrigado__card b{color:var(--uva)}
+.obrigado__card p+p,.obrigado__card p+ol{margin-top:8px}
 
 /* herói do kit: contexto da tela */
 .tela__titulo{font-size:14.5px;color:var(--tinta);margin:0;padding:12px 14px 10px;max-width:none;line-height:1.4}
@@ -350,6 +351,10 @@ p{margin:0 0 1em;max-width:65ch}
 .passos--4{grid-template-columns:1fr}
 @media (min-width:640px){.passos--4{grid-template-columns:1fr 1fr}}
 @media (min-width:980px){.passos--4{grid-template-columns:repeat(4,1fr)}}
+.passos--5{grid-template-columns:1fr}
+@media (min-width:640px){.passos--5{grid-template-columns:1fr 1fr}}
+@media (min-width:980px){.passos--5{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1100px){.passos--5{grid-template-columns:repeat(5,1fr)}.passos--5 .passo{padding:18px}.passos--5 .passo h3{font-size:17px}.passos--5 .passo p{font-size:14px}}
 .video--largo{max-width:900px;margin-inline:auto}
 @media (min-width:640px){.inv--10{grid-template-columns:1fr 1fr}.inv--10 .inv__item:last-child{grid-column:span 2}.inv--10 .inv__item:last-child img{aspect-ratio:2.4}}
 @media (min-width:980px){.inv--10{grid-template-columns:repeat(5,1fr)}.inv--10 .inv__item{grid-column:span 1}.inv--10 .inv__item:nth-child(n+4){grid-column:span 1}.inv--10 .inv__item img{aspect-ratio:4/3!important}.inv--10 .inv__item:last-child{grid-column:span 1}.inv--10 .inv__txt h3{font-size:16px}.inv--10 .inv__txt p{font-size:13.5px}}

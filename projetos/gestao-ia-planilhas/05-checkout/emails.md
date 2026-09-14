@@ -1,4 +1,4 @@
-# E-mails de entrega e pós-compra · Kit IA no Trabalho (Essencial e Completo)
+# E-mails de entrega e pós-compra · Kit IA no Trabalho (Essencial e Completo) e Kit de Gestão para Advogados
 
 Texto final, pronto para colar na automação de e-mail da Kiwify (ou no provedor que for usado).
 Data: 13/09/2026. Remetente sugerido: `Seu Sócio Gestor <suporte@seusociogestor.com.br>`.
@@ -10,7 +10,7 @@ Regras que valem para todos:
 - Sem desconto automático, sem "última chance", sem contagem regressiva.
 - Campos entre colchetes são variáveis do provedor: `[Nome]`, `[Nº do pedido]`, `[Data]`, `[Valor]`,
   `[Link de acesso]`, `[Link do pedido]`, `[Validade do Pix]`. Mapear para as variáveis da Kiwify ao configurar.
-- Onde o texto muda por kit, há dois blocos: **Essencial** e **Completo**. O resto é igual.
+- Onde o texto muda por kit, há três blocos: **Essencial**, **Completo** e **Advogados**. O resto é igual.
 - Rodapé fixo em todos (abaixo).
 
 Rodapé fixo:
@@ -27,6 +27,7 @@ Termos de uso: https://seusociogestor.com.br/termos/ · Privacidade: https://seu
 
 **Assunto (Essencial):** Seu Kit IA no Trabalho · Essencial está pronto para baixar
 **Assunto (Completo):** Seu Kit IA no Trabalho · Completo está pronto para baixar
+**Assunto (Advogados):** Seu Kit de Gestão para Advogados está pronto para baixar
 
 ```
 Olá, [Nome].
@@ -38,7 +39,7 @@ Pagamento confirmado. Seus arquivos já estão liberados:
 Esse link também fica na sua área de compras da plataforma de pagamento. Guarde este e-mail.
 
 RESUMO DO PEDIDO
-Produto: Kit IA no Trabalho · [Essencial|Completo]
+Produto: [Kit IA no Trabalho · Essencial | Kit IA no Trabalho · Completo | Kit de Gestão para Advogados]
 Pedido: [Nº do pedido] · Data: [Data] · Valor: [Valor] (pagamento único, sem renovação)
 Nota fiscal: emitida em nome do comprador e enviada por e-mail.
 
@@ -63,7 +64,7 @@ Os 80 prompts estão nas bibliotecas "11-a" e "11-b" (PDF e TXT). As 8 aulas est
 
 **Advogados:**
 ```
-1. Abra o "26-manual-de-implantacao.pdf" e assista à aula 1 (2 min). Os cinco núcleos e a rotina, antes de qualquer planilha.
+1. Abra o "26-manual-de-implantacao.pdf" (20 minutos de leitura) e assista à aula 1, "Antes de abrir a planilha: os cinco núcleos e a rotina" (2 min 28 s). Ela vem antes de qualquer planilha.
 2. Abra "05-custo-hora.xlsx", troque os custos fixos e as horas pelos seus: quinze minutos e você sabe quanto custa a sua hora.
 3. Amanhã: "01-agenda-de-prazos.xlsx" com os prazos desta semana. O semáforo faz o resto.
 Os 40 prompts estão em "21-biblioteca-de-prompts-do-escritorio" (PDF e TXT). As 8 aulas estão na pasta "videos".
@@ -72,8 +73,10 @@ Regra número um: nunca cole nome de cliente ou número de processo real em IA p
 
 ```
 REQUISITOS
-Excel 2016 ou mais novo (inclusive Microsoft 365) ou Google Sheets. No celular, abre nos aplicativos
-dos dois; para preencher, use o computador. Os prompts funcionam nas versões gratuitas do ChatGPT,
+Essencial: Excel 2016 ou mais novo (inclusive Microsoft 365) ou Google Sheets. Completo e Advogados:
+Excel 2019 ou mais novo (inclusive Microsoft 365) ou Google Sheets; no Excel 2016 ou anterior, as
+planilhas que usam MÍNIMOSES, MÁXIMOSES e UNIRTEXTO (no Advogados, 01 a 04 e 13) mostram "#NOME?".
+No celular, abre nos aplicativos dos dois; para preencher, use o computador. Os prompts funcionam nas versões gratuitas do ChatGPT,
 Copilot, Gemini e Claude. Sem macros, sem login, sem mensalidade.
 
 SE ALGO NÃO ABRIR
@@ -94,8 +97,10 @@ Seu Sócio Gestor
 
 ## 2. D+1 · Primeira tarefa (opt-in)
 
-**Assunto:** 15 minutos para a Semana Organizada funcionar
+**Assunto (Essencial e Completo):** 15 minutos para a Semana Organizada funcionar
+**Assunto (Advogados):** 15 minutos para saber quanto custa a sua hora
 
+**Essencial e Completo:**
 ```
 Olá, [Nome].
 
@@ -112,7 +117,19 @@ no campo indicado e compare com a ordem da planilha.
 
 **Essencial:** `O vídeo 1 (57 s) mostra tudo isso na tela.`
 **Completo:** `A aula 1 (2 min 25 s) explica por que definir quem lê e quando antes de abrir o Excel. Vale ver antes.`
-**Advogados (substitui os passos acima):** `Abra "05-custo-hora.xlsx". Troque os custos fixos, o pró-labore e as horas faturáveis pelos seus. A hora mínima a cobrar aparece no painel. Compare com o que você cobrou no último caso. A aula 3 mostra na tela.`
+
+**Advogados (bloco inteiro, no lugar do de cima):**
+```
+Olá, [Nome].
+
+Ontem você recebeu o kit. Hoje é o dia de descobrir quanto custa a sua hora, o número que sustenta todo o resto.
+
+1. Abra "05-custo-hora.xlsx" na aba Custos.
+2. Troque os custos fixos, o pró-labore e as horas faturáveis do exemplo pelos seus (só as células amarelas).
+3. A hora mínima a cobrar aparece no painel. Compare com o que você cobrou no último caso.
+
+A aula 3, "Custo-hora do escritório" (2 min 20 s), mostra tudo isso na tela.
+```
 
 ```
 Dúvida? Responda este e-mail.
@@ -136,7 +153,7 @@ Se sim, ótimo. O próximo passo está no e-mail de depois de amanhã.
 
 Se não, os três erros mais comuns e a solução:
 - "A planilha abriu só leitura": salve uma cópia no seu computador ou no seu Drive antes de editar.
-- "As fórmulas mostram #NOME?": abra no Excel 2016 ou mais novo, ou no Google Sheets. Versões antigas não têm algumas funções.
+- "As fórmulas mostram #NOME?": abra no Excel 2016 ou mais novo (Essencial) ou no Excel 2019 ou mais novo (Completo e Advogados), ou no Google Sheets. Versões antigas não têm algumas funções.
 - "Apaguei uma fórmula sem querer": baixe o arquivo de novo pelo link de acesso. Só as células amarelas são para digitar.
 
 Qualquer outra coisa, responda este e-mail com o nome do arquivo e o que apareceu. Respondemos em até 5 dias úteis.
@@ -151,6 +168,7 @@ Seu Sócio Gestor
 
 **Assunto (Essencial):** O relatório do mês em 45 minutos
 **Assunto (Completo):** O relatório do mês em 45 minutos, com a aula 5
+**Assunto (Advogados):** A proposta de honorários com margem
 
 ```
 Olá, [Nome].
@@ -165,7 +183,7 @@ Semana organizada. Agora o relatório do mês, que costuma atrasar.
 
 **Essencial:** `Quer apresentar? O modelo de 8 slides ("06-modelo-apresentacao-8-slides.pptx") já tem a ordem certa. E o "07-checklist-antes-de-enviar.pdf" fecha o trabalho.`
 **Completo:** `A aula 5 (2 min 26 s) faz esse caminho inteiro na tela. Para apresentar, use o modelo de 8 slides ("15-modelo-relatorio-mensal-8-slides.pptx") e o prompt "Apresentar 01".`
-**Advogados (substitui os passos acima):** `Assunto: A proposta de honorários com margem. Abra "06-simulador-de-honorarios.xlsx" com um caso real: horas por etapa, custo-hora, margem. Compare fixo, hora, êxito e misto. Depois "07-proposta-de-honorarios.xlsx" monta a tabela para o cliente. A aula 5 mostra tudo na tela.`
+**Advogados (substitui os passos acima):** `Hora calculada. Agora a proposta. Abra "06-simulador-de-honorarios.xlsx" com um caso real: horas por etapa, custo-hora, margem. Compare fixo, hora, êxito e misto. Depois "07-proposta-de-honorarios.xlsx" monta a tabela para o cliente. Vinte minutos na primeira vez; depois, cinco. A aula 5, "Custo-hora e proposta: quanto cobrar por este caso" (2 min 44 s), mostra tudo na tela.`
 
 ```
 Seu Sócio Gestor
@@ -219,7 +237,7 @@ Seu Sócio Gestor
 
 ## 7. Pix pendente (transacional)
 
-**7a · 15 minutos após gerar o Pix.** Assunto: Seu Pix do Kit IA no Trabalho ainda não foi confirmado
+**7a · 15 minutos após gerar o Pix.** Assunto: Seu Pix do Seu Sócio Gestor ainda não foi confirmado
 ```
 Olá, [Nome].
 
@@ -228,7 +246,7 @@ Seu pedido está registrado, mas o Pix ainda não foi pago. Nada foi cobrado e n
 O código vale até [Validade do Pix]. Para pagar: [Link do pedido]
 Abra o aplicativo do seu banco, cole o código (ou leia o QR) e confirme. A liberação leva até 2 minutos após o pagamento.
 
-Se o código venceu, gere um novo pela página do kit: https://seusociogestor.com.br/kit/ (Essencial) ou https://seusociogestor.com.br/completo/ (Completo). O pedido antigo não gera cobrança.
+Se o código venceu, gere um novo pela página do kit: https://seusociogestor.com.br/kit/ (Essencial), https://seusociogestor.com.br/completo/ (Completo) ou https://seusociogestor.com.br/advogados/ (Advogados). O pedido antigo não gera cobrança.
 
 Seu Sócio Gestor
 ```
@@ -248,11 +266,11 @@ Seu Sócio Gestor
 
 ## 8. Checkout abandonado (só com e-mail informado e opt-in de comunicação)
 
-**8a · 1 hora.** Assunto: Você deixou o Kit IA no Trabalho no carrinho
+**8a · 1 hora.** Assunto: Você deixou o kit no carrinho
 ```
 Olá, [Nome].
 
-Você começou a compra do Kit IA no Trabalho · [Essencial|Completo] e não terminou. O pedido continua aqui: [Link do pedido]
+Você começou a compra do [Kit IA no Trabalho · Essencial | Kit IA no Trabalho · Completo | Kit de Gestão para Advogados] e não terminou. O pedido continua aqui: [Link do pedido]
 
 Nada foi cobrado. Pagamento único, Pix ou cartão, 7 dias para desistir.
 
@@ -263,7 +281,7 @@ Seu Sócio Gestor
 Olá, [Nome].
 
 Se parou por dúvida, as mais comuns estão respondidas aqui: https://seusociogestor.com.br/suporte/
-Precisa de Excel 2016 ou Google Sheets. Funciona com a versão gratuita do ChatGPT. Não é curso, não é software, não tem mensalidade.
+Precisa de Excel (2016 ou mais novo no Essencial; 2019 ou mais novo no Completo e no Advogados) ou Google Sheets. Funciona com a versão gratuita do ChatGPT. Não é curso, não é software, não tem mensalidade.
 
 Se quiser terminar: [Link do pedido]
 Se tiver outra pergunta, responda este e-mail.
@@ -307,11 +325,11 @@ Seu Sócio Gestor
 
 ## Configuração na Kiwify (checklist para o Eduardo)
 
-- [ ] Produto Essencial (R$ 37) e Completo (R$ 197, até 12× no cartão) criados; área de membros com os arquivos do `entrega/` (zip por kit + arquivos soltos).
+- [ ] Produtos Essencial (R$ 37), Completo (R$ 197, até 12× no cartão) e Advogados (R$ 497, até 12× no cartão) criados; área de membros com os arquivos do `entrega/` (zip por kit + arquivos soltos).
 - [ ] E-mail 1 configurado como e-mail de acesso do produto (substitui o padrão da plataforma).
 - [ ] URLs de obrigado por status: aprovado `/obrigado/`, Pix pendente `/obrigado/pix/`, recusado `/obrigado/recusado/`.
 - [ ] Opt-in de comunicação no checkout (caixa desmarcada) ligado à sequência 2 a 6 e 8.
 - [ ] Pix pendente (7a, 7b) e abandono (8a a 8c) nas automações de recuperação, só por e-mail.
 - [ ] Nota fiscal: emissão automática pela plataforma ou pelo contador (confirmar prazo).
 - [ ] Teste de ponta a ponta antes de anunciar: cartão aprovado, Pix pago, Pix expirado, cartão recusado, reenvio de acesso, reembolso, nota fiscal. Em 4G, no celular, inclusive no navegador do Instagram.
-- [ ] Colocar os links reais em `site/config.json` (`checkout.kit_essencial`, `checkout.kit_completo`, `checkout.area_download`) e rebuildar o site.
+- [ ] Colocar os links reais em `site/config.json` (`checkout.kit_essencial`, `checkout.kit_completo`, `checkout.kit_advogados`, `checkout.area_download`) e rebuildar o site.
