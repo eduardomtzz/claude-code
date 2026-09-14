@@ -1,0 +1,223 @@
+1
+00:00:00,000 --> 00:00:03,710
+Aula um. Antes de abrir a planilha:
+os cinco núcleos e a rotina.
+
+2
+00:00:03,710 --> 00:00:05,796
+Antes de qualquer arquivo, o método:
+
+3
+00:00:05,796 --> 00:00:09,390
+o que cada planilha responde e
+em que dia da semana ela entra.
+
+4
+00:00:10,490 --> 00:00:14,199
+Agenda com buracos que ninguém
+mede, preço de consulta no chute,
+
+5
+00:00:14,199 --> 00:00:18,313
+convênio que paga em sessenta dias
+e ainda glosa, imposto sem provisão,
+
+6
+00:00:18,313 --> 00:00:20,688
+conta pessoal misturada com a da clínica.
+
+7
+00:00:20,688 --> 00:00:25,440
+O kit organiza isso em cinco núcleos, com
+uma rotina de trinta minutos por semana.
+
+8
+00:00:26,540 --> 00:00:28,971
+Cinco núcleos, quatro planilhas cada.
+
+9
+00:00:28,971 --> 00:00:32,388
+Agenda: ocupação, faltas,
+rotina e checklist do dia.
+
+10
+00:00:32,388 --> 00:00:36,790
+Preço: custo da hora, precificação,
+simulador de convênio e tabela.
+
+11
+00:00:36,790 --> 00:00:39,944
+Caixa: lançamentos,
+provisão, repasse e reserva.
+
+12
+00:00:39,944 --> 00:00:43,426
+Recebíveis: convênios,
+parcelas, orçamentos e cartão.
+
+13
+00:00:43,426 --> 00:00:45,200
+E o painel, que junta tudo.
+
+14
+00:00:46,300 --> 00:00:50,316
+É aqui que tudo termina: o Painel
+da clínica, planilha dezessete,
+
+15
+00:00:50,316 --> 00:00:51,922
+na sexta onze de setembro.
+
+16
+00:00:51,922 --> 00:00:56,370
+Ocupação de oitenta e um por cento,
+taxa de falta de cinco vírgula três,
+
+17
+00:00:56,370 --> 00:00:59,026
+entrou vinte e um mil quinhentos e setenta,
+
+18
+00:00:59,026 --> 00:01:02,733
+convênio a receber quinze mil
+setecentos e cinquenta e oito.
+
+19
+00:01:02,733 --> 00:01:04,030
+Uma tela, toda sexta.
+
+20
+00:01:05,130 --> 00:01:10,069
+Embaixo, os semáforos: cada indicador com
+limite ou meta, situação e o mês anterior.
+
+21
+00:01:10,069 --> 00:01:14,478
+Fora do alvo em vermelho: convênio
+atrasado, glosa, vencido, inadimplência.
+
+22
+00:01:14,478 --> 00:01:18,300
+A planilha avisa; quem decide o
+que fazer na segunda é a clínica.
+
+23
+00:01:19,400 --> 00:01:21,280
+A rotina está na planilha três.
+
+24
+00:01:21,280 --> 00:01:25,647
+Segunda-feira: quatro rotinas de
+agenda, com a recepção, quinze minutos.
+
+25
+00:01:25,647 --> 00:01:29,771
+Sexta-feira: cinco rotinas de caixa,
+cobrança e painel, mais quinze.
+
+26
+00:01:29,771 --> 00:01:33,106
+Trinta minutos por semana,
+e o painel mede a aderência:
+
+27
+00:01:33,106 --> 00:01:36,260
+oitenta e três por cento
+nas últimas quatro semanas.
+
+28
+00:01:37,360 --> 00:01:39,642
+Segunda é dia de agenda, com a recepção.
+
+29
+00:01:39,642 --> 00:01:43,065
+Abrir a planilha um e olhar as
+vagas dos próximos sete dias.
+
+30
+00:01:43,065 --> 00:01:45,119
+Confirmar por mensagem os agendados.
+
+31
+00:01:45,119 --> 00:01:47,914
+Ligar ou mandar mensagem
+para a lista de retorno.
+
+32
+00:01:47,914 --> 00:01:50,710
+Registrar as faltas da
+semana passada e remarcar.
+
+33
+00:01:51,810 --> 00:01:55,744
+Sexta é dia de dinheiro. Lançar
+os fechamentos do dia no caixa.
+
+34
+00:01:55,744 --> 00:01:59,303
+Marcar as parcelas recebidas
+e enviar a cobrança educada.
+
+35
+00:01:59,303 --> 00:02:03,237
+Separar as guias e atualizar os
+lotes. Atualizar os orçamentos.
+
+36
+00:02:03,237 --> 00:02:05,860
+Olhar o painel e anotar até três decisões.
+
+37
+00:02:06,960 --> 00:02:09,370
+A aba Rotina recebe Sim ou Não por semana,
+
+38
+00:02:09,370 --> 00:02:12,010
+e o painel calcula a aderência de cada rotina.
+
+39
+00:02:12,010 --> 00:02:15,740
+A mais pulada aparece em vermelho:
+ligar para a lista de retorno,
+
+40
+00:02:15,740 --> 00:02:17,519
+feita em uma de quatro semanas.
+
+41
+00:02:17,519 --> 00:02:20,790
+É a que merece ser encurtada,
+delegada ou trocada de dia.
+
+42
+00:02:21,890 --> 00:02:26,073
+Para adaptar a rotina à sua clínica,
+use o prompt Agenda zero cinco:
+
+43
+00:02:26,073 --> 00:02:29,394
+quantas pessoas, quais
+planilhas, as particularidades.
+
+44
+00:02:29,394 --> 00:02:33,761
+A IA monta os blocos de segunda e
+sexta com passos, quem faz e minutos.
+
+45
+00:02:33,761 --> 00:02:34,930
+Cole na aba Rotina.
+
+46
+00:02:36,030 --> 00:02:39,466
+Resumo da aula um. Cinco
+núcleos, uma pergunta cada.
+
+47
+00:02:39,466 --> 00:02:42,175
+Segunda é agenda, sexta é caixa e painel.
+
+48
+00:02:42,175 --> 00:02:46,800
+Trinta minutos por semana. Na próxima
+aula, agenda, ocupação e faltas.

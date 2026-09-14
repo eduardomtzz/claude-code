@@ -59,14 +59,14 @@ ro.conditional_formatting.add(f"{L(C0)}3:{LW}4", FormulaRule(formula=[f'AND({L(C
 ro.conditional_formatting.add(f"A{R0}:D{RI}", FormulaRule(formula=[f'$A{R0}="Sexta"'], fill=fill(LAVANDA)))
 widths(ro,[10,56,9,22]+[6]*W); ro.freeze_panes=f"{L(C0)}{R0}"; ro.sheet_view.showGridLines=False
 itens=[("Segunda","Abrir a Agenda (01): olhar as vagas dos próximos 7 dias e a ocupação da semana",4,dados.BRU),
-       ("Segunda","Confirmar por mensagem os agendados da semana",4,dados.BRU),
-       ("Segunda","Ligar ou mandar mensagem para a lista de retorno (02)",4,dados.BRU),
-       ("Segunda","Registrar as faltas da semana passada e remarcar",3,dados.BRU),
+       ("Segunda","Confirmar por mensagem os agendados da semana",3,dados.BRU),
+       ("Segunda","Ligar ou mandar mensagem para a lista de retorno (02)",3,dados.BRU),
+       ("Segunda","Registrar as faltas da semana passada e remarcar",2,dados.BRU),
        ("Sexta","Lançar os fechamentos do dia da semana no Caixa (09)",5,dados.CAR),
-       ("Sexta","Marcar parcelas recebidas e enviar a cobrança educada (14)",3,dados.BRU),
+       ("Sexta","Marcar parcelas recebidas e enviar a cobrança educada (14)",4,dados.BRU),
        ("Sexta","Separar as guias da semana e atualizar os lotes (13)",3,dados.BRU),
-       ("Sexta","Atualizar os orçamentos apresentados e aprovados (15)",2,dados.BRU),
-       ("Sexta","Olhar o Painel da clínica (17) e anotar até 3 decisões",2,dados.PAU)]
+       ("Sexta","Atualizar os orçamentos apresentados e aprovados (15)",3,dados.BRU),
+       ("Sexta","Olhar o Painel da clínica (17) e anotar até 3 decisões",3,dados.PAU)]
 assert sum(i[2] for i in itens)==30
 for i,row in enumerate(itens):
     for col,v in enumerate(row,start=1): ro.cell(row=R0+i,column=col,value=v)
@@ -134,7 +134,7 @@ widths(p,(12,56,10,22,10,10,11,26,3,26,12)); p.freeze_panes="A4"; p.sheet_view.s
 como_usar(wb,"Rotina da semana da clínica",[
  ("O que esta planilha faz","Fixa a rotina de gestão em dois momentos curtos: segunda (agenda, faltas e retornos) e sexta (caixa, guias, orçamentos e painel). Você marca, semana a semana, o que foi feito; o Painel mostra a aderência das últimas 4 semanas, por dia e por rotina."),
  ("Passo 1","Em Config, confira a data de referência (fica em =HOJE()), a segunda-feira da semana 1 (sugestão: a primeira do ano) e as pessoas da clínica."),
- ("Passo 2","Em Rotina, ajuste as linhas: dia, rotina, minutos e responsável. O exemplo soma 30 minutos por semana (15 na segunda, 15 na sexta), a maior parte com a recepção; mantenha curto, o que é longo não vira hábito."),
+ ("Passo 2","Em Rotina, ajuste as linhas: dia, rotina, minutos e responsável. O exemplo soma 30 minutos por semana (12 na segunda, 18 na sexta), a maior parte com a recepção; mantenha curto, o que é longo não vira hábito."),
  ("Passo 3","Toda segunda e toda sexta, depois de fazer a rotina, marque Sim (ou Não, se pulou) na coluna da semana. A coluna da semana atual fica destacada em amarelo."),
  ("Passo 4","Em Painel, veja a aderência das últimas 4 semanas registradas, a série das últimas 8 e qual rotina está sendo pulada. Menos de 70% em vermelho."),
  ("Exemplo","A clínica fictícia registrou de 20/07 a 07/09/2026 (S29 a S36). O Painel sempre olha as últimas semanas registradas, então o exemplo continua fazendo sentido em qualquer data. Em janeiro de 2027, troque a segunda-feira da semana 1 em Config (veja a nota lá)."),

@@ -514,7 +514,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 |---|---|---|---|---|---|---|
 | Pix | 37 | R$ 13.380 | R$ 0,00 | 0,00 % | R$ 13.380 | 42 % |
 | Cartão de débito | 22 | R$ 8.090 | R$ 121,35 | 1,50 % | R$ 7.969 | 25 % |
-| Cartão de crédito à vista | 0 | R$ 0 | R$ 0,00 | — | R$ 0 | 0 % |
+| Cartão de crédito à vista | 16 | R$ 5.840 | R$ 186,88 | 3,20 % | R$ 5.653 | 18 % |
 | Cartão de crédito parcelado | 12 | R$ 4.510 | R$ 175,89 | 3,90 % | R$ 4.334 | 14 % |
 
 - Taxas do exemplo (Config): Pix 0 %, débito 1,5 % (D+1), crédito à vista 3,2 % (D+30), crédito parcelado 3,9 % (parcelas de 30 em 30 dias); sem antecipação. Vendas na aba: 220 (01/07 a 11/09). Taxas de julho (saída do caixa em 31/07): R$ 641,77; de agosto (31/08): R$ 484,12.
@@ -594,7 +594,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ## 13. Rotina (03) e checklist do dia (04)
 
-- **03 Rotina**: 9 rotinas (4 de segunda = 15 min, com a recepção; 5 de sexta = 15 min; **30 min/semana**); registradas S29 a S36 (20/07 a 07/09/2026); semana atual S37 · 14/09; aderência nas últimas 4 semanas **83 %**; rotina mais pulada: "Ligar ou mandar mensagem para a lista de retorno (02)".
+- **03 Rotina**: 9 rotinas (4 de segunda = 12 min, com a recepção; 5 de sexta = 18 min; **30 min/semana**); registradas S29 a S36 (20/07 a 07/09/2026); semana atual S37 · 14/09; aderência nas últimas 4 semanas **83 %**; rotina mais pulada: "Ligar ou mandar mensagem para a lista de retorno (02)".
 - **04 Checklist do dia**: dias registrados 52 (dias úteis de 01/07 a 11/09) · abertura completa nos últimos 20 dias 85 % · fechamento completo 55 % · dias com pendência 23 · itens pendentes no total 31. Item mais esquecido no fechamento: "Caixa do dia fechado e conferido (Pix, cartão, dinheiro)".
 
 ## 14. Nomes de prompt citados nas planilhas (a biblioteca de prompts deve usar exatamente estes)
@@ -605,6 +605,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 - Agenda 02 · Reduzir faltas sem brigar com o paciente
 - Agenda 03 · Mensagem de retorno educada
 - Agenda 04 · Mensagem de retomada de orçamento
+- Agenda 04 · Recebíveis 05
 - Agenda 05 · Rotina da recepção em 30 minutos por semana
 - Agenda 06 · Pendências do dia viram tarefas da recepção
 
@@ -639,4 +640,4 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 - Painel 05 · Meta realista para o trimestre
 - Painel 06 · Meta × realizado: explicar o desvio
 
-Total: 25 nomes citados em 20 planilhas. Os números das planilhas citadas nos "Como usar" (01 a 20) são os desta lista de arquivos.
+Total: 26 nomes citados em 22 planilhas. Os números das planilhas citadas nos "Como usar" (01 a 20) são os desta lista de arquivos.

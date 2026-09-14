@@ -277,9 +277,8 @@ pulada.
 
 ![Planilha 03 · aba Painel](docs/recorte-03.png)
 
-**Detalhe que importa:** a rotina sugerida pelo kit é de 12 minutos na segunda e 18 na sexta; o
-exemplo da clínica fictícia registra 15 e 15, quase tudo com a recepção (30 minutos por semana nos
-dois casos), com 83 % de aderência nas últimas 4 semanas. Abaixo de 70 % fica vermelho. A rotina mais
+**Detalhe que importa:** a rotina é de 12 minutos na segunda e 18 na sexta, quase tudo com a
+recepção (30 minutos por semana), com 83 % de aderência nas últimas 4 semanas. Abaixo de 70 % fica vermelho. A rotina mais
 pulada merece ser encurtada, delegada ou trocada de dia, não bronca: no exemplo, "ligar ou mandar
 mensagem para a lista de retorno" foi feita em 1 de 4 semanas.
 

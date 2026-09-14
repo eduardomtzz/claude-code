@@ -206,7 +206,7 @@ w("- Agenda: a planilha 01 começou em julho (antes fica em branco). Orçamentos
 # ---------- 13. rotina, checklist ----------
 p03=W["03"]["Painel"]; p04=W["04"]["Painel"]
 w("## 13. Rotina (03) e checklist do dia (04)\n")
-w(f"- **03 Rotina**: 9 rotinas (4 de segunda = 15 min, com a recepção; 5 de sexta = 15 min; **30 min/semana**); registradas S29 a S36 (20/07 a 07/09/2026); semana atual {p03['C5'].value}; aderência nas últimas 4 semanas **{pct(p03['A5'].value,0)}**; rotina mais pulada: \"{next((p03.cell(row=r,column=2).value,p03.cell(row=r,column=7).value) for r in range(29,38) if p03.cell(row=r,column=8).value)[0]}\".")
+w(f"- **03 Rotina**: 9 rotinas (4 de segunda = 12 min, com a recepção; 5 de sexta = 18 min; **30 min/semana**); registradas S29 a S36 (20/07 a 07/09/2026); semana atual {p03['C5'].value}; aderência nas últimas 4 semanas **{pct(p03['A5'].value,0)}**; rotina mais pulada: \"{next((p03.cell(row=r,column=2).value,p03.cell(row=r,column=7).value) for r in range(29,38) if p03.cell(row=r,column=8).value)[0]}\".")
 w(f"- **04 Checklist do dia**: dias registrados {p04['A5'].value} (dias úteis de 01/07 a 11/09) · abertura completa nos últimos 20 dias {pct(p04['C5'].value,0)} · fechamento completo {pct(p04['E5'].value,0)} · dias com pendência {p04['G5'].value} · itens pendentes no total {p04['I5'].value}. Item mais esquecido no fechamento: \"{max(((p04.cell(row=r,column=6).value,p04.cell(row=r,column=8).value) for r in range(26,32)),key=lambda x:x[1] or 0)[0]}\".")
 w("")
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Motor das aulas em vídeo do Kit de Gestão para Advogados: telas reais + zoom + legenda + narração (Piper, pt-BR).
+"""Motor das aulas em vídeo do Kit de Gestão para Médicos (cópia do motor do Kit Advogados): telas reais + zoom + legenda + narração (Piper, pt-BR).
 Uso: python3 build_aulas.py [nome]  (sem nome = todos). Saída em entrega/videos/*.mp4"""
 import json, wave, subprocess, pathlib, sys, base64, shutil
 ROOT=pathlib.Path(__file__).resolve().parent
@@ -50,7 +50,7 @@ def html_video(nome, rot, cenas):
     partes=[]
     for i,c in enumerate(cenas):
         if c['tipo']=='capa':
-            partes.append(f'<div class="cena capa{" on" if i==0 else ""}" id="c{i}"><div class="simb">{SIMB}</div><div class="t"><em>Aula {rot["n"]}</em><br>{rot["titulo"]}</div><div class="s">{rot["sub"]}</div><div class="k">Kit de Gestão para Advogados · Seu Sócio Gestor</div></div>')
+            partes.append(f'<div class="cena capa{" on" if i==0 else ""}" id="c{i}"><div class="simb">{SIMB}</div><div class="t"><em>Aula {rot["n"]}</em><br>{rot["titulo"]}</div><div class="s">{rot["sub"]}</div><div class="k">Kit de Gestão para Médicos · Seu Sócio Gestor</div></div>')
         elif c['tipo']=='tela':
             src='data:image/png;base64,'+b64(ROOT/c['img'])
             partes.append(f'<div class="cena" id="c{i}"><div class="topo">{LOGO}</div><div class="tela"><img src="{src}" data-foco="{",".join(map(str,c["foco"]))}"></div><div class="legenda"><b>{i}</b>{esc(c["legenda"])}</div></div>')

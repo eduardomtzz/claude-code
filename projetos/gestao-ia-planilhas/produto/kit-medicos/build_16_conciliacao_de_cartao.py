@@ -81,13 +81,20 @@ kpi(p,4,11,"A conferir",f'=SUMIFS({V("J")},{V("N")},"A conferir")',VERM,VERM_T,f
 p["A7"]='="As taxas do mês equivalem a "&FIXED(IF(Config!$B$9=0,0,C5/Config!$B$9),1)&" consultas particulares. Lance este total no caixa (09) como saída \'Taxas de cartão\' no fim do mês."'; nota(p["A7"]); p.merge_cells("A7:L7")
 p["A9"]="Por tipo de pagamento no mês"; p["A9"].font=F(bold=True,size=13,color=UVA)
 hdr(p,10,["Tipo","Vendas","Bruto (R$)","Taxas (R$)","Taxa média","Líquido (R$)","% do bruto","Barra"]); p.merge_cells("H10:J10")
-linhas=[("Pix",f'{V("D")},"Pix"'),("Cartão de débito",f'{V("D")},"Cartão de débito"'),("Cartão de crédito à vista",f'{V("D")},"Cartão de crédito",{V("E")},"<2"'),("Cartão de crédito parcelado",f'{V("D")},"Cartão de crédito",{V("E")},">1"')]
+# crédito à vista = todo crédito menos o parcelado (parcelas em branco contam como à vista)
+CRED=f'{V("D")},"Cartão de crédito"'; PARC=f'{V("D")},"Cartão de crédito",{V("E")},">1"'
+linhas=[("Pix",f'{V("D")},"Pix"'),("Cartão de débito",f'{V("D")},"Cartão de débito"'),("Cartão de crédito à vista",None),("Cartão de crédito parcelado",PARC)]
 for i,(nm,crit) in enumerate(linhas):
     r=11+i
     p.cell(row=r,column=1,value=nm); calc(p.cell(row=r,column=1),center=False)
-    p.cell(row=r,column=2,value=f'=COUNTIFS({crit},{MES})'); calc(p.cell(row=r,column=2))
-    p.cell(row=r,column=3,value=f'=SUMIFS({V("F")},{crit},{MES})'); calc(p.cell(row=r,column=3),BRL0)
-    p.cell(row=r,column=4,value=f'=SUMIFS({V("I")},{crit},{MES})'); calc(p.cell(row=r,column=4),BRL)
+    if crit is None:
+        p.cell(row=r,column=2,value=f'=COUNTIFS({CRED},{MES})-COUNTIFS({PARC},{MES})'); calc(p.cell(row=r,column=2))
+        p.cell(row=r,column=3,value=f'=SUMIFS({V("F")},{CRED},{MES})-SUMIFS({V("F")},{PARC},{MES})'); calc(p.cell(row=r,column=3),BRL0)
+        p.cell(row=r,column=4,value=f'=SUMIFS({V("I")},{CRED},{MES})-SUMIFS({V("I")},{PARC},{MES})'); calc(p.cell(row=r,column=4),BRL)
+    else:
+        p.cell(row=r,column=2,value=f'=COUNTIFS({crit},{MES})'); calc(p.cell(row=r,column=2))
+        p.cell(row=r,column=3,value=f'=SUMIFS({V("F")},{crit},{MES})'); calc(p.cell(row=r,column=3),BRL0)
+        p.cell(row=r,column=4,value=f'=SUMIFS({V("I")},{crit},{MES})'); calc(p.cell(row=r,column=4),BRL)
     p.cell(row=r,column=5,value=f'=IF(C{r}=0,"",D{r}/C{r})'); calc(p.cell(row=r,column=5),"0.00%")
     p.cell(row=r,column=6,value=f'=C{r}-D{r}'); calc(p.cell(row=r,column=6),BRL0)
     p.cell(row=r,column=7,value=f'=IF($A$5=0,"",C{r}/$A$5)'); calc(p.cell(row=r,column=7),PCT)
