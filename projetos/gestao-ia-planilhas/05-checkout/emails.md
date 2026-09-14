@@ -73,9 +73,9 @@ Regra número um: nunca cole nome de cliente ou número de processo real em IA p
 
 ```
 REQUISITOS
-Essencial: Excel 2016 ou mais novo (inclusive Microsoft 365) ou Google Sheets. Completo e Advogados:
+Essencial e Advogados: Excel 2016 ou mais novo (inclusive Microsoft 365) ou Google Sheets. Completo:
 Excel 2019 ou mais novo (inclusive Microsoft 365) ou Google Sheets; no Excel 2016 ou anterior, as
-planilhas que usam MÍNIMOSES, MÁXIMOSES e UNIRTEXTO (no Advogados, 01 a 04 e 13) mostram "#NOME?".
+planilhas que usam MÍNIMOSES, MÁXIMOSES e UNIRTEXTO mostram "#NOME?".
 No celular, abre nos aplicativos dos dois; para preencher, use o computador. Os prompts funcionam nas versões gratuitas do ChatGPT,
 Copilot, Gemini e Claude. Sem macros, sem login, sem mensalidade.
 
@@ -153,7 +153,7 @@ Se sim, ótimo. O próximo passo está no e-mail de depois de amanhã.
 
 Se não, os três erros mais comuns e a solução:
 - "A planilha abriu só leitura": salve uma cópia no seu computador ou no seu Drive antes de editar.
-- "As fórmulas mostram #NOME?": abra no Excel 2016 ou mais novo (Essencial) ou no Excel 2019 ou mais novo (Completo e Advogados), ou no Google Sheets. Versões antigas não têm algumas funções.
+- "As fórmulas mostram #NOME?": abra no Excel 2016 ou mais novo (Essencial e Advogados) ou no Excel 2019 ou mais novo (Completo), ou no Google Sheets. Versões antigas não têm algumas funções.
 - "Apaguei uma fórmula sem querer": baixe o arquivo de novo pelo link de acesso. Só as células amarelas são para digitar.
 
 Qualquer outra coisa, responda este e-mail com o nome do arquivo e o que apareceu. Respondemos em até 5 dias úteis.
@@ -281,7 +281,7 @@ Seu Sócio Gestor
 Olá, [Nome].
 
 Se parou por dúvida, as mais comuns estão respondidas aqui: https://seusociogestor.com.br/suporte/
-Precisa de Excel (2016 ou mais novo no Essencial; 2019 ou mais novo no Completo e no Advogados) ou Google Sheets. Funciona com a versão gratuita do ChatGPT. Não é curso, não é software, não tem mensalidade.
+Precisa de Excel (2016 ou mais novo no Essencial e no Advogados; 2019 ou mais novo no Completo) ou Google Sheets. Funciona com a versão gratuita do ChatGPT. Não é curso, não é software, não tem mensalidade.
 
 Se quiser terminar: [Link do pedido]
 Se tiver outra pergunta, responda este e-mail.

@@ -103,9 +103,9 @@ inventado). Acrescentar: "A tela real das vinte está nesta página; cada arquiv
 2. **Tem alguma peça, modelo de petição ou contrato?** Não. Nenhum conteúdo jurídico: você sabe fazer o seu.
 3. **Preciso saber Excel?** Precisa saber digitar em uma célula. As fórmulas estão prontas e protegidas; as aulas mostram
    cada planilha na tela.
-4. **Funciona no Google Sheets?** Sim, todas as vinte abrem no Sheets. Três funções (MÍNIMOSES, MÁXIMOSES e UNIRTEXTO),
-   usadas nas planilhas 01 a 04 e 13, pedem Excel 2019 ou mais novo, Microsoft 365 ou o Sheets; no Excel 2016 ou
-   anterior essas células mostram #NOME?.
+4. **Funciona no Google Sheets?** Sim, todas as vinte abrem no Sheets e no Excel 2016 ou mais novo (inclusive
+   Microsoft 365): só usam funções que existem nos dois. No celular, os aplicativos abrem e mostram; para preencher,
+   use o computador.
 5. **Serve para escritório com sócios?** Sim, até 4 pessoas. As planilhas separam por responsável e por sócio.
 5b. **Posso usar com os sócios e a equipe do escritório?** Sim. A licença é de uso do escritório que comprou, em quantos
    computadores quiser; sócios, associados e estagiários preenchem as planilhas com você. O que não pode é revender,
@@ -127,7 +127,7 @@ Em `/obrigado/pix/`, "volte à página do kit" com os três links (/kit/, /compl
 Mesma sequência de `05-checkout/emails.md`, com bloco **Advogados**: D+0 assunto "Seu Kit de Gestão para Advogados
 está pronto para baixar", ordem manual (20 min) → aula 1 (2 min 28 s) → 05-custo-hora → 01-agenda de prazos; D+1
 assunto "15 minutos para saber quanto custa a sua hora" (aula 3); D+5 "A proposta de honorários com margem" (aula 5).
-Requisito: Excel 2019 ou mais novo, Microsoft 365 ou Google Sheets.
+Requisito: Excel 2016 ou mais novo, Microsoft 365 ou Google Sheets.
 
 ## Anúncios (3 ângulos)
 **Ângulo 1 · O escritório, quem administra?** Primária curta: Você advoga o dia inteiro. O escritório, quem administra?
