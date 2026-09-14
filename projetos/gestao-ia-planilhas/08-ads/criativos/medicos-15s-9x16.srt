@@ -4,20 +4,20 @@ Você atende o dia
 inteiro. E a clínica?
 
 2
-00:00:03,500 --> 00:00:07,002
+00:00:03,500 --> 00:00:07,092
 Vinte planilhas prontas para
 a clínica: agenda, preço,
 
 3
-00:00:07,002 --> 00:00:08,170
+00:00:07,092 --> 00:00:08,290
 caixa e convênios.
 
 4
-00:00:08,170 --> 00:00:11,670
+00:00:08,290 --> 00:00:11,790
 Quarenta prompts, oito
 aulas e modelos de slides.
 
 5
-00:00:11,670 --> 00:00:15,290
+00:00:11,790 --> 00:00:15,400
 Seiscentos e noventa e
 sete reais. Comece hoje.
