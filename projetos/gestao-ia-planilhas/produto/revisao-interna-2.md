@@ -12,7 +12,7 @@ slides 27/29), horas e funil divergem entre 16/17 e 07/15, e os documentos herda
 ## Triagem e correções
 
 Legenda: **Aceito** (aplicar como está) · **Adaptado** (aplicar de outro jeito) · **Adiado** (depende do Eduardo ou de
-conta externa) · **Rejeitado** (não faz sentido para nós). Coluna "Feito" preenchida ao fim da rodada.
+conta externa) · **Rejeitado** (não faz sentido para nós). Coluna "Feito" preenchida em 14/09/2026 (rodada de correções com 6 agentes: site, dados/planilhas, documentos, aulas).
 
 ### Decisões de história (valem para todos os arquivos)
 
@@ -34,46 +34,46 @@ conta externa) · **Rejeitado** (não faz sentido para nós). Coluna "Feito" pre
 
 | Achado | Decisão | Feito |
 |---|---|---|
-| A-1 a A-4 (setembro, DRE, horas, funil) | Aceito: refatoração de dados.py + builders | |
-| A-5 a A-18 | Aceito (A-12 Excel 2016: adaptado, trocar onde não pesar; o que ficar exige 2019 e o "Como usar" diz qual aba) | |
-| A-19 a A-30, A-32 | Aceito | |
-| A-31 (página 15/15 min, oferta "38 ativos") | Aceito na página e na oferta | |
-| B-G1 (quatro setembros) | Aceito via NUMEROS.md | |
-| B-G2 (marca nos slides) | Aceito | |
-| B-G3 (manual: 04 fora, aulas trocadas) | Aceito | |
-| B-G4, B-G5, B-M3, B-M13, B-L2, B-L3 (páginas vazias e órfãos nos PDFs) | Aceito | |
-| B-G6 / C-2 (prompt da página) | Aceito: texto literal | |
-| B-M1 (28 expõe custo-hora) | Aceito | |
-| B-M2 (29 aba Vencidos; dados de cliente ao contador) | Aceito: anexo só com totais | |
-| B-M4 (TXT com Markdown cru) | Aceito: txt limpo | |
-| B-M5 (metadados dos PDFs) | Aceito | |
-| B-M6, B-M7 (capturas do manual; exemplo da 17) | Aceito | |
-| B-M8 / C-17 (régua de cobrança em três versões) | Aceito: a régua da 14 manda; 22 e 27 seguem | |
-| B-M9 (avaliação pública, OAB) | Adaptado: modelo 15 vira pedido de feedback privado, com aviso de revisar pelo Provimento 205/2021 | |
-| B-M10 (recibo sem nota) | Aceito: nota fiscal obrigatória; e-mail é só confirmação; 24 trata regularização | |
-| B-M11 (13º dos sócios, recesso) | Aceito: "reserva de fim de ano decidida pelos sócios" e "reserva de janeiro (receita menor)" | |
-| B-M12 (22 em PDF + txt) | Aceito: gerar txt | |
-| B-L1 / C-24 (manual 18 p. × oferta 20–30) | Adaptado: oferta passa a dizer "cerca de 20 páginas" | |
-| B-L4 (estagiária R$ 700 por 20 h) | Aceito: R$ 467 | |
-| B-L6 (ANPD 3 dias úteis) | Aceito | |
-| B-L7 (descrição das 15 mensagens na página) | Aceito: descrever os 5 grupos | |
-| B-L8, B-L9 | Aceito | |
-| B-L10 ("tela real" × recorte) | Rejeitado: é a planilha real renderizada; a página não promete janela do Excel | |
-| C-1 (aula 5: 66,07 × 53 = 3.952) | Aceito: 3.501,71 + R$ 450 de despesas = 3.951,71, narrado assim | |
-| C-3 (manual aulas) | Aceito | |
-| C-4 (e-mails) | Aceito | |
-| C-5 (capa das aulas 2 e 4) | Aceito: kicker fixo no rodapé | |
-| C-6 (títulos) | Aceito | |
-| C-7, C-8 | Aceito via NUMEROS.md e narração da aula 4 explicando a folga | |
-| C-9, C-10, C-11, C-13 | Aceito | |
-| C-12 (valores em cache) | Adaptado: testar re-salvar com LibreOffice; aplicar só se a fidelidade for boa | |
-| C-14 (enquadramento aulas 2, 5, 7) | Aceito | |
-| C-15 (fase × ação) | Aceito (dados.py) | |
-| C-16 (TEXT em locale) | Aceito: nota no Como usar; texto via FIXED/SUBSTITUTE | |
-| C-18, C-19, C-20, C-21 | Aceito (quadro inicial, −1 dBTP, cues curtos, arredondamentos) | |
-| C-22, C-23, C-25, C-26, C-27 | Aceito | |
-| Teste em Excel e Google Sheets reais | Adiado: Eduardo | |
-| Narração definitiva | Adiado: chave do Google TTS | |
+| A-1 a A-4 (setembro, DRE, horas, funil) | Aceito: refatoração de dados.py + builders | Sim: dados.py fonte única; verifica_coerencia.py 251 OK |
+| A-5 a A-18 | Aceito (A-12 Excel 2016: adaptado, trocar onde não pesar; o que ficar exige 2019 e o "Como usar" diz qual aba) | Sim (A-12: nenhuma função pós-2007 sobrou; Excel 2016 em todo o kit) |
+| A-19 a A-30, A-32 | Aceito | Sim |
+| A-31 (página 15/15 min, oferta "38 ativos") | Aceito na página e na oferta | Sim |
+| B-G1 (quatro setembros) | Aceito via NUMEROS.md | Sim: prompts, slides, manual e aulas com NUMEROS.md |
+| B-G2 (marca nos slides) | Aceito | Sim: marca no mestre, "modelo" só nas notas |
+| B-G3 (manual: 04 fora, aulas trocadas) | Aceito | Sim: 01–05 / 06–10 / 11–16 / 17–20, aulas certas, lista das 8 aulas |
+| B-G4, B-G5, B-M3, B-M13, B-L2, B-L3 (páginas vazias e órfãos nos PDFs) | Aceito | Sim: PDFs 23 (8 p.), 24 (4 p.), 21 e 22 sem órfãos |
+| B-G6 / C-2 (prompt da página) | Aceito: texto literal | Sim |
+| B-M1 (28 expõe custo-hora) | Aceito | Sim: 28 só com horas e valor por etapa |
+| B-M2 (29 aba Vencidos; dados de cliente ao contador) | Aceito: anexo só com totais | Sim: anexos ao contador só com totais |
+| B-M4 (TXT com Markdown cru) | Aceito: txt limpo | Sim: 21 e 22 em txt limpo |
+| B-M5 (metadados dos PDFs) | Aceito | Sim |
+| B-M6, B-M7 (capturas do manual; exemplo da 17) | Aceito | Sim: recortes com legenda; 17 copia dos painéis |
+| B-M8 / C-17 (régua de cobrança em três versões) | Aceito: a régua da 14 manda; 22 e 27 seguem | Sim: régua da 14 em 22 e 27 |
+| B-M9 (avaliação pública, OAB) | Adaptado: modelo 15 vira pedido de feedback privado, com aviso de revisar pelo Provimento 205/2021 | Sim (adaptado) |
+| B-M10 (recibo sem nota) | Aceito: nota fiscal obrigatória; e-mail é só confirmação; 24 trata regularização | Sim: 28 só com horas e valor por etapa |
+| B-M11 (13º dos sócios, recesso) | Aceito: "reserva de fim de ano decidida pelos sócios" e "reserva de janeiro (receita menor)" | Sim: 28 só com horas e valor por etapa |
+| B-M12 (22 em PDF + txt) | Aceito: gerar txt | Sim: 28 só com horas e valor por etapa |
+| B-L1 / C-24 (manual 18 p. × oferta 20–30) | Adaptado: oferta passa a dizer "cerca de 20 páginas" | Sim: manual com 20 p.; oferta "cerca de 20 páginas" |
+| B-L4 (estagiária R$ 700 por 20 h) | Aceito: R$ 467 | Sim |
+| B-L6 (ANPD 3 dias úteis) | Aceito | Sim |
+| B-L7 (descrição das 15 mensagens na página) | Aceito: descrever os 5 grupos | Sim |
+| B-L8, B-L9 | Aceito | Sim |
+| B-L10 ("tela real" × recorte) | Rejeitado: é a planilha real renderizada; a página não promete janela do Excel | — |
+| C-1 (aula 5: 66,07 × 53 = 3.952) | Aceito: 3.501,71 + R$ 450 de despesas = 3.951,71, narrado assim | Sim: aulas 4 e 5 |
+| C-3 (manual aulas) | Aceito | Sim |
+| C-4 (e-mails) | Aceito | Sim (Excel 2016 no Advogados) |
+| C-5 (capa das aulas 2 e 4) | Aceito: kicker fixo no rodapé | Sim: kicker fixo |
+| C-6 (títulos) | Aceito | Sim: títulos das capas em página, LEIA-ME, manual, e-mails, copy |
+| C-7, C-8 | Aceito via NUMEROS.md e narração da aula 4 explicando a folga | Sim |
+| C-9, C-10, C-11, C-13 | Aceito | Sim |
+| C-12 (valores em cache) | Adaptado: testar re-salvar com LibreOffice; aplicar só se a fidelidade for boa | Sim: aulas 4 e 5 |
+| C-14 (enquadramento aulas 2, 5, 7) | Aceito | Sim: aulas 4 e 5 |
+| C-15 (fase × ação) | Aceito (dados.py) | Sim: aulas 4 e 5 |
+| C-16 (TEXT em locale) | Aceito: nota no Como usar; texto via FIXED/SUBSTITUTE | Sim: aulas 4 e 5 |
+| C-18, C-19, C-20, C-21 | Aceito (quadro inicial, −1 dBTP, cues curtos, arredondamentos) | Sim: aulas 4 e 5 |
+| C-22, C-23, C-25, C-26, C-27 | Aceito | Sim |
+| Teste em Excel e Google Sheets reais | Adiado: Eduardo | Adiado |
+| Narração definitiva | Adiado: chave do Google TTS | Adiado |
 
 
 ## Relatório A · planilhas 01–20

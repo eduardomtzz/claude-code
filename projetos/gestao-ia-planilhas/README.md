@@ -10,13 +10,13 @@ Eduardo é o gestor e aprovador.
 |---|---|---|
 | 1. Pesquisa de nicho | aprovado | 4 rodadas. Rodada 4 (conversão) consolidada em `01-pesquisa/resumo-rodada-4.md`: blueprint das páginas, checkout e pós-compra |
 | 2. Oferta | em andamento | `02-oferta/kit-essencial.md`, `02-oferta/kit-completo.md`, `02-oferta/advogados.md` (produto 3, decisões pendentes em DECISOES.md); `02-oferta/dentistas.md` guardada para o produto 5 |
-| 3. Produto | em andamento | Kit Essencial v1 e Kit Completo v1 revisados (`produto/revisao-interna-1.md`). Kit para Advogados v1 em `produto/kit-advogados/` (20 planilhas em 5 núcleos, 40 prompts, manual de 4 semanas, 3 bônus, 3 modelos de slides, 8 aulas). Falta: revisão interna do kit 3, auditoria no GPT, teste em Excel/Sheets reais, narração definitiva (Google TTS) |
+| 3. Produto | em andamento | Kit Essencial v1 e Kit Completo v1 revisados (`produto/revisao-interna-1.md`). Kit para Advogados v1 em `produto/kit-advogados/` (20 planilhas em 5 núcleos, 40 prompts, manual de 4 semanas, 3 bônus, 3 modelos de slides, 8 aulas), revisado por 3 revisores e corrigido (`produto/revisao-interna-2.md`; `dados.py` é fonte única, `verifica_coerencia.py` 251 OK, `NUMEROS.md`). Falta: auditoria no GPT (prompt pronto), teste em Excel/Sheets reais, narração definitiva (Google TTS) |
 | 4. Marca | aprovado | direção D, kit de marca em `03-marca/kit-de-marca/` |
 | 5. Copy | em andamento | `04-copy/kit-essencial.md`, `04-copy/kit-completo.md`, `04-copy/advogados.md` (página, obrigado, e-mails, 3 ângulos de anúncio cada) |
-| 6. Página | em andamento | base + `/kit/` + `/completo/` + `/advogados/` + `/obrigado/` (3 estados) em `site/`, heróis com mockup, revisadas em celular e desktop. Falta hospedar (Cloudflare Pages), links da Kiwify, e-mails, leitura final do Eduardo |
+| 6. Página | em andamento | base + `/kit/` + `/completo/` + `/advogados/` + `/obrigado/` (3 estados) em `site/`, heróis e inventários com mockup, imagem OG por produto, imagens otimizadas no build, revisadas em celular e desktop. Falta hospedar (Cloudflare Pages), links da Kiwify, e-mails, leitura final do Eduardo |
 | 7. Checkout | em andamento | Kiwify decidida. E-mails de entrega e pós-compra prontos em `05-checkout/emails.md`, com checklist de configuração. Falta a conta e os links |
 | 8. Rastreamento | em andamento | Código pronto: `site.js` (Pixel com consentimento e `event_id`), `site/functions/api/capi.js` (API de Conversões). Purchase vem da Kiwify. Plano e verificação em `06-tracking.md`. Falta o ID do Pixel e o token |
-| 9. Criativos | em andamento | Em `08-ads/criativos/`: vídeo de vendas 9:16 e estáticos com mockup dos três kits, demo do Essencial. Em `08-ads/instagram/`: 15 posts de feed com legendas. Falta: vídeos de 15 s, carrosséis, narração definitiva |
+| 9. Criativos | em andamento | Em `08-ads/criativos/`: vídeo de vendas 9:16, vídeo de 15 s, carrossel de 6 cartões e estáticos com mockup dos três kits, demo do Essencial. Em `08-ads/instagram/`: 15 posts de feed + 15 Stories com legendas. Falta: narração definitiva |
 | 10. Tráfego | em andamento | Plano de teste em `08-ads/plano.md`, tetos em `08-ads/limites.json` (pendentes de aprovação em `DECISOES.md`), `matriz.csv`. Liga quando existirem conta, Pixel e Kiwify |
 
 ## Escada de produtos e ordem de produção (aprovada em 2026-09-13)
