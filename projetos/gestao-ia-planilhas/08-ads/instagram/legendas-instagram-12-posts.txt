@@ -143,3 +143,37 @@ Não é para você se precisa de sistema com login para várias pessoas, quer ap
 
 R$ 197, ou 12× de R$ 19,90. 7 dias para desistir. Link na bio.
 #gestao #iaparatrabalho #metodo
+
+---
+
+**13 · Kit para Advogados**
+Você advoga o dia inteiro. O escritório, quem administra?
+
+Vinte planilhas prontas em cinco núcleos: prazos com semáforo, honorário pela hora, caixa com provisão, carteira viva e o painel de sexta. Você preenche; a planilha avisa o que vence, calcula o custo da sua hora e mostra se o mês deu lucro.
+
+Não é software jurídico, não é consultoria, não tem mensalidade. R$ 497 uma vez, ou 12× no cartão. 7 dias para desistir. Link na bio.
+#advocacia #gestaojuridica #escritoriodeadvocacia #honorarios
+
+---
+
+**14 · Cinco núcleos**
+Cinco núcleos, vinte planilhas.
+
+1. Prazos: agenda com semáforo, andamento por processo, rotina de segunda, checklist de abertura e encerramento.
+2. Honorários: custo-hora, simulador, proposta pronta para o cliente, tabela de referência.
+3. Caixa: caixa do escritório, provisão de impostos e 13º, pró-labore separado, reserva.
+4. Carteira: clientes e casos, parcelas e cobrança educada, funil de propostas, horas por caso.
+5. Painel: painel de sexta, resultado do mês, metas do trimestre, resumo para a IA.
+
+Nada de peça ou orientação jurídica: é gestão do escritório. Com 40 prompts, 8 aulas curtas e manual de 4 semanas.
+#advocacia #gestao #planilhas
+
+---
+
+**15 · Custo-hora**
+Quanto custa a sua hora?
+
+Custos fixos mais pró-labore, divididos pelas horas que você consegue faturar. Some impostos e a margem que quer: essa é a hora mínima a cobrar. A partir dela, o simulador compara fixo, hora, êxito e misto antes de você mandar a proposta.
+
+Tela real, escritório fictício. Kit de Gestão para Advogados, R$ 497. Link na bio.
+#honorarios #advocacia #custohora

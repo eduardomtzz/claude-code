@@ -4,7 +4,7 @@ Também gera a prévia do feed (3 colunas, ordem de publicação invertida). Uso
 import pathlib, base64, subprocess, os, sys, json
 ROOT=pathlib.Path(__file__).resolve().parent; PROJ=ROOT.parents[1]
 S=pathlib.Path('/tmp/claude-0/-home-user-claude-code/a6ac5a85-3495-54eb-8ee2-ee26ae091f81/scratchpad')
-DE=PROJ/'produto'/'kit-essencial'/'docs'; DC=PROJ/'produto'/'kit-completo'/'docs'; FONTS=PROJ/'site'/'public'/'assets'/'fonts'
+DE=PROJ/'produto'/'kit-essencial'/'docs'; DC=PROJ/'produto'/'kit-completo'/'docs'; DA=PROJ/'produto'/'kit-advogados'/'docs'; FONTS=PROJ/'site'/'public'/'assets'/'fonts'
 b64=lambda p: base64.b64encode(pathlib.Path(p).read_bytes()).decode()
 LOGO=(PROJ/'03-marca'/'logo'/'logo-horizontal.svg').read_text(); LOGOB=(PROJ/'03-marca'/'logo'/'logo-branco.svg').read_text()
 EMP=(PROJ/'03-marca'/'logo'/'logo-empilhado.svg').read_text(); EMPB=(PROJ/'03-marca'/'logo'/'logo-empilhado-branco.svg').read_text()
@@ -161,6 +161,31 @@ post(12,'lav','12 · para quem é','Kit IA no Trabalho · Completo',f'''
   <div class="lin" style="border-bottom:2px solid #DCD2EC"><span class="ok">✓</span>Quer método e arquivo pronto, não teoria</div>
 </div>
 <div style="position:absolute;left:72px;top:1060px;display:flex;align-items:center;gap:28px"><span class="pill">R$ 197 · uma vez</span><span class="mono" style="font-size:26px;color:#7A5AA8;line-height:1.3">ou 12× de R$ 19,90<br>7 dias para desistir</span></div>''')
+# ---------- 3 do Kit para Advogados ----------
+post(13,'creme','13 · para advogados','Kit de Gestão para Advogados',f'''
+<div class="t h" style="font-size:80px">Você advoga o dia inteiro. O escritório, <em>quem administra?</em></div>
+{dispositivos(72,470,0.7,DA/'tela-17.png',DA/'tela-01.png','Painel do Escritório','Agenda de Prazos',2.6)}
+<div style="position:absolute;left:72px;top:1150px" class="pill">Comprar por R$ 497</div>
+<div class="mono" style="position:absolute;left:560px;top:1170px;font-size:24px;color:#7A5AA8;line-height:1.35">Pix ou 12× no cartão<br>7 dias para desistir</div>''')
+post(14,'uva','14 · cinco núcleos','Kit de Gestão para Advogados',f'''
+<div class="t h" style="font-size:84px">Cinco núcleos, <em>vinte planilhas.</em></div>
+<div style="position:absolute;left:72px;right:72px;top:430px;display:grid;gap:18px">
+  <div class="card" style="display:flex;gap:24px;align-items:center;padding:20px 30px"><div class="num" style="width:60px;height:60px;font-size:30px">1</div><div><b style="font-size:34px">Prazos</b><span>agenda com semáforo, andamento, rotina, checklist</span></div></div>
+  <div class="card" style="display:flex;gap:24px;align-items:center;padding:20px 30px"><div class="num" style="width:60px;height:60px;font-size:30px">2</div><div><b style="font-size:34px">Honorários</b><span>custo-hora, simulador, proposta, tabela de referência</span></div></div>
+  <div class="card" style="display:flex;gap:24px;align-items:center;padding:20px 30px"><div class="num" style="width:60px;height:60px;font-size:30px">3</div><div><b style="font-size:34px">Caixa</b><span>caixa, provisão de impostos, pró-labore, reserva</span></div></div>
+  <div class="card" style="display:flex;gap:24px;align-items:center;padding:20px 30px"><div class="num" style="width:60px;height:60px;font-size:30px">4</div><div><b style="font-size:34px">Carteira</b><span>clientes e casos, parcelas e cobrança, funil, horas</span></div></div>
+  <div class="card" style="display:flex;gap:24px;align-items:center;padding:20px 30px"><div class="num" style="width:60px;height:60px;font-size:30px">5</div><div><b style="font-size:34px">Painel</b><span>painel de sexta, resultado, metas, resumo para a IA</span></div></div>
+</div>
+<div class="sub" style="top:1185px;font-size:28px">Nada de peça ou orientação jurídica. É gestão do escritório. R$ 497, uma vez.</div>''')
+post(15,'lav','15 · custo-hora','Kit de Gestão para Advogados',f'''
+<div class="t h" style="font-size:80px">Quanto custa <em>a sua hora?</em></div>
+{fone_so(600,440,340,DA/'tela-05.png',2.2,'Tela real. Escritório fictício.')}
+<div style="position:absolute;left:72px;top:520px;width:440px;display:grid;gap:18px">
+  <div class="card" style="padding:26px 28px"><b style="font-size:32px">Custos + pró-labore</b><span style="font-size:26px">divididos pelas horas faturáveis</span></div>
+  <div class="card" style="padding:26px 28px"><b style="font-size:32px">Hora mínima a cobrar</b><span style="font-size:26px">com impostos e margem</span></div>
+  <div class="card" style="padding:26px 28px"><b style="font-size:32px">Proposta com margem</b><span style="font-size:26px">fixo, hora, êxito ou misto</span></div>
+</div>
+<div style="position:absolute;left:72px;top:1150px" class="pill">Comprar por R$ 497</div>''')
 # ---------- render ----------
 out=ROOT/'trabalho'; out.mkdir(exist_ok=True); alvo=int(sys.argv[1]) if len(sys.argv)>1 else None; jobs=[]
 for n,tema,corpo in POSTS:
@@ -177,7 +202,7 @@ subprocess.run(['node',str(out/'shot.js')],check=True,env={**os.environ,'NODE_PA
 # prévia do feed: 3 colunas, do mais recente (12) ao mais antigo (1)
 if not alvo:
     from PIL import Image
-    ims=[Image.open(ROOT/f'post-{n:02d}-1080x1350.png').resize((360,450)) for n in range(12,0,-1)]
-    g=Image.new('RGB',(3*360+2*6,4*450+3*6),'#fff')
+    N=len(POSTS); ims=[Image.open(ROOT/f'post-{n:02d}-1080x1350.png').resize((360,450)) for n in range(N,0,-1)]
+    rows=(N+2)//3; g=Image.new('RGB',(3*360+2*6,rows*450+(rows-1)*6),'#fff')
     for i,im in enumerate(ims): g.paste(im,((i%3)*366,(i//3)*456))
     g.save(ROOT/'previa-feed.jpg',quality=85); print('prévia ok')
