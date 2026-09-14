@@ -17,7 +17,7 @@ ou Google Sheets; celular só para ver.
 - **Subheadline:** Vinte planilhas prontas em cinco núcleos: agenda, preço, caixa, recebíveis e painel. Você
   preenche; a planilha mede a ocupação e as faltas, calcula o custo da sua hora de atendimento e mostra se o mês
   deu lucro. Pagamento único de R$ 697.
-- **Linha de transparência:** Kit de arquivos + aulas gravadas: 20 planilhas, 40 prompts de IA, 8 aulas de 2 a 3
+- **Linha de transparência:** Kit de arquivos + aulas gravadas: 20 planilhas, 41 prompts de IA, 8 aulas de 2 a 3
   minutos, manual de implantação em 4 semanas, 3 modelos de apresentação. Não é software médico, não é prontuário,
   não tem mensalidade.
 - **CTA:** Comprar por R$ 697 · **Topo:** Comprar R$ 697
@@ -158,7 +158,7 @@ exemplo é a Clínica Vida Plena, uma clínica de exemplo: nenhum dado de clíni
 - Sub (mono): Ou 12× no cartão (total informado no checkout). Menos que um ano de um software de clínica típico,
   uma vez, e os arquivos ficam com você. (Âncora verdadeira da oferta: software de clínica a partir de R$ 62/mês.
   Sem superlativo.)
-- Lista: 20 planilhas em 5 núcleos (Excel e Google Sheets), exemplo preenchido e fórmulas protegidas · 40 prompts da
+- Lista: 20 planilhas em 5 núcleos (Excel e Google Sheets), exemplo preenchido e fórmulas protegidas · 41 prompts da
   clínica (PDF e txt) · 8 aulas curtas com legenda · manual de implantação em 4 semanas · 3 modelos de apresentação
   e 3 checklists · 3 bônus: mensagens, guia LGPD e roteiro da reunião com o contador · acesso imediato após a
   aprovação.
@@ -208,9 +208,9 @@ cole nome ou dado de paciente em IA pública.
 **Ângulo 1 · A clínica, quem administra?** Primária curta: Você atende o dia inteiro. A clínica, quem administra?
 20 planilhas prontas: agenda, preço, caixa, convênios e painel. R$ 697, uma vez. Primária média: Atender você
 aprendeu; administrar a clínica, ninguém ensinou. O Kit de Gestão para Médicos traz 20 planilhas prontas em 5
-núcleos, 40 prompts de IA e 8 aulas curtas. Doze minutos na segunda, dezoito na sexta. Sem mensalidade. Headlines:
+núcleos, 41 prompts de IA e 8 aulas curtas. Doze minutos na segunda, dezoito na sexta. Sem mensalidade. Headlines:
 Quanto custa a sua hora? · Agenda que se mede · Caixa com provisão e repasse · Kit de Gestão para Médicos · Sem
-mensalidade. Descrições: 20 planilhas, 40 prompts, 8 aulas. R$ 697, uma vez. · Não é software, não é prontuário. ·
+mensalidade. Descrições: 20 planilhas, 41 prompts, 8 aulas. R$ 697, uma vez. · Não é software, não é prontuário. ·
 7 dias para desistir.
 **Ângulo 2 · O convênio na conta.** Primária: A tabela do convênio paga em 60 dias, com glosa. Vale a pena? O Custo
 da Hora de Atendimento e o Simulador Convênio × Particular colocam prazo e glosa na conta antes de você assinar.

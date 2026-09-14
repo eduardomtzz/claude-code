@@ -56,7 +56,7 @@ imposto e contador, repasse mal calculado ao colega.
 Formato: Excel 2016+/Microsoft 365 e Google Sheets, só funções 2007+, fórmulas protegidas sem senha, clínica fictícia
 preenchida ("Clínica Vida Plena", 2 sócios: Dra. Carolina Mendes, clínica médica, e Dr. Paulo Andrade, cardiologia;
 1 médica parceira por repasse, Dra. Renata Sousa, endocrinologia, 2 turnos por semana; 1 recepcionista, Bruna
-Carvalho; 3 convênios fictícios: Saúde Total, MediPlan, Vida Care; ~150 pacientes fictícios), dados de setembro de
+Carvalho; 3 convênios fictícios: Saúde Total, MediPlan, Vida Care; 156 pacientes fictícios), dados de setembro de
 2026 com agosto fechado, datas relativas a hoje onde houver agenda, aba "Como usar" em cada arquivo, formato
 brasileiro, valores em cache. Só dados administrativos fictícios. **Nada clínico. O kit não é prontuário.**
 
@@ -94,7 +94,7 @@ Acompanha:
 - **8 aulas em vídeo** (2 a 3 min, tela real, narração por IA, legenda gravada): 1 método e rotina; 2 agenda e
   faltas; 3 custo da hora; 4 preço e simulador de convênio; 5 quanto cobrar por este procedimento; 6 caixa,
   provisão e repasse; 7 convênios, parcelas e cobrança; 8 painel de sexta e fechamento.
-- **Biblioteca de 40 prompts da clínica**: explicar o mês ao sócio, escrever cobrança educada, resumir os convênios,
+- **Biblioteca de 41 prompts da clínica**: explicar o mês ao sócio, escrever cobrança educada, resumir os convênios,
   preparar a reunião com o contador, revisar a tabela de preços, montar a rotina da recepção, redigir recurso de
   glosa em linguagem administrativa. Todos com "quando usar", exemplo e o que conferir. Nenhum prompt produz
   conteúdo clínico nem publicidade médica.

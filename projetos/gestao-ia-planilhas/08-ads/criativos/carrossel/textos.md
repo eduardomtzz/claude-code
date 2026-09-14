@@ -136,7 +136,7 @@ R$ 697, pagamento único, ou 12× no cartão. Não é software médico, não é 
 **B · O convênio na conta**
 Na clínica de exemplo, uma consulta custa R$ 130,67 para acontecer. O convênio paga R$ 120, em 30 dias, com glosa.
 Descontados prazo, glosa esperada e imposto, sobram R$ 101,85: cada consulta desse convênio fecha com −R$ 28,82. O Custo da Hora de Atendimento e o Simulador Convênio × Particular fazem essa conta antes de você assinar ou renovar. O seu número, você confere nas suas.
-Kit de Gestão para Médicos: 20 planilhas, 40 prompts, 8 aulas curtas, manual de 4 semanas. R$ 697, uma vez.
+Kit de Gestão para Médicos: 20 planilhas, 41 prompts, 8 aulas curtas, manual de 4 semanas. R$ 697, uma vez.
 
 **C · Mensalidade ou uma vez**
 Software de clínica começa em R$ 62 por mês. O kit custa R$ 697, uma vez, e os arquivos ficam com você.

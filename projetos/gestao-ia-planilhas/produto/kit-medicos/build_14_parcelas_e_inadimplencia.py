@@ -141,7 +141,7 @@ p.add_chart(bc,"J9")
 widths(p,(16,26,30,9,12,14,12,16,14,14,14,14)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
 
 # ---------- Exemplo ----------
-regua=[(1,"Lembrete gentil por WhatsApp: confirmar se o Pix ou o boleto chegou e reenviar, se preciso."),
+regua=[(1,"Lembrete gentil por WhatsApp: confirmar se o Pix chegou e reenviar o link de pagamento, se preciso."),
        (7,"Mensagem da recepção perguntando se houve algum imprevisto e oferecendo uma nova data para o pagamento."),
        (15,"Ligação da recepção com o demonstrativo das parcelas em aberto e proposta de nova data ou divisão do valor."),
        (30,"Conversa do médico ou da administração para combinar um plano de pagamento; registrar por escrito o que foi combinado.")]

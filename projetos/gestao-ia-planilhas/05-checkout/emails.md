@@ -77,7 +77,7 @@ Regra número um: nunca cole nome de cliente ou número de processo real em IA p
 1. Abra o "26-manual-de-implantacao.pdf" (20 minutos de leitura) e assista à aula 1, "Antes de abrir a planilha: os cinco núcleos e a rotina" (2 min 30 s). Ela vem antes de qualquer planilha.
 2. Abra "05-custo-da-hora.xlsx", troque os custos fixos, a equipe, o pró-labore e as horas de atendimento pelos seus: quinze minutos e você sabe quanto custa a sua hora de atendimento.
 3. Amanhã: "01-agenda-e-ocupacao.xlsx" com a agenda desta semana. A ocupação e as faltas aparecem sozinhas.
-Os 40 prompts estão em "21-biblioteca-de-prompts-da-clinica" (PDF e TXT). As 8 aulas estão na pasta "videos".
+Os 41 prompts estão em "21-biblioteca-de-prompts-da-clinica" (PDF e TXT). As 8 aulas estão na pasta "videos".
 Regra número um: nunca cole nome, contato ou qualquer dado de paciente em IA pública. Nenhuma planilha do kit guarda dado clínico: só nome, contato, valor e data.
 ```
 (Nomes de arquivo e duração da aula 1 conferidos com o `LEIA-ME.txt` do kit antes de colar na Kiwify.)

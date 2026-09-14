@@ -199,7 +199,7 @@ Agenda, preço, caixa, convênios e painel.
 4. Recebíveis: convênios a receber com glosa e recurso, parcelas com cobrança educada, orçamentos apresentados × aprovados, conciliação de cartão.
 5. Painel: painel de sexta, resultado do mês, metas do trimestre, resumo para a IA e para o contador.
 
-Nada clínico, nada de prontuário: é gestão da clínica. Com 40 prompts, 8 aulas curtas e manual de 4 semanas. R$ 697, uma vez.
+Nada clínico, nada de prontuário: é gestão da clínica. Com 41 prompts, 8 aulas curtas e manual de 4 semanas. R$ 697, uma vez.
 #gestaodeclinicas #medicos #planilhas
 
 ---
