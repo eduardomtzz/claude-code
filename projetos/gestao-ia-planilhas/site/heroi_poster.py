@@ -18,13 +18,30 @@ def heroi(kit, prefixo):
     dest = ROOT / 'public' / 'assets' / kit / 'hero-mockup.webp'; dest.parent.mkdir(parents=True, exist_ok=True)
     im.save(dest, 'WEBP', quality=88, method=6); print(kit, 'herói', im.size, dest.stat().st_size // 1024, 'KB')
 
+def sem_legenda(video, alvo, dur):
+    """Segundo mais próximo do alvo em que NÃO há legenda gravada (o poster fica com a tela limpa).
+    Lê o .srt ao lado do vídeo; sem .srt, devolve o alvo."""
+    srt = video.with_suffix('.srt')
+    if not srt.exists(): return alvo
+    import re
+    faixas = []
+    for a, b in re.findall(r'(\d\d:\d\d:\d\d,\d+)\s*-->\s*(\d\d:\d\d:\d\d,\d+)', srt.read_text(encoding='utf-8')):
+        seg = lambda x: sum(float(v) * m for v, m in zip(x.replace(',', '.').split(':'), (3600, 60, 1)))
+        faixas.append((seg(a) - 0.25, seg(b) + 0.25))
+    livre = lambda t: all(not (i <= t <= f) for i, f in faixas)
+    if livre(alvo): return alvo
+    for passo in [x / 4 for x in range(1, 4 * int(dur))]:          # procura o vão mais próximo, para os dois lados
+        for t in (alvo + passo, alvo - passo):
+            if 1.0 < t < dur - 0.5 and livre(t): return t
+    return alvo
+
 def poster(kit, pasta, trecho, segundo=None):
     vids = sorted((PROJ / 'produto' / pasta / 'entrega' / 'videos').glob(f'*{trecho}*.mp4')) if (PROJ / 'produto' / pasta / 'entrega' / 'videos').is_dir() else []
     if not vids: print('sem vídeo', kit); return
     v = vids[0]; dest = ROOT / 'public' / 'assets' / kit / 'poster-aula-05.jpg'
     dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', str(v)],
                                capture_output=True, text=True).stdout.strip())
-    t = segundo if segundo is not None else min(dur * 0.35, 60)  # cena de tela, já passada a capa
+    t = segundo if segundo is not None else sem_legenda(v, min(dur * 0.35, 60), dur)
     subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', f'{t:.2f}', '-i', str(v), '-frames:v', '1',
                     '-vf', 'scale=1280:720', '-q:v', '4', str(dest)], check=True)
     print(kit, 'poster', f'{t:.0f}s', dest.stat().st_size // 1024, 'KB')

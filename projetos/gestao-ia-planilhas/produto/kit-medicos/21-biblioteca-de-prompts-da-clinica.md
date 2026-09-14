@@ -2,7 +2,7 @@
 
 Versão 1.0 · setembro de 2026 · Seu Sócio Gestor
 
-41 prompts em 5 grupos, um para cada núcleo do kit: Agenda, Preço, Caixa, Recebíveis e Painel.
+41 prompts em 5 grupos, um para cada núcleo do kit: Agenda, Preço, Caixa, Recebíveis e Painel. São oito por grupo; o de Caixa tem nove, porque o dinheiro pede uma pergunta a mais.
 Cada um tem: quando usar, de qual planilha vem o bloco a colar, o prompt pronto (troque o que está
 entre colchetes), um exemplo com a clínica fictícia e o que conferir na resposta. Funcionam no
 ChatGPT, no Copilot, no Gemini e no Claude, inclusive nas versões gratuitas.

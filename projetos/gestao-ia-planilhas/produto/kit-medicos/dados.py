@@ -243,7 +243,7 @@ def periodo(h): return "Manhã" if h<12*60 else "Tarde"
 # ---------------------------------------------------------------------------------------------------------------
 def _parcelas():
     """Parcelas do particular a prazo. Regra do exemplo (e do kit): a clínica não combina um novo pagamento a prazo
-    com quem já tem parcela vencida em aberto — nesse dia o atendimento é à vista (Pix). Por isso este gerador percorre
+    com quem já tem parcela vencida em aberto — nesse dia o pagamento é à vista (Pix). Por isso este gerador percorre
     os atendimentos em ordem de data e, quando o paciente está inadimplente, troca a forma do atendimento na AGENDA."""
     rng=random.Random(14); out=[]
     vistos=set()          # o check-up (3 linhas do mesmo paciente no mesmo dia) é uma única cobrança
