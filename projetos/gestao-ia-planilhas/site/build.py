@@ -49,7 +49,8 @@ for p in pages:
 import shutil
 for VID_SRC, VID_DST in [(ROOT.parent / 'produto' / 'kit-essencial' / 'entrega' / 'videos', ROOT / 'public' / 'assets' / 'kit' / 'videos'),
                          (ROOT.parent / 'produto' / 'kit-completo' / 'entrega' / 'videos', ROOT / 'public' / 'assets' / 'completo' / 'videos'),
-                         (ROOT.parent / 'produto' / 'kit-advogados' / 'entrega' / 'videos', ROOT / 'public' / 'assets' / 'advogados' / 'videos')]:
+                         (ROOT.parent / 'produto' / 'kit-advogados' / 'entrega' / 'videos', ROOT / 'public' / 'assets' / 'advogados' / 'videos'),
+                         (ROOT.parent / 'produto' / 'kit-medicos' / 'entrega' / 'videos', ROOT / 'public' / 'assets' / 'medicos' / 'videos')]:
     if not VID_SRC.is_dir(): continue
     VID_DST.mkdir(parents=True, exist_ok=True)
     for f in sorted(VID_SRC.iterdir()):

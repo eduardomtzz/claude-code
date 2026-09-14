@@ -40,7 +40,7 @@ def dispositivos(x,y,escala,lap='tela-relatorio-painel.png',fone='tela-ganhos-pa
 def pagina(w,h,corpo,marca=True):
     m=f'<div class="marca">{SIMB}</div>' if marca else ''; bg='' if marca else 'html,body{background:transparent}'
     return f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS} html,body{{width:{w}px;height:{h}px}} {bg}</style></head><body>{m}{corpo}</body></html>'
-DOCS_C=PROJ/'produto'/'kit-completo'/'docs'; DOCS_A=PROJ/'produto'/'kit-advogados'/'docs'
+DOCS_C=PROJ/'produto'/'kit-completo'/'docs'; DOCS_A=PROJ/'produto'/'kit-advogados'/'docs'; DOCS_M=PROJ/'produto'/'kit-medicos'/'docs'
 PRODUTOS={
  'essencial':dict(titulo='Kit IA no Trabalho<br><em>Essencial</em>',sub='3 planilhas prontas + 40 prompts de IA.<br>Você baixa, preenche e entrega.',pill='Comprar por R$ 37 · uma vez',nota='Pix ou cartão · acesso imediato · 7 dias para desistir',
    q_t='Não comece <em>do zero.</em>',q_sub='3 planilhas prontas e 40 prompts que fazem a IA trabalhar nos seus números.',q_pill='R$ 37 · uma vez',dev={}),
@@ -50,6 +50,9 @@ PRODUTOS={
  'advogados':dict(titulo='Kit de Gestão<br><em>para Advogados</em>',sub='20 planilhas em 5 núcleos: prazos, honorários,<br>caixa, carteira e painel do escritório.',pill='Comprar por R$ 497 · uma vez',nota='Pix ou 12× · acesso imediato · 7 dias para desistir',
    q_t='O escritório, <em>quem administra?</em>',q_sub='20 planilhas prontas: prazos com semáforo, custo-hora, caixa com provisão, carteira e painel de sexta.',q_pill='R$ 497 · uma vez',
    dev=dict(lap='tela-17.png',fone='tela-01.png',tag1='Painel do Escritório',tag2='Agenda de Prazos',docs=DOCS_A)),
+ 'medicos':dict(titulo='Kit de Gestão<br><em>para Médicos</em>',sub='20 planilhas em 5 núcleos: agenda, preço,<br>caixa, convênios e painel da clínica.',pill='Comprar por R$ 697 · uma vez',nota='Pix ou 12× · acesso imediato · 7 dias para desistir',
+   q_t='A clínica, <em>quem administra?</em>',q_sub='20 planilhas prontas: agenda que se mede, custo da hora, caixa com provisão e repasse, convênios e painel de sexta.',q_pill='R$ 697 · uma vez',
+   dev=dict(lap='tela-17.png',fone='tela-01.png',tag1='Painel da Clínica',tag2='Agenda e Ocupação',docs=DOCS_M)),
 }
 PRODUTOS={k:v for k,v in PRODUTOS.items() if not v['dev'] or (v['dev']['docs']/v['dev']['lap']).exists()}  # pula produto sem telas ainda
 out=ROOT/'trabalho-mockup'; out.mkdir(exist_ok=True); alvos=[]

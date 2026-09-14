@@ -20,7 +20,8 @@
     "kit_essencial": "#preco",
     "area_download": "#",
     "kit_completo": "#preco",
-    "kit_advogados": "#preco"
+    "kit_advogados": "#preco",
+    "kit_medicos": "#preco"
   },
   "aula1_dur": "2:25 min",
   "aula2_dur": "2:36 min",
@@ -37,5 +38,13 @@
   "adv_aula5_dur": "2:42 min",
   "adv_aula6_dur": "2:42 min",
   "adv_aula7_dur": "2:45 min",
-  "adv_aula8_dur": "2:55 min"
+  "adv_aula8_dur": "2:55 min",
+  "med_aula1_dur": "2:30 min",
+  "med_aula2_dur": "2:30 min",
+  "med_aula3_dur": "2:30 min",
+  "med_aula4_dur": "2:30 min",
+  "med_aula5_dur": "2:30 min",
+  "med_aula6_dur": "2:30 min",
+  "med_aula7_dur": "2:30 min",
+  "med_aula8_dur": "2:30 min"
 }

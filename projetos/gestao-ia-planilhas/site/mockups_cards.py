@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Cards do inventário das páginas de produto: cada planilha em um notebook (aba principal) com uma
 segunda aba no celular. Padrão para todos os kits. Saída: public/assets/<kit>/mock-<nome>.webp (1200×750).
-Uso: python3 mockups_cards.py [kit|completo|advogados|todos]"""
+Uso: python3 mockups_cards.py [kit|completo|advogados|medicos|todos]"""
 import pathlib, base64, subprocess, os, sys, json
 from PIL import Image
 ROOT=pathlib.Path(__file__).resolve().parent; PROJ=ROOT.parent
 S=pathlib.Path('/tmp/claude-0/-home-user-claude-code/a6ac5a85-3495-54eb-8ee2-ee26ae091f81/scratchpad')
-DE=PROJ/'produto'/'kit-essencial'/'docs'; DC=PROJ/'produto'/'kit-completo'/'docs'; DA=PROJ/'produto'/'kit-advogados'/'docs'
+DE=PROJ/'produto'/'kit-essencial'/'docs'; DC=PROJ/'produto'/'kit-completo'/'docs'; DA=PROJ/'produto'/'kit-advogados'/'docs'; DM=PROJ/'produto'/'kit-medicos'/'docs'
 b64=lambda p: base64.b64encode(pathlib.Path(p).read_bytes()).decode()
 W,H=1600,1000
 CSS="""*{box-sizing:border-box} html,body{margin:0;width:1600px;height:1000px;background:transparent;overflow:hidden;position:relative}
@@ -30,6 +30,7 @@ CARDS={
    'projetos':(DC/'tela-projetos-painel.png',DC/'tela-projetos-linha.png'),'ata':(DC/'tela-ata-aberto.png',DC/'tela-ata-resumo.png'),'metas':(DC/'tela-metas-painel.png',DC/'tela-metas-metas.png'),
    'orcamento':(DC/'tela-orcamento-painel.png',DC/'tela-orcamento-previsto.png'),'funil':(DC/'tela-funil-painel.png',DC/'tela-funil-propostas.png'),'horas':(DC/'tela-horas-painel.png',DC/'tela-horas-lancamento.png'),'base':(DC/'tela-base-checklist.png',DC/'tela-base-base.png')},
  'advogados':{'prazos':(DA/'tela-01.png',DA/'tela-02.png'),'honorarios':(DA/'tela-05.png',DA/'tela-06.png'),'caixa':(DA/'tela-09.png',DA/'tela-10.png'),'carteira':(DA/'tela-13.png',DA/'tela-14.png'),'painel':(DA/'tela-17.png',DA/'tela-20.png')},
+ 'medicos':{'agenda':(DM/'tela-01.png',DM/'tela-02.png'),'preco':(DM/'tela-05.png',DM/'tela-06.png'),'caixa':(DM/'tela-09.png',DM/'tela-10.png'),'convenios':(DM/'tela-13.png',DM/'tela-14.png'),'painel':(DM/'tela-17.png',DM/'tela-20-painel.png')},
 }
 def gera(kit):
     out=S/'mock-cards'/kit; out.mkdir(parents=True,exist_ok=True); jobs=[]

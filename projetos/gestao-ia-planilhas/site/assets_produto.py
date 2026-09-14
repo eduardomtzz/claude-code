@@ -37,6 +37,17 @@ if (DA/'docs'/'tela-17.png').exists():
         if src.exists():
             pagina(src,A/'advogados'/f'{nome}.jpg',1,600)
             thumb(A/'advogados'/f'{nome}.jpg',(0,0,450,600),A/'advogados'/f'thumb-{nome}.jpg')
+# Kit Médicos: cards por núcleo e miniaturas dos bônus (PDFs 22 a 24, página 2). Só roda quando as telas existirem.
+DM=PROJ/'produto'/'kit-medicos'
+if (DM/'docs'/'tela-17.png').exists():
+    (A/'medicos').mkdir(exist_ok=True)
+    for nome,tela in [('agenda','tela-01'),('preco','tela-05'),('caixa','tela-09'),('convenios','tela-13'),('painel','tela-17')]:
+        if (DM/'docs'/f'{tela}.png').exists(): card(DM/'docs'/f'{tela}.png',A/'medicos'/f'{nome}.jpg',1200,675)
+    for nome,num in [('mensagens','22'),('lgpd','23'),('contador','24')]:
+        achados=sorted((DM/'entrega').glob(f'{num}-*.pdf'))  # nome do arquivo definido pelo empacotador do kit
+        if achados:
+            pagina(achados[0],A/'medicos'/f'{nome}.jpg',1,600)
+            thumb(A/'medicos'/f'{nome}.jpg',(0,0,450,600),A/'medicos'/f'thumb-{nome}.jpg')
 # grades de slides (pptx → pdf via LibreOffice → grade)
 import subprocess, tempfile
 SOFFICE='/root/.claude/skills/synced/196a43ae-ea62-4685-8684-e86dad1734fb_be351cae-a2b1-428f-a734-2c8f11d7ae5e/pptx/scripts/office/soffice.py'

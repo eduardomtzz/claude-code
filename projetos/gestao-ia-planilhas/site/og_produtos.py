@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Imagem Open Graph (1200×630) por página de produto: nome, promessa curta, preço e o mockup notebook+celular.
-Saída: public/assets/<kit>/og-1200x630.jpg. Uso: python3 og_produtos.py [kit|completo|advogados|todos]"""
+Saída: public/assets/<kit>/og-1200x630.jpg. Uso: python3 og_produtos.py [kit|completo|advogados|medicos|todos]"""
 import pathlib, base64, subprocess, os, sys, json
 from PIL import Image
 ROOT=pathlib.Path(__file__).resolve().parent; PROJ=ROOT.parent
@@ -13,6 +13,7 @@ PROD={
  'kit':dict(mock='essencial', eyebrow='Kit IA no Trabalho · Essencial', t='3 planilhas prontas e <em>40 prompts</em> de IA', sub='Semana, relatório do mês e ganhos e gastos. Manual e vídeos.', preco='R$ 37'),
  'completo':dict(mock='completo', eyebrow='Kit IA no Trabalho · Completo', t='10 planilhas, 80 prompts, <em>8 aulas</em>', sub='Método de 4 passos para relatório, projeto, metas e orçamento.', preco='R$ 197'),
  'advogados':dict(mock='advogados', eyebrow='Kit de Gestão para Advogados', t='20 planilhas em <em>5 núcleos</em> do escritório', sub='Prazos, honorários, caixa, carteira e painel. 40 prompts, 8 aulas.', preco='R$ 497'),
+ 'medicos':dict(mock='medicos', eyebrow='Kit de Gestão para Médicos', t='20 planilhas em <em>5 núcleos</em> da clínica', sub='Agenda, preço, convênios, caixa e painel. 40 prompts, 8 aulas.', preco='R$ 697'),
 }
 CSS=f"""
 @font-face{{font-family:'Bricolage Grotesque';font-weight:600 800;src:url(data:font/woff2;base64,{b64(FONTS/'bricolage-grotesque.woff2')}) format('woff2')}}
@@ -32,6 +33,7 @@ CSS=f"""
 def gera(kit):
     c=PROD[kit]; out=S/'og'/kit; out.mkdir(parents=True,exist_ok=True)
     mock=CRI/f"{c['mock']}-produto-hero-1600x1000.png"
+    if not mock.exists(): print('sem herói ainda:',mock.name,'(rode 08-ads/criativos/build_mockup.py)'); return
     html=f'''<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>
 <div class="marca">{SIMB}</div><div class="logo">{LOGO}</div>
 <p class="eyebrow">{c['eyebrow']}</p><h1 class="t">{c['t']}</h1><p class="sub">{c['sub']}</p>
