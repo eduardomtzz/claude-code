@@ -1,23 +1,70 @@
 1
-00:00:00,000 --> 00:00:05,190
-Esta é a Relatório Mensal Pronto. Você digita os indicadores; ela escreve o resumo do mês.
+00:00:00,000 --> 00:00:01,854
+Esta é a Relatório Mensal Pronto.
 
 2
-00:00:06,090 --> 00:00:19,860
-Na aba Indicadores você cadastra até doze indicadores, com meta e se maior é melhor, e digita o valor de cada mês. No Painel, cada um aparece com o mês, o mês anterior, a variação, a meta e a situação: verde no alvo, vermelho fora.
+00:00:01,854 --> 00:00:05,000
+Você digita os indicadores; ela escreve o
+resumo do mês.
 
 3
-00:00:20,760 --> 00:00:25,780
-Escolha um indicador e o gráfico mostra a evolução no ano, com a linha da meta tracejada.
+00:00:05,900 --> 00:00:10,958
+Na aba Indicadores você cadastra até doze
+indicadores, com meta e se maior é melhor,
 
 4
-00:00:26,680 --> 00:00:36,340
-A aba Resumo escreve sozinha as frases do mês: cada indicador com valor, variação e situação, e os destaques automáticos, como maior alta e maior queda.
+00:00:10,958 --> 00:00:12,705
+e digita o valor de cada mês.
 
 5
-00:00:37,240 --> 00:00:47,390
-Copie o bloco único, cole no prompt Escrever zero um com os seus comentários, e a IA devolve o relatório pronto para revisar. O prompt Apresentar zero um monta o roteiro dos oito slides.
+00:00:12,705 --> 00:00:16,619
+No Painel, cada um aparece com o mês, o
+mês anterior, a variação,
 
 6
-00:00:48,290 --> 00:00:53,140
-Todo mês, digite os valores novos e troque o mês em Config. O resto se refaz sozinho.
+00:00:16,619 --> 00:00:19,630
+a meta e a situação: verde no alvo,
+vermelho fora.
+
+7
+00:00:20,530 --> 00:00:23,845
+Escolha um indicador e o gráfico mostra a
+evolução no ano,
+
+8
+00:00:23,845 --> 00:00:25,560
+com a linha da meta tracejada.
+
+9
+00:00:26,460 --> 00:00:31,004
+A aba Resumo escreve sozinha as frases do
+mês: cada indicador com valor,
+
+10
+00:00:31,004 --> 00:00:35,990
+variação e situação, e os destaques
+automáticos, como maior alta e maior queda.
+
+11
+00:00:36,890 --> 00:00:41,020
+Copie o bloco único, cole no prompt
+Escrever zero um com os seus comentários,
+
+12
+00:00:41,020 --> 00:00:43,542
+e a IA devolve o relatório pronto para
+revisar.
+
+13
+00:00:43,542 --> 00:00:46,760
+O prompt Apresentar zero um monta o
+roteiro dos oito slides.
+
+14
+00:00:47,660 --> 00:00:51,060
+Todo mês, digite os valores novos e troque
+o mês em Config.
+
+15
+00:00:51,060 --> 00:00:52,500
+O resto se refaz sozinho.

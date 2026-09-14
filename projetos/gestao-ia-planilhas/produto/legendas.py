@@ -13,6 +13,13 @@ def _pedacos(texto):
             if atual and len(atual)+1+len(p)>MAXC: out.append(atual); atual=p
             else: atual=(atual+' '+p).strip()
         if atual: out.append(atual)
+    # frase sem vírgula e ainda longa: parte na palavra mais perto do meio
+    def meio(t):
+        if len(t)<=MAXC: return [t]
+        i=t.rfind(' ',0,len(t)//2+1)
+        if i<1: i=t.find(' ',len(t)//2)
+        return [t] if i<1 else meio(t[:i])+meio(t[i+1:])
+    out=[q for p in out for q in meio(p)]
     # junta frases curtas seguidas quando cabem
     juntas=[]
     for p in out:
@@ -36,8 +43,14 @@ def cues(cenas, pausa):
             d=(fim-ini)*len(p)/tot; d=min(d,7.0) if len(peds)>1 else min(fim-ini,7.0)
             n+=1; srt.append(f"{n}\n{ts(cur)} --> {ts(min(cur+d,fim))}\n{_duas_linhas(p)}\n"); cur+=d
     return '\n'.join(srt)
-def filtro(srt_path, margem=112, tamanho=20):
-    """Filtro -vf para gravar a legenda: branca com contorno, acima da barra de legenda das cenas."""
+def filtro(srt_path, margem=106, tamanho=28, altura=720):
+    """Filtro -vf para gravar a legenda: branca com contorno, acima da barra de legenda das cenas.
+    margem = distância da base do texto ao rodapé, em pixels do vídeo; tamanho = corpo da fonte em pixels;
+    altura = altura do vídeo. O ffmpeg converte SRT em ASS com PlayResY=288, então os valores são
+    convertidos para essa escala (senão MarginV/FontSize saem 2,5× maiores em 720p)."""
+    k=288/altura
     p=str(srt_path).replace('\\','\\\\').replace(':','\\:').replace("'","\\'")
-    estilo=f"FontName=DejaVu Sans,FontSize={tamanho},PrimaryColour=&H00FFFFFF,OutlineColour=&HA0000000,BackColour=&H80000000,BorderStyle=1,Outline=1.3,Shadow=0,MarginV={margem},Alignment=2,WrapStyle=0"
+    estilo=(f"FontName=DejaVu Sans,FontSize={tamanho*k:.1f},PrimaryColour=&H00FFFFFF,OutlineColour=&H30000000,"
+            f"BackColour=&H80000000,BorderStyle=1,Outline={1.6*k:.2f},Shadow=0,MarginV={round(margem*k)},"
+            f"MarginL={round(40*k)},MarginR={round(40*k)},Alignment=2,WrapStyle=0")
     return f"subtitles='{p}':force_style='{estilo}'"

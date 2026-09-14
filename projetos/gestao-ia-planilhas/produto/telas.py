@@ -9,10 +9,10 @@ PROFILE=S/'lo-ptbr'; WORK=S/'telas-work'; WORK.mkdir(exist_ok=True)
 # nome do png -> (arquivo, aba, largura css, altura css)   (sizes = png/1.5)
 ESS={
  'tela-semana-tarefas':('01-semana-organizada.xlsx','Tarefas',1300,681),
- 'tela-semana-hoje':('01-semana-organizada.xlsx','Hoje',1100,1118),
+ 'tela-semana-hoje':('01-semana-organizada.xlsx','Hoje',1300,1118),
  'tela-relatorio-painel':('02-relatorio-mensal-pronto.xlsx','Painel',1100,1458),
  'tela-relatorio-resumo':('02-relatorio-mensal-pronto.xlsx','Resumo',1300,681),
- 'tela-ganhos-painel':('03-ganhos-e-gastos.xlsx','Painel',1100,1458),
+ 'tela-ganhos-painel':('03-ganhos-e-gastos.xlsx','Painel',1400,1458),
  'tela-ganhos-lancamentos':('03-ganhos-e-gastos.xlsx','Lançamentos',1300,681),
 }
 COMP={
