@@ -32,14 +32,15 @@ ou Google Sheets; celular só para ver.
 Título: **Três coisas que a clínica pequena vive**
 Lead: Atender você aprendeu. Administrar a clínica, ninguém ensinou. O kit cuida dessa parte.
 1. **A agenda tem buraco, e ninguém sabe quanto ele custa.** Entre faltas, remarcações e horários vazios, ninguém
-   mede quantas horas a clínica atende de verdade. → Com o kit: Agenda e Ocupação e Faltas e Remarcações. Horas
-   disponíveis × atendidas por profissional e sala, taxa de falta por dia e convênio. A planilha mede; você decide.
+   mede quantas horas a clínica atende de verdade. → Com o kit: a Agenda e Ocupação mede horas disponíveis ×
+   atendidas por profissional e sala; a planilha Faltas e retornos mostra a taxa de falta por dia e por convênio.
+   A planilha mede; você decide. (Nome canônico da planilha 02: "Faltas e retornos".)
 2. **O convênio manda a tabela, e você aceita sem calcular.** A guia sai em setembro, o pagamento chega em novembro,
    com glosa. E o preço da consulta particular veio da tabela do vizinho. → Com o kit: Custo da Hora de
    Atendimento e Simulador Convênio × Particular. Preço pela sua hora, com prazo e glosa esperada na conta.
 3. **Entra dinheiro, sai repasse, e o imposto chega junto com o 13º.** A conta da clínica paga o repasse do colega,
-   o pró-labore e o almoço de domingo, e no fim do mês ninguém sabe quanto sobrou. → Com o kit: Caixa com provisão
-   e Repasse e Pró-labore separados. Você sabe quanto pode retirar.
+   o pró-labore e o almoço de domingo, e no fim do mês ninguém sabe quanto sobrou. → Com o kit: Caixa com provisão,
+   com o repasse aos parceiros e o pró-labore separados. Você sabe quanto pode retirar.
 
 ## 3. Demonstração
 Aula 5 inteira, por toque: "Quanto cobrar por este procedimento" (`{{med_aula5_dur}}`). Título: "Quanto cobrar por
@@ -53,7 +54,7 @@ poster `/assets/medicos/poster-aula-05.jpg`.
 Lead: Software de clínica resolve agenda online e prontuário, e cobra todo mês. O kit resolve o dinheiro e o tempo
 da clínica, uma vez. Doze minutos na segunda, dezoito na sexta.
 1. **Agenda que se mede.** Horas disponíveis × atendidas por profissional e sala, faltas, remarcações e lista de
-   retorno. A rotina de segunda confere a semana em 12 minutos.
+   retorno. A rotina de segunda confere a semana inteira. (Os minutos aparecem uma vez só, no lead da seção.)
 2. **Preço pela hora.** Custo da hora de atendimento + material + margem = preço de consulta e procedimento. O
    simulador compara convênio × particular com prazo e glosa esperada.
 3. **Caixa com provisão e repasse.** Impostos, 13º e férias provisionados; repasse aos parceiros e pró-labore
@@ -61,7 +62,7 @@ da clínica, uma vez. Doze minutos na segunda, dezoito na sexta.
 4. **Recebíveis sem surpresa.** Guias enviadas × pagas × glosadas por convênio, parcelas particulares com a mensagem
    educada pronta, orçamentos apresentados × aprovados e conciliação de cartão.
 5. **Painel de sexta.** Uma tela com ocupação, faltas, caixa, convênio a receber, glosas e orçamentos. O prompt
-   "Explicar o mês" vira texto para o sócio e o contador. Sexta-feira, 18 minutos.
+   "Explicar o mês" vira texto para o sócio e o contador.
 
 ## 5. Inventário: as vinte planilhas por núcleo
 Lead: Quatro planilhas por núcleo, todas com a Clínica Vida Plena preenchida como exemplo, fórmulas protegidas e
@@ -69,7 +70,7 @@ aba "Como usar". Excel e Google Sheets. Cada núcleo com mockup (notebook + celu
 ("Responde:" / "Sai:"), na ordem da oferta:
 1. **1 · Agenda** (mock-agenda: telas 01 e 02). Agenda, faltas, rotina, checklist. Responde: quantas horas vazias
    e por que a agenda esvazia? Sai: ocupação por profissional e sala, taxa de falta por dia e convênio, lista de
-   retorno, rotina de segunda e sexta e checklist de abertura e fechamento do dia.
+   retorno; rotina de segunda e sexta; checklist de abertura e fechamento do dia.
 2. **2 · Preço** (mock-preco: telas 05 e 06). Custo da hora, precificação, simulador, tabela. Responde: quanto
    custa a minha hora e quanto cobrar por este procedimento? Sai: custo da hora de atendimento, preço de consulta
    e procedimento com material e margem, simulador convênio × particular (prazo, glosa, custo do dinheiro) e
@@ -89,9 +90,10 @@ use o computador."
 
 ## 6. Prompts e aulas
 Título: **A IA explica o mês, escreve a cobrança e prepara a reunião com o contador. Você confere.**
-Lead: Um prompt como ele é entregue, e a grade das aulas. Regra número um: nunca cole nome, contato ou qualquer
-dado de paciente em IA pública. Os prompts usam Paciente A, Convênio 1. Funcionam nas versões gratuitas do
-ChatGPT, Copilot, Gemini e Claude.
+Lead: Um prompt como ele é entregue, e a grade das aulas. São 8 prompts por núcleo e 9 no Caixa, 41 no total.
+Regra número um: nunca cole nome, contato ou qualquer dado de paciente em IA pública. Os prompts usam Paciente A,
+Convênio 1, e funcionam nas versões gratuitas atuais do ChatGPT, Copilot, Gemini e Claude, que são serviços de
+terceiros, com regras próprias. (A soma é 41 porque o grupo Caixa tem um prompt a mais; o número não muda.)
 
 ### Prompt anotado (texto definitivo; a biblioteca 21 copia literalmente)
 
@@ -133,11 +135,13 @@ legendada."
 <!-- cada bônus mata uma objeção da oferta -->
 - **thumb-mensagens** · 15 mensagens de confirmação, lembrete e cobrança: confirmação de consulta, lembrete da
   véspera, falta e remarcação, retorno, cobrança educada em degraus, confirmação de pagamento. E-mail e WhatsApp,
-  tom educado, campos para preencher. Mensagens de rotina da recepção, não peças de divulgação.
+  tom educado, campos para preencher. Mensagens de rotina da recepção, não peças de divulgação. Mensagem enviada a
+  um grupo grande de pacientes deve ser revista pelas regras do CFM e do seu CRM antes de usar (mesma ressalva do
+  bônus 22 e da biblioteca 21).
 - **thumb-lgpd** · Guia LGPD para clínica pequena: dado de saúde é sensível. O que guardar, onde, por quanto tempo,
   e o que nunca colar em IA pública. Com aviso de privacidade modelo.
 - **thumb-contador** · Roteiro da reunião mensal com o contador: PJ médica, Simples × presumido, o que levar do kit,
-  o que perguntar. Mais 3 modelos de apresentação (resultado do mês, proposta de parceria, convênios para o
+  o que perguntar. Mais 3 modelos de apresentação (resultado do mês, proposta de parceria, convênios e caixa para o
   contador) e 3 checklists.
 
 ## 7. Para quem é / não é
@@ -150,22 +154,25 @@ mesmo tempo; espera que a planilha decida por você.
 
 ## 8. Quem faz
 Mesmo bloco das outras páginas (ZTRAINING SERVICE LTDA, recalculada e conferida célula a célula, sem depoimento
-inventado). Acrescentar: "A tela real das vinte está nesta página; cada arquivo tem versão e data de revisão. O
+inventado). Acrescentar: "Uma tela real de cada núcleo está nesta página; cada arquivo tem versão e data de
+revisão. O
 exemplo é a Clínica Vida Plena, uma clínica de exemplo: nenhum dado de clínica ou paciente real."
 
 ## 9. Preço e direito de arrependimento
 - Eyebrow: Um plano, um preço. Título: Pagamento único de R$ 697.
-- Sub (mono): Ou 12× no cartão (total informado no checkout). Menos que um ano de um software de clínica típico,
-  uma vez, e os arquivos ficam com você. (Âncora verdadeira da oferta: software de clínica a partir de R$ 62/mês.
-  Sem superlativo.)
+- Sub (mono): Ou 12× no cartão (total informado no checkout). Pagamento único: software de clínica cobra
+  mensalidade enquanto você usar; aqui você paga uma vez e os arquivos ficam com você. (A âncora é a forma de
+  cobrança — pagamento único × mensalidade —, não o valor: a comparação "menos que um ano de software" tinha folga
+  de 6 % contra o plano mais barato da nossa pesquisa, R$ 62/mês em `01-pesquisa/saas-precos.md`. Sem superlativo,
+  sem marca.)
 - Lista: 20 planilhas em 5 núcleos (Excel e Google Sheets), exemplo preenchido e fórmulas protegidas · 41 prompts da
-  clínica (PDF e txt) · 8 aulas curtas com legenda · manual de implantação em 4 semanas · 3 modelos de apresentação
+  clínica em 5 grupos (PDF e txt): 8 por núcleo e 9 no Caixa · 8 aulas curtas com legenda · manual de implantação em 4 semanas · 3 modelos de apresentação
   e 3 checklists · 3 bônus: mensagens, guia LGPD e roteiro da reunião com o contador · acesso imediato após a
   aprovação.
 - CTA: Comprar por R$ 697. Nota: Pix ou 12× no cartão · acesso imediato · nota fiscal.
 - Card: Direito de arrependimento de 7 dias (texto padrão).
 
-## 10. FAQ (9)
+## 10. FAQ (10)
 1. **Isso substitui o software da clínica?** Não. O kit cuida do dinheiro, da agenda em números e da rotina.
    Prontuário, agenda online e envio de guias continuam onde estão.
 2. **É prontuário? Tem algum conteúdo clínico?** Não. Nenhuma planilha guarda dado clínico: só nome, contato, valor
@@ -184,16 +191,20 @@ exemplo é a Clínica Vida Plena, uma clínica de exemplo: nenhum dado de clíni
 7. **E os dados dos meus pacientes?** Ficam no seu arquivo, no seu computador ou no seu Drive. Nada passa por nós. As
    planilhas pedem só nome, contato, valor e data; os prompts usam apelidos, e o guia LGPD explica o que nunca
    colar em IA pública.
-8. **Como recebo?** Na hora, após a aprovação: e-mail com o link da área de download. Pix e cartão aprovam em
+8. **Preciso pagar ChatGPT ou outra IA?** Não. Os prompts funcionam nas versões gratuitas atuais. ChatGPT,
+   Copilot, Gemini e Claude são serviços de terceiros, com regras próprias: os planos e os limites podem mudar sem
+   aviso. (Mesma FAQ da /advogados; a /medicos não pode afirmar o gratuito sem essa ressalva.)
+9. **Como recebo?** Na hora, após a aprovação: e-mail com o link da área de download. Pix e cartão aprovam em
    minutos.
-9. **E se eu não gostar?** 7 dias para desistir, sem perguntas. É a lei, e a gente cumpre sem burocracia.
+10. **E se eu não gostar?** 7 dias para desistir, sem perguntas. É a lei, e a gente cumpre sem burocracia.
 
 ## Página de obrigado
 `/obrigado/` (e `/obrigado/pix/`, `/obrigado/recusado/`) segue neutra entre os kits. Card "Comece pelo manual":
 manual de 20 minutos no Advogados e no Médicos; a aula 1 vem antes de qualquer planilha. Card "Primeiros 7 dias",
-bloco do Médicos: dia 1 aula 1 + 05 Custo da hora de atendimento (15 min) → dia 2 01 Agenda e ocupação com a agenda
-desta semana → dia 3 06 Precificação e 07 Simulador convênio × particular com um procedimento real (aula 5) → dia 5
-09 Caixa da clínica e o primeiro painel de sexta. Em `/obrigado/pix/`, "volte à página do kit" com os quatro links
+bloco do Médicos: dia 1 aula 1 + 05 Custo da hora de atendimento (20 min, como no manual) → dia 2 01 Agenda e
+ocupação com a agenda desta semana → dia 3 06 Precificação e 07 Simulador convênio × particular com um procedimento
+real (aulas 4 e 5: a 07 é assunto da aula 4) → dia 5 09 Caixa da clínica e o primeiro painel de sexta. Os quatro
+kits ficam cada um em um `<details>`, com o Essencial aberto, para o comprador não rolar roteiro alheio. Em `/obrigado/pix/`, "volte à página do kit" com os quatro links
 (/kit/, /completo/, /advogados/, /medicos/).
 
 ## E-mails
@@ -218,5 +229,5 @@ Headlines: Preço pela hora, não pela tabela · Simulador convênio × particul
 Custo da sua hora em 15 minutos. · Pagamento único, arquivos seus. · Excel e Google Sheets.
 **Ângulo 3 · Veja funcionando.** Primária: Tela real, clínica de exemplo: a agenda que mede ocupação e faltas e o
 painel de sexta em uma tela. Não é software, não é prontuário, não tem mensalidade. Headlines: Tela real, sem
-promessa · Painel de sexta · Menos que um ano de software, uma vez. Descrições: Aula 5 inteira na página. · 20
+promessa · Painel de sexta · Pagamento único, sem mensalidade. Descrições: Aula 5 inteira na página. · 20
 planilhas em 5 núcleos. · R$ 697, uma vez.

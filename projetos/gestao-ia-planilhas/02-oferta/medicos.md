@@ -94,12 +94,12 @@ Acompanha:
 - **8 aulas em vídeo** (2 a 3 min, tela real, narração por IA, legenda gravada): 1 método e rotina; 2 agenda e
   faltas; 3 custo da hora; 4 preço e simulador de convênio; 5 quanto cobrar por este procedimento; 6 caixa,
   provisão e repasse; 7 convênios, parcelas e cobrança; 8 painel de sexta e fechamento.
-- **Biblioteca de 41 prompts da clínica**: explicar o mês ao sócio, escrever cobrança educada, resumir os convênios,
+- **Biblioteca de 41 prompts da clínica** (5 grupos: 8 prompts em cada núcleo e 9 no Caixa): explicar o mês ao sócio, escrever cobrança educada, resumir os convênios,
   preparar a reunião com o contador, revisar a tabela de preços, montar a rotina da recepção, redigir recurso de
   glosa em linguagem administrativa. Todos com "quando usar", exemplo e o que conferir. Nenhum prompt produz
   conteúdo clínico nem publicidade médica.
 - **3 modelos de apresentação**: resultado do mês para os sócios (8), proposta de parceria para médico que vai
-  atender na clínica (10), convênios e recebíveis para o contador (8).
+  atender na clínica (10), convênios e caixa para o contador (8) — nome canônico, igual ao LEIA-ME e ao arquivo 29.
 - **Checklists**: abertura e fechamento do dia, fechamento do mês, antes de fechar um convênio.
 
 ## Bônus (cada um mata uma objeção)
@@ -116,7 +116,10 @@ Sem modelo de contrato de parceria (é conteúdo jurídico) e sem peça de divul
 
 - Preço único: **R$ 697** à vista ou 12× no cartão (total informado no checkout). Sem âncora riscada.
 - Âncoras verdadeiras na copy: software de clínica de R$ 62 a algumas centenas por mês; uma glosa não recorrida;
-  40 horas montando do zero. "Menos que um ano de um software de clínica típico, uma vez, e os arquivos ficam com você."
+  40 horas montando do zero. A âncora da página é a forma de cobrança, não o valor: "Pagamento único: software de
+  clínica cobra mensalidade enquanto você usar; aqui você paga uma vez e os arquivos ficam com você." (A comparação
+  antiga, "menos que um ano de um software de clínica típico", tinha folga de só 6 % contra o plano mais barato
+  registrado em `01-pesquisa/saas-precos.md` — R$ 62/mês. Sem superlativo e sem marca.)
 - Order bump no checkout: Kit IA no Trabalho · Essencial por R$ 27 para quem ainda não tem. Sem upsell no lançamento.
 
 ## Garantia

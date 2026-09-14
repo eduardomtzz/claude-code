@@ -294,6 +294,13 @@ p{margin:0 0 1em;max-width:65ch}
 .obrigado__card li{margin-bottom:6px}
 .obrigado__card b{color:var(--uva)}
 .obrigado__card p+p,.obrigado__card p+ol{margin-top:8px}
+.obrigado__det{border-top:1px solid var(--linha);padding:10px 0}
+.obrigado__det+.obrigado__det{margin-top:0}
+.obrigado__det summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:15px;font-weight:600;color:var(--uva)}
+.obrigado__det summary::-webkit-details-marker{display:none}
+.obrigado__det summary::after{content:"+";font-family:var(--mono);font-size:18px;line-height:1;color:var(--lilas);flex:none}
+.obrigado__det[open] summary::after{content:"\2013"}
+.obrigado__det ol{margin-top:8px}
 
 /* herói do kit: contexto da tela */
 .tela__titulo{font-size:14.5px;color:var(--tinta);margin:0;padding:12px 14px 10px;max-width:none;line-height:1.4}
