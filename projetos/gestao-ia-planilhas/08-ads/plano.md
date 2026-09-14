@@ -95,6 +95,15 @@ Parar tudo: gasto acumulado sem nenhuma venda ≥ R$ 450 (`pausar_tudo_se_gasto_
 Nunca: mais de 20 % de mudança de orçamento por dia; editar segmentação de conjunto ativo; mexer em
 conjunto com menos de 48 h; passar dos tetos.
 
+## 5b. Kit de Gestão para Advogados (R$ 497) · campanha D, liga quando o produto estiver no ar
+
+Economia (de `02-oferta/advogados.md`): margem líquida ~R$ 402; CPA máximo R$ 402; CPA alvo R$ 281; ROAS alvo 1,77.
+Conjuntos (ABO, otimização Purchase, Brasil, 27 a 55): `INT-OAB-BR` (interesses: OAB, Direito, advocacia, cargo advogado)
+R$ 80/dia; `BROAD-BR-27-55` com criativo que se autosseleciona ("Você advoga o dia inteiro...") R$ 60/dia. Retargeting
+7 dias entra no RT geral. Criativos: vídeo de vendas 9:16, estático mockup 9:16 e 1:1, carrossel dos 5 núcleos. Copy:
+`04-copy/advogados.md`, 3 ângulos. Tetos: entram em `limites.json` como `kit-advogados` quando o Eduardo aprovar
+(sugestão: `cpa_max` 402, `cpa_alvo` 281, `roas_alvo` 1.77; orçamento diário sobe de R$ 300 para R$ 440).
+
 ## 6. O que acontece depois da fase 1
 
 - Vencedores de criativo e público vão para uma campanha CBO (ou Advantage+ Shopping) por produto.
