@@ -1,0 +1,230 @@
+1
+00:00:00,000 --> 00:00:02,532
+Aula sete. Convênios, parcelas e cobrança.
+
+2
+00:00:02,532 --> 00:00:06,210
+Planilhas treze a dezesseis:
+quanto o convênio deve e glosou,
+
+3
+00:00:06,210 --> 00:00:10,852
+quem atrasou e como cobrar sem constranger,
+quanto vai fechar dos orçamentos,
+
+4
+00:00:10,852 --> 00:00:12,480
+e quanto a maquininha leva.
+
+5
+00:00:13,580 --> 00:00:15,842
+Convênios a receber, planilha treze.
+
+6
+00:00:15,842 --> 00:00:20,996
+A receber, quinze mil setecentos e cinquenta
+e oito em lotes enviados e não pagos.
+
+7
+00:00:20,996 --> 00:00:23,510
+Atrasado, mil setecentos e vinte e sete.
+
+8
+00:00:23,510 --> 00:00:27,909
+Glosa no ano, cinco vírgula cinco
+por cento do que o convênio decidiu.
+
+9
+00:00:27,909 --> 00:00:29,920
+Em recurso, duzentos e quarenta.
+
+10
+00:00:31,020 --> 00:00:35,469
+Por convênio: Saúde Total, três vírgula
+três por cento de glosa e prazo real
+
+11
+00:00:35,469 --> 00:00:38,279
+de trinta e dois dias
+contra trinta de contrato.
+
+12
+00:00:38,279 --> 00:00:41,147
+Vida Care, onze vírgula
+três, sessenta e um dias,
+
+13
+00:00:41,147 --> 00:00:43,605
+e mil setecentos e vinte e sete atrasados.
+
+14
+00:00:43,605 --> 00:00:47,527
+Glosa acima de cinco e prazo acima
+do contratual ficam em vermelho:
+
+15
+00:00:47,527 --> 00:00:50,220
+os dois argumentos da conversa com o convênio.
+
+16
+00:00:51,320 --> 00:00:56,205
+Lotes em aberto, atrasados primeiro: o
+lote de junho da Vida Care, dezenove guias,
+
+17
+00:00:56,205 --> 00:00:59,184
+mil setecentos e vinte e
+sete, dez dias de atraso.
+
+18
+00:00:59,184 --> 00:01:01,507
+O prompt Recebíveis zero três escreve o
+
+19
+00:01:01,507 --> 00:01:04,188
+recurso de glosa em linguagem administrativa;
+
+20
+00:01:04,188 --> 00:01:06,750
+o zero um resume os convênios para o sócio.
+
+21
+00:01:07,850 --> 00:01:10,461
+Parcelas e inadimplência, planilha catorze.
+
+22
+00:01:10,461 --> 00:01:13,376
+Em aberto, dez mil
+quinhentos e oitenta e cinco.
+
+23
+00:01:13,376 --> 00:01:17,324
+Vencido, quatro mil quinhentos e
+cinquenta em dezesseis parcelas:
+
+24
+00:01:17,324 --> 00:01:20,117
+inadimplência de dez vírgula quatro por cento,
+
+25
+00:01:20,117 --> 00:01:24,490
+vencido dividido por pago mais vencido,
+só do que foi combinado a prazo.
+
+26
+00:01:25,590 --> 00:01:28,846
+A régua fica em Config e
+aparece por faixa de atraso.
+
+27
+00:01:28,846 --> 00:01:30,811
+Um a seis dias: lembrete gentil.
+
+28
+00:01:30,811 --> 00:01:34,313
+Sete a catorze: mensagem
+perguntando se houve imprevisto.
+
+29
+00:01:34,313 --> 00:01:37,446
+Quinze a vinte e nove:
+ligação com o demonstrativo.
+
+30
+00:01:37,446 --> 00:01:40,210
+Trinta ou mais: conversa e plano por escrito.
+
+31
+00:01:41,310 --> 00:01:45,263
+Cobrar primeiro: as vencidas em
+ordem de valor vezes dias de atraso.
+
+32
+00:01:45,263 --> 00:01:49,972
+Gabriel Reis, quatrocentos reais, cento
+e cinquenta e oito dias; Regina Teixeira,
+
+33
+00:01:49,972 --> 00:01:54,100
+trezentos e oitenta, cento e trinta.
+Sem exposição nem constrangimento:
+
+34
+00:01:54,100 --> 00:01:58,460
+o prompt Recebíveis zero quatro escreve
+a cobrança educada em três versões.
+
+35
+00:01:59,560 --> 00:02:01,149
+Orçamentos, planilha quinze.
+
+36
+00:02:01,149 --> 00:02:04,780
+Em aberto, três mil quatrocentos
+e sessenta; previsão ponderada,
+
+37
+00:02:04,780 --> 00:02:06,142
+mil trezentos e dezoito.
+
+38
+00:02:06,142 --> 00:02:10,908
+Aprovado no trimestre, oito mil quinhentos
+e dez, quarenta e sete por cento da meta.
+
+39
+00:02:10,908 --> 00:02:13,972
+A retomada de contato usa o
+prompt Agenda zero quatro;
+
+40
+00:02:13,972 --> 00:02:17,660
+o Recebíveis zero cinco explica
+por que os orçamentos não fecham.
+
+41
+00:02:18,760 --> 00:02:21,906
+Conciliação de cartão,
+planilha dezesseis, em agosto.
+
+42
+00:02:21,906 --> 00:02:25,823
+Vendas no cartão e Pix, trinta e
+um mil oitocentos e vinte; taxas,
+
+43
+00:02:25,823 --> 00:02:28,138
+quatrocentos e oitenta e quatro e doze,
+
+44
+00:02:28,138 --> 00:02:31,462
+o equivalente a uma vírgula
+três consultas particulares.
+
+45
+00:02:31,462 --> 00:02:33,836
+Lance esse total no caixa no fim do mês.
+
+46
+00:02:33,836 --> 00:02:38,110
+O prompt Caixa zero nove responde se
+a maquininha está comendo a margem.
+
+47
+00:02:39,210 --> 00:02:44,025
+Resumo da aula sete. Convênios: a
+receber, atrasado, glosa e prazo real.
+
+48
+00:02:44,025 --> 00:02:48,973
+Parcelas: régua e ordem de cobrança.
+Orçamentos: funil e retomada educada.
+
+49
+00:02:48,973 --> 00:02:51,247
+Cartão: as taxas vão para o caixa.
+
+50
+00:02:51,247 --> 00:02:54,590
+Na próxima aula, o painel
+de sexta e o fechamento.

@@ -1,237 +1,237 @@
 1
-00:00:00,000 --> 00:00:02,712
+00:00:00,000 --> 00:00:02,728
 Aula cinco. Quanto cobrar
 por este procedimento.
 
 2
-00:00:02,712 --> 00:00:06,045
+00:00:02,728 --> 00:00:06,081
 Três planilhas em sequência,
 do custo da hora até a tabela:
 
 3
-00:00:06,045 --> 00:00:10,170
+00:00:06,081 --> 00:00:10,230
 o teste ergométrico da Clínica Vida
 Plena, com a conta feita em voz alta.
 
 4
-00:00:11,270 --> 00:00:13,964
+00:00:11,330 --> 00:00:13,984
 Chegou um procedimento novo: quanto cobrar?
 
 5
-00:00:13,964 --> 00:00:16,658
+00:00:13,984 --> 00:00:16,638
 Três passos. Custo da hora, planilha cinco.
 
 6
-00:00:16,658 --> 00:00:20,480
+00:00:16,638 --> 00:00:20,403
 Precificação, planilha seis.
 Tabela de preços, planilha oito.
 
 7
-00:00:20,480 --> 00:00:23,300
+00:00:20,403 --> 00:00:23,180
 Quinze minutos na primeira vez; depois, dois.
 
 8
-00:00:24,400 --> 00:00:25,889
+00:00:24,280 --> 00:00:25,764
 Passo um, o custo da hora.
 
 9
-00:00:25,889 --> 00:00:30,242
+00:00:25,764 --> 00:00:30,100
 Vinte e oito mil por mês dividido por
 cento e quarenta horas de atendimento:
 
 10
-00:00:30,242 --> 00:00:34,424
+00:00:30,100 --> 00:00:34,265
 duzentos reais. Com margem mínima de
 trinta e impostos de onze por cento,
 
 11
-00:00:34,424 --> 00:00:37,803
+00:00:34,265 --> 00:00:37,632
 a hora mínima é trezentos e
 trinta e oito e noventa e oito,
 
 12
-00:00:37,803 --> 00:00:39,980
+00:00:37,632 --> 00:00:39,800
 arredondada para trezentos e quarenta.
 
 13
-00:00:41,080 --> 00:00:42,795
+00:00:40,900 --> 00:00:42,632
 Passo dois, a precificação.
 
 14
-00:00:42,795 --> 00:00:48,133
+00:00:42,632 --> 00:00:48,020
 O teste ergométrico: quarenta minutos, sem
 retorno, vinte e cinco reais de material.
 
 15
-00:00:48,133 --> 00:00:51,563
+00:00:48,020 --> 00:00:51,484
 Custo cheio, cento e cinquenta
 e oito e trinta e três.
 
 16
-00:00:51,563 --> 00:00:54,804
+00:00:51,484 --> 00:00:54,755
 Mínimo, duzentos e sessenta
 e oito e trinta e seis.
 
 17
-00:00:54,804 --> 00:00:58,171
+00:00:54,755 --> 00:00:58,155
 Alvo, trezentos e cinquenta
 e nove e oitenta e cinco.
 
 18
-00:00:58,171 --> 00:01:03,000
+00:00:58,155 --> 00:01:03,030
 Praticado, quatrocentos e cinquenta:
 margem de cinquenta e quatro por cento.
 
 19
-00:01:04,100 --> 00:01:05,442
+00:01:04,130 --> 00:01:05,469
 A conta do custo cheio.
 
 20
-00:01:05,442 --> 00:01:09,817
+00:01:05,469 --> 00:01:09,836
 Quarenta minutos dividido por sessenta,
 vezes duzentos reais de custo-hora:
 
 21
-00:01:09,817 --> 00:01:12,034
+00:01:09,836 --> 00:01:12,048
 cento e trinta e três e trinta e três.
 
 22
-00:01:12,034 --> 00:01:16,293
+00:01:12,048 --> 00:01:16,298
 Mais vinte e cinco de material: cento
 e cinquenta e oito e trinta e três.
 
 23
-00:01:16,293 --> 00:01:18,860
+00:01:16,298 --> 00:01:18,860
 Sem retorno, o tempo é só o do procedimento.
 
 24
-00:01:19,960 --> 00:01:24,491
+00:01:19,960 --> 00:01:24,584
 Do custo ao preço. Mínimo: cento e
 cinquenta e oito e trinta e três dividido
 
 25
-00:01:24,491 --> 00:01:27,532
+00:01:24,584 --> 00:01:27,688
 por um menos onze por cento
 menos trinta por cento,
 
 26
-00:01:27,532 --> 00:01:30,095
+00:01:27,688 --> 00:01:30,304
 ou seja, por zero vírgula cinquenta e nove:
 
 27
-00:01:30,095 --> 00:01:32,659
+00:01:30,304 --> 00:01:32,921
 duzentos e sessenta e oito e trinta e seis.
 
 28
-00:01:32,659 --> 00:01:37,548
+00:01:32,921 --> 00:01:37,910
 Alvo, com margem de quarenta e cinco:
 dividido por zero vírgula quarenta e quatro,
 
 29
-00:01:37,548 --> 00:01:40,350
+00:01:37,910 --> 00:01:40,770
 trezentos e cinquenta e
 nove e oitenta e cinco.
 
 30
-00:01:41,450 --> 00:01:45,274
+00:01:41,870 --> 00:01:45,751
 E nos convênios? Saúde Total
 paga cento e quarenta pelo teste:
 
 31
-00:01:45,274 --> 00:01:47,802
+00:01:45,751 --> 00:01:48,317
 margem de menos vinte e quatro por cento.
 
 32
-00:01:47,802 --> 00:01:51,071
+00:01:48,317 --> 00:01:51,635
 MediPlan, cento e vinte e
 cinco: menos trinta e oito.
 
 33
-00:01:51,071 --> 00:01:54,031
+00:01:51,635 --> 00:01:54,639
 Vida Care, cento e dez:
 menos cinquenta e cinco.
 
 34
-00:01:54,031 --> 00:01:56,806
+00:01:54,639 --> 00:01:57,456
 Nenhuma das três tabelas cobre o custo cheio;
 
 35
-00:01:56,806 --> 00:01:59,520
+00:01:57,456 --> 00:02:00,210
 a planilha sete pesa isso com prazo e glosa.
 
 36
-00:02:00,620 --> 00:02:04,365
+00:02:01,310 --> 00:02:05,022
 Passo três, a tabela de preços,
 planilha oito: valor por hora.
 
 37
-00:02:04,365 --> 00:02:06,540
+00:02:05,022 --> 00:02:07,178
 Quatrocentos e cinquenta em quarenta
 
 38
-00:02:06,540 --> 00:02:09,500
+00:02:07,178 --> 00:02:10,112
 minutos dá seiscentos e
 setenta e cinco por hora,
 
 39
-00:02:09,500 --> 00:02:12,823
+00:02:10,112 --> 00:02:13,405
 acima da hora alvo de
 quatrocentos e cinquenta e cinco.
 
 40
-00:02:12,823 --> 00:02:16,749
+00:02:13,405 --> 00:02:17,296
 Saúde Total, duzentos e dez; Vida
 Care, cento e sessenta e cinco:
 
 41
-00:02:16,749 --> 00:02:19,830
+00:02:17,296 --> 00:02:20,350
 abaixo da hora mínima de
 trezentos e trinta e nove.
 
 42
-00:02:20,930 --> 00:02:23,164
+00:02:21,450 --> 00:02:23,699
 Quanto cobrar por este procedimento.
 
 43
-00:02:23,164 --> 00:02:26,516
+00:02:23,699 --> 00:02:27,073
 Custo cheio, cento e cinquenta
 e oito e trinta e três.
 
 44
-00:02:26,516 --> 00:02:30,054
+00:02:27,073 --> 00:02:30,634
 Mínimo, duzentos e sessenta
 e oito e trinta e seis; alvo,
 
 45
-00:02:30,054 --> 00:02:32,971
+00:02:30,634 --> 00:02:33,571
 trezentos e cinquenta e
 nove e oitenta e cinco.
 
 46
-00:02:32,971 --> 00:02:37,688
+00:02:33,571 --> 00:02:38,319
 Antes de mudar a tabela, o prompt Preço
 zero quatro revisa a tabela inteira.
 
 47
-00:02:37,688 --> 00:02:41,970
+00:02:38,319 --> 00:02:42,630
 A planilha calcula; a decisão é da
 clínica, dentro das regras do CFM.
 
 48
-00:02:43,070 --> 00:02:45,962
+00:02:43,730 --> 00:02:46,634
 Resumo da aula cinco. O
 custo da hora dá o piso.
 
 49
-00:02:45,962 --> 00:02:50,481
+00:02:46,634 --> 00:02:51,171
 A precificação transforma minutos e
 material em custo cheio, mínimo e alvo.
 
 50
-00:02:50,481 --> 00:02:53,674
+00:02:51,171 --> 00:02:54,378
 A tabela compara com o
 praticado e com cada convênio.
 
 51
-00:02:53,674 --> 00:02:55,180
+00:02:54,378 --> 00:02:55,890
 Na próxima aula, o caixa.

@@ -1,0 +1,221 @@
+1
+00:00:00,000 --> 00:00:02,606
+Aula quatro. Preço e simulador de convênio.
+
+2
+00:00:02,606 --> 00:00:06,181
+Planilhas seis, sete e oito:
+o preço da consulta pela hora,
+
+3
+00:00:06,181 --> 00:00:11,150
+o que a tabela do convênio deixa depois
+do prazo e da glosa, e a tabela de preços.
+
+4
+00:00:12,250 --> 00:00:14,059
+Planilha seis, Precificação.
+
+5
+00:00:14,059 --> 00:00:18,389
+A consulta: trinta minutos, gera
+retorno, quatro reais de material,
+
+6
+00:00:18,389 --> 00:00:20,715
+trinta e oito minutos com o retorno.
+
+7
+00:00:20,715 --> 00:00:24,205
+Custo cheio, cento e trinta
+e sessenta e sete; mínimo,
+
+8
+00:00:24,205 --> 00:00:27,178
+duzentos e vinte e um e quarenta e sete; alvo,
+
+9
+00:00:27,178 --> 00:00:29,956
+duzentos e noventa e seis e noventa e sete.
+
+10
+00:00:29,956 --> 00:00:34,480
+Praticado, trezentos e oitenta:
+margem de cinquenta e cinco por cento.
+
+11
+00:00:35,580 --> 00:00:37,374
+Por que trinta e oito minutos?
+
+12
+00:00:37,374 --> 00:00:41,859
+Cada consulta gera, em média, zero
+vírgula quatro retorno de vinte minutos,
+
+13
+00:00:41,859 --> 00:00:44,370
+que a clínica não cobra: trinta mais oito.
+
+14
+00:00:44,370 --> 00:00:48,974
+Trinta e oito dividido por sessenta,
+vezes duzentos, mais quatro de material:
+
+15
+00:00:48,974 --> 00:00:53,160
+cento e trinta e sessenta e sete.
+Retorno tem preço zero de propósito.
+
+16
+00:00:54,260 --> 00:00:56,343
+À direita, as tabelas de convênio.
+
+17
+00:00:56,343 --> 00:01:01,120
+Saúde Total paga cento e vinte pela
+consulta: margem de menos vinte por cento.
+
+18
+00:01:01,120 --> 00:01:06,081
+MediPlan, cem: menos quarenta e dois. Vida
+Care, noventa: menos cinquenta e seis.
+
+19
+00:01:06,081 --> 00:01:08,899
+Vermelho é tabela que não cobre o custo cheio.
+
+20
+00:01:08,899 --> 00:01:12,880
+Não é automaticamente não aceitar:
+é a pergunta da planilha sete.
+
+21
+00:01:13,980 --> 00:01:18,178
+Planilha sete, Simulador convênio
+versus particular, para a consulta.
+
+22
+00:01:18,178 --> 00:01:22,558
+O particular deixa quinhentos e trinta
+e quatro reais líquidos por hora.
+
+23
+00:01:22,558 --> 00:01:27,000
+O melhor convênio, Saúde Total, cento
+e sessenta e um; o pior, Vida Care,
+
+24
+00:01:27,000 --> 00:01:31,380
+cento e dez. A hora mínima é trezentos
+e trinta e oito e noventa e oito.
+
+25
+00:01:32,480 --> 00:01:34,541
+O que cada pagador paga de verdade.
+
+26
+00:01:34,541 --> 00:01:37,662
+Vida Care: noventa de tabela,
+sessenta dias de prazo,
+
+27
+00:01:37,662 --> 00:01:40,371
+dez por cento de glosa esperada: oitenta e um.
+
+28
+00:01:40,371 --> 00:01:45,081
+Menos dois e quarenta e três de custo do
+dinheiro, a um e meio por cento ao mês;
+
+29
+00:01:45,081 --> 00:01:49,910
+menos oito e noventa e um de impostos:
+sessenta e nove e sessenta e seis líquidos.
+
+30
+00:01:51,010 --> 00:01:53,637
+A outra leitura: e se o horário ficaria vazio?
+
+31
+00:01:53,637 --> 00:01:57,179
+Aí o custo fixo já está pago e
+o que importa é a contribuição,
+
+32
+00:01:57,179 --> 00:01:58,492
+líquido menos material.
+
+33
+00:01:58,492 --> 00:02:02,377
+Saúde Total contribui noventa e
+sete e oitenta e cinco por consulta:
+
+34
+00:02:02,377 --> 00:02:05,689
+três vírgula quatro atendimentos
+para valer um particular.
+
+35
+00:02:05,689 --> 00:02:08,260
+Manter ou descredenciar é decisão da clínica;
+
+36
+00:02:08,260 --> 00:02:10,830
+o prompt Preço zero três organiza a conversa.
+
+37
+00:02:11,930 --> 00:02:15,563
+Planilha oito, Tabela de preços:
+valor por hora por pagador.
+
+38
+00:02:15,563 --> 00:02:20,285
+Consulta particular, seiscentos por hora;
+Saúde Total, cento e oitenta e nove;
+
+39
+00:02:20,285 --> 00:02:22,404
+Vida Care, cento e quarenta e dois.
+
+40
+00:02:22,404 --> 00:02:27,490
+Hora mínima, trezentos e trinta e nove;
+hora alvo, quatrocentos e cinquenta e cinco.
+
+41
+00:02:28,590 --> 00:02:31,291
+Antes de mexer em preço,
+o prompt Preço zero dois,
+
+42
+00:02:31,291 --> 00:02:33,398
+Revisar a tabela de preços pela margem,
+
+43
+00:02:33,398 --> 00:02:36,153
+aponta o que está abaixo
+do mínimo e longe do alvo.
+
+44
+00:02:36,153 --> 00:02:40,690
+Não é para reajustar tudo de uma vez; é
+para a próxima revisão ter conta, não humor.
+
+45
+00:02:41,790 --> 00:02:45,551
+Resumo da aula quatro. Custo cheio,
+mínimo e alvo na precificação.
+
+46
+00:02:45,551 --> 00:02:49,312
+O que sobra da tabela do convênio,
+em duas leituras, no simulador.
+
+47
+00:02:49,312 --> 00:02:51,421
+Valor por hora por pagador na tabela.
+
+48
+00:02:51,421 --> 00:02:54,270
+Na próxima aula, um
+procedimento do começo ao fim.
