@@ -10,7 +10,7 @@ Eduardo é o gestor e aprovador.
 |---|---|---|
 | 1. Pesquisa de nicho | aprovado | 4 rodadas. Rodada 4 (conversão) consolidada em `01-pesquisa/resumo-rodada-4.md`: blueprint das páginas, checkout e pós-compra |
 | 2. Oferta | em andamento | `02-oferta/kit-essencial.md`, `02-oferta/kit-completo.md`, `02-oferta/advogados.md` (produto 3, decisões pendentes em DECISOES.md); `02-oferta/dentistas.md` guardada para o produto 5 |
-| 3. Produto | em andamento | Kit Essencial v1 e Kit Completo v1 revisados (`produto/revisao-interna-1.md`). Kit para Advogados v1 em `produto/kit-advogados/` (20 planilhas em 5 núcleos, 40 prompts, manual de 4 semanas, 3 bônus, 3 modelos de slides, 8 aulas), revisado por 3 revisores e corrigido (`produto/revisao-interna-2.md`; `dados.py` é fonte única, `verifica_coerencia.py` 251 OK, `NUMEROS.md`). Falta: auditoria no GPT (prompt pronto), teste em Excel/Sheets reais, narração definitiva (Google TTS) |
+| 3. Produto | em andamento | Kit Essencial e Kit Completo v1 revisados (`produto/revisao-interna-1.md`). Kit para Advogados v1 revisado e corrigido (`produto/revisao-interna-2.md`). Kit para Médicos v1 em `produto/kit-medicos/` (20 planilhas em 5 núcleos, 41 prompts, manual de 4 semanas, 3 bônus, 3 modelos de slides, 8 aulas), revisado por 3 revisores e corrigido (`produto/revisao-interna-3.md`; `dados.py` fonte única, `verifica_coerencia.py` 677 OK, `NUMEROS.md`). Falta: auditoria no GPT, teste em Excel/Sheets reais, narração definitiva (Google TTS) |
 | 4. Marca | aprovado | direção D, kit de marca em `03-marca/kit-de-marca/` |
 | 5. Copy | em andamento | `04-copy/kit-essencial.md`, `04-copy/kit-completo.md`, `04-copy/advogados.md` (página, obrigado, e-mails, 3 ângulos de anúncio cada) |
 | 6. Página | em andamento | base + `/kit/` + `/completo/` + `/advogados/` + `/obrigado/` (3 estados) em `site/`, heróis e inventários com mockup, imagem OG por produto, imagens otimizadas no build, revisadas em celular e desktop. Falta hospedar (Cloudflare Pages), links da Kiwify, e-mails, leitura final do Eduardo |
@@ -27,7 +27,7 @@ Eduardo é o gestor e aprovador.
 | 1 | Kit IA no Trabalho · Essencial (entrada de tudo) | /kit | R$ 37 |
 | 2 | Kit IA no Trabalho · Completo (10 planilhas, 80 prompts, 8 aulas curtas) | /completo | R$ 197 |
 | 3 | Kit de Gestão para Advogados | /advogados | R$ 497 |
-| 4 | Kit de Gestão para Médicos (cria o núcleo de clínica) | /medicos | R$ 697 |
+| 4 | Kit de Gestão para Médicos (núcleo de clínica, criado) | /medicos | R$ 697 |
 | 5 | Kit de Gestão para Dentistas (clona o núcleo de clínica) | /dentistas | R$ 697 |
 | 6 | Kit de Gestão para Entregadores (laboratório de afiliados e orgânico) | /entregadores | R$ 27 |
 | 7 | Edição Estética (clone do núcleo de clínica) | /estetica | R$ 497 |
