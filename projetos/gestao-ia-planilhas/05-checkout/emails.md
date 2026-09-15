@@ -74,7 +74,7 @@ Regra número um: nunca cole nome de cliente ou número de processo real em IA p
 
 **Médicos:**
 ```
-1. Abra o "26-manual-de-implantacao.pdf" (20 minutos de leitura) e assista à aula 1, "Antes de abrir a planilha: os cinco núcleos e a rotina" (2 min 30 s). Ela vem antes de qualquer planilha.
+1. Abra o "26-manual-de-implantacao.pdf" (20 minutos de leitura) e assista à aula 1, "Antes de abrir a planilha: os cinco núcleos e a rotina" (2 min 52 s). Ela vem antes de qualquer planilha.
 2. Abra "05-custo-da-hora.xlsx", troque os custos fixos, a equipe, o pró-labore e as horas de atendimento pelos seus: quinze minutos e você sabe quanto custa a sua hora de atendimento.
 3. Amanhã: "01-agenda-e-ocupacao.xlsx" com a agenda desta semana. A ocupação e as faltas aparecem sozinhas.
 Os 41 prompts estão em "21-biblioteca-de-prompts-da-clinica" (PDF e TXT), em 5 grupos: 8 em cada núcleo e 9 no Caixa. As 8 aulas estão na pasta "videos".
@@ -153,7 +153,7 @@ Ontem você recebeu o kit. Hoje é o dia de descobrir quanto custa a sua hora de
 2. Troque os custos fixos, a equipe, o pró-labore e as horas de atendimento do exemplo pelos seus (só as células amarelas).
 3. O custo da hora aparece no painel. Compare com o que o seu convênio mais usado paga por consulta.
 
-A aula 3, "Custo da hora de atendimento" (2 min 30 s), mostra tudo isso na tela.
+A aula 3, "Custo da hora de atendimento" (2 min 47 s), mostra tudo isso na tela.
 ```
 
 ```
@@ -210,7 +210,7 @@ Semana organizada. Agora o relatório do mês, que costuma atrasar.
 **Essencial:** `Quer apresentar? O modelo de 8 slides ("06-modelo-apresentacao-8-slides.pptx") já tem a ordem certa. E o "07-checklist-antes-de-enviar.pdf" fecha o trabalho.`
 **Completo:** `A aula 5 (2 min 26 s) faz esse caminho inteiro na tela. Para apresentar, use o modelo de 8 slides ("15-modelo-relatorio-mensal-8-slides.pptx") e o prompt "Apresentar 01".`
 **Advogados (substitui os passos acima):** `Hora calculada. Agora a proposta. Abra "06-simulador-de-honorarios.xlsx" com um caso real: horas por etapa, custo-hora, margem. Compare fixo, hora, êxito e misto. Depois "07-proposta-de-honorarios.xlsx" monta a tabela para o cliente. Vinte minutos na primeira vez; depois, cinco. A aula 5, "Custo-hora e proposta: quanto cobrar por este caso" (2 min 44 s), mostra tudo na tela.`
-**Médicos (substitui os passos acima):** `Hora calculada. Agora o preço. Abra "06-precificacao.xlsx" com um procedimento real: custo da hora, tempo, material, margem. Depois "07-simulador-convenio-x-particular.xlsx" compara a tabela do convênio com o particular, contando prazo de pagamento e glosa esperada. Vinte minutos na primeira vez; depois, cinco. A aula 5, "Quanto cobrar por este procedimento" (2 min 30 s), mostra tudo na tela.`
+**Médicos (substitui os passos acima):** `Hora calculada. Agora o preço. Abra "06-precificacao.xlsx" com um procedimento real: custo da hora, tempo, material, margem. Depois "07-simulador-convenio-x-particular.xlsx" compara a tabela do convênio com o particular, contando prazo de pagamento e glosa esperada. Vinte minutos na primeira vez; depois, cinco. A aula 5, "Quanto cobrar por este procedimento" (2 min 49 s), mostra tudo na tela.`
 
 ```
 Seu Sócio Gestor

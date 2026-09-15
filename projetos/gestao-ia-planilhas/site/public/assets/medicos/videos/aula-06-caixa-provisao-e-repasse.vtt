@@ -1,222 +1,215 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:02.371
+00:00:00.000 --> 00:00:02.329
 Aula seis. Caixa, provisão e repasse.
 
 2
-00:00:02.371 --> 00:00:07.306
+00:00:02.329 --> 00:00:07.175
 Planilhas nove a doze: para onde foi o
 dinheiro, quanto separar para imposto,
 
 3
-00:00:07.306 --> 00:00:11.600
-décimo e férias, o que é repasse
-e o que é pró-labore, e a reserva.
+00:00:07.175 --> 00:00:10.700
+décimo e férias, e o que é
+repasse e o que é pró-labore.
 
 4
-00:00:12.700 --> 00:00:14.766
+00:00:11.800 --> 00:00:13.702
 Caixa da clínica, planilha nove.
 
 5
-00:00:14.766 --> 00:00:19.155
+00:00:13.702 --> 00:00:17.626
 Setembro até o dia onze: entrou
-vinte e um mil quinhentos e setenta,
+vinte e um mil novecentos e vinte,
 
 6
-00:00:19.155 --> 00:00:24.190
+00:00:17.626 --> 00:00:21.847
 saiu treze mil seiscentos e trinta,
-sobrou sete mil novecentos e quarenta.Só o
+sobrou oito mil duzentos e noventa.
 
 7
-00:00:24.190 --> 00:00:27.030
-que está marcado como pago conta como caixa.
+00:00:21.847 --> 00:00:25.890
+Saldo acumulado, cinquenta e dois
+mil setecentos e cinquenta e oito.
 
 8
-00:00:28.130 --> 00:00:33.129
-Para onde foi o dinheiro, por categoria,
-com o mês anterior e o acumulado do ano.
+00:00:25.890 --> 00:00:28.030
+Só o que está pago conta como caixa.
 
 9
-00:00:33.129 --> 00:00:37.881
-Aluguel, três mil e novecentos, vinte
-e nove por cento do que saiu; recepção,
+00:00:29.130 --> 00:00:33.218
+Para onde foi o dinheiro, por
+categoria, com o mês anterior e o ano.
 
 10
-00:00:37.881 --> 00:00:42.941
-três mil e cem. Pró-labore, energia,
-marketing em zero: vencem depois do dia onze.
+00:00:33.218 --> 00:00:36.405
+Repasse à médica parceira,
+cinco mil cento e noventa,
 
 11
-00:00:42.941 --> 00:00:45.410
-Por isso o sobrou de meio de mês engana.
+00:00:36.405 --> 00:00:41.335
+trinta e oito por cento do que saiu;
+aluguel, três mil e novecentos, vinte e nove;
 
 12
-00:00:46.510 --> 00:00:50.414
+00:00:41.335 --> 00:00:46.385
+recepção, três mil e cem. Pró-labore e
+marketing em zero: vencem depois do dia onze.
+
+13
+00:00:46.385 --> 00:00:48.790
+Por isso o sobrou de meio de mês engana.
+
+14
+00:00:49.890 --> 00:00:53.830
 De onde veio: particular à vista,
 treze mil seiscentos e trinta,
 
-13
-00:00:50.414 --> 00:00:54.990
-sessenta e três por cento; a prazo,
-mil novecentos e sessenta; Saúde Total,
+15
+00:00:53.830 --> 00:00:58.386
+sessenta e dois por cento; a prazo,
+dois mil trezentos e dez; Saúde Total,
 
-14
-00:00:54.990 --> 00:00:57.918
+16
+00:00:58.386 --> 00:01:01.342
 cinco mil setecentos e
 oitenta, o lote de julho.
 
-15
-00:00:57.918 --> 00:01:02.310
-Convênio só entra quando o lote é
-pago; parcela, quando o paciente paga.
+17
+00:01:01.342 --> 00:01:05.590
+Convênio entra quando o lote é pago;
+parcela, quando o paciente paga.
 
-16
-00:01:03.410 --> 00:01:08.371
+18
+00:01:06.690 --> 00:01:11.601
 A aba Lançamentos é simples: data, entrada
 ou saída, categoria, pagador, valor,
 
-17
-00:01:08.371 --> 00:01:09.816
+19
+00:01:11.601 --> 00:01:13.031
 forma, pago sim ou não.
 
-18
-00:01:09.816 --> 00:01:13.772
+20
+00:01:13.031 --> 00:01:16.948
 O fechamento do dia da recepção
 vira uma linha por dia e forma.
 
-19
-00:01:13.772 --> 00:01:15.342
-Cinco minutos toda sexta.
-
-20
-00:01:15.342 --> 00:01:19.550
-O prompt Caixa zero um explica o
-mês do caixa em linguagem simples.
-
 21
-00:01:20.650 --> 00:01:24.219
+00:01:16.948 --> 00:01:22.170
+Cinco minutos toda sexta. O prompt Caixa
+zero um explica o mês em linguagem simples.
+
+22
+00:01:23.270 --> 00:01:26.911
 Planilha dez, Provisão de
 impostos, décimo terceiro e férias.
 
-22
-00:01:24.219 --> 00:01:27.495
-A separar no mês, quatro mil
-trezentos e trinta e cinco:
-
 23
-00:01:27.495 --> 00:01:31.239
+00:01:26.911 --> 00:01:30.254
+A separar no mês, quatro mil
+trezentos e setenta e três:
+
+24
+00:01:30.254 --> 00:01:34.074
 onze por cento de imposto mais a
 parcela do décimo e das férias.
 
-24
-00:01:31.239 --> 00:01:33.696
-Saldo que deveria estar na conta separada:
-
 25
-00:01:33.696 --> 00:01:36.680
-vinte e um mil novecentos
-e trinta e sete, coberto.
+00:01:34.074 --> 00:01:38.073
+Saldo na conta separada ao fim do
+mês, vinte e um mil e novecentos,
 
 26
-00:01:36.680 --> 00:01:40.190
-O prompt Caixa zero cinco traz
-as perguntas para o contador.
+00:01:38.073 --> 00:01:42.610
+contra dois mil quatrocentos e onze de
+compromisso no mês seguinte: coberto.
 
 27
-00:01:41.290 --> 00:01:43.497
+00:01:43.710 --> 00:01:45.972
 Planilha onze, Repasse e pró-labore.
 
 28
-00:01:43.497 --> 00:01:47.114
+00:01:45.972 --> 00:01:49.678
 Repasse devido no mês: dois
 mil novecentos e vinte e cinco,
 
 29
-00:01:47.114 --> 00:01:50.853
-cinquenta por cento da produção
-da Dra. Renata, pago dia dez.
+00:01:49.678 --> 00:01:52.693
+metade da produção da
+Dra. Renata, pago dia dez.
 
 30
-00:01:50.853 --> 00:01:54.776
+00:01:52.693 --> 00:01:56.714
 Pró-labore combinado, dezoito mil
 por mês, nove para cada sócio.
 
 31
-00:01:54.776 --> 00:01:58.822
+00:01:56.714 --> 00:02:00.860
 A acertar com a clínica no ano:
 cinco mil quatrocentos e quarenta.
 
 32
-00:01:58.822 --> 00:02:02.500
-O prompt Caixa zero sete prepara
-a conversa sobre o repasse.
-
-33
-00:02:03.600 --> 00:02:07.378
+00:02:01.960 --> 00:02:05.735
 Sócios no ano: Dra. Carolina
 retirou mil e quinhentos extras,
 
-34
-00:02:07.378 --> 00:02:09.979
+33
+00:02:05.735 --> 00:02:08.334
 teve mil oitocentos e sessenta de despesas
 
-35
-00:02:09.979 --> 00:02:13.571
+34
+00:02:08.334 --> 00:02:11.923
 pessoais pagas pela clínica e
 devolveu seiscentos e vinte:
 
-36
-00:02:13.571 --> 00:02:16.173
+35
+00:02:11.923 --> 00:02:14.522
 a acertar, dois mil setecentos e quarenta.
 
-37
-00:02:16.173 --> 00:02:18.217
+36
+00:02:14.522 --> 00:02:16.564
 Dr. Paulo, dois mil e setecentos.
 
+37
+00:02:16.564 --> 00:02:19.720
+O prompt Caixa zero seis
+separa clínica de pessoal.
+
 38
-00:02:18.217 --> 00:02:22.490
-O prompt Caixa zero seis separa o
-que é da clínica e o que é pessoal.
+00:02:20.820 --> 00:02:25.106
+Planilha doze, Reserva. Meta: três
+meses de custo fixo mais pró-labore,
 
 39
-00:02:23.590 --> 00:02:28.290
-Planilha doze, Reserva. Meta: três meses
-de custo fixo, oitenta e quatro mil.
+00:02:25.106 --> 00:02:27.642
+oitenta e nove mil cento e noventa e sete.
 
 40
-00:02:28.290 --> 00:02:33.294
+00:02:27.642 --> 00:02:32.592
 Reserva hoje, catorze mil: meio mês coberto,
 semáforo vermelho; com o caixa livre,
 
 41
-00:02:33.294 --> 00:02:34.393
+00:02:32.592 --> 00:02:33.679
 um vírgula quatro.
 
 42
-00:02:34.393 --> 00:02:39.520
+00:02:33.679 --> 00:02:38.750
 Com aporte de três mil por mês, a meta chega
-em setembro de dois mil e vinte e oito.
+em novembro de dois mil e vinte e oito.
 
 43
-00:02:39.520 --> 00:02:41.900
-O prompt Caixa zero oito monta o plano.
-
-44
-00:02:43.000 --> 00:02:47.133
+00:02:39.850 --> 00:02:43.947
 Resumo da aula seis. Caixa: lançar
 toda sexta, só o pago conta.
 
+44
+00:02:43.947 --> 00:02:49.409
+Provisão: separar antes de gastar. Reserva
+de três meses de custo fixo e pró-labore.
+
 45
-00:02:47.133 --> 00:02:49.364
-Provisão: separar antes de gastar.
-
-46
-00:02:49.364 --> 00:02:52.842
-Repasse da parceira e
-pró-labore em contas separadas.
-
-47
-00:02:52.842 --> 00:02:57.500
-Reserva de três meses. Na próxima
-aula, convênios, parcelas e cobrança.
+00:02:49.409 --> 00:02:52.530
+Na próxima aula, convênios,
+parcelas e cobrança.

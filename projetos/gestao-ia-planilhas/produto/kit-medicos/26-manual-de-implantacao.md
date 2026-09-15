@@ -30,7 +30,7 @@ CRM antes.
 | 25 | Checklists: abertura e fechamento do dia, fechamento do mês, antes de fechar um convênio | 2 min cada |
 | 26 | Este manual | 20 min, uma vez |
 | 27 a 29 | Modelos de apresentação (.pptx): resultado do mês para os sócios (8 slides), proposta de parceria para médico (10), convênios e caixa para o contador (8) | 20 min por apresentação |
-| videos/ | 8 aulas de 2 a 3 minutos, tela real, narração e legenda | cerca de 20 min no total |
+| videos/ | 8 aulas de 2 a 3 minutos, tela real, narração e legenda | 23 min no total |
 
 **As 8 aulas (pasta videos/, em mp4 com legenda .srt).** Cada uma tem de 2 a 3 minutos. Assista na
 ordem; cada semana da implantação diz qual aula ver.

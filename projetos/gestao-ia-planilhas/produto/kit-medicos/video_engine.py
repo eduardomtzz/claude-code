@@ -128,7 +128,7 @@ def sincronia(webm, durs):
     return f'[0:v]trim=start={ini:.3f},setpts=(PTS-STARTPTS)*{k:.5f},'
 
 def normaliza(entrada, saida, lufs=-16.0, tp=-1.5):
-    """Normaliza a narração em duas passagens (EBU R128): média em torno de `lufs`, pico real ≤ `tp` dBTP (o AAC sobe ~0,3 dB: −1,5 no wav dá ≈ −1 dBTP no mp4)."""
+    """Normaliza a narração em duas passagens (EBU R128): média em torno de `lufs`, pico real ≤ `tp` dBTP (o AAC a 192k sobe ~0,05 dB: −1,5 no wav dá ≈ −1,45 dBTP no mp4)."""
     alvo=f'I={lufs}:TP={tp}:LRA=11'
     r=subprocess.run(['ffmpeg','-y','-loglevel','info','-i',str(entrada),'-af',f'loudnorm={alvo}:print_format=json','-f','null','-'],capture_output=True,text=True)
     j=json.loads(r.stderr[r.stderr.rfind('{'):r.stderr.rfind('}')+1])
@@ -176,7 +176,7 @@ def mux(nome, cenas, srt_path, final):
     out=ROOT/'videos'/nome
     import sys as _s; _s.path.insert(0,str(ROOT.parent)); import legendas as _lg
     fc=sincronia(out/'gravacao.webm',durs=[c['dur'] for c in cenas])+_lg.filtro(srt_path,LEG_MARGEM,LEG_TAM,H)+'[v]'
-    subprocess.run(['ffmpeg','-y','-loglevel','error','-i',str(out/'gravacao.webm'),'-i',str(out/'narracao.wav'),'-filter_complex',fc,'-map','[v]','-map','1:a','-c:v','libx264','-preset','medium','-crf','21','-pix_fmt','yuv420p','-r','30','-c:a','aac','-b:a','128k','-shortest','-movflags','+faststart',str(final)],check=True)
+    subprocess.run(['ffmpeg','-y','-loglevel','error','-i',str(out/'gravacao.webm'),'-i',str(out/'narracao.wav'),'-filter_complex',fc,'-map','[v]','-map','1:a','-c:v','libx264','-preset','medium','-crf','21','-pix_fmt','yuv420p','-r','30','-c:a','aac','-b:a','192k','-shortest','-movflags','+faststart',str(final)],check=True)
 
 def remux(nome):
     """Refaz só a junção (sincronia + legenda + mux) de uma aula já gravada, lendo as durações dos cena*.wav."""

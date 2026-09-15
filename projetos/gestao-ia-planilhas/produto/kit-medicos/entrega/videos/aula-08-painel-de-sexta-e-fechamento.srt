@@ -1,223 +1,209 @@
 1
-00:00:00,000 --> 00:00:02,364
+00:00:00,000 --> 00:00:02,357
 Aula oito. Painel de sexta e fechamento.
 
 2
-00:00:02,364 --> 00:00:06,441
+00:00:02,357 --> 00:00:06,422
 Planilhas dezessete a vinte: uma
 tela toda sexta, o resultado do mês,
 
 3
-00:00:06,441 --> 00:00:11,110
-as metas do trimestre e o resumo que vira
-texto para o sócio e para o contador.
+00:00:06,422 --> 00:00:09,250
+as metas do trimestre e
+o resumo que vira texto.
 
 4
-00:00:12,210 --> 00:00:16,924
+00:00:10,350 --> 00:00:15,176
 Toda sexta, dez minutos: copie os totais
 das outras planilhas para a aba Dados,
 
 5
-00:00:16,924 --> 00:00:21,937
+00:00:15,176 --> 00:00:20,307
 e o Painel monta a tela. Sexta onze de
 setembro: ocupação de oitenta e um por cento,
 
 6
-00:00:21,937 --> 00:00:23,906
-taxa de falta cinco vírgula três.
+00:00:20,307 --> 00:00:24,889
+taxa de falta cinco vírgula três, entrou
+vinte e um mil novecentos e vinte,
 
 7
-00:00:23,906 --> 00:00:28,620
-Entrou vinte e um mil quinhentos e setenta,
+00:00:24,889 --> 00:00:27,027
 saiu treze mil seiscentos e trinta.
 
 8
-00:00:28,620 --> 00:00:32,320
-Convênio atrasado, mil setecentos
-e vinte e sete, em vermelho.
+00:00:27,027 --> 00:00:30,020
+Convênio atrasado, mil
+setecentos e vinte e sete.
 
 9
-00:00:33,420 --> 00:00:36,557
+00:00:31,120 --> 00:00:34,303
 Semáforos: limite ou meta,
 situação, mês anterior.
 
 10
-00:00:36,557 --> 00:00:39,945
+00:00:34,303 --> 00:00:37,741
 Glosa no ano, cinco vírgula
 cinco contra quatro: fora.
 
 11
-00:00:39,945 --> 00:00:44,148
-Vencido, quatro mil quinhentos e
-cinquenta contra quatro mil: fora.
+00:00:37,741 --> 00:00:41,624
+Inadimplência a prazo, nove
+vírgula quatro contra oito: fora.
 
 12
-00:00:44,148 --> 00:00:47,850
-Inadimplência a prazo, dez
-vírgula cinco contra oito: fora.
+00:00:41,624 --> 00:00:46,399
+O vencido caiu para três mil setecentos
+e setenta e cinco e voltou ao alvo.
 
 13
-00:00:47,850 --> 00:00:50,610
+00:00:46,399 --> 00:00:49,200
 Fora do alvo primeiro: vira ação na segunda.
 
 14
-00:00:51,710 --> 00:00:54,757
+00:00:50,300 --> 00:00:53,541
 Resultado mensal, planilha
 dezoito, agosto fechado.
 
 15
-00:00:54,757 --> 00:00:57,685
-Receita, cinquenta mil
-trezentos e trinta e seis.
+00:00:53,541 --> 00:00:57,164
+Receita, quarenta e nove mil
+seiscentos e cinquenta e um.
 
 16
-00:00:57,685 --> 00:01:00,612
-Saídas, quarenta mil
-seiscentos e noventa e seis.
+00:00:57,164 --> 00:01:00,723
+Saídas, quarenta e dois mil
+quinhentos e oitenta e três,
 
 17
-00:01:00,612 --> 00:01:03,121
-Resultado, nove mil seiscentos e quarenta;
+00:01:00,723 --> 00:01:03,647
+já com a provisão de décimo terceiro e férias,
 
 18
-00:01:03,121 --> 00:01:05,631
-margem de dezenove vírgula dois por cento.
+00:01:03,647 --> 00:01:06,253
+mil novecentos e sessenta e dois por mês.
 
 19
-00:01:05,631 --> 00:01:10,530
-Lucro de verdade, não saldo da conta. O
-prompt Caixa zero dois compara dois meses.
+00:01:06,253 --> 00:01:10,702
+Resultado, sete mil e sessenta e
+oito; margem de catorze vírgula dois,
 
 20
-00:01:11,630 --> 00:01:16,438
+00:01:10,702 --> 00:01:12,990
+contra vinte vírgula cinco em julho.
+
+21
+00:01:14,090 --> 00:01:18,864
 Metas do trimestre, planilha dezenove:
 nove resultados-chave com dono, atual,
 
-21
-00:01:16,438 --> 00:01:17,500
-meta e progresso.
-
 22
-00:01:17,500 --> 00:01:22,683
-Ocupação nas últimas quatro semanas, setenta
-e quatro vírgula cinco contra oitenta:
+00:01:18,864 --> 00:01:22,895
+meta e progresso. Um atingido, a
+lista de retorno; seis em risco.
 
 23
-00:01:22,683 --> 00:01:23,683
-em risco.
+00:01:22,895 --> 00:01:28,041
+Ocupação das últimas quatro semanas, setenta
+e quatro vírgula cinco contra oitenta.
 
 24
-00:01:23,683 --> 00:01:28,490
-Em risco na sexta é conversa na segunda; o
+00:01:28,041 --> 00:01:33,250
+Em risco na sexta é conversa na segunda: o
 prompt Painel zero seis explica o desvio.
 
 25
-00:01:29,590 --> 00:01:32,654
+00:01:34,350 --> 00:01:37,383
 Planilha vinte, Resumo do
 mês: agosto contra julho.
 
 26
-00:01:32,654 --> 00:01:35,116
+00:01:37,383 --> 00:01:39,822
 A aba Indicadores recebe os doze números;
 
 27
-00:01:35,116 --> 00:01:39,862
+00:01:39,822 --> 00:01:44,521
 o Painel compara com o mês anterior e
 com a meta: verde no alvo, vermelho fora.
 
 28
-00:01:39,862 --> 00:01:44,847
-Entrou cinquenta mil trezentos e trinta e
-seis, menos cinco vírgula dois por cento,
+00:01:44,521 --> 00:01:47,792
+Entrou quarenta e nove mil
+seiscentos e cinquenta e um,
 
 29
-00:01:44,847 --> 00:01:47,070
+00:01:47,792 --> 00:01:52,550
+sete vírgula um por cento abaixo de julho,
 meta de quarenta e seis mil: no alvo.
 
 30
-00:01:48,170 --> 00:01:52,560
-A aba Resumo escreve as frases e, lá
-embaixo, o bloco único para copiar:
+00:01:53,650 --> 00:01:58,643
+A aba Resumo escreve as frases e, embaixo,
+o bloco único para copiar: indicadores,
 
 31
-00:01:52,560 --> 00:01:56,463
-indicadores, destaques e as
-observações da clínica num texto só.
+00:01:58,643 --> 00:02:01,749
+destaques e as observações
+da clínica num texto só.
 
 32
-00:01:56,463 --> 00:02:00,548
-Maior melhora contra julho, a taxa
-de falta; maior piora, a margem.
+00:02:01,749 --> 00:02:06,743
+Maior melhora contra julho, os orçamentos
+em aberto; maior piora, a margem do mês.
 
 33
-00:02:00,548 --> 00:02:04,146
-É o que você cola no prompt e
-envia ao sócio e ao contador.
-
-34
-00:02:04,146 --> 00:02:06,280
+00:02:06,743 --> 00:02:10,640
+É o que você cola no prompt.
 Nenhum nome de paciente entra aqui.
 
-35
-00:02:07,380 --> 00:02:11,641
+34
+00:02:11,740 --> 00:02:15,991
 O prompt Painel zero um, Explicar
 o mês ao sócio: cole o bloco único,
 
-36
-00:02:11,641 --> 00:02:16,829
+35
+00:02:15,991 --> 00:02:21,167
 acrescente os seus comentários, e a IA
 devolve um texto curto com resultado, agenda,
 
-37
-00:02:16,829 --> 00:02:19,917
+36
+00:02:21,167 --> 00:02:24,248
 caixa, convênios e uma
 decisão para o mês que vem.
 
-38
-00:02:19,917 --> 00:02:23,438
+37
+00:02:24,248 --> 00:02:27,760
 Onde faltar informação, escreve
 explicar entre colchetes.
 
-39
-00:02:23,438 --> 00:02:24,920
-Você preenche e confere.
-
-40
-00:02:26,020 --> 00:02:28,666
+38
+00:02:28,860 --> 00:02:31,476
 Fechamento com o contador, uma vez por mês.
 
-41
-00:02:28,666 --> 00:02:33,836
+39
+00:02:31,476 --> 00:02:36,585
 O bloco único, o painel da provisão e o
 prompt Caixa zero quatro preparam a reunião:
 
-42
-00:02:33,836 --> 00:02:38,575
-o que enviar antes, a pauta, as perguntas
+40
+00:02:36,585 --> 00:02:41,330
+o que enviar antes, a pauta e as perguntas
 sobre alíquota, provisão e repasse.
 
-43
-00:02:38,575 --> 00:02:41,160
-O roteiro do bônus dá a ordem da conversa.
-
-44
-00:02:42,260 --> 00:02:43,260
+41
+00:02:42,430 --> 00:02:43,430
 Fim do curso.
 
-45
-00:02:43,260 --> 00:02:47,821
+42
+00:02:43,430 --> 00:02:48,151
 Segunda é agenda, sexta é caixa e painel,
 dia trinta é resumo, prompt e contador.
 
-46
-00:02:47,821 --> 00:02:51,607
-Vinte planilhas, quarenta prompts,
-uma rotina de trinta minutos.
+43
+00:02:48,151 --> 00:02:52,350
+Vinte planilhas, quarenta e um
+prompts, uma rotina de trinta minutos.
 
-47
-00:02:51,607 --> 00:02:54,269
-Dúvida sobre os arquivos: suporte por e-mail.
-
-48
-00:02:54,269 --> 00:02:56,340
+44
+00:02:52,350 --> 00:02:54,480
 O resto é fazer na segunda que vem.
