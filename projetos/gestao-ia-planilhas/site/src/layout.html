@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta name="robots" content="{{robots}}">
+<link rel="canonical" href="{{url}}{{path}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{url}}{{path}}">
+<meta property="og:image" content="{{url}}{{og_image}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#3B1F5E">
+<link rel="icon" href="/assets/img/simbolo-fundo-uva.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/icone-512.png">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>window.SSG={pixelId:"{{meta_pixel_id}}"};</script>
+</head>
+<body class="{{body_class}}">
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<header class="topo">
+  <div class="wrap topo__in">
+    <a class="topo__logo" href="/" aria-label="Seu Sócio Gestor, página inicial"><img src="/assets/img/logo-horizontal.svg" alt="Seu Sócio Gestor" width="196" height="44"></a>
+    <nav class="topo__nav" aria-label="Principal">
+      <a href="/#kits">Kits</a>
+      <a href="/#como-funciona">Como funciona</a>
+      <a href="/suporte/">Suporte</a>
+    </nav>
+    <a class="btn btn--sol topo__cta" href="{{cta_href}}">{{cta_label}}</a>
+  </div>
+</header>
+<main id="conteudo">
+{{content}}
+</main>
+<footer class="rodape">
+  <div class="wrap rodape__in">
+    <div class="rodape__marca">
+      <img src="/assets/img/logo-branco.svg" alt="Seu Sócio Gestor" width="196" height="44">
+      <p>Kits de gestão prontos para quem sabe fazer o trabalho e nunca teve um sócio para cuidar do resto. Planilhas + IA. Sem mensalidade.</p>
+    </div>
+    <div class="rodape__col">
+      <h2>Kits</h2>
+      <a href="/kit/">Kit IA no Trabalho · Essencial</a>
+      <a href="/completo/">Kit IA no Trabalho · Completo</a>
+      <a href="/advogados/">Para advogados</a>
+      <a href="/medicos/">Para médicos</a>
+      <a href="/#kits">Para dentistas</a>
+      <a href="/#kits">Para entregadores</a>
+    </div>
+    <div class="rodape__col">
+      <h2>Ajuda e regras</h2>
+      <a href="/suporte/">Suporte e perguntas frequentes</a>
+      <a href="/reembolso/">Reembolso e arrependimento</a>
+      <a href="/termos/">Termos de uso</a>
+      <a href="/privacidade/">Política de privacidade</a>
+      <a href="/cookies/">Cookies e suas preferências</a>
+      <a href="/sobre/">Quem está por trás</a>
+    </div>
+    <div class="rodape__legal">
+      <p><strong>{{empresa.razao_social}}</strong> · CNPJ {{empresa.cnpj}}<br>{{empresa.endereco}}<br>Atendimento: <a href="mailto:{{empresa.email_suporte}}">{{empresa.email_suporte}}</a> (resposta em {{empresa.prazo_resposta}})</p>
+      <p>Os kits são arquivos digitais de apoio à gestão. Não são software, não substituem contador, advogado ou profissional de saúde e não prometem resultado financeiro. Você pode desistir da compra em até 7 dias (CDC, art. 49).</p>
+      <p class="rodape__mono">Última atualização {{atualizado_em}}</p>
+    </div>
+  </div>
+</footer>
+<div class="consent" id="consent" hidden role="region" aria-label="Cookies">
+  <div class="consent__in">
+    <p id="consent-d">Só o necessário está ligado. Medição e anúncios, só se você aceitar. <a href="/cookies/">Configurar</a></p>
+    <div class="consent__acoes">
+      <button type="button" class="btn btn--uva" data-consent="all">Aceitar</button>
+      <button type="button" class="btn btn--uva" data-consent="none">Rejeitar</button>
+    </div>
+  </div>
+</div>
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

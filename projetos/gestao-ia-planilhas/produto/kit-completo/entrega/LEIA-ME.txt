@@ -1,0 +1,20 @@
+Kit IA no Trabalho · Completo · Seu Sócio Gestor · versão 1.0 · setembro de 2026
+
+Comece por aqui: 14-manual-do-metodo.pdf (15 minutos de leitura) e a aula 1.
+
+Planilhas (Excel e Google Sheets):
+  01-semana-organizada.xlsx            02-relatorio-mensal-pronto.xlsx      03-ganhos-e-gastos.xlsx
+  04-projetos-e-prazos.xlsx            05-ata-e-pendencias.xlsx             06-metas-do-trimestre.xlsx
+  07-orcamento-previsto-x-realizado.xlsx   08-funil-de-propostas.xlsx       09-horas-e-custo-por-projeto.xlsx
+  10-base-limpa.xlsx
+Prompts: 11-biblioteca-de-prompts-a (40, dia a dia) e 11-biblioteca-de-prompts-b (40, estruturar e produzir), em PDF e txt.
+Referência: 12-dicionario-de-formulas.pdf · 13-checklists-de-revisao.pdf · 14-manual-do-metodo.pdf
+Modelos de apresentação (.pptx): 15 (relatório mensal, 8 slides) · 16 (resultado do trimestre, 12) · 17 (proposta comercial, 10)
+  No Google Slides: Arquivo > Importar slides (ou fazer upload do .pptx no Drive e abrir).
+Aulas (pasta videos/): 8 aulas em mp4, com legenda .srt. Ordem: 01 a 08.
+
+Regras de ouro: preencha só as células amarelas; nunca cole dados pessoais de terceiros em IA pública; confira cada número
+que a IA escrever. Prisma Comunicação e todas as pessoas citadas são fictícias.
+
+Suporte: suporte@seusociogestor.com.br (até 5 dias úteis). Arrependimento em 7 dias pelo mesmo e-mail ou pela página do pedido.
+ZTRAINING SERVICE LTDA · CNPJ 68.796.613/0001-10 · seusociogestor.com.br

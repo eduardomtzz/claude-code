@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:02,220
+Toda semana, a mesma planilha do zero.
+
+2
+00:00:02,820 --> 00:00:06,930
+Esta já vem pronta: você digita as tarefas, ela diz o que fazer primeiro.
+
+3
+00:00:07,530 --> 00:00:11,130
+Esta escreve as frases do seu relatório do mês.
+
+4
+00:00:11,730 --> 00:00:15,330
+Cola no prompt e a IA devolve o texto para você revisar.
+
+5
+00:00:15,930 --> 00:00:19,530
+E esta mostra quanto sobrou e para onde foi.
+
+6
+00:00:20,130 --> 00:00:25,010
+Kit IA no Trabalho. Trinta e sete reais, uma vez. Sete dias para desistir.

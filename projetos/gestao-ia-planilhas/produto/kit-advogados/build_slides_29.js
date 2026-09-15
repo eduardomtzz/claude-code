@@ -1,0 +1,55 @@
+// Modelo 29: carteira e caixa do mês para o contador, 8 slides. Agosto de 2026 fechado; posição da carteira de 11/09.
+// Números: NUMEROS.md (09 Caixa, 10 Provisão, 11 Pró-labore, 13 Carteira, 14 Parcelas, 12 Reserva, 05 Custo-hora). Só totais: nenhum nome
+// de cliente nem número de processo vai para o contador.
+const path=require('path');
+const {C,H,NOTA0,novo,slide,titulo,cards,lista,tabela,capa,fecho}=require('./slides_base');
+const p=novo('Carteira e caixa para o contador · modelo de 8 slides');
+// 1 capa
+let s=capa(p,'Carteira e caixa de agosto de 2026','Ferraz & Lima Advocacia (exemplo fictício) · reunião mensal com o contador · 14 de setembro de 2026','Entrou R$ 26.900, saiu R$ 21.897, sobrou R$ 5.003; a receber R$ 111.990. Oito dúvidas no slide 7.');
+s.addNotes(NOTA0+'Capa. Reunião de 30 minutos: os números vêm prontos das planilhas 09 (Caixa, Config = Agosto), 10 (Provisão), 11 (Pró-labore), 13 (Carteira) e 14 (Parcelas); o contador recebe os arquivos do slide 8 dois dias antes. O roteiro da reunião está no bônus 24. Só totais: nenhum nome de cliente nem número de processo.');
+// 2 receita por categoria
+s=slide(p); titulo(s,'Receita de agosto por categoria','Recebimentos de agosto (regime de caixa), Caixa do escritório (09), aba Painel "De onde veio o dinheiro". Total: R$ 26.900.');
+s.addChart(p.charts.BAR,[{name:'Recebido em agosto (R$)',labels:['Outras entradas','Reembolso de custas','Honorários de êxito','Honorários por hora','Consultoria e pareceres','Honorários fixos'],values:[0,310,0,0,11290,15300]}],
+ {x:0.5,y:1.6,w:5.6,h:3.35,barDir:'bar',chartColors:[C.UVA],showValue:true,dataLabelPosition:'outEnd',dataLabelFontSize:9.5,dataLabelColor:C.TINTA,dataLabelFormatCode:'#,##0',
+  catAxisLabelColor:C.CINZA,catAxisLabelFontSize:9.5,valAxisLabelColor:C.CINZA,valAxisLabelFontSize:9,valAxisLabelFormatCode:'#,##0',valGridLine:{color:C.GRADE,size:0.5},catGridLine:{style:'none'},showLegend:false,valAxisMinVal:0,valAxisMaxVal:18000,showTitle:false});
+lista(s,['#Leitura','Julho: R$ 29.460 (−8,7 %). Agosto não teve honorário por hora nem êxito; consultoria e pareceres foram o dobro da média do ano (R$ 4.549).','Cada recebimento está lançado por categoria, data e forma de pagamento; a nota fiscal de cada um vai em anexo.','Reembolso de custas (R$ 310) entra em categoria própria, fora dos honorários (dúvida 4).','De janeiro a agosto: R$ 207.850 recebidos (fixos R$ 123.450, hora R$ 18.900, êxito R$ 27.000, consultoria R$ 36.390, reembolsos R$ 1.630, outras R$ 480).'],6.4,1.65,3.2,3.4,10);
+s.addNotes('Receita por categoria. Barras horizontais, uma série, com as categorias da aba Config do Caixa (09). Clique no gráfico > Editar dados. O contador precisa saber o que é honorário, o que é consultoria e o que é reembolso, porque o tratamento é diferente.');
+// 3 saídas por categoria
+s=slide(p); titulo(s,'Saídas de agosto por categoria','Caixa do escritório (09), aba Painel "Para onde foi o dinheiro". Total pago em agosto: R$ 21.897.');
+tabela(s,['Categoria','Agosto (R$)'],
+ [['Pró-labore dos sócios (2 × R$ 6.000)','12.000'],['Aluguel e condomínio','2.800'],['Impostos e taxas (guia de 20/08: 8 % das entradas de julho)','2.357'],['Estagiária (bolsa)','1.400'],['Contador','600'],['Outras saídas (despesa pessoal de sócio, a acertar na 11)','480'],['Sistemas e assinaturas','450'],['Marketing e site','400'],['Custas e despesas de processo','380'],['Material, correio e outros','380'],['Anuidades OAB e cursos','250'],['Telefone e internet','220'],['Deslocamento e viagens','180'],['!Total','!21.897']],0.5,1.6,[4.1,1.2],9,0.245);
+lista(s,['#Custo fixo','Sem pró-labore: R$ 6.500 por mês (8 linhas). Com pró-labore: R$ 18.500.','Custo-hora do escritório: R$ 66,07 (R$ 18.500 ÷ 280 horas faturáveis de meta, planilha 05); hora mínima a cobrar R$ 110.','#Fora do custo fixo','Custas adiantadas para clientes (R$ 380) vão em categoria própria e são reembolsadas: não são despesa do escritório (dúvida 4).','A guia de setembro (20/09) será de R$ 2.152: 8 % dos R$ 26.900 de agosto.'],6.0,1.65,3.6,3.4,10);
+s.addNotes('Saídas por categoria. As linhas são as mesmas da aba Config do Caixa (09): se mudar uma categoria lá, mude aqui. Pró-labore separado das demais, sempre. A tabela lista o caixa (pago); a DRE (18) troca a guia paga pela provisão de 8 % e tira a despesa pessoal.');
+// 4 provisões
+s=slide(p); titulo(s,'Provisão de impostos e reservas','Planilha Provisão (10). Separado no fechamento do mês e transferido para a conta separada no dia 5.');
+tabela(s,['Provisão','Base de cálculo','Agosto (R$)','Jan–ago (R$)'],
+ [['Impostos e taxas','8 % das entradas do mês (alíquota efetiva combinada com o contador); guia paga no dia 20 do mês seguinte','2.152','16.591'],['Reserva de fim de ano decidida pelos sócios','R$ 500 por sócio por mês; sem obrigação legal, é decisão dos sócios (dúvida 7)','1.000','8.000'],['Reserva para janeiro, mês de receita menor','R$ 156 por mês (inclui o recesso da estagiária), para o caixa não depender de janeiro','156','1.244'],['!Total separado','','!3.308','!25.834'],['Guias pagas','8 % das entradas do mês anterior, dia 20','2.357','16.087'],['!Saldo provisionado (fim de agosto)','separado − usado','','!9.747']],0.5,1.55,[2.5,4.2,1.1,1.2],9.5,[0.34,0.42,0.42,0.42,0.3,0.3,0.3],['l','l','r','r']);
+lista(s,['#Reserva do escritório (12)','Alvo: três meses de custo fixo com pró-labore (R$ 55.500). Guardado: R$ 12.000. Aporte proposto pelos sócios: R$ 3.000 por mês a partir de setembro (meta em dezembro de 2027).'],0.5,4.45,8.5,0.7,9.5);
+s.addNotes('Provisões. A alíquota de 8 % é do exemplo: o contador confirma a de cada mês (dúvida 1). Sem funcionário CLT no exemplo; se houver, acrescente 13º, férias e encargos como linha própria. As reservas de fim de ano e de janeiro são decisões de gestão, não obrigações: pergunte ao contador o melhor formato (dúvida 7).');
+// 5 recebíveis e vencidos
+s=slide(p); titulo(s,'Recebíveis e vencidos','Carteira de clientes e casos (13) e Parcelas e inadimplência (14), posição de sexta, 11/09. Só totais.');
+cards(p,s,[['R$ 111.990','A receber','contratado menos recebido nos 30 casos ativos'],['R$ 14.480','Vencido (5,1 %)','8 parcelas; fim de agosto R$ 12.500 (4,5 %) · julho R$ 8.900 (3,6 %)'],['R$ 30.000','Êxito sem data','5 casos de êxito puro; entra só no fim, não é atraso']],1.6,1.85,1);
+lista(s,['#O que o contador precisa saber','Com parcelas datadas (fixo, hora e misto): R$ 56.730 em aberto na planilha 14, dos quais R$ 14.480 vencidos (6 parcelas há mais de 30 dias, R$ 11.000). Sem data (êxito): R$ 30.000 em 5 casos, mais a parte de êxito de 6 casos mistos.','Inadimplência = vencido ÷ (pago + vencido): R$ 14.480 ÷ (R$ 271.910 + R$ 14.480). Nenhuma parcela foi dada como perdida em 2026; a régua de cobrança está em andamento.','Carteira: R$ 383.900 contratados e R$ 271.910 recebidos (inclui 2025); recebido em 2026 até 11/09: R$ 213.070 (caixa).'],0.5,3.65,9,1.45,10);
+s.addNotes('Recebíveis. O contador não cobra ninguém, mas precisa da posição para o balanço e para responder às dúvidas 3 e 6. Se houver parcela a dar baixa, traga o número. Nomes de clientes e números de processo ficam na planilha 14, no escritório.');
+// 6 pró-labore e retiradas
+s=slide(p); titulo(s,'Pró-labore e retiradas por sócio','Pró-labore e separação pessoa física × escritório (11). Pagamento no dia 28, sempre da conta do escritório. Janeiro a agosto.');
+tabela(s,['Sócio','Pró-labore mensal','Pago jan–ago','Retiradas extras','Despesas pessoais pelo escritório','Devoluções','A acertar','Distribuição recebida'],
+ [['Marina Ferraz','R$ 6.000','R$ 48.000','R$ 2.000','R$ 1.440','R$ 480','R$ 2.960','R$ 6.452'],['Rafael Lima','R$ 6.000','R$ 48.000','R$ 1.500','R$ 600','R$ 0','R$ 2.100','R$ 6.452'],['!Total','!R$ 12.000','!R$ 96.000','!R$ 3.500','!R$ 2.040','!R$ 480','!R$ 5.060','!R$ 12.905']],0.5,1.6,[1.6,1.1,1.1,1.05,1.35,0.95,0.95,1.1],9.5,[0.5,0.36,0.36,0.36],['l','r','r','r','r','r','r','r']);
+lista(s,['#Regras da casa','Pró-labore combinado R$ 12.000 por mês (2 × R$ 6.000). A bolsa da estagiária (R$ 1.400) é custo fixo, não pró-labore. O que escapou para a conta do escritório virou "a acertar": R$ 5.060 no ano, a descontar da próxima distribuição.','#Distribuição de lucro','Regra: 50 % do resultado do trimestre fechado, paga dia 10 do mês seguinte: 1º trimestre R$ 5.311 (abril), 2º trimestre R$ 7.594 (julho). 3º trimestre em andamento: R$ 1.839 após pró-labore até 11/09.'],0.5,3.35,9,1.7,10);
+s.addNotes('Pró-labore. Pró-labore é custo fixo; distribuição de lucro é outra coisa e tem tratamento diferente: é exatamente o que se pergunta ao contador (dúvida 2). Os totais vêm da aba Painel da 11 ("No ano, até o mês do painel, por sócio").');
+// 7 dúvidas
+s=slide(p); titulo(s,'Dúvidas para o contador','Oito perguntas. As respostas vão para a aba Config das planilhas e para a ata da reunião.');
+lista(s,['Alíquota efetiva de agosto e enquadramento: o faturamento dos últimos 12 meses muda alguma coisa?',
+ 'Distribuição de lucro do 3º trimestre em outubro: o que precisa estar apurado antes e como registrar o "a acertar" de R$ 5.060?',
+ 'Honorários de êxito: nota e imposto no recebimento ou em outro momento? Como tratar os R$ 30 mil sem data?',
+ 'Reembolso de custas adiantadas para clientes: como lançar para não entrar como receita?',
+ 'Estagiária: bolsa, recesso e documentos que o escritório deve guardar.',
+ 'Parcela vencida há mais de 90 dias sem acordo: quando e como dar baixa?',
+ 'Reserva de fim de ano dos sócios: pró-labore extra em dezembro ou distribuição? Qual formato pesa menos?',
+ 'Calendário de guias e obrigações de outubro a dezembro, para entrar na Agenda do escritório.'],0.5,1.62,9,3.4,12,true);
+s.addNotes('Dúvidas. Lista numerada para o contador responder por escrito. Perguntas de gestão e contabilidade; nada de consulta jurídica aqui. Guarde as respostas na aba Config das planilhas citadas.');
+// 8 anexos
+s=fecho(p,'Anexos enviados com este resumo',['09 · Caixa do escritório: aba Painel com Config = Agosto (entradas e saídas por categoria) e as notas fiscais do mês.','10 · Provisão de impostos, 13º e férias: aba Painel.','11 · Pró-labore e separação pessoa física × escritório: aba Painel.','13 · Carteira e 14 · Parcelas: só os totais dos cartões dos Painéis (contratado, recebido, a receber; vencido por faixa), copiados para o slide 5. Sem nome de cliente e sem número de processo.','18 · Resultado mensal (agosto) e 20 · Resumo do mês (bloco único, gerado com o prompt "Caixa 04").','Fora do kit: extratos bancários de agosto e guias pagas.'],13);
+s.addText('Tudo em .xlsx, com as fórmulas; o contador não precisa alterar nada. Próxima reunião: 5 de outubro de 2026, com o fechamento de setembro.',{x:0.5,y:4.75,w:8.5,h:0.5,fontFace:H,fontSize:11,color:C.LILC,isTextBox:true,margin:0});
+s.addNotes('Anexos. Diga exatamente que arquivo e que aba o contador recebe. Nunca a lista de parcelas ou de casos: só totais. Envie dois dias antes da reunião e termine com a data da próxima.');
+p.writeFile({fileName:path.join(__dirname,'29-modelo-carteira-para-o-contador-8-slides.pptx')}).then(f=>console.log('ok',f));

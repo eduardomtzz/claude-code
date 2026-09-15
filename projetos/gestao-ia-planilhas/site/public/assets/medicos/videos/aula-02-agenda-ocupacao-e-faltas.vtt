@@ -1,0 +1,211 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.329
+Aula dois. Agenda, ocupação e faltas.
+
+2
+00:00:02.329 --> 00:00:06.925
+Planilhas um, dois e quatro: quantas
+horas vazias, onde a agenda esvazia,
+
+3
+00:00:06.925 --> 00:00:10.450
+quem faltou e o que ficou
+pendente no fechamento do dia.
+
+4
+00:00:11.550 --> 00:00:15.498
+A Agenda e ocupação, planilha
+um, abre no painel de setembro:
+
+5
+00:00:15.498 --> 00:00:18.475
+sessenta e quatro horas disponíveis até ontem,
+
+6
+00:00:18.475 --> 00:00:23.330
+cinquenta e uma vírgula oito atendidas,
+ocupação de oitenta e um por cento,
+
+7
+00:00:23.330 --> 00:00:26.178
+doze vírgula duas horas vazias, seis faltas,
+
+8
+00:00:26.178 --> 00:00:28.831
+produção de vinte mil e quarenta e cinco.
+
+9
+00:00:28.831 --> 00:00:30.320
+Tudo vem da aba Agenda.
+
+10
+00:00:31.420 --> 00:00:32.821
+Por profissional: Dra.
+
+11
+00:00:32.821 --> 00:00:37.024
+Carolina com noventa e dois por
+cento de ocupação e uma falta; Dr.
+
+12
+00:00:37.024 --> 00:00:41.481
+Paulo com sessenta e seis por cento
+e quatro faltas, taxa de dez; Dra.
+
+13
+00:00:41.481 --> 00:00:46.830
+Renata, a parceira, com oitenta e oito.
+Taxa de falta acima de dez fica em vermelho.
+
+14
+00:00:47.930 --> 00:00:52.805
+Por sala: a Sala um tem seis turnos por
+semana e noventa por cento de ocupação;
+
+15
+00:00:52.805 --> 00:00:54.472
+a Sala dois, quatro turnos,
+
+16
+00:00:54.472 --> 00:00:58.113
+sessenta e seis por cento e
+oito vírgula duas horas vazias.
+
+17
+00:00:58.113 --> 00:01:03.050
+Sala com poucos turnos é capacidade parada:
+cabe outro profissional por repasse.
+
+18
+00:01:04.150 --> 00:01:08.768
+Planilha dois, Faltas e retornos. Taxa
+de falta de cinco vírgula três por cento:
+
+19
+00:01:08.768 --> 00:01:11.020
+seis faltas em cento e sete realizados.
+
+20
+00:01:11.020 --> 00:01:15.350
+Três cancelamentos, nenhuma remarcação,
+oito pacientes na lista de retorno.
+
+21
+00:01:15.350 --> 00:01:17.948
+Falta é não veio e não avisou: é a que custa,
+
+22
+00:01:17.948 --> 00:01:20.430
+porque o horário já não pode ser oferecido.
+
+23
+00:01:21.530 --> 00:01:26.530
+Por dia da semana: terça, quatro vírgula
+sete por cento; quinta, cinco; sexta,
+
+24
+00:01:26.530 --> 00:01:30.952
+quinze vírgula quatro, em vermelho:
+duas faltas em onze atendimentos.
+
+25
+00:01:30.952 --> 00:01:34.670
+O prompt Agenda zero um lê
+esta tabela e a da planilha um.
+
+26
+00:01:35.770 --> 00:01:40.589
+Por pagador: particular, três vírgula cinco
+por cento; Saúde Total, sete vírgula um;
+
+27
+00:01:40.589 --> 00:01:45.351
+Vida Care, doze vírgula cinco. Quando a
+falta se concentra num convênio ou num dia,
+
+28
+00:01:45.351 --> 00:01:47.991
+a confirmação de véspera vai para lá primeiro.
+
+29
+00:01:47.991 --> 00:01:51.720
+O prompt Agenda zero dois reduz
+faltas sem brigar com o paciente.
+
+30
+00:01:52.820 --> 00:01:57.317
+Quem passou da data de retorno sem novo
+horário entra na lista, com profissional,
+
+31
+00:01:57.317 --> 00:02:01.370
+pagador e dias além; o primeiro está
+há cinquenta e um dias sem remarcar.
+
+32
+00:02:01.370 --> 00:02:04.369
+Uma mensagem educada por
+semana, na rotina de segunda:
+
+33
+00:02:04.369 --> 00:02:07.700
+o prompt Agenda zero três escreve
+o texto no tom da clínica.
+
+34
+00:02:08.800 --> 00:02:12.544
+Planilha quatro, Checklist do dia.
+Setenta e três dias registrados.
+
+35
+00:02:12.544 --> 00:02:16.009
+Abertura completa em oitenta por
+cento dos últimos vinte dias;
+
+36
+00:02:16.009 --> 00:02:18.300
+fechamento completo em cinquenta e cinco.
+
+37
+00:02:18.300 --> 00:02:21.430
+Trinta e dois dias com
+pendência, quarenta e seis itens.
+
+38
+00:02:22.530 --> 00:02:26.203
+O que faltou, dia a dia:
+fechamento do dia lançado no caixa,
+
+39
+00:02:26.203 --> 00:02:30.487
+caixa do dia fechado e conferido,
+guias do dia conferidas para o lote.
+
+40
+00:02:30.487 --> 00:02:32.630
+O primeiro é o item mais esquecido.
+
+41
+00:02:32.630 --> 00:02:36.853
+O prompt Agenda zero seis transforma
+pendência em tarefa da recepção,
+
+42
+00:02:36.853 --> 00:02:38.200
+com dia e responsável.
+
+43
+00:02:39.300 --> 00:02:43.839
+Resumo da aula dois. A planilha um mede
+horas vazias por profissional e sala.
+
+44
+00:02:43.839 --> 00:02:47.495
+A dois mostra onde a falta se
+concentra e quem espera retorno.
+
+45
+00:02:47.495 --> 00:02:49.440
+Na próxima aula, o custo da hora.

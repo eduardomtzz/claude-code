@@ -1,0 +1,365 @@
+<title>Identidade Seu Sócio Gestor</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&family=Sora:wght@500;700;800&family=Nunito+Sans:wght@400;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#f4f4f2;--ink:#1c1c1a;--mute:#6b6b66;--line:#dcdcd6;--card:#ffffff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#161615;--ink:#efefea;--mute:#9a9a92;--line:#2c2c29;--card:#1f1f1d}}
+:root[data-theme="dark"]{--bg:#161615;--ink:#efefea;--mute:#9a9a92;--line:#2c2c29;--card:#1f1f1d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;padding:0 16px;padding-block:20px 60px;line-height:1.5}
+.wrap{max-width:820px;margin:0 auto}
+h1{font-family:"Fraunces",Georgia,serif;font-size:clamp(28px,6vw,40px);margin:0 0 6px;text-wrap:balance;line-height:1.1}
+.lead{color:var(--mute);margin:0 0 28px;max-width:60ch}
+.dir{border-radius:18px;overflow:hidden;margin-bottom:34px;border:1px solid var(--line);background:var(--card)}
+.head{padding:20px 20px 16px}
+.tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--mute)}
+.head h2{margin:4px 0 6px;font-size:24px;line-height:1.15}
+.head p{margin:0;color:var(--mute);max-width:62ch}
+.board{padding:22px 20px 24px;display:grid;gap:22px}
+.row{display:flex;flex-wrap:wrap;gap:14px;align-items:stretch}
+.logo{flex:1 1 260px;min-height:150px;display:flex;align-items:center;justify-content:center;border-radius:12px;padding:22px}
+.sym{flex:0 1 150px;min-width:130px;min-height:150px;display:flex;align-items:center;justify-content:center;border-radius:12px}
+.pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px}
+.sw{border-radius:10px;padding:10px;min-height:76px;display:flex;flex-direction:column;justify-content:flex-end;font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.3}
+.sw b{font-family:inherit;font-weight:500;display:block}
+.type{display:grid;gap:6px}
+.type .d{font-size:30px;line-height:1.1}
+.type .b{font-size:16px}
+.type small{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.apps{display:flex;flex-wrap:wrap;gap:14px}
+.ad{flex:1 1 280px;aspect-ratio:1;max-width:100%;border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.ad .hl{font-size:clamp(22px,4.6vw,30px);line-height:1.08;text-wrap:balance}
+.ad .cta{align-self:flex-start;padding:10px 16px;border-radius:8px;font-weight:600;font-size:14px}
+.stack{flex:1 1 200px;display:grid;gap:14px;align-content:start}
+.avatar{width:84px;height:84px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.prod{border-radius:12px;padding:16px;display:grid;gap:6px}
+.prod .k{font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.prod .n{font-size:18px;font-weight:600;line-height:1.2}
+.prod .p{font-family:"IBM Plex Mono",monospace;font-size:14px}
+.pro{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:14px}
+.pro div{padding:12px 14px;border-radius:10px;background:var(--bg)}
+.pro b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+@media (max-width:480px){.pro{grid-template-columns:1fr}}
+.end{padding:18px 20px;border:1px dashed var(--line);border-radius:14px;color:var(--mute);font-size:14px}
+
+/* Direction A: Livro-caixa */
+.A{--a1:#173f35;--a2:#c8402e;--a3:#e9ede8;--a4:#f7f3ea;--a5:#3d5a52}
+.A .logo,.A .sym{background:var(--a4)}
+.A .wm{font-family:"Fraunces",Georgia,serif;font-weight:700;font-size:34px;color:var(--a1);letter-spacing:-.01em;line-height:1}
+.A .wm i{font-style:italic;font-weight:600;color:var(--a2)}
+.A .type .d{font-family:"Fraunces",Georgia,serif;font-weight:600;color:var(--a1)}
+.A .type .b{font-family:"IBM Plex Sans",sans-serif}
+.A .ad{background:var(--a1);color:#f7f3ea;background-image:repeating-linear-gradient(0deg,transparent 0 27px,rgba(255,255,255,.07) 27px 28px)}
+.A .ad .hl{font-family:"Fraunces",Georgia,serif;font-weight:600}
+.A .ad .cta{background:var(--a2);color:#fff}
+.A .avatar{background:var(--a1)}
+.A .prod{background:var(--a3);color:var(--a1)}
+.A .prod .p{color:var(--a2)}
+
+/* Direction B: Painel */
+.B{--b1:#0b1b3b;--b2:#1f4fe0;--b3:#f5b331;--b4:#eef2fb;--b5:#5a6a8c}
+.B .logo,.B .sym{background:var(--b4)}
+.B .wm{font-family:"Sora",system-ui,sans-serif;font-weight:800;font-size:30px;color:var(--b1);letter-spacing:-.03em;line-height:1}
+.B .wm span{color:var(--b2)}
+.B .type .d{font-family:"Sora",sans-serif;font-weight:700;color:var(--b1);letter-spacing:-.02em}
+.B .type .b{font-family:"Nunito Sans",sans-serif}
+.B .ad{background:var(--b1);color:#fff}
+.B .ad .hl{font-family:"Sora",sans-serif;font-weight:700;letter-spacing:-.02em}
+.B .ad .cta{background:var(--b3);color:var(--b1)}
+.B .avatar{background:var(--b2)}
+.B .prod{background:var(--b4);color:var(--b1)}
+.B .prod .p{color:var(--b2)}
+
+/* Direction C: Parceiro */
+.C{--c1:#3b1f5e;--c2:#ffc83d;--c3:#f3eefb;--c4:#fffaf0;--c5:#7a5aa8}
+.C .logo,.C .sym{background:var(--c4)}
+.C .wm{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:32px;color:var(--c1);letter-spacing:-.02em;line-height:1}
+.C .wm u{text-decoration:none;background:linear-gradient(transparent 62%,var(--c2) 62%)}
+.C .type .d{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--c1);letter-spacing:-.02em}
+.C .type .b{font-family:"Figtree",sans-serif}
+.C .ad{background:var(--c2);color:var(--c1)}
+.C .ad .hl{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;letter-spacing:-.02em}
+.C .ad .cta{background:var(--c1);color:#fff}
+.C .avatar{background:var(--c1)}
+.C .prod{background:var(--c3);color:var(--c1)}
+.C .prod .p{color:var(--c5)}
+
+/* Direction D: Painel na paleta Parceiro */
+.D{--d1:#3b1f5e;--d2:#ffc83d;--d3:#7a5aa8;--d4:#f3eefb;--d5:#fffaf0}
+.D .logo,.D .sym{background:var(--d5)}
+.D .type .d{font-family:"Sora",sans-serif;font-weight:700;color:var(--d1);letter-spacing:-.02em}
+.D .type .b{font-family:"Figtree",sans-serif}
+.D .ad{background:var(--d1);color:#fff}
+.D .ad .hl{font-family:"Sora",sans-serif;font-weight:700;letter-spacing:-.02em}
+.D .ad .cta{background:var(--d2);color:var(--d1)}
+.D .avatar{background:var(--d1)}
+.D .prod{background:var(--d4);color:var(--d1)}
+.D .prod .p{color:var(--d3)}
+.D .alt{display:flex;flex-wrap:wrap;gap:14px}
+.D .alt .logo{flex:1 1 240px}
+</style>
+
+<div class="wrap">
+<h1>Seu Sócio Gestor</h1>
+<p class="lead">Três direções de identidade para você escolher pelo celular. Cada uma mostra o logo, o símbolo sozinho (avatar do Instagram), a paleta, a tipografia e como fica num anúncio e num card de produto. Nenhuma é definitiva: a escolhida ganha ajuste fino depois.</p>
+
+<!-- ===================== A ===================== -->
+<section class="dir A">
+  <div class="head">
+    <div class="tag">Direção A</div>
+    <h2>Livro-caixa</h2>
+    <p>O sócio de confiança que fecha o mês. Herança do livro contábil: verde-tinta, linhas de razão, números em vermelho onde importa. Passa solidez para dentista e advogado sem parecer banco.</p>
+  </div>
+  <div class="board">
+    <div class="row">
+      <div class="logo">
+        <svg width="270" height="72" viewBox="0 0 270 72" role="img" aria-label="Seu Sócio Gestor, direção A">
+          <g transform="translate(0,8)">
+            <rect x="0" y="6" width="16" height="50" rx="4" fill="#173f35"/>
+            <rect x="24" y="0" width="16" height="56" rx="4" fill="#173f35"/>
+            <rect x="8" y="24" width="24" height="8" rx="2" fill="#f7f3ea"/>
+            <circle cx="46" cy="6" r="6" fill="#c8402e"/>
+          </g>
+          <text x="66" y="40" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="26" fill="#173f35">Seu Sócio</text>
+          <text x="66" y="64" font-family="Fraunces, Georgia, serif" font-weight="600" font-style="italic" font-size="24" fill="#c8402e">Gestor</text>
+        </svg>
+      </div>
+      <div class="sym">
+        <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+          <rect width="72" height="72" rx="16" fill="#173f35"/>
+          <rect x="16" y="20" width="14" height="36" rx="3" fill="#f7f3ea"/>
+          <rect x="36" y="14" width="14" height="42" rx="3" fill="#f7f3ea"/>
+          <rect x="23" y="33" width="20" height="6" rx="2" fill="#173f35"/>
+          <circle cx="55" cy="17" r="5" fill="#c8402e"/>
+        </svg>
+      </div>
+    </div>
+    <div class="pal">
+      <div class="sw" style="background:#173f35;color:#f7f3ea"><b>Verde-tinta</b>#173F35</div>
+      <div class="sw" style="background:#c8402e;color:#fff"><b>Vermelho do razão</b>#C8402E</div>
+      <div class="sw" style="background:#3d5a52;color:#f7f3ea"><b>Verde apoio</b>#3D5A52</div>
+      <div class="sw" style="background:#e9ede8;color:#173f35"><b>Cinza-verde</b>#E9EDE8</div>
+      <div class="sw" style="background:#f7f3ea;color:#173f35;border:1px solid #dcdcd6"><b>Papel</b>#F7F3EA</div>
+    </div>
+    <div class="type">
+      <small>Fraunces (títulos) + IBM Plex Sans (texto) + IBM Plex Mono (números)</small>
+      <div class="d">Você atende. Seu sócio administra.</div>
+      <div class="b">Vinte planilhas prontas, um manual e uma biblioteca de prompts de IA. Sem mensalidade, sem software, sem esperar ninguém.</div>
+    </div>
+    <div class="apps">
+      <div class="ad">
+        <div class="tag" style="color:#f7f3ea;opacity:.8">Seu Sócio Gestor · para clínicas</div>
+        <div class="hl">Você estudou anos para atender. Administrar a clínica veio sem manual.</div>
+        <div class="cta">Ver o kit de gestão</div>
+      </div>
+      <div class="stack">
+        <div class="avatar"><svg width="48" height="48" viewBox="0 0 72 72" aria-hidden="true"><rect x="16" y="20" width="14" height="36" rx="3" fill="#f7f3ea"/><rect x="36" y="14" width="14" height="42" rx="3" fill="#f7f3ea"/><rect x="23" y="33" width="20" height="6" rx="2" fill="#173f35"/><circle cx="55" cy="17" r="5" fill="#c8402e"/></svg></div>
+        <div class="prod"><div class="k">Kit para clínicas</div><div class="n">Gestão da Clínica com dados e IA</div><div class="p">R$ 797 · pagamento único</div></div>
+      </div>
+    </div>
+    <div class="pro">
+      <div><b>A favor</b>Confiança imediata para profissionais liberais. Envelhece bem. Funciona em preto e branco e em papel.</div>
+      <div><b>Contra</b>Menos energia para o público de entregadores; a vertical barata precisaria puxar mais o vermelho.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== B ===================== -->
+<section class="dir B">
+  <div class="head">
+    <div class="tag">Direção B</div>
+    <h2>Painel</h2>
+    <p>O sócio que enxerga o negócio em dados. Azul-marinho profundo, cobalto elétrico e âmbar de alerta, como um painel de indicadores. Moderno, competente, casa com a promessa de IA.</p>
+  </div>
+  <div class="board">
+    <div class="row">
+      <div class="logo">
+        <svg width="280" height="72" viewBox="0 0 280 72" role="img" aria-label="Seu Sócio Gestor, direção B">
+          <g transform="translate(0,10)">
+            <rect x="0" y="34" width="34" height="14" rx="7" fill="#1f4fe0"/>
+            <rect x="12" y="18" width="34" height="14" rx="7" fill="#1f4fe0"/>
+            <rect x="24" y="2" width="34" height="14" rx="7" fill="#0b1b3b"/>
+            <circle cx="53" cy="41" r="7" fill="#f5b331"/>
+          </g>
+          <text x="76" y="46" font-family="Sora, system-ui, sans-serif" font-weight="800" font-size="27" letter-spacing="-0.8" fill="#0b1b3b">Seu Sócio <tspan fill="#1f4fe0">Gestor</tspan></text>
+        </svg>
+      </div>
+      <div class="sym">
+        <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+          <rect width="72" height="72" rx="16" fill="#1f4fe0"/>
+          <rect x="12" y="46" width="30" height="11" rx="5.5" fill="#fff"/>
+          <rect x="21" y="31" width="30" height="11" rx="5.5" fill="#fff"/>
+          <rect x="30" y="16" width="30" height="11" rx="5.5" fill="#0b1b3b"/>
+          <circle cx="56" cy="52" r="6" fill="#f5b331"/>
+        </svg>
+      </div>
+    </div>
+    <div class="pal">
+      <div class="sw" style="background:#0b1b3b;color:#fff"><b>Marinho</b>#0B1B3B</div>
+      <div class="sw" style="background:#1f4fe0;color:#fff"><b>Cobalto</b>#1F4FE0</div>
+      <div class="sw" style="background:#f5b331;color:#0b1b3b"><b>Âmbar</b>#F5B331</div>
+      <div class="sw" style="background:#5a6a8c;color:#fff"><b>Cinza-azul</b>#5A6A8C</div>
+      <div class="sw" style="background:#eef2fb;color:#0b1b3b;border:1px solid #dcdcd6"><b>Gelo</b>#EEF2FB</div>
+    </div>
+    <div class="type">
+      <small>Sora (títulos) + Nunito Sans (texto) + IBM Plex Mono (números)</small>
+      <div class="d">Você atende. Seu sócio administra.</div>
+      <div class="b">Vinte planilhas prontas, um manual e uma biblioteca de prompts de IA. Sem mensalidade, sem software, sem esperar ninguém.</div>
+    </div>
+    <div class="apps">
+      <div class="ad">
+        <div class="tag" style="color:#fff;opacity:.7">Seu Sócio Gestor · para clínicas</div>
+        <div class="hl">Você estudou anos para atender. Administrar a clínica veio sem manual.</div>
+        <div class="cta">Ver o kit de gestão</div>
+      </div>
+      <div class="stack">
+        <div class="avatar"><svg width="48" height="48" viewBox="0 0 72 72" aria-hidden="true"><rect x="12" y="46" width="30" height="11" rx="5.5" fill="#fff"/><rect x="21" y="31" width="30" height="11" rx="5.5" fill="#fff"/><rect x="30" y="16" width="30" height="11" rx="5.5" fill="#0b1b3b"/><circle cx="56" cy="52" r="6" fill="#f5b331"/></svg></div>
+        <div class="prod"><div class="k">Kit para clínicas</div><div class="n">Gestão da Clínica com dados e IA</div><div class="p">R$ 797 · pagamento único</div></div>
+      </div>
+    </div>
+    <div class="pro">
+      <div><b>A favor</b>Combina com IA e painéis, é a cara do produto. O âmbar dá calor e funciona como cor de alerta nas planilhas.</div>
+      <div><b>Contra</b>Azul é a cor de metade dos softwares concorrentes; precisa do símbolo e do âmbar para não sumir no feed.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== C ===================== -->
+<section class="dir C">
+  <div class="head">
+    <div class="tag">Direção C</div>
+    <h2>Parceiro</h2>
+    <p>O sócio que está do seu lado. Roxo-uva profundo e amarelo-sol, tipografia com personalidade, grifo amarelo como assinatura. Humano, brasileiro, fala com o dentista e com o entregador na mesma voz.</p>
+  </div>
+  <div class="board">
+    <div class="row">
+      <div class="logo">
+        <svg width="280" height="72" viewBox="0 0 280 72" role="img" aria-label="Seu Sócio Gestor, direção C">
+          <g transform="translate(2,8)">
+            <path d="M8 40 a16 16 0 1 1 16 16 h-8" fill="none" stroke="#3b1f5e" stroke-width="10" stroke-linecap="round"/>
+            <path d="M52 16 a16 16 0 1 1 -16 -16 h8" fill="none" stroke="#ffc83d" stroke-width="10" stroke-linecap="round"/>
+          </g>
+          <text x="76" y="46" font-family="Bricolage Grotesque, system-ui, sans-serif" font-weight="800" font-size="27" letter-spacing="-0.6" fill="#3b1f5e">Seu Sócio Gestor</text>
+          <rect x="196" y="50" width="78" height="6" rx="3" fill="#ffc83d"/>
+        </svg>
+      </div>
+      <div class="sym">
+        <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+          <rect width="72" height="72" rx="36" fill="#3b1f5e"/>
+          <path d="M20 44 a12 12 0 1 1 12 12 h-6" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+          <path d="M52 28 a12 12 0 1 1 -12 -12 h6" fill="none" stroke="#ffc83d" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="pal">
+      <div class="sw" style="background:#3b1f5e;color:#fff"><b>Uva</b>#3B1F5E</div>
+      <div class="sw" style="background:#ffc83d;color:#3b1f5e"><b>Sol</b>#FFC83D</div>
+      <div class="sw" style="background:#7a5aa8;color:#fff"><b>Lilás apoio</b>#7A5AA8</div>
+      <div class="sw" style="background:#f3eefb;color:#3b1f5e"><b>Lavanda clara</b>#F3EEFB</div>
+      <div class="sw" style="background:#fffaf0;color:#3b1f5e;border:1px solid #dcdcd6"><b>Creme quente</b>#FFFAF0</div>
+    </div>
+    <div class="type">
+      <small>Bricolage Grotesque (títulos) + Figtree (texto) + IBM Plex Mono (números)</small>
+      <div class="d">Você atende. Seu sócio administra.</div>
+      <div class="b">Vinte planilhas prontas, um manual e uma biblioteca de prompts de IA. Sem mensalidade, sem software, sem esperar ninguém.</div>
+    </div>
+    <div class="apps">
+      <div class="ad">
+        <div class="tag" style="color:#3b1f5e;opacity:.75">Seu Sócio Gestor · para clínicas</div>
+        <div class="hl">Você estudou anos para atender. Administrar a clínica veio sem manual.</div>
+        <div class="cta">Ver o kit de gestão</div>
+      </div>
+      <div class="stack">
+        <div class="avatar"><svg width="48" height="48" viewBox="0 0 72 72" aria-hidden="true"><path d="M20 44 a12 12 0 1 1 12 12 h-6" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/><path d="M52 28 a12 12 0 1 1 -12 -12 h6" fill="none" stroke="#ffc83d" stroke-width="8" stroke-linecap="round"/></svg></div>
+        <div class="prod"><div class="k">Kit para clínicas</div><div class="n">Gestão da Clínica com dados e IA</div><div class="p">R$ 797 · pagamento único</div></div>
+      </div>
+    </div>
+    <div class="pro">
+      <div><b>A favor</b>Mais distintiva no feed: ninguém no mercado de gestão usa roxo e amarelo. Serve de dentista a entregador. A metáfora de duas peças que se encaixam é o "sócio".</div>
+      <div><b>Contra</b>Advogado mais conservador pode achar informal; o ajuste seria usar mais o roxo e menos o amarelo na vertical jurídica.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== D ===================== -->
+<section class="dir D">
+  <div class="head">
+    <div class="tag">Direção D</div>
+    <h2>Painel, na paleta Parceiro</h2>
+    <p>O símbolo de degraus da direção B com as cores da direção C. Os três degraus continuam sendo o crescimento organizado; o ponto amarelo é o sócio que avisa. Duas versões do nome: uma com a fonte do B (Sora) e outra com a do C (Bricolage), para você escolher.</p>
+  </div>
+  <div class="board">
+    <div class="alt">
+      <div class="logo">
+        <svg width="280" height="72" viewBox="0 0 280 72" role="img" aria-label="Seu Sócio Gestor, direção D com Sora">
+          <g transform="translate(0,10)">
+            <rect x="0" y="34" width="34" height="14" rx="7" fill="#7a5aa8"/>
+            <rect x="12" y="18" width="34" height="14" rx="7" fill="#3b1f5e"/>
+            <rect x="24" y="2" width="34" height="14" rx="7" fill="#3b1f5e"/>
+            <circle cx="53" cy="41" r="7" fill="#ffc83d"/>
+          </g>
+          <text x="76" y="46" font-family="Sora, system-ui, sans-serif" font-weight="800" font-size="27" letter-spacing="-0.8" fill="#3b1f5e">Seu Sócio <tspan fill="#7a5aa8">Gestor</tspan></text>
+        </svg>
+      </div>
+      <div class="logo">
+        <svg width="280" height="72" viewBox="0 0 280 72" role="img" aria-label="Seu Sócio Gestor, direção D com Bricolage">
+          <g transform="translate(0,10)">
+            <rect x="0" y="34" width="34" height="14" rx="7" fill="#7a5aa8"/>
+            <rect x="12" y="18" width="34" height="14" rx="7" fill="#3b1f5e"/>
+            <rect x="24" y="2" width="34" height="14" rx="7" fill="#3b1f5e"/>
+            <circle cx="53" cy="41" r="7" fill="#ffc83d"/>
+          </g>
+          <text x="76" y="44" font-family="Bricolage Grotesque, system-ui, sans-serif" font-weight="800" font-size="27" letter-spacing="-0.6" fill="#3b1f5e">Seu Sócio Gestor</text>
+          <rect x="196" y="50" width="78" height="6" rx="3" fill="#ffc83d"/>
+        </svg>
+      </div>
+      <div class="sym">
+        <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+          <rect width="72" height="72" rx="16" fill="#3b1f5e"/>
+          <rect x="12" y="46" width="30" height="11" rx="5.5" fill="#fff"/>
+          <rect x="21" y="31" width="30" height="11" rx="5.5" fill="#fff"/>
+          <rect x="30" y="16" width="30" height="11" rx="5.5" fill="#b89be0"/>
+          <circle cx="56" cy="52" r="6" fill="#ffc83d"/>
+        </svg>
+      </div>
+      <div class="sym" style="background:#ffc83d">
+        <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+          <rect x="12" y="46" width="30" height="11" rx="5.5" fill="#3b1f5e"/>
+          <rect x="21" y="31" width="30" height="11" rx="5.5" fill="#3b1f5e"/>
+          <rect x="30" y="16" width="30" height="11" rx="5.5" fill="#3b1f5e"/>
+          <circle cx="56" cy="52" r="6" fill="#fff"/>
+        </svg>
+      </div>
+    </div>
+    <div class="pal">
+      <div class="sw" style="background:#3b1f5e;color:#fff"><b>Uva</b>#3B1F5E</div>
+      <div class="sw" style="background:#ffc83d;color:#3b1f5e"><b>Sol</b>#FFC83D</div>
+      <div class="sw" style="background:#7a5aa8;color:#fff"><b>Lilás apoio</b>#7A5AA8</div>
+      <div class="sw" style="background:#f3eefb;color:#3b1f5e"><b>Lavanda clara</b>#F3EEFB</div>
+      <div class="sw" style="background:#fffaf0;color:#3b1f5e;border:1px solid #dcdcd6"><b>Creme quente</b>#FFFAF0</div>
+    </div>
+    <div class="type">
+      <small>Sora (títulos) + Figtree (texto) + IBM Plex Mono (números)</small>
+      <div class="d">Você atende. Seu sócio administra.</div>
+      <div class="b">Vinte planilhas prontas, um manual e uma biblioteca de prompts de IA. Sem mensalidade, sem software, sem esperar ninguém.</div>
+    </div>
+    <div class="apps">
+      <div class="ad">
+        <div class="tag" style="color:#fff;opacity:.7">Seu Sócio Gestor · para clínicas</div>
+        <div class="hl">Você estudou anos para atender. Administrar a clínica veio sem manual.</div>
+        <div class="cta">Ver o kit de gestão</div>
+      </div>
+      <div class="stack">
+        <div class="avatar"><svg width="48" height="48" viewBox="0 0 72 72" aria-hidden="true"><rect x="12" y="46" width="30" height="11" rx="5.5" fill="#fff"/><rect x="21" y="31" width="30" height="11" rx="5.5" fill="#fff"/><rect x="30" y="16" width="30" height="11" rx="5.5" fill="#b89be0"/><circle cx="56" cy="52" r="6" fill="#ffc83d"/></svg></div>
+        <div class="prod"><div class="k">Kit para clínicas</div><div class="n">Gestão da Clínica com dados e IA</div><div class="p">R$ 797 · pagamento único</div></div>
+      </div>
+    </div>
+    <div class="pro">
+      <div><b>A favor</b>Junta o símbolo mais forte com a paleta mais distintiva. Roxo escuro segura a seriedade para advogados; o amarelo dá o calor e o alerta.</div>
+      <div><b>Contra</b>O degrau mais claro no símbolo precisa de contraste bom em fundo escuro; ajusto no logo final. Escolher entre Sora (mais técnica) e Bricolage (mais humana) no nome.</div>
+    </div>
+  </div>
+</section>
+
+<div class="end">Para escolher, responda com a letra e, se quiser, o que mudaria (mais sério, mais claro, outra cor). A direção escolhida vira logo final em todas as versões, paleta com regras de uso, avatar e capa do Instagram, e os tokens que a página de vendas vai usar.</div>
+</div>

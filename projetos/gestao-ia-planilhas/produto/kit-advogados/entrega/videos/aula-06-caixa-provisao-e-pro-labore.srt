@@ -1,0 +1,208 @@
+1
+00:00:00,000 --> 00:00:02,329
+Aula seis. Caixa, provisão e pró-labore.
+
+2
+00:00:02,329 --> 00:00:05,124
+Planilhas nove a doze:
+para onde foi o dinheiro,
+
+3
+00:00:05,124 --> 00:00:07,803
+quanto separar para imposto e décimo terceiro,
+
+4
+00:00:07,803 --> 00:00:10,190
+o que é do sócio e o que é do escritório.
+
+5
+00:00:11,290 --> 00:00:13,400
+Caixa do escritório, planilha nove.
+
+6
+00:00:13,400 --> 00:00:16,957
+Setembro até o dia onze: entrou
+cinco mil duzentos e vinte,
+
+7
+00:00:16,957 --> 00:00:20,031
+saiu cinco mil trezentos
+e vinte, sobrou menos cem.
+
+8
+00:00:20,031 --> 00:00:23,950
+Saldo acumulado, quarenta e três
+mil seiscentos e oitenta e três.
+
+9
+00:00:23,950 --> 00:00:27,386
+A pagar até o fim do mês,
+quinze mil quatrocentos e dois.
+
+10
+00:00:27,386 --> 00:00:30,340
+Só o que está marcado como
+pago conta como caixa.
+
+11
+00:00:31,440 --> 00:00:36,241
+Para onde foi o dinheiro, por categoria,
+com o mês anterior e o acumulado do ano.
+
+12
+00:00:36,241 --> 00:00:40,627
+Aluguel, cinquenta e três por cento
+do que saiu; estagiária, vinte e seis.
+
+13
+00:00:40,627 --> 00:00:44,480
+Pró-labore e impostos em zero:
+ainda não foram pagos em setembro.
+
+14
+00:00:45,580 --> 00:00:49,955
+A aba Lançamentos é simples: data,
+entrada ou saída, categoria da lista,
+
+15
+00:00:49,955 --> 00:00:53,905
+cliente e caso, valor, pago sim
+ou não. Cinco minutos toda sexta.
+
+16
+00:00:53,905 --> 00:00:56,215
+Quando o saldo não bate com o extrato,
+
+17
+00:00:56,215 --> 00:00:59,010
+o prompt Caixa zero oito ajuda a achar o erro.
+
+18
+00:01:00,110 --> 00:01:03,678
+Planilha dez, Provisão de
+impostos, décimo terceiro e férias.
+
+19
+00:01:03,678 --> 00:01:06,252
+Entradas do mês, cinco mil duzentos e vinte.
+
+20
+00:01:06,252 --> 00:01:08,768
+A separar, mil quinhentos e setenta e três:
+
+21
+00:01:08,768 --> 00:01:12,512
+oito por cento de imposto mais a
+parcela do décimo e das férias.
+
+22
+00:01:12,512 --> 00:01:16,607
+Saldo que deveria estar na conta
+separada, onze mil trezentos e vinte.
+
+23
+00:01:16,607 --> 00:01:17,660
+Situação: coberto.
+
+24
+00:01:18,760 --> 00:01:22,369
+O ano mês a mês: entradas,
+provisão pela alíquota de Config,
+
+25
+00:01:22,369 --> 00:01:26,759
+décimo e férias em parcelas mensais,
+total a separar e o usado nas guias.
+
+26
+00:01:26,759 --> 00:01:31,210
+A planilha separa dinheiro; a apuração
+do imposto continua com o contador.
+
+27
+00:01:32,310 --> 00:01:34,648
+Planilha onze, Pró-labore e retiradas.
+
+28
+00:01:34,648 --> 00:01:37,725
+Combinado, doze mil por
+mês, seis para cada sócio;
+
+29
+00:01:37,725 --> 00:01:40,186
+em setembro o pró-labore ainda não saiu.
+
+30
+00:01:40,186 --> 00:01:41,232
+Retiradas extras,
+
+31
+00:01:41,232 --> 00:01:45,970
+despesas pessoais pagas pelo escritório
+e devoluções entram na aba Retiradas.
+
+32
+00:01:45,970 --> 00:01:48,370
+A acertar no ano: cinco mil e sessenta.
+
+33
+00:01:49,470 --> 00:01:54,910
+No ano: Marina retirou dois mil extras e mil
+quatrocentos e quarenta em despesas pessoais,
+
+34
+00:01:54,910 --> 00:01:59,443
+devolveu quatrocentos e oitenta: a
+acertar, dois mil novecentos e sessenta.
+
+35
+00:01:59,443 --> 00:02:03,372
+Rafael, dois mil e cem. Não é
+bronca; é conta clara entre sócios.
+
+36
+00:02:03,372 --> 00:02:05,850
+O prompt Caixa zero seis ajuda a separar.
+
+37
+00:02:06,950 --> 00:02:08,387
+Planilha doze, Reserva.
+
+38
+00:02:08,387 --> 00:02:12,571
+Meta: três meses de custo fixo,
+cinquenta e cinco mil e quinhentos.
+
+39
+00:02:12,571 --> 00:02:17,130
+Reserva hoje, doze mil: zero vírgula
+seis mês coberto, semáforo vermelho;
+
+40
+00:02:17,130 --> 00:02:19,754
+contando o caixa livre, dois vírgula dois.
+
+41
+00:02:19,754 --> 00:02:25,000
+Com aporte de três mil por mês, a meta chega
+em dezembro de dois mil e vinte e sete.
+
+42
+00:02:26,100 --> 00:02:30,073
+Resumo da aula seis. Caixa: lançar
+toda sexta, só o pago conta.
+
+43
+00:02:30,073 --> 00:02:33,793
+Provisão: separar imposto,
+décimo e férias antes de gastar.
+
+44
+00:02:33,793 --> 00:02:36,820
+Pró-labore combinado e
+conta clara entre sócios.
+
+45
+00:02:36,820 --> 00:02:41,360
+Reserva de três meses. Na próxima
+aula, a carteira e a cobrança educada.

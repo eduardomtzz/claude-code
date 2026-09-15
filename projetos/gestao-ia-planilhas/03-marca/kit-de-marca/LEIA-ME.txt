@@ -1,0 +1,19 @@
+SEU SÓCIO GESTOR — KIT DE MARCA (v1, 12/09/2026)
+
+ONDE USAR CADA ARQUIVO
+07-instagram-foto-de-perfil-roxa-1080x1080.png ....... foto de perfil do Instagram (recomendada)
+08-...-amarela-alternativa-1080x1080.png ............. alternativa de perfil, se quiser mais destaque no feed
+09-facebook-e-whatsapp-foto-de-perfil-1080x1080.png .. foto da Página do Facebook e do WhatsApp Business
+10-facebook-capa-1640x624.png ........................ capa da Página do Facebook
+11-linkedin-capa-1584x396.png ........................ capa da página da empresa no LinkedIn
+12-instagram-post-apresentacao-1080x1080.png ......... primeiro post do feed
+13-instagram-stories-apresentacao-1080x1920.png ...... primeiro story / destaque
+14-favicon-e-icone-de-app-512x512.png ................ ícone do site e de apps (Kiwify, Hotmart, área de membros)
+16-paleta-de-cores.png ............................... referência rápida das cores
+
+01 a 06 ............................................. logos com fundo transparente, para colocar em qualquer material
+vetores/ ............................................. mesmos logos em SVG (vetor, qualidade infinita) + tokens.css
+guia-de-marca.md ..................................... regras de uso, cores, fontes e voz
+
+CORES: Uva #3B1F5E · Sol #FFC83D · Lilás #7A5AA8 · Lavanda clara #F3EEFB · Creme quente #FFFAF0
+FONTES (Google Fonts, gratuitas): Bricolage Grotesque (títulos), Figtree (texto), IBM Plex Mono (números)
