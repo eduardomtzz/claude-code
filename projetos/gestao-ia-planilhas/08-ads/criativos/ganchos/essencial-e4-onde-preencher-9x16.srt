@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:03,500
+Veja onde preencher. As fórmulas já estão prontas.
+
+2
+00:00:04,000 --> 00:00:08,500
+Você digita a tarefa e o prazo. O painel de hoje se atualiza sozinho.
+
+3
+00:00:09,000 --> 00:00:14,450
+As três planilhas funcionam do mesmo jeito: campo amarelo você preenche, o resto é fórmula.
+
+4
+00:00:14,950 --> 00:00:18,950
+Três planilhas, quarenta prompts, mini-manual e três demonstrações.
+
+5
+00:00:19,450 --> 00:00:23,910
+Trinta e sete reais, uma vez. Sete dias para desistir. Toque em comprar.

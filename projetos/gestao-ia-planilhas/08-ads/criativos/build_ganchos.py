@@ -23,23 +23,28 @@ K = 'kit-completo/docs/'           # telas do Completo
 # Recortes legíveis: x, y, largura, altura em fração da imagem.
 # A cena abre com o arquivo inteiro e entra neste recorte depois de ~0,7 s.
 F = {
- # Largura <= ~0.36 para o recorte encher o quadro: o motor limita o zoom a 3x o
- # tamanho de ajuste, e recorte largo demais fica do mesmo tamanho do arquivo inteiro.
- 'rel-linhas':   '0,0.045,0.34,0.10',    # Indicador / Mês / Mês anterior
- 'rel-situacao': '0.24,0.045,0.34,0.10', # Variação / Meta / Vs. meta / Situação
- 'rel-resumo':   '0.02,0.10,0.60,0.20',  # frases da aba Resumo
- 'semana-campos':'0.02,0.08,0.44,0.14',  # colunas que a pessoa preenche
- 'semana-hoje':  '0,0.02,0.40,0.09',     # Atrasadas / Para hoje / Esta semana
- 'ganhos':       '0,0.03,0.38,0.12',
- 'prompt-campos':'0.08,0.14,0.62,0.18',  # campos entre colchetes
- 'manual':       '0.08,0.14,0.62,0.18',
- 'orc-painel':   '0,0.04,0.42,0.12',
- 'orc-previsto': '0,0.04,0.44,0.13',
- 'proj-painel':  '0,0.04,0.42,0.12',
- 'proj-etapas':  '0,0.04,0.46,0.13',
- 'metas':        '0,0.04,0.42,0.12',
- 'ata':          '0,0.04,0.44,0.13',
- 'funil':        '0,0.04,0.42,0.12',
+ # O motor limita o zoom a 3x o tamanho de ajuste. Como sx = 960/(largura*fração),
+ # a fração 0.33 é exatamente onde o recorte enche o quadro com o zoom máximo.
+ # Recorte mais largo que isso quase não aumenta nada. Páginas de texto usam 0.50,
+ # onde o aumento é menor mas a linha não fica cortada no meio.
+ 'rel-linhas':   '0,0.045,0.33,0.10',     # Indicador / Mês / Mês anterior
+ 'rel-situacao': '0.30,0.045,0.33,0.10',  # Variação / Meta / Vs. meta / Situação
+ 'rel-resumo':   '0.02,0.10,0.50,0.20',   # frases da aba Resumo
+ 'semana-campos':'0.02,0.08,0.33,0.12',   # colunas que a pessoa preenche
+ 'semana-hoje':  '0,0.02,0.33,0.08',      # Atrasadas / Para hoje / Esta semana
+ 'ganhos':       '0,0.03,0.33,0.10',
+ 'prompt-campos':'0.08,0.14,0.50,0.16',   # campos entre colchetes
+ 'manual':       '0.08,0.14,0.50,0.16',
+ 'orc-painel':   '0,0.055,0.33,0.095',    # Categoria / Tipo / Previsto / Realizado
+ 'orc-desvio':   '0.28,0.055,0.33,0.095', # Desvio em R$, em % e Situação
+ 'orc-previsto': '0,0.06,0.33,0.18',
+ 'proj-painel':  '0,0.05,0.33,0.10',
+ 'proj-prazo':   '0.26,0.05,0.33,0.10',
+ 'proj-etapas':  '0,0.06,0.33,0.16',
+ 'metas':        '0,0.05,0.33,0.11',
+ 'metas-result': '0.26,0.05,0.33,0.11',
+ 'ata':          '0,0.05,0.33,0.10',
+ 'funil':        '0,0.05,0.33,0.10',
 }
 
 
@@ -143,7 +148,7 @@ COMPLETO = {
    cenas=[
      tela(K+'tela-orcamento-painel.png', F['orc-painel'], 'Previsto <em>versus realizado</em>',
           'Em qual categoria o orçamento passou do previsto?', 4.0),
-     tela(K+'tela-orcamento-painel.png', F['orc-painel'], 'A planilha responde',
+     tela(K+'tela-orcamento-painel.png', F['orc-desvio'], 'A planilha responde',
           'A planilha mostra categoria, previsto, realizado e a diferença.', 4.5),
      tela(K+'tela-orcamento-previsto.png', F['orc-previsto'], 'E de onde veio o número',
           'E a aba Previsto mostra de onde veio cada valor.', 4.5),
@@ -169,7 +174,7 @@ COMPLETO = {
    cenas=[
      tela(K+'tela-projetos-painel.png', F['proj-painel'], 'Uma das dez, <em>por dentro</em>',
           'Veja uma das dez planilhas por dentro.', 4.0, selo='sem corte'),
-     tela(K+'tela-projetos-etapas.png', F['proj-etapas'], 'Etapa, prazo e responsável',
+     tela(K+'tela-projetos-etapas.png', F['proj-prazo'], 'Etapa, prazo e responsável',
           'Você lança a etapa, o prazo e o responsável.', 4.5),
      tela(K+'tela-projetos-linha.png', F['proj-etapas'], 'O atraso aparece sozinho',
           'O painel mostra o que está atrasado sem você calcular nada.', 4.5),
@@ -193,7 +198,7 @@ COMPLETO = {
    cenas=[
      tela(K+'tela-projetos-painel.png', F['proj-painel'], 'Projetos, metas e <em>orçamento?</em>',
           'Você cuida de projetos, metas e orçamento?', 4.0),
-     tela(K+'tela-metas-painel.png', F['metas'], 'Meta do trimestre, acompanhada',
+     tela(K+'tela-metas-painel.png', F['metas-result'], 'Meta do trimestre, acompanhada',
           'Cada meta do trimestre com o realizado ao lado.', 4.5),
      tela(K+'tela-orcamento-painel.png', F['orc-painel'], 'Orçamento, linha por linha',
           'Cada categoria do orçamento com previsto, realizado e diferença.', 4.5),
