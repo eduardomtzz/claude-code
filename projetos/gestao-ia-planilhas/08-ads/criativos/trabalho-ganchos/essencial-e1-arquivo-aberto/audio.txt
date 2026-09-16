@@ -1,5 +1,0 @@
-file 'cena0.wav'
-file 'cena1.wav'
-file 'cena2.wav'
-file 'cena3.wav'
-file 'cena4.wav'
