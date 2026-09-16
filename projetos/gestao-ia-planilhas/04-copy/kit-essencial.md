@@ -111,7 +111,7 @@ Padrão do site (razão social, CNPJ, endereço, e-mail, termos, privacidade, co
 **D+0 · Acesso (transacional):** Assunto: Seu Kit IA no Trabalho está pronto para baixar. Corpo: link de acesso, o que fazer primeiro (mini-manual, 15 min), requisitos, suporte, direito de arrependimento, dados da empresa.
 **D+1 · Primeira tarefa:** Assunto: 15 minutos para a Semana Organizada funcionar. Corpo: abra a planilha 1, apague os exemplos, digite 5 tarefas, veja a aba Hoje. Link do vídeo 1. Prompt Organizar 01.
 **D+3 · Conseguiu abrir?:** Assunto: Tudo abriu certo? Corpo: uma pergunta ("conseguiu abrir e preencher o primeiro arquivo?"), links dos erros comuns do manual, e-mail de suporte.
-**D+5 · Segunda aplicação:** Assunto: O relatório do mês em 45 minutos. Corpo: Relatório Mensal Pronto + prompt Escrever 01 + modelo de 8 slides.
+**D+5 · Segunda aplicação:** Assunto: O relatório do mês sem começar do zero. Corpo: Relatório Mensal Pronto + prompt Escrever 01 + modelo de 8 slides.
 **D+6 · Lembrete neutro:** Assunto: Seu prazo de 7 dias termina amanhã. Corpo: como pedir reembolso se não serviu; como pedir ajuda se travou. Sem pressão.
 **D+12 · Avaliação:** Assunto: Uma pergunta sobre o kit. Corpo: link para avaliação (nota, o que funcionou, o que ficou confuso), com autorização separada e opcional para publicar.
 **Pix não pago (15 min e 2 h):** Assunto: Seu Pix do Kit IA no Trabalho ainda não foi confirmado. Corpo: código vence às [hora real]; link do pedido; nada cobrado.
@@ -126,7 +126,7 @@ Padrão do site (razão social, CNPJ, endereço, e-mail, termos, privacidade, co
 **Ângulo 2 · A IA que você já tem, usada de verdade**
 - Primária curta: Você usa o ChatGPT para e-mail. Com estes 40 prompts, ele monta o seu relatório.
 - Primária média: A IA já está na sua mesa e você usa para escrever e-mail. O kit traz 40 prompts prontos, com exemplo e o que conferir, e três planilhas que dão à IA os números para trabalhar. R$ 37, uma vez.
-- Headlines: 40 prompts para o trabalho · A IA trabalhando nos seus números · Relatório em 45 minutos · Prompts com exemplo e revisão · Kit IA no Trabalho
+- Headlines: 40 prompts para o trabalho · A IA trabalhando nos seus números · O relatório sem começar do zero · Prompts com exemplo e revisão · Kit IA no Trabalho
 **Ângulo 3 · Veja funcionando (vídeo)**
 - Primária curta: Veja a planilha funcionando antes de comprar. Kit com 3 planilhas + 40 prompts, R$ 37.
 - Primária média: Nada de promessa: a demonstração mostra a aba Hoje ordenando as tarefas, o relatório se escrevendo sozinho e o painel de gastos. Três planilhas, 40 prompts, manual e vídeos. Pagamento único.

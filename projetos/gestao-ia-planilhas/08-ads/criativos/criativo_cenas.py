@@ -57,6 +57,8 @@ CSS=f"""
 .prova .selos span{{background:#fff;border:2px solid #DCD2EC;border-radius:999px;padding:16px 30px;font-family:'Bricolage Grotesque';font-weight:700;font-size:36px;color:#3B1F5E;opacity:0;transform:translateY(20px);transition:all .4s}} .prova .selos span.on{{opacity:1;transform:none}}
 .tela{{position:absolute;left:60px;top:560px;width:{W-120}px;height:900px;border-radius:24px;overflow:hidden;background:#fff;border:2px solid #DCD2EC;box-shadow:0 30px 60px -30px rgba(31,18,53,.45)}}
 .tela img{{position:absolute;left:0;top:0;transform-origin:0 0;transition:transform 2.2s cubic-bezier(.4,0,.2,1)}}
+.tagpreco{{position:fixed;right:52px;top:150px;background:#3B1F5E;color:#fff;border-radius:999px;padding:18px 34px;font-family:'Bricolage Grotesque';font-weight:800;font-size:38px;z-index:20;opacity:0;transition:opacity .4s}} .tagpreco.on{{opacity:1}} .tagpreco.off{{opacity:0}}
+.fonte{{position:absolute;left:60px;right:60px;top:1480px;font-family:'IBM Plex Mono';font-size:26px;color:#7A5AA8;text-align:center}}
 .selo{{position:absolute;right:60px;top:500px;background:#FFC83D;color:#3B1F5E;border-radius:999px;padding:16px 30px;font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;z-index:6;transform:rotate(-4deg)}}
 .legenda{{position:absolute;left:60px;right:60px;bottom:330px;min-height:150px;background:#3B1F5E;color:#fff;border-radius:24px;display:flex;align-items:center;padding:28px 40px;font-family:'Bricolage Grotesque';font-weight:800;font-size:60px;line-height:1.05;letter-spacing:-.02em;z-index:6}}
 /* valor: comparação */
@@ -97,7 +99,16 @@ def html(cenas):
         elif c['tipo']=='prova':
             selos=''.join(f'<span id="s{k}">{x}</span>' for k,x in enumerate(c['selos']))
             partes.append(f'<div class="cena prova" id="c{i}"><div class="topo">{LOGO}</div><div class="t h" style="font-size:72px">{c.get("h","O que você recebe hoje")}</div><div class="selo">telas reais</div><div class="mock" id="mock{i}"><img src="data:image/png;base64,{b64(MOCK)}"></div><div class="selos">{selos}</div><div class="rod">{c.get("rod","Abre no Excel, no Google Planilhas e no celular")}</div></div>')
-            extra.append(f'setTimeout(()=>document.getElementById("mock{i}").classList.add("on"),(T{i}+0.3)*1000); {json.dumps([round(1.6+0.8*k,2) for k in range(len(c["selos"]))])}.forEach((s,k)=>setTimeout(()=>document.getElementById("s"+k).classList.add("on"),(T{i}+s)*1000));')
+            extra.append(f'setTimeout(()=>document.getElementById("mock{i}").classList.add("on"),(T{i}+0.3)*1000); {json.dumps([round(1.0+0.55*k,2) for k in range(len(c["selos"]))])}.forEach((s,k)=>setTimeout(()=>document.getElementById("s"+k).classList.add("on"),(T{i}+s)*1000));')
+        elif c['tipo']=='tela':
+            # 1) abre com o arquivo inteiro visível (contexto), 2) entra no recorte legível.
+            # 'foco' = x,y,largura,altura em fração da imagem. 'fonte' fica visível o tempo todo.
+            img=ROOT.parents[1]/'produto'/c['img'] if not str(c['img']).startswith('/') else pathlib.Path(c['img'])
+            selo=f'<div class="selo">{c["selo"]}</div>' if c.get('selo') else ''
+            leg=f'<div class="legenda">{c["leg"]}</div>' if c.get('leg') else ''
+            partes.append(f'<div class="cena" id="c{i}"><div class="topo">{LOGO}</div><div class="t h" style="font-size:{c.get("hsize",72)}px">{c["h"]}</div>{selo}'
+                          f'<div class="tela"><img data-foco="{c["foco"]}" src="data:image/png;base64,{b64(img)}"></div>'
+                          f'<div class="fonte">Tela real do arquivo · dados de empresa fictícia</div>{leg}</div>')
         elif c['tipo']=='valor':
             partes.append(f'<div class="cena valor" id="c{i}"><div class="topo">{LOGO}</div><div class="t h">{c.get("h","Faça a conta.")}</div><div class="comp"><div class="c c1"><small>{c["c1"][0]}</small><b class="risco" id="risco">{c["c1"][1]}</b><i>{c["c1"][2]}</i></div><div class="c c2"><small>{c["c2"][0]}</small><b>{c["c2"][1]}</b><i>{c["c2"][2]}</i></div></div><div class="rod">{c["rod"]}</div></div>')
             extra.append(f'setTimeout(()=>document.getElementById("risco").classList.add("on"),(T{i}+3.2)*1000);')
@@ -117,7 +128,13 @@ let t=0; durs.forEach((d,i)=>{{ setTimeout(()=>{{ document.querySelectorAll('.ce
   const img=c.querySelector('.tela img'); if(img){{ setTimeout(()=>{{img.style.transform=foco(img);}},700); }} }}, t*1000); t+=d; }});
 {''.join(extra)}
 setTimeout(()=>{{document.title='FIM'}}, t*1000+300);"""
-    return f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>{"".join(partes)}<script>window.addEventListener("load",()=>{{ {js} }});</script></body></html>'
+    tag=''
+    if cenas[0].get('tagpreco'):
+        txt=cenas[0]['tagpreco']; quando=cenas[0].get('tagpreco_em',8)
+        tag=f'<div class="tagpreco" id="tagpreco">{txt}</div>'
+        js+=f'\nsetTimeout(()=>document.getElementById("tagpreco").classList.add("on"),{quando}*1000);'
+        js+=f'\nsetTimeout(()=>document.getElementById("tagpreco").classList.remove("on"),{starts[-1]}*1000);'
+    return f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>{"".join(partes)}{tag}<script>window.addEventListener("load",()=>{{ {js} }});</script></body></html>'
 
 def renderiza(cenas, saida, trabalho, legendas=True):
     """Sintetiza a narração, grava a tela e junta tudo. Devolve a duração total."""

@@ -22,7 +22,7 @@ sempre com contexto, bloco de dor logo depois do herói, explicar o básico. Pre
 ## 2. Situação atual em três cenários
 Título: **Três segundas-feiras que você conhece**
 1. **O chefe pede "um relatório rápido".** Você abre um Excel em branco, junta números de três lugares, escreve
-   do zero e entrega na quarta. → Com o kit: Relatório Mensal Pronto + prompt Escrever 01, relatório em 45 minutos.
+   do zero e entrega na quarta. → Com o kit: Relatório Mensal Pronto + prompt Escrever 01, o texto sai dos seus próprios números.
 2. **O cliente quer saber "como está o projeto".** Você responde de memória e descobre depois que uma etapa
    estourou. → Com o kit: Projetos e Prazos mostra o atraso na segunda, antes do cliente perguntar.
 3. **A reunião de resultados é sexta.** Você monta slides na quinta à noite, com título "Receita" e gráfico de
@@ -106,12 +106,12 @@ Nota fiscal em nome da ZTRAINING SERVICE LTDA.
 ## Obrigado (3 estados) e e-mails
 Mesma estrutura do Essencial, com os primeiros 7 dias adaptados: dia 1 aula 1 + Semana Organizada; dia 2 aula 2 +
 Base Limpa; dia 3 Relatório Mensal + aula 5; dia 5 Metas do Trimestre; dia 7 a rotina (aula 8). E-mails: D+0
-acesso, D+1 aula 1, D+3 conseguiu abrir?, D+5 relatório em 45 min, D+6 lembrete neutro do prazo, D+12 avaliação,
+acesso, D+1 aula 1, D+3 conseguiu abrir?, D+5 o relatório sem começar do zero, D+6 lembrete neutro do prazo, D+12 avaliação,
 D+20 kit vertical da profissão (quando existir).
 
 ## Anúncios (3 ângulos)
 **1 · Com método:** "Planilha, relatório e apresentação com método, não no braço. 10 planilhas, 80 prompts, 8
-aulas. R$ 197, uma vez." Headlines: Com método, não no braço · 10 planilhas prontas · O relatório do mês em 45 min.
+aulas. R$ 197, uma vez." Headlines: Com método, não no braço · 10 planilhas prontas · O relatório do mês sem começar do zero.
 **2 · A IA que trabalha nos seus números:** "Você usa o ChatGPT para e-mail. Com 80 prompts e 10 planilhas, ele
 escreve o seu relatório, monta os slides e revisa a proposta." Headlines: 80 prompts para o trabalho · A IA nos seus
 números · Roteiro de slides em 5 minutos.
