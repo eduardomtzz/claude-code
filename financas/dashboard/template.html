@@ -1,0 +1,783 @@
+<title>Controle da Casa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+  /* ---- tokens: tema claro completo, redefinido nos dois escopos escuros --- */
+  :root {
+    --plano:        #f4f4f0;
+    --superficie:   #fcfcfb;
+    --superficie-2: #efefe9;
+    --tinta:        #0b0b0b;
+    --tinta-2:      #52514e;
+    --tinta-3:      #898781;
+    --grade:        #e1e0d9;
+    --eixo:         #c3c2b7;
+    --borda:        rgba(11, 11, 11, 0.10);
+    --realce:       #2a78d6;
+    --realce-suave: rgba(42, 120, 214, 0.12);
+    --bom:          #0ca30c;
+    --atencao:      #fab219;
+    --serio:        #ec835a;
+    --critico:      #d03b3b;
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a;
+    --s4: #eda100; --s5: #e87ba4; --s6: #008300; --s7: #4a3aa7;
+    --sombra: 0 1px 2px rgba(11, 11, 11, 0.04);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --plano:        #0d0d0d;
+      --superficie:   #1a1a19;
+      --superficie-2: #232321;
+      --tinta:        #ffffff;
+      --tinta-2:      #c3c2b7;
+      --tinta-3:      #898781;
+      --grade:        #2c2c2a;
+      --eixo:         #383835;
+      --borda:        rgba(255, 255, 255, 0.10);
+      --realce:       #3987e5;
+      --realce-suave: rgba(57, 135, 229, 0.18);
+      --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+      --s4: #c98500; --s5: #d55181; --s6: #008300; --s7: #9085e9;
+      --sombra: 0 1px 2px rgba(0, 0, 0, 0.3);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --plano:        #0d0d0d;
+    --superficie:   #1a1a19;
+    --superficie-2: #232321;
+    --tinta:        #ffffff;
+    --tinta-2:      #c3c2b7;
+    --tinta-3:      #898781;
+    --grade:        #2c2c2a;
+    --eixo:         #383835;
+    --borda:        rgba(255, 255, 255, 0.10);
+    --realce:       #3987e5;
+    --realce-suave: rgba(57, 135, 229, 0.18);
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+    --s4: #c98500; --s5: #d55181; --s6: #008300; --s7: #9085e9;
+    --sombra: 0 1px 2px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--plano);
+    color: var(--tinta);
+    font: 400 15px/1.55 "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+
+  .folha { max-width: 1120px; margin: 0 auto; padding: 0 16px; padding-block: 0 72px; }
+
+  /* ---- cabecalho ------------------------------------------------------- */
+  .topo {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+    background: color-mix(in srgb, var(--plano) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--borda);
+  }
+  .topo-interno {
+    max-width: 1120px; margin: 0 auto; padding: 14px 16px;
+    display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline;
+  }
+  .marca { font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
+  .marca span { color: var(--tinta-3); font-weight: 400; }
+  .topo-controles { margin-left: auto; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+  label.campo { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--tinta-2); }
+  select, input[type="search"] {
+    font: inherit; font-size: 13.5px; color: var(--tinta);
+    background: var(--superficie); border: 1px solid var(--eixo);
+    border-radius: 7px; padding: 5px 9px; min-width: 0;
+  }
+  select:focus-visible, input:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--realce); outline-offset: 2px;
+  }
+
+  /* ---- abertura -------------------------------------------------------- */
+  .abertura { padding-block: 32px 8px; }
+  .abertura h1 {
+    margin: 0 0 6px; font-size: clamp(26px, 4.4vw, 38px); font-weight: 700;
+    letter-spacing: -0.025em; text-wrap: balance; line-height: 1.12;
+  }
+  .abertura p { margin: 0; max-width: 62ch; color: var(--tinta-2); font-size: 15.5px; }
+
+  /* ---- placas de numero ------------------------------------------------ */
+  .placas { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px;
+            background: var(--borda); border: 1px solid var(--borda); border-radius: 12px;
+            overflow: hidden; margin-top: 24px; }
+  .placa { background: var(--superficie); padding: 16px 18px; }
+  .placa dt { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em;
+              color: var(--tinta-3); font-weight: 500; margin: 0 0 6px; }
+  .placa dd { margin: 0; font-size: 25px; font-weight: 600; letter-spacing: -0.02em; }
+  .placa .nota { display: block; font-size: 12.5px; font-weight: 400; color: var(--tinta-2); margin-top: 4px; letter-spacing: 0; }
+
+  /* ---- secoes ---------------------------------------------------------- */
+  section { margin-top: 44px; }
+  .cabeca { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; margin-bottom: 6px; }
+  h2 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.015em; }
+  .sub { margin: 0 0 18px; color: var(--tinta-2); font-size: 14px; max-width: 72ch; }
+  .painel { background: var(--superficie); border: 1px solid var(--borda);
+            border-radius: 12px; padding: 18px; box-shadow: var(--sombra); }
+
+  /* ---- graficos -------------------------------------------------------- */
+  .tela { position: relative; width: 100%; }
+  .tela svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .eixo-txt { fill: var(--tinta-3); font-size: 11px; font-family: "IBM Plex Sans", system-ui, sans-serif; }
+  .rot-barra { fill: var(--tinta); font-size: 12.5px; font-family: "IBM Plex Sans", system-ui, sans-serif; }
+  .val-barra { fill: var(--tinta-2); font-size: 12px; font-variant-numeric: tabular-nums;
+               font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  .linha-grade { stroke: var(--grade); stroke-width: 1; }
+  .linha-eixo { stroke: var(--eixo); stroke-width: 1; }
+
+  .dica {
+    position: absolute; pointer-events: none; z-index: 8; min-width: 150px;
+    background: var(--superficie); border: 1px solid var(--eixo); border-radius: 9px;
+    padding: 9px 11px; box-shadow: 0 4px 14px rgba(11, 11, 11, 0.13);
+    font-size: 12.5px; line-height: 1.45; opacity: 0; transition: opacity .12s;
+  }
+  .dica.vis { opacity: 1; }
+  .dica b { display: block; font-size: 13px; margin-bottom: 4px; }
+  .dica .l { display: flex; justify-content: space-between; gap: 14px; }
+  .dica .l span:last-child { font-family: "IBM Plex Mono", ui-monospace, monospace;
+                             font-variant-numeric: tabular-nums; }
+  .ponto-cor { display: inline-block; width: 9px; height: 9px; border-radius: 2px;
+               margin-right: 6px; vertical-align: baseline; }
+
+  .legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; font-size: 12.5px; color: var(--tinta-2); }
+  .legenda span.item { display: inline-flex; align-items: center; }
+
+  /* ---- barras empilhadas de composicao --------------------------------- */
+  .faixa { display: flex; width: 100%; height: 34px; border-radius: 6px; overflow: hidden; gap: 2px; }
+  .faixa div { height: 100%; }
+  .faixa-rot { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 12px; font-size: 13px; }
+  .faixa-rot b { font-variant-numeric: tabular-nums; font-family: "IBM Plex Mono", ui-monospace, monospace; font-weight: 500; }
+
+  /* ---- tabelas --------------------------------------------------------- */
+  .rolagem { overflow-x: auto; margin: 0 -18px; padding: 0 18px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--grade); white-space: nowrap; }
+  th { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em;
+       color: var(--tinta-3); font-weight: 500; position: sticky; top: 0;
+       background: var(--superficie); z-index: 1; }
+  td.num, th.num { text-align: right; font-family: "IBM Plex Mono", ui-monospace, monospace;
+                   font-variant-numeric: tabular-nums; }
+  td.livre { white-space: normal; min-width: 210px; }
+  tbody tr:hover { background: var(--superficie-2); }
+
+  /* ---- fichas de oportunidade ------------------------------------------ */
+  .fichas { display: grid; gap: 12px; }
+  .ficha { background: var(--superficie); border: 1px solid var(--borda); border-radius: 12px;
+           padding: 16px 18px; box-shadow: var(--sombra); display: grid;
+           grid-template-columns: 1fr auto; gap: 6px 20px; align-items: start; }
+  .ficha h3 { margin: 0; font-size: 15.5px; font-weight: 600; letter-spacing: -0.01em; }
+  .ficha p { margin: 0; grid-column: 1 / -1; color: var(--tinta-2); font-size: 14px; max-width: 76ch; }
+  .ficha .cifra { text-align: right; font-family: "IBM Plex Mono", ui-monospace, monospace;
+                  font-variant-numeric: tabular-nums; font-weight: 600; font-size: 16px; white-space: nowrap; }
+  .ficha .cifra small { display: block; font-size: 11.5px; font-weight: 400; color: var(--tinta-3);
+                        font-family: "IBM Plex Sans", system-ui, sans-serif; }
+  .ficha ul { grid-column: 1 / -1; margin: 4px 0 0; padding: 0; list-style: none;
+              display: flex; flex-wrap: wrap; gap: 4px 8px; }
+  .ficha li { font-size: 12px; color: var(--tinta-2); background: var(--superficie-2);
+              border-radius: 5px; padding: 2px 8px;
+              font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+  .selo { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 500;
+          border-radius: 999px; padding: 2px 9px; border: 1px solid var(--borda);
+          color: var(--tinta-2); background: var(--superficie-2); white-space: nowrap;
+          font-family: "IBM Plex Sans", system-ui, sans-serif; letter-spacing: 0.01em; }
+  .selo::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--tinta-3); }
+  .selo.alta::before { background: var(--bom); }
+  .selo.media::before { background: var(--atencao); }
+  .selo.confirmar::before { background: var(--serio); }
+  .selo.falta::before { background: var(--critico); }
+
+  /* ---- duas colunas ---------------------------------------------------- */
+  .duas { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+
+  .btn { font: inherit; font-size: 13px; color: var(--tinta-2); background: var(--superficie);
+         border: 1px solid var(--eixo); border-radius: 7px; padding: 5px 11px; cursor: pointer; }
+  .btn:hover { background: var(--superficie-2); color: var(--tinta); }
+  .btn[aria-pressed="true"] { background: var(--realce-suave); border-color: var(--realce); color: var(--tinta); }
+
+  .rodape { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--borda);
+            color: var(--tinta-3); font-size: 12.5px; }
+  .rodape code { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  @media (max-width: 560px) {
+    th, td { padding: 6px 8px; font-size: 12.5px; }
+    .ficha { grid-template-columns: 1fr; }
+    .ficha .cifra { text-align: left; }
+  }
+</style>
+
+<header class="topo">
+  <div class="topo-interno">
+    <div class="marca">Controle da Casa <span id="marca-periodo"></span></div>
+    <div class="topo-controles">
+      <label class="campo">Período
+        <select id="periodo"></select>
+      </label>
+    </div>
+  </div>
+</header>
+
+<main class="folha">
+  <div class="abertura">
+    <h1 id="titulo">Para onde vai o dinheiro da casa</h1>
+    <p id="chamada"></p>
+  </div>
+
+  <dl class="placas" id="placas"></dl>
+
+  <section id="sec-linha">
+    <div class="cabeca"><h2>Quanto sai por mês</h2></div>
+    <p class="sub">Cada competência com o total efetivamente pago. O último mês da série é previsão, ainda não realizada.</p>
+    <div class="painel"><div class="tela" id="tela-linha"></div></div>
+  </section>
+
+  <section id="sec-categorias">
+    <div class="cabeca"><h2>Categorias</h2><span class="selo" id="selo-periodo"></span></div>
+    <p class="sub">Média por mês no período escolhido. Clique numa categoria para abrir as subcategorias.</p>
+    <div class="painel"><div class="tela" id="tela-categorias"></div></div>
+  </section>
+
+  <section id="sec-composicao">
+    <div class="cabeca">
+      <h2>Composição mês a mês</h2>
+      <button class="btn" id="btn-tabela-comp" aria-pressed="false">Ver como tabela</button>
+    </div>
+    <p class="sub">As seis maiores categorias com cor própria; o restante somado em “Outros”.</p>
+    <div class="painel">
+      <div class="tela" id="tela-composicao"></div>
+      <div class="legenda" id="legenda-composicao"></div>
+      <div class="rolagem" id="tabela-composicao" hidden></div>
+    </div>
+  </section>
+
+  <section id="sec-pessoas">
+    <div class="cabeca"><h2>Quem custa o quê</h2></div>
+    <p class="sub" id="sub-pessoas"></p>
+    <div class="painel"><div class="tela" id="tela-pessoas"></div></div>
+  </section>
+
+  <section id="sec-natureza">
+    <div class="cabeca"><h2>Fixo, variável, parcelado</h2></div>
+    <p class="sub">Um item é fixo quando aparece em quase todos os meses da janela com valor estável. É recorrente variável quando sempre aparece, mas oscila. É eventual quando falha meses.</p>
+    <div class="painel">
+      <div class="faixa" id="faixa-natureza"></div>
+      <div class="faixa-rot" id="rot-natureza"></div>
+    </div>
+    <div class="painel" style="margin-top:12px">
+      <div class="cabeca" style="margin-bottom:12px">
+        <label class="campo">Tipo <select id="filtro-tipo"></select></label>
+        <label class="campo">Categoria <select id="filtro-cat-serie"></select></label>
+      </div>
+      <div class="rolagem"><table id="tabela-series"></table></div>
+    </div>
+  </section>
+
+  <section id="sec-mudancas">
+    <div class="cabeca"><h2>Mudanças de patamar</h2></div>
+    <p class="sub">Gastos recorrentes que saíram do orçamento e outros que entraram. É o que impede comparar 2024 com 2026 como se fosse a mesma casa.</p>
+    <div class="duas" id="mudancas"></div>
+  </section>
+
+  <section id="sec-oportunidades">
+    <div class="cabeca"><h2>Oportunidades</h2></div>
+    <p class="sub">Ordenadas pelo que devolvem por mês. O selo diz o quanto a estimativa se apoia nos dados: alta quando o próprio histórico mostra o valor, a confirmar quando depende de checar alguma coisa fora da planilha.</p>
+    <div class="fichas" id="oportunidades"></div>
+  </section>
+
+  <section id="sec-conciliacao">
+    <div class="cabeca"><h2>Planilha contra o controle do mês</h2></div>
+    <p class="sub" id="sub-conciliacao"></p>
+    <div class="painel" id="conciliacao"></div>
+  </section>
+
+  <section id="sec-perguntas">
+    <div class="cabeca"><h2>Sem categoria</h2></div>
+    <p class="sub">Pagamentos identificados só por nome de pessoa. Falta dizer o que é cada um para eles saírem daqui.</p>
+    <div class="painel"><div class="rolagem"><table id="tabela-perguntas"></table></div></div>
+  </section>
+
+  <section id="sec-lancamentos">
+    <div class="cabeca">
+      <h2>Lançamentos</h2>
+      <span class="selo" id="selo-lanc"></span>
+    </div>
+    <p class="sub">Toda a base, já categorizada. Os filtros valem só para esta tabela.</p>
+    <div class="painel">
+      <div class="cabeca" style="margin-bottom:12px">
+        <label class="campo">Categoria <select id="filtro-cat"></select></label>
+        <label class="campo">Pessoa <select id="filtro-pessoa"></select></label>
+        <label class="campo">Busca <input type="search" id="filtro-busca" placeholder="descrição" autocomplete="off"></label>
+      </div>
+      <div class="rolagem"><table id="tabela-lancamentos"></table></div>
+      <div style="margin-top:12px"><button class="btn" id="btn-mais">Mostrar mais</button></div>
+    </div>
+  </section>
+
+  <p class="rodape" id="rodape"></p>
+</main>
+
+<script>
+const D = /*__DADOS__*/null;
+
+/* ---------- formatacao ---------------------------------------------- */
+const brl = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
+const brl0 = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
+const pct = n => (n * 100).toFixed(n < 0.1 ? 1 : 0).replace(".", ",") + "%";
+const CORES = ["--s1", "--s2", "--s3", "--s4", "--s5", "--s6", "--s7"];
+const cor = i => `var(${CORES[i % CORES.length]})`;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const $ = id => document.getElementById(id);
+
+/* ---------- estado --------------------------------------------------- */
+const JANELA = "__janela__";
+let periodo = JANELA;
+
+const mesesDoPeriodo = () => periodo === JANELA ? D.janela_ids
+  : periodo === "__tudo__" ? D.meses.map(m => m.id) : [periodo];
+
+const rotuloPeriodo = () => periodo === JANELA
+  ? `média dos ${D.janela.length} meses fechados, ${D.janela[0]} a ${D.janela.at(-1)}`
+  : periodo === "__tudo__" ? `média dos ${D.meses.length} meses da base`
+  : `mês de ${D.meses.find(m => m.id === periodo).rotulo}`;
+
+const mediaNoPeriodo = porMes => {
+  const ms = mesesDoPeriodo();
+  return ms.reduce((s, m) => s + (porMes[m] || 0), 0) / ms.length;
+};
+
+/* ---------- graficos: utilidades ------------------------------------- */
+function dica(host) {
+  const el = document.createElement("div");
+  el.className = "dica";
+  host.appendChild(el);
+  return {
+    mostra(html, x, y) {
+      el.innerHTML = html;
+      el.classList.add("vis");
+      const cx = Math.min(Math.max(x + 14, 4), host.clientWidth - el.offsetWidth - 4);
+      el.style.left = cx + "px";
+      el.style.top = Math.max(y - el.offsetHeight - 10, 4) + "px";
+    },
+    esconde() { el.classList.remove("vis"); },
+  };
+}
+
+function escala(max) {
+  if (max <= 0) return { topo: 1, marcas: [0, 1] };
+  const passo = Math.pow(10, Math.floor(Math.log10(max)));
+  const topo = Math.ceil(max / (passo / 2)) * (passo / 2);
+  const marcas = [];
+  for (let i = 0; i <= 4; i++) marcas.push((topo / 4) * i);
+  return { topo, marcas };
+}
+
+/* ---------- 1. linha do tempo ---------------------------------------- */
+function linhaDoTempo() {
+  const host = $("tela-linha");
+  host.innerHTML = "";
+  const L = 56, R = 14, T = 14, B = 34, W = 900, H = 260;
+  const ms = D.meses;
+  const { topo, marcas } = escala(Math.max(...ms.map(m => m.total)));
+  const px = i => L + (W - L - R) * (ms.length === 1 ? 0.5 : i / (ms.length - 1));
+  const py = v => T + (H - T - B) * (1 - v / topo);
+
+  const real = ms.filter(m => !m.previsao);
+  const caminho = pts => pts.map((p, i) => (i ? "L" : "M") + p.join(" ")).join(" ");
+  const ptsReais = real.map((m, i) => [px(i).toFixed(1), py(m.total).toFixed(1)]);
+  const ultimo = ptsReais.at(-1);
+  const prev = ms.filter(m => m.previsao)
+    .map((m, k) => [px(real.length + k).toFixed(1), py(m.total).toFixed(1)]);
+
+  const grade = marcas.map(v => `
+    <line class="linha-grade" x1="${L}" y1="${py(v).toFixed(1)}" x2="${W - R}" y2="${py(v).toFixed(1)}"></line>
+    <text class="eixo-txt" x="${L - 8}" y="${(py(v) + 4).toFixed(1)}" text-anchor="end">${brl0.format(v)}</text>`).join("");
+
+  const rotulos = ms.map((m, i) => (i % 3 === 0 || i === ms.length - 1)
+    ? `<text class="eixo-txt" x="${px(i).toFixed(1)}" y="${H - B + 18}" text-anchor="middle">${m.rotulo}</text>` : "").join("");
+
+  const area = `${caminho(ptsReais)} L ${ultimo[0]} ${py(0)} L ${px(0).toFixed(1)} ${py(0)} Z`;
+
+  host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img"
+      aria-label="Total pago por mês, de ${ms[0].rotulo} a ${ms.at(-1).rotulo}">
+    <defs><linearGradient id="g-area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="var(--realce)" stop-opacity="0.20"></stop>
+      <stop offset="100%" stop-color="var(--realce)" stop-opacity="0.01"></stop>
+    </linearGradient></defs>
+    ${grade}
+    <path d="${area}" fill="url(#g-area)"></path>
+    <path d="${caminho(ptsReais)}" fill="none" stroke="var(--realce)" stroke-width="2"
+          stroke-linejoin="round" stroke-linecap="round"></path>
+    ${prev.length ? `<path d="${caminho([ultimo, ...prev])}" fill="none" stroke="var(--realce)"
+          stroke-width="2" stroke-dasharray="3 4" stroke-linecap="round" opacity="0.65"></path>` : ""}
+    ${ms.map((m, i) => `<circle cx="${px(i).toFixed(1)}" cy="${py(m.total).toFixed(1)}" r="${m.previsao ? 3.5 : 3}"
+        fill="${m.previsao ? "var(--superficie)" : "var(--realce)"}" stroke="var(--realce)" stroke-width="2"></circle>`).join("")}
+    <line class="linha-eixo" x1="${L}" y1="${py(0)}" x2="${W - R}" y2="${py(0)}"></line>
+    ${rotulos}
+    <line id="mira" x1="0" y1="${T}" x2="0" y2="${py(0)}" stroke="var(--eixo)" stroke-width="1" opacity="0"></line>
+    <rect x="${L}" y="${T}" width="${W - L - R}" height="${H - T - B}" fill="transparent" id="captura"></rect>
+  </svg>`;
+
+  const svg = host.querySelector("svg"), mira = host.querySelector("#mira");
+  const d = dica(host);
+  const perto = clienteX => {
+    const caixa = svg.getBoundingClientRect();
+    const rel = ((clienteX - caixa.left) / caixa.width) * W;
+    let melhor = 0, dist = Infinity;
+    ms.forEach((_, i) => { const dd = Math.abs(px(i) - rel); if (dd < dist) { dist = dd; melhor = i; } });
+    return melhor;
+  };
+  const cats = D.categorias.slice(0, 6);
+  svg.addEventListener("pointermove", ev => {
+    const i = perto(ev.clientX), m = ms[i];
+    const caixa = svg.getBoundingClientRect(), fator = caixa.width / W;
+    mira.setAttribute("x1", px(i)); mira.setAttribute("x2", px(i)); mira.setAttribute("opacity", "1");
+    const linhas = cats.map(c => ({ n: c.nome, v: c.por_mes[m.id] || 0 }))
+      .filter(x => x.v > 0).sort((a, b) => b.v - a.v).slice(0, 4)
+      .map(x => `<div class="l"><span>${esc(x.n)}</span><span>${brl0.format(x.v)}</span></div>`).join("");
+    d.mostra(`<b>${m.rotulo}${m.previsao ? " · previsão" : ""}</b>
+      <div class="l"><span>total</span><span>${brl.format(m.total)}</span></div>${linhas}`,
+      px(i) * fator, py(m.total) * fator);
+  });
+  svg.addEventListener("pointerleave", () => { mira.setAttribute("opacity", "0"); d.esconde(); });
+}
+
+/* ---------- 2. barras horizontais reutilizaveis ----------------------- */
+function barras(host, itens, opcoes = {}) {
+  host.innerHTML = "";
+  if (!itens.length) { host.innerHTML = `<p class="sub">Nada no período.</p>`; return; }
+  const altura = opcoes.altura || 30, gap = 6, rotuloL = opcoes.rotuloL || 200;
+  const W = 900, R = 96;
+  const H = itens.length * (altura + gap);
+  const max = Math.max(...itens.map(i => i.valor), 1);
+  const largura = v => Math.max((W - rotuloL - R) * (v / max), v > 0 ? 3 : 0);
+
+  host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(opcoes.rotulo || "")}">
+    ${itens.map((it, i) => {
+      const y = i * (altura + gap), l = largura(it.valor);
+      return `<g class="fila" data-i="${i}" tabindex="0">
+        <rect x="0" y="${y}" width="${W}" height="${altura}" fill="transparent"></rect>
+        <text class="rot-barra" x="0" y="${y + altura / 2 + 4}">${esc(it.rotulo)}</text>
+        <rect x="${rotuloL}" y="${y + 4}" width="${l.toFixed(1)}" height="${altura - 8}"
+              rx="4" fill="${it.cor || "var(--realce)"}"></rect>
+        <text class="val-barra" x="${rotuloL + l + 8}" y="${y + altura / 2 + 4}">${brl0.format(it.valor)}</text>
+      </g>`;
+    }).join("")}
+  </svg>`;
+
+  const svg = host.querySelector("svg"), d = dica(host);
+  svg.querySelectorAll(".fila").forEach(g => {
+    const it = itens[+g.dataset.i];
+    const entra = ev => {
+      const caixa = svg.getBoundingClientRect();
+      const x = ev.clientX ? ev.clientX - caixa.left : caixa.width / 3;
+      const y = ev.clientY ? ev.clientY - caixa.top : 20;
+      d.mostra(it.dica || `<b>${esc(it.rotulo)}</b><div class="l"><span>${esc(opcoes.unidade || "por mês")}</span><span>${brl.format(it.valor)}</span></div>`, x, y);
+    };
+    g.addEventListener("pointermove", entra);
+    g.addEventListener("focus", entra);
+    g.addEventListener("pointerleave", () => d.esconde());
+    g.addEventListener("blur", () => d.esconde());
+    if (opcoes.aoClicar) { g.style.cursor = "pointer"; g.addEventListener("click", () => opcoes.aoClicar(it)); }
+  });
+}
+
+/* ---------- 3. composicao empilhada ---------------------------------- */
+function composicao() {
+  const host = $("tela-composicao");
+  const coloridas = D.categorias.filter(c => c.colorida).map(c => c.nome);
+  const fatias = [...coloridas, "Outros"];
+  const valor = (nome, mes) => nome === "Outros"
+    ? D.categorias.filter(c => !c.colorida).reduce((s, c) => s + (c.por_mes[mes] || 0), 0)
+    : (D.categorias.find(c => c.nome === nome).por_mes[mes] || 0);
+
+  const ms = D.meses, W = 900, H = 250, L = 56, R = 10, T = 10, B = 32;
+  const totais = ms.map(m => fatias.reduce((s, f) => s + valor(f, m.id), 0));
+  const { topo, marcas } = escala(Math.max(...totais));
+  const passo = (W - L - R) / ms.length;
+  const larg = Math.min(passo - 4, 26);
+  const py = v => T + (H - T - B) * (1 - v / topo);
+
+  const colunas = ms.map((m, i) => {
+    const x = L + passo * i + (passo - larg) / 2;
+    let acum = 0;
+    const segs = fatias.map((f, k) => {
+      const v = valor(f, m.id);
+      if (v <= 0) return "";
+      const y0 = py(acum + v), y1 = py(acum);
+      acum += v;
+      const alt = Math.max(y1 - y0 - 2, 1);
+      return `<rect x="${x.toFixed(1)}" y="${y0.toFixed(1)}" width="${larg.toFixed(1)}" height="${alt.toFixed(1)}"
+        fill="${k === fatias.length - 1 ? "var(--eixo)" : cor(k)}" rx="${alt > 5 ? 2 : 0}"></rect>`;
+    }).join("");
+    return `<g class="col" data-i="${i}">${segs}
+      <rect x="${(L + passo * i).toFixed(1)}" y="${T}" width="${passo.toFixed(1)}"
+            height="${H - T - B}" fill="transparent"></rect></g>`;
+  }).join("");
+
+  host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Composição mensal por categoria">
+    ${marcas.map(v => `<line class="linha-grade" x1="${L}" y1="${py(v).toFixed(1)}" x2="${W - R}" y2="${py(v).toFixed(1)}"></line>
+      <text class="eixo-txt" x="${L - 8}" y="${(py(v) + 4).toFixed(1)}" text-anchor="end">${brl0.format(v)}</text>`).join("")}
+    ${colunas}
+    <line class="linha-eixo" x1="${L}" y1="${py(0)}" x2="${W - R}" y2="${py(0)}"></line>
+    ${ms.map((m, i) => (i % 3 === 0 || i === ms.length - 1)
+      ? `<text class="eixo-txt" x="${(L + passo * i + passo / 2).toFixed(1)}" y="${H - B + 18}" text-anchor="middle">${m.rotulo}</text>` : "").join("")}
+  </svg>`;
+
+  $("legenda-composicao").innerHTML = fatias.map((f, k) =>
+    `<span class="item"><i class="ponto-cor" style="background:${k === fatias.length - 1 ? "var(--eixo)" : cor(k)}"></i>${esc(f)}</span>`).join("");
+
+  const svg = host.querySelector("svg"), d = dica(host);
+  svg.querySelectorAll(".col").forEach(g => {
+    const m = ms[+g.dataset.i];
+    g.addEventListener("pointermove", ev => {
+      const caixa = svg.getBoundingClientRect();
+      const linhas = fatias.map((f, k) => ({ f, v: valor(f, m.id), k })).filter(x => x.v > 0)
+        .map(x => `<div class="l"><span><i class="ponto-cor" style="background:${x.k === fatias.length - 1 ? "var(--eixo)" : cor(x.k)}"></i>${esc(x.f)}</span><span>${brl0.format(x.v)}</span></div>`).join("");
+      d.mostra(`<b>${m.rotulo}${m.previsao ? " · previsão" : ""}</b>${linhas}`,
+        ev.clientX - caixa.left, ev.clientY - caixa.top);
+    });
+    g.addEventListener("pointerleave", () => d.esconde());
+  });
+
+  $("tabela-composicao").innerHTML = `<table><thead><tr><th>Mês</th>
+    ${fatias.map(f => `<th class="num">${esc(f)}</th>`).join("")}<th class="num">Total</th></tr></thead>
+    <tbody>${ms.map(m => `<tr><td>${m.rotulo}${m.previsao ? " (prev.)" : ""}</td>
+      ${fatias.map(f => `<td class="num">${brl0.format(valor(f, m.id))}</td>`).join("")}
+      <td class="num">${brl0.format(m.total)}</td></tr>`).join("")}</tbody></table>`;
+}
+
+/* ---------- 4. tabelas ------------------------------------------------ */
+function tabela(el, colunas, linhas) {
+  el.innerHTML = `<thead><tr>${colunas.map(c => `<th class="${c.num ? "num" : ""}">${esc(c.t)}</th>`).join("")}</tr></thead>
+    <tbody>${linhas.map(l => `<tr>${colunas.map(c => `<td class="${c.num ? "num" : ""}${c.livre ? " livre" : ""}">${c.f(l)}</td>`).join("")}</tr>`).join("")}</tbody>`;
+}
+
+/* ---------- montagem -------------------------------------------------- */
+function placas() {
+  const ms = mesesDoPeriodo();
+  const total = ms.reduce((s, m) => s + (D.meses.find(x => x.id === m)?.total || 0), 0);
+  const media = total / ms.length;
+  const equipe = D.categorias.find(c => c.nome === "Equipe doméstica");
+  const poupanca = D.series.filter(s => s.natureza === "poupanca")
+    .reduce((s, x) => s + mediaNoPeriodo(x.por_mes), 0);
+  const ganho = D.oportunidades.reduce((s, o) => s + o.impacto_mensal, 0);
+
+  $("placas").innerHTML = [
+    ["Sai por mês", brl0.format(media), rotuloPeriodo()],
+    ["Equipe doméstica", brl0.format(mediaNoPeriodo(equipe?.por_mes || {})),
+      pct(mediaNoPeriodo(equipe?.por_mes || {}) / media) + " de tudo que sai"],
+    ["Guardado para os filhos", brl0.format(poupanca), "aplicações, não é despesa"],
+    ["Oportunidades mapeadas", brl0.format(ganho), brl0.format(ganho * 12) + " por ano"],
+  ].map(([t, v, n]) => `<div class="placa"><dt>${esc(t)}</dt><dd>${esc(v)}<span class="nota">${esc(n)}</span></dd></div>`).join("");
+
+  $("chamada").textContent = `${D.meses.length} meses de pagamentos da casa, de ${D.meses[0].rotulo} a ${D.meses.at(-1).rotulo}, `
+    + `${D.lancamentos.length} lançamentos classificados em ${D.categorias.length} categorias. `
+    + `Os valores desta página são a ${rotuloPeriodo()}.`;
+  $("marca-periodo").textContent = "· " + (periodo === JANELA ? "janela de " + D.janela.length + " meses"
+    : periodo === "__tudo__" ? "base inteira" : D.meses.find(m => m.id === periodo).rotulo);
+  $("selo-periodo").textContent = rotuloPeriodo();
+}
+
+function categorias() {
+  const itens = D.categorias.map(c => ({
+    rotulo: c.nome, valor: mediaNoPeriodo(c.por_mes), sub: c.subcategorias,
+  })).filter(i => i.valor > 0).sort((a, b) => b.valor - a.valor);
+  const total = itens.reduce((s, i) => s + i.valor, 0);
+  itens.forEach(i => {
+    i.dica = `<b>${esc(i.rotulo)}</b>
+      <div class="l"><span>por mês</span><span>${brl.format(i.valor)}</span></div>
+      <div class="l"><span>participação</span><span>${pct(i.valor / total)}</span></div>`;
+  });
+  barras($("tela-categorias"), itens, {
+    rotulo: "Média mensal por categoria", rotuloL: 190,
+    aoClicar: it => {
+      const alvo = $("tela-categorias");
+      if (alvo.dataset.aberta === it.rotulo) { alvo.dataset.aberta = ""; categorias(); return; }
+      alvo.dataset.aberta = it.rotulo;
+      barras(alvo, it.sub.map(s => ({ rotulo: s.nome, valor: mediaNoPeriodo(s.por_mes), cor: "var(--s3)" }))
+        .filter(s => s.valor > 0).sort((a, b) => b.valor - a.valor),
+        { rotulo: "Subcategorias de " + it.rotulo, rotuloL: 190, aoClicar: () => categorias() });
+    },
+  });
+}
+
+function pessoas() {
+  const papeis = { filha: "filhos", filho: "filhos", titular: "titular", equipe: "equipe", "familiar de equipe": "equipe" };
+  const itens = D.pessoas.filter(p => p.nome !== "Casa")
+    .map(p => ({ rotulo: `${p.nome} · ${p.papel}`, valor: mediaNoPeriodo(p.por_mes), grupo: papeis[p.papel] || "casa",
+      cor: p.papel === "equipe" || p.papel === "familiar de equipe" ? "var(--s2)" : "var(--s1)",
+      dica: `<b>${esc(p.nome)}</b><div class="l"><span>por mês</span><span>${brl.format(mediaNoPeriodo(p.por_mes))}</span></div>`
+        + p.itens.slice(0, 5).map(i => `<div class="l"><span>${esc(i.rotulo)}</span><span>${brl0.format(i.media_mensal)}</span></div>`).join("") }))
+    .filter(i => i.valor > 0).sort((a, b) => b.valor - a.valor);
+  barras($("tela-pessoas"), itens, { rotuloL: 230, rotulo: "Custo mensal por pessoa" });
+  const casa = D.pessoas.find(p => p.nome === "Casa");
+  $("sub-pessoas").textContent = "Só o que dá para atribuir a alguém. "
+    + `O restante, ${brl0.format(mediaNoPeriodo(casa?.por_mes || {}))} por mês, é da casa toda — aluguel, contas, consórcio. `
+    + "Os encargos do eSocial saem em guia única para Leidi e Ana, então ficam na casa e não no custo individual.";
+}
+
+function natureza() {
+  const ordem = ["fixo", "recorrente variavel", "parcelado", "eventual"];
+  const nomes = { fixo: "Fixo", "recorrente variavel": "Recorrente variável", parcelado: "Parcelado", eventual: "Eventual" };
+  const dados = ordem.map((t, i) => ({ t, v: D.resumo_tipos[t] || 0, c: cor(i) })).filter(d => d.v > 0);
+  const soma = dados.reduce((s, d) => s + d.v, 0);
+  $("faixa-natureza").innerHTML = dados.map(d =>
+    `<div style="flex:${d.v};background:${d.c}" title="${esc(nomes[d.t])}: ${brl.format(d.v)}"></div>`).join("");
+  $("rot-natureza").innerHTML = dados.map(d =>
+    `<span><i class="ponto-cor" style="background:${d.c}"></i>${esc(nomes[d.t])} <b>${brl0.format(d.v)}</b> · ${pct(d.v / soma)}</span>`).join("");
+
+  const tipos = [...new Set(D.series.map(s => s.tipo))];
+  $("filtro-tipo").innerHTML = `<option value="">todos</option>` + tipos.map(t => `<option value="${esc(t)}">${esc(nomes[t] || t)}</option>`).join("");
+  const cats = [...new Set(D.series.map(s => s.categoria))].sort();
+  $("filtro-cat-serie").innerHTML = `<option value="">todas</option>` + cats.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join("");
+  const desenha = () => {
+    const t = $("filtro-tipo").value, c = $("filtro-cat-serie").value;
+    const linhas = D.series.filter(s => (!t || s.tipo === t) && (!c || s.categoria === c))
+      .sort((a, b) => b.media_mensal - a.media_mensal);
+    tabela($("tabela-series"), [
+      { t: "Item", f: s => esc(s.rotulo), livre: true },
+      { t: "Categoria", f: s => esc(s.categoria) },
+      { t: "Pessoa", f: s => s.pessoa === "Casa" ? "—" : esc(s.pessoa) },
+      { t: "Tipo", f: s => `<span class="selo">${esc(nomes[s.tipo] || s.tipo)}</span>` },
+      { t: "Valor típico", num: true, f: s => brl0.format(s.valor_tipico) },
+      { t: "Peso/mês", num: true, f: s => brl0.format(s.media_mensal) },
+      { t: "Meses", num: true, f: s => `${s.meses_ativos}/${D.janela.length}` },
+      { t: "Período", f: s => `${esc(s.primeiro)} – ${esc(s.ultimo)}` },
+    ], linhas);
+  };
+  $("filtro-tipo").addEventListener("change", desenha);
+  $("filtro-cat-serie").addEventListener("change", desenha);
+  desenha();
+}
+
+function mudancas() {
+  const bloco = (titulo, itens, nota) => `<div class="painel">
+    <div class="cabeca" style="margin-bottom:4px"><h3 style="margin:0;font-size:15.5px">${esc(titulo)}</h3></div>
+    <p class="sub" style="margin-bottom:12px">${esc(nota)}</p>
+    ${itens.length ? `<div class="rolagem"><table><thead><tr><th>Item</th><th class="num">Valor típico</th><th>Período</th></tr></thead>
+      <tbody>${itens.map(i => `<tr><td class="livre">${esc(i.rotulo)}</td>
+        <td class="num">${brl0.format(i.valor_tipico)}</td>
+        <td>${esc(i.primeiro)} – ${esc(i.ultimo)}</td></tr>`).join("")}</tbody></table></div>`
+      : `<p class="sub">Nada relevante.</p>`}</div>`;
+  $("mudancas").innerHTML =
+    bloco("Saíram", D.mudancas.sairam, "Recorrentes que pararam de aparecer nos últimos meses.") +
+    bloco("Entraram", D.mudancas.entraram, "Recorrentes que começaram dentro do período recente.");
+}
+
+function oportunidades() {
+  const selo = { alta: "alta", media: "media", "a confirmar": "confirmar" };
+  $("oportunidades").innerHTML = D.oportunidades.map(o => `<article class="ficha">
+    <div><h3>${esc(o.titulo)}</h3>
+      <div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap">
+        <span class="selo ${selo[o.confianca] || ""}">confiança ${esc(o.confianca)}</span>
+        <span class="selo">${esc(o.categoria)}</span></div></div>
+    <div class="cifra">${brl0.format(o.impacto_mensal)}<small>por mês · ${brl0.format(o.impacto_anual)} ao ano</small></div>
+    <p>${esc(o.detalhe)}</p>
+    ${o.evidencia.length ? `<ul>${o.evidencia.map(e => `<li>${esc(e)}</li>`).join("")}</ul>` : ""}
+  </article>`).join("");
+}
+
+function conciliacao() {
+  const c = D.conciliacoes[0];
+  if (!c) { $("sec-conciliacao").hidden = true; return; }
+  const rotulos = { so_no_texto: "só no controle", valor_diferente: "valor diferente", so_na_planilha: "só na planilha" };
+  $("sub-conciliacao").textContent = `O controle de ${c.rotulo} soma ${brl.format(c.total_texto)}. `
+    + `A planilha, no mesmo mês, soma ${brl.format(c.total_planilha)}. `
+    + (c.diferenca ? `A diferença de ${brl.format(c.diferenca)} está nos itens abaixo.` : "Os dois batem.");
+  $("conciliacao").innerHTML = c.divergencias.length
+    ? `<div class="rolagem"><table><thead><tr><th>Onde aparece</th><th>Item</th><th>Categoria</th>
+        <th class="num">Controle</th><th class="num">Planilha</th></tr></thead>
+      <tbody>${c.divergencias.map(d => `<tr>
+        <td><span class="selo ${d.tipo === "so_no_texto" ? "falta" : ""}">${esc(rotulos[d.tipo])}</span></td>
+        <td class="livre">${esc(d.descricao)}</td><td>${esc(d.categoria)}</td>
+        <td class="num">${d.valor_texto ? brl.format(d.valor_texto) : "—"}</td>
+        <td class="num">${d.valor_planilha ? brl.format(d.valor_planilha) : "—"}</td></tr>`).join("")}</tbody></table></div>`
+    : `<p class="sub">Nenhuma divergência.</p>`;
+}
+
+function perguntas() {
+  if (!D.pendencias.length) { $("sec-perguntas").hidden = true; return; }
+  tabela($("tabela-perguntas"), [
+    { t: "Pagamento", f: p => esc(p.rotulo), livre: true },
+    { t: "Total pago", num: true, f: p => brl.format(p.total) },
+    { t: "Período", f: p => `${esc(p.primeiro)} – ${esc(p.ultimo)}` },
+  ], D.pendencias);
+}
+
+let limite = 120;
+function lancamentos() {
+  const cats = [...new Set(D.lancamentos.map(l => l.categoria))].sort();
+  const pess = [...new Set(D.lancamentos.map(l => l.pessoa))].sort();
+  if (!$("filtro-cat").options.length) {
+    $("filtro-cat").innerHTML = `<option value="">todas</option>` + cats.map(c => `<option>${esc(c)}</option>`).join("");
+    $("filtro-pessoa").innerHTML = `<option value="">todas</option>` + pess.map(p => `<option>${esc(p)}</option>`).join("");
+  }
+  const desenha = () => {
+    const ms = new Set(mesesDoPeriodo());
+    const c = $("filtro-cat").value, p = $("filtro-pessoa").value;
+    const q = $("filtro-busca").value.trim().toLowerCase();
+    const linhas = D.lancamentos.filter(l => ms.has(l.competencia)
+      && (!c || l.categoria === c) && (!p || l.pessoa === p)
+      && (!q || l.descricao.toLowerCase().includes(q)))
+      .sort((a, b) => a.competencia === b.competencia ? b.valor - a.valor : (a.competencia < b.competencia ? 1 : -1));
+    $("selo-lanc").textContent = `${linhas.length} lançamentos · ${brl0.format(linhas.reduce((s, l) => s + l.valor, 0))}`;
+    tabela($("tabela-lancamentos"), [
+      { t: "Mês", f: l => esc(l.rotulo_mes) },
+      { t: "Descrição", f: l => esc(l.descricao) + (l.origem === "texto" ? ` <span class="selo falta">fora da planilha</span>` : ""), livre: true },
+      { t: "Categoria", f: l => esc(l.categoria) },
+      { t: "Subcategoria", f: l => esc(l.subcategoria || "—") },
+      { t: "Pessoa", f: l => l.pessoa === "Casa" ? "—" : esc(l.pessoa) },
+      { t: "Forma", f: l => esc(l.forma) },
+      { t: "Valor", num: true, f: l => brl.format(l.valor) },
+    ], linhas.slice(0, limite));
+    $("btn-mais").hidden = linhas.length <= limite;
+    $("btn-mais").textContent = `Mostrar mais (${linhas.length - limite} restantes)`;
+  };
+  ["filtro-cat", "filtro-pessoa"].forEach(id => $(id).onchange = () => { limite = 120; desenha(); });
+  $("filtro-busca").oninput = () => { limite = 120; desenha(); };
+  $("btn-mais").onclick = () => { limite += 200; desenha(); };
+  desenha();
+}
+
+function tudo() { placas(); categorias(); pessoas(); lancamentos(); }
+
+function iniciar() {
+  $("periodo").innerHTML = `<option value="${JANELA}">Janela — ${D.janela.length} meses fechados</option>`
+    + `<option value="__tudo__">Base inteira — ${D.meses.length} meses</option>`
+    + D.meses.slice().reverse().map(m => `<option value="${m.id}">${m.rotulo}${m.previsao ? " (previsão)" : ""}</option>`).join("");
+  $("periodo").value = periodo;
+  $("periodo").addEventListener("change", ev => { periodo = ev.target.value; limite = 120; tudo(); });
+
+  $("btn-tabela-comp").addEventListener("click", ev => {
+    const aberto = $("tabela-composicao").hidden;
+    $("tabela-composicao").hidden = !aberto;
+    $("tela-composicao").hidden = aberto;
+    $("legenda-composicao").hidden = aberto;
+    ev.currentTarget.setAttribute("aria-pressed", String(aberto));
+    ev.currentTarget.textContent = aberto ? "Ver como gráfico" : "Ver como tabela";
+  });
+
+  linhaDoTempo(); composicao(); natureza(); mudancas(); oportunidades();
+  conciliacao(); perguntas(); tudo();
+
+  $("rodape").innerHTML = `Gerado em ${esc(D.gerado_em)} a partir da planilha da casa e do controle de ${esc(D.conciliacoes[0]?.rotulo || "—")}. `
+    + `Chaves PIX, CPF, CNPJ e linhas digitáveis de boleto são descartadas na leitura e não estão nesta página.`
+    + (D.avisos.length ? `<br>Avisos: ${D.avisos.map(esc).join(" · ")}` : "");
+
+  addEventListener("resize", () => { linhaDoTempo(); composicao(); categorias(); pessoas(); });
+}
+
+iniciar();
+</script>

@@ -1,0 +1,11 @@
+# Os dados da casa nao entram no repositorio: sao financeiros e pessoais, e
+# este repositorio e um fork publico. O codigo fica versionado; os numeros nao.
+dados/
+*.xlsx
+*.xls
+*.csv
+painel.html
+painel.json
+
+__pycache__/
+*.pyc
