@@ -60,6 +60,9 @@ controle .txt ──┘                                              │
 | `regras.py` | taxonomia e regras de categoria, subcategoria e pessoa |
 | `analise.py` | séries mensais, fixo/variável/parcelado, oportunidades |
 | `consolidacao.py` | junta as duas fontes sem contar o mesmo pagamento duas vezes |
+| `pdf.py` | lê texto de PDF sem dependências, com posição e `ToUnicode` |
+| `fatura.py` | fatura de cartão em PDF → lançamentos, com conferência |
+| `parcelas.py` | parcelas em curso e o quanto comprometem dos meses a vir |
 | `baseline.py` | o piso mensal: comprometido, variável, provisão anual |
 | `painel.py` | monta o payload e injeta no template |
 
@@ -79,6 +82,21 @@ Agrupar por descrição transformaria um gasto fixo em três avulsos.
 **Totais da planilha são recalculados.** Várias abas guardam um total de fórmula
 desatualizado. O parser identifica a linha de total pela ordem de grandeza e a
 descarta, somando os lançamentos de novo.
+
+**Toda leitura se confere sozinha.** Cada fatura declara quanto foi comprado no
+período, e a soma dos lançamentos lidos tem que bater com esse número; cada aba
+mensal tem um total, e a soma das linhas tem que bater com ele. Quando não bate,
+a diferença é reportada em vez de virar um número plausível e errado.
+
+**Parcela só é contada uma vez.** Um parcelamento aparece em toda fatura até
+acabar, então somar as faturas contaria a mesma compra várias vezes. O retrato
+vem da última fatura de cada cartão ativo. Cartão substituído não conta: quando
+um cartão para de receber faturas, o saldo dele migrou para o novo.
+
+**O cartão entra no piso em duas linhas, não em mil.** A parcela em curso é
+compromisso, porque vai cair no mês que vem sem ninguém decidir nada. O resto da
+fatura é consumo, e entra pela mediana. Item a item, um restaurante frequentado
+todo mês viraria "compromisso fixo", o que ele não é.
 
 **Baseline e histórico respondem perguntas diferentes.** O histórico diz quanto
 saiu. O baseline diz quanto vai sair de novo no mês que vem sem ninguém decidir

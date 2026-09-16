@@ -35,6 +35,11 @@ FINANCEIRO = "Financeiro"
 JURIDICO = "Jurídico e contábil"
 LAZER = "Lazer, festas e presentes"
 TRABALHO = "Trabalho"
+VIAGENS = "Viagens"
+TRANSPORTE = "Transporte"
+TECNOLOGIA = "Tecnologia e assinaturas"
+COMPRAS = "Compras pessoais"
+SEGUROS = "Seguros"
 AVULSOS = "Avulsos"
 SEM_CATEGORIA = "Não classificado"
 
@@ -42,7 +47,8 @@ SEM_CATEGORIA = "Não classificado"
 CATEGORIAS = [
     MORADIA, EQUIPE, EDUCACAO, SAUDE, FINANCEIRO, ATIVIDADES, CONTAS,
     SERVICOS, SEGURANCA, JURIDICO, MANUTENCAO, ALIMENTACAO, VEICULOS,
-    IMPOSTOS, LAZER, PETS, TRABALHO, AVULSOS, SEM_CATEGORIA,
+    IMPOSTOS, LAZER, PETS, TRABALHO, VIAGENS, TRANSPORTE, TECNOLOGIA,
+    COMPRAS, SEGUROS, AVULSOS, SEM_CATEGORIA,
 ]
 
 # --------------------------------------------------------------------------
@@ -85,6 +91,79 @@ class Regra:
 # As regras usam a descricao ja canonizada: minuscula, sem acento e sem
 # pontuacao. "Balet Duda (01 de 03)" vira "balet duda 01 de 03".
 REGRAS: list[Regra] = [
+    # ---- vocabulario do cartao de credito --------------------------------
+    # Cobradores digitais e assinaturas vem antes das regras gerais: "Amazon
+    # Prime Aluguel" e um filme alugado, nao o aluguel da casa.
+    Regra(r"apple ?com ?bill|itunes|app ?store", TECNOLOGIA, "Apple"),
+    Regra(r"amazon|prime video", TECNOLOGIA, "Amazon"),
+    Regra(r"netflix|spotify|disney|hbo|max ?stream|youtube|deezer|paramount",
+          TECNOLOGIA, "Streaming"),
+    Regra(r"google|microsoft|openai|anthropic|manus ai|claude|chatgpt|audible",
+          TECNOLOGIA, "Serviços digitais"),
+    Regra(r"\bicloud\b|dropbox|adobe|canva|figma", TECNOLOGIA, "Serviços digitais"),
+
+    Regra(r"chapel school", EDUCACAO, "Escola"),
+    Regra(r"oblatos|colegio|school|instituto llife|kumon",
+          EDUCACAO, "Escola"),
+
+    Regra(r"\buber\b|99 ?app|99 ?tecnologia|cabify|taxi", TRANSPORTE, "Aplicativos"),
+    Regra(r"estacionamento|park\b|parking|allpark|estapar|hora park|ke park|jg park",
+          TRANSPORTE, "Estacionamento"),
+    Regra(r"posto|ipiranga|shell|petrobras|br mania|combustivel|alcool",
+          TRANSPORTE, "Combustível"),
+    Regra(r"sem parar|conectcar|veloe|pedagio|autoban|ecovias",
+          TRANSPORTE, "Pedágio"),
+
+    Regra(r"latam|gol linhas|azul|american airlin|tap portugal|air france|"
+          r"united air|emirates|iberia|copa air", VIAGENS, "Passagens aéreas"),
+    Regra(r"eaidestino|decolar|booking|expedia|airbnb|hoteis|hotel|pousada|"
+          r"resort|fasano|emiliano|intercity|sheraton|hyatt|marriott",
+          VIAGENS, "Hospedagem"),
+    Regra(r"car rental|localiza|movida|unidas|hertz|avis|rent ?a ?car|"
+          r"rentcars|rent srl|penisola rent", VIAGENS, "Aluguel de carro"),
+    Regra(r"palacio tangara|tivoli|mofarrej|copacabana palace|belmond|"
+          r"four seasons|rosewood|villa|riad", VIAGENS, "Hospedagem"),
+    Regra(r"cambio|western union|remessa|wise |currency",
+          FINANCEIRO, "Câmbio e remessas"),
+    Regra(r"vivid seats|ticketmaster|eventim|sympla|ingresso",
+          VIAGENS, "Ingressos e eventos"),
+    Regra(r"custo trans|iof|exterior", FINANCEIRO, "Encargos do cartão"),
+
+    Regra(r"\bifd\b|ifood|rappi|zedelivery|ze delivery|uber ?eats|delivery",
+          ALIMENTACAO, "Delivery"),
+    Regra(r"restaurant|churrascaria|pizzaria|cafe\b|cafeteria|bar\b|padaria|"
+          r"bistro|trattoria|sushi|burger|starbucks|havanna|emporio",
+          ALIMENTACAO, "Restaurantes"),
+    Regra(r"sams|carrefour|pao de acucar|extra\b|assai|atacadao|mercado|"
+          r"supermerc|hortifruti|st marche|oba hortifruti|sacolao|mambo|"
+          r"natural da terra|zona sul|hortifrut", ALIMENTACAO, "Supermercado"),
+
+    Regra(r"drogaria|drogasil|farmacia|raia|pacheco|panvel|onofre",
+          SAUDE, "Farmácia"),
+    Regra(r"laborator|fleury|delboni|einstein|sirio|hospital|clinica|"
+          r"dermatolog|derma\b", SAUDE, "Consultas e exames"),
+    Regra(r"contorno do corpo|estetica|spa\b|cabelereiro|cabeleireiro|"
+          r"barbearia|manicure|salao", COMPRAS, "Cuidados pessoais"),
+
+    Regra(r"porto seguro|seguradora|seguro |bradesco seguro|sulamerica seguro|"
+          r"allianz|tokio marine", SEGUROS, "Seguros"),
+    Regra(r"gwm |dahruj|blindagem|concession|volvo|audi |bmw |mercedes|"
+          r"toyota|honda auto", VEICULOS, "Compra e blindagem"),
+    Regra(r"oficina|autopec|pneu|pneus|mecanic|funilaria|lava ?rapido",
+          VEICULOS, "Manutenção"),
+
+    Regra(r"anuidade|encargo|juros|multa de mora|tarifa|pix cartao",
+          FINANCEIRO, "Encargos do cartão"),
+    Regra(r"^pix\b", FINANCEIRO, "PIX no cartão"),
+
+    Regra(r"horologer|seiko|rolex|joalheri|joias|vivara|tiffany|reloj|"
+          r"relojoaria|cartier|omega ", COMPRAS, "Relógios e joias"),
+    Regra(r"zara|renner|riachuelo|c&a|farm\b|osklen|reserva|arezzo|"
+          r"nike|adidas|centauro|decathlon", COMPRAS, "Vestuário"),
+    Regra(r"livraria|saraiva|cultura|papelaria|kalunga", COMPRAS, "Livros e papelaria"),
+    Regra(r"magazine|americanas|mercado ?livre|shopee|aliexpress|shein",
+          COMPRAS, "Varejo online"),
+
     # ---- Equipe domestica: encargos, beneficios e verbas ------------------
     Regra(r"\bgps\b|\bdae\b|e social|esocial", EQUIPE, "Encargos (GPS/DAE)"),
     Regra(r"rescisao leidi", EQUIPE, "Rescisão", "Leidi"),
@@ -114,7 +193,7 @@ REGRAS: list[Regra] = [
 
     # ---- Moradia ---------------------------------------------------------
     Regra(r"a?[kl]uguel.*iptu|aluguel e iptu", MORADIA, "Aluguel e IPTU"),
-    Regra(r"\baluguel\b(?!.*brinquedo)", MORADIA, "Aluguel e IPTU"),
+    Regra(r"^a?[kl]uguel\b", MORADIA, "Aluguel e IPTU"),
     Regra(r"condominio", MORADIA, "Condomínio"),
     Regra(r"extra apto", MORADIA, "Apartamento"),
     Regra(r"\biptu\b", MORADIA, "IPTU"),

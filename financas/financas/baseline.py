@@ -20,8 +20,10 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from .analise import Analise, Serie
+from .fatura import Fatura
 from .modelo import chave
-from .regras import AVULSOS
+from .parcelas import Parcelamento, cronograma
+from .regras import AVULSOS, FINANCEIRO
 
 #: Presenca minima nos meses do regime para o item ser parte do piso.
 PRESENCA_COMPROMETIDA = 0.8
@@ -129,6 +131,8 @@ def _carregar_confirmados(caminho: str | None) -> dict:
 def montar(
     analise: Analise, regime_inicio: str | None = None,
     confirmados: str | None = None,
+    faturas: list[Fatura] | None = None,
+    parcelamentos: list[Parcelamento] | None = None,
 ) -> Baseline:
     config = _carregar_confirmados(confirmados)
     inicio = regime_inicio or config.get("regime_inicio") or detectar_regime(analise)
@@ -146,6 +150,11 @@ def montar(
     for serie in analise.series:
         presentes = serie.presenca_em(meses)
         if presentes == 0 or serie.categoria == AVULSOS:
+            continue
+        # O cartao entra depois, em duas linhas: a parcela, que e compromisso,
+        # e o resto, que e consumo. Item a item, um restaurante frequentado
+        # todo mes viraria "compromisso fixo", o que ele nao e.
+        if serie.no_cartao:
             continue
         fracao = presentes / len(meses)
         if fracao < PRESENCA_VARIAVEL:
@@ -213,6 +222,7 @@ def montar(
             nota=item.get("nota", ""),
         ))
 
+    _acrescentar_cartao(base, faturas or [], parcelamentos or [])
     _ratear_sazonais(analise, base)
     base.comprometidos.sort(key=lambda c: -c.valor)
     base.variaveis.sort(key=lambda c: -c.valor)
@@ -237,7 +247,7 @@ def _ratear_sazonais(analise: Analise, base: Baseline) -> None:
     base.meses_sazonais = janela
 
     for serie in analise.series:
-        if serie.categoria == AVULSOS:
+        if serie.categoria == AVULSOS or serie.no_cartao:
             continue
         if (serie.categoria, serie.subcategoria, serie.pessoa) in ja_contados:
             continue
@@ -265,6 +275,59 @@ def _ratear_sazonais(analise: Analise, base: Baseline) -> None:
             nota=(f"{_formata_total(total)} observados em {len(janela)} "
                   f"{'mês' if len(janela) == 1 else 'meses'}, rateado por "
                   f"{MESES_DE_SAZONAIS}"),
+        ))
+
+
+def _acrescentar_cartao(
+    base: Baseline, faturas: list[Fatura], parcelamentos: list[Parcelamento]
+) -> None:
+    """Poe o cartao no baseline como duas linhas, nao como mil.
+
+    A parcela em curso e compromisso: ela vai cair no mes que vem sem ninguem
+    decidir nada. O resto da fatura e consumo, que varia, e entra pela mediana
+    dos meses do regime.
+    """
+    if not faturas:
+        return
+
+    proximo = cronograma(parcelamentos, meses=1)
+    if proximo:
+        competencia, valor, quantidade = proximo[0]
+        base.comprometidos.append(Compromisso(
+            rotulo="Parcelas em curso no cartão",
+            categoria=FINANCEIRO,
+            subcategoria="Parcelas do cartão",
+            pessoa="Casa",
+            valor=valor,
+            tipo="comprometido",
+            meses_observados=len(base.meses_regime),
+            meses_regime=len(base.meses_regime),
+            origem="fatura",
+            nota=(f"{quantidade} parcelas com vencimento em "
+                  f"{competencia}; o valor cai a cada mes que uma acaba"),
+        ))
+
+    # Compras que nao sao parcela, mes a mes, dentro do regime.
+    avulsas: list[float] = []
+    for fatura in faturas:
+        if fatura.competencia not in base.meses_regime:
+            continue
+        parcelado = sum(
+            l.valor for l in fatura.lancamentos if l.parcela_total
+        )
+        avulsas.append(max(fatura.soma_lida - parcelado, 0.0))
+    if avulsas:
+        base.variaveis.append(Compromisso(
+            rotulo="Compras no cartão, fora parcelas",
+            categoria=FINANCEIRO,
+            subcategoria="Cartão de crédito",
+            pessoa="Casa",
+            valor=round(statistics.median(avulsas), 2),
+            tipo="variavel",
+            meses_observados=len(avulsas),
+            meses_regime=len(base.meses_regime),
+            origem="fatura",
+            nota="mediana do que foi comprado sem parcelar, nos meses do regime",
         ))
 
 

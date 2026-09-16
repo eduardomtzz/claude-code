@@ -34,6 +34,10 @@ def argumentos(argv: list[str] | None = None) -> argparse.Namespace:
         help="pasta de saida (padrao: dados)",
     )
     analisador.add_argument(
+        "--fatura", action="append", default=[], metavar="ARQUIVO",
+        help="fatura de cartao em PDF (repetivel)",
+    )
+    analisador.add_argument(
         "--confirmados", metavar="ARQUIVO",
         help="json com os valores confirmados pelo titular e o que falta",
     )
@@ -67,7 +71,7 @@ def principal(argv: list[str] | None = None) -> int:
         _dt.date.fromisoformat(opcoes.hoje) if opcoes.hoje else _dt.date.today()
     )
 
-    base = carregar(opcoes.planilha, opcoes.texto)
+    base = carregar(opcoes.planilha, opcoes.texto, opcoes.fatura)
     payload = montar_payload(
         base, hoje, regime=opcoes.regime, confirmados=opcoes.confirmados
     )
@@ -84,6 +88,12 @@ def principal(argv: list[str] | None = None) -> int:
     print(f"{len(payload['lancamentos'])} lancamentos "
           f"em {len(payload['meses'])} meses")
     print(f"{len(payload['oportunidades'])} oportunidades mapeadas")
+    if base.faturas:
+        fecham = sum(1 for f in base.faturas if f.confere)
+        print(f"{fecham}/{len(base.faturas)} faturas conferem com o total declarado")
+        print(f"{len(base.parcelamentos)} parcelamentos em curso")
+        if base.sobreposicoes:
+            print(f"  {len(base.sobreposicoes)} possiveis duplicidades planilha/cartao")
     linha_base = payload["baseline"]
     print(f"piso mensal: R$ {linha_base['piso']:,.2f} "
           f"({len(linha_base['meses_regime'])} meses do regime atual)")

@@ -8,6 +8,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from . import baseline as mod_baseline
+from . import parcelas as mod_parcelas
 from .analise import Analise, analisar
 from .consolidacao import Base
 from .modelo import MESES_CURTOS
@@ -37,7 +38,9 @@ def montar_payload(
 ) -> dict:
     hoje = hoje or _dt.date.today()
     analise = analisar(base.lancamentos, hoje)
-    linha_base = mod_baseline.montar(analise, regime, confirmados)
+    linha_base = mod_baseline.montar(
+        analise, regime, confirmados, base.faturas, base.parcelamentos
+    )
     janela = analise.janela
 
     por_categoria = analise.por_categoria_mes()
@@ -152,6 +155,7 @@ def montar_payload(
             } for d in c.divergencias],
         } for c in base.conciliacoes],
         "baseline": _baseline(linha_base),
+        "cartoes": _cartoes(base),
         "mudancas": _mudancas(analise, hoje),
         "pendencias": [{
             "rotulo": s.rotulo,
@@ -173,6 +177,58 @@ def montar_payload(
             "observacao": l.observacao,
         } for l in base.lancamentos],
         "avisos": base.avisos,
+    }
+
+
+def _cartoes(base: Base) -> dict:
+    """Faturas lidas, parcelas em curso e o que cai em cada mes a frente."""
+    if not base.faturas:
+        return {}
+    ativos = mod_parcelas.cartoes_ativos(base.faturas)
+    return {
+        "faturas": [{
+            "cartao": f.cartao,
+            "produto": f.produto,
+            "competencia": f.competencia,
+            "rotulo": rotulo_mes(f.competencia) if f.competencia else "",
+            "total": f.total,
+            "compras": f.compras,
+            "lido": f.soma_lida,
+            "diferenca": f.diferenca,
+            "confere": f.confere,
+            "itens": len(f.lancamentos),
+            "parcelado_futuro": f.parcelado_futuro,
+        } for f in sorted(base.faturas, key=lambda f: (f.cartao, f.competencia))],
+        "cartoes_ativos": sorted(ativos),
+        "comprometido_declarado": round(
+            sum(f.parcelado_futuro for f in ativos.values()), 2
+        ),
+        "comprometido_lido": mod_parcelas.total_comprometido(base.parcelamentos),
+        "parcelamentos": [{
+            "descricao": p.descricao,
+            "cartao": p.cartao,
+            "categoria": p.categoria,
+            "valor": p.valor,
+            "parcela": p.parcela,
+            "total": p.total,
+            "restantes": p.restantes,
+            "comprometido": p.comprometido,
+            "ultima": rotulo_mes(p.ultima_competencia),
+        } for p in base.parcelamentos],
+        "cronograma": [
+            {"competencia": c, "rotulo": rotulo_mes(c), "valor": v, "parcelas": n}
+            for c, v, n in mod_parcelas.cronograma(base.parcelamentos, meses=18)
+        ],
+        "sobreposicoes": [{
+            "competencia": s.competencia,
+            "rotulo": rotulo_mes(s.competencia),
+            "categoria": s.categoria,
+            "subcategoria": s.subcategoria,
+            "valor_planilha": s.valor_planilha,
+            "valor_cartao": s.valor_cartao,
+            "meses_em_comum": [rotulo_mes(c) for c in s.meses_em_comum],
+            "itens_cartao": s.itens_cartao,
+        } for s in base.sobreposicoes],
     }
 
 

@@ -19,6 +19,13 @@ JANELA = 6
 #: Coeficiente de variacao abaixo do qual um gasto recorrente e considerado fixo.
 LIMITE_FIXO = 0.15
 
+#: Quanto uma oportunidade precisa devolver por mes para valer a leitura.
+IMPACTO_MINIMO = 100.0
+
+#: Quantas oportunidades o painel mostra. Uma lista de cem itens nao e uma
+#: lista de prioridades.
+MAXIMO_DE_OPORTUNIDADES = 12
+
 #: Fracao das ocorrencias que uma grafia precisa somar para nomear a serie.
 DOMINANCIA_DE_GRAFIA = 0.6
 
@@ -58,6 +65,21 @@ class Serie:
     por_mes: dict[str, float] = field(default_factory=dict)
     parcela: int | None = None
     parcela_total: int | None = None
+    #: Quantos lancamentos da serie vieram de fatura de cartao, e quantos ao
+    #: todo. O baseline trata o cartao em bloco, e nao item a item.
+    lancamentos_no_cartao: int = 0
+    lancamentos_totais: int = 0
+
+    @property
+    def no_cartao(self) -> bool:
+        """A serie e majoritariamente cartao.
+
+        Uma unica compra avulsa no cartao nao transforma o aluguel, pago por
+        boleto todo mes, num gasto de cartao.
+        """
+        if not self.lancamentos_totais:
+            return False
+        return self.lancamentos_no_cartao > self.lancamentos_totais / 2
 
     @property
     def total(self) -> float:
@@ -205,6 +227,9 @@ def montar_series(lancamentos: list[Lancamento]) -> list[Serie]:
             serie.por_mes.get(l.competencia, 0.0) + l.valor, 2
         )
         rotulos[identidade][l.rotulo] += 1
+        serie.lancamentos_totais += 1
+        if l.forma == "cartao":
+            serie.lancamentos_no_cartao += 1
         # Guarda a parcela mais avancada vista, que e a que diz quanto falta.
         if l.parcela_total and (l.parcela or 0) > (serie.parcela or 0):
             serie.parcela = l.parcela
@@ -294,7 +319,9 @@ def detectar_oportunidades(analise: Analise) -> list[Oportunidade]:
     achados += _concentracao(analise, ativas, janela)
     achados += _itens_estaveis_grandes(ativas, janela)
 
-    return sorted(achados, key=lambda o: -o.impacto_mensal)
+    relevantes = [o for o in achados if o.impacto_mensal >= IMPACTO_MINIMO]
+    ordenadas = sorted(relevantes, key=lambda o: -o.impacto_mensal)
+    return ordenadas[:MAXIMO_DE_OPORTUNIDADES]
 
 
 #: Grupos de fornecedores que entregam servicos proximos e podem ser

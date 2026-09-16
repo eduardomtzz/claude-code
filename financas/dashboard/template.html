@@ -109,7 +109,7 @@
   .abertura p { margin: 0; max-width: 62ch; color: var(--tinta-2); font-size: 15.5px; }
 
   /* ---- placas de numero ------------------------------------------------ */
-  .placas { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px;
+  .placas { display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); gap: 1px;
             background: var(--borda); border: 1px solid var(--borda); border-radius: 12px;
             overflow: hidden; margin-top: 24px; }
   .placa { background: var(--superficie); padding: 16px 18px; }
@@ -265,6 +265,26 @@
       <div id="pendentes-baseline"></div>
     </div>
     <div class="duas" style="margin-top:12px" id="listas-baseline"></div>
+  </section>
+
+  <section id="sec-cartao">
+    <div class="cabeca"><h2>Cartão de crédito</h2><span class="selo" id="selo-cartao"></span></div>
+    <p class="sub" id="sub-cartao"></p>
+    <div class="painel">
+      <div class="soma" id="soma-cartao"></div>
+      <div class="tela" id="tela-cronograma" style="margin-top:18px"></div>
+    </div>
+    <div class="painel" style="margin-top:12px">
+      <h3 style="margin:0 0 4px;font-size:15.5px;font-weight:600">Parcelas em curso</h3>
+      <p class="sub" style="margin-bottom:12px" id="sub-parcelas"></p>
+      <div class="rolagem"><table id="tabela-parcelas"></table></div>
+    </div>
+    <div id="sobreposicoes"></div>
+    <details class="painel" style="margin-top:12px">
+      <summary style="cursor:pointer;font-weight:600;font-size:15px">Conferência das faturas</summary>
+      <p class="sub" style="margin:10px 0 12px">Cada fatura declara quanto foi comprado no período. A leitura tem que bater com esse número.</p>
+      <div class="rolagem"><table id="tabela-faturas"></table></div>
+    </details>
   </section>
 
   <section id="sec-linha">
@@ -595,6 +615,98 @@ function tabela(el, colunas, linhas) {
 }
 
 /* ---------- montagem -------------------------------------------------- */
+function cartao() {
+  const C = D.cartoes;
+  if (!C || !C.faturas || !C.faturas.length) { $("sec-cartao").hidden = true; return; }
+
+  $("selo-cartao").textContent = `${C.faturas.length} faturas · ${C.cartoes_ativos.join(" e ")}`;
+  $("sub-cartao").textContent =
+    `As faturas trazem o que saiu da planilha quando a escola e outros gastos migraram para o cartão. `
+    + `O número que importa para os próximos meses é o de parcelas já comprometidas: ele cai sozinho, `
+    + `mês a mês, à medida que cada parcelamento termina.`;
+
+  $("soma-cartao").innerHTML = [
+    ["comprometido em parcelas", C.comprometido_declarado],
+    ["cai na próxima fatura", C.cronograma[0] ? C.cronograma[0].valor : 0],
+    ["parcelamentos em curso", C.parcelamentos.length, true],
+  ].map(([rot, val, contagem]) =>
+    `<span class="parcela"><span class="rot">${esc(rot)}</span><b class="resultado">${
+      contagem ? val : brl0.format(val)}</b></span>`).join("");
+
+  // Cronograma: quanto de parcela cai em cada mês daqui para a frente.
+  const host = $("tela-cronograma");
+  const ms = C.cronograma;
+  if (ms.length) {
+    const W = 900, H = 200, L = 62, R = 10, T = 12, B = 34;
+    const { topo, marcas } = escala(Math.max(...ms.map(m => m.valor)));
+    const passo = (W - L - R) / ms.length;
+    const larg = Math.min(passo - 6, 34);
+    const py = v => T + (H - T - B) * (1 - v / topo);
+    host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Parcelas por mês a vencer">
+      ${marcas.map(v => `<line class="linha-grade" x1="${L}" y1="${py(v).toFixed(1)}" x2="${W - R}" y2="${py(v).toFixed(1)}"></line>
+        <text class="eixo-txt" x="${L - 8}" y="${(py(v) + 4).toFixed(1)}" text-anchor="end">${brl0.format(v)}</text>`).join("")}
+      ${ms.map((m, i) => {
+        const x = L + passo * i + (passo - larg) / 2, y = py(m.valor);
+        return `<g class="col" data-i="${i}">
+          <rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${larg.toFixed(1)}"
+                height="${Math.max(py(0) - y, 1).toFixed(1)}" rx="4" fill="var(--s2)"></rect>
+          <rect x="${(L + passo * i).toFixed(1)}" y="${T}" width="${passo.toFixed(1)}"
+                height="${H - T - B}" fill="transparent"></rect></g>`;
+      }).join("")}
+      <line class="linha-eixo" x1="${L}" y1="${py(0)}" x2="${W - R}" y2="${py(0)}"></line>
+      ${ms.map((m, i) => (i % 2 === 0 || ms.length < 8)
+        ? `<text class="eixo-txt" x="${(L + passo * i + passo / 2).toFixed(1)}" y="${H - B + 18}" text-anchor="middle">${m.rotulo}</text>` : "").join("")}
+    </svg>`;
+    const svg = host.querySelector("svg"), d = dica(host);
+    svg.querySelectorAll(".col").forEach(g => {
+      const m = ms[+g.dataset.i];
+      g.addEventListener("pointermove", ev => {
+        const caixa = svg.getBoundingClientRect();
+        d.mostra(`<b>${m.rotulo}</b>
+          <div class="l"><span>parcelas</span><span>${m.parcelas}</span></div>
+          <div class="l"><span>valor</span><span>${brl.format(m.valor)}</span></div>`,
+          ev.clientX - caixa.left, ev.clientY - caixa.top);
+      });
+      g.addEventListener("pointerleave", () => d.esconde());
+    });
+  }
+
+  $("sub-parcelas").textContent =
+    `${C.parcelamentos.length} parcelamentos somam ${brl0.format(C.comprometido_lido)} a vencer. `
+    + `As faturas declaram ${brl0.format(C.comprometido_declarado)}; a diferença de `
+    + `${brl0.format(C.comprometido_declarado - C.comprometido_lido)} está em linhas cujo número de parcela não veio legível.`;
+
+  tabela($("tabela-parcelas"), [
+    { t: "Compra", f: p => esc(p.descricao), livre: true },
+    { t: "Categoria", f: p => esc(p.categoria) },
+    { t: "Cartão", f: p => esc(p.cartao) },
+    { t: "Parcela", f: p => `${p.parcela} de ${p.total}` },
+    { t: "Valor", num: true, f: p => brl0.format(p.valor) },
+    { t: "Faltam", num: true, f: p => p.restantes },
+    { t: "A vencer", num: true, f: p => brl0.format(p.comprometido) },
+    { t: "Termina", f: p => esc(p.ultima) },
+  ], C.parcelamentos);
+
+  $("sobreposicoes").innerHTML = C.sobreposicoes.length ? C.sobreposicoes.map(s => `<div class="aviso">
+      <span class="sinal" aria-hidden="true">!</span>
+      <h3>${esc(s.subcategoria)} sai pelos dois controles</h3>
+      <p>Em ${s.meses_em_comum.length} meses, ${esc(s.subcategoria.toLowerCase())} aparece na planilha
+         (${brl0.format(s.valor_planilha)}) e também no cartão (${brl0.format(s.valor_cartao)}).
+         No cartão: ${esc(s.itens_cartao.slice(0, 3).join(", "))}.
+         Se for a mesma coisa, o piso está contando duas vezes.</p>
+    </div>`).join("") : "";
+
+  tabela($("tabela-faturas"), [
+    { t: "Cartão", f: f => esc(f.cartao) },
+    { t: "Competência", f: f => esc(f.rotulo) },
+    { t: "Total da fatura", num: true, f: f => brl0.format(f.total) },
+    { t: "Compras declaradas", num: true, f: f => brl0.format(f.compras) },
+    { t: "Lido", num: true, f: f => brl0.format(f.lido) },
+    { t: "Itens", num: true, f: f => f.itens },
+    { t: "Confere", f: f => `<span class="selo ${f.confere ? "alta" : "falta"}">${f.confere ? "bate" : brl0.format(f.diferenca)}</span>` },
+  ], C.faturas);
+}
+
 function baseline() {
   const B = D.baseline;
   $("selo-regime").textContent = `regime atual, desde ${B.regime_rotulo}`;
@@ -663,6 +775,8 @@ function placas() {
     ["Equipe doméstica", brl0.format(mediaNoPeriodo(equipe?.por_mes || {})),
       pct(mediaNoPeriodo(equipe?.por_mes || {}) / media) + " de tudo que sai"],
     ["Guardado para os filhos", brl0.format(poupanca), "aplicações, não é despesa"],
+    ["Parcelas comprometidas", brl0.format(D.cartoes?.comprometido_declarado || 0),
+      `${D.cartoes?.parcelamentos?.length || 0} parcelamentos a vencer no cartão`],
     ["Oportunidades mapeadas", brl0.format(ganho), brl0.format(ganho * 12) + " por ano"],
   ].map(([t, v, n]) => `<div class="placa"><dt>${esc(t)}</dt><dd>${esc(v)}<span class="nota">${esc(n)}</span></dd></div>`).join("");
 
@@ -853,7 +967,7 @@ function iniciar() {
     ev.currentTarget.textContent = aberto ? "Ver como gráfico" : "Ver como tabela";
   });
 
-  baseline(); linhaDoTempo(); composicao(); natureza(); mudancas(); oportunidades();
+  baseline(); cartao(); linhaDoTempo(); composicao(); natureza(); mudancas(); oportunidades();
   conciliacao(); perguntas(); tudo();
 
   $("rodape").innerHTML = `Gerado em ${esc(D.gerado_em)} a partir da planilha da casa e do controle de ${esc(D.conciliacoes[0]?.rotulo || "—")}. `

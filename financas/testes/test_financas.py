@@ -265,3 +265,141 @@ class TestBaseline(unittest.TestCase):
         base = self._base([lanc(m, "Aplicacao Victor", 1000) for m in meses])
         self.assertAlmostEqual(base.poupanca, 1000.0, places=2)
         self.assertGreater(base.piso, base.poupanca)
+
+
+def pdf_sintetico(linhas: list[str]) -> bytes:
+    """Monta um PDF minimo com uma pagina de texto, para testar o extrator."""
+    import zlib
+
+    corpo = ["BT /F1 9 Tf"]
+    for i, linha in enumerate(linhas):
+        texto = linha.replace("\\", r"\\").replace("(", r"\(").replace(")", r"\)")
+        corpo.append(f"1 0 0 1 40 {700 - i * 14} Tm ({texto}) Tj")
+    corpo.append("ET")
+    fluxo = zlib.compress("\n".join(corpo).encode("latin-1"))
+
+    objetos = [
+        b"<< /Type /Catalog /Pages 2 0 R >>",
+        b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+        b"<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 5 0 R >> >>"
+        b" /Contents 4 0 R >>",
+        b"<< /Length %d /Filter /FlateDecode >>\nstream\n" % len(fluxo)
+        + fluxo + b"\nendstream",
+        b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
+    ]
+    saida = b"%PDF-1.5\n"
+    for numero, objeto in enumerate(objetos, 1):
+        saida += b"%d 0 obj\n" % numero + objeto + b"\nendobj\n"
+    return saida + b"trailer << /Root 1 0 R >>\n%%EOF"
+
+
+class TestPDF(unittest.TestCase):
+    def test_le_as_linhas_na_ordem(self):
+        from financas.pdf import DocumentoPDF
+
+        doc = DocumentoPDF(pdf_sintetico(["primeira linha", "segunda linha"]))
+        self.assertEqual(doc.linhas()[0], ["primeira linha", "segunda linha"])
+
+    def test_recusa_arquivo_que_nao_e_pdf(self):
+        from financas.pdf import DocumentoPDF, ErroDePDF
+
+        with self.assertRaises(ErroDePDF):
+            DocumentoPDF(b"isto nao e um pdf")
+
+
+class TestFatura(unittest.TestCase):
+    LINHAS = [
+        "Total de fatura Vencimento",
+        "R$ 1.234,56 15 /09 /2026",
+        "Numero do Cartao 4271 XXXX XXXX 5902",
+        "(+)Compras/Debitos............R$ 1.234,56",
+        "Total para as proximas faturas R$ 9.000,00",
+        "Data Historico de Lancamentos Cidade US$ R$",
+        "02/09 SUPERMERCADO SAO PAULO 234,56",
+        "03/09 DROGARIA 05/10 SAO PAULO 100,00",
+        "04/09 HOTEL EM MIAMI USD 100,00 MIAMI 100,00 5,4400 544,00",
+        "05/09 AJUSTE A CREDITO 50,00 -",
+        "06/09 PAG BOLETO BANCARIO 800,00 -",
+        "07/09 ESCOLA PARTICULAR SAO PAULO 356,00",
+    ]
+
+    def _fatura(self):
+        import tempfile
+        from financas import fatura
+
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as arquivo:
+            arquivo.write(pdf_sintetico(self.LINHAS))
+            caminho = arquivo.name
+        return fatura.ler(caminho)
+
+    def test_le_cabecalho(self):
+        f = self._fatura()
+        self.assertEqual(f.competencia, "2026-09")
+        self.assertEqual(f.cartao, "Visa final 5902")
+        self.assertAlmostEqual(f.parcelado_futuro, 9000.0, places=2)
+
+    def test_soma_bate_com_o_declarado(self):
+        """A conferencia e o que separa uma leitura certa de uma plausivel."""
+        f = self._fatura()
+        self.assertTrue(f.confere, f"diferenca de {f.diferenca}")
+
+    def test_compra_internacional_usa_o_valor_em_real(self):
+        f = self._fatura()
+        hotel = [l for l in f.lancamentos if "HOTEL" in l.descricao][0]
+        self.assertAlmostEqual(hotel.valor, 544.0, places=2)
+
+    def test_credito_nao_entra_como_compra(self):
+        f = self._fatura()
+        descricoes = " ".join(l.descricao for l in f.lancamentos)
+        self.assertNotIn("AJUSTE", descricoes)
+        self.assertNotIn("BOLETO", descricoes)
+        self.assertEqual(len(f.creditos), 2)
+
+    def test_reconhece_a_parcela(self):
+        f = self._fatura()
+        drogaria = [l for l in f.lancamentos if "DROGARIA" in l.descricao][0]
+        self.assertEqual((drogaria.parcela, drogaria.parcela_total), (5, 10))
+
+
+class TestParcelas(unittest.TestCase):
+    def _parcelamentos(self, faturas):
+        from financas import parcelas
+        return parcelas.em_curso(faturas)
+
+    def _fatura(self, cartao, competencia, itens):
+        from financas.fatura import Fatura
+        f = Fatura(arquivo="x.pdf", cartao=cartao, competencia=competencia)
+        for descricao, valor, numero, total in itens:
+            l = lanc(competencia, descricao, valor, forma="cartao")
+            l.parcela, l.parcela_total = numero, total
+            f.lancamentos.append(l)
+        return f
+
+    def test_conta_so_a_ultima_fatura_de_cada_cartao(self):
+        """A mesma parcela aparece em toda fatura ate acabar."""
+        faturas = [
+            self._fatura("Visa", "2026-08", [("LOJA 02/04", 100.0, 2, 4)]),
+            self._fatura("Visa", "2026-09", [("LOJA 03/04", 100.0, 3, 4)]),
+        ]
+        ps = self._parcelamentos(faturas)
+        self.assertEqual(len(ps), 1)
+        self.assertEqual(ps[0].restantes, 1)
+
+    def test_cartao_substituido_nao_conta_duas_vezes(self):
+        faturas = [
+            self._fatura("Visa antigo", "2026-07", [("LOJA 01/04", 100.0, 1, 4)]),
+            self._fatura("Visa novo", "2026-09", [("LOJA 03/04", 100.0, 3, 4)]),
+        ]
+        ps = self._parcelamentos(faturas)
+        self.assertEqual([p.cartao for p in ps], ["Visa novo"])
+
+    def test_cronograma_espalha_pelas_competencias(self):
+        from financas import parcelas
+        faturas = [self._fatura("Visa", "2026-09", [("LOJA 01/03", 100.0, 1, 3)])]
+        crono = parcelas.cronograma(self._parcelamentos(faturas))
+        self.assertEqual([c for c, _, _ in crono], ["2026-10", "2026-11"])
+        self.assertEqual([v for _, v, _ in crono], [100.0, 100.0])
+
+    def test_parcela_encerrada_nao_e_compromisso(self):
+        faturas = [self._fatura("Visa", "2026-09", [("LOJA 04/04", 100.0, 4, 4)])]
+        self.assertEqual(self._parcelamentos(faturas), [])
