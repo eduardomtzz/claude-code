@@ -34,6 +34,14 @@ def argumentos(argv: list[str] | None = None) -> argparse.Namespace:
         help="pasta de saida (padrao: dados)",
     )
     analisador.add_argument(
+        "--confirmados", metavar="ARQUIVO",
+        help="json com os valores confirmados pelo titular e o que falta",
+    )
+    analisador.add_argument(
+        "--regime", metavar="AAAA-MM",
+        help="primeiro mes do orcamento atual; sobrepoe a deteccao automatica",
+    )
+    analisador.add_argument(
         "--hoje", metavar="AAAA-MM-DD",
         help="data de referencia; util para reproduzir um relatorio antigo",
     )
@@ -60,7 +68,9 @@ def principal(argv: list[str] | None = None) -> int:
     )
 
     base = carregar(opcoes.planilha, opcoes.texto)
-    payload = montar_payload(base, hoje)
+    payload = montar_payload(
+        base, hoje, regime=opcoes.regime, confirmados=opcoes.confirmados
+    )
 
     saida = Path(opcoes.saida)
     saida.mkdir(parents=True, exist_ok=True)
@@ -74,6 +84,11 @@ def principal(argv: list[str] | None = None) -> int:
     print(f"{len(payload['lancamentos'])} lancamentos "
           f"em {len(payload['meses'])} meses")
     print(f"{len(payload['oportunidades'])} oportunidades mapeadas")
+    linha_base = payload["baseline"]
+    print(f"piso mensal: R$ {linha_base['piso']:,.2f} "
+          f"({len(linha_base['meses_regime'])} meses do regime atual)")
+    if linha_base["pendentes"]:
+        print(f"  {len(linha_base['pendentes'])} itens ainda sem valor")
     for aviso in payload["avisos"]:
         print(f"  aviso: {aviso}", file=sys.stderr)
     print(f"painel: {painel}")

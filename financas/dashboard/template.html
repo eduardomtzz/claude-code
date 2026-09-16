@@ -198,6 +198,26 @@
   .selo.confirmar::before { background: var(--serio); }
   .selo.falta::before { background: var(--critico); }
 
+  /* ---- baseline -------------------------------------------------------- */
+  .soma { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px;
+          font-family: "IBM Plex Mono", ui-monospace, monospace;
+          font-variant-numeric: tabular-nums; font-size: 15px; }
+  .soma .parcela { color: var(--tinta-2); }
+  .soma .parcela b { color: var(--tinta); font-weight: 600; }
+  .soma .op { color: var(--tinta-3); }
+  .soma .resultado { font-size: 20px; font-weight: 600; }
+  .soma .rot { display: block; font-size: 11px; letter-spacing: 0.04em;
+               text-transform: uppercase; color: var(--tinta-3);
+               font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 500; }
+
+  .aviso { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px;
+           border: 1px solid var(--serio); border-left-width: 3px;
+           border-radius: 10px; padding: 14px 16px; margin-top: 14px;
+           background: color-mix(in srgb, var(--serio) 7%, var(--superficie)); }
+  .aviso h3 { margin: 0; grid-column: 2; font-size: 14.5px; font-weight: 600; }
+  .aviso p { margin: 0; grid-column: 2; font-size: 13.5px; color: var(--tinta-2); max-width: 74ch; }
+  .aviso .sinal { grid-row: 1 / span 2; font-size: 17px; line-height: 1.2; color: var(--serio); }
+
   /* ---- duas colunas ---------------------------------------------------- */
   .duas { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
 
@@ -236,6 +256,16 @@
   </div>
 
   <dl class="placas" id="placas"></dl>
+
+  <section id="sec-baseline">
+    <div class="cabeca"><h2>De onde você parte</h2><span class="selo" id="selo-regime"></span></div>
+    <p class="sub" id="sub-baseline"></p>
+    <div class="painel">
+      <div class="soma" id="soma-baseline"></div>
+      <div id="pendentes-baseline"></div>
+    </div>
+    <div class="duas" style="margin-top:12px" id="listas-baseline"></div>
+  </section>
 
   <section id="sec-linha">
     <div class="cabeca"><h2>Quanto sai por mês</h2></div>
@@ -565,6 +595,58 @@ function tabela(el, colunas, linhas) {
 }
 
 /* ---------- montagem -------------------------------------------------- */
+function baseline() {
+  const B = D.baseline;
+  $("selo-regime").textContent = `regime atual, desde ${B.regime_rotulo}`;
+  $("sub-baseline").textContent =
+    `O piso é o que sai todo mês sem ninguém decidir nada, medido nos ${B.meses_regime.length} meses `
+    + `desde a mudança de casa. A provisão rateia por doze meses o que só acontece uma vez por ano, `
+    + `como 13º, férias, IPVA e IPTU. A soma é o número de planejamento.`;
+
+  $("soma-baseline").innerHTML = [
+    ["piso fixo", B.piso, "resultado"],
+    ["+", null], ["recorrente variável", B.variavel_esperado],
+    ["+", null], ["provisão anual", B.provisao_sazonal],
+    ["=", null], ["por mês", B.esperado, "resultado"],
+  ].map(([rot, val, tipo]) => val === null
+    ? `<span class="op">${esc(rot)}</span>`
+    : `<span class="parcela"><span class="rot">${esc(rot)}</span><b class="${tipo === "resultado" ? "resultado" : ""}">${brl0.format(val)}</b></span>`
+  ).join("");
+
+  $("pendentes-baseline").innerHTML = B.pendentes.length ? `<div class="aviso">
+      <span class="sinal" aria-hidden="true">!</span>
+      <h3>Esse número ainda não está fechado</h3>
+      <p>${B.pendentes.map(p => esc(p.rotulo) + ", " + esc(p.nota)).join(". ")}.
+         Enquanto esses itens não tiverem valor, o piso está subestimado.</p>
+    </div>` : "";
+
+  // O selo de procedencia vai junto do nome: numa coluna propria ele seria
+  // cortado quando as duas listas dividem a largura da tela.
+  const procedencia = c => c.origem === "confirmado"
+    ? `<span class="selo alta">você confirmou</span>`
+    : c.meses_observados < c.meses_regime
+      ? `<span class="selo">${c.meses_observados} de ${c.meses_regime} meses</span>` : "";
+
+  const lista = (titulo, nota, itens, mostrarOrigem) => `<div class="painel">
+    <h3 style="margin:0 0 4px;font-size:15.5px;font-weight:600">${esc(titulo)}</h3>
+    <p class="sub" style="margin-bottom:12px">${esc(nota)}</p>
+    <div class="rolagem"><table><thead><tr><th>Item</th><th>Categoria</th>
+      <th class="num">Por mês</th></tr></thead>
+      <tbody>${itens.map(c => `<tr>
+        <td class="livre">${esc(c.rotulo)}
+          ${c.natureza === "poupanca" ? `<span class="selo">poupança</span>` : ""}
+          ${mostrarOrigem ? procedencia(c) : ""}</td>
+        <td>${esc(c.categoria)}</td>
+        <td class="num">${brl0.format(c.valor)}</td>
+      </tr>`).join("")}</tbody></table></div></div>`;
+
+  $("listas-baseline").innerHTML =
+    lista("Compromissos fixos", `${brl0.format(B.piso)} por mês, dos quais ${brl0.format(B.poupanca)} são aplicação para os filhos.`,
+          B.comprometidos, true)
+    + lista("Provisão para o que é anual", `${brl0.format(B.provisao_sazonal)} por mês guardados cobrem estes itens quando eles chegarem.`,
+            B.sazonais, false);
+}
+
 function placas() {
   const ms = mesesDoPeriodo();
   const total = ms.reduce((s, m) => s + (D.meses.find(x => x.id === m)?.total || 0), 0);
@@ -575,6 +657,8 @@ function placas() {
   const ganho = D.oportunidades.reduce((s, o) => s + o.impacto_mensal, 0);
 
   $("placas").innerHTML = [
+    ["Piso mensal", brl0.format(D.baseline.esperado),
+      `compromissos fixos desde ${D.baseline.regime_rotulo}, sem o cartão`],
     ["Sai por mês", brl0.format(media), rotuloPeriodo()],
     ["Equipe doméstica", brl0.format(mediaNoPeriodo(equipe?.por_mes || {})),
       pct(mediaNoPeriodo(equipe?.por_mes || {}) / media) + " de tudo que sai"],
@@ -769,7 +853,7 @@ function iniciar() {
     ev.currentTarget.textContent = aberto ? "Ver como gráfico" : "Ver como tabela";
   });
 
-  linhaDoTempo(); composicao(); natureza(); mudancas(); oportunidades();
+  baseline(); linhaDoTempo(); composicao(); natureza(); mudancas(); oportunidades();
   conciliacao(); perguntas(); tudo();
 
   $("rodape").innerHTML = `Gerado em ${esc(D.gerado_em)} a partir da planilha da casa e do controle de ${esc(D.conciliacoes[0]?.rotulo || "—")}. `

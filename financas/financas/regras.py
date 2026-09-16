@@ -35,13 +35,14 @@ FINANCEIRO = "Financeiro"
 JURIDICO = "Jurídico e contábil"
 LAZER = "Lazer, festas e presentes"
 TRABALHO = "Trabalho"
+AVULSOS = "Avulsos"
 SEM_CATEGORIA = "Não classificado"
 
 #: Ordem de exibicao no painel.
 CATEGORIAS = [
     MORADIA, EQUIPE, EDUCACAO, SAUDE, FINANCEIRO, ATIVIDADES, CONTAS,
     SERVICOS, SEGURANCA, JURIDICO, MANUTENCAO, ALIMENTACAO, VEICULOS,
-    IMPOSTOS, LAZER, PETS, TRABALHO, SEM_CATEGORIA,
+    IMPOSTOS, LAZER, PETS, TRABALHO, AVULSOS, SEM_CATEGORIA,
 ]
 
 # --------------------------------------------------------------------------
@@ -61,6 +62,7 @@ PAPEIS = {
     "Fran": "equipe",
     "Lori": "equipe",
     "Regiane": "equipe",
+    "Pais": "pais",
     "Guilherme": "familiar de equipe",
     "Filha da Leidi": "familiar de equipe",
     "Filho da Ana": "familiar de equipe",
@@ -156,14 +158,14 @@ REGRAS: list[Regra] = [
     Regra(r"oftalmo", SAUDE, "Oftalmologia"),
     Regra(r"fisioter", SAUDE, "Fisioterapia"),
     Regra(r"plano de saude familia", SAUDE, "Plano de saúde da família"),
-    Regra(r"convenio", SAUDE, "Convênios"),
+    Regra(r"convenio", SAUDE, "Convênio dos pais", "Pais"),
     Regra(r"plano de saude", SAUDE, "Plano de saúde"),
 
     # ---- Financeiro ------------------------------------------------------
     Regra(r"consorcio", FINANCEIRO, "Consórcio"),
     Regra(r"aplicacao eduarda|deposito eduarda", FINANCEIRO, "Aplicação dos filhos", "Eduarda", "poupanca"),
     Regra(r"aplicacao victor|deposito victor", FINANCEIRO, "Aplicação dos filhos", "Victor", "poupanca"),
-    Regra(r"\bz2\b", FINANCEIRO, "Transferência Z2", CASA, "transferencia"),
+    Regra(r"\bz2\b", FINANCEIRO, "Aporte na empresa (Z2)"),
 
     # ---- Juridico e contabil --------------------------------------------
     Regra(r"alisson|advogad", JURIDICO, "Advogados"),
@@ -229,8 +231,33 @@ def classificar(lancamento: Lancamento) -> Lancamento:
     return lancamento
 
 
+#: Ate quantos meses distintos um pagamento sem regra pode aparecer e ainda
+#: ser considerado avulso, e nao um recorrente que falta mapear.
+MESES_PARA_SER_AVULSO = 2
+
+
+def marcar_avulsos(lancamentos: list[Lancamento]) -> list[Lancamento]:
+    """Separa o gasto de uma vez so do recorrente que falta mapear.
+
+    Um pagamento sem regra que aparece em um ou dois meses da base inteira e
+    um avulso: entra no total, mas nao no piso mensal. Um que se repete mes a
+    mes sem regra e uma lacuna da taxonomia, e continua marcado como nao
+    classificado para ser resolvido.
+    """
+    meses: dict[str, set[str]] = {}
+    for l in lancamentos:
+        if l.categoria == SEM_CATEGORIA:
+            meses.setdefault(chave(l.rotulo), set()).add(l.competencia)
+    for l in lancamentos:
+        if l.categoria != SEM_CATEGORIA:
+            continue
+        if len(meses.get(chave(l.rotulo), ())) <= MESES_PARA_SER_AVULSO:
+            l.categoria = AVULSOS
+    return lancamentos
+
+
 def classificar_todos(lancamentos: list[Lancamento]) -> list[Lancamento]:
-    return [classificar(l) for l in lancamentos]
+    return marcar_avulsos([classificar(l) for l in lancamentos])
 
 
 def papel_de(pessoa: str) -> str:

@@ -1,0 +1,28 @@
+{
+  "_leia": [
+    "Copie para dados/confirmados.json e ajuste. Esse arquivo fica fora do git.",
+    "regime_inicio: primeiro mes do orcamento atual. Meses anteriores entram no",
+    "historico, mas nao no baseline. Omitir deixa o pipeline detectar sozinho.",
+    "confirmados: itens cujo valor mensal o titular confirmou. Se o rotulo bater",
+    "com uma serie existente, fixa o valor dela; se nao, adiciona a linha.",
+    "pendentes: o que se sabe que existe e ainda nao se sabe quanto."
+  ],
+  "regime_inicio": "2026-05",
+  "confirmados": [
+    {
+      "rotulo": "Exemplo de mensalidade",
+      "categoria": "Saúde",
+      "subcategoria": "Plano de saúde",
+      "pessoa": "Casa",
+      "valor": 1000.0,
+      "nota": "confirmado pelo titular"
+    }
+  ],
+  "pendentes": [
+    {
+      "rotulo": "Parcelas do cartão",
+      "categoria": "Financeiro",
+      "nota": "aguardando as faturas"
+    }
+  ]
+}

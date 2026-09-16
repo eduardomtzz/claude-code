@@ -221,3 +221,47 @@ class TestAnalise(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+class TestBaseline(unittest.TestCase):
+    """O baseline responde "quanto sai no mes que vem sem eu decidir nada"."""
+
+    def _base(self, extra=None):
+        from financas import baseline
+        meses = [f"2026-{m:02d}" for m in range(5, 10)]
+        lancamentos = [lanc(m, "Claro", 411.57) for m in meses]
+        lancamentos += [lanc(m, "Salario Ana", 5025) for m in meses]
+        lancamentos += [lanc("2026-05", "Dentista", 900),
+                        lanc("2026-08", "Dentista", 900)]
+        lancamentos += extra or []
+        analise = analisar(lancamentos, _dt.date(2026, 9, 16))
+        return baseline.montar(analise, regime_inicio="2026-05")
+
+    def test_piso_soma_o_que_se_repete(self):
+        base = self._base()
+        rotulos = {c.rotulo for c in base.comprometidos}
+        self.assertIn("Claro", rotulos)
+        self.assertIn("Salario Ana", rotulos)
+        self.assertAlmostEqual(base.piso, 5436.57, places=2)
+
+    def test_esporadico_fica_fora_do_piso(self):
+        base = self._base()
+        self.assertNotIn("Dentista", {c.rotulo for c in base.comprometidos})
+
+    def test_anual_entra_como_provisao_rateada(self):
+        base = self._base([lanc("2026-01", "13 Salario Ana", 12000)])
+        provisoes = {c.rotulo: c.valor for c in base.sazonais}
+        self.assertIn("13 Salario Ana", provisoes)
+        self.assertAlmostEqual(provisoes["13 Salario Ana"], 1000.0, places=2)
+
+    def test_nada_e_contado_duas_vezes(self):
+        base = self._base()
+        chaves = [(c.categoria, c.subcategoria, c.pessoa)
+                  for c in base.comprometidos + base.variaveis + base.sazonais]
+        self.assertEqual(len(chaves), len(set(chaves)))
+
+    def test_poupanca_aparece_separada_dentro_do_piso(self):
+        meses = [f"2026-{m:02d}" for m in range(5, 10)]
+        base = self._base([lanc(m, "Aplicacao Victor", 1000) for m in meses])
+        self.assertAlmostEqual(base.poupanca, 1000.0, places=2)
+        self.assertGreater(base.piso, base.poupanca)

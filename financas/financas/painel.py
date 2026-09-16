@@ -7,6 +7,7 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
+from . import baseline as mod_baseline
 from .analise import Analise, analisar
 from .consolidacao import Base
 from .modelo import MESES_CURTOS
@@ -30,9 +31,13 @@ def _media(mapa: dict[str, float], janela: list[str]) -> float:
     return round(sum(mapa.get(c, 0.0) for c in janela) / len(janela), 2)
 
 
-def montar_payload(base: Base, hoje: _dt.date | None = None) -> dict:
+def montar_payload(
+    base: Base, hoje: _dt.date | None = None,
+    regime: str | None = None, confirmados: str | None = None,
+) -> dict:
     hoje = hoje or _dt.date.today()
     analise = analisar(base.lancamentos, hoje)
+    linha_base = mod_baseline.montar(analise, regime, confirmados)
     janela = analise.janela
 
     por_categoria = analise.por_categoria_mes()
@@ -146,6 +151,7 @@ def montar_payload(base: Base, hoje: _dt.date | None = None) -> dict:
                 "valor_planilha": d.valor_planilha,
             } for d in c.divergencias],
         } for c in base.conciliacoes],
+        "baseline": _baseline(linha_base),
         "mudancas": _mudancas(analise, hoje),
         "pendencias": [{
             "rotulo": s.rotulo,
@@ -167,6 +173,31 @@ def montar_payload(base: Base, hoje: _dt.date | None = None) -> dict:
             "observacao": l.observacao,
         } for l in base.lancamentos],
         "avisos": base.avisos,
+    }
+
+
+def _baseline(linha_base: mod_baseline.Baseline) -> dict:
+    compromisso = lambda c: {
+        "rotulo": c.rotulo, "categoria": c.categoria,
+        "subcategoria": c.subcategoria, "pessoa": c.pessoa, "valor": c.valor,
+        "natureza": c.natureza, "origem": c.origem, "nota": c.nota,
+        "meses_observados": c.meses_observados, "meses_regime": c.meses_regime,
+    }
+    return {
+        "regime_inicio": linha_base.regime_inicio,
+        "regime_rotulo": rotulo_mes(linha_base.regime_inicio) if linha_base.regime_inicio else "",
+        "meses_regime": [rotulo_mes(c) for c in linha_base.meses_regime],
+        "piso": linha_base.piso,
+        "poupanca": linha_base.poupanca,
+        "variavel_esperado": linha_base.variavel_esperado,
+        "provisao_sazonal": linha_base.provisao_sazonal,
+        "meses_sazonais": [rotulo_mes(c) for c in linha_base.meses_sazonais],
+        "esperado": linha_base.esperado,
+        "completo": linha_base.completo,
+        "comprometidos": [compromisso(c) for c in linha_base.comprometidos],
+        "variaveis": [compromisso(c) for c in linha_base.variaveis],
+        "sazonais": [compromisso(c) for c in linha_base.sazonais],
+        "pendentes": [compromisso(c) for c in linha_base.pendentes],
     }
 
 

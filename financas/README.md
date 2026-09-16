@@ -11,7 +11,9 @@ próprio, porque um `.xlsx` é um zip de XML e isso dispensa pandas e openpyxl.
 ## Uso
 
 ```bash
-python3 -m financas.cli planilha.xlsx --texto dados/setembro-2026.txt
+python3 -m financas.cli planilha.xlsx \
+    --texto dados/setembro-2026.txt \
+    --confirmados dados/confirmados.json
 ```
 
 Isso grava três arquivos em `dados/`:
@@ -24,6 +26,11 @@ Isso grava três arquivos em `dados/`:
 
 O nome do arquivo de texto define a competência: `setembro-2026.txt` ou
 `2026-09.txt`. Pode repetir `--texto` para vários meses.
+
+O `--confirmados` é opcional e aponta para um JSON com o que o titular confirmou
+por fora dos dados: o primeiro mês do orçamento atual, valores mensais que o
+histórico ainda não mostra, e o que se sabe que existe mas ainda não tem valor.
+O modelo está em `dashboard/confirmados.exemplo.json`.
 
 ## Dados pessoais
 
@@ -53,6 +60,7 @@ controle .txt ──┘                                              │
 | `regras.py` | taxonomia e regras de categoria, subcategoria e pessoa |
 | `analise.py` | séries mensais, fixo/variável/parcelado, oportunidades |
 | `consolidacao.py` | junta as duas fontes sem contar o mesmo pagamento duas vezes |
+| `baseline.py` | o piso mensal: comprometido, variável, provisão anual |
 | `painel.py` | monta o payload e injeta no template |
 
 ### Decisões que valem saber
@@ -71,6 +79,17 @@ Agrupar por descrição transformaria um gasto fixo em três avulsos.
 **Totais da planilha são recalculados.** Várias abas guardam um total de fórmula
 desatualizado. O parser identifica a linha de total pela ordem de grandeza e a
 descarta, somando os lançamentos de novo.
+
+**Baseline e histórico respondem perguntas diferentes.** O histórico diz quanto
+saiu. O baseline diz quanto vai sair de novo no mês que vem sem ninguém decidir
+nada, e por isso olha só o regime atual: depois de uma mudança de casa, um mês
+antigo não descreve mais o próximo. Ele separa o que é comprometido, o que é
+recorrente mas oscila, e o que é anual. O anual entra rateado por doze, sempre
+por doze, para que um histórico curto não dobre a provisão.
+
+**O que falta aparece com valor zero.** Um gasto que existe e ainda não tem
+número entra como pendente em vez de sumir da conta, porque um piso silenciosa
+mente incompleto é pior do que um piso declaradamente incompleto.
 
 **A janela é de seis meses fechados.** O mês corrente fica de fora das médias
 porque ainda está incompleto; o mês futuro é marcado como previsão.
