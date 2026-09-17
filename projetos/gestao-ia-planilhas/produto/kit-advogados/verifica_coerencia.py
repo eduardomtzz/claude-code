@@ -93,14 +93,42 @@ for (cli,val),et in prop15.items():
     if et=="Fechada": check(f"15 fechada {cli} R$ {val:.0f} é caso na 13",any(c==cli and v==val for a,c,ab,v in casos13_full),True)
 # 7. 18 agosto == 09 Painel agosto por categoria (09 está em Setembro: coluna D = mês anterior = agosto)
 cat09={p09.cell(row=r,column=1).value:(num(p09.cell(row=r,column=2).value),num(p09.cell(row=r,column=4).value)) for r in list(range(9,25))+list(range(29,41)) if p09.cell(row=r,column=1).value}
-for r in range(6,12):
-    cat=r18.cell(row=r,column=1).value; check(f"18 receita ago '{cat}' == 09 Painel (mês anterior)",r18.cell(row=r,column=9).value,cat09[cat][1])
+def _r18(rotulo):
+    """Linha da 18 pelo começo do rótulo. Endereço fixo quebrava a cada mudança de
+    estrutura, e os rótulos das linhas de total trazem a explicação entre parênteses."""
+    for r in range(5,60):
+        v=r18.cell(row=r,column=1).value
+        if isinstance(v,str) and v.startswith(rotulo): return r
+    raise AssertionError(f"18: rótulo {rotulo!r} não encontrado")
+def _linhas18(ate):
+    """Linhas de categoria de uma seção da 18, achadas pelo rótulo em vez de fixas:
+    a faixa mudou quando "Outras entradas" saiu da receita e a conferência quebrou."""
+    fora={"Receita total","Total de custos fixos","Total de despesas de casos e viagens",
+          "Total de pró-labore","Impostos","Total de saídas","Resultado do mês","Margem"}
+    out=[]
+    for r in range(5,60):
+        rot=r18.cell(row=r,column=1).value
+        if not rot: continue
+        if rot==ate: break
+        if rot in fora or rot.startswith(("Receita (","Custos fixos","Despesas de","Pró-labore",
+                                          "Total de","Impostos","Resultado do mês","Margem",
+                                          "Receita por categoria","Os valores de exemplo")): continue
+        out.append(r)
+    return out
+for r in _linhas18("Receita total"):
+    cat=r18.cell(row=r,column=1).value
+    check(f"18 receita ago '{cat}' == 09 Painel (mês anterior)",r18.cell(row=r,column=9).value,cat09[cat][1])
     check(f"18 receita jul '{cat}' == 09 lançamentos de julho",r18.cell(row=r,column=8).value,ent_cat[(7,cat)])
-for r in list(range(14,22))+[24,25]:
-    cat=r18.cell(row=r,column=1).value; check(f"18 saída ago '{cat}' == 09 Painel (mês anterior)",r18.cell(row=r,column=9).value,cat09[cat][1])
-check("18 receita total ago == 09 Painel Entrou (mês anterior = agosto)",r18["I12"].value,ent_mes[8])
-check("18 pró-labore ago == 12.000 (2 × 6.000, 05 Painel B10)",r18["I30"].value,p05["B10"].value)
-check("18 impostos ago == 8 % da receita",r18["I31"].value,round(num(r18["I12"].value)*0.08))
+_rt=next(r for r in range(5,60) if r18.cell(row=r,column=1).value=="Receita total")
+for r in range(_rt+1,60):
+    cat=r18.cell(row=r,column=1).value
+    if cat=="Impostos": break
+    if not cat or cat in ("Custos fixos","Despesas de casos e viagens (pagas pelo escritório)","Pró-labore dos sócios") \
+       or cat.startswith("Total de"): continue
+    if (cat in cat09): check(f"18 saída ago '{cat}' == 09 Painel (mês anterior)",r18.cell(row=r,column=9).value,cat09[cat][1])
+check("18 receita total ago == 09 Painel Entrou sem devolução de sócio",r18.cell(row=_r18("Receita total"),column=9).value,ent_mes[8]-ent_cat[(8,"Outras entradas")])
+check("18 pró-labore ago == 12.000 (2 × 6.000, 05 Painel B10)",r18.cell(row=_r18("Total de pró-labore"),column=9).value,p05["B10"].value)
+check("18 impostos ago == 8 % da receita (sem a devolução de sócio)",r18.cell(row=_r18("Impostos provisionados"),column=9).value,round(num(r18.cell(row=_r18("Receita total"),column=9).value)*0.08))
 # 8. 20 == 17 Histórico (julho, agosto) e 18 (H = julho, I = agosto)
 H={h17.cell(row=r,column=1).value:{"horas":h17.cell(row=r,column=4).value,"fatur":h17.cell(row=r,column=5).value,"entrou":h17.cell(row=r,column=7).value,"saiu":h17.cell(row=r,column=8).value,
    "areceb":h17.cell(row=r,column=10).value,"venc":h17.cell(row=r,column=11).value,"inad":h17.cell(row=r,column=12).value,"propv":h17.cell(row=r,column=14).value,"casos":h17.cell(row=r,column=15).value} for r in range(5,17)}
@@ -108,9 +136,9 @@ I={i20.cell(row=r,column=1).value:(i20.cell(row=r,column=6).value,i20.cell(row=r
 def ind(prefix): return next(v for k,v in I.items() if k.startswith(prefix))
 for j,(mes,col) in enumerate((("Julho",8),("Agosto",9))):
     check(f"20 Entrou {mes} == 17 Histórico",ind("Entrou")[j],H[mes]["entrou"]); check(f"20 Entrou {mes} == 09 lançamentos",ind("Entrou")[j],ent_mes[MES[mes]])
-    check(f"20 Saídas {mes} == 18 Total de saídas",ind("Saídas")[j],r18.cell(row=32,column=col).value)
-    check(f"20 Resultado {mes} == 18",ind("Resultado")[j],r18.cell(row=33,column=col).value)
-    check(f"20 Margem {mes} == 18",ind("Margem")[j],round(num(r18.cell(row=34,column=col).value)*100,1),tol=0.051)
+    check(f"20 Saídas {mes} == 18 Total de saídas",ind("Saídas")[j],r18.cell(row=_r18("Total de saídas"),column=col).value)
+    check(f"20 Resultado {mes} == 18",ind("Resultado")[j],r18.cell(row=_r18("Resultado do mês"),column=col).value)
+    check(f"20 Margem {mes} == 18",ind("Margem")[j],round(num(r18.cell(row=_r18("Margem"),column=col).value)*100,1),tol=0.051)
     check(f"20 Horas {mes} == 17 Histórico",ind("Horas registradas")[j],H[mes]["horas"])
     check(f"20 % faturáveis {mes} == 17 Histórico",ind("Horas faturáveis")[j],round(num(H[mes]["fatur"])/num(H[mes]["horas"])*100,1),tol=0.051)
     check(f"20 A receber {mes} == 17 Histórico",ind("A receber")[j],H[mes]["areceb"])
@@ -132,11 +160,14 @@ check("16 nenhum lançamento depois de 11/09/2026",max(x["data"] for x in hl)<=d
 check("09 nenhum lançamento pago depois de 11/09/2026",max(x["data"] for x in L if x["pago"]=="Sim")<=datetime.date(2026,9,11),True)
 # 9. custos fixos, pró-labore e custo-hora iguais em 05/06/08/09/16/18
 check("05 custos fixos == 09 (agosto, soma das 8 linhas)",p05["B9"].value,sum(cat09[c][1] for c in ("Aluguel e condomínio","Contador","Sistemas e assinaturas","Telefone e internet","Anuidades OAB e cursos","Marketing e site","Estagiária (bolsa)","Material, correio e outros")))
-check("05 custos fixos == 18 total custos fixos (agosto)",p05["B9"].value,r18["I22"].value)
+check("05 custos fixos == 18 total custos fixos (agosto)",p05["B9"].value,r18.cell(row=_r18("Total de custos fixos"),column=9).value)
 check("05 custo-hora == 06 custo-hora",p05["B13"].value,w06["Simulador"]["B11"].value,tol=0.001)
 check("05 custo-hora == 08 custo-hora",p05["B13"].value,w08["Config"]["B7"].value,tol=0.001)
 check("05 custo-hora == 16 custo-hora médio",p05["B13"].value,w16["Config"]["B23"].value,tol=0.001)
-check("05 hora mínima (exata) == 06 hora mínima",p05["B16"].value,w06["Simulador"]["B15"].value,tol=0.001)
+# A 06 passou a incluir no mínimo as despesas que o escritório absorve naquele caso,
+# então ela é MAIOR ou igual à hora mínima genérica da 05 — não mais igual.
+check("06 hora mínima do caso >= 05 hora mínima do escritório",
+      num(w06["Simulador"]["B15"].value)>=num(p05["B16"].value)-0.01,True)
 check("08 hora mínima com folga == 05 hora mínima × 1,2",w08["Config"]["B12"].value,num(p05["B16"].value)*1.2,tol=0.01)
 check("05 hora mínima arredondada == 110",p05["B17"].value,110)
 check("12 custo fixo jun/jul/ago == 09 (fixos + pró-labore)",sum(num(w12["Config"].cell(row=r,column=2).value) for r in (13,14,15)),sum(sai_cat[(m,c)] for m in (6,7,8) for c in ("Aluguel e condomínio","Contador","Sistemas e assinaturas","Telefone e internet","Anuidades OAB e cursos","Marketing e site","Estagiária (bolsa)","Material, correio e outros"))+3*12000)
@@ -165,6 +196,21 @@ check("19 propostas paradas == 15 situação Parada",kr("Propostas paradas")[2],
 check("12 meta 2 valor atual == 09 entradas jul+ago+set (sem outras)",w12["Config"]["C27"].value,sum(ent_mes[m]-ent_cat[(m,"Outras entradas")] for m in (7,8,9)))
 check("12 meta 3 alvo == 10 saldo provisionado (setembro)",w12["Config"]["B28"].value,round(num(w10["Painel"]["J17"].value)))
 
+
+# Regra que faltava e deixou passar os R$ 1.400 da Fernanda Castro: no honorário fixo, a
+# soma do cronograma tem de ser igual ao contrato. No misto, fica entre o fixo (êxito
+# ainda não ganho) e o contratado (fixo + êxito já realizado).
+import dados as _dd
+_casos={}
+for _p in _dd.PARCELAS(): _casos[_p["caso"]["chave"]]=_p["caso"]
+for _k,_c in sorted(_casos.items()):
+    _t=sum(x["valor"] for x in _c["parcelas"])
+    if _c["tipo_hon"]=="Fixo":
+        check(f"cronograma do caso {_k} ({_c['cliente']}) == contrato",_t,_c["valor_fixo"],tol=0.01)
+    elif _c["tipo_hon"]=="Misto":
+        check(f"cronograma do caso {_k} ({_c['cliente']}) entre fixo e contratado",
+              _c["valor_fixo"]-0.01<=_t<=_c["valor_contratado"]+0.01,True)
+
 print(f"{OK} verificações OK, {len(FALHAS)} falhas")
-for f in FALHAS: print("  FALHA:",f)
-sys.exit(1 if FALHAS else 0)
+for f in FALHAS: print("  FALHA:", f)
+import sys as _sys; _sys.exit(1 if FALHAS else 0)

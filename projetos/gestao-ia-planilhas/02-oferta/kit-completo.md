@@ -57,14 +57,17 @@ apresentação, checklists.
 | 4 | Projetos e Prazos | Vários projetos, etapas com início/fim, % concluído, atrasos, linha do tempo simples (Gantt por células) | nova |
 | 5 | Ata e Pendências | Pauta, decisões, pendências com dono e prazo, aba "O que está em aberto" por pessoa; gera o bloco para o prompt "Resumo de reunião" | nova |
 | 6 | Metas do Trimestre | Objetivos, resultados-chave, progresso semanal, semáforo; aba de acompanhamento mensal | nova |
-| 7 | Orçamento Previsto × Realizado | 12 meses por categoria/centro, desvio em R$ e %, alerta de estouro, gráfico previsto × realizado | nova |
-| 8 | Funil de Propostas | Propostas por etapa, valor, probabilidade, previsão ponderada, taxa de conversão por etapa, motivo de perda | nova |
+| 7 | Orçamento Previsto × Realizado | 12 meses por categoria, desvio em R$ e %, alerta de estouro, gráfico previsto × realizado | nova |
+| 8 | Funil de Propostas | Propostas por etapa, valor, probabilidade, previsão ponderada, taxa de conversão geral e por origem, motivo de perda | nova |
 | 9 | Horas e Custo por Projeto | Lançamento de horas por pessoa e projeto, custo-hora, custo por projeto vs orçado, ocupação | nova |
-| 10 | Base Limpa | Modelo de base de dados "certa" (uma linha por registro, validações, sem mescla) com aba de tabela dinâmica pronta e checklist de limpeza; é a planilha que ensina a fazer as outras | nova |
+| 10 | Base Limpa | Modelo de base de dados "certa" (uma linha por registro, validações, sem mescla), com aba Resumo (análise por categoria e mês feita com SOMASES), checklist de limpeza e a aula que mostra como montar a tabela dinâmica a partir da Base; é a planilha que ensina a fazer as outras | nova |
 
 Cada planilha nova: aba Config, aba de lançamento com validações e células amarelas, aba de painel,
-aba "Como usar", exemplo fictício (Prisma Comunicação, a mesma do Essencial, para o comprador do upsell não
-estranhar).
+aba "Como usar", exemplo fictício da Prisma Comunicação — a mesma empresa das planilhas 01 (Semana) e 02
+(Relatório) do Essencial, para o comprador do upsell não estranhar. A exceção é a 03 (Ganhos e Gastos),
+que usa um autônomo (Rafa Design) de propósito: essa planilha serve para uso pessoal e para negócio de
+uma pessoa só, e um exemplo de empresa média não mostraria isso. Os dois "Como usar" dizem isso ao
+cliente, para a diferença não parecer descuido.
 
 ### Biblioteca de 80 prompts em 8 grupos
 

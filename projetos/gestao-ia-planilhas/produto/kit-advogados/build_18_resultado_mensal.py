@@ -7,7 +7,9 @@ from ssg import *
 import dados
 from openpyxl.chart import BarChart, Reference
 
-MODAL=dados.CAT_ENTRADA                                              # Honorários fixos, por hora, de êxito, consultoria, reembolso, outras
+# "Outras entradas" sai da lista de receita: é devolução de despesa pessoal de sócio,
+# entra como linha informativa depois do resultado e não compõe a base do imposto.
+MODAL=[c for c in dados.CAT_ENTRADA if c!="Outras entradas"]
 VARIAVEIS=["Custas e despesas de processo","Deslocamento e viagens"]  # despesas de casos e viagens (categorias de saída da 09)
 SOCIOS=dados.PRO_LABORE                                              # Marina 6.000, Rafael 6.000
 DRE={m:dados.dre(m) for m in range(1,9)}                             # jan..ago (meses fechados)

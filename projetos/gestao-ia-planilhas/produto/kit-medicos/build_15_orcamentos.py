@@ -54,10 +54,10 @@ for r in range(R0,RN+1):
     o.cell(row=r,column=16,value=f'=IF(A{r}="","",DATE(YEAR(A{r}),MONTH(A{r}),1))'); calc(o.cell(row=r,column=16),"mm/yyyy")
     o.cell(row=r,column=17,value=f'=IF(OR(G{r}="",O{r}="Aprovado",O{r}="Recusado",O{r}="Sem retorno"),0,IF(O{r}="Parado",2000,1000)+MIN(N(M{r}),500)+N(F{r})/1000000-ROW()/100000)'); o.cell(row=r,column=17).font=F(color=CINZA,size=9)
 o.column_dimensions["Q"].hidden=True
-dvs=[lista(RESP_L), lista(TIPO_L), lista(ITEM_L,strict=False), lista(f"=Config!$A${E0}:$A${E1}"), lista(MOT_L,strict=False),
-     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True), DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True)]
+dvs=[lista(RESP_L), lista(TIPO_L), lista(ITEM_L,strict=True), lista(f"=Config!$A${E0}:$A${E1}"), lista(MOT_L,strict=True),
+     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True), DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"C{R0}:C{RN}",f"D{R0}:D{RN}",f"E{R0}:E{RN}",f"G{R0}:G{RN}",f"I{R0}:I{RN}",f"A{R0}:A{RN}",f"F{R0}:F{RN}"]): dv.add(rng); o.add_data_validation(dv)
-dvh=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True); dvh.add(f"H{R0}:H{RN}"); o.add_data_validation(dvh)
+dvh=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True); dvh.add(f"H{R0}:H{RN}"); o.add_data_validation(dvh)
 o.conditional_formatting.add(f"A{R0}:O{RN}", FormulaRule(formula=[f'$O{R0}="Parado"'], fill=fill("FFF4CC")))
 o.conditional_formatting.add(f"A{R0}:O{RN}", FormulaRule(formula=[f'$O{R0}="Aprovado"'], font=F(color=VERDE_T,size=10,bold=True)))
 o.conditional_formatting.add(f"A{R0}:O{RN}", FormulaRule(formula=[f'OR($O{R0}="Recusado",$O{R0}="Sem retorno")'], font=F(color="8A86A0",size=10)))
@@ -76,10 +76,13 @@ OF=f"Orçamentos!$F${R0}:$F${RN}"; OG=f"Orçamentos!$G${R0}:$G${RN}"; OH=f"Orça
 OM=f"Orçamentos!$M${R0}:$M${RN}"; ON=f"Orçamentos!$N${R0}:$N${RN}"; OO=f"Orçamentos!$O${R0}:$O${RN}"; OQ=f"Orçamentos!$Q${R0}:$Q${RN}"
 ABERTO=f'{OG},"<>Aprovado",{OG},"<>Recusado",{OG},"<>Sem retorno",{OG},"<>"'
 TRI=f'DATE(YEAR({HOJE}),3*INT((MONTH({HOJE})-1)/3)+1,1)'
+# Limite SUPERIOR do trimestre: sem ele, fechamento de trimestre posterior entrava
+# no total do trimestre consultado.
+TRI_FIM=f'DATE(YEAR({HOJE})+(3*INT((MONTH({HOJE})-1)/3)+4>12),IF(3*INT((MONTH({HOJE})-1)/3)+4>12,1,3*INT((MONTH({HOJE})-1)/3)+4),1)'
 DECID=f'(COUNTIFS({OG},"Aprovado")+COUNTIFS({OG},"Recusado")+COUNTIFS({OG},"Sem retorno"))'
 kpi(p,4,1,"Em aberto (R$)",f'=SUMIFS({OF},{ABERTO})',LAVANDA,UVA,fmt=BRL0)
 kpi(p,4,3,"Previsão ponderada",f'=SUMIFS({OL},{ABERTO})',SOL,UVA,fmt=BRL0)
-kpi(p,4,5,"Aprovado no trimestre",f'=SUMIFS({OF},{OG},"Aprovado",{OH},">="&{TRI})',VERDE,VERDE_T,fmt=BRL0)
+kpi(p,4,5,"Aprovado no trimestre",f'=SUMIFS({OF},{OG},"Aprovado",{OH},">="&{TRI},{OH},"<"&{TRI_FIM})',VERDE,VERDE_T,fmt=BRL0)
 kpi(p,4,7,"% da meta",f'=IFERROR(E5/{META},0)',VERDE,VERDE_T,fmt=PCT)
 kpi(p,4,9,"Taxa de aprovação",f'=IFERROR(COUNTIFS({OG},"Aprovado")/{DECID},0)',LAVANDA,UVA,fmt=PCT)
 kpi(p,4,11,"Dias até decidir (média)",f'=IFERROR(AVERAGEIFS({ON},{OG},"Aprovado"),0)',LAVANDA,UVA,fmt="0")

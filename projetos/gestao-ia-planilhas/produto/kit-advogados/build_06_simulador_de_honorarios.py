@@ -10,7 +10,7 @@ cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Impostos, margem e as regras de risco valem para todos os casos simulados.",merge_to="H")
 cfg["A4"]="Nome do escritório"; cfg["B4"]=f"{dados.ESCRITORIO} (exemplo fictício)"
 cfg["A5"]="Mês de referência"; cfg["B5"]="Setembro de 2026"
-cfg["A6"]="Data de referência"; cfg["B6"]="=TODAY()"
+cfg["A6"]="Data de referência"; cfg["B6"]=dados.HOJE
 cfg["A7"]="Impostos e taxas sobre o que entra (%)"; cfg["B7"]=dados.ALIQ
 cfg["A8"]="Margem desejada sobre o preço (%)"; cfg["B8"]=dados.MARGEM
 cfg["A9"]="Chance de êxito mínima para aceitar êxito puro (%)"; cfg["B9"]=0.60
@@ -49,7 +49,6 @@ s["C11"]="Copie da planilha 05 · Custo-hora (Painel, \"Custo-hora do escritóri
 s["C12"]="Quanto o cliente recebe, deixa de pagar ou economiza se o caso der certo. Base do cálculo de êxito."; nota(s["C12"])
 s["C13"]="Sua estimativa honesta. Ela define o valor esperado e o risco das modalidades com êxito."; nota(s["C13"])
 s["A14"]="Valor esperado da causa (R$)"; rotulo(s["A14"]); s["B14"]="=B12*B13"; calc(s["B14"],BRL0); s["C14"]="Valor em discussão × chance. É o que se espera receber, em média."; nota(s["C14"])
-s["A15"]="Hora mínima para este caso (R$)"; rotulo(s["A15"]); s["B15"]=f"=IFERROR(B11/(1-{IMP}-{MARG}),\"\")"; calc(s["B15"],BRL); s["C15"]="Custo-hora ÷ (1 − impostos − margem)."; nota(s["C15"])
 dva=lista("=OFFSET(Config!$E$5,0,0,MAX(1,COUNTA(Config!$E$5:$E$30)),1)"); dva.add("B9"); s.add_data_validation(dva)
 CH="$B$11"; VC="$B$12"; PCH="$B$13"; VE="$B$14"
 # 2. horas por etapa
@@ -78,6 +77,12 @@ DESP=f"$D${DT}"
 s.cell(row=DT+1,column=1,value="Custo total do caso (horas + despesas que o escritório absorve)"); rotulo(s.cell(row=DT+1,column=1)); s.cell(row=DT+1,column=1).border=borda
 s.cell(row=DT+1,column=4,value=f"={CHT}+{DESP}"); calc(s.cell(row=DT+1,column=4),BRL); s.cell(row=DT+1,column=4).font=F(bold=True,color=UVA,size=10)
 CUSTO=f"$D${DT+1}"
+# Hora mínima do caso: depende de CUSTO e HT, por isso fica aqui e não junto do rótulo.
+s["A15"]="Hora mínima para este caso (R$)"; rotulo(s["A15"])
+# Inclui as despesas que o escritório absorve, rateadas pelas horas estimadas: sem
+# elas o simulador aprovava preço que não entrega a margem informada.
+s["B15"]=f"=IFERROR(IF({HT}=0,B11/(1-{IMP}-{MARG}),({CUSTO}/{HT})/(1-{IMP}-{MARG})),\"\")"; calc(s["B15"],BRL)
+s["C15"]="(custo das horas + despesas absorvidas) ÷ horas estimadas ÷ (1 − impostos − margem). Sem caso montado, cai no custo-hora do escritório."; nota(s["C15"])
 # 4. o que cobrar
 M0=DT+5
 s.cell(row=M0-2,column=1,value="4. O que você pretende cobrar em cada modalidade").font=F(bold=True,size=13,color=UVA)

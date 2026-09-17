@@ -8,7 +8,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Fases, áreas e responsáveis aparecem nas listas da aba Processos.",merge_to="H")
 cfg["A4"]="Escritório"; cfg["B4"]=f"{dados.ESCRITORIO} (exemplo fictício)"
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Considerar parado após (dias sem atualização)"; cfg["B6"]=30
 for c in ("A4","A5","A6"): rotulo(cfg[c])
 inp(cfg["B4"]); inp(cfg["B5"],DATA); inp(cfg["B6"],center=True)
@@ -39,10 +39,10 @@ for r in range(R0,RN+1):
     ps.cell(row=r,column=13,value=f'=IF(L{r}="","",IF(L{r}>{PAR},"Sim",""))'); calc(ps.cell(row=r,column=13))
     ps.cell(row=r,column=14,value=f'=IF(M{r}="Sim",L{r}-ROW()/100000,0)'); ps.cell(row=r,column=14).font=F(color=CINZA,size=9)
 def off(col): return f"=OFFSET(Config!${col}$10,0,0,MAX(1,COUNTA(Config!${col}$10:${col}${9+NL})),1)"
-dva=lista(off("D"),strict=False); dva.add(f"C{R0}:C{RN}")
-dvf=lista(off("B"),strict=False); dvf.add(f"D{R0}:D{RN}")
-dvr=lista(off("F"),strict=False); dvr.add(f"E{R0}:E{RN}")
-dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True); dvd.add(f"G{R0}:H{RN}")
+dva=lista(off("D"),strict=True); dva.add(f"C{R0}:C{RN}")
+dvf=lista(off("B"),strict=True); dvf.add(f"D{R0}:D{RN}")
+dvr=lista(off("F"),strict=True); dvr.add(f"E{R0}:E{RN}")
+dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True); dvd.add(f"G{R0}:H{RN}")
 for dv in (dva,dvf,dvr,dvd): ps.add_data_validation(dv)
 ps.conditional_formatting.add(f"A{R0}:M{RN}", FormulaRule(formula=[f'$K{R0}="Atrasado"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
 ps.conditional_formatting.add(f"A{R0}:M{RN}", FormulaRule(formula=[f'$K{R0}="Hoje"'], fill=fill(SOL), font=F(color=UVA,size=10,bold=True)))

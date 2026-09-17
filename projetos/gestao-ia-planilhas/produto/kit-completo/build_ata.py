@@ -28,7 +28,7 @@ for r in range(R0,RR+1):
     re_.cell(row=r,column=5).alignment=Alignment(wrap_text=True,vertical="top")
     re_.cell(row=r,column=6,value=f'=IF(C{r}="","",COUNTIFS(Pendências!$A${R0}:$A${RP},A{r},Pendências!$F${R0}:$F${RP},"<>Feito"))'); calc(re_.cell(row=r,column=6))
     re_.cell(row=r,column=7,value=f'=IF(C{r}="","",COUNTIFS(Pendências!$A${R0}:$A${RP},A{r},Pendências!$H${R0}:$H${RP},"Atrasada"))'); calc(re_.cell(row=r,column=7))
-dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True); dvd.add(f"B{R0}:B{RR}"); re_.add_data_validation(dvd)
+dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True); dvd.add(f"B{R0}:B{RR}"); re_.add_data_validation(dvd)
 re_.conditional_formatting.add(f"G{R0}:G{RR}", FormulaRule(formula=[f'AND(ISNUMBER(G{R0}),G{R0}>0)'], font=F(color="C8402E",size=10,bold=True)))
 widths(re_,(9,11,32,26,60,11,11)); re_.freeze_panes="C5"; re_.sheet_view.showGridLines=False; re_.auto_filter.ref=f"A4:G{RR}"
 # ---------- Pendências ----------
@@ -42,8 +42,8 @@ for r in range(R0,RP+1):
     pe.cell(row=r,column=8,value=f'=IF(B{r}="","",IF(F{r}="Feito","Feita",IF(D{r}="","Sem prazo",IF(D{r}<{HOJE},"Atrasada",IF(D{r}={HOJE},"Hoje",IF(D{r}-{HOJE}<=7,"Esta semana","No prazo"))))))'); calc(pe.cell(row=r,column=8))
     pe.cell(row=r,column=9,value=f'=IF(OR(B{r}="",F{r}="Feito",D{r}=""),"",D{r}-{HOJE})'); calc(pe.cell(row=r,column=9),"0")
     pe.cell(row=r,column=10,value=f'=IF(OR(B{r}="",F{r}="Feito"),0,IF(H{r}="Atrasada",3000+MIN({HOJE}-D{r},60),IF(H{r}="Hoje",2500,IF(H{r}="Esta semana",2000-(D{r}-{HOJE}),IF(H{r}="Sem prazo",500,1000-MIN(D{r}-{HOJE},900)))))+IF(E{r}="Alta",200,IF(E{r}="Média",100,0))-ROW()/100000)'); pe.cell(row=r,column=10).font=F(color=CINZA,size=9)
-dvs=[lista(f"=Reuniões!$A${R0}:$A${RR}",strict=False), lista("=Config!$A$9:$A$20",strict=False), lista('"Alta,Média,Baixa"'), lista('"A fazer,Fazendo,Feito"'),
-     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True)]
+dvs=[lista(f"=Reuniões!$A${R0}:$A${RR}",strict=True), lista("=Config!$A$9:$A$20",strict=True), lista('"Alta,Média,Baixa"'), lista('"A fazer,Fazendo,Feito"'),
+     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"A{R0}:A{RP}",f"C{R0}:C{RP}",f"E{R0}:E{RP}",f"F{R0}:F{RP}",f"D{R0}:D{RP}"]): dv.add(rng); pe.add_data_validation(dv)
 dvs[4].add(f"G{R0}:G{RP}")
 pe.conditional_formatting.add(f"A{R0}:I{RP}", FormulaRule(formula=[f'$H{R0}="Atrasada"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
@@ -154,7 +154,7 @@ pend='IF(LEN(H30)>3,LEFT(H30,LEN(H30)-3),"nenhuma")'
 s["A33"]=f'="Reunião: "&B5&" · "&TEXT(B4,"dd/mm/yyyy")&CHAR(10)&"Participantes: "&B6&CHAR(10)&"Decisões: "&B7&CHAR(10)&"Pendências: "&{pend}'
 s["A33"].font=F(size=10,color=TINTA); s["A33"].alignment=Alignment(wrap_text=True,vertical="top"); s.merge_cells("A33:F40"); s["A33"].border=borda
 widths(s,(6,46,16,12,10,13)); s.sheet_view.showGridLines=False
-dvsel=lista(f"=Reuniões!$A${R0}:$A${RR}",strict=False); dvsel.add("B6"); cfg.add_data_validation(dvsel)
+dvsel=lista(f"=Reuniões!$A${R0}:$A${RR}",strict=True); dvsel.add("B6"); cfg.add_data_validation(dvsel)
 como_usar(wb,"Ata e Pendências",[
  ("O que esta planilha faz","Registra cada reunião (data, assunto, participantes, decisões) e cada pendência com dono e prazo. Mostra o que cobrar primeiro, a carga por pessoa e monta o resumo pronto para a IA transformar em e-mail ou ata."),
  ("Passo 1","Em Config, preencha o nome da equipe e as pessoas. Deixe a data de referência em =HOJE()."),

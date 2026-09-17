@@ -70,8 +70,15 @@ TIPOS_PRAZO=["Contestação","Réplica","Audiência de conciliação","Audiênci
 
 def D(y,m,d): return date(y,m,d)
 def prazo_formula(dias):
-    """Prazo do exemplo como fórmula relativa a hoje (não envelhece)."""
-    return "=TODAY()" if dias==0 else f"=TODAY(){dias:+d}"
+    """Prazo do exemplo como DATA LITERAL, ancorada em HOJE.
+
+    Antes devolvia "=TODAY()+n", para o exemplo parecer sempre atual. O efeito colateral
+    era pior: o histórico ficava preso na data-base e só a parte futura andava, então os
+    números deixavam de fechar entre arquivos conforme os dias passavam (a conferência
+    de coerência pegou 3 parcelas a receber sumindo do caixa). Com data literal o exemplo
+    é reproduzível; o "Como usar" manda trocar a data de referência por =HOJE() ao usar.
+    """
+    return HOJE+timedelta(days=dias)
 def dias(d): return (d-HOJE).days
 def _cnj(rng,ano): return f"{rng.randint(1000000,9999999):07d}-{rng.randint(10,99)}.{ano}.8.26.{rng.randint(1,700):04d}"
 
@@ -165,7 +172,7 @@ _c("E05","Oficina Mecânica Central","Trabalhista","Encerrado","Fixo",12000,0,D(
     (D(2025,10,13),800,D(2025,10,13)),(D(2025,11,12),800,D(2025,11,12)),(D(2025,12,12),800,D(2025,12,12)),(D(2026,1,12),800,D(2026,1,12)),(D(2026,2,12),800,D(2026,2,12)),
     (D(2026,3,12),800,D(2026,3,12)),(D(2026,4,13),800,D(2026,4,13)),(D(2026,5,12),800,D(2026,5,12))]))
 _c("E06","Fernanda Castro","Família","Encerrado","Fixo",7000,0,D(2025,10,6),D(2026,8,14),55,58,None,None,
-   ("entrada",2800,D(2025,10,13),[(D(2025,11,13),1400,D(2025,11,13)),(D(2025,12,15),1400,D(2025,12,15)),(D(2026,1,13),1400,D(2026,1,15)),(D(2026,2,13),1400,None)]))
+   ("entrada",2800,D(2025,10,13),[(D(2025,11,13),1400,D(2025,11,13)),(D(2025,12,15),1400,D(2025,12,15)),(D(2026,1,13),1400,D(2026,1,15))]))
 _c("E07","José Antônio Ribeiro","Previdenciário","Encerrado","Êxito",0,6000,D(2025,4,1),D(2026,6,26),40,44,None,None,("exito",D(2026,6,30)))
 _c("E08","Ana Beatriz Moreira","Trabalhista","Encerrado","Misto",3000,5500,D(2025,1,20),D(2026,3,13),70,76,None,None,
    ("entrada",3000,D(2025,1,27),[],D(2026,3,20)))
@@ -486,14 +493,18 @@ HISTORICO=historico()
 # DRE (18): receita por categoria do caixa, custos fixos, despesas de casos, pró-labore, impostos provisionados (8 %).
 # ---------------------------------------------------------------------------------------------------------------
 def dre(m):
+    """DRE da 18. "Outras entradas" (devolução de despesa pessoal de sócio) fica FORA da
+    receita e da base do imposto: é acerto entre sócio e escritório, não faturamento. Com
+    ela dentro, o resultado e o imposto da 18 divergiam das planilhas 10 e 11."""
     pc=TOTAIS[m]["por_cat"]
-    rec={c:pc.get(c,0) for c in CAT_ENTRADA}
+    rec={c:pc.get(c,0) for c in CAT_ENTRADA if c!="Outras entradas"}
+    reemb=pc.get("Outras entradas",0)
     fixos={c:pc.get(c,0) for c,_ in CUSTOS_FIXOS}
     var={c:pc.get(c,0) for c in ("Custas e despesas de processo","Deslocamento e viagens")}
     pro={n:v for n,v in PRO_LABORE}
     receita=sum(rec.values()); imp=round(receita*ALIQ)
     saidas=sum(fixos.values())+sum(var.values())+sum(pro.values())+imp
-    return dict(receita=rec,fixos=fixos,variaveis=var,pro_labore=pro,receita_total=receita,impostos=imp,saidas=saidas,resultado=receita-saidas,margem=(receita-saidas)/receita if receita else 0)
+    return dict(receita=rec,reembolsos=reemb,fixos=fixos,variaveis=var,pro_labore=pro,receita_total=receita,impostos=imp,saidas=saidas,resultado=receita-saidas,margem=(receita-saidas)/receita if receita else 0)
 
 # ---------------------------------------------------------------------------------------------------------------
 # PROVISÃO (10): 13º dos sócios e férias/recesso da estagiária, como a planilha 10 calcula.

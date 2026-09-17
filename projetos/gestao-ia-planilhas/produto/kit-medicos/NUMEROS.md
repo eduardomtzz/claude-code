@@ -518,7 +518,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ## 9. Cartão e taxas (16 · Conciliação, Config = Agosto)
 
-- **Agosto**: vendas no cartão e Pix R$ 31.820 · taxas **R$ 484,12** (1,52 %) · líquido R$ 31.335,88 · ainda vai cair R$ 12.388,26 · a conferir R$ 3.865,25. "As taxas do mês equivalem a 1,3 consultas particulares. Lance este total no caixa (09) como saída 'Taxas de cartão' no fim do mês."
+- **Agosto**: vendas no cartão e Pix R$ 31.820 · taxas **R$ 484,12** (1,52 %) · líquido R$ 31.335,88 · ainda vai cair R$ 12.388,26 · a conferir R$ 5.652,71. "As taxas do mês equivalem a 1,3 consultas particulares. Lance este total no caixa (09) como saída 'Taxas de cartão' no fim do mês."
 | Tipo (16, agosto) | Vendas | Bruto | Taxas | Taxa média | Líquido | % do bruto |
 |---|---|---|---|---|---|---|
 | Pix | 37 | R$ 13.380 | R$ 0,00 | 0,00 % | R$ 13.380 | 42 % |
@@ -582,7 +582,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Orçamentos em aberto (valor) | R$ 2,700 | R$ 830 | +225.3% | — | — | informativo |
 
 (Valores como o Excel em português mostra; os separadores seguem o idioma do Excel.)
-- Destaques automáticos: • Maior melhora contra Julho: Margem do mês (+14.9 p.p.), • Maior piora contra Julho: Ocupação da agenda (-1.3 p.p.), • Mais longe da meta: Ocupação da agenda (-4.6 p.p. da meta. abaixo da meta), • Indicadores no alvo: 4 de 10 com meta,
+- Destaques automáticos: • Maior melhora contra Julho: Margem do mês (+14.9 p.p.), • Maior piora contra Julho: Ocupação da agenda (-1.3 p.p.), #VALUE! • Indicadores no alvo: 4 de 10 com meta,
 - Observações da clínica (célula amarela do exemplo): "Agosto fechou com a agenda da Dra. Renata mais cheia (dois turnos por semana desde julho) e o lote de junho da Saúde Total pago com glosa, parte dela em recurso; o lote de junho da Vida Care tinha previsão para 04/09 e ainda estava dentro do prazo no fechamento de agosto — em setembro venceu e entrou na cobrança ao convênio; as faltas de segunda de manhã continuam acima da média e a recepção começou a confirmação de véspera por mensagem."
 
 ## 12. Histórico mensal (17 · Histórico; jan–ago = Painel mensal da 09, agenda desde junho, convênios/parcelas no fim de cada mês; setembro = Dados)

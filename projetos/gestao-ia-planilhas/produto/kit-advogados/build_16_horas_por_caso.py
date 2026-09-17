@@ -54,8 +54,8 @@ for r in range(R0,RNC+1):
     for c in range(1,10): inp(cs.cell(row=r,column=c))
     for c in (3,4,5,7,8,9): cs.cell(row=r,column=c).alignment=Alignment(horizontal="center")
     cs.cell(row=r,column=6).number_format=BRL0; cs.cell(row=r,column=7).number_format="0"; cs.cell(row=r,column=8).number_format="0.0"
-dvs=[lista(PES_L,strict=False), lista(MOD_L), lista(FAS_L,strict=False),
-     DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True)]
+dvs=[lista(PES_L,strict=True), lista(MOD_L), lista(FAS_L,strict=True),
+     DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"D{R0}:D{RNC}",f"E{R0}:E{RNC}",f"I{R0}:I{RNC}",f"F{R0}:H{RNC}"]): dv.add(rng); cs.add_data_validation(dv)
 cs.cell(row=RNC+2,column=1,value="Horas gastas antes: se o caso já vinha de antes, anote quantas horas ele consumiu até o dia em que você começou a lançar aqui (uma estimativa honesta serve). Elas entram no total do caso pelo custo-hora médio.").font=F(size=9,color=LILAS)
 widths(cs,(28,28,15,16,12,16,11,18,12)); cs.freeze_panes="B5"; cs.sheet_view.showGridLines=False; cs.auto_filter.ref=f"A4:I{RNC}"
@@ -72,8 +72,8 @@ for r in range(R0,RN+1):
     h.cell(row=r,column=8,value=f'=IF(OR(B{r}="",E{r}=""),"",E{r}*IFERROR(INDEX(Config!$D${P0}:$D${P1},MATCH(B{r},Config!$A${P0}:$A${P1},0)),{CHM}))'); calc(h.cell(row=r,column=8),BRL)
     h.cell(row=r,column=9,value=f'=IF(A{r}="","",MONTH(A{r}))'); calc(h.cell(row=r,column=9))
     h.cell(row=r,column=10,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(h.cell(row=r,column=10))
-dvs=[lista(PES_L,strict=False), lista(off("Casos","A",R0,RNC),strict=False), lista(ATV_L,strict=False), lista('"Sim,Não"'),
-     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True), DataValidation(type="decimal",operator="between",formula1="0",formula2="24",allow_blank=True)]
+dvs=[lista(PES_L,strict=True), lista(off("Casos","A",R0,RNC),strict=True), lista(ATV_L,strict=True), lista('"Sim,Não"'),
+     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True), DataValidation(type="decimal",operator="between",formula1="0",formula2="24",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"B{R0}:B{RN}",f"C{R0}:C{RN}",f"D{R0}:D{RN}",f"F{R0}:F{RN}",f"A{R0}:A{RN}",f"E{R0}:E{RN}"]): dv.add(rng); h.add_data_validation(dv)
 h.conditional_formatting.add(f"F{R0}:F{RN}", FormulaRule(formula=[f'AND($C{R0}<>"",$F{R0}="")'], fill=fill(VERM)))
 h.cell(row=RN+2,column=1,value="Faturável em vermelho: lançamento sem dizer se a hora é faturável. Faturável = hora que o cliente paga (direta ou dentro do valor fixo); reunião interna, deslocamento não cobrado e administração não são.").font=F(size=9,color=LILAS)
@@ -84,6 +84,20 @@ p=wb.create_sheet("Painel",0)
 titulo(p,'=Config!$B$4&" · Horas por caso · "&Config!$B$6&" de "&Config!$B$5',"Nada para digitar aqui. Escolha o mês em Config; tudo vem de Lançamentos e Casos.",merge_to="L")
 p.merge_cells("A1:L1")
 LB=f"Lançamentos!$B${R0}:$B${RN}"; LC=f"Lançamentos!$C${R0}:$C${RN}"; LE=f"Lançamentos!$E${R0}:$E${RN}"; LF=f"Lançamentos!$F${R0}:$F${RN}"; LH=f"Lançamentos!$H${R0}:$H${RN}"; LI=f"Lançamentos!$I${R0}:$I${RN}"; LJ=f"Lançamentos!$J${R0}:$J${RN}"
+# Colunas ocultas de classificação: existem para o indicador do Painel cobrir TODOS os
+# 200 casos cadastrados, e não só os 60 que a tabela mostra.
+cs.cell(row=4,column=11,value="(horas gastas)").font=F(size=9,color=CINZA)
+cs.cell(row=4,column=12,value="(custo)").font=F(size=9,color=CINZA)
+cs.cell(row=4,column=13,value="(situação)").font=F(size=9,color=CINZA)
+for r in range(R0,RNC+1):
+    cs.cell(row=r,column=11,value=f'=IF(A{r}="","",N(H{r})+SUMIFS({LE},{LC},$A{r}))').font=F(size=9,color=CINZA)
+    cs.cell(row=r,column=12,value=f'=IF(A{r}="","",N(H{r})*{CHM}+SUMIFS({LH},{LC},$A{r}))').font=F(size=9,color=CINZA)
+    cs.cell(row=r,column=13,value=(f'=IF(A{r}="","",IF(E{r}="Interno","Interno",IF(K{r}=0,"Sem horas",'
+                                   f'IF(L{r}>N(F{r}),"Consome mais do que paga",'
+                                   f'IF(AND(N(G{r})>0,K{r}/G{r}>1),"Estourou as horas",'
+                                   f'IF(AND(N(F{r})>0,(F{r}-L{r})/F{r}<0.2),"Margem baixa",'
+                                   f'IF(AND(N(G{r})>0,K{r}/G{r}>0.85),"Perto do limite","Saudável")))))))')).font=F(size=9,color=CINZA)
+for col in ("K","L","M"): cs.column_dimensions[col].hidden=True
 MES=f'{LI},{M},{LJ},{Y}'
 RT=30                                  # início da tabela "Todos os casos"
 T0=RT+2; T1=T0+NPAINEL-1
@@ -92,7 +106,7 @@ kpi(p,4,3,"Horas faturáveis no mês",f'=SUMIFS({LE},{MES},{LF},"Sim")',VERDE,VE
 kpi(p,4,5,"% de horas faturáveis",f'=IFERROR(C5/A5,0)',VERDE,VERDE_T,fmt=PCT)
 kpi(p,4,7,"Custo das horas no mês",f'=SUMIFS({LH},{MES})',LAVANDA,UVA,fmt=BRL0)
 kpi(p,4,9,"Meta de faturáveis atingida",f'=IFERROR(C5/SUMIFS(Config!$C${P0}:$C${P1},Config!$A${P0}:$A${P1},"<>"),0)',SOL,UVA,fmt=PCT)
-kpi(p,4,11,"Consomem mais do que pagam",f'=COUNTIF($L${T0}:$L${T1},"Consome mais do que paga")',VERM,VERM_T,fmt="0")
+kpi(p,4,11,"Consomem mais do que pagam",f'=COUNTIF(Casos!$M${R0}:$M${RNC},"Consome mais do que paga")',VERM,VERM_T,fmt="0")
 p["A7"]="Meta atingida = horas faturáveis lançadas no mês ÷ soma das metas de horas faturáveis (Config); é o realizado, diferente do \"tempo faturável planejado\" da planilha 05. Custo das horas = horas × custo-hora de quem lançou. As horas do mês e as faturáveis são as que o Painel do escritório (17) usa."; nota(p["A7"]); p.merge_cells("A7:L7"); p["A7"].alignment=Alignment(wrap_text=True,vertical="top"); p.row_dimensions[7].height=30
 # Casos para olhar primeiro
 p["A9"]="Casos para olhar primeiro (ativos, todo o período)"; p["A9"].font=F(bold=True,size=13,color=UVA)

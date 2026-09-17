@@ -19,7 +19,7 @@ linhas=[
  ("Passo 4","Na aba Resumo, o exemplo de análise por categoria e mês feito só com SOMASES e CONT.SES. A aula 2 mostra como montar a tabela dinâmica a partir desta Base."),
  ("Com a IA","Copie 20 a 30 linhas da Base (sem dados pessoais) e use \"Estruturar 03: desenhar as colunas\" para adaptar ao seu caso, ou \"Analisar 08: resumo executivo de uma tabela grande\"."),
  ("Legenda","Células amarelas: você preenche. Brancas: calculadas."),
- ("Proteção","Nesta planilha só as abas Checklist e Resumo são protegidas; a Base e as Listas ficam livres para você colar dados."),
+ ("Proteção","Todas as abas são protegidas sem senha. Na Base e nas Listas as células amarelas seguem livres para digitar e colar; o que está bloqueado são as 4.000 fórmulas das colunas calculadas, para uma colagem não apagá-las sem você perceber. Para editar o resto: Revisar > Desproteger planilha (Excel) ou Dados > Proteger intervalos (Google Sheets)."),
  ("Google Sheets","Faça upload no Google Drive e abra com o Google Sheets. Para a tabela dinâmica: Inserir > Tabela dinâmica, selecionando a aba Base inteira."),
  ("Exemplos","Prisma Comunicação é uma empresa fictícia. Os dados são inventados."),
  ("Suporte","suporte@seusociogestor.com.br · resposta em até 5 dias úteis · reembolso em até 7 dias pelo mesmo canal."),
@@ -51,8 +51,8 @@ for r in range(R0,RN+1):
     b.cell(row=r,column=10,value=f'=IF(OR(H{r}="",I{r}=""),"",H{r}*I{r})'); calc(b.cell(row=r,column=10),BRL)
     b.cell(row=r,column=12,value=f'=IF(B{r}="","",MONTH(B{r}))'); calc(b.cell(row=r,column=12))
     b.cell(row=r,column=13,value=f'=IF(B{r}="","",YEAR(B{r}))'); calc(b.cell(row=r,column=13))
-dvs=[lista("=Listas!$E$5:$E$34",strict=False),lista("=Listas!$A$5:$A$34"),lista("=Listas!$B$5:$B$34"),lista("=Listas!$C$5:$C$34"),lista("=Listas!$D$5:$D$34"),
-     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True)]
+dvs=[lista("=Listas!$E$5:$E$34",strict=True),lista("=Listas!$A$5:$A$34"),lista("=Listas!$B$5:$B$34"),lista("=Listas!$C$5:$C$34"),lista("=Listas!$D$5:$D$34"),
+     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"C{R0}:C{RN}",f"D{R0}:D{RN}",f"E{R0}:E{RN}",f"F{R0}:F{RN}",f"K{R0}:K{RN}",f"B{R0}:B{RN}",f"H{R0}:I{RN}"]): dv.add(rng); b.add_data_validation(dv)
 widths(b,(6,12,22,12,14,14,34,11,14,14,12,6,7)); b.freeze_panes="A2"; b.auto_filter.ref=f"A1:M{RN}"
 random.seed(5); rows=[]
@@ -98,19 +98,23 @@ s["A5"]="Só status"; rotulo(s["A5"]); s["B5"]="Pago"; inp(s["B5"],center=True)
 dvst=lista("=Listas!$D$5:$D$34"); dvst.add("B5"); s.add_data_validation(dvst)
 hdr(s,7,["Categoria"]+[m_[:3] for m_ in MESES]+["Total"])
 BJ=f"Base!$J${R0}:$J${RN}"; BL=f"Base!$L${R0}:$L${RN}"; BM=f"Base!$M${R0}:$M${RN}"
-for i in range(8):
+# 30 linhas: é o que a aba Listas aceita. Com 8, o nono cadastro sumia do Resumo.
+NRES=30
+for i in range(NRES):
     r=8+i; src=f"Listas!$A${5+i}"
     s.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(s.cell(row=r,column=1),center=False)
     for m_ in range(12):
         s.cell(row=r,column=2+m_,value=f'=IF({src}="","",SUMIFS({BJ},{BD},{src},{BL},{m_+1},{BM},$B$4,{BK},$B$5))'); calc(s.cell(row=r,column=2+m_),BRL0)
     s.cell(row=r,column=14,value=f'=IF(A{r}="","",SUM(B{r}:M{r}))'); calc(s.cell(row=r,column=14),BRL0)
-s.cell(row=16,column=1,value="Total"); rotulo(s.cell(row=16,column=1)); s.cell(row=16,column=1).border=borda
+RTOT=8+NRES
+s.cell(row=RTOT,column=1,value="Total"); rotulo(s.cell(row=RTOT,column=1)); s.cell(row=RTOT,column=1).border=borda
 for m_ in range(13):
-    c=s.cell(row=16,column=2+m_,value=f'=SUM({L(2+m_)}8:{L(2+m_)}15)'); calc(c,BRL0); c.font=F(bold=True,color=UVA,size=10)
-s["A18"]="Por cliente"; s["A18"].font=F(bold=True,size=13,color=UVA)
-hdr(s,19,["Cliente","Registros","Valor no ano","Ticket médio","Último registro"])
-for i in range(8):
-    r=20+i; src=f"Listas!$E${5+i}"
+    c=s.cell(row=RTOT,column=2+m_,value=f'=SUM({L(2+m_)}8:{L(2+m_)}{RTOT-1})'); calc(c,BRL0); c.font=F(bold=True,color=UVA,size=10)
+RCLI=RTOT+2
+s.cell(row=RCLI,column=1,value="Por cliente").font=F(bold=True,size=13,color=UVA)
+hdr(s,RCLI+1,["Cliente","Registros","Valor no ano","Ticket médio","Último registro"])
+for i in range(NRES):
+    r=RCLI+2+i; src=f"Listas!$E${5+i}"
     s.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(s.cell(row=r,column=1),center=False)
     s.cell(row=r,column=2,value=f'=IF({src}="","",COUNTIFS({BC},{src},{BM},$B$4,{BK},$B$5))'); calc(s.cell(row=r,column=2))
     s.cell(row=r,column=3,value=f'=IF({src}="","",SUMIFS({BJ},{BC},{src},{BM},$B$4,{BK},$B$5))'); calc(s.cell(row=r,column=3),BRL0)

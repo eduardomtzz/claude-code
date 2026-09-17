@@ -36,7 +36,7 @@ for o in range(NO):
         m.cell(row=r,column=10,value=f'=IF(OR(B{r}="",H{r}=""),"",IF(H{r}>=1,"Atingido",IF(H{r}>=I{r}-0.1,"No ritmo",IF(H{r}>=I{r}-0.25,"Atenção","Em risco"))))'); calc(m.cell(row=r,column=10))
         m.cell(row=r,column=12).alignment=Alignment(wrap_text=True)
 dvsent=lista('"Maior é melhor,Menor é melhor"'); dvsent.add(f"K5:K{4+NO*NK}"); m.add_data_validation(dvsent)
-dvnum=DataValidation(type="decimal",allow_blank=True); dvnum.add(f"E5:G{4+NO*NK}"); m.add_data_validation(dvnum)
+dvnum=DataValidation(type="decimal",allow_blank=True,showErrorMessage=True); dvnum.add(f"E5:G{4+NO*NK}"); m.add_data_validation(dvnum)
 RNG=f"A5:L{4+NO*NK}"
 m.conditional_formatting.add(f"J5:J{4+NO*NK}", FormulaRule(formula=['J5="Atingido"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10,bold=True)))
 m.conditional_formatting.add(f"J5:J{4+NO*NK}", FormulaRule(formula=['J5="No ritmo"'], fill=fill("E6F4EA"), font=F(color=VERDE_T,size=10)))
@@ -79,6 +79,27 @@ for r,vals in hist.items():
     for s_,v in enumerate(vals): w.cell(row=r,column=3+s_,value=v)
 w.conditional_formatting.add(f"C4:O4", FormulaRule(formula=['COLUMN()-2=Config!$B$9'], fill=fill(SOL), font=F(color=UVA,size=10,bold=True)))
 widths(w,[40,10]+[7]*13); w.freeze_panes="C5"; w.sheet_view.showGridLines=False
+# ---------- Meses ----------
+# A oferta promete acompanhamento mensal. O fechamento de cada mês é a última semana
+# preenchida daquele mês (um trimestre tem 13 semanas: 1-4, 5-9, 10-13).
+mz=wb.create_sheet("Meses")
+titulo(mz,"Acompanhamento mensal","Fechamento de cada mês do trimestre: o último valor lançado nas semanas daquele mês. Nada para preencher aqui — vem da aba Semanas. Serve para a reunião do início do mês.",merge_to="H")
+hdr(mz,4,["Resultado-chave","Meta","Mês 1","Mês 2","Mês 3","Ganho no trimestre","Falta para a meta"])
+FAIXAS=[("C","F"),("G","K"),("L","O")]   # S1-S4, S5-S9, S10-S13
+for i,r in enumerate(rows):
+    rr=5+i
+    mz.cell(row=rr,column=1,value=f'=IF(Metas!B{r}="","",Metas!B{r})'); calc(mz.cell(row=rr,column=1),center=False)
+    mz.cell(row=rr,column=2,value=f'=IF(Metas!B{r}="","",Metas!F{r})'); calc(mz.cell(row=rr,column=2))
+    for j,(c0,c1) in enumerate(FAIXAS):
+        # último valor preenchido da faixa: LOOKUP com critério sempre verdadeiro pega o
+        # último número da linha, sem precisar de função nova
+        mz.cell(row=rr,column=3+j,value=f'=IF(Metas!B{r}="","",IFERROR(LOOKUP(9.99E+307,Semanas!${c0}{rr}:${c1}{rr}),""))')
+        calc(mz.cell(row=rr,column=3+j))
+    mz.cell(row=rr,column=6,value=f'=IF(OR(Metas!B{r}="",C{rr}="",E{rr}=""),"",E{rr}-IFERROR(Metas!E{r},0))'); calc(mz.cell(row=rr,column=6))
+    mz.cell(row=rr,column=7,value=f'=IF(OR(Metas!B{r}="",E{rr}=""),"",Metas!F{r}-E{rr})'); calc(mz.cell(row=rr,column=7))
+mz.cell(row=5+len(rows)+1,column=1,value="Mês 1 = semanas 1 a 4; Mês 2 = semanas 5 a 9; Mês 3 = semanas 10 a 13. Mês sem nenhuma semana preenchida fica em branco. \"Ganho no trimestre\" compara o fechamento do Mês 3 com o ponto de partida da aba Metas.").font=F(size=9,color=LILAS)
+mz.merge_cells(start_row=5+len(rows)+1,start_column=1,end_row=5+len(rows)+1,end_column=7)
+widths(mz,(40,12,14,14,14,18,18)); mz.freeze_panes="C5"; mz.sheet_view.showGridLines=False
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
 p["A1"]='=Config!B4&" · "&Config!B5'; p["A1"].font=F(bold=True,size=16,color=UVA); p.merge_cells("A1:H1")
@@ -118,7 +139,7 @@ como_usar(wb,"Metas do Trimestre",[
  ("O que esta planilha faz","Você define até 5 objetivos com até 4 resultados-chave cada (ponto de partida, meta, valor atual). Ela calcula o progresso, compara com o tempo já decorrido e acende o semáforo: atingido, no ritmo, atenção ou em risco."),
  ("Passo 1","Em Config, preencha o trimestre, as datas de início e fim e deixe a data de referência em =HOJE()."),
  ("Passo 2","Em Metas, escreva cada objetivo e seus resultados-chave. Ponto de partida é o valor no dia 1; meta é onde quer chegar; valor atual é o número de hoje. Diga se maior ou menor é melhor."),
- ("Passo 3","Toda semana, atualize o valor atual e copie para a coluna da semana em Semanas. O Painel mostra o resumo por objetivo e a lista completa com semáforo."),
+ ("Passo 3","Toda semana, atualize o valor atual e copie para a coluna da semana em Semanas. O Painel mostra o resumo por objetivo e a lista completa com semáforo; a aba Meses fecha cada mês do trimestre a partir das semanas, para a reunião mensal."),
  ("Rotina","Sexta-feira, 10 minutos: atualizar os valores. Primeira segunda do mês: reunião de 20 minutos olhando o Painel."),
  ("Com a IA","Copie a tabela \"Todos os resultados-chave\" e use o prompt \"Analisar 04: meta realista\" ou \"Escrever 04: justificativa para chefe ou cliente\". No fim do trimestre, \"Apresentar 01: roteiro de 8 slides\"."),
 ])

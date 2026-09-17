@@ -51,7 +51,7 @@ for r in range(R0,RNG+1):
     gu.cell(row=r,column=14,value=f'=IF(AND(H{r}="Sim",I{r}<>"Aceito"),G{r}+ROW()/100000,0)'); gu.cell(row=r,column=14).font=F(color=CINZA,size=9)
 gu.column_dimensions["N"].hidden=True
 dvs=[(lista(CONV_L),f"D{R0}:D{RNG}"),(lista('"Sim"'),f"H{R0}:H{RNG}"),(lista('"Em recurso,Aceito,Negado"'),f"I{R0}:I{RNG}"),
-     (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),f"B{R0}:B{RNG}"),(DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True),f"G{R0}:G{RNG}")]
+     (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"B{R0}:B{RNG}"),(DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True),f"G{R0}:G{RNG}")]
 for dv,rng in dvs: dv.add(rng); gu.add_data_validation(dv)
 gu.conditional_formatting.add(f"A{R0}:M{RNG}", FormulaRule(formula=[f'$H{R0}="Sim"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
 gu.conditional_formatting.add(f"A{R0}:M{RNG}", FormulaRule(formula=[f'AND($H{R0}="Sim",$I{R0}="Aceito")'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
@@ -79,8 +79,8 @@ for r in range(R0,RNL+1):
     lo.cell(row=r,column=20,value=f'=IF(AND(F{r}<>"",E{r}<>""),F{r}-E{r},"")'); lo.cell(row=r,column=20).font=F(color=CINZA,size=9)
 lo.column_dimensions["S"].hidden=True; lo.column_dimensions["T"].hidden=True
 dvs=[(lista(CONV_L),f"A{R0}:A{RNL}"),(lista('"Em recurso,Aceito,Negado"'),f"H{R0}:H{RNL}"),
-     (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),f"B{R0}:B{RNL}"),(DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),f"E{R0}:F{RNL}"),
-     (DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True),f"D{R0}:D{RNL}")]
+     (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"B{R0}:B{RNL}"),(DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"E{R0}:F{RNL}"),
+     (DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True),f"D{R0}:D{RNL}")]
 for dv,rng in dvs: dv.add(rng); lo.add_data_validation(dv)
 lo.conditional_formatting.add(f"A{R0}:R{RNL}", FormulaRule(formula=[f'$N{R0}="Atrasada"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
 lo.conditional_formatting.add(f"A{R0}:R{RNL}", FormulaRule(formula=[f'$N{R0}="Em recurso"'], fill=fill("FFF4CC")))

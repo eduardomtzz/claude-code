@@ -19,7 +19,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações e régua de cobrança","Células amarelas: você preenche. A régua diz o que fazer em cada faixa de atraso; o texto aparece no Painel, parcela por parcela.",merge_to="H")
 cfg["A4"]="Escritório"; cfg["B4"]=NOME_ESC
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Janela curta: vence em até (dias)"; cfg["B6"]=7
 cfg["A7"]="Janela longa: vence em até (dias)"; cfg["B7"]=30
 for r in (4,5,6,7): rotulo(cfg.cell(row=r,column=1))
@@ -71,16 +71,16 @@ for r in range(R0,RNP+1):
     pr.cell(row=r,column=13,value=f'=IF(H{r}="Vencida",E{r}*I{r}+ROW()/100000,0)'); pr.cell(row=r,column=13).font=F(color=CINZA,size=9)
     pr.cell(row=r,column=14,value=f'=IF(AND(H{r}="A vencer",J{r}<={JL}),100000-J{r}-ROW()/100000,0)'); pr.cell(row=r,column=14).font=F(color=CINZA,size=9)
 pr.column_dimensions["M"].hidden=True; pr.column_dimensions["N"].hidden=True   # colunas auxiliares das listas do Painel
-dvs=[lista(off("Casos","A",R0,RNC),strict=False), lista('"Sim,Não"'),
-     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),
-     DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True),
-     DataValidation(type="whole",operator="greaterThanOrEqual",formula1="1",allow_blank=True)]
+dvs=[lista(off("Casos","A",R0,RNC),strict=True), lista('"Sim,Não"'),
+     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),
+     DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True),
+     DataValidation(type="whole",operator="greaterThanOrEqual",formula1="1",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"A{R0}:A{RNP}",f"F{R0}:F{RNP}",f"D{R0}:D{RNP}",f"E{R0}:E{RNP}",f"C{R0}:C{RNP}"]): dv.add(rng); pr.add_data_validation(dv)
 pr.conditional_formatting.add(f"A{R0}:L{RNP}", FormulaRule(formula=[f'$H{R0}="Vencida"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
 pr.conditional_formatting.add(f"A{R0}:L{RNP}", FormulaRule(formula=[f'AND($H{R0}="A vencer",$J{R0}<={JC})'], fill=fill("FFF4CC")))
 pr.conditional_formatting.add(f"A{R0}:L{RNP}", FormulaRule(formula=[f'$H{R0}="Paga"'], font=F(color=VERDE_T,size=10)))
 pr.conditional_formatting.add(f"G{R0}:G{RNP}", FormulaRule(formula=[f'AND($F{R0}="Sim",$G{R0}="")'], fill=fill(VERM)))
-pr.cell(row=RNP+2,column=1,value="Vermelho: vencida. Amarelo: vence na janela curta. Verde: paga. Data do pagamento em vermelho: marcada como paga sem data. No exemplo, as parcelas pagas têm data fixa (cada uma é uma entrada do caixa, planilha 09) e as em aberto têm vencimento relativo a hoje.").font=F(size=9,color=LILAS)
+pr.cell(row=RNP+2,column=1,value="Vermelho: vencida. Amarelo: vence na janela curta. Verde: paga. Data do pagamento em vermelho: marcada como paga sem data. No exemplo, todas as datas são fixas na data-base de 14/09/2026, para os números fecharem com o caixa (planilha 09) e com a carteira (13).").font=F(size=9,color=LILAS)
 widths(pr,(28,26,9,12,13,8,13,13,9,9,16,60)); pr.freeze_panes="C5"; pr.sheet_view.showGridLines=False; pr.auto_filter.ref=f"A4:L{RNP}"
 
 # ---------- Painel ----------

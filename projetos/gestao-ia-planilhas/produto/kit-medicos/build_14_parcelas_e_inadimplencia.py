@@ -71,10 +71,10 @@ for r in range(R0,RNP+1):
     pr.cell(row=r,column=14,value=f'=IF(I{r}="Vencida",F{r}*J{r}+ROW()/100000,0)'); pr.cell(row=r,column=14).font=F(color=CINZA,size=9)
     pr.cell(row=r,column=15,value=f'=IF(AND(I{r}="A vencer",K{r}<={JL}),100000-K{r}-ROW()/100000,0)'); pr.cell(row=r,column=15).font=F(color=CINZA,size=9)
 pr.column_dimensions["N"].hidden=True; pr.column_dimensions["O"].hidden=True
-dvs=[lista(off("Pacientes","A",R0,RNC),strict=False), lista('"Sim,Não"'),
-     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),
-     DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True),
-     DataValidation(type="whole",operator="greaterThanOrEqual",formula1="1",allow_blank=True)]
+dvs=[lista(off("Pacientes","A",R0,RNC),strict=True), lista('"Sim,Não"'),
+     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),
+     DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True),
+     DataValidation(type="whole",operator="greaterThanOrEqual",formula1="1",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"A{R0}:A{RNP}",f"G{R0}:G{RNP}",f"E{R0}:E{RNP}",f"F{R0}:F{RNP}",f"D{R0}:D{RNP}"]): dv.add(rng); pr.add_data_validation(dv)
 pr.conditional_formatting.add(f"A{R0}:M{RNP}", FormulaRule(formula=[f'$I{R0}="Vencida"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
 pr.conditional_formatting.add(f"A{R0}:M{RNP}", FormulaRule(formula=[f'AND($I{R0}="A vencer",$K{R0}<={JC})'], fill=fill("FFF4CC")))

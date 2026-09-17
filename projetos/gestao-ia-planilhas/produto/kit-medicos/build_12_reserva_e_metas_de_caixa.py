@@ -43,7 +43,7 @@ cfg["A24"]="Metas de caixa do trimestre (3)"; rotulo(cfg["A24"])
 hdr(cfg,25,["Meta","Valor alvo","Valor atual","Prazo"])
 for i in range(3):
     r=26+i; inp(cfg.cell(row=r,column=1)); inp(cfg.cell(row=r,column=2),BRL); inp(cfg.cell(row=r,column=3),BRL); inp(cfg.cell(row=r,column=4),DATA,center=True)
-dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True); dvd.add("D26:D28"); cfg.add_data_validation(dvd)
+dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True); dvd.add("D26:D28"); cfg.add_data_validation(dvd)
 cfg["A31"]="Metas que se medem em reais e crescem até o alvo (reserva, recebimentos, provisão separada). Atualize o valor atual toda sexta. No exemplo os prazos são datas fixas (fim do trimestre e do ano)."; nota(cfg["A30"])
 widths(cfg,(44,18,3,30,12,12,3,12)); cfg.sheet_view.showGridLines=False
 tot=dados.TOTAIS

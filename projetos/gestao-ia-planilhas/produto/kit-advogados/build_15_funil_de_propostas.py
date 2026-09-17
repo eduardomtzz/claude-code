@@ -19,7 +19,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. As probabilidades por etapa alimentam a previsão ponderada.",merge_to="J")
 cfg["A4"]="Escritório"; cfg["B4"]=NOME_ESC
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Meta de honorários fechados no trimestre (R$)"; cfg["B6"]=dados.META_FECHADO_TRI
 cfg["A7"]="Proposta parada há mais de (dias)"; cfg["B7"]=14
 for r in range(4,8): rotulo(cfg.cell(row=r,column=1))
@@ -52,8 +52,8 @@ for r in range(R0,RN+1):
     pr.cell(row=r,column=17,value=f'=IF(G{r}="","",IF(G{r}="Fechada","Fechada",IF(G{r}="Perdida","Perdida",IF(AND(J{r}<>"",J{r}<{HOJE}),"Previsão vencida",IF(AND(O{r}<>"",O{r}>{PAR}),"Parada","Ativa")))))'); calc(pr.cell(row=r,column=17))
     pr.cell(row=r,column=18,value=f'=IF(OR(G{r}="",Q{r}="Fechada",Q{r}="Perdida"),0,IF(Q{r}="Previsão vencida",3000,IF(Q{r}="Parada",2000,1000))+MIN(N(O{r}),500)+N(F{r})/1000000-ROW()/100000)'); pr.cell(row=r,column=18).font=F(color=CINZA,size=9)
 pr.column_dimensions["R"].hidden=True
-dvs=[lista(AREAS_L), lista(SERV_L,strict=False), lista(ORIG_L,strict=False), lista(RESP_L), lista(f"=Config!$A${E0}:$A${E1}"), lista(MOT_L,strict=False),
-     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True), DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True)]
+dvs=[lista(AREAS_L), lista(SERV_L,strict=True), lista(ORIG_L,strict=True), lista(RESP_L), lista(f"=Config!$A${E0}:$A${E1}"), lista(MOT_L,strict=True),
+     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True), DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"B{R0}:B{RN}",f"C{R0}:C{RN}",f"D{R0}:D{RN}",f"E{R0}:E{RN}",f"G{R0}:G{RN}",f"L{R0}:L{RN}",f"H{R0}:K{RN}",f"F{R0}:F{RN}"]): dv.add(rng); pr.add_data_validation(dv)
 pr.conditional_formatting.add(f"A{R0}:Q{RN}", FormulaRule(formula=[f'$Q{R0}="Parada"'], fill=fill("FFF4CC")))
 pr.conditional_formatting.add(f"A{R0}:Q{RN}", FormulaRule(formula=[f'$Q{R0}="Previsão vencida"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
@@ -72,9 +72,12 @@ PF=f"Propostas!$F${R0}:$F${RN}"; PG=f"Propostas!$G${R0}:$G${RN}"; PK=f"Propostas
 PO=f"Propostas!$O${R0}:$O${RN}"; PP=f"Propostas!$P${R0}:$P${RN}"; PQ=f"Propostas!$Q${R0}:$Q${RN}"; PR_=f"Propostas!$R${R0}:$R${RN}"
 ABERTA=f'{PG},"<>Fechada",{PG},"<>Perdida",{PG},"<>"'
 TRI=f'DATE(YEAR({HOJE}),3*INT((MONTH({HOJE})-1)/3)+1,1)'
+# Limite SUPERIOR do trimestre: sem ele, fechamento de trimestre posterior entrava
+# no total do trimestre consultado.
+TRI_FIM=f'DATE(YEAR({HOJE})+(3*INT((MONTH({HOJE})-1)/3)+4>12),IF(3*INT((MONTH({HOJE})-1)/3)+4>12,1,3*INT((MONTH({HOJE})-1)/3)+4),1)'
 kpi(p,4,1,"Em aberto (R$)",f'=SUMIFS({PF},{ABERTA})',LAVANDA,UVA,fmt=BRL0)
 kpi(p,4,3,"Previsão ponderada",f'=SUMIFS({PN},{ABERTA})',SOL,UVA,fmt=BRL0)
-kpi(p,4,5,"Fechado no trimestre",f'=SUMIFS({PF},{PG},"Fechada",{PK},">="&{TRI})',VERDE,VERDE_T,fmt=BRL0)
+kpi(p,4,5,"Fechado no trimestre",f'=SUMIFS({PF},{PG},"Fechada",{PK},">="&{TRI},{PK},"<"&{TRI_FIM})',VERDE,VERDE_T,fmt=BRL0)
 kpi(p,4,7,"% da meta",f'=IFERROR(E5/{META},0)',VERDE,VERDE_T,fmt=PCT)
 kpi(p,4,9,"Taxa de fechamento",f'=IFERROR(COUNTIFS({PG},"Fechada")/(COUNTIFS({PG},"Fechada")+COUNTIFS({PG},"Perdida")),0)',LAVANDA,UVA,fmt=PCT)
 kpi(p,4,11,"Dias até fechar (média)",f'=IFERROR(AVERAGEIFS({PP},{PG},"Fechada"),0)',LAVANDA,UVA,fmt="0")

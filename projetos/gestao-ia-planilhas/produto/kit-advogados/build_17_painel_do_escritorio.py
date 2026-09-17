@@ -20,7 +20,7 @@ titulo(cfg,"Configurações","Células amarelas: você preenche.",merge_to="E")
 cfg["A4"]="Escritório"; cfg["B4"]=f"{dados.ESCRITORIO} (exemplo fictício)"
 cfg["A5"]="Mês do painel"; cfg["B5"]="Setembro"
 cfg["A6"]="Ano"; cfg["B6"]=2026
-cfg["A7"]="Data de referência (hoje)"; cfg["B7"]="=TODAY()"
+cfg["A7"]="Data de referência (hoje)"; cfg["B7"]=dados.HOJE
 cfg["A8"]="Número do mês"; cfg["B8"]="=MATCH(B5,$D$5:$D$16,0)"
 cfg["A9"]="Mês anterior"; cfg["B9"]='=IF(B8>1,INDEX($D$5:$D$16,B8-1),"")'
 cfg["A10"]="Mês do painel já fechou? (Sim/Não)"; cfg["B10"]="Não"

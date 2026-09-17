@@ -49,7 +49,7 @@ for o in range(NO):
 RL=4+NO*NK
 dvsent=lista('"Maior é melhor,Menor é melhor"'); dvsent.add(f"K5:K{RL}"); m.add_data_validation(dvsent)
 dvdono=lista(PESSOAS_LISTA); dvdono.add(f"C5:C{RL}"); m.add_data_validation(dvdono)
-dvnum=DataValidation(type="decimal",allow_blank=True); dvnum.add(f"E5:G{RL}"); m.add_data_validation(dvnum)
+dvnum=DataValidation(type="decimal",allow_blank=True,showErrorMessage=True); dvnum.add(f"E5:G{RL}"); m.add_data_validation(dvnum)
 for cor,txt,fnt in ((VERDE,"Atingido",VERDE_T),("E6F4EA","No ritmo",VERDE_T),(AMARELO,"Atenção","7A5200"),(VERM,"Em risco",VERM_T)):
     m.conditional_formatting.add(f"J5:J{RL}", FormulaRule(formula=[f'J5="{txt}"'], fill=fill(cor), font=F(color=fnt,size=10,bold=(txt in ("Atingido","Em risco")))))
 m.cell(row=RL+2,column=1,value="Semáforo: Atingido (100%); No ritmo (progresso até 10 pontos abaixo do tempo decorrido); Atenção (até 25 pontos abaixo); Em risco (mais que isso). A planilha avisa; a ação é da clínica.").font=F(size=9,color=LILAS)

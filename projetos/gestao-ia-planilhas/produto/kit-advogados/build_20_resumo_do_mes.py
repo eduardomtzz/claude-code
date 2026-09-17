@@ -104,7 +104,7 @@ rs["A1"]="Resumo do mês, pronto para a IA e para o contador"; rs["A1"].font=F(b
 rs["A2"]="Só a célula amarela é para digitar (observações do escritório). Copie o bloco único e cole no prompt \"Painel 01 · Explicar o mês ao sócio\" da biblioteca do kit, ou envie ao sócio e ao contador. Os números vêm do Painel."; nota(rs["A2"]); rs.merge_cells("A2:D2")
 rs["A4"]='="Resumo de "&Config!B6&" de "&Config!B5&" · "&Config!B4'; rs["A4"].font=F(bold=True,color=UVA); rs.merge_cells("A4:D4")
 rs["A5"]="Observações do escritório (opcional; entram no fim do bloco):"; rotulo(rs["A5"],bold=False)
-rs["A6"]="Agosto fechou com quatro propostas novas viradas em caso (Escola Aurora, Loja Verde, Marcos Vinícius e a cobrança da Construtora entrou em julho); Bistrô 42 e Agência Prisma seguem com parcelas vencidas e entraram na régua de cobrança; o caso da Oficina (execução) e o recurso da Escola Aurora estouraram as horas estimadas."
+rs["A6"]="Agosto fechou com três propostas novas viradas em caso (Escola Aurora, Loja Verde e Marcos Vinícius); a cobrança da Construtora já havia entrado em julho e não conta neste mês; Bistrô 42 e Agência Prisma seguem com parcelas vencidas e entraram na régua de cobrança; o caso da Oficina (execução) e o recurso da Escola Aurora estouraram as horas estimadas."
 inp(rs["A6"]); [inp(rs[c+"6"]) for c in "BCD"]; rs.merge_cells("A6:D6"); rs["A6"].alignment=Alignment(wrap_text=True,vertical="top"); rs.row_dimensions[6].height=58
 F0=8
 def frase(i):
@@ -112,7 +112,9 @@ def frase(i):
     v=f"Painel!Q{r}"; a=f"Painel!R{r}"; var=f"Painel!T{r}"; meta=f"Painel!S{r}"; st=f"Painel!G{r}"; nome=f"Painel!A{r}"
     return (f'=IF(OR({nome}="",{v}=""),"",'
             f'"• "&{nome}&": "&Painel!B{r}'
-            f'&IF({var}<>"",IF({var}=0," (igual a "&Config!$B$8&")"," ("&Painel!D{r}&" em relação a "&Config!$B$8&")"),IF({a}<>""," (igual a "&Config!$B$8&")",""))'
+            f'&IF({var}<>"",IF({var}=0," (igual a "&Config!$B$8&")"," ("&Painel!D{r}&" em relação a "&Config!$B$8&")"),'
+            f'IF(AND({a}<>"",{a}=0,{v}<>0)," (sem base de comparação: "&Config!$B$8&" foi zero)",'
+            f'IF({a}<>""," (igual a "&Config!$B$8&")","")))'
             f'&IF({meta}<>"","; meta "&Painel!E{r}&", "&LOWER({st}),"")&".")')
 for i in range(NI):
     rs.cell(row=F0+i,column=1,value=frase(i)).font=F(size=10,color=TINTA); rs.merge_cells(start_row=F0+i,start_column=1,end_row=F0+i,end_column=4)
@@ -124,7 +126,10 @@ def pick(agg): return f'INDEX({NR},MATCH({agg}({PR}),{PR},0))'
 def varde(agg): return f'INDEX({VD},MATCH({agg}({PR}),{PR},0))'
 rs.cell(row=D0+1,column=1,value=f'=IF(COUNT({PR})=0,"• Melhora e piora: preencha o mês anterior para comparar.",IF(MAX({PR})<=0,"• Nenhum indicador melhorou contra "&Config!$B$8&".","• Maior melhora contra "&Config!$B$8&": "&{pick("MAX")}&" ("&{varde("MAX")}&")."))')
 rs.cell(row=D0+2,column=1,value=f'=IF(COUNT({PR})=0,"",IF(MIN({PR})>=0,"• Nenhum indicador piorou contra "&Config!$B$8&".","• Maior piora contra "&Config!$B$8&": "&{pick("MIN")}&" ("&{varde("MIN")}&")."))')
-rs.cell(row=D0+3,column=1,value=f'=IF(COUNT({AR})=0,"• Nenhum indicador fora da meta.","• Mais longe da meta: "&INDEX({NR},MATCH(MAX({AR}),{AR},0))&" ("&INDEX({FR},MATCH(MAX({AR}),{AR},0))&" da meta, "&LOWER(INDEX({SR},MATCH(MAX({AR}),{AR},0)))&").")')
+_fora=f'(COUNTIF({SR},"Acima da meta")+COUNTIF({SR},"Abaixo da meta"))'
+rs.cell(row=D0+3,column=1,value=f'=IF({_fora}=0,"• Nenhum indicador fora da meta.",'
+    f'IF(COUNT({AR})=0,"• "&{_fora}&" indicador(es) fora da meta (sem percentual: a meta é zero).",'
+    f'"• Mais longe da meta: "&INDEX({NR},MATCH(MAX({AR}),{AR},0))&" ("&INDEX({FR},MATCH(MAX({AR}),{AR},0))&" da meta, "&LOWER(INDEX({SR},MATCH(MAX({AR}),{AR},0)))&")."))')
 rs.cell(row=D0+4,column=1,value=f'="• Indicadores no alvo: "&COUNTIF({SR},"No alvo")&" de "&(COUNTIF({SR},"No alvo")+COUNTIF({SR},"Acima da meta")+COUNTIF({SR},"Abaixo da meta"))&" com meta."')
 for k in range(1,5):
     rs.cell(row=D0+k,column=1).font=F(size=10,color=TINTA); rs.merge_cells(start_row=D0+k,start_column=1,end_row=D0+k,end_column=4); rs.cell(row=D0+k,column=1).alignment=Alignment(wrap_text=True,vertical="top")

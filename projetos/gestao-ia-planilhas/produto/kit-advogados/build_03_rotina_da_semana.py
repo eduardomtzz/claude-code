@@ -10,7 +10,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche.",merge_to="F")
 cfg["A4"]="Escritório"; cfg["B4"]=f"{dados.ESCRITORIO} (exemplo fictício)"
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Segunda-feira da semana 1"; cfg["B6"]=date(2026,1,5)
 for c in ("A4","A5","A6"): rotulo(cfg[c])
 inp(cfg["B4"]); inp(cfg["B5"],DATA); inp(cfg["B6"],DATA)
@@ -48,9 +48,9 @@ for j,(lab,fml) in enumerate(rot):
         c=ro.cell(row=r,column=C0+k,value=fml.format(c=L(C0+k))); calc(c, PCT if j==3 else "0")
 ro.cell(row=RT+5,column=2,value="Sim = feita; Não = pulada; vazio = semana ainda não registrada. Só as semanas registradas entram no Painel.").font=F(size=9,color=LILAS)
 dvd=lista('"Segunda,Terça,Quarta,Quinta,Sexta"'); dvd.add(f"A{R0}:A{RI}")
-dvr=lista(f"=OFFSET(Config!$B$9,0,0,MAX(1,COUNTA(Config!$B$9:$B${8+NRESP})),1)",strict=False); dvr.add(f"D{R0}:D{RI}")
+dvr=lista(f"=OFFSET(Config!$B$9,0,0,MAX(1,COUNTA(Config!$B$9:$B${8+NRESP})),1)",strict=True); dvr.add(f"D{R0}:D{RI}")
 dvs=lista('"Sim,Não"'); dvs.add(f"{L(C0)}{R0}:{LW}{RI}")
-dvm=DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True); dvm.add(f"C{R0}:C{RI}")
+dvm=DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True); dvm.add(f"C{R0}:C{RI}")
 for dv in (dvd,dvr,dvs,dvm): ro.add_data_validation(dv)
 rng=f"{L(C0)}{R0}:{LW}{RI}"
 ro.conditional_formatting.add(rng, FormulaRule(formula=[f'{L(C0)}{R0}="Sim"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))

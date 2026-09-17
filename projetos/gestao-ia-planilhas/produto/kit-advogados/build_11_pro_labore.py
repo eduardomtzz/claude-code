@@ -70,9 +70,9 @@ for r in range(R0,RN+1):
     for c in (1,2,3,6): re_.cell(row=r,column=c).alignment=Alignment(horizontal="center")
     re_.cell(row=r,column=7,value=f'=IF(A{r}="","",MONTH(A{r}))'); calc(re_.cell(row=r,column=7))
     re_.cell(row=r,column=8,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(re_.cell(row=r,column=8))
-for dv,rng_ in [(lista(f"={LSOC}",strict=False),f"B{R0}:B{RN}"),(lista("=Config!$J$5:$J$9"),f"C{R0}:C{RN}"),
-                (lista('"'+",".join(TRIMS)+'"'),f"F{R0}:F{RN}"),(DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),f"A{R0}:A{RN}"),
-                (DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True),f"E{R0}:E{RN}")]:
+for dv,rng_ in [(lista(f"={LSOC}",strict=True),f"B{R0}:B{RN}"),(lista("=Config!$J$5:$J$9"),f"C{R0}:C{RN}"),
+                (lista('"'+",".join(TRIMS)+'"'),f"F{R0}:F{RN}"),(DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"A{R0}:A{RN}"),
+                (DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True),f"E{R0}:E{RN}")]:
     dv.add(rng_); re_.add_data_validation(dv)
 re_.conditional_formatting.add(f"A{R0}:H{RN}", FormulaRule(formula=[f'$C{R0}="Despesa pessoal paga pelo escritório"'], fill=fill(VERM)))
 re_.conditional_formatting.add(f"A{R0}:H{RN}", FormulaRule(formula=[f'$C{R0}="Devolução ao escritório"'], font=F(color=VERDE_T,size=10)))

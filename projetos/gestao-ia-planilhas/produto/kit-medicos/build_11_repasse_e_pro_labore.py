@@ -21,8 +21,11 @@ cfg["A8"]="Trimestre do painel"; cfg["B8"]="=ROUNDUP(B7/3,0)"
 cfg["A9"]="Parte do lucro do trimestre distribuída aos sócios"; cfg["B9"]=dados.DISTRIB
 cfg["A10"]="Lucro mínimo do trimestre para haver distribuição"; cfg["B10"]=dados.LUCRO_MINIMO
 cfg["A11"]="Custo indireto por hora (planilha 05; informativo)"; cfg["B11"]=dados.CUSTO_INDIRETO_HORA
+# Data de referência: sem ela o 4º trimestre nunca fecharia, porque o mês do painel
+# não passa de 12 e o trimestre só termina no ano seguinte.
+cfg["A12"]="Data de referência"; cfg["B12"]=dados.HOJE
 for r in range(4,12): rotulo(cfg.cell(row=r,column=1))
-inp(cfg["B4"]); inp(cfg["B5"],center=True); inp(cfg["B6"],center=True); calc(cfg["B7"]); calc(cfg["B8"]); inp(cfg["B9"],PCT,center=True); inp(cfg["B10"],BRL); inp(cfg["B11"],BRL)
+inp(cfg["B4"]); inp(cfg["B5"],center=True); inp(cfg["B6"],center=True); calc(cfg["B7"]); calc(cfg["B8"]); inp(cfg["B9"],PCT,center=True); inp(cfg["B10"],BRL); inp(cfg["B11"],BRL); inp(cfg["B12"],DATA)
 cfg["D9"]="Regra combinada entre os sócios: o restante do lucro fica na clínica (reserva e provisões). Trimestre com lucro abaixo do mínimo não distribui."
 cfg["D10"]="A distribuição é calculada só para trimestres já fechados (os três meses lançados em Resultado mensal e anteriores ao mês do painel)."
 cfg["D11"]="Quanto vale a hora de sala, recepção e estrutura (custos fixos ÷ horas de atendimento: R$ 71,43 no exemplo). Serve só para MOSTRAR o tamanho da estrutura que o parceiro usa: esse custo NÃO é descontado da margem da parceria, porque a estrutura já está inteira dentro do custo-hora dos sócios na planilha 05 (10.000 de custo fixo ÷ 140 h) e o pró-labore dos dois sócios já cobre o mês. Descontar de novo cobraria a mesma estrutura duas vezes. A margem da parceria desconta só o que o parceiro consome de verdade: material e insumo."
@@ -49,7 +52,7 @@ for i in range(NPAR):
     r=P0+i; inp(cfg.cell(row=r,column=1)); inp(cfg.cell(row=r,column=2),PCT,center=True); inp(cfg.cell(row=r,column=3),center=True); inp(cfg.cell(row=r,column=4),"0",center=True)
 cfg.cell(row=P0,column=1,value=dados.REN); cfg.cell(row=P0,column=2,value=dados.REPASSE); cfg.cell(row=P0,column=3,value="Produção do mês"); cfg.cell(row=P0,column=4,value=10)
 dvs=lista('"Produção do mês,Recebido no mês"'); dvs.add(f"C{P0}:C{PN}"); cfg.add_data_validation(dvs)
-cfg.cell(row=PN+1,column=1,value="Preencha de cima para baixo, sem pular linha. Repasse sobre a produção: o parceiro recebe pelo que atendeu, e a glosa do convênio fica com a clínica. Sobre o recebido: o parceiro espera o convênio pagar. Combine por escrito; a planilha só calcula.").font=F(size=9,color=LILAS)
+cfg.cell(row=PN+1,column=1,value="Preencha de cima para baixo, sem pular linha. Repasse sobre a produção: o parceiro recebe pelo que atendeu, e a glosa do convênio fica com a clínica; a planilha usa a coluna \"Produção do mês\" da aba Repasse. Sobre o recebido: o parceiro espera o convênio pagar, e aí você precisa preencher a coluna \"Recebido no mês\" da aba Repasse — é ela que a planilha usa nesse caso. Combine por escrito; a planilha só calcula.").font=F(size=9,color=LILAS)
 cfg.cell(row=PN+2,column=1,value="Pró-labore fixo: o valor combinado que cada sócio retira todo mês. Retirada extra e despesa pessoal paga pela clínica são o que passou do combinado.").font=F(size=9,color=LILAS)
 widths(cfg,(46,20,22,3,3,3,3,12,3,34)); cfg.sheet_view.showGridLines=False
 LSOC=f"OFFSET(Config!$A${S0},0,0,MAX(1,COUNTA(Config!$A${S0}:$A${SN})),1)"; LPAR=f"OFFSET(Config!$A${P0},0,0,MAX(1,COUNTA(Config!$A${P0}:$A${PN})),1)"
@@ -57,11 +60,16 @@ CH="Config!$B$11"
 # ---------- Repasse ----------
 rp=wb.create_sheet("Repasse")
 titulo(rp,"Repasse aos médicos parceiros","Uma linha por parceiro e mês. Amarelo: produção e horas atendidas (Painel da 01, por profissional, com o mês escolhido em Config) e o que foi pago. O resto é calculado.",merge_to="M")
-hdr(rp,4,["Mês","Ano","Parceiro","Produção do mês (R$)","Horas atendidas","% de repasse","Repasse devido (R$)","Pago em","Valor pago (R$)","Diferença (R$)","Fica com a clínica (R$)","Material e insumo do parceiro (R$)","Margem da parceria (R$)","Custo indireto das horas (informativo, R$)"],height=52)
+hdr(rp,4,["Mês","Ano","Parceiro","Produção do mês (R$)","Horas atendidas","% de repasse","Repasse devido (R$)","Pago em","Valor pago (R$)","Diferença (R$)","Fica com a clínica (R$)","Material e insumo do parceiro (R$)","Margem da parceria (R$)","Custo indireto das horas (informativo, R$)","Recebido no mês (R$) · só se o acordo for sobre o recebido"],height=52)
 for r in range(RP0,RPN+1):
-    inp(rp.cell(row=r,column=1),center=True); inp(rp.cell(row=r,column=2),center=True); inp(rp.cell(row=r,column=3)); inp(rp.cell(row=r,column=4),BRL0,center=True); inp(rp.cell(row=r,column=5),"#,##0.0",center=True)
+    inp(rp.cell(row=r,column=1),center=True); inp(rp.cell(row=r,column=2),center=True); inp(rp.cell(row=r,column=3)); inp(rp.cell(row=r,column=4),BRL0,center=True); inp(rp.cell(row=r,column=5),"#,##0.0",center=True); inp(rp.cell(row=r,column=15),BRL0,center=True)
     rp.cell(row=r,column=6,value=f'=IF(C{r}="","",IFERROR(INDEX(Config!$B${P0}:$B${PN},MATCH(C{r},Config!$A${P0}:$A${PN},0)),""))'); calc(rp.cell(row=r,column=6),PCT)
-    rp.cell(row=r,column=7,value=f'=IF(OR(C{r}="",D{r}="",F{r}=""),"",ROUND(D{r}*F{r},0))'); calc(rp.cell(row=r,column=7),BRL0)
+    # a base do repasse segue o acordo escolhido em Config (coluna "Sobre"): produção
+    # do mês (coluna D) ou o que a clínica recebeu no mês (coluna O). Antes a opção
+    # "Recebido no mês" não mudava fórmula nenhuma e o parceiro era pago pela base errada.
+    base=(f'IF(IFERROR(INDEX(Config!$C${P0}:$C${PN},MATCH(C{r},Config!$A${P0}:$A${PN},0)),"Produção do mês")'
+          f'="Recebido no mês",N(O{r}),N(D{r}))')
+    rp.cell(row=r,column=7,value=f'=IF(OR(C{r}="",F{r}=""),"",IF({base}=0,"",ROUND({base}*F{r},0)))'); calc(rp.cell(row=r,column=7),BRL0)
     inp(rp.cell(row=r,column=8),DATA,center=True); inp(rp.cell(row=r,column=9),BRL0,center=True)
     rp.cell(row=r,column=10,value=f'=IF(G{r}="","",IF(I{r}="",G{r},G{r}-I{r}))'); calc(rp.cell(row=r,column=10),BRL0)
     rp.cell(row=r,column=11,value=f'=IF(G{r}="","",D{r}-G{r})'); calc(rp.cell(row=r,column=11),BRL0)
@@ -70,7 +78,7 @@ for r in range(RP0,RPN+1):
     rp.cell(row=r,column=14,value=f'=IF(OR(G{r}="",E{r}=""),"",E{r}*{CH})'); calc(rp.cell(row=r,column=14),BRL0); rp.cell(row=r,column=14).font=F(color=LILAS,size=10)
     rp.cell(row=r,column=15,value=f'=IF(A{r}="","",MATCH(A{r},Config!$H$5:$H$16,0))'); rp.cell(row=r,column=15).font=F(color=CINZA,size=9)
 rp.column_dimensions["O"].hidden=True
-for dv,rng_ in [(lista("=Config!$H$5:$H$16"),f"A{RP0}:A{RPN}"),(lista(f"={LPAR}",strict=False),f"C{RP0}:C{RPN}"),(DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),f"H{RP0}:H{RPN}")]:
+for dv,rng_ in [(lista("=Config!$H$5:$H$16"),f"A{RP0}:A{RPN}"),(lista(f"={LPAR}",strict=True),f"C{RP0}:C{RPN}"),(DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"H{RP0}:H{RPN}")]:
     dv.add(rng_); rp.add_data_validation(dv)
 rp.conditional_formatting.add(f"J{RP0}:J{RPN}", FormulaRule(formula=[f'AND(ISNUMBER(J{RP0}),J{RP0}>0)'], fill=fill(AMARELO), font=F(color=UVA,size=10,bold=True)))
 rp.conditional_formatting.add(f"J{RP0}:J{RPN}", FormulaRule(formula=[f'AND(ISNUMBER(J{RP0}),J{RP0}<0)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
@@ -117,9 +125,9 @@ for r in range(R0,RN+1):
     for c in (1,2,3,6): re_.cell(row=r,column=c).alignment=Alignment(horizontal="center")
     re_.cell(row=r,column=7,value=f'=IF(A{r}="","",MONTH(A{r}))'); calc(re_.cell(row=r,column=7))
     re_.cell(row=r,column=8,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(re_.cell(row=r,column=8))
-for dv,rng_ in [(lista(f"={LSOC}",strict=False),f"B{R0}:B{RN}"),(lista("=Config!$J$5:$J$9"),f"C{R0}:C{RN}"),
-                (lista('"'+",".join(TRIMS)+'"'),f"F{R0}:F{RN}"),(DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),f"A{R0}:A{RN}"),
-                (DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True),f"E{R0}:E{RN}")]:
+for dv,rng_ in [(lista(f"={LSOC}",strict=True),f"B{R0}:B{RN}"),(lista("=Config!$J$5:$J$9"),f"C{R0}:C{RN}"),
+                (lista('"'+",".join(TRIMS)+'"'),f"F{R0}:F{RN}"),(DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"A{R0}:A{RN}"),
+                (DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True),f"E{R0}:E{RN}")]:
     dv.add(rng_); re_.add_data_validation(dv)
 re_.conditional_formatting.add(f"A{R0}:H{RN}", FormulaRule(formula=[f'$C{R0}="Despesa pessoal paga pela clínica"'], fill=fill(VERM)))
 re_.conditional_formatting.add(f"A{R0}:H{RN}", FormulaRule(formula=[f'$C{R0}="Devolução à clínica"'], font=F(color=VERDE_T,size=10)))
@@ -180,7 +188,15 @@ for q in range(4):
     p.cell(row=r,column=1,value=TRIMS[q]); calc(p.cell(row=r,column=1),center=False)
     p.cell(row=r,column=2,value=f"=SUM('Resultado mensal'!B{a}:B{b})"); p.cell(row=r,column=3,value=f"=SUM('Resultado mensal'!C{a}:C{b})")
     p.cell(row=r,column=4,value=f"=SUM('Resultado mensal'!D{a}:D{b})"); p.cell(row=r,column=5,value=f"=SUM('Resultado mensal'!E{a}:E{b})")
-    p.cell(row=r,column=6,value=f'=IF({M}>{3*(q+1)},"Sim","Em andamento")')
+    # O trimestre fecha quando a data de referência já passou do último dia dele, e só
+    # conta como fechado se os três meses tiverem resultado lançado: trimestre com mês
+    # em branco distribui lucro a menos. Antes o teste era mês do painel > 3*(q+1), que
+    # para o 4º trimestre exigia mês 13 — condição impossível.
+    ano_seg = 'Config!$B$5+1' if q == 3 else 'Config!$B$5'
+    mes_seg = 1 if q == 3 else 3*(q+1)+1
+    fim_tri = f'DATE({ano_seg},{mes_seg},1)'
+    tres = f"COUNT('Resultado mensal'!B{a}:B{b})"
+    p.cell(row=r,column=6,value=f'=IF(AND(Config!$B$12>={fim_tri},{tres}>=3),"Sim","Em andamento")')
     p.cell(row=r,column=7,value=f'=IF(AND(F{r}="Sim",E{r}>=Config!$B$10),E{r}*Config!$B$9,0)')
     p.cell(row=r,column=8,value=f'=SUMIFS({RE},{RC},"Distribuição de lucro",{RF},A{r},{RH},{Y})')
     p.cell(row=r,column=9,value=f"=IF(ABS(G{r}-H{r})<1,0,G{r}-H{r})")

@@ -100,7 +100,7 @@ for r in range(R0,RP+1):
     cond=f'(({AE}=A{r})*(({AH}="Agendado")+({AH}="Confirmado")))'
     mn=f'SUMPRODUCT(MIN({cond}*{AA}+(1-{cond})*1E+10))'
     pc.cell(row=r,column=9,value=f'=IF(A{r}="","",IF({mn}>=1E+10,"",{mn}))'); calc(pc.cell(row=r,column=9),DATA)
-dvpg=lista(PAG_L,strict=False); dvpg.add(f"B{R0}:B{RP}"); dvpp=lista(PROF_L,strict=False); dvpp.add(f"C{R0}:C{RP}")
+dvpg=lista(PAG_L,strict=True); dvpg.add(f"B{R0}:B{RP}"); dvpp=lista(PROF_L,strict=True); dvpp.add(f"C{R0}:C{RP}")
 for dv in (dvpg,dvpp): pc.add_data_validation(dv)
 pc.cell(row=RP+2,column=1,value="Esta aba é a fonte do cadastro de pacientes do kit: a planilha 14 (parcelas) copia os nomes daqui. Contato fictício no exemplo. Não guarde aqui nada além do necessário para agendar e cobrar.").font=F(size=9,color=LILAS)
 widths(pc,(28,14,24,16,30,13,9,14,14)); pc.freeze_panes="B5"; pc.sheet_view.showGridLines=False; pc.auto_filter.ref=f"A4:I{RP}"
@@ -123,10 +123,10 @@ for r in range(R0,RN+1):
     # o mesmo corte de data da capacidade (Config!$B$9): numerador e denominador da
     # ocupação precisam cobrir o mesmo período, senão a ocupação sobe sozinha
     ag.cell(row=r,column=18,value=f'=IF(AND(H{r}="Realizado",L{r}<>"",A{r}<=Config!$B$9),L{r}/60,0)'); calc(ag.cell(row=r,column=18),"0.00")
-dvs=[(lista(PROF_L),f"C{R0}:C{RN}"),(lista(SALA_L),f"D{R0}:D{RN}"),(lista(PAC_L,strict=False),f"E{R0}:E{RN}"),(lista(PAG_L),f"F{R0}:F{RN}"),(lista(PROC_L),f"G{R0}:G{RN}"),
+dvs=[(lista(PROF_L),f"C{R0}:C{RN}"),(lista(SALA_L),f"D{R0}:D{RN}"),(lista(PAC_L,strict=True),f"E{R0}:E{RN}"),(lista(PAG_L),f"F{R0}:F{RN}"),(lista(PROC_L),f"G{R0}:G{RN}"),
      (lista('"'+",".join(dados.SITUACOES)+'"'),f"H{R0}:H{RN}"),(lista('"Pix,Dinheiro,Cartão de débito,Cartão de crédito,A prazo,Convênio,Sem cobrança"'),f"I{R0}:I{RN}"),
-     (DataValidation(type="whole",operator="between",formula1="1",formula2="12",allow_blank=True),f"J{R0}:J{RN}"),
-     (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),f"A{R0}:A{RN}")]
+     (DataValidation(type="whole",operator="between",formula1="1",formula2="12",allow_blank=True,showErrorMessage=True),f"J{R0}:J{RN}"),
+     (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"A{R0}:A{RN}")]
 for dv,rng in dvs: dv.add(rng); ag.add_data_validation(dv)
 ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'$H{R0}="Realizado"'], font=F(color=VERDE_T,size=10)))
 ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'$H{R0}="Falta"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))

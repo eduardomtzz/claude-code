@@ -9,7 +9,7 @@ wb=Workbook()
 # ---------- Config ----------
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Os dados do escritório aparecem no cabeçalho da proposta: antes da primeira proposta real, troque o nome (tire o \"(exemplo fictício)\"), telefone, e-mail e endereço.",merge_to="J")
-campos=[("Nome do escritório",f"{dados.ESCRITORIO} (exemplo fictício)"),("Mês de referência","Setembro de 2026"),("Data de referência","=TODAY()"),
+campos=[("Nome do escritório",f"{dados.ESCRITORIO} (exemplo fictício)"),("Mês de referência","Setembro de 2026"),("Data de referência",dados.HOJE),
  ("Telefone e WhatsApp","(11) 0000-0000"),("E-mail","contato@exemplo.com.br"),("Endereço","Rua Exemplo, 100 · São Paulo · SP"),("Responsável pela proposta",dados.PESSOAS[0][0])]
 for i,(a,v) in enumerate(campos):
     r=4+i; cfg.cell(row=r,column=1,value=a); rotulo(cfg.cell(row=r,column=1)); cfg.cell(row=r,column=2,value=v)
@@ -61,7 +61,7 @@ TOT=f"$E${ST}"
 Q0=ST+4
 p.cell(row=Q0-1,column=1,value="Condições de pagamento").font=F(bold=True,size=12,color=UVA)
 cond=[("Entrada (% do valor fixo)",0.40,PCT,"Entrada (R$)",f"={TOT}*B{Q0}",BRL),
-      ("Parcelas do restante (1 a 12)",3,"0","Restante (R$)",f"={TOT}-E{Q0}",BRL),
+      ("Parcelas do restante (1 a 12)",3,"0","Restante (R$)",f'=IF(AND(B{Q0+1}=0,{TOT}-E{Q0}>0),"ATENÇÃO: "&FIXED({TOT}-E{Q0},2)&" sem parcelas",{TOT}-E{Q0})',BRL),
       ("Primeira parcela (dias após a entrada)",30,"0","Valor de cada parcela (R$)",f'=IF(B{Q0+1}=0,0,E{Q0+1}/B{Q0+1})',BRL),
       ("Intervalo entre parcelas (dias)",30,"0","Forma de pagamento","Pix",None)]
 for i,(a,v,fa,d,e,fe) in enumerate(cond):
@@ -70,7 +70,12 @@ for i,(a,v,fa,d,e,fe) in enumerate(cond):
     p.cell(row=r,column=4,value=d); rotulo(p.cell(row=r,column=4)); p.cell(row=r,column=5,value=e)
     if i==3: inp(p.cell(row=r,column=5),center=True)
     else: calc(p.cell(row=r,column=5),fe)
-dvn=DataValidation(type="whole",operator="between",formula1="0",formula2=str(NPAR),allow_blank=False); dvn.add(f"B{Q0+1}"); p.add_data_validation(dvn)
+# Zero só é aceitável quando a entrada quita 100 %: senão sobra saldo sem cronograma.
+dvn=DataValidation(type="whole",operator="between",formula1="0",formula2=str(NPAR),
+                   allow_blank=False,showErrorMessage=True,
+                   errorTitle="Parcelas do restante",
+                   error=f"Digite um número inteiro de 1 a {NPAR}. Use 0 apenas se a entrada quitar o valor todo.")
+dvn.add(f"B{Q0+1}"); p.add_data_validation(dvn)
 dvf=lista(LST("H")); dvf.add(f"E{Q0+3}"); p.add_data_validation(dvf)
 ENT=f"$B${Q0}"; NPA=f"$B${Q0+1}"; D1=f"$B${Q0+2}"; INT=f"$B${Q0+3}"; VENT=f"$E${Q0}"; VPAR=f"$E${Q0+2}"
 # cronograma
@@ -133,8 +138,8 @@ for r in range(R0,RN+1):
     g.cell(row=r,column=2).number_format=DATA; g.cell(row=r,column=11).number_format=DATA; g.cell(row=r,column=7).number_format=BRL; g.cell(row=r,column=8).number_format="0"
     g.cell(row=r,column=9,value=f'=IF(OR(B{r}="",H{r}=""),"",B{r}+H{r})'); calc(g.cell(row=r,column=9),DATA)
     g.cell(row=r,column=12,value=f'=IF(A{r}="","",IF(J{r}<>"Enviada","",IF(I{r}="","",IF(I{r}<TODAY(),"Validade vencida · retomar contato",IF(I{r}-TODAY()<=3,"Vence em até 3 dias","")))))'); calc(g.cell(row=r,column=12),center=False)
-for dv,rng in ((lista(LST("D"),strict=False),f"D{R0}:D{RN}"),(lista(LST("F")),f"F{R0}:F{RN}"),(lista(LST("J")),f"J{R0}:J{RN}"),
-               (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),f"B{R0}:B{RN}")): dv.add(rng); g.add_data_validation(dv)
+for dv,rng in ((lista(LST("D"),strict=True),f"D{R0}:D{RN}"),(lista(LST("F")),f"F{R0}:F{RN}"),(lista(LST("J")),f"J{R0}:J{RN}"),
+               (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"B{R0}:B{RN}")): dv.add(rng); g.add_data_validation(dv)
 g.conditional_formatting.add(f"L{R0}:L{RN}", FormulaRule(formula=[f'LEFT($L{R0},8)="Validade"'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 g.conditional_formatting.add(f"L{R0}:L{RN}", FormulaRule(formula=[f'LEFT($L{R0},5)="Vence"'], fill=fill(AMARELO)))
 g.conditional_formatting.add(f"J{R0}:J{RN}", FormulaRule(formula=[f'$J{R0}="Fechada"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))

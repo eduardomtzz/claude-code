@@ -17,7 +17,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. As listas alimentam os campos de escolha em Casos e Clientes.",merge_to="H")
 cfg["A4"]="Escritório"; cfg["B4"]=NOME_ESC
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Fase que encerra o caso"; cfg["B6"]="Encerrado"
 for r in (4,5,6): rotulo(cfg.cell(row=r,column=1))
 inp(cfg["B4"]); inp(cfg["B5"],DATA); inp(cfg["B6"],center=True)
@@ -49,7 +49,7 @@ for r in range(R0,RNL+1):
     cl.cell(row=r,column=11,value=f'=IF(OR(A{r}="",F{r}=0),0,F{r}-ROW()/100000)'); cl.cell(row=r,column=11).font=F(color=CINZA,size=9)
 cl.column_dimensions["K"].hidden=True
 dvt=lista('"PF,PJ"'); dvt.add(f"B{R0}:B{RNL}"); cl.add_data_validation(dvt)
-dva=lista(AREAS_L,strict=False); dva.add(f"C{R0}:C{RNL}"); cl.add_data_validation(dva)
+dva=lista(AREAS_L,strict=True); dva.add(f"C{R0}:C{RNL}"); cl.add_data_validation(dva)
 cl.conditional_formatting.add(f"H{R0}:H{RNL}", FormulaRule(formula=[f'AND(ISNUMBER(H{R0}),H{R0}<0)'], font=F(color="C8402E",size=10,bold=True)))
 widths(cl,(30,8,16,8,11,16,16,16,11,16)); cl.freeze_panes="B5"; cl.sheet_view.showGridLines=False; cl.auto_filter.ref=f"A4:J{RNL}"
 
@@ -65,9 +65,9 @@ for r in range(R0,RNC+1):
     cs.cell(row=r,column=10,value=f'=IF(B{r}="","",H{r}-I{r})'); calc(cs.cell(row=r,column=10),BRL0)
     cs.cell(row=r,column=12,value=f'=IF(B{r}="","",IF(E{r}=Config!$B$6,"Encerrado","Ativo"))'); calc(cs.cell(row=r,column=12))
     cs.cell(row=r,column=13,value=f'=IF(OR(B{r}="",H{r}=0,H{r}=""),"",I{r}/H{r})'); calc(cs.cell(row=r,column=13),PCT)
-dvs=[lista(CLI_L,strict=False), lista(AREAS_L), lista(FASES_L), lista(RESP_L), lista(MOD_L),
-     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),
-     DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True)]
+dvs=[lista(CLI_L,strict=True), lista(AREAS_L), lista(FASES_L), lista(RESP_L), lista(MOD_L),
+     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),
+     DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"B{R0}:B{RNC}",f"D{R0}:D{RNC}",f"E{R0}:E{RNC}",f"F{R0}:F{RNC}",f"G{R0}:G{RNC}",f"K{R0}:K{RNC}",f"H{R0}:I{RNC}"]): dv.add(rng); cs.add_data_validation(dv)
 cs.conditional_formatting.add(f"I{R0}:I{RNC}", FormulaRule(formula=[f'AND(ISNUMBER(I{R0}),I{R0}>H{R0})'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 cs.conditional_formatting.add(f"A{R0}:M{RNC}", FormulaRule(formula=[f'$L{R0}="Encerrado"'], font=F(color="8A86A0",size=10)))

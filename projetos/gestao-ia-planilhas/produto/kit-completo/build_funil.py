@@ -38,8 +38,8 @@ for r in range(R0,RN+1):
     pr.cell(row=r,column=13,value=f'=IF(OR(F{r}="",E{r}=""),"",E{r}*L{r})'); calc(pr.cell(row=r,column=13),BRL0)
     pr.cell(row=r,column=14,value=f'=IF(OR(F{r}="",F{r}="Ganha",F{r}="Perdida"),"",{HOJE}-IF(H{r}="",G{r},H{r}))'); calc(pr.cell(row=r,column=14),"0")
     pr.cell(row=r,column=15,value=f'=IF(F{r}="","",IF(F{r}="Ganha","Fechada",IF(F{r}="Perdida","Perdida",IF(AND(I{r}<>"",I{r}<{HOJE}),"Fechamento vencido",IF(N{r}>{PAR},"Parada","Ativa")))))'); calc(pr.cell(row=r,column=15))
-dvs=[lista("=Config!$A$19:$A$26",strict=False), lista("=Config!$A$11:$A$16"), lista("=Config!$D$19:$D$26",strict=False),
-     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True), DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True)]
+dvs=[lista("=Config!$A$19:$A$26",strict=True), lista("=Config!$A$11:$A$16"), lista("=Config!$D$19:$D$26",strict=True),
+     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True), DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"C{R0}:C{RN}",f"F{R0}:F{RN}",f"K{R0}:K{RN}",f"G{R0}:J{RN}",f"E{R0}:E{RN}"]): dv.add(rng); pr.add_data_validation(dv)
 pr.conditional_formatting.add(f"A{R0}:O{RN}", FormulaRule(formula=[f'$O{R0}="Parada"'], fill=fill("FFF4CC")))
 pr.conditional_formatting.add(f"A{R0}:O{RN}", FormulaRule(formula=[f'$O{R0}="Fechamento vencido"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
@@ -54,7 +54,7 @@ PE=f"Propostas!$E${R0}:$E${RN}"; PF=f"Propostas!$F${R0}:$F${RN}"; PM=f"Propostas
 ABERTA=f'{PF},"<>Ganha",{PF},"<>Perdida",{PF},"<>"'
 kpi(p,4,1,"Em aberto (R$)",f'=SUMIFS({PE},{ABERTA})',LAVANDA,UVA,fmt=BRL0)
 kpi(p,4,3,"Previsão ponderada",f'=SUMIFS({PM},{ABERTA})',SOL,UVA,fmt=BRL0)
-kpi(p,4,5,"Ganho no trimestre",f'=SUMIFS({PE},{PF},"Ganha",{PJ},">="&DATE(YEAR({HOJE}),3*INT((MONTH({HOJE})-1)/3)+1,1))',VERDE,VERDE_T,fmt=BRL0)
+kpi(p,4,5,"Ganho no trimestre",f'=SUMIFS({PE},{PF},"Ganha",{PJ},">="&DATE(YEAR({HOJE}),3*INT((MONTH({HOJE})-1)/3)+1,1),{PJ},"<"&DATE(YEAR({HOJE})+(3*INT((MONTH({HOJE})-1)/3)+4>12),IF(3*INT((MONTH({HOJE})-1)/3)+4>12,1,3*INT((MONTH({HOJE})-1)/3)+4),1))',VERDE,VERDE_T,fmt=BRL0)
 kpi(p,4,7,"% da meta",f'=IFERROR(E5/Config!$B$6,0)',VERDE,VERDE_T,fmt="0%")
 p["A7"]="Funil por etapa"; p["A7"].font=F(bold=True,size=13,color=UVA)
 hdr(p,8,["Etapa","Propostas","Valor (R$)","Ponderado (R$)","Taxa de passagem","Barra"]); p.merge_cells("F8:H8")

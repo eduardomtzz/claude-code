@@ -34,17 +34,19 @@ for r in range(R0,RN+1):
     et.cell(row=r,column=4).number_format=DATA; et.cell(row=r,column=5).number_format=DATA; et.cell(row=r,column=9).number_format=DATA; et.cell(row=r,column=6).number_format=PCT
     for c in (1,3,4,5,6,9): et.cell(row=r,column=c).alignment=Alignment(horizontal="center")
     et.cell(row=r,column=7,value=f'=IF(B{r}="","",IF(OR(F{r}>=1,I{r}<>""),"Concluída",IF(E{r}<{HOJE},"Atrasada",IF(E{r}-{HOJE}<={AVISO},"Vence em breve",IF(D{r}<={HOJE},"Em andamento","A iniciar")))))'); calc(et.cell(row=r,column=7))
+    # percentual efetivo: fim real preenchido vale 100 %, como o "Como usar" promete
+    et.cell(row=r,column=12,value=f'=IF(B{r}="","",IF(I{r}<>"",1,N(F{r})))').font=F(size=9,color=CINZA)
     et.cell(row=r,column=8,value=f'=IF(OR(B{r}="",G{r}="Concluída"),"",E{r}-{HOJE})'); calc(et.cell(row=r,column=8),"0")
     et.cell(row=r,column=11,value=f'=IF(OR(B{r}="",G{r}="Concluída"),0,IF(G{r}="Atrasada",3000+MIN({HOJE}-E{r},60),IF(G{r}="Vence em breve",2000-(E{r}-{HOJE}),IF(G{r}="Em andamento",1000-MIN(E{r}-{HOJE},900),100)))-ROW()/100000)'); et.cell(row=r,column=11).font=F(color=CINZA,size=9)
-dvp=lista("=Config!$A$10:$A$19",strict=False); dvp.add(f"A{R0}:A{RN}")
-dvr=lista("=Config!$A$22:$A$31",strict=False); dvr.add(f"C{R0}:C{RN}")
-dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True); dvd.add(f"D{R0}:E{RN}"); dvd.add(f"I{R0}:I{RN}")
-dvpc=DataValidation(type="decimal",operator="between",formula1="0",formula2="1",allow_blank=True,error="Digite entre 0% e 100%"); dvpc.add(f"F{R0}:F{RN}")
+dvp=lista("=Config!$A$10:$A$19",strict=True); dvp.add(f"A{R0}:A{RN}")
+dvr=lista("=Config!$A$22:$A$31",strict=True); dvr.add(f"C{R0}:C{RN}")
+dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True); dvd.add(f"D{R0}:E{RN}"); dvd.add(f"I{R0}:I{RN}")
+dvpc=DataValidation(type="decimal",operator="between",formula1="0",formula2="1",allow_blank=True,error="Digite entre 0% e 100%",showErrorMessage=True); dvpc.add(f"F{R0}:F{RN}")
 for dv in (dvp,dvr,dvd,dvpc): et.add_data_validation(dv)
 et.conditional_formatting.add(f"A{R0}:J{RN}", FormulaRule(formula=[f'$G{R0}="Atrasada"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
 et.conditional_formatting.add(f"A{R0}:J{RN}", FormulaRule(formula=[f'$G{R0}="Vence em breve"'], fill=fill("FFF4CC")))
 et.conditional_formatting.add(f"A{R0}:J{RN}", FormulaRule(formula=[f'$G{R0}="Concluída"'], font=F(color="8A86A0",size=10)))
-widths(et,(24,36,16,12,12,11,15,12,12,30,6)); et.column_dimensions["K"].hidden=True
+widths(et,(24,36,16,12,12,11,15,12,12,30,6)); et.column_dimensions["K"].hidden=True; et.column_dimensions["L"].hidden=True
 et.freeze_panes="C5"; et.sheet_view.showGridLines=False; et.auto_filter.ref=f"A4:J{RN}"
 # exemplos fictícios (Prisma Comunicação, set/2026)
 hoje=date(2026,9,14)
@@ -85,11 +87,11 @@ for i,row in enumerate(ex):
 p=wb.create_sheet("Painel",0)
 p["A1"]='=Config!B4&" · painel de "&TEXT(Config!B5,"dd/mm/yyyy")'; p["A1"].font=F(bold=True,size=16,color=UVA); p.merge_cells("A1:H1")
 p["A2"]="Nada para preencher aqui: tudo vem de Config e Etapas."; nota(p["A2"]); p.merge_cells("A2:H2")
-EA=f"Etapas!$A${R0}:$A${RN}"; EG=f"Etapas!$G${R0}:$G${RN}"; EF=f"Etapas!$F${R0}:$F${RN}"; EB=f"Etapas!$B${R0}:$B${RN}"; EE=f"Etapas!$E${R0}:$E${RN}"; EC=f"Etapas!$C${R0}:$C${RN}"; EK=f"Etapas!$K${R0}:$K${RN}"; EH=f"Etapas!$H${R0}:$H${RN}"
+EA=f"Etapas!$A${R0}:$A${RN}"; EG=f"Etapas!$G${R0}:$G${RN}"; EF=f"Etapas!$F${R0}:$F${RN}"; EB=f"Etapas!$B${R0}:$B${RN}"; EE=f"Etapas!$E${R0}:$E${RN}"; EC=f"Etapas!$C${R0}:$C${RN}"; EK=f"Etapas!$K${R0}:$K${RN}"; EFEF=f"Etapas!$L${R0}:$L${RN}"; EH=f"Etapas!$H${R0}:$H${RN}"
 kpi(p,4,1,"Projetos ativos",'=COUNTIFS(Config!$F$10:$F$19,"No prazo")+COUNTIFS(Config!$F$10:$F$19,"Com atraso")',LAVANDA,UVA)
 kpi(p,4,3,"Etapas atrasadas",f'=COUNTIFS({EG},"Atrasada")',VERM,VERM_T)
 kpi(p,4,5,"Vencem em breve",f'=COUNTIFS({EG},"Vence em breve")',SOL,UVA)
-kpi(p,4,7,"Concluído (média)",f'=IFERROR(AVERAGEIFS({EF},{EB},"<>"),0)',VERDE,VERDE_T,fmt="0%")
+kpi(p,4,7,"Concluído (média)",f'=IFERROR(AVERAGEIFS({EFEF},{EB},"<>"),0)',VERDE,VERDE_T,fmt="0%")
 p["A7"]="Por projeto"; p["A7"].font=F(bold=True,size=13,color=UVA)
 hdr(p,8,["Projeto","Responsável","Prazo final","Etapas","Concluídas","Atrasadas","% médio","Situação"])
 for i in range(NP):
@@ -100,7 +102,7 @@ for i in range(NP):
     p.cell(row=r,column=4,value=f'=IF({src}="","",COUNTIFS({EA},{src}))'); calc(p.cell(row=r,column=4))
     p.cell(row=r,column=5,value=f'=IF({src}="","",COUNTIFS({EA},{src},{EG},"Concluída"))'); calc(p.cell(row=r,column=5))
     p.cell(row=r,column=6,value=f'=IF({src}="","",COUNTIFS({EA},{src},{EG},"Atrasada"))'); calc(p.cell(row=r,column=6))
-    p.cell(row=r,column=7,value=f'=IF(OR({src}="",D{r}=0),"",AVERAGEIFS({EF},{EA},{src}))'); calc(p.cell(row=r,column=7),PCT)
+    p.cell(row=r,column=7,value=f'=IF(OR({src}="",D{r}=0),"",AVERAGEIFS({EFEF},{EA},{src}))'); calc(p.cell(row=r,column=7),PCT)
     p.cell(row=r,column=8,value=f'=IF({src}="","",Config!$F${10+i})'); calc(p.cell(row=r,column=8))
 p.conditional_formatting.add("A9:H18", FormulaRule(formula=['$H9="Com atraso"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
 p.conditional_formatting.add("A9:H18", FormulaRule(formula=['$H9="Concluído"'], font=F(color="8A86A0",size=10)))

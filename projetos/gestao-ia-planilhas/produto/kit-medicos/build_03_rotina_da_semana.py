@@ -50,9 +50,9 @@ ro.cell(row=RT+5,column=2,value="Sim = feita; Não = pulada; vazio = semana aind
 ro.cell(row=RT+6,column=2,value="Quem lança o caixa: a recepção lança o fechamento do dia na planilha 09 todo dia, no fechamento (planilha 04 · Checklist do dia). Na sexta a sócia só CONFERE os cinco fechamentos da semana contra o extrato — por isso a rotina de sexta diz \"conferir\", e não \"lançar\".").font=F(size=9,color=LILAS)
 ro.merge_cells(start_row=RT+6,start_column=2,end_row=RT+6,end_column=4)
 dvd=lista('"Segunda,Terça,Quarta,Quinta,Sexta"'); dvd.add(f"A{R0}:A{RI}")
-dvr=lista(f"=OFFSET(Config!$B$9,0,0,MAX(1,COUNTA(Config!$B$9:$B${8+NRESP})),1)",strict=False); dvr.add(f"D{R0}:D{RI}")
+dvr=lista(f"=OFFSET(Config!$B$9,0,0,MAX(1,COUNTA(Config!$B$9:$B${8+NRESP})),1)",strict=True); dvr.add(f"D{R0}:D{RI}")
 dvs=lista('"Sim,Não"'); dvs.add(f"{L(C0)}{R0}:{LW}{RI}")
-dvm=DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True); dvm.add(f"C{R0}:C{RI}")
+dvm=DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True); dvm.add(f"C{R0}:C{RI}")
 for dv in (dvd,dvr,dvs,dvm): ro.add_data_validation(dv)
 rng=f"{L(C0)}{R0}:{LW}{RI}"
 ro.conditional_formatting.add(rng, FormulaRule(formula=[f'{L(C0)}{R0}="Sim"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))

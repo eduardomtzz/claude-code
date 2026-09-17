@@ -9,7 +9,7 @@ wb=Workbook()
 # ---------- Config ----------
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. O custo-hora vem da planilha 05; margens mínima e alvo definem a faixa de cada serviço.",merge_to="H")
-campos=[("Nome do escritório",f"{dados.ESCRITORIO} (exemplo fictício)",None),("Mês de referência","Setembro de 2026",None),("Data de referência","=TODAY()",DATA),
+campos=[("Nome do escritório",f"{dados.ESCRITORIO} (exemplo fictício)",None),("Mês de referência","Setembro de 2026",None),("Data de referência",dados.HOJE,DATA),
  ("Custo-hora do escritório (R$)",dados.CUSTO_HORA,BRL),("Impostos e taxas sobre o que entra (%)",dados.ALIQ,PCT),("Margem mínima sobre o preço (%)",dados.MARGEM,PCT),("Margem alvo sobre o preço (%)",dados.MARGEM_ALVO,PCT),("Folga para horas não previstas (%)",dados.FOLGA_HORAS,PCT)]
 for i,(a,v,fmt) in enumerate(campos):
     r=4+i; cfg.cell(row=r,column=1,value=a); rotulo(cfg.cell(row=r,column=1)); cfg.cell(row=r,column=2,value=v)
@@ -44,7 +44,7 @@ for r in range(C0,CN+1):
     k.cell(row=r,column=10,value=f'=IF(H{r}="","",IF(H{r}<{HMIN},"Abaixo do mínimo",IF(H{r}<{HALVO},"Na faixa","Acima do alvo")))'); calc(k.cell(row=r,column=10))
     k.cell(row=r,column=11,value=f'=IF(H{r}="","",MAX(0,{HMIN}*G{r}-F{r}))'); calc(k.cell(row=r,column=11),BRL0)
     k.cell(row=r,column=12,value=f'=IF(K{r}="","",K{r}+ROW()/1000000)'); calc(k.cell(row=r,column=12),"0.00"); k.cell(row=r,column=12).font=F(size=9,color=CINZA)
-for dv,rng in ((lista(LST("E"),strict=False),f"C{C0}:C{CN}"),(lista(LST("I")),f"D{C0}:D{CN}")): dv.add(rng); k.add_data_validation(dv)
+for dv,rng in ((lista(LST("E"),strict=True),f"C{C0}:C{CN}"),(lista(LST("I")),f"D{C0}:D{CN}")): dv.add(rng); k.add_data_validation(dv)
 k.conditional_formatting.add(f"J{C0}:J{CN}", FormulaRule(formula=[f'$J{C0}="Abaixo do mínimo"'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 k.conditional_formatting.add(f"J{C0}:J{CN}", FormulaRule(formula=[f'$J{C0}="Na faixa"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
 k.conditional_formatting.add(f"J{C0}:J{CN}", FormulaRule(formula=[f'$J{C0}="Acima do alvo"'], fill=fill(LAVANDA)))

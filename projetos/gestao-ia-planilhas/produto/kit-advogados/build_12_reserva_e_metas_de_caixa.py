@@ -12,7 +12,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Custo fixo, saldo e reserva vêm do Painel da planilha 09; o resto é decisão do escritório.",merge_to="H")
 cfg["A4"]="Escritório"; cfg["B4"]=f"{dados.ESCRITORIO} (exemplo fictício)"
-cfg["A5"]="Data de referência"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Mês de início da projeção"; cfg["B6"]="Outubro"
 cfg["A7"]="Ano de início da projeção"; cfg["B7"]=2026
 cfg["A8"]="Meta de reserva (meses de custo fixo)"; cfg["B8"]=3
@@ -43,7 +43,7 @@ cfg["A24"]="Metas de caixa do trimestre (3)"; rotulo(cfg["A24"])
 hdr(cfg,25,["Meta","Valor alvo","Valor atual","Prazo"])
 for i in range(3):
     r=26+i; inp(cfg.cell(row=r,column=1)); inp(cfg.cell(row=r,column=2),BRL); inp(cfg.cell(row=r,column=3),BRL); inp(cfg.cell(row=r,column=4),DATA,center=True)
-dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True); dvd.add("D26:D28"); cfg.add_data_validation(dvd)
+dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True); dvd.add("D26:D28"); cfg.add_data_validation(dvd)
 cfg["A30"]="Metas que se medem em reais e crescem até o alvo (reserva, recebimentos, provisão separada). Atualize o valor atual toda sexta. No exemplo os prazos são datas fixas (fim do trimestre e do ano)."; nota(cfg["A30"])
 widths(cfg,(44,18,3,30,12,12,3,12)); cfg.sheet_view.showGridLines=False
 # exemplo
@@ -72,7 +72,7 @@ p["B7"].font=F(bold=True,size=11,color=UVA); p.merge_cells("B7:F7")
 p.conditional_formatting.add("B7", FormulaRule(formula=['LEFT(B7,8)="Vermelho"'], fill=fill(VERM), font=F(color=VERM_T,size=11,bold=True)))
 p.conditional_formatting.add("B7", FormulaRule(formula=['LEFT(B7,7)="Amarelo"'], fill=fill(AMARELO), font=F(color=UVA,size=11,bold=True)))
 p.conditional_formatting.add("B7", FormulaRule(formula=['LEFT(B7,5)="Verde"'], fill=fill(VERDE), font=F(color=VERDE_T,size=11,bold=True)))
-p["G7"]=f'="Contando o caixa livre (R$ "&FIXED(Config!$B$21,0)&"): "&FIXED(IF({MED}=0,0,(C5+Config!$B$21)/{MED}),1)&" meses"'; nota(p["G7"]); p.merge_cells("G7:J7")   # FIXED: separadores no idioma do Excel (pt-BR: 26.062 e 2,1)
+p["G7"]=f'="Contando o caixa livre (R$ "&FIXED(Config!$B$21,0)&"): "&FIXED(IF({MED}=0,0,(C5+Config!$B$21)/{MED}),1)&" meses"'; nota(p["G7"]); p.merge_cells("G7:J7")   # FIXED: separadores no idioma do Excel (pt-BR, ponto no milhar e vírgula no decimal)
 p.cell(row=P0-2,column=1,value="Projeção da reserva, mês a mês").font=F(bold=True,size=13,color=UVA)
 hdr(p,P0-1,["Mês","Saldo no início","Aporte","Saldo no fim","% da meta","Atingiu?","Barra","Meta"]); p.merge_cells(start_row=P0-1,start_column=7,end_row=P0-1,end_column=9)
 M0="MATCH(Config!$B$6,Config!$H$5:$H$16,0)"
@@ -122,6 +122,6 @@ como_usar(wb,"Reserva de três meses e metas de caixa",[
  ("Passo 3","Em Painel: meta, reserva, falta, meses cobertos, semáforo e o mês em que a meta é atingida. A projeção mostra 24 meses; a linha verde é o mês da virada."),
  ("Rotina","Toda sexta, 5 minutos: atualizar o valor atual das metas. No fechamento do mês: transferir o aporte para a conta da reserva e atualizar o saldo e o custo fixo em Config."),
  ("Com a IA","Copie o Painel e use o prompt \"Caixa 07 · Plano para a reserva de três meses\" da biblioteca do kit para decidir aporte e metas do próximo trimestre com o sócio."),
- ("Números em texto","A frase \"Contando o caixa livre\" usa a função FIXED: os separadores seguem o idioma do Excel (em português: R$ 26.062 e 2,1 meses)."),
+ ("Números em texto","A frase \"Contando o caixa livre\" usa a função FIXED: os separadores seguem o idioma do Excel (em português, ponto no milhar e vírgula no decimal). O valor vem do Painel; não está escrito aqui, para não envelhecer a cada lançamento."),
 ])
 proteger(wb); salvar(wb,"12-reserva-e-metas-de-caixa.xlsx","Reserva de três meses e metas de caixa · Kit de Gestão para Advogados")

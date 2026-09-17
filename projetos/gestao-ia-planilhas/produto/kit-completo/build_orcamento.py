@@ -54,8 +54,8 @@ for r in range(R0,RN+1):
     re_.cell(row=r,column=6,value=f'=IF(A{r}="","",MONTH(A{r}))'); calc(re_.cell(row=r,column=6))
     re_.cell(row=r,column=7,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(re_.cell(row=r,column=7))
     re_.cell(row=r,column=8,value=f'=IF(B{r}="","",IFERROR(INDEX(Config!$B$12:$B${11+NC},MATCH(B{r},Config!$A$12:$A${11+NC},0)),"?"))'); calc(re_.cell(row=r,column=8))
-dvc=lista(f"=Config!$A$12:$A${11+NC}",strict=False); dvc.add(f"B{R0}:B{RN}"); re_.add_data_validation(dvc)
-dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True); dvd.add(f"A{R0}:A{RN}"); re_.add_data_validation(dvd)
+dvc=lista(f"=Config!$A$12:$A${11+NC}",strict=True); dvc.add(f"B{R0}:B{RN}"); re_.add_data_validation(dvc)
+dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True); dvd.add(f"A{R0}:A{RN}"); re_.add_data_validation(dvd)
 re_.conditional_formatting.add(f"A{R0}:H{RN}", FormulaRule(formula=[f'$H{R0}="Receita"'], font=F(color=VERDE_T,size=10)))
 re_.conditional_formatting.add(f"B{R0}:B{RN}", FormulaRule(formula=[f'$H{R0}="?"'], fill=fill(VERM)))
 widths(re_,(12,28,36,14,28,6,7,10)); re_.freeze_panes="A5"; re_.sheet_view.showGridLines=False; re_.auto_filter.ref=f"A4:H{RN}"

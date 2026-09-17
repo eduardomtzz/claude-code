@@ -57,12 +57,12 @@ def build():
         lan.cell(row=r,column=10,value=f'=IF(A{r}="","",MONTH(A{r}))'); calc(lan.cell(row=r,column=10))
         lan.cell(row=r,column=11,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(lan.cell(row=r,column=11))
     dvs=[(lista('"Entrada,Saída"'),f"B{R0}:B{RN}"),
-         (lista(f"=OFFSET(Config!$H$5,0,0,MAX(1,COUNTA(Config!$D$5:$D${4+NCE})+COUNTA(Config!$F$5:$F${4+NCS})),1)",strict=False),f"C{R0}:C{RN}"),
-         (lista(f"=OFFSET(Config!$J$5,0,0,MAX(1,COUNTA(Config!$J$5:$J${4+NREC})),1)",strict=False),f"D{R0}:D{RN}"),
+         (lista(f"=OFFSET(Config!$H$5,0,0,MAX(1,COUNTA(Config!$D$5:$D${4+NCE})+COUNTA(Config!$F$5:$F${4+NCS})),1)",strict=True),f"C{R0}:C{RN}"),
+         (lista(f"=OFFSET(Config!$J$5,0,0,MAX(1,COUNTA(Config!$J$5:$J${4+NREC})),1)",strict=True),f"D{R0}:D{RN}"),
          (lista('"'+",".join(FORMAS)+'"'),f"H{R0}:H{RN}"),
          (lista('"Sim,Não"'),f"I{R0}:I{RN}"),
-         (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),f"A{R0}:A{RN}"),
-         (DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True),f"G{R0}:G{RN}")]
+         (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"A{R0}:A{RN}"),
+         (DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True),f"G{R0}:G{RN}")]
     for dv,rng_ in dvs: dv.add(rng_); lan.add_data_validation(dv)
     lan.conditional_formatting.add(f"A{R0}:K{RN}", FormulaRule(formula=[f'$B{R0}="Entrada"'], font=F(color=VERDE_T,size=10)))
     lan.conditional_formatting.add(f"A{R0}:K{RN}", FormulaRule(formula=[f'AND($A{R0}<>"",$I{R0}="Não")'], fill=fill(VERM)))

@@ -40,11 +40,16 @@ for r in range(R0,RN+1):
     for c in (1,2,3,4,5,9): inp(h.cell(row=r,column=c))
     for c in (1,2,3,5,9): h.cell(row=r,column=c).alignment=Alignment(horizontal="center")
     h.cell(row=r,column=1).number_format=DATA; h.cell(row=r,column=5).number_format="0.0"
-    h.cell(row=r,column=6,value=f'=IF(OR(B{r}="",E{r}=""),"",E{r}*IFERROR(INDEX(Config!$D$11:$D${10+NPES},MATCH(B{r},Config!$A$11:$A${10+NPES},0)),0))'); calc(h.cell(row=r,column=6),BRL)
+    h.cell(row=r,column=6,value=f'=IF(OR(B{r}="",E{r}=""),"",'
+        f'IFERROR(E{r}*INDEX(Config!$D$11:$D${10+NPES},MATCH(B{r},Config!$A$11:$A${10+NPES},0)),'
+        f'"pessoa sem custo-hora em Config"))'); calc(h.cell(row=r,column=6),BRL)
     h.cell(row=r,column=7,value=f'=IF(A{r}="","",MONTH(A{r}))'); calc(h.cell(row=r,column=7))
     h.cell(row=r,column=8,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(h.cell(row=r,column=8))
-dvs=[lista(f"=Config!$A$11:$A${10+NPES}",strict=False), lista(f"=Config!$A$24:$A${23+NPROJ}",strict=False), lista('"Sim,Não"'),
-     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True), DataValidation(type="decimal",operator="between",formula1="0",formula2="24",allow_blank=True)]
+# strict=True: pessoa ou projeto digitado fora do cadastro é recusado na hora. Antes
+# passava, o MATCH falhava e o IFERROR devolvia custo zero — hora trabalhada virava
+# trabalho de graça, sem nenhum aviso.
+dvs=[lista(f"=Config!$A$11:$A${10+NPES}",strict=True), lista(f"=Config!$A$24:$A${23+NPROJ}",strict=True), lista('"Sim,Não"'),
+     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True), DataValidation(type="decimal",operator="between",formula1="0",formula2="24",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"B{R0}:B{RN}",f"C{R0}:C{RN}",f"I{R0}:I{RN}",f"A{R0}:A{RN}",f"E{R0}:E{RN}"]): dv.add(rng); h.add_data_validation(dv)
 widths(h,(12,16,30,32,8,13,6,7,11)); h.freeze_panes="A5"; h.sheet_view.showGridLines=False; h.auto_filter.ref=f"A4:I{RN}"
 # ---------- Painel ----------

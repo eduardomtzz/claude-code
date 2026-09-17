@@ -51,8 +51,8 @@ for r in range(5,17):
 cfg["A19"]="Até 12 categorias de receita e 12 de despesa. Mude os nomes à vontade; os lançamentos usam estas listas."; cfg["A19"].font=F(size=10,color=LILAS)
 cfg["A20"]="Preencha as categorias de cima para baixo, sem pular linha: a lista suspensa de Lançamentos para na última linha preenchida."; cfg["A20"].font=F(size=10,color=LILAS)
 cfg["A21"]="A categoria de reserva (B10) sai da conta, mas não é gasto: fica fora da média de despesas e soma ao cálculo de meses de reserva."; cfg["A21"].font=F(size=10,color=LILAS)
-dv=DataValidation(type="list",formula1="=Config!$H$5:$H$16"); dv.add("B6"); cfg.add_data_validation(dv)
-dv_res=DataValidation(type="list",formula1="=OFFSET(Config!$F$5,0,0,MAX(1,COUNTA(Config!$F$5:$F$16)),1)",allow_blank=True,showErrorMessage=False); dv_res.add("B10"); cfg.add_data_validation(dv_res)
+dv=DataValidation(type="list",formula1="=Config!$H$5:$H$16",showErrorMessage=True); dv.add("B6"); cfg.add_data_validation(dv)
+dv_res=DataValidation(type="list",formula1="=OFFSET(Config!$F$5,0,0,MAX(1,COUNTA(Config!$F$5:$F$16)),1)",allow_blank=True,showErrorMessage=True); dv_res.add("B10"); cfg.add_data_validation(dv_res)
 for c,w in zip("ABCDEFGH",(34,30,3,24,3,26,3,12)): cfg.column_dimensions[c].width=w
 cfg.sheet_view.showGridLines=False
 # ---------- Lançamentos ----------
@@ -67,12 +67,12 @@ for r in range(R0,RN+1):
     lan.cell(row=r,column=9,value=f'=IF(A{r}="","",MONTH(A{r}))'); calc(lan.cell(row=r,column=9))
     lan.cell(row=r,column=10,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(lan.cell(row=r,column=10))
     for c in (2,3,6,7): lan.cell(row=r,column=c).alignment=Alignment(horizontal="center")
-dvs=[DataValidation(type="list",formula1='"Receita,Despesa"',allow_blank=True),
-     DataValidation(type="list",formula1="=Config!$D$5:$D$16",allow_blank=True,showErrorMessage=False),
-     DataValidation(type="list",formula1='"Pix,Cartão,Dinheiro,Boleto,Transferência"',allow_blank=True),
-     DataValidation(type="list",formula1='"Sim,Não"',allow_blank=True),
-     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),
-     DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True)]
+dvs=[DataValidation(type="list",formula1='"Receita,Despesa"',allow_blank=True,showErrorMessage=True),
+     DataValidation(type="list",formula1="=Config!$D$5:$D$16",allow_blank=True,showErrorMessage=True),
+     DataValidation(type="list",formula1='"Pix,Cartão,Dinheiro,Boleto,Transferência"',allow_blank=True,showErrorMessage=True),
+     DataValidation(type="list",formula1='"Sim,Não"',allow_blank=True,showErrorMessage=True),
+     DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),
+     DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"B{R0}:B{RN}",f"C{R0}:C{RN}",f"F{R0}:F{RN}",f"G{R0}:G{RN}",f"A{R0}:A{RN}",f"E{R0}:E{RN}"]): dv.add(rng); lan.add_data_validation(dv)
 # categoria: lista combinada receita+despesa exige nomes no mesmo intervalo; usamos coluna auxiliar em Config
 cfg["J4"]="Todas as categorias (automático)"; cfg["J4"].font=F(bold=True,color=UVA)
@@ -216,7 +216,7 @@ linhas=[
 ("Legenda","Células amarelas: você preenche. Brancas: calculadas. Linhas em verde: receitas. Linhas em vermelho claro: despesas ainda não pagas."),
 ("Proteção","Fórmulas protegidas sem senha. Para editar: Revisar > Desproteger planilha (Excel) ou Dados > Proteger intervalos (Google Sheets)."),
 ("Google Sheets","Faça upload no Google Drive e abra com o Google Sheets. Fórmulas, listas, cores e gráfico funcionam."),
-("Exemplos","Rafa Design é uma pessoa fictícia. Os valores são inventados. Apague-os antes de começar."),
+("Exemplos","Rafa Design é uma pessoa fictícia, designer autônoma. Os valores são inventados. Apague-os antes de começar. As outras planilhas do kit usam a Prisma Comunicação, uma empresa: aqui o exemplo é de uma pessoa só de propósito, porque esta planilha também serve para o dinheiro pessoal e para negócio de uma pessoa. A mesma estrutura funciona nos dois casos."),
 ("Suporte","suporte@seusociogestor.com.br · resposta em até 5 dias úteis · reembolso em até 7 dias pelo mesmo canal."),
 ]
 for i,(a,b) in enumerate(linhas,start=4):

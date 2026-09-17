@@ -62,9 +62,9 @@ for r in range(R0,RN+1):
     ck.cell(row=r,column=CFAL,value=f'=IF(OR(A{r}="",{L(CAUX)}{r}=""),"",LEFT({L(CAUX)}{r},LEN({L(CAUX)}{r})-2))'); calc(ck.cell(row=r,column=CFAL),center=False)
     ck.cell(row=r,column=CKEY,value=f'=IF(OR(A{r}="",{L(CTOT)}{r}=0),0,{L(CTOT)}{r}*100000+A{r}/100000)'); ck.cell(row=r,column=CKEY).font=F(color=CINZA,size=9)
     ck.cell(row=r,column=CAUX+1,value=f'=IF(A{r}="",0,COUNTIF($A${R0}:$A${RN},">"&A{r})+1)'); ck.cell(row=r,column=CAUX+1).font=F(color=CINZA,size=9)   # ordem do dia (1 = mais recente)
-dvr=lista(f"=OFFSET(Config!$F$10,0,0,MAX(1,COUNTA(Config!$F$10:$F${9+NRESP})),1)",strict=False); dvr.add(f"C{R0}:C{RN}")
+dvr=lista(f"=OFFSET(Config!$F$10,0,0,MAX(1,COUNTA(Config!$F$10:$F${9+NRESP})),1)",strict=True); dvr.add(f"C{R0}:C{RN}")
 dvi=lista('"Sim,Não,N/A"'); dvi.add(f"{L(CA)}{R0}:{L(CE+NIT-1)}{RN}")
-dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True); dvd.add(f"A{R0}:A{RN}")
+dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True); dvd.add(f"A{R0}:A{RN}")
 for dv in (dvr,dvi,dvd): ck.add_data_validation(dv)
 IT=f"{L(CA)}{R0}:{L(CE+NIT-1)}{RN}"
 ck.conditional_formatting.add(IT, FormulaRule(formula=[f'{L(CA)}{R0}="Sim"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))

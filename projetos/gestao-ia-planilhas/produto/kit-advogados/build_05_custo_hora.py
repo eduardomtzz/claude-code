@@ -12,7 +12,7 @@ cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Margem e impostos definem a hora mínima a cobrar.",merge_to="F")
 cfg["A4"]="Nome do escritório"; cfg["B4"]=f"{dados.ESCRITORIO} (exemplo fictício)"
 cfg["A5"]="Mês de referência"; cfg["B5"]="Setembro de 2026"
-cfg["A6"]="Data de referência"; cfg["B6"]="=TODAY()"
+cfg["A6"]="Data de referência"; cfg["B6"]=dados.HOJE
 cfg["A7"]="Margem desejada sobre o preço (%)"; cfg["B7"]=dados.MARGEM
 cfg["A8"]="Impostos e taxas sobre o que entra (%)"; cfg["B8"]=dados.ALIQ
 cfg["A9"]="Arredondar a hora mínima para múltiplos de (R$)"; cfg["B9"]=5

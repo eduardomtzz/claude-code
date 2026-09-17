@@ -10,7 +10,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Os itens cadastrados aqui viram as colunas da aba Checklist.",merge_to="F")
 cfg["A4"]="Escritório"; cfg["B4"]=f"{dados.ESCRITORIO} (exemplo fictício)"
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 for c in ("A4","A5"): rotulo(cfg[c])
 inp(cfg["B4"]); inp(cfg["B5"],DATA)
 cfg["C5"]="Deixe =HOJE() para acompanhar o dia."; nota(cfg["C5"])
@@ -56,7 +56,7 @@ for r in range(R0,RN+1):
     ck.cell(row=r,column=CAUX,value=f'=IF(A{r}="","",{"&".join(partes)})'); ck.cell(row=r,column=CAUX).font=F(color=CINZA,size=9)
     ck.cell(row=r,column=CFAL,value=f'=IF(OR(A{r}="",{L(CAUX)}{r}=""),"",LEFT({L(CAUX)}{r},LEN({L(CAUX)}{r})-2))'); calc(ck.cell(row=r,column=CFAL),center=False)
     ck.cell(row=r,column=CKEY,value=f'=IF(OR(A{r}="",{L(CTOT)}{r}=0),0,{L(CTOT)}{r}*100-ROW()/100000)'); ck.cell(row=r,column=CKEY).font=F(color=CINZA,size=9)
-dvr=lista(f"=OFFSET(Config!$F$10,0,0,MAX(1,COUNTA(Config!$F$10:$F${9+NRESP})),1)",strict=False); dvr.add(f"C{R0}:C{RN}")
+dvr=lista(f"=OFFSET(Config!$F$10,0,0,MAX(1,COUNTA(Config!$F$10:$F${9+NRESP})),1)",strict=True); dvr.add(f"C{R0}:C{RN}")
 dvs=lista('"Em andamento,Encerrado"'); dvs.add(f"D{R0}:D{RN}")
 dvi=lista('"Sim,Não,N/A"'); dvi.add(f"{L(CA)}{R0}:{L(CE+NIT-1)}{RN}")
 for dv in (dvr,dvs,dvi): ck.add_data_validation(dv)

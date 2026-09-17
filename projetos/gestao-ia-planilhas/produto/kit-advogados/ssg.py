@@ -52,7 +52,8 @@ def como_usar(wb,nome,linhas,pos=0):
      ("Proteção","Fórmulas protegidas sem senha. Para editar: Revisar > Desproteger planilha (Excel) ou Dados > Proteger intervalos (Google Sheets)."),
      ("Requisitos","Excel 2016 ou mais novo, Microsoft 365 ou Google Sheets (só funções do Excel 2007+; nada de MÍNIMOSES, MÁXIMOSES ou UNIRTEXTO). No celular abre nos aplicativos; para preencher, use o computador."),
      ("Google Sheets","Faça upload no Google Drive e abra com o Google Sheets. Fórmulas, listas, cores e gráficos funcionam."),
-     ("Exemplos","Ferraz & Lima Advocacia é um escritório fictício. Clientes, processos, nomes e valores são inventados. Apague-os antes de começar. Datas de prazo do exemplo são relativas a hoje."),
+     ("Exemplos","Ferraz & Lima Advocacia é um escritório fictício. Clientes, processos, nomes e valores são inventados. Apague-os antes de começar."),
+     ("Data de referência","O exemplo está congelado em 14/09/2026, para todos os arquivos do kit mostrarem a mesma foto e os números fecharem entre eles. Ao começar a usar com os seus dados, troque a data de referência em Config por =HOJE(): daí em diante ela acompanha o dia."),
      ("Suporte","suporte@seusociogestor.com.br · resposta em até 5 dias úteis · reembolso em até 7 dias pelo mesmo canal.")]
     for i,(a,b) in enumerate(base,start=4):
         u.cell(row=i,column=1,value=a).font=F(bold=True,color=UVA); u.cell(row=i,column=2,value=b).font=F(color=TINTA)

@@ -62,12 +62,12 @@ for r in range(FIRST,LAST+1):
         if col in (6,7,8,11,13,1): c.alignment=Alignment(horizontal="center")
     t.cell(row=r,column=13).font=F(color="B0A6C4",size=9)
 # validações
-dv_resp=DataValidation(type="list",formula1="=OFFSET(Config!$B$9,0,0,MAX(1,COUNTA(Config!$B$9:$B$16)),1)",allow_blank=True); dv_resp.add(f"D{FIRST}:D{LAST}")
-dv_123=DataValidation(type="list",formula1='"1,2,3"',allow_blank=True); dv_123.add(f"F{FIRST}:G{LAST}")
-dv_status=DataValidation(type="list",formula1="=Config!$D$9:$D$12",allow_blank=True); dv_status.add(f"I{FIRST}:I{LAST}")
-dv_proj=DataValidation(type="list",formula1="=OFFSET(Config!$F$9,0,0,MAX(1,COUNTA(Config!$F$9:$F$16)),1)",allow_blank=True,showErrorMessage=False); dv_proj.add(f"C{FIRST}:C{LAST}")
-dv_data=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True); dv_data.add(f"E{FIRST}:E{LAST}")
-dv_h=DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True); dv_h.add(f"H{FIRST}:H{LAST}")
+dv_resp=DataValidation(type="list",formula1="=OFFSET(Config!$B$9,0,0,MAX(1,COUNTA(Config!$B$9:$B$16)),1)",allow_blank=True,showErrorMessage=True); dv_resp.add(f"D{FIRST}:D{LAST}")
+dv_123=DataValidation(type="list",formula1='"1,2,3"',allow_blank=True,showErrorMessage=True); dv_123.add(f"F{FIRST}:G{LAST}")
+dv_status=DataValidation(type="list",formula1="=Config!$D$9:$D$12",allow_blank=True,showErrorMessage=True); dv_status.add(f"I{FIRST}:I{LAST}")
+dv_proj=DataValidation(type="list",formula1="=OFFSET(Config!$F$9,0,0,MAX(1,COUNTA(Config!$F$9:$F$16)),1)",allow_blank=True,showErrorMessage=True); dv_proj.add(f"C{FIRST}:C{LAST}")
+dv_data=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True); dv_data.add(f"E{FIRST}:E{LAST}")
+dv_h=DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True); dv_h.add(f"H{FIRST}:H{LAST}")
 for dv in (dv_resp,dv_123,dv_status,dv_proj,dv_data,dv_h): t.add_data_validation(dv)
 # formatação condicional
 rng=f"A{FIRST}:N{LAST}"

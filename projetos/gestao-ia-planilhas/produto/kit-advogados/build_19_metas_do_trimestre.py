@@ -15,7 +15,7 @@ cfg["A4"]="Escritório"; cfg["B4"]=f"{dados.ESCRITORIO} (exemplo fictício)"
 cfg["A5"]="Trimestre"; cfg["B5"]="3º trimestre de 2026"
 cfg["A6"]="Início do trimestre"; cfg["B6"]=date(2026,7,1)
 cfg["A7"]="Fim do trimestre"; cfg["B7"]=date(2026,9,30)
-cfg["A8"]="Data de referência (hoje)"; cfg["B8"]="=TODAY()"
+cfg["A8"]="Data de referência (hoje)"; cfg["B8"]=dados.HOJE
 cfg["A9"]="Semana atual do trimestre"; cfg["B9"]='=IF(B8<B6,0,MIN(13,INT((B8-B6)/7)+1))'
 cfg["A10"]="% do trimestre decorrido"; cfg["B10"]='=MAX(0,MIN(1,(B8-B6)/(B7-B6)))'
 for r in range(4,11): rotulo(cfg.cell(row=r,column=1))
@@ -49,7 +49,7 @@ for o in range(NO):
 RL=4+NO*NK
 dvsent=lista('"Maior é melhor,Menor é melhor"'); dvsent.add(f"K5:K{RL}"); m.add_data_validation(dvsent)
 dvdono=lista(PESSOAS_LISTA); dvdono.add(f"C5:C{RL}"); m.add_data_validation(dvdono)
-dvnum=DataValidation(type="decimal",allow_blank=True); dvnum.add(f"E5:G{RL}"); m.add_data_validation(dvnum)
+dvnum=DataValidation(type="decimal",allow_blank=True,showErrorMessage=True); dvnum.add(f"E5:G{RL}"); m.add_data_validation(dvnum)
 for cor,txt,fnt in ((VERDE,"Atingido",VERDE_T),("E6F4EA","No ritmo",VERDE_T),(AMARELO,"Atenção","7A5200"),(VERM,"Em risco",VERM_T)):
     m.conditional_formatting.add(f"J5:J{RL}", FormulaRule(formula=[f'J5="{txt}"'], fill=fill(cor), font=F(color=fnt,size=10,bold=(txt in ("Atingido","Em risco")))))
 for o in range(NO): m.row_dimensions[5+o*NK].height=18

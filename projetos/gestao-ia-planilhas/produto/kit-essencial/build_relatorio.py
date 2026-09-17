@@ -40,7 +40,7 @@ for i,m in enumerate(MESES): cfg.cell(row=5+i,column=4,value=m).font=F(size=10,c
 for c in ("A4","A5","A6","A7","A8"): cfg[c].font=F(bold=True,color=UVA)
 for c in ("B4","B5","B6"): inp(cfg[c])
 for c in ("B7","B8"): calc(cfg[c],center=False)
-dv_mes=DataValidation(type="list",formula1="=Config!$D$5:$D$16",allow_blank=False); dv_mes.add("B6"); cfg.add_data_validation(dv_mes)
+dv_mes=DataValidation(type="list",formula1="=Config!$D$5:$D$16",allow_blank=False,showErrorMessage=True); dv_mes.add("B6"); cfg.add_data_validation(dv_mes)
 cfg["A10"]="Use a mesma planilha o ano inteiro: só troque o mês do relatório."; cfg["A10"].font=F(size=10,color=LILAS)
 cfg.column_dimensions["A"].width=26; cfg.column_dimensions["B"].width=40; cfg.column_dimensions["D"].width=14; cfg.sheet_view.showGridLines=False
 
@@ -48,9 +48,13 @@ cfg.column_dimensions["A"].width=26; cfg.column_dimensions["B"].width=40; cfg.co
 ind=wb.create_sheet("Indicadores")
 ind["A1"]="Indicadores do ano"; ind["A1"].font=F(bold=True,size=16,color=UVA)
 ind["A2"]="Preencha o nome, a unidade, a meta mensal, se maior é melhor, e o valor de cada mês. Deixe em branco o que ainda não aconteceu."; ind["A2"].font=F(italic=True,size=10,color=LILAS); ind.merge_cells("A2:R2")
-cols=["Indicador","Unidade","Casas decimais","Meta mensal","Maior é melhor?"]+[m[:3] for m in MESES]+["Acumulado (soma; média para % e pts)","Média"]
+cols=["Indicador","Unidade","Casas decimais","Meta mensal","Maior é melhor?"]+[m[:3] for m in MESES]+["Acumulado","Média","Como acumular"]
 hdr(ind,4,range(1,len(cols)+1),cols)
 ind.row_dimensions[4].height=30
+# ACUM: como o Acumulado trata o indicador. "Média" para razão (ticket médio, custo por
+# lead, taxa, nota); "Soma" para estoque e fluxo (receita, despesa, quantidade, horas).
+ACUM={"Taxa de conversão de leads":"Média","Ticket médio":"Média","Inadimplência":"Média",
+      "NPS":"Média","Custo por lead":"Média"}
 ex=[("Receita","R$",0,120000,"Sim",[98500,101200,112400,109800,118300,121900,115700,124600,131200]),
     ("Despesas","R$",0,85000,"Não",[80200,81900,84100,86500,83700,88200,84900,87300,89800]),
     ("Resultado (receita - despesas)","R$",0,35000,"Sim",[18300,19300,28300,23300,34600,33700,30800,37300,41400]),
@@ -68,17 +72,22 @@ for i in range(NI):
     for c in range(1,6): inp(ind.cell(row=r,column=c))
     for c in range(6,18): inp(ind.cell(row=r,column=c),"#,##0.00")
     ind.cell(row=r,column=1).alignment=Alignment(horizontal="left")
-    ind.cell(row=r,column=18,value=f'=IF(COUNT(F{r}:Q{r})=0,"",IF(OR(B{r}="%",B{r}="pts"),AVERAGE(F{r}:Q{r}),SUM(F{r}:Q{r})))'); calc(ind.cell(row=r,column=18),"#,##0.00")
+    ind.cell(row=r,column=18,value=f'=IF(COUNT(F{r}:Q{r})=0,"",IF(T{r}="Média",AVERAGE(F{r}:Q{r}),SUM(F{r}:Q{r})))'); calc(ind.cell(row=r,column=18),"#,##0.00")
     ind.cell(row=r,column=19,value=f'=IF(COUNT(F{r}:Q{r})=0,"",AVERAGE(F{r}:Q{r}))'); calc(ind.cell(row=r,column=19),"#,##0.00")
+    inp(ind.cell(row=r,column=20))      # Como acumular: Soma ou Média
     if i<len(ex):
         nome,un,casas,meta,mb,vals=ex[i]
         ind.cell(row=r,column=1,value=nome); ind.cell(row=r,column=2,value=un); ind.cell(row=r,column=3,value=casas); ind.cell(row=r,column=4,value=meta); ind.cell(row=r,column=5,value=mb)
+        ind.cell(row=r,column=20,value=ACUM.get(nome,"Soma"))
         for j,v in enumerate(vals): ind.cell(row=r,column=6+j,value=v)
-dv_sn=DataValidation(type="list",formula1='"Sim,Não"',allow_blank=True); dv_sn.add(f"E{R0}:E{RN}"); ind.add_data_validation(dv_sn)
-dv_cd=DataValidation(type="list",formula1='"0,1,2"',allow_blank=True); dv_cd.add(f"C{R0}:C{RN}"); ind.add_data_validation(dv_cd)
-dv_un=DataValidation(type="list",formula1='"R$,%,un,h,pts"',allow_blank=True); dv_un.add(f"B{R0}:B{RN}"); ind.add_data_validation(dv_un)
-ind.cell(row=RN+2,column=1,value='"Acumulado" soma os meses preenchidos quando a unidade é R$, un ou h; quando é % ou pts (taxas, notas), mostra a média dos meses, porque somar taxas não faz sentido. "Média" é sempre a média. Para indicadores em %, digite 4,5 (não 0,045).').font=F(size=10,color=LILAS)
-ind.merge_cells(start_row=RN+2,start_column=1,end_row=RN+2,end_column=19)
+dv_sn=DataValidation(type="list",formula1='"Sim,Não"',allow_blank=True,showErrorMessage=True); dv_sn.add(f"E{R0}:E{RN}"); ind.add_data_validation(dv_sn)
+dv_cd=DataValidation(type="list",formula1='"0,1,2"',allow_blank=True,showErrorMessage=True); dv_cd.add(f"C{R0}:C{RN}"); ind.add_data_validation(dv_cd)
+dv_un=DataValidation(type="list",formula1='"R$,%,un,h,pts"',allow_blank=True,showErrorMessage=True); dv_un.add(f"B{R0}:B{RN}"); ind.add_data_validation(dv_un)
+dv_ac=DataValidation(type="list",formula1='"Soma,Média"',allow_blank=False,showErrorMessage=True,
+                    errorTitle="Como acumular",error="Escolha Soma (empilha) ou Média (razão).")
+dv_ac.add(f"T{R0}:T{RN}"); ind.add_data_validation(dv_ac)
+ind.cell(row=RN+2,column=1,value='"Como acumular" decide o que o Acumulado mostra: Soma para o que se empilha (receita, despesa, quantidade, horas) e Média para razão (ticket médio, custo por lead, taxa, nota). Somar razão não significa nada: doze meses de ticket médio somados não são o ticket do ano. "Média" é sempre a média dos meses preenchidos. Para indicadores em %, digite 4,5 (não 0,045).').font=F(size=10,color=LILAS)
+ind.merge_cells(start_row=RN+2,start_column=1,end_row=RN+2,end_column=20)
 for c,w in zip(range(1,20),[30,8,9,12,10]+[10]*12+[16,10]): ind.column_dimensions[L(c)].width=w
 ind.freeze_panes="B5"; ind.sheet_view.showGridLines=False
 
@@ -112,8 +121,10 @@ for cols_,fmt,fid,casas in ((f"B{R0}:C{RN} E{R0}:E{RN} H{R0}:H{RN}","#,##0",3,0)
     p.conditional_formatting.add(cols_, Rule(type="expression",formula=[f'$N{R0}={casas}'],dxf=DifferentialStyle(numFmt=NumberFormat(numFmtId=fid,formatCode=fmt))))
 # helper para gráfico de linha: indicador escolhido
 p.cell(row=RN+2,column=1,value="Indicador do gráfico").font=F(bold=True,color=UVA)
-p.cell(row=RN+2,column=2,value="=Indicadores!A5"); inp(p.cell(row=RN+2,column=2)); p.merge_cells(start_row=RN+2,start_column=2,end_row=RN+2,end_column=4)
-dv_ind=DataValidation(type="list",formula1=f"=OFFSET(Indicadores!$A${R0},0,0,MAX(1,COUNTA(Indicadores!$A${R0}:$A${RN})),1)",allow_blank=False); dv_ind.add(f"B{RN+2}"); p.add_data_validation(dv_ind)
+# valor literal, não fórmula: célula amarela é para digitar, e fórmula em célula de
+# entrada é apagada na primeira digitação
+p.cell(row=RN+2,column=2,value=ex[0][0]); inp(p.cell(row=RN+2,column=2)); p.merge_cells(start_row=RN+2,start_column=2,end_row=RN+2,end_column=4)
+dv_ind=DataValidation(type="list",formula1=f"=OFFSET(Indicadores!$A${R0},0,0,MAX(1,COUNTA(Indicadores!$A${R0}:$A${RN})),1)",allow_blank=False,showErrorMessage=True); dv_ind.add(f"B{RN+2}"); p.add_data_validation(dv_ind)
 HR=RN+22  # linhas auxiliares do gráfico ficam abaixo dele (gráficos ignoram linhas ocultas)
 p.cell(row=HR,column=1,value="Mês").font=F(size=9,color=BRANCO)
 p.cell(row=HR+1,column=1,value="Valor").font=F(size=9,color=BRANCO)
@@ -160,7 +171,10 @@ VR=f"Painel!$D${R0}:$D${RN}"; NR=f"Painel!$A${R0}:$A${RN}"; MR=f"Painel!$F${R0}:
 rs.cell(row=D0+1,column=1,value=f'=IFERROR("• Maior alta contra o mês anterior: "&INDEX({NR},MATCH(MAX({VR}),{VR},0))&" ("&IF(MAX({VR})>=0,"+","")&FIXED(MAX({VR})*100,0)&"%).","• Maior alta: preencha ao menos dois meses.")')
 rs.cell(row=D0+2,column=1,value=f'=IFERROR("• Maior queda contra o mês anterior: "&INDEX({NR},MATCH(MIN({VR}),{VR},0))&" ("&FIXED(MIN({VR})*100,0)&"%).","")')
 AR=f"Painel!$O${R0}:$O${RN}"; SR=f"Painel!$G${R0}:$G${RN}"
-rs.cell(row=D0+3,column=1,value=f'=IF(COUNT({AR})=0,"• Nenhum indicador fora da meta.",IFERROR("• Mais longe da meta: "&INDEX({NR},MATCH(MAX({AR}),{AR},0))&" ("&IF(INDEX({MR},MATCH(MAX({AR}),{AR},0))>=0,"+","")&FIXED(INDEX({MR},MATCH(MAX({AR}),{AR},0))*100,0)&"% da meta, "&LOWER(INDEX({SR},MATCH(MAX({AR}),{AR},0)))&").",""))')
+_fora=f'(COUNTIF({SR},"Acima da meta")+COUNTIF({SR},"Abaixo da meta"))'
+rs.cell(row=D0+3,column=1,value=f'=IF({_fora}=0,"• Nenhum indicador fora da meta.",'
+    f'IF(COUNT({AR})=0,"• "&{_fora}&" indicador(es) fora da meta (sem percentual: a meta é zero).",'
+    f'IFERROR("• Mais longe da meta: "&INDEX({NR},MATCH(MAX({AR}),{AR},0))&" ("&IF(INDEX({MR},MATCH(MAX({AR}),{AR},0))>=0,"+","")&FIXED(INDEX({MR},MATCH(MAX({AR}),{AR},0))*100,0)&"% da meta, "&LOWER(INDEX({SR},MATCH(MAX({AR}),{AR},0)))&").","")))')
 rs.cell(row=D0+4,column=1,value=f'=IFERROR("• Indicadores no alvo: "&COUNTIF(Painel!$G${R0}:$G${RN},"No alvo")&" de "&COUNTIF(Painel!$G${R0}:$G${RN},"<>")&".","")')
 for k in range(1,5):
     rs.cell(row=D0+k,column=1).font=F(size=10,color=TINTA); rs.merge_cells(start_row=D0+k,start_column=1,end_row=D0+k,end_column=4); rs.cell(row=D0+k,column=1).alignment=Alignment(wrap_text=True,vertical="top")
@@ -189,7 +203,7 @@ linhas=[
 ("Legenda","Células amarelas: você preenche. Células brancas: calculadas. Verde: no alvo. Vermelho: fora da meta."),
 ("Proteção","Fórmulas protegidas sem senha. Para editar: Revisar > Desproteger planilha (Excel) ou Dados > Proteger intervalos (Google Sheets)."),
 ("Google Sheets","Faça upload no Google Drive e abra com o Google Sheets. Fórmulas, listas, cores e gráfico funcionam."),
-("Exemplos","A Prisma Comunicação é uma empresa fictícia. Os números são inventados. Apague-os antes de começar."),
+("Exemplos","A Prisma Comunicação é uma empresa fictícia. Os números são inventados. Apague-os antes de começar. A planilha Ganhos e Gastos do kit usa outro exemplo, de uma autônoma, porque ela serve também para o dinheiro pessoal — não é descuido, é o uso previsto."),
 ("Suporte","suporte@seusociogestor.com.br · resposta em até 5 dias úteis · reembolso em até 7 dias pelo mesmo canal."),
 ]
 for i,(a,b) in enumerate(linhas,start=4):

@@ -57,10 +57,10 @@ for r in range(R0,RN+1):
     ag.cell(row=r,column=20,value=f'=IF(S{r}="","","Sim")'); calc(ag.cell(row=r,column=20))
     ag.cell(row=r,column=21,value=f'=IF(T{r}="Sim",S{r}+ROW()/100000,0)'); ag.cell(row=r,column=21).font=F(color=CINZA,size=9)
     # faltas do paciente no mês do painel (só na primeira falta dele no mês, para a lista de reincidentes não repetir o nome)
-    ag.cell(row=r,column=22,value=f'=IF(AND(H{r}="Falta",L{r}=Config!$B$7,M{r}=Config!$B$5,COUNTIFS($E${R0}:E{r},E{r},$H${R0}:H{r},"Falta",$L${R0}:L{r},Config!$B$7,$M${R0}:M{r},Config!$B$5)=1),COUNTIFS({AE},E{r},{AH},"Falta",$L${R0}:$L${RN},Config!$B$7,$M${R0}:$M${RN},Config!$B$5)*1000-ROW()/100000,0)'); ag.cell(row=r,column=22).font=F(color=CINZA,size=9)
+    ag.cell(row=r,column=22,value=f'=IF(AND(H{r}="Falta",L{r}=Config!$B$7,M{r}=Config!$B$5,COUNTIFS($E${R0}:E{r},E{r},$H${R0}:H{r},"Falta",$L${R0}:L{r},Config!$B$7,$M${R0}:M{r},Config!$B$5)=1),COUNTIFS({AE},E{r},{AH},"Falta",$L${R0}:$L${RN},Config!$B$7,$M${R0}:$M${RN},Config!$B$5)*1000+({RN}+1-ROW())/100000,0)'); ag.cell(row=r,column=22).font=F(color=CINZA,size=9)
 ag.column_dimensions["U"].hidden=True; ag.column_dimensions["V"].hidden=True
-dvs=[(lista(PROF_L,strict=False),f"C{R0}:C{RN}"),(lista(PAG_L,strict=False),f"F{R0}:F{RN}"),(lista(PROC_L,strict=False),f"G{R0}:G{RN}"),
-     (lista('"'+",".join(dados.SITUACOES)+'"'),f"H{R0}:H{RN}"),(DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),f"A{R0}:A{RN}")]
+dvs=[(lista(PROF_L,strict=True),f"C{R0}:C{RN}"),(lista(PAG_L,strict=True),f"F{R0}:F{RN}"),(lista(PROC_L,strict=True),f"G{R0}:G{RN}"),
+     (lista('"'+",".join(dados.SITUACOES)+'"'),f"H{R0}:H{RN}"),(DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"A{R0}:A{RN}")]
 for dv,rng in dvs: dv.add(rng); ag.add_data_validation(dv)
 ag.conditional_formatting.add(f"A{R0}:T{RN}", FormulaRule(formula=[f'$H{R0}="Falta"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
 ag.conditional_formatting.add(f"A{R0}:T{RN}", FormulaRule(formula=[f'$T{R0}="Sim"'], fill=fill("FFF4CC")))

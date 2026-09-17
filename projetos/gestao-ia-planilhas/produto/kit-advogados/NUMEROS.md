@@ -35,7 +35,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 - **Horas faturáveis no mês (meta, todas as pessoas)**: 280 h · horas de trabalho: 440 h · tempo faturável planejado (05): 64 %.
 - **Custo-hora do escritório (05 B13 = 06 B11 = 08 Config B7 = 16 Config B23)**: **R$ 66,07** (18.500 ÷ 280 h; em 06/08 digitado como 66,0714).
-- **Hora mínima a cobrar (05)**: exata **R$ 106,57** = 66,07 ÷ (1 − 0,30 − 0,08); arredondada **R$ 110**. A 06 mostra a mesma conta (R$ 106,57).
+- **Hora mínima a cobrar (05)**: exata **R$ 106,57** = 66,07 ÷ (1 − 0,30 − 0,08); arredondada **R$ 110**. A 06 mostra a mesma conta (R$ 120,26).
 - **Hora mínima com folga (08, 20 % de horas não previstas)**: **R$ 127,88** = 66,07 × 1,20 ÷ 0,62. **Hora alvo com folga (08)**: **R$ 168,69** (margem alvo 45 %).
 - **Custos indiretos por hora faturável (05)**: R$ 18,21 (custos fixos sem a bolsa, R$ 5.100, ÷ 280 h). Custos fixos sem a equipe (16 Config): R$ 5.100.
 | Por pessoa (05) | Horas faturáveis | Ocupação | Custo direto/h | Custo-hora completo | Hora mínima |
@@ -63,7 +63,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ## 3. Caixa mês a mês (09 · Caixa do escritório)
 
-- Saldo em caixa antes do 1º lançamento (01/01/2026): **R$ 22.000** (já com honorários recebidos em 2025). Lançamentos: 228 linhas; 207 pagas.
+- Saldo em caixa antes do 1º lançamento (01/01/2026): **R$ 22.000** (já com honorários recebidos em 2025). Lançamentos: 227 linhas; 207 pagas.
 | Mês | Entrou | Saiu | Sobrou | Saldo ao fim do mês |
 |---|---|---|---|---|
 | Janeiro | R$ 21.050 | R$ 20.408 | R$ 642 | R$ 22.642 |
@@ -110,7 +110,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 - "Pró-labore dos sócios" inclui o pró-labore fixo (12.000/mês), as retiradas extras (Rafael 1.500 em 16/03; Marina 2.000 em 19/06) e a distribuição de lucro dos trimestres fechados (paga dia 10 do mês seguinte: 1º tri em abril, 2º tri em julho). "Outras saídas" = despesas pessoais dos sócios pagas pelo escritório (a acertar). "Outras entradas" = devolução de despesa pessoal (Marina, 480 em 14/04).
 - Guia de impostos: paga dia 20, 8 % das entradas do mês anterior (sem Outras entradas); janeiro sobre dezembro/2025 (fictício, base 20.600). A guia de setembro (20/09) ainda não foi paga.
 - Setembro: custos fixos com vencimento depois de 11/09 (telefone, anuidades, marketing, material), pró-labore (28/09) e a guia (20/09) estão como Pago? = Não → **A pagar {brl(W['09']['Painel']['K5'].value)}**. **A receber (Pago? = Não) {brl(W['09']['Painel']['I5'].value)}** = parcelas vencidas + a vencer até 30/09 (o cronograma completo fica na 14).
-- **09 Painel (Config = Setembro)**: Entrou R$ 5.220 · Saiu R$ 5.320 · Sobrou −R$ 100 · Saldo acumulado **R$ 43.683** · A receber R$ 27.330 · A pagar R$ 15.402.
+- **09 Painel (Config = Setembro)**: Entrou R$ 5.220 · Saiu R$ 5.320 · Sobrou −R$ 100 · Saldo acumulado **R$ 43.683** · A receber R$ 25.930 · A pagar R$ 15.402.
 | Por cliente (09, ano até 11/09) | Entrou no ano | A receber (Pago? = Não) | Custas pagas no ano |
 |---|---|---|---|
 | Padaria do Sol Ltda | R$ 11.250 | R$ 0 | R$ 0 |
@@ -118,7 +118,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Construtora Horizonte | R$ 16.080 | R$ 2.100 | R$ 780 |
 | Carlos Eduardo Nunes | R$ 7.500 | R$ 1.500 | R$ 0 |
 | Loja Verde Comércio | R$ 3.800 | R$ 2.800 | R$ 0 |
-| Fernanda Castro | R$ 1.400 | R$ 1.400 | R$ 0 |
+| Fernanda Castro | R$ 1.400 | R$ 0 | R$ 0 |
 | Bistrô 42 | R$ 5.300 | R$ 4.200 | R$ 95 |
 | Roberto Almeida | R$ 16.510 | R$ 0 | R$ 310 |
 | Clínica Bem-Estar | R$ 32.760 | R$ 2.700 | R$ 0 |
@@ -149,19 +149,19 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Honorários de êxito | R$ 0 | R$ 0 | R$ 27.000 | R$ 3.375 |
 | Consultoria e pareceres | R$ 5.680 | R$ 11.290 | R$ 36.390 | R$ 4.549 |
 | Reembolso de custas | R$ 540 | R$ 310 | R$ 1.630 | R$ 204 |
-| Outras entradas | R$ 0 | R$ 0 | R$ 480 | R$ 60 |
-| **Receita total** | R$ 29.460 | R$ 26.900 | R$ 207.850 | R$ 25.981 |
-| Custos fixos (8 linhas) | R$ 6.500 | R$ 6.500 | R$ 52.000 | R$ 6.500 |
-| Custas e despesas de processo | R$ 310 | R$ 380 | R$ 2.805 | R$ 351 |
-| Deslocamento e viagens | R$ 0 | R$ 180 | R$ 730 | R$ 91 |
-| **Despesas de casos e viagens** | R$ 310 | R$ 560 | R$ 3.535 | R$ 442 |
-| Pró-labore fixo (Marina 6.000 + Rafael 6.000) | R$ 12.000 | R$ 12.000 | R$ 96.000 | R$ 12.000 |
-| Impostos provisionados (8 % da receita) | R$ 2.357 | R$ 2.152 | R$ 16.629 | R$ 2.079 |
-| **Total de saídas** | R$ 21.167 | R$ 21.212 | R$ 168.164 | R$ 21.020 |
-| **Resultado do mês** | R$ 8.293 | R$ 5.688 | R$ 39.686 | R$ 4.961 |
-| **Margem (resultado ÷ receita)** | **28,2 %** | **21,1 %** | 19,1 % | 17,4 % |
+| Outras entradas | R$ 29.460 | R$ 26.900 | R$ 207.370 | R$ 25.921 |
+| **Receita total** | — | — | — | — |
+| Custos fixos (8 linhas) | — | — | — | — |
+| Custas e despesas de processo | R$ 0 | R$ 180 | R$ 730 | R$ 91 |
+| Deslocamento e viagens | R$ 310 | R$ 560 | R$ 3.535 | R$ 442 |
+| **Despesas de casos e viagens** | — | — | — | — |
+| Pró-labore fixo (Marina 6.000 + Rafael 6.000) | R$ 2.357 | R$ 2.152 | R$ 16.591 | R$ 2.074 |
+| Impostos provisionados (8 % da receita) | R$ 21.167 | R$ 21.212 | R$ 168.126 | R$ 21.016 |
+| **Total de saídas** | R$ 8.293 | R$ 5.688 | R$ 39.244 | R$ 4.906 |
+| **Resultado do mês** | R$ 0 | R$ 0 | R$ 0 | R$ 0 |
+| **Margem (resultado ÷ receita)** | **—** | **—** | — | — |
 
-- Agosto: receita **R$ 26.900**, saídas **R$ 21.212**, resultado **R$ 5.688**, margem **21,1 %** (julho: 28,2 %; variação **−7,1 p.p.**). Previsto de agosto: receita 27.000, custos fixos 6.500, despesas 400, pró-labore 12.000 → resultado previsto 5.940, margem prevista 22,0 %.
+- Agosto: receita **R$ 26.900**, saídas **R$ 21.212**, resultado **R$ 5.688**, margem **21,1 %** (julho: —; variação **−7,1 p.p.**). Previsto de agosto: receita 27.000, custos fixos 6.500, despesas 400, pró-labore 12.000 → resultado previsto 5.940, margem prevista 22,0 %.
 | Comparação (18 Painel, agosto) | Mês | Mês anterior | Variação | Previsto | Vs. previsto | Situação |
 |---|---|---|---|---|---|---|
 | Receita total | R$ 26.900 | R$ 29.460 | -8,7 % | R$ 27.000 | -0,4 % | Perto |
@@ -188,8 +188,8 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Saiu no mês (tudo o que saiu do caixa) | R$ 5.320 | — | — | Informativo | 09 · Caixa do escritório (Painel: Saiu no mês) |
 | Sobrou no mês | −R$ 100 | — | — | Informativo | calculado aqui |
 | A receber (carteira; inclui êxito de casos ativos) | R$ 111.990 | — | — | Informativo | 13 · Carteira de clientes e casos (Painel: A receber) |
-| Vencido (parcelas em atraso) | R$ 14.480 | R$ 10.000 | Menor é melhor | Fora | 14 · Parcelas e inadimplência (Painel: Vencido) |
-| Inadimplência (vencido ÷ (pago + vencido)) | 5,1 % | 4 % | Menor é melhor | Fora | 14 · Parcelas e inadimplência (Painel: Inadimplência) |
+| Vencido (parcelas em atraso) | R$ 13.080 | R$ 10.000 | Menor é melhor | Fora | 14 · Parcelas e inadimplência (Painel: Vencido) |
+| Inadimplência (vencido ÷ (pago + vencido)) | 4,6 % | 4 % | Menor é melhor | Fora | 14 · Parcelas e inadimplência (Painel: Inadimplência) |
 | Propostas abertas (quantidade) | 9 | — | — | Informativo | 15 · Funil de propostas (Painel: soma do funil por etapa) |
 | Propostas abertas (valor) | R$ 72.900 | R$ 40.000 | Maior é melhor | No alvo | 15 · Funil de propostas (Painel: Em aberto) |
 | Casos ativos | 30 | 30 | Maior é melhor | No alvo | 13 · Carteira de clientes e casos (Painel: Casos ativos) |
@@ -278,7 +278,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 - Caixa de setembro até 11/09 (09): entrou **R$ 5.220**, saiu **R$ 5.320**, sobrou −R$ 100; saldo acumulado R$ 43.683.
 - Carteira (13): contratado **R$ 383.900** · recebido **R$ 271.910** · **a receber R$ 111.990** (71 % recebido) · **casos ativos 30** · encerrados 8. A receber inclui o êxito esperado de casos ativos e o que ainda não virou parcela: não é atraso.
-- Parcelas (14): vence em 7 dias R$ 2.800 · vence em 30 dias R$ 15.450 · em aberto (total) R$ 56.730 · **vencido R$ 14.480** em **8 parcelas** · **inadimplência 5,1 %** = R$ 14.480 ÷ (R$ 271.910 pago + R$ 14.480). Pela outra conta (vencido ÷ em aberto) daria 25,5 %: não use.
+- Parcelas (14): vence em 7 dias R$ 2.800 · vence em 30 dias R$ 15.450 · em aberto (total) R$ 55.330 · **vencido R$ 13.080** em **7 parcelas** · **inadimplência 4,6 %** = R$ 13.080 ÷ (R$ 271.910 pago + R$ 13.080). Pela outra conta (vencido ÷ em aberto) daria 23,6 %: não use.
 - Propostas (15): abertas **9** somando **R$ 72.900** · previsão ponderada R$ 30.805 · **fechado no trimestre R$ 53.000** (88 % da meta de R$ 60.000) · taxa de fechamento 64 % (7 fechadas ÷ 11 decididas) · dias até fechar (média) 20.
 
 ## 6. Carteira (13 · Carteira de clientes e casos)
@@ -385,22 +385,21 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 | Faixa de atraso | Parcelas | Valor | % do vencido |
 |---|---|---|---|
-| 1 a 6 dias | 1 | R$ 1.980 | 14 % |
+| 1 a 6 dias | 1 | R$ 1.980 | 15 % |
 | 7 a 14 dias | 0 | R$ 0 | 0 % |
-| 15 a 29 dias | 1 | R$ 1.500 | 10 % |
-| 30 dias ou mais | 6 | R$ 11.000 | 76 % |
+| 15 a 29 dias | 1 | R$ 1.500 | 11 % |
+| 30 dias ou mais | 5 | R$ 9.600 | 73 % |
 | Antes da régua | 0 | R$ 0 | 0 % |
 
 | Cobrar primeiro (14) | Cliente | Caso | Parcela | Vencimento | Valor | Dias de atraso | Faixa |
 |---|---|---|---|---|---|---|---|
 | 1 | Bistrô 42 | 8056747-83.2026.8.26.0561 | 3 | 18/03/2026 | R$ 2.100 | 180 | 30 dias ou mais |
 | 2 | Bistrô 42 | 8056747-83.2026.8.26.0561 | 4 | 17/04/2026 | R$ 2.100 | 150 | 30 dias ou mais |
-| 3 | Fernanda Castro | 5211189-81.2025.8.26.0412 | 5 | 13/02/2026 | R$ 1.400 | 213 | 30 dias ou mais |
-| 4 | Oficina Mecânica Central | 6184138-13.2026.8.26.0378 | 3 | 19/06/2026 | R$ 1.500 | 87 | 30 dias ou mais |
-| 5 | Patrícia Gomes | 9616569-91.2026.8.26.0079 | 3 | 14/08/2026 | R$ 2.100 | 31 | 30 dias ou mais |
-| 6 | Agência Prisma | 9362688-24.2025.8.26.0436 | 8 | 10/08/2026 | R$ 1.800 | 35 | 30 dias ou mais |
-| 7 | Helena Duarte | 7679821-77.2026.8.26.0265 | 3 | 28/08/2026 | R$ 1.500 | 17 | 15 a 29 dias |
-| 8 | Agência Prisma | 9362688-24.2025.8.26.0436 | 9 | 10/09/2026 | R$ 1.980 | 4 | 1 a 6 dias |
+| 3 | Oficina Mecânica Central | 6184138-13.2026.8.26.0378 | 3 | 19/06/2026 | R$ 1.500 | 87 | 30 dias ou mais |
+| 4 | Patrícia Gomes | 9616569-91.2026.8.26.0079 | 3 | 14/08/2026 | R$ 2.100 | 31 | 30 dias ou mais |
+| 5 | Agência Prisma | 9362688-24.2025.8.26.0436 | 8 | 10/08/2026 | R$ 1.800 | 35 | 30 dias ou mais |
+| 6 | Helena Duarte | 7679821-77.2026.8.26.0265 | 3 | 28/08/2026 | R$ 1.500 | 17 | 15 a 29 dias |
+| 7 | Agência Prisma | 9362688-24.2025.8.26.0436 | 9 | 10/09/2026 | R$ 1.980 | 4 | 1 a 6 dias |
 
 | Vencem nos próximos 30 dias (14) | Cliente | Caso | Parcela | Vencimento | Valor | Dias para vencer |
 |---|---|---|---|---|---|---|
@@ -413,7 +412,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | 7 | Padaria do Sol Ltda | CONS-2026-01 | 4 | 05/10/2026 | R$ 1.500 | 21 |
 | 8 | Escola Aurora | CONS-2026-04 | 3 | 10/10/2026 | R$ 1.100 | 26 |
 
-- Total de parcelas cadastradas: 153 (pagas 118, das quais 30 pagas em 2025). Régua de cobrança: 1 dia (lembrete), 7 dias (mensagem do responsável), 15 dias (demonstrativo e renegociação), 30 dias (ligação e plano de pagamento).
+- Total de parcelas cadastradas: 152 (pagas 118, das quais 30 pagas em 2025). Régua de cobrança: 1 dia (lembrete), 7 dias (mensagem do responsável), 15 dias (demonstrativo e renegociação), 30 dias (ligação e plano de pagamento).
 
 ## 8. Propostas (15 · Funil e 07 · Registro)
 
@@ -455,7 +454,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ## 9. O caso da proposta: Roberto Almeida (06 · Simulador e 07 · Proposta nº 2026-023)
 
-- Cliente antigo (2 casos na carteira: sentença cível de R$ 15.000 todo pago e recurso misto). Novo caso: **discussão de contrato de prestação de serviços** (Cível). Valor em discussão R$ 60.000, chance de êxito 55 % → valor esperado da causa R$ 33.000. Custo-hora R$ 66,07 → hora mínima para o caso R$ 106,57.
+- Cliente antigo (2 casos na carteira: sentença cível de R$ 15.000 todo pago e recurso misto). Novo caso: **discussão de contrato de prestação de serviços** (Cível). Valor em discussão R$ 60.000, chance de êxito 55 % → valor esperado da causa R$ 33.000. Custo-hora R$ 66,07 → hora mínima para o caso R$ 120,26.
 | Etapa (06) | Horas | Custo (R$) |
 |---|---|---|
 | Reunião inicial e análise dos documentos | 4 | R$ 264,29 |
@@ -482,8 +481,8 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Êxito | 25 % | R$ 8.250 | R$ 660 | R$ 3.952 | R$ 3.638 | 44 % | −R$ 3.952 | Alto |
 | Misto | R$ 4.500 + 15 % | R$ 9.450 | R$ 756 | R$ 3.952 | R$ 4.742 | 50 % | R$ 188 | Baixo |
 
-- Recomendação do simulador: **Hora** (margem esperada R$ 4.825, risco Baixo); fora por risco alto: Êxito. Texto do ponto de equilíbrio da hora: "Hora mínima sem prejuízo: R$ 81.05 (você cobra R$ 180.00)".
-- **Proposta 07 (nº 2026-023, 14/09/2026, válida por 15 dias até 29/09/2026, modalidade Misto)**: objeto "Acompanhamento da discussão sobre contrato de prestação de serviços, da análise inicial ao encerramento.".
+- Recomendação do simulador: **Hora** (margem esperada R$ 4.825, risco Baixo); fora por risco alto: Êxito. Texto do ponto de equilíbrio da hora: "Hora mínima sem prejuízo: R$ 81,05 (você cobra R$ 180,00)".
+- **Proposta 07 (nº 2026-023, 17/09/2026, válida por 15 dias até 02/10/2026, modalidade Misto)**: objeto "Acompanhamento da discussão sobre contrato de prestação de serviços, da análise inicial ao encerramento.".
 | Etapa ou serviço (07) | O que inclui | Prazo previsto | Horas | Valor |
 |---|---|---|---|---|
 | Análise inicial e planejamento | Reunião, leitura dos documentos e definição da estratégia | até 15 dias | 8 | R$ 900 |
@@ -500,7 +499,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 - 3º trimestre de 2026 (01/07 a 30/09): semana **11 de 13**, 82 % decorrido. Resultados-chave: 8 · atingidos 0 · em risco 3 · progresso médio 60 %.
 | Objetivo | Resultado-chave | Dono | Unid. | Partida (30/06) | Meta | Atual (11/09) | Progresso | Semáforo | Sentido | S1…S11 (sextas 03/07 → 11/09) |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Caixa mais previsível | Inadimplência: vencido ÷ (pago + vencido) (%) | Rafael | % | 4,0 | 3,0 | 5,1 | 0 % | Em risco | Menor é melhor | 4,0 · 3,9 · 4,7 · 3,7 · 3,6 · 3,5 · 3,4 · 4,1 · 4,0 · 4,5 · 5,1 |
+| Caixa mais previsível | Inadimplência: vencido ÷ (pago + vencido) (%) | Rafael | % | 3,4 | 3,0 | 4,6 | 0 % | Em risco | Menor é melhor | 3,4 · 3,3 · 4,1 · 3,2 · 3,0 · 3,0 · 2,9 · 3,6 · 3,5 · 4,0 · 4,6 |
 |  | Reserva guardada em conta separada (R$) | Marina | R$ | 6.000,0 | 18.500,0 | 12.000,0 | 48 % | Em risco | Maior é melhor | 6.000,0 · 6.000,0 · 6.000,0 · 6.000,0 · 9.000,0 · 9.000,0 · 9.000,0 · 9.000,0 · 9.000,0 · 12.000,0 · 12.000,0 |
 |  | Conta de provisão de impostos, 13º e férias (R$) | Marina | R$ | 6.200,0 | 11.320,0 | 9.400,0 | 62 % | Atenção | Maior é melhor | 6.200,0 · 6.200,0 · 6.200,0 · 6.200,0 · 7.800,0 · 7.800,0 · 7.800,0 · 7.800,0 · 7.800,0 · 9.400,0 · 9.400,0 |
 | Horas que viram honorário | Horas faturáveis no mês (%) | Rafael | % | 76,9 | 80,0 | 79,5 | 84 % | No ritmo | Maior é melhor | 81,7 · 81,8 · 73,8 · 76,2 · 76,9 · 75,5 · 80,0 · 80,3 · 82,3 · 85,9 · 79,5 |
@@ -534,18 +533,18 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 | Indicador | Agosto | Julho | Variação | Meta | Vs. meta | Situação |
 |---|---|---|---|---|---|---|
-| Entrou no mês (recebimentos) | R$ 26.900 | R$ 29.460 | -8,7% | R$ 26.000 | +3,5% | No alvo |
-| Saídas do mês (custos, despesas de casos, pró-labore e impostos provisionados) | R$ 21.212 | R$ 21.167 | +0,2% | R$ 21.500 | -1,3% | No alvo |
-| Resultado do mês | R$ 5.688 | R$ 8.293 | -31,4% | R$ 4.000 | +42,2% | No alvo |
-| Margem do mês | 21,1% | 28,2% | -7,1 p.p. | 20,0% | +1,1 p.p. | No alvo |
-| Horas registradas no mês | 304,0 h | 233,5 h | +30,2% | 280,0 h | +8,6% | No alvo |
-| Horas faturáveis | 81,6% | 76,9% | +4,7 p.p. | 75,0% | +6,6 p.p. | No alvo |
-| A receber (carteira; inclui êxito de casos ativos) | R$ 117.210 | R$ 117.700 | -0,4% | — | — | informativo |
-| Vencido (parcelas em atraso) | R$ 12.500 | R$ 8.900 | +40,4% | R$ 10.000 | +25,0% | Acima da meta |
-| Inadimplência (vencido ÷ (pago + vencido)) | 4,5% | 3,6% | +0,9 p.p. | 4,0% | +0,5 p.p. | Acima da meta |
-| Propostas abertas (valor) | R$ 46.900 | R$ 21.600 | +117,1% | R$ 40.000 | +17,3% | No alvo |
-| Casos ativos | 30 | 28 | +7,1% | 30 | +0,0% | No alvo |
-| Honorários fechados em propostas no mês | R$ 26.100 | R$ 26.900 | -3,0% | R$ 20.000 | +30,5% | No alvo |
+| Entrou no mês (recebimentos) | R$ 26,900 | R$ 29,460 | -8.7% | R$ 26,000 | +3.5% | No alvo |
+| Saídas do mês (custos, despesas de casos, pró-labore e impostos provisionados) | R$ 21,212 | R$ 21,167 | +0.2% | R$ 21,500 | -1.3% | No alvo |
+| Resultado do mês | R$ 5,688 | R$ 8,293 | -31.4% | R$ 4,000 | +42.2% | No alvo |
+| Margem do mês | 21.1% | 28.2% | -7.1 p.p. | 20.0% | +1.1 p.p. | No alvo |
+| Horas registradas no mês | 304.0 h | 233.5 h | +30.2% | 280.0 h | +8.6% | No alvo |
+| Horas faturáveis | 81.6% | 76.9% | +4.7 p.p. | 75.0% | +6.6 p.p. | No alvo |
+| A receber (carteira; inclui êxito de casos ativos) | R$ 117,210 | R$ 117,700 | -0.4% | — | — | informativo |
+| Vencido (parcelas em atraso) | R$ 11,100 | R$ 7,500 | +48.0% | R$ 10,000 | +11.0% | Acima da meta |
+| Inadimplência (vencido ÷ (pago + vencido)) | 4.0% | 3.0% | +1.0 p.p. | 4.0% | +0.0 p.p. | No alvo |
+| Propostas abertas (valor) | R$ 46,900 | R$ 21,600 | +117.1% | R$ 40,000 | +17.3% | No alvo |
+| Casos ativos | 30 | 28 | +7.1% | 30 | +0.0% | No alvo |
+| Honorários fechados em propostas no mês | R$ 26,100 | R$ 26,900 | -3.0% | R$ 20,000 | +30.5% | No alvo |
 
 (Valores como o Excel em português mostra; os separadores seguem o idioma do Excel.)
 - Destaques automáticos: maior melhora contra julho = Horas faturáveis (+4,7 p.p.); maior piora = Margem do mês (−7,1 p.p.); mais longe da meta = Inadimplência (+0,5 p.p. da meta, acima da meta); indicadores no alvo: 9 de 11 com meta.
@@ -556,14 +555,14 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Mês | Prazos hoje+7 | Atrasados | Horas | Faturáveis | % fat. | Entrou | Saiu | Sobrou | A receber | Vencido | Inadimpl. | Propostas abertas | Valor das propostas | Casos ativos |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Janeiro | — | — | — | — | — | R$ 21.050 | R$ 20.408 | R$ 642 | R$ 117.600 | R$ 1.200 | 1,4 % | 0 | R$ 0 | 17 |
-| Fevereiro | — | — | — | — | — | R$ 23.070 | R$ 21.684 | R$ 1.386 | R$ 94.530 | R$ 3.400 | 3,1 % | 0 | R$ 0 | 17 |
-| Março | — | — | — | — | — | R$ 28.590 | R$ 22.276 | R$ 6.314 | R$ 83.320 | R$ 3.500 | 2,6 % | 0 | R$ 0 | 17 |
-| Abril | — | — | — | — | — | R$ 20.240 | R$ 26.638 | −R$ 6.398 | R$ 88.560 | R$ 5.600 | 3,5 % | 0 | R$ 0 | 19 |
-| Maio | — | — | — | — | — | R$ 31.120 | R$ 21.181 | R$ 9.939 | R$ 97.640 | R$ 5.600 | 3,0 % | 0 | R$ 0 | 22 |
-| Junho | — | — | — | — | — | R$ 27.420 | R$ 23.085 | R$ 4.335 | R$ 115.320 | R$ 8.900 | 4,0 % | 2 | R$ 11.200 | 25 |
-| Julho | — | — | 233,5 | 179,5 | 77 % | R$ 29.460 | R$ 28.898 | R$ 562 | R$ 117.700 | R$ 8.900 | 3,6 % | 2 | R$ 21.600 | 28 |
-| Agosto | — | — | 304,0 | 248,0 | 82 % | R$ 26.900 | R$ 21.897 | R$ 5.003 | R$ 117.210 | R$ 12.500 | 4,5 % | 5 | R$ 46.900 | 30 |
-| Setembro | 14 | 7 | 109,5 | 87,0 | 79 % | R$ 5.220 | R$ 5.320 | −R$ 100 | R$ 111.990 | R$ 14.480 | 5,1 % | 9 | R$ 72.900 | 30 |
+| Fevereiro | — | — | — | — | — | R$ 23.070 | R$ 21.684 | R$ 1.386 | R$ 94.530 | R$ 2.000 | 1,9 % | 0 | R$ 0 | 17 |
+| Março | — | — | — | — | — | R$ 28.590 | R$ 22.276 | R$ 6.314 | R$ 83.320 | R$ 2.100 | 1,6 % | 0 | R$ 0 | 17 |
+| Abril | — | — | — | — | — | R$ 20.240 | R$ 26.638 | −R$ 6.398 | R$ 88.560 | R$ 4.200 | 2,7 % | 0 | R$ 0 | 19 |
+| Maio | — | — | — | — | — | R$ 31.120 | R$ 21.181 | R$ 9.939 | R$ 97.640 | R$ 4.200 | 2,2 % | 0 | R$ 0 | 22 |
+| Junho | — | — | — | — | — | R$ 27.420 | R$ 23.085 | R$ 4.335 | R$ 115.320 | R$ 7.500 | 3,4 % | 2 | R$ 11.200 | 25 |
+| Julho | — | — | 233,5 | 179,5 | 77 % | R$ 29.460 | R$ 28.898 | R$ 562 | R$ 117.700 | R$ 7.500 | 3,0 % | 2 | R$ 21.600 | 28 |
+| Agosto | — | — | 304,0 | 248,0 | 82 % | R$ 26.900 | R$ 21.897 | R$ 5.003 | R$ 117.210 | R$ 11.100 | 4,0 % | 5 | R$ 46.900 | 30 |
+| Setembro | 14 | 7 | 109,5 | 87,0 | 79 % | R$ 5.220 | R$ 5.320 | −R$ 100 | R$ 111.990 | R$ 13.080 | 4,6 % | 9 | R$ 72.900 | 30 |
 
 - Prazos: a agenda (01) não guarda histórico (o escritório começou a anotar em setembro). Horas: o controle (16) começou em julho. Propostas abertas: o funil (15) começou em junho.
 

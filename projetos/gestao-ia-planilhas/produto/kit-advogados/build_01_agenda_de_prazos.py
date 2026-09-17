@@ -8,7 +8,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Responsáveis e tipos de prazo aparecem nas listas da aba Prazos.",merge_to="F")
 cfg["A4"]="Escritório"; cfg["B4"]=f"{dados.ESCRITORIO} (exemplo fictício)"
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Alerta: avisar prazos nos próximos (dias)"; cfg["B6"]=7
 cfg["A7"]="Janela do painel: prazos nos próximos (dias)"; cfg["B7"]=30
 for c in ("A4","A5","A6","A7"): rotulo(cfg[c])
@@ -38,10 +38,10 @@ for r in range(R0,RN+1):
     pz.cell(row=r,column=9,value=f'=IF(AND(A{r}="",C{r}="",D{r}=""),"",IF(F{r}="Sim","Feito",IF(D{r}="","Sem data",IF(D{r}<{HOJE},"Atrasado",IF(D{r}={HOJE},"Hoje",IF(D{r}-{HOJE}<={AL},"Até "&{AL}&" dias",IF(D{r}-{HOJE}<={JAN},"Até "&{JAN}&" dias","Depois")))))))'); calc(pz.cell(row=r,column=9))
     pz.cell(row=r,column=8,value=f'=IF(OR(I{r}="",I{r}="Feito",I{r}="Sem data"),"",D{r}-{HOJE})'); calc(pz.cell(row=r,column=8),"0")
     pz.cell(row=r,column=10,value=f'=IF(OR(I{r}="",I{r}="Feito",I{r}="Sem data"),0,IF(I{r}="Atrasado",3000+MIN({HOJE}-D{r},60),IF(I{r}="Hoje",2500,IF(D{r}-{HOJE}<={AL},2000-(D{r}-{HOJE}),IF(D{r}-{HOJE}<={JAN},1000-(D{r}-{HOJE}),500-MIN(D{r}-{HOJE},400)))))-ROW()/100000)'); pz.cell(row=r,column=10).font=F(color=CINZA,size=9)
-dvt=lista(f"=OFFSET(Config!$D$10,0,0,MAX(1,COUNTA(Config!$D$10:$D${9+NTIPO})),1)",strict=False); dvt.add(f"C{R0}:C{RN}")
-dvr=lista(f"=OFFSET(Config!$B$10,0,0,MAX(1,COUNTA(Config!$B$10:$B${9+NRESP})),1)",strict=False); dvr.add(f"E{R0}:E{RN}")
+dvt=lista(f"=OFFSET(Config!$D$10,0,0,MAX(1,COUNTA(Config!$D$10:$D${9+NTIPO})),1)",strict=True); dvt.add(f"C{R0}:C{RN}")
+dvr=lista(f"=OFFSET(Config!$B$10,0,0,MAX(1,COUNTA(Config!$B$10:$B${9+NRESP})),1)",strict=True); dvr.add(f"E{R0}:E{RN}")
 dvf=lista('"Sim"'); dvf.add(f"F{R0}:F{RN}")
-dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True); dvd.add(f"D{R0}:D{RN}")
+dvd=DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True); dvd.add(f"D{R0}:D{RN}")
 for dv in (dvt,dvr,dvf,dvd): pz.add_data_validation(dv)
 pz.conditional_formatting.add(f"A{R0}:I{RN}", FormulaRule(formula=[f'$I{R0}="Atrasado"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
 pz.conditional_formatting.add(f"A{R0}:I{RN}", FormulaRule(formula=[f'$I{R0}="Hoje"'], fill=fill(SOL), font=F(color=UVA,size=10,bold=True)))

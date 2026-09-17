@@ -43,7 +43,7 @@ TX=f"Config!$B${T0}:$B${T0+3}"; DD=f"Config!$C${T0}:$C${T0+3}"; TT=f"Config!$A${
 # ---------- Vendas ----------
 v=wb.create_sheet("Vendas")
 titulo(v,"Vendas no cartão e no Pix","Uma linha por pagamento (copie da Agenda da planilha 01: atendimentos particulares realizados com Pix ou cartão). Amarelo: data, paciente, procedimento, tipo, parcelas, valor bruto e a conferência no extrato.",merge_to="O")
-hdr(v,4,["Data da venda","Paciente","Procedimento","Tipo","Parcelas","Valor bruto (R$)","Conferido no extrato?","Taxa (%)","Taxa (R$)","Valor líquido (R$)","Líquido por parcela (R$)","1ª parcela cai em","Última parcela cai em","Já previsto até hoje (R$)","Ainda vai cair (R$)","Mês","Ano","Situação"],height=44)
+hdr(v,4,["Data da venda","Paciente","Procedimento","Tipo","Parcelas","Valor bruto (R$)","Parcelas já conferidas","Taxa (%)","Taxa (R$)","Valor líquido (R$)","Líquido por parcela (R$)","1ª parcela cai em","Última parcela cai em","Já previsto até hoje (R$)","Ainda vai cair (R$)","Mês","Ano","Situação"],height=44)
 for r in range(R0,RN+1):
     for c in range(1,8): inp(v.cell(row=r,column=c),center=(c not in (2,3)))
     v.cell(row=r,column=1).number_format=DATA; v.cell(row=r,column=6).number_format=BRL0
@@ -54,20 +54,27 @@ for r in range(R0,RN+1):
     v.cell(row=r,column=10,value=f'=IF(I{r}="","",F{r}-I{r})'); calc(v.cell(row=r,column=10),BRL)
     v.cell(row=r,column=11,value=f'=IF(J{r}="","",J{r}/{NP_})'); calc(v.cell(row=r,column=11),BRL)
     v.cell(row=r,column=12,value=f'=IF(OR(D{r}="",A{r}=""),"",A{r}+IF(AND({ANT}="Sim",LEFT(D{r},17)="Cartão de crédito"),1,IFERROR(INDEX({DD},MATCH({tipo},{TT},0)),0)))'); calc(v.cell(row=r,column=12),DATA)
-    v.cell(row=r,column=13,value=f'=IF(L{r}="","",L{r}+30*({NP_}-1))'); calc(v.cell(row=r,column=13),DATA)
+    # Com antecipação integral todo o líquido cai em D+1, então a última parcela é a
+    # primeira. Antes só a 1ª ia para D+1 e as demais seguiam de 30 em 30, contradizendo
+    # o texto da Config.
+    v.cell(row=r,column=13,value=f'=IF(L{r}="","",IF(AND({ANT}="Sim",LEFT(D{r},17)="Cartão de crédito"),L{r},L{r}+30*({NP_}-1)))'); calc(v.cell(row=r,column=13),DATA)
     v.cell(row=r,column=14,value=f'=IF(OR(L{r}="",K{r}=""),"",K{r}*MIN({NP_},MAX(0,INT(({HOJE}-L{r})/30)+1)))'); calc(v.cell(row=r,column=14),BRL)
     v.cell(row=r,column=15,value=f'=IF(J{r}="","",J{r}-N(N{r}))'); calc(v.cell(row=r,column=15),BRL)
     v.cell(row=r,column=16,value=f'=IF(A{r}="","",MONTH(A{r}))'); calc(v.cell(row=r,column=16))
     v.cell(row=r,column=17,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(v.cell(row=r,column=17))
-    v.cell(row=r,column=18,value=f'=IF(L{r}="","",IF(G{r}="Sim",IF(M{r}>{HOJE},"Conferido (faltam parcelas)","Conferido"),IF(L{r}>{HOJE},"A cair","A conferir")))'); calc(v.cell(row=r,column=18))
+    # parcelas que já venceram até a data de referência
+    venc=f'MIN(MAX(1,N(E{r})),MAX(0,INT(({HOJE}-L{r})/30)+1))'
+    v.cell(row=r,column=18,value=f'=IF(L{r}="","",IF(L{r}>{HOJE},"A cair",'
+        f'IF(N(G{r})>={venc},IF(N(G{r})>=MAX(1,N(E{r})),"Conferido","Conferido até aqui"),'
+        f'"A conferir")))'); calc(v.cell(row=r,column=18))
     v.cell(row=r,column=19,value=f'=IF(R{r}="A conferir",({HOJE}-L{r})*1000+N(F{r})/1000+ROW()/100000,0)'); v.cell(row=r,column=19).font=F(color=CINZA,size=9)
     v.cell(row=r,column=20,value=f'=IF(R{r}="A conferir",N(N{r}),0)'); v.cell(row=r,column=20).font=F(color=CINZA,size=9)
     v.cell(row=r,column=21,value=f'=IF(L{r}="",0,L{r})'); v.cell(row=r,column=21).font=F(color=CINZA,size=9)
     v.cell(row=r,column=22,value=f'=IF(L{r}="",0,{NP_})'); v.cell(row=r,column=22).font=F(color=CINZA,size=9)
     v.cell(row=r,column=23,value=f'=IF(K{r}="",0,K{r})'); v.cell(row=r,column=23).font=F(color=CINZA,size=9)
 for col in "STUVW": v.column_dimensions[col].hidden=True
-dvs=[(lista('"'+",".join(TIPOS)+'"'),f"D{R0}:D{RN}"),(lista('"Sim,Não"'),f"G{R0}:G{RN}"),(DataValidation(type="whole",operator="between",formula1="1",formula2="12",allow_blank=True),f"E{R0}:E{RN}"),
-     (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True),f"A{R0}:A{RN}"),(DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True),f"F{R0}:F{RN}")]
+dvs=[(lista('"'+",".join(TIPOS)+'"'),f"D{R0}:D{RN}"),(lista('"Sim,Não"'),f"G{R0}:G{RN}"),(DataValidation(type="whole",operator="between",formula1="1",formula2="12",allow_blank=True,showErrorMessage=True),f"E{R0}:E{RN}"),
+     (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"A{R0}:A{RN}"),(DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True),f"F{R0}:F{RN}")]
 for dv,rng in dvs: dv.add(rng); v.add_data_validation(dv)
 v.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'$R{R0}="A conferir"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
 v.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'LEFT($R{R0},9)="Conferido"'], font=F(color=VERDE_T,size=10)))
@@ -137,7 +144,10 @@ p.merge_cells(start_row=D0+33,start_column=1,end_row=D0+33,end_column=12); p.cel
 C0=D0+36
 p.cell(row=C0,column=1,value="Falta conferir no extrato (previsão vencida)").font=F(bold=True,size=13,color=UVA)
 hdr(p,C0+1,["#","Data da venda","Paciente","Procedimento","Tipo","Parcelas","Bruto (R$)","Líquido já previsto (R$)","1ª parcela caía em","Dias desde a previsão"],height=32)
-KEY=V("O")
+# S = pontuação de pendência (dias vencidos, valor e linha como desempate). A coluna O
+# é "ainda vai cair", dinheiro futuro: ordenar por ela priorizava o que não precisa de
+# conferência, e por repetir valores fazia a mesma venda aparecer várias vezes.
+KEY=V("S")
 for k in range(1,11):
     r=C0+1+k; m=f'MATCH(LARGE({KEY},{k}),{KEY},0)'; g=f'LARGE({KEY},{k})>0'
     p.cell(row=r,column=1,value=k); calc(p.cell(row=r,column=1))
@@ -162,12 +172,17 @@ for i,r_ in enumerate(vendas):
     if r_["parcelas"]: v.cell(row=r,column=5,value=r_["parcelas"])
     v.cell(row=r,column=6,value=r_["valor"])
     prev=r_["data"]+__import__("datetime").timedelta(days=dados.DIAS_CREDITO.get(r_["forma"],0))
-    if prev<=LIM: v.cell(row=r,column=7,value="Sim")
+    # quantas parcelas já venceram até o corte do exemplo: é isso que a recepção teria
+    # conferido no extrato até aqui
+    if prev<=LIM:
+        _np=r_["parcelas"] or 1
+        _venc=min(_np, max(0,(LIM-prev).days//30+1))
+        if _venc: v.cell(row=r,column=7,value=_venc)
 print(len(vendas),"vendas no exemplo")
 como_usar(wb,"Conciliação de cartão e taxas",[
  ("O que esta planilha faz","Cada pagamento no cartão ou no Pix com a taxa da operadora, o valor líquido e o dia em que cai na conta. Mostra quanto as taxas comem no mês (e a quantas consultas equivalem), o que ainda vai cair, o que já deveria ter caído e não foi conferido, e o dia a dia para bater com o extrato."),
  ("Passo 1","Em Config, digite as taxas e os prazos da sua operadora (contrato da maquininha ou extrato), se antecipa o crédito e o preço da consulta particular (só para a comparação)."),
- ("Passo 2","Em Vendas, uma linha por pagamento: data, paciente, procedimento, tipo, parcelas e valor bruto (copie da Agenda da 01, filtrando os particulares pagos com Pix ou cartão). A cada quinzena, marque Sim em \"Conferido no extrato?\" para o que caiu na conta. No parcelado, a planilha já divide o líquido por parcela e mostra quanto ainda vai cair."),
+ ("Passo 2","Em Vendas, uma linha por pagamento: data, paciente, procedimento, tipo, parcelas e valor bruto (copie da Agenda da 01, filtrando os particulares pagos com Pix ou cartão). A cada quinzena, escreva em \"Parcelas já conferidas\" quantas parcelas daquela venda você já achou no extrato: 1 para Pix, débito e crédito à vista; no parcelado vá somando conforme cada parcela cai. Assim a venda volta para \"A conferir\" quando a parcela seguinte vencer, em vez de ficar conferida para sempre depois da primeira."),
  ("Passo 3","Em Painel, escolha o mês em Config: vendas, taxas, líquido, por tipo, dia a dia e a lista \"Falta conferir\". No fechamento do mês, lance o total de taxas como saída \"Taxas de cartão\" no caixa (09)."),
  ("Rotina","É uma planilha QUINZENAL, fora dos 30 minutos semanais da planilha 03: a cada 15 dias, 10 minutos para conferir o extrato da operadora contra \"Cai na conta neste dia\" e marcar as conferidas. No fechamento do mês, lance o total de taxas no caixa (09). Uma vez por semestre: comparar a taxa média com outra operadora."),
  ("Limite e como estender","A aba Vendas tem 2.000 linhas (5 a 2004): mais de um ano com cerca de 100 pagamentos por mês. Perto do fim, desproteja a aba, copie a última linha para baixo e ajuste o número final nas fórmulas do Painel, ou comece um arquivo por ano."),
