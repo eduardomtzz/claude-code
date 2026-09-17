@@ -18,7 +18,7 @@ cfg["A4"]="Clínica"; cfg["B4"]=NOME
 cfg["A5"]="Ano do painel"; cfg["B5"]=2026
 cfg["A6"]="Mês do painel"; cfg["B6"]="Setembro"
 cfg["A7"]="Número do mês"; cfg["B7"]="=MATCH(B6,$L$5:$L$16,0)"
-cfg["A8"]="Data de referência (hoje)"; cfg["B8"]="=TODAY()"
+cfg["A8"]="Data de referência (hoje)"; cfg["B8"]=dados.HOJE
 cfg["A9"]="Lista de retorno: incluir quem passou do prazo há mais de (dias)"; cfg["B9"]=0
 for r in range(4,10): rotulo(cfg.cell(row=r,column=1))
 inp(cfg["B4"]); inp(cfg["B5"],center=True); inp(cfg["B6"],center=True); calc(cfg["B7"]); inp(cfg["B8"],DATA); inp(cfg["B9"],"0",center=True)

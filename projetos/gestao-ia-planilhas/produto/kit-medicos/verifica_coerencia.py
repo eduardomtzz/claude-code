@@ -24,7 +24,10 @@ def rows(ws,r0,cols):
         out.append([ws.cell(row=r,column=c).value for c in cols])
     return out
 MES={m:i+1 for i,m in enumerate(["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"])}
-SEXTA=datetime.date(2026,9,11); HOJE=datetime.date(2026,9,14)
+# As datas vêm de dados.py, não repetidas aqui: quando a data-base do exemplo mudar,
+# a conferência acompanha em vez de comparar contra um dia que já passou.
+import dados as _d
+SEXTA=_d.SEXTA; HOJE=_d.HOJE
 
 W={p:wb(p) for p in ("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20")}
 p01=W["01"]["Painel"]; ag01=W["01"]["Agenda"]; p02=W["02"]["Painel"]; ag02=W["02"]["Agenda"]; p05=W["05"]["Painel"]; s06=W["06"]["Precificação"]; s07=W["07"]["Simulador"]; t08=W["08"]["Tabela"]
@@ -75,16 +78,36 @@ check("09 Painel Saiu (set) == lançamentos",p09["C5"].value,sai_mes[9])
 check("09 Painel Entrou (set) == 17 Dados B10",p09["A5"].value,d17["B10"].value)
 check("09 Painel Saiu (set) == 17 Dados B11",p09["C5"].value,d17["B11"].value)
 check("09 Painel Saldo acumulado == saldo inicial + entradas − saídas pagas",p09["G5"].value,num(W["09"]["Config"]["B8"].value)+sum(ent_mes.values())-sum(sai_mes.values()))
-# fechamento do dia (particular à vista) == agenda (jul-set)
-avista={}
+# Particular à vista no caixa (09): Pix e dinheiro entram no dia do atendimento;
+# cartão entra na data em que cai na conta (débito D+1, crédito D+30 por parcela).
+# Antes o cartão entrava no dia da venda e inflava o saldo disponível em até um mês.
+avista_dia={}   # Pix e dinheiro, no próprio dia
 for x in AG:
-    if x["sit"]=="Realizado" and x["pag"]=="Particular" and x["forma"] in ("Pix","Dinheiro","Cartão de débito","Cartão de crédito") and x["valor"]>0:
-        avista[(x["data"],x["forma"])]=avista.get((x["data"],x["forma"]),0)+x["valor"]
-fech={(x["data"],x["forma"]):x["valor"] for x in L if x["cat"]=="Particular à vista" and x["data"]>=datetime.date(2026,6,1)}
-check("09 fechamentos do dia jun–set: mesmo número de linhas que a agenda",len(fech),len(avista))
-for k,v in list(avista.items())[::9]: check(f"09 fechamento {k[0].strftime('%d/%m')} {k[1]} == agenda",fech.get(k),v)
+    if x["sit"]=="Realizado" and x["pag"]=="Particular" and x["forma"] in ("Pix","Dinheiro") and x["valor"]>0:
+        avista_dia[(x["data"],x["forma"])]=avista_dia.get((x["data"],x["forma"]),0)+x["valor"]
+fech={(x["data"],x["forma"]):x["valor"] for x in L
+      if x["cat"]=="Particular à vista" and x["forma"] in ("Pix","Dinheiro") and x["data"]>=datetime.date(2026,6,1)}
+for k,v in list(avista_dia.items())[::9]:
+    if k[0]>=datetime.date(2026,6,1):
+        check(f"09 Pix/dinheiro {k[0].strftime('%d/%m')} {k[1]} == agenda",fech.get(k),v)
+# o total da categoria tem de fechar com o que dados.py gerou, linha a linha
+_esp_cat={}
+for d,t,c,q,r,ds,v,f,pg in _d.LANCAMENTOS:
+    if c=="Particular à vista" and pg=="Sim": _esp_cat[d.month]=_esp_cat.get(d.month,0)+v
 for m in (6,7,8):
-    check(f"09 Particular à vista mês {m} == agenda 01",ent_cat[(m,"Particular à vista")],sum(avista[k] for k in avista if k[0].month==m))
+    check(f"09 Particular à vista mês {m} == liquidações geradas",ent_cat[(m,"Particular à vista")],round(_esp_cat.get(m,0),2),tol=0.01)
+# O cartão recebido ACUMULADO até um mês nunca pode passar do vendido acumulado:
+# se passar, o caixa está contando dinheiro que ainda não caiu. Os dois lados vêm de
+# AGENDA_TODA, que cobre o ano inteiro (a agenda da planilha 01 só mostra desde 01/06).
+_vend_ate={}
+for x in _d.AGENDA_TODA:
+    if x["situacao"]=="Realizado" and x["pagador"]=="Particular" and x["forma"].startswith("Cartão") and x["valor"]>0:
+        _vend_ate[x["data"].month]=_vend_ate.get(x["data"].month,0)+x["valor"]
+for m in (6,7,8):
+    _cart_acum=sum(v for d,t,c,q,r,ds,v,f,pg in _d.LANCAMENTOS
+                   if c=="Particular à vista" and d.month<=m and f.startswith("Cartão"))
+    _vend_acum=sum(_vend_ate.get(k,0) for k in range(1,m+1))
+    check(f"09 cartão recebido até o mês {m} <= vendido até o mês {m}",_cart_acum<=_vend_acum+0.01,True)
 # 4. 13 lotes × guias × 09 × 17
 LOT=[dict(conv=a,comp=dt(b),n=int(num(c)),env=num(d),denv=dt(e),dpag=dt(f),pago=num(g),rec=h,recup=num(i),drec=dt(j),glosa=num(m),sit=n) for a,b,c,d,e,f,g,h,i,j,k,l,m,n in rows(lo13,5,list(range(1,15)))]
 GU=[dict(num=a,data=dt(b),pac=c,conv=d,proc=e,prof=f,valor=num(g),glosada=h) for a,b,c,d,e,f,g,h in rows(gu13,5,list(range(1,9)))]
@@ -149,12 +172,30 @@ VEN=[dict(data=dt(a),pac=b,proc=c,tipo=d,parc=e,bruto=num(f),taxa=num(i),liq=num
 cart=[x for x in AG if x["sit"]=="Realizado" and x["pag"]=="Particular" and x["forma"] in ("Pix","Cartão de débito","Cartão de crédito")]
 check("16 Vendas == pagamentos com Pix e cartão da agenda 01",len(VEN),len(cart))
 check("16 Vendas bruto == agenda",sum(v["bruto"] for v in VEN),sum(x["valor"] for x in cart))
+# A taxa da operadora sai no fim do mês em que o dinheiro CAIU, não em que foi vendido:
+# o caixa e a conciliação têm de bater pela liquidação, e a soma do ano tem de fechar.
+_esp_tx={}
+for d,t,c,q,r,ds,v,f,pg in _d.LANCAMENTOS:
+    if c=="Taxas de cartão": _esp_tx[d.month]=_esp_tx.get(d.month,0)+v
 for m in (6,7,8):
-    check(f"09 Taxas de cartão mês {m} == 16 taxas das vendas do mês",sai_cat[(m,"Taxas de cartão")],sum(v["taxa"] for v in VEN if v["data"].month==m),tol=0.01)
-    for f in ("Pix","Cartão de débito","Cartão de crédito"):
-        check(f"09 entradas por forma {f} mês {m} (à vista) == 16",ent_forma[(m,f)]-(sum(x["valor"] for x in L if x["pago"]=="Sim" and x["tipo"]=="Entrada" and x["data"].month==m and x["forma"]==f and x["cat"]!="Particular à vista")),sum(v["bruto"] for v in VEN if v["data"].month==m and v["tipo"]==f))
+    check(f"09 Taxas de cartão mês {m} == taxa das liquidações do mês",sai_cat[(m,"Taxas de cartão")],round(_esp_tx.get(m,0),2),tol=0.01)
+# A planilha 16 lista só as vendas que aparecem na agenda visível (desde 01/06); o caixa
+# cobre o ano. A conferência é por mês de venda, dos dois lados vindo de AGENDA_TODA.
+# A taxa é lançada até agosto (setembro ainda está em andamento no exemplo), e o que
+# se compara é a taxa das liquidações desses mesmos meses, não a de todas as vendas:
+# venda de agosto no crédito só paga taxa quando cair, em setembro.
+_tx_esp_ate_ago=round(sum(x for (y,mm),x in _d.TAXA_LIQ_MES.items() if y==_d.ANO and mm<=8),2)
+check("09 taxa lançada até agosto == taxa das liquidações até agosto",round(sum(_esp_tx.values()),2),_tx_esp_ate_ago,tol=0.02)
+_bruto_16=round(sum(v["bruto"] for v in VEN),2)
+_bruto_esp=round(sum(x["valor"] for x in _d.AGENDA_TODA
+                     if x["situacao"]=="Realizado" and x["pagador"]=="Particular"
+                     and x["forma"] in ("Pix","Cartão de débito","Cartão de crédito")
+                     and x["data"]>=datetime.date(2026,6,1)),2)
+check("16 Vendas bruto == vendas de Pix e cartão desde 01/06",_bruto_16,_bruto_esp,tol=1.0)
 check("16 Painel (Agosto) vendas == vendas de agosto",p16["A5"].value,sum(v["bruto"] for v in VEN if v["data"].month==8))
-check("16 Painel (Agosto) taxas == 09 saída Taxas de cartão de agosto",p16["C5"].value,sai_cat[(8,"Taxas de cartão")],tol=0.01)
+# o painel do 16 mostra a taxa das VENDAS de agosto; o caixa mostra a taxa do que CAIU
+# em agosto. São números diferentes de propósito, por isso a conferência é do ano.
+check("16 Painel (Agosto) taxas == taxa das vendas de agosto",p16["C5"].value,round(sum(v["taxa"] for v in VEN if v["data"].month==8),2),tol=0.01)
 # 8. 05/06/07/08: custo-hora, hora mínima, tabela
 check("05 custos fixos == 09 saídas fixas de agosto",p05["B9"].value,sum(sai_cat[(8,c)] for c in ("Aluguel e condomínio","Recepção (salário e encargos)","Contador","Sistema de agenda e assinaturas","Energia, água, internet e telefone","Limpeza e material de escritório","Marketing e site","Anuidade CRM, seguro e cursos")))
 check("05 custo total == fixos + pró-labore",p05["B11"].value,num(p05["B9"].value)+18000)
@@ -292,8 +333,15 @@ check("15 nenhum orçamento aprovado virou atendimento a prazo de inadimplente",
 # A-9: A receber = parcelas e lotes com previsão até o fim do mês de referência; descrições sem rótulo que envelhece
 _prazo={"Saúde Total":30,"MediPlan":45,"Vida Care":60}
 _esperado=sum(p["valor"] for p in PAR if p["pago"]!="Sim" and p["venc"]<=FIM_REF)+sum(l["env"] for l in LOT if l["sit"] in ("Aguardando","Atrasada") and l["denv"]+datetime.timedelta(days=_prazo[l["conv"]])<=FIM_REF)
-check("09 A receber = parcelas e lotes com previsão até o fim do mês de referência",p09["I5"].value,_esperado)
-check("09 nada pré-lançado com previsão depois do fim do mês de referência",[x["desc"][:40] for x in L if x["pago"]=="Não" and x["tipo"]=="Entrada" and x["data"]>FIM_REF],[])
+# Além de parcelas e lotes, "a receber" passa a incluir o cartão já vendido que
+# ainda não caiu. É dinheiro certo, com data conhecida, e precisa aparecer.
+_cart_a_receber=sum(v for d,t,c,q,r,ds,v,f,pg in _d.LANCAMENTOS
+                    if c=="Particular à vista" and pg=="Não")
+check("09 A receber = parcelas + lotes até o fim do mês + cartão ainda não liquidado",
+      p09["I5"].value,round(_esperado+_cart_a_receber,2),tol=0.01)
+check("09 nada pré-lançado depois do mês de referência além do cartão em trânsito",
+      sorted({x["desc"][:22] for x in L if x["pago"]=="Não" and x["tipo"]=="Entrada" and x["data"]>FIM_REF
+              and not x["desc"].startswith("Repasse da operadora")}),[])
 check("09 descrições sem '(vencida)/(a vencer)/(atrasado)/(a receber)' fixos",
       [x["desc"][:50] for x in L if any(t in x["desc"] for t in ("(vencida)","(a vencer)","(atrasado)","(a receber)"))],[])
 check("09 regra do A receber escrita em Lançamentos!A2","FIM DO MÊS DE REFERÊNCIA" in (lan["A2"].value or "").upper(),True)

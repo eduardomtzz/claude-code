@@ -19,7 +19,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. As probabilidades por etapa alimentam a previsão ponderada.",merge_to="J")
 cfg["A4"]="Clínica"; cfg["B4"]=NOME
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Meta de orçamentos aprovados no trimestre (R$)"; cfg["B6"]=dados.META_APROVADO_TRI
 cfg["A7"]="Orçamento parado há mais de (dias)"; cfg["B7"]=7
 for r in range(4,8): rotulo(cfg.cell(row=r,column=1))

@@ -102,8 +102,16 @@ FALTA_PROB={"Particular":0.06,"Saúde Total":0.09,"MediPlan":0.10,"Vida Care":0.
 
 def D(y,m,d): return date(y,m,d)
 def prazo_formula(dias):
-    """Data do exemplo como fórmula relativa a hoje (não envelhece)."""
-    return "=TODAY()" if dias==0 else f"=TODAY(){dias:+d}"
+    """Data do exemplo como DATA LITERAL, ancorada em HOJE.
+
+    Antes devolvia "=TODAY()+n", para o exemplo parecer sempre atual. O efeito
+    colateral era pior do que o ganho: o histórico ficava preso em setembro de 2026
+    e só a parte futura andava, então a mesma clínica mostrava ocupação diferente
+    em arquivos diferentes conforme o dia em que o cliente abria (auditoria de
+    17/09/2026). Com data literal o exemplo é reproduzível e fecha em qualquer dia;
+    o "Como usar" manda trocar a data de referência por =HOJE() ao começar a usar.
+    """
+    return HOJE+timedelta(days=dias)
 def dias(d): return (d-HOJE).days
 def dia_util(d):
     while d.weekday()>=5 or d in FERIADOS: d+=timedelta(days=1)
@@ -413,19 +421,52 @@ def material(prof,m,y=ANO,ate=SEXTA):
     """Material e insumo dos atendimentos realizados de um profissional no mês (custo direto da parceria, 11)."""
     return sum(MATERIAL[r["procedimento"]] for r in AGENDA_TODA if r["profissional"]==prof and r["situacao"]=="Realizado" and r["data"].month==m and r["data"].year==y and r["data"]<=ate)
 MATERIAL_REN_DEZ=120
+TAXA_LIQ_MES={}   # (ano,mês da liquidação) -> taxa de cartão daquele mês, preenchido por lancamentos()
 def lancamentos():
     """Tuplas (data, tipo, categoria, paciente ou convênio, referência, descrição, valor, forma, pago) de jan a set/2026."""
     ex=[]
     def add(d,t,c,quem,ref,desc,v,f="Pix",p="Sim"):
         assert not (p=="Sim" and d>SEXTA), (d,desc)
         ex.append((d,t,c,quem,ref,desc,round(v,2),f,p))
-    # particular à vista: fechamento do dia por forma
-    por_dia={}
+    # Particular à vista: o dinheiro entra no caixa na data em que CAI NA CONTA, não na
+    # data da venda. Pix e dinheiro caem no dia; débito cai em D+1; crédito à vista em
+    # D+30; crédito parcelado, uma parcela a cada 30 dias. Registrar cartão no dia da
+    # venda inflava o saldo disponível por até um mês (achado da auditoria de 17/09).
+    # O bruto entra aqui e a taxa sai no fim do mês em que caiu, para a receita continuar
+    # bruta na 18 e a taxa continuar visível como despesa variável.
+    por_liq={}      # (data_de_liquidacao, forma) -> [valor, n_atendimentos, primeira_venda]
+    taxa_por_mes={} # mes_de_liquidacao -> taxa somada
     for r in AGENDA_TODA:
-        if r["situacao"]=="Realizado" and r["pagador"]=="Particular" and r["valor"]>0 and r["forma"] in ("Pix","Dinheiro","Cartão de débito","Cartão de crédito"):
-            k=(r["data"],r["forma"]); por_dia.setdefault(k,[0,0]); por_dia[k][0]+=r["valor"]; por_dia[k][1]+=1
-    for (d,f),(v,n) in sorted(por_dia.items()):
-        add(d,"Entrada","Particular à vista","","Fechamento do dia",f"Fechamento do dia · {n} atendimento{'s' if n>1 else ''} · {f.lower()}",v,f)
+        if not (r["situacao"]=="Realizado" and r["pagador"]=="Particular" and r["valor"]>0): continue
+        f=r["forma"]
+        if f not in ("Pix","Dinheiro","Cartão de débito","Cartão de crédito"): continue
+        if f in ("Pix","Dinheiro"):
+            parcelas=[(r["data"], r["valor"])]
+        elif f=="Cartão de débito":
+            parcelas=[(r["data"]+timedelta(days=DIAS_CREDITO["Cartão de débito"]), r["valor"])]
+        else:
+            n_par=r["parcelas"] or 1
+            cota=round(r["valor"]/n_par,2); resto=round(r["valor"]-cota*n_par,2)
+            parcelas=[(r["data"]+timedelta(days=DIAS_CREDITO["Cartão de crédito"]*(k+1)),
+                       cota+(resto if k==0 else 0)) for k in range(n_par)]
+        tx_total=taxa_cartao(r)
+        for k,(d_liq,v_par) in enumerate(parcelas):
+            kk=(d_liq,f); por_liq.setdefault(kk,[0,0,r["data"]])
+            por_liq[kk][0]+=v_par; por_liq[kk][1]+=1
+            por_liq[kk][2]=min(por_liq[kk][2], r["data"])
+            if tx_total:
+                # a taxa acompanha a parcela, rateada pelo peso dela na venda
+                taxa_por_mes.setdefault((d_liq.year,d_liq.month),0.0)
+                taxa_por_mes[(d_liq.year,d_liq.month)]+=tx_total*v_par/r["valor"]
+    TAXA_LIQ_MES.clear(); TAXA_LIQ_MES.update({k:round(x,2) for k,x in taxa_por_mes.items()})
+    for (d,f),(v,n,primeira) in sorted(por_liq.items()):
+        if f in ("Pix","Dinheiro"):
+            desc=f"Fechamento do dia · {n} atendimento{'s' if n>1 else ''} · {f.lower()}"
+        else:
+            desc=(f"Repasse da operadora · {f.lower()} · {n} pagamento{'s' if n>1 else ''}"
+                  f" · vendas desde {primeira.strftime('%d/%m')}")
+        add(d,"Entrada","Particular à vista","","Caiu na conta",desc,v,f,
+            "Sim" if d<=SEXTA else "Não")
     # parcelas a prazo
     fim_mes_ref=date(2026,9,30)   # regra do exemplo: a receber = parcelas e lotes com previsão até o fim do mês de referência
     for p in PARCELAS:
@@ -454,8 +495,8 @@ def lancamentos():
         add(date(2026,m,8),"Saída","Materiais e insumos de atendimento","","","Eletrodos, manguitos e descartáveis (fornecedor)",round(base*0.6/10)*10,"Boleto")
         d2=date(2026,m,22); add(d2,"Saída","Materiais e insumos de atendimento","","","Reposição de descartáveis e papel para ECG",round(base*0.4/10)*10,"Cartão de crédito","Sim" if d2<=SEXTA else "Não")
         if m<9:
-            tx=sum(taxa_cartao(r) for r in AGENDA_TODA if r["situacao"]=="Realizado" and r["pagador"]=="Particular" and r["data"].month==m and r["data"].year==ANO)
-            add(fim_mes(m),"Saída","Taxas de cartão","","",f"Taxas da operadora de cartão · vendas de {mes_abrev(m)}",tx,"Transferência")
+            tx=round(taxa_por_mes.get((ANO,m),0.0),2)
+            if tx: add(fim_mes(m),"Saída","Taxas de cartão","","",f"Taxas da operadora de cartão · recebimentos de {mes_abrev(m)}",tx,"Transferência")
     add(date(2026,5,12),"Saída","Manutenção de equipamentos","","","Calibração e manutenção do MAPA e do Holter",800,"Boleto")
     add(date(2026,8,18),"Saída","Manutenção de equipamentos","","","Conserto do eletrocardiógrafo",450,"Pix")
     # imposto: guia paga dia 20 sobre as entradas do mês anterior (alíquota efetiva combinada com o contador); janeiro sobre dezembro/2025 (fictício)
@@ -516,13 +557,15 @@ def agenda_mes(m,y=ANO,ate=SEXTA,prof=None,sala=None,pag=None):
 def horas_atendidas(m,y=ANO,ate=SEXTA,**k):
     return sum(DUR[r["procedimento"]] for r in agenda_mes(m,y,ate,**k) if r["situacao"]=="Realizado")/60
 def ocupacao(m,y=ANO,ate=SEXTA,**k):
-    disp=horas_disponiveis(m,y,min(ate,HOJE-timedelta(days=1)) if ate>=HOJE-timedelta(days=1) else ate,prof=k.get("prof"),sala=k.get("sala")); at=horas_atendidas(m,y,ate,**k)
+    corte=min(ate,HOJE-timedelta(days=1))
+    disp=horas_disponiveis(m,y,corte,prof=k.get("prof"),sala=k.get("sala")); at=horas_atendidas(m,y,corte,**k)
     return at/disp if disp else 0
 def faltas(m,y=ANO,ate=SEXTA,**k):
     L_=agenda_mes(m,y,ate,**k); f=sum(1 for r in L_ if r["situacao"]=="Falta"); real=sum(1 for r in L_ if r["situacao"]=="Realizado")
     return f,real,(f/(f+real) if f+real else 0)
 def resumo_agenda(m,y=ANO,ate=SEXTA):
-    disp=horas_disponiveis(m,y,min(ate,HOJE-timedelta(days=1))); at=horas_atendidas(m,y,ate); f,real,tx=faltas(m,y,ate)
+    corte=min(ate,HOJE-timedelta(days=1))
+    disp=horas_disponiveis(m,y,corte); at=horas_atendidas(m,y,corte); f,real,tx=faltas(m,y,corte)
     return dict(disponiveis=disp,atendidas=at,ocupacao=at/disp if disp else 0,vazias=disp-at,faltas=f,realizados=real,taxa_falta=tx,
                 producao=sum(r["valor"] for r in agenda_mes(m,y,ate) if r["situacao"]=="Realizado"))
 def lista_retorno(ref=HOJE):

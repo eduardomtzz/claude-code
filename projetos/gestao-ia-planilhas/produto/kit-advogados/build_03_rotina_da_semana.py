@@ -59,7 +59,7 @@ ro.conditional_formatting.add(f"{L(C0)}3:{LW}4", FormulaRule(formula=[f'AND({L(C
 ro.conditional_formatting.add(f"A{R0}:D{RI}", FormulaRule(formula=[f'$A{R0}="Sexta"'], fill=fill(LAVANDA)))
 widths(ro,[10,52,9,16]+[6]*W); ro.freeze_panes=f"{L(C0)}{R0}"; ro.sheet_view.showGridLines=False
 # exemplos
-itens=[("Segunda","Abrir a Agenda de prazos: resolver ou reagendar os atrasados",4,"Marina Ferraz"),
+itens=[("Segunda","Abrir a Agenda de prazos: tratar os atrasados. Prazo processual, conferir na fonte oficial e levar ao responsável, sem mudar a data. Reagendar só o que é tarefa administrativa.",4,"Marina Ferraz"),
        ("Segunda","Confirmar com cada responsável os prazos dos próximos 7 dias",3,"Rafael Lima"),
        ("Segunda","Registrar os prazos e audiências novos que chegaram",3,"Júlia Prado"),
        ("Segunda","Atualizar fase e próxima ação dos casos movimentados",2,"Júlia Prado"),

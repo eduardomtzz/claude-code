@@ -17,7 +17,7 @@ cfg["A4"]="Clínica"; cfg["B4"]=NOME
 cfg["A5"]="Ano do painel"; cfg["B5"]=2026
 cfg["A6"]="Mês do painel"; cfg["B6"]="Agosto"
 cfg["A7"]="Número do mês"; cfg["B7"]="=MATCH(B6,$H$5:$H$16,0)"
-cfg["A8"]="Data de referência (hoje)"; cfg["B8"]="=TODAY()"
+cfg["A8"]="Data de referência (hoje)"; cfg["B8"]=dados.HOJE
 cfg["A9"]="Preço da consulta particular (para a comparação)"; cfg["B9"]=dados.preco("Consulta","Particular")
 for r in range(4,10): rotulo(cfg.cell(row=r,column=1))
 inp(cfg["B4"]); inp(cfg["B5"],center=True); inp(cfg["B6"],center=True); calc(cfg["B7"]); inp(cfg["B8"],DATA); inp(cfg["B9"],BRL0)
@@ -171,7 +171,7 @@ como_usar(wb,"Conciliação de cartão e taxas",[
  ("Passo 3","Em Painel, escolha o mês em Config: vendas, taxas, líquido, por tipo, dia a dia e a lista \"Falta conferir\". No fechamento do mês, lance o total de taxas como saída \"Taxas de cartão\" no caixa (09)."),
  ("Rotina","É uma planilha QUINZENAL, fora dos 30 minutos semanais da planilha 03: a cada 15 dias, 10 minutos para conferir o extrato da operadora contra \"Cai na conta neste dia\" e marcar as conferidas. No fechamento do mês, lance o total de taxas no caixa (09). Uma vez por semestre: comparar a taxa média com outra operadora."),
  ("Limite e como estender","A aba Vendas tem 2.000 linhas (5 a 2004): mais de um ano com cerca de 100 pagamentos por mês. Perto do fim, desproteja a aba, copie a última linha para baixo e ajuste o número final nas fórmulas do Painel, ou comece um arquivo por ano."),
- ("Ligação com as outras planilhas","O caixa (09) registra o bruto no dia da venda; as taxas do mês são a saída do fim do mês (o total deste Painel). O resultado mensal (18) mostra as taxas como despesa variável. No exemplo o Painel está em agosto (mês fechado); setembro está em andamento."),
+ ("Ligação com as outras planilhas","O caixa (09) registra o bruto na data em que cai na conta, usando as datas desta planilha; a taxa do mês é a saída do fim do mês em que o dinheiro caiu. Por isso a taxa desta tela (vendas de agosto) e a do caixa (recebimentos de agosto) são números diferentes de propósito. O resultado mensal (18) mostra as taxas como despesa variável. No exemplo o Painel está em agosto (mês fechado); setembro está em andamento."),
  ("Com a IA","Copie \"Por tipo de pagamento\" e use o prompt \"Caixa 09 · A taxa da maquininha está comendo a margem?\" da biblioteca do kit para decidir entre absorver a taxa, oferecer desconto no Pix ou trocar de operadora."),
 ])
 proteger(wb); salvar(wb,"16-conciliacao-de-cartao.xlsx","Conciliação de cartão e taxas · Kit de Gestão para Médicos")

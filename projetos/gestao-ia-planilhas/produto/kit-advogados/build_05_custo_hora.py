@@ -135,7 +135,7 @@ como_usar(wb,"Custo-hora do escritório",[
  ("Passo 1","Em Custos fixos, liste o que o escritório paga todo mês (aluguel, contador, sistemas, bolsa de estágio, marketing). Uma linha por item, de cima para baixo."),
  ("Passo 2","Em Pessoas, cada pessoa com pró-labore ou salário, horas de trabalho e horas faturáveis por mês. Se o custo dela já está em Custos fixos, marque \"Sim\" para não contar duas vezes."),
  ("Passo 3","Em Config, a margem que você quer sobre o preço e o percentual de impostos e taxas que sai de cada recebimento (confira com o contador)."),
- ("Passo 4","Em Painel: custo-hora do escritório, hora mínima a cobrar, custo-hora de cada pessoa e a sensibilidade. Use a hora mínima nas planilhas 06 (Simulador) e 08 (Tabela de referência)."),
+ ("Passo 4","Em Painel: custo-hora do escritório, hora mínima a cobrar, custo-hora de cada pessoa e a sensibilidade. Leve o CUSTO-HORA do escritório (Painel B13) como entrada das planilhas 06 (Simulador) e 08 (Tabela de referência): é sobre ele que elas aplicam imposto e margem. A hora mínima serve para comparar preço, não como entrada — usá-la no lugar do custo-hora aplica margem e imposto duas vezes."),
  ("Rotina","Revise uma vez por trimestre ou quando mudar aluguel, equipe ou pró-labore. Leva 10 minutos."),
  ("Com a IA","Copie \"Como chegamos ao número\" e use o prompt \"Honorários 01 · Entender o meu custo-hora\" da biblioteca do kit para explicar o custo-hora ao sócio em linguagem simples, ou para sugerir o que fazer se a ocupação estiver abaixo de 50%."),
 ])

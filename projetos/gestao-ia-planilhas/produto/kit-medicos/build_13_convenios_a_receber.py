@@ -22,7 +22,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Cada convênio com o prazo contratual de pagamento (dias após o envio do lote) e o dia de envio.",merge_to="H")
 cfg["A4"]="Clínica"; cfg["B4"]=NOME
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Ano do painel"; cfg["B6"]=2026
 cfg["A7"]="Tolerância de atraso antes de avisar (dias)"; cfg["B7"]=0
 for r in (4,5,6,7): rotulo(cfg.cell(row=r,column=1))

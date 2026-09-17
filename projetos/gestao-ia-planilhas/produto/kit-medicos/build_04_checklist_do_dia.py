@@ -13,7 +13,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Os itens cadastrados aqui viram as colunas da aba Checklist.",merge_to="F")
 cfg["A4"]="Clínica"; cfg["B4"]=f"{dados.CLINICA} (exemplo fictício)"
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Painel: olhar os últimos (dias registrados)"; cfg["B6"]=20
 for c in ("A4","A5","A6"): rotulo(cfg[c])
 inp(cfg["B4"]); inp(cfg["B5"],DATA); inp(cfg["B6"],"0",center=True)

@@ -12,7 +12,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Custo fixo, saldo e reserva vêm do Painel da planilha 09; o resto é decisão da clínica.",merge_to="H")
 cfg["A4"]="Clínica"; cfg["B4"]=f"{dados.CLINICA} (exemplo fictício)"
-cfg["A5"]="Data de referência"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Mês de início da projeção"; cfg["B6"]="Outubro"
 cfg["A7"]="Ano de início da projeção"; cfg["B7"]=2026
 cfg["A8"]="Meta de reserva (meses de custo fixo + pró-labore)"; cfg["B8"]=3

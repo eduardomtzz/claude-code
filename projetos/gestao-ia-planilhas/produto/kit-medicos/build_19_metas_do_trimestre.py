@@ -14,7 +14,7 @@ cfg["A4"]="Clínica"; cfg["B4"]=f"{dados.CLINICA} (exemplo fictício)"
 cfg["A5"]="Trimestre"; cfg["B5"]="3º trimestre de 2026"
 cfg["A6"]="Início do trimestre"; cfg["B6"]=date(2026,7,1)
 cfg["A7"]="Fim do trimestre"; cfg["B7"]=date(2026,9,30)
-cfg["A8"]="Data de referência (hoje)"; cfg["B8"]="=TODAY()"
+cfg["A8"]="Data de referência (hoje)"; cfg["B8"]=dados.HOJE
 cfg["A9"]="Semana atual do trimestre"; cfg["B9"]='=IF(B8<B6,0,MIN(13,INT((B8-B6)/7)+1))'
 cfg["A10"]="% do trimestre decorrido"; cfg["B10"]='=MAX(0,MIN(1,(B8-B6)/(B7-B6)))'
 for r in range(4,11): rotulo(cfg.cell(row=r,column=1))

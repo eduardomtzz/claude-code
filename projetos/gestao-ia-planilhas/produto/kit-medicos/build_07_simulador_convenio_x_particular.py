@@ -12,7 +12,7 @@ wb=Workbook()
 # ---------- Config ----------
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Custo-hora da planilha 05; pagadores com prazo e glosa esperada; procedimentos com tempo e material (iguais à 06).",merge_to="H")
-campos=[("Nome da clínica",f"{dados.CLINICA} (exemplo fictício)",None),("Data de referência","=TODAY()",DATA),("Custo da hora de atendimento (R$)",dados.CUSTO_HORA,BRL),
+campos=[("Nome da clínica",f"{dados.CLINICA} (exemplo fictício)",None),("Data de referência",dados.HOJE,DATA),("Custo da hora de atendimento (R$)",dados.CUSTO_HORA,BRL),
  ("Impostos sobre o que entra (%)",dados.ALIQ,PCT),("Margem mínima sobre o preço (%)",dados.MARGEM,PCT),("Custo do dinheiro (% ao mês)",dados.JUROS_MES,"0.0%")]
 for i,(a,v,fmt) in enumerate(campos):
     r=3+i; cfg.cell(row=r,column=1,value=a); rotulo(cfg.cell(row=r,column=1)); cfg.cell(row=r,column=2,value=v)

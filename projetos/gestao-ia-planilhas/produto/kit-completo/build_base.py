@@ -115,8 +115,11 @@ for i in range(8):
     s.cell(row=r,column=2,value=f'=IF({src}="","",COUNTIFS({BC},{src},{BM},$B$4,{BK},$B$5))'); calc(s.cell(row=r,column=2))
     s.cell(row=r,column=3,value=f'=IF({src}="","",SUMIFS({BJ},{BC},{src},{BM},$B$4,{BK},$B$5))'); calc(s.cell(row=r,column=3),BRL0)
     s.cell(row=r,column=4,value=f'=IF(OR({src}="",B{r}=0),"",C{r}/B{r})'); calc(s.cell(row=r,column=4),BRL0)
-    s.cell(row=r,column=5,value=f'=IF({src}="","",IFERROR(IF(_xlfn.MAXIFS({BB},{BC},{src})=0,"",_xlfn.MAXIFS({BB},{BC},{src})),""))'); calc(s.cell(row=r,column=5),DATA)
+    # Maior data com condição sem MAXIFS: linhas que não casam entram como zero.
+    mx=f'SUMPRODUCT(MAX(({BC}={src})*({BB}<>"")*{BB}))'
+    s.cell(row=r,column=5,value=f'=IF({src}="","",IFERROR(IF({mx}=0,"",{mx}),""))'); calc(s.cell(row=r,column=5),DATA)
 widths(s,[22]+[10]*12+[12]); s.freeze_panes="B8"; s.sheet_view.showGridLines=False
-for ws in (ck,s):
-    ws.protection.sheet=True; ws.protection.formatColumns=False; ws.protection.formatRows=False; ws.protection.selectLockedCells=False
+# Todas as abas protegidas: Base tem 4.000 fórmulas em J, L e M, e o cliente digita
+# só nas colunas amarelas (B a I e K), que são as desbloqueadas.
+proteger(wb)
 salvar(wb,"10-base-limpa.xlsx","Base Limpa · Kit IA no Trabalho Completo")

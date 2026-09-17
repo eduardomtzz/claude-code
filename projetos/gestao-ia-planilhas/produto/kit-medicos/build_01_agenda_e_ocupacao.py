@@ -22,8 +22,9 @@ cfg["A4"]="Clínica"; cfg["B4"]=NOME
 cfg["A5"]="Ano do painel"; cfg["B5"]=2026
 cfg["A6"]="Mês do painel"; cfg["B6"]="Setembro"
 cfg["A7"]="Número do mês"; cfg["B7"]="=MATCH(B6,$T$5:$T$16,0)"
-cfg["A8"]="Data de referência (hoje)"; cfg["B8"]="=TODAY()"
+cfg["A8"]="Data de referência (hoje)"; cfg["B8"]=dados.HOJE
 cfg["A9"]="Painel conta horas disponíveis até"; cfg["B9"]="=MIN(DATE(B5,B7+1,0),B8-1)"
+cfg["C9"]="Capacidade E horas atendidas usam esta mesma data de corte, por isso o dia de hoje fica fora dos dois: contar o dia em andamento de um lado só distorce a ocupação."
 cfg["A10"]="Horas por turno (padrão)"; cfg["B10"]=dados.HORAS_TURNO
 for r in range(4,11): rotulo(cfg.cell(row=r,column=1))
 inp(cfg["B4"]); inp(cfg["B5"],center=True); inp(cfg["B6"],center=True); calc(cfg["B7"]); inp(cfg["B8"],DATA); calc(cfg["B9"],DATA); inp(cfg["B10"],"0",center=True)
@@ -59,7 +60,7 @@ hdr(cfg,19,["Profissional","Dia da semana","Período","Sala","Início","Horas","
 for r in range(T0,TN+1):
     for c in (1,2,3,4,5,6): inp(cfg.cell(row=r,column=c),center=(c>1))
     cfg.cell(row=r,column=5).number_format="hh:mm"
-    cfg.cell(row=r,column=7,value=f'=IF(A{r}="","",IF(F{r}="",$B$10,F{r})*IFERROR(INDEX($J$45:$J$49,MATCH(B{r},$I$45:$I$49,0)),0))'); calc(cfg.cell(row=r,column=7),"0")
+    cfg.cell(row=r,column=7,value=f'=IF(A{r}="","",IF(F{r}="",$B$10,F{r})*IFERROR(INDEX($J$45:$J$50,MATCH(B{r},$I$45:$I$50,0)),0))'); calc(cfg.cell(row=r,column=7),"0")
 for i,(prof,wd,per,sala,h0) in enumerate(dados.TURNOS):
     r=T0+i; cfg.cell(row=r,column=1,value=prof); cfg.cell(row=r,column=2,value=dados.DIAS_SEMANA[wd]); cfg.cell(row=r,column=3,value=per); cfg.cell(row=r,column=4,value=sala); cfg.cell(row=r,column=5,value=time(h0,0)); cfg.cell(row=r,column=6,value=dados.HORAS_TURNO)
 dvd=lista('"Segunda,Terça,Quarta,Quinta,Sexta,Sábado"'); dvd.add(f"B{T0}:B{TN}")
@@ -119,7 +120,9 @@ for r in range(R0,RN+1):
     ag.cell(row=r,column=15,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(ag.cell(row=r,column=15))
     ag.cell(row=r,column=16,value=f'=IF(A{r}="","",CHOOSE(WEEKDAY(A{r},2),"Segunda","Terça","Quarta","Quinta","Sexta","Sábado","Domingo"))'); calc(ag.cell(row=r,column=16))
     ag.cell(row=r,column=17,value=f'=IF(B{r}="","",IF(B{r}<TIME(12,0,0),"Manhã",IF(B{r}<TIME(18,0,0),"Tarde","Noite")))'); calc(ag.cell(row=r,column=17))
-    ag.cell(row=r,column=18,value=f'=IF(AND(H{r}="Realizado",L{r}<>""),L{r}/60,0)'); calc(ag.cell(row=r,column=18),"0.00")
+    # o mesmo corte de data da capacidade (Config!$B$9): numerador e denominador da
+    # ocupação precisam cobrir o mesmo período, senão a ocupação sobe sozinha
+    ag.cell(row=r,column=18,value=f'=IF(AND(H{r}="Realizado",L{r}<>"",A{r}<=Config!$B$9),L{r}/60,0)'); calc(ag.cell(row=r,column=18),"0.00")
 dvs=[(lista(PROF_L),f"C{R0}:C{RN}"),(lista(SALA_L),f"D{R0}:D{RN}"),(lista(PAC_L,strict=False),f"E{R0}:E{RN}"),(lista(PAG_L),f"F{R0}:F{RN}"),(lista(PROC_L),f"G{R0}:G{RN}"),
      (lista('"'+",".join(dados.SITUACOES)+'"'),f"H{R0}:H{RN}"),(lista('"Pix,Dinheiro,Cartão de débito,Cartão de crédito,A prazo,Convênio,Sem cobrança"'),f"I{R0}:I{RN}"),
      (DataValidation(type="whole",operator="between",formula1="1",formula2="12",allow_blank=True),f"J{R0}:J{RN}"),

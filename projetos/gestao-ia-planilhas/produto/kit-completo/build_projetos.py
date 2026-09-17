@@ -126,8 +126,11 @@ for i in range(10):
     p.cell(row=r,column=2,value=f'=IF({src}="","",COUNTIFS({EC},{src},{EB},"<>")-COUNTIFS({EC},{src},{EG},"Concluída"))'); calc(p.cell(row=r,column=2))
     p.cell(row=r,column=3,value=f'=IF({src}="","",COUNTIFS({EC},{src},{EG},"Atrasada"))'); calc(p.cell(row=r,column=3))
     p.cell(row=r,column=4,value=f'=IF({src}="","",COUNTIFS({EC},{src},{EG},"Vence em breve"))'); calc(p.cell(row=r,column=4))
-    mf=f'_xlfn.MINIFS({EE},{EC},{src},{EG},"<>Concluída",{EB},"<>")'
-    p.cell(row=r,column=5,value=f'=IF({src}="","",IFERROR(IF({mf}=0,"",{mf}),""))'); calc(p.cell(row=r,column=5),DATA)
+    # Menor data com condição sem MINIFS (que exige Excel > 2016 perpétuo):
+    # soma-se 1E+10 nas linhas que não casam, para elas nunca ganharem o MIN.
+    cond=f'({EC}={src})*({EG}<>"Concluída")*({EB}<>"")*({EE}<>"")'
+    mf=f'SUMPRODUCT(MIN({cond}*{EE}+(1-{cond})*1E+10))'
+    p.cell(row=r,column=5,value=f'=IF({src}="","",IFERROR(IF(OR({mf}=0,{mf}>=1E+10),"",{mf}),""))'); calc(p.cell(row=r,column=5),DATA)
 widths(p,(30,16,14,12,12,12,12,14)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
 # ---------- Linha do tempo ----------
 lt=wb.create_sheet("Linha do tempo",1)

@@ -10,7 +10,7 @@ wb=Workbook()
 # ---------- Config ----------
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Custo-hora da planilha 05; margens e impostos iguais aos da 06.",merge_to="H")
-campos=[("Nome da clínica",f"{dados.CLINICA} (exemplo fictício)",None),("Mês do volume (mês fechado)","Agosto de 2026",None),("Data de referência","=TODAY()",DATA),
+campos=[("Nome da clínica",f"{dados.CLINICA} (exemplo fictício)",None),("Mês do volume (mês fechado)","Agosto de 2026",None),("Data de referência",dados.HOJE,DATA),
  ("Custo da hora de atendimento (R$)",dados.CUSTO_HORA,BRL),("Impostos sobre o que entra (%)",dados.ALIQ,PCT),("Margem mínima sobre o preço (%)",dados.MARGEM,PCT),("Margem alvo sobre o preço (%)",dados.MARGEM_ALVO,PCT),
  ("Retornos por consulta (média)",dados.RETORNO_PROB,"0.00"),("Duração do retorno (minutos)",dados.DUR["Retorno"],"0")]
 for i,(a,v,fmt) in enumerate(campos):

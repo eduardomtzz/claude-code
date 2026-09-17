@@ -119,7 +119,7 @@ como_usar(wb,"Agenda de prazos e audiências",[
  ("Passo 1","Em Config, confira a data de referência (fica em =HOJE()), cadastre as pessoas do escritório e ajuste a lista de tipos de prazo. Preencha de cima para baixo, sem pular linha."),
  ("Passo 2","Em Prazos, apague os exemplos e registre uma linha por prazo: processo, cliente, tipo (lista), data, responsável (lista) e observação. Quando cumprir, marque Sim em Feito: a linha fica cinza e sai do painel."),
  ("Passo 3","Em Painel, leia de cima para baixo: quadros de contagem, lista \"O que vence primeiro\", carga por responsável e os próximos 7 dias."),
- ("Rotina de segunda","10 minutos: abra o Painel, resolva ou reagende os atrasados, confirme com cada responsável os prazos da semana e registre os prazos novos que chegaram."),
+ ("Rotina de segunda","10 minutos: abra o Painel e trate os atrasados. Prazo processual em atraso NÃO se reagenda aqui: confira na fonte oficial (sistema do tribunal, publicação) e leve ao responsável; a planilha mantém a data original e serve só de registro. Só tarefa administrativa pode ser remarcada. Depois confirme os prazos da semana e registre os que chegaram."),
  ("Exemplo","Os prazos do exemplo são os dos 38 casos da planilha 13 · Carteira (a 13 é a fonte do cadastro de casos); o prazo principal de cada caso é a mesma \"próxima ação\" da planilha 02. Audiência já realizada não conta como atraso: marque Feito."),
  ("Limite","A planilha organiza e avisa. A contagem do prazo, a conferência da data na fonte oficial e o cumprimento continuam sendo responsabilidade de quem responde pelo caso."),
  ("Com a IA","Copie a tabela \"O que vence primeiro\" e use o prompt \"Prazos 04 · Distribuir a semana entre as pessoas\" da biblioteca do kit."),

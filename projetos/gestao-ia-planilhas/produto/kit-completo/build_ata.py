@@ -106,7 +106,10 @@ for i in range(12):
     p.cell(row=r,column=3,value=f'=IF({src}="","",COUNTIFS({PC},{src},{PH},"Atrasada"))'); calc(p.cell(row=r,column=3))
     p.cell(row=r,column=4,value=f'=IF({src}="","",COUNTIFS({PC},{src},{PH},"Esta semana")+COUNTIFS({PC},{src},{PH},"Hoje"))'); calc(p.cell(row=r,column=4))
     p.cell(row=r,column=5,value=f'=IF({src}="","",COUNTIFS({PC},{src},{PF},"Feito"))'); calc(p.cell(row=r,column=5))
-    p.cell(row=r,column=6,value=f'=IF({src}="","",IFERROR(IF(_xlfn.MINIFS({PD},{PC},{src},{PF},"<>Feito",{PB},"<>")=0,"",_xlfn.MINIFS({PD},{PC},{src},{PF},"<>Feito",{PB},"<>")),""))'); calc(p.cell(row=r,column=6),DATA)
+    # Menor prazo com condição sem MINIFS: 1E+10 nas linhas que não casam.
+    cond=f'({PC}={src})*({PF}<>"Feito")*({PB}<>"")*({PD}<>"")'
+    mf=f'SUMPRODUCT(MIN({cond}*{PD}+(1-{cond})*1E+10))'
+    p.cell(row=r,column=6,value=f'=IF({src}="","",IFERROR(IF(OR({mf}=0,{mf}>=1E+10),"",{mf}),""))'); calc(p.cell(row=r,column=6),DATA)
 p.conditional_formatting.add(f"C{r0+2}:C{r0+13}", FormulaRule(formula=[f'AND(ISNUMBER(C{r0+2}),C{r0+2}>0)'], font=F(color="C8402E",size=10,bold=True)))
 widths(p,(6,46,16,12,13,11,10,8)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
 # ---------- Resumo para a IA ----------
@@ -138,8 +141,17 @@ for r in range(R0,RP+1):
     pe.cell(row=r,column=11,value=f'=IF(AND(B{r}<>"",A{r}={SEL}),COUNTIFS($A${R0}:A{r},{SEL},$B${R0}:B{r},"<>"),"")'); pe.cell(row=r,column=11).font=F(color=CINZA,size=9)
 pe.column_dimensions["K"].hidden=True
 s["A32"]="Bloco único para copiar"; s["A32"].font=F(bold=True,size=13,color=UVA)
-linhas_tj=",".join([f'IF(B{10+k}="","",B{10+k}&" (dono: "&C{10+k}&"; prazo: "&IF(D{10+k}="","sem prazo",TEXT(D{10+k},"dd/mm"))&IF(F{10+k}="Sem prazo","","; "&LOWER(F{10+k}))&")")' for k in range(1,21)])
-s["A33"]=f'="Reunião: "&B5&" · "&TEXT(B4,"dd/mm/yyyy")&CHAR(10)&"Participantes: "&B6&CHAR(10)&"Decisões: "&B7&CHAR(10)&"Pendências: "&_xlfn.TEXTJOIN(" | ",TRUE,{linhas_tj})'
+# Concatenação das pendências sem TEXTJOIN (que exige Excel > 2016 perpétuo):
+# coluna H oculta, cumulativa linha a linha, e no fim se corta o separador sobrando.
+for k in range(1,21):
+    r=10+k
+    item=(f'IF(B{r}="","",B{r}&" (dono: "&C{r}&"; prazo: "&IF(D{r}="","sem prazo",TEXT(D{r},"dd/mm"))'
+          f'&IF(F{r}="Sem prazo","","; "&LOWER(F{r}))&") | ")')
+    ant=f'H{r-1}' if k>1 else '""'
+    s.cell(row=r,column=8,value=f'={ant}&{item}').font=F(color=CINZA,size=9)
+s.column_dimensions["H"].hidden=True
+pend='IF(LEN(H30)>3,LEFT(H30,LEN(H30)-3),"nenhuma")'
+s["A33"]=f'="Reunião: "&B5&" · "&TEXT(B4,"dd/mm/yyyy")&CHAR(10)&"Participantes: "&B6&CHAR(10)&"Decisões: "&B7&CHAR(10)&"Pendências: "&{pend}'
 s["A33"].font=F(size=10,color=TINTA); s["A33"].alignment=Alignment(wrap_text=True,vertical="top"); s.merge_cells("A33:F40"); s["A33"].border=borda
 widths(s,(6,46,16,12,10,13)); s.sheet_view.showGridLines=False
 dvsel=lista(f"=Reuniões!$A${R0}:$A${RR}",strict=False); dvsel.add("B6"); cfg.add_data_validation(dvsel)

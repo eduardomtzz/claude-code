@@ -20,7 +20,7 @@ def build():
     cfg["A6"]="Mês do painel"; cfg["B6"]="Setembro"
     cfg["A7"]="Número do mês"; cfg["B7"]="=MATCH(B6,$L$5:$L$16,0)"
     cfg["A8"]="Saldo em caixa antes do 1º lançamento"; cfg["B8"]=dados.SALDO_INICIAL
-    cfg["A9"]="Data de referência"; cfg["B9"]="=TODAY()"
+    cfg["A9"]="Data de referência"; cfg["B9"]=dados.HOJE
     for r in range(4,10): rotulo(cfg.cell(row=r,column=1))
     inp(cfg["B4"]); inp(cfg["B5"],center=True); inp(cfg["B6"],center=True); calc(cfg["B7"]); inp(cfg["B8"],BRL); calc(cfg["B9"],DATA)
     cfg["D4"]="Categorias de entrada (até 12)"; cfg["F4"]="Categorias de saída (até 16)"; cfg["H4"]="Todas as categorias (automático)"; cfg["J4"]="Convênios e outros recebedores (até 30)"; cfg["L4"]="Meses"
@@ -42,7 +42,7 @@ def build():
            "Particular à vista entra pelo fechamento do dia (uma linha por dia e forma de pagamento; o detalhe por paciente fica na agenda 01). Particular a prazo entra por paciente, quando a parcela é paga (14). Convênio entra por lote pago (13).",
            "A receber (Pago? = Não): parcelas a prazo (14) e lotes de convênio enviados (13) com previsão de recebimento até o fim do mês de referência — vencidos e a vencer. O que tem previsão para depois do fim do mês fica fora e entra quando aquele mês chegar. Por isso \"A receber\" do Painel é menor que a soma do total em aberto da 13 com o da 14: aquelas duas olham a carteira inteira, esta olha o mês.",
            "Quem lança: a RECEPÇÃO lança o fechamento do dia todo dia, no fechamento (planilha 04 · Checklist do dia). Na sexta, a sócia só CONFERE os cinco fechamentos da semana contra o extrato e marca o que caiu na conta (planilha 03 · Rotina da semana).",
-           "Cartão: lance o valor bruto no dia da venda e, no fim do mês, uma saída \"Taxas de cartão\" com o total das taxas (a conciliação 16 calcula). Repasse à médica parceira é a saída do dia 10 (planilha 11). Lançamentos pagos do exemplo vão até 11/09/2026 (a última sexta)."]
+           "Cartão: lance o valor bruto na data em que ele CAI NA CONTA, não no dia da venda (a planilha 16 calcula essa data por venda e por parcela: débito no dia seguinte, crédito em 30 dias, parcelado de 30 em 30) e, no fim do mês, uma saída \"Taxas de cartão\" com o total das taxas que caíram nesse mês. Lançar cartão no dia da venda faz o saldo mostrar dinheiro que ainda não entrou. Repasse à médica parceira é a saída do dia 10 (planilha 11). Lançamentos pagos do exemplo vão até 11/09/2026 (a última sexta)."]
     for i,t in enumerate(notas): cfg.cell(row=37+i,column=1,value=t); nota(cfg.cell(row=37+i,column=1))
     dv=lista("=Config!$L$5:$L$16"); dv.add("B6"); cfg.add_data_validation(dv)
     widths(cfg,(36,22,3,28,3,34,3,34,3,30,3,12)); cfg.sheet_view.showGridLines=False
@@ -123,7 +123,7 @@ def build():
     p.cell(row=t3,column=1,value="Total"); p.cell(row=t3,column=2,value=f"=SUM(B{r_f+2}:B{t3-1})"); p.cell(row=t3,column=4,value=f"=SUM(D{r_f+2}:D{t3-1})")
     for c in (1,2,4): p.cell(row=t3,column=c).font=F(bold=True,color=UVA,size=10); p.cell(row=t3,column=c).border=borda
     for c in (2,4): p.cell(row=t3,column=c).number_format=BRL
-    p.cell(row=t3+1,column=1,value="Cartão entra pelo valor bruto no dia da venda; a taxa é a saída \"Taxas de cartão\" do fim do mês (conciliação na planilha 16). Convênio entra por transferência, por lote (planilha 13)."); nota(p.cell(row=t3+1,column=1))
+    p.cell(row=t3+1,column=1,value="Cartão entra no dia em que cai na conta, não no dia da venda: débito em 1 dia, crédito em 30, parcelado de 30 em 30 (planilha 16). A taxa é a saída \"Taxas de cartão\" do fim do mês em que o dinheiro caiu. Convênio entra por transferência, por lote (planilha 13)."); nota(p.cell(row=t3+1,column=1))
     # ano
     A0=t3+3
     p.cell(row=A0,column=1,value="O ano, mês a mês").font=F(bold=True,size=13,color=UVA)

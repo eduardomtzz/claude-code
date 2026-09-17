@@ -111,61 +111,61 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ## 3. Caixa mês a mês (09 · Caixa da clínica) e repasse (11)
 
-- Saldo em caixa antes do 1º lançamento (01/01/2026): **R$ 26.000**. Lançamentos: 723 linhas; 688 pagas.
+- Saldo em caixa antes do 1º lançamento (01/01/2026): **R$ 26.000**. Lançamentos: 758 linhas; 696 pagas.
 | Mês | Entrou | Saiu | Sobrou | Saldo ao fim do mês |
 |---|---|---|---|---|
-| Janeiro | R$ 33.270 | R$ 36.201 | −R$ 2.931 | R$ 23.069 |
-| Fevereiro | R$ 24.795 | R$ 37.090 | −R$ 12.295 | R$ 10.774 |
-| Março | R$ 48.330 | R$ 38.415 | R$ 9.915 | R$ 20.689 |
-| Abril | R$ 39.555 | R$ 41.062 | −R$ 1.507 | R$ 19.182 |
-| Maio | R$ 44.745 | R$ 39.972 | R$ 4.773 | R$ 23.955 |
-| Junho | R$ 44.160 | R$ 41.532 | R$ 2.628 | R$ 26.583 |
-| Julho | R$ 53.461 | R$ 43.567 | R$ 9.894 | R$ 36.477 |
-| Agosto | R$ 49.651 | R$ 41.660 | R$ 7.991 | R$ 44.468 |
-| Setembro | R$ 21.920 | R$ 13.630 | R$ 8.290 | R$ 52.758 |
-| **Jan–ago (8 meses fechados)** | **R$ 337.967** | **R$ 319.499** | **R$ 18.468** |  |
+| Janeiro | R$ 25.310 | R$ 35.932 | −R$ 10.622 | R$ 15.378 |
+| Fevereiro | R$ 25.650 | R$ 36.231 | −R$ 10.581 | R$ 4.797 |
+| Março | R$ 40.540 | R$ 38.251 | R$ 2.289 | R$ 7.086 |
+| Abril | R$ 40.775 | R$ 40.254 | R$ 521 | R$ 7.607 |
+| Maio | R$ 45.380 | R$ 40.120 | R$ 5.260 | R$ 12.867 |
+| Junho | R$ 47.240 | R$ 41.703 | R$ 5.537 | R$ 18.404 |
+| Julho | R$ 44.471 | R$ 46.322 | −R$ 1.851 | R$ 16.553 |
+| Agosto | R$ 55.841 | R$ 40.869 | R$ 14.972 | R$ 31.526 |
+| Setembro | R$ 20.710 | R$ 13.630 | R$ 7.080 | R$ 38.606 |
+| **Jan–ago (8 meses fechados)** | **R$ 325.207** | **R$ 319.681** | **R$ 5.526** |  |
 | Setembro = até 11/09 (mês em andamento) |  |  |  |  |
 
 **Entradas por categoria (Pago? = Sim)**
 
 | Mês | Particular à vista | Particular a prazo | Convênio · Saúde Total | Convênio · MediPlan | Convênio · Vida Care | Outras entradas | Total |
 |---|---|---|---|---|---|---|---|
-| Janeiro | R$ 25.180 | R$ 0 | R$ 3.930 | R$ 2.660 | R$ 1.500 | R$ 0 | R$ 33.270 |
-| Fevereiro | R$ 15.870 | R$ 1.825 | R$ 3.420 | R$ 2.040 | R$ 1.640 | R$ 0 | R$ 24.795 |
-| Março | R$ 37.790 | R$ 3.990 | R$ 3.750 | R$ 1.530 | R$ 1.270 | R$ 0 | R$ 48.330 |
-| Abril | R$ 28.610 | R$ 4.160 | R$ 3.295 | R$ 1.555 | R$ 1.315 | R$ 620 | R$ 39.555 |
-| Maio | R$ 27.800 | R$ 5.865 | R$ 7.220 | R$ 2.610 | R$ 1.250 | R$ 0 | R$ 44.745 |
-| Junho | R$ 28.560 | R$ 7.825 | R$ 4.335 | R$ 2.155 | R$ 1.285 | R$ 0 | R$ 44.160 |
-| Julho | R$ 37.700 | R$ 5.960 | R$ 6.655 | R$ 1.570 | R$ 1.576 | R$ 0 | R$ 53.461 |
-| Agosto | R$ 33.860 | R$ 4.630 | R$ 7.320 | R$ 2.130 | R$ 1.711 | R$ 0 | R$ 49.651 |
-| Setembro | R$ 13.630 | R$ 2.310 | R$ 5.780 | R$ 0 | R$ 200 | R$ 0 | R$ 21.920 |
-| **Jan–ago** | **R$ 235.370** | **R$ 34.255** | **R$ 39.925** | **R$ 16.250** | **R$ 11.547** | **R$ 620** | **R$ 337.967** |
+| Janeiro | R$ 17.220 | R$ 0 | R$ 3.930 | R$ 2.660 | R$ 1.500 | R$ 0 | R$ 25.310 |
+| Fevereiro | R$ 16.725 | R$ 1.825 | R$ 3.420 | R$ 2.040 | R$ 1.640 | R$ 0 | R$ 25.650 |
+| Março | R$ 30.000 | R$ 3.990 | R$ 3.750 | R$ 1.530 | R$ 1.270 | R$ 0 | R$ 40.540 |
+| Abril | R$ 29.830 | R$ 4.160 | R$ 3.295 | R$ 1.555 | R$ 1.315 | R$ 620 | R$ 40.775 |
+| Maio | R$ 28.435 | R$ 5.865 | R$ 7.220 | R$ 2.610 | R$ 1.250 | R$ 0 | R$ 45.380 |
+| Junho | R$ 31.640 | R$ 7.825 | R$ 4.335 | R$ 2.155 | R$ 1.285 | R$ 0 | R$ 47.240 |
+| Julho | R$ 28.710 | R$ 5.960 | R$ 6.655 | R$ 1.570 | R$ 1.576 | R$ 0 | R$ 44.471 |
+| Agosto | R$ 40.050 | R$ 4.630 | R$ 7.320 | R$ 2.130 | R$ 1.711 | R$ 0 | R$ 55.841 |
+| Setembro | R$ 12.420 | R$ 2.310 | R$ 5.780 | R$ 0 | R$ 200 | R$ 0 | R$ 20.710 |
+| **Jan–ago** | **R$ 222.610** | **R$ 34.255** | **R$ 39.925** | **R$ 16.250** | **R$ 11.547** | **R$ 620** | **R$ 325.207** |
 
 **Saídas por categoria (Pago? = Sim)**
 
 | Mês | Pró-labore dos sócios | Custos fixos (8 linhas, 10.000) | Materiais e insumos de atendimento | Taxas de cartão | Repasse à médica parceira | Manutenção de equipamentos | Impostos e taxas | Outras saídas | Total |
 |---|---|---|---|---|---|---|---|---|---|
-| Janeiro | R$ 18.000 | R$ 10.000 | R$ 1.120 | R$ 351 | R$ 3.100 | R$ 0 | R$ 3.630 | R$ 0 | R$ 36.201 |
-| Fevereiro | R$ 18.000 | R$ 10.000 | R$ 820 | R$ 265 | R$ 3.725 | R$ 0 | R$ 3.660 | R$ 620 | R$ 37.090 |
-| Março | R$ 20.000 | R$ 10.000 | R$ 1.550 | R$ 533 | R$ 3.255 | R$ 0 | R$ 2.727 | R$ 350 | R$ 38.415 |
-| Abril | R$ 18.000 | R$ 10.000 | R$ 1.260 | R$ 436 | R$ 6.050 | R$ 0 | R$ 5.316 | R$ 0 | R$ 41.062 |
-| Maio | R$ 18.000 | R$ 10.000 | R$ 1.420 | R$ 464 | R$ 4.385 | R$ 800 | R$ 4.283 | R$ 620 | R$ 39.972 |
-| Junho | R$ 19.500 | R$ 10.000 | R$ 1.510 | R$ 355 | R$ 5.245 | R$ 0 | R$ 4.922 | R$ 0 | R$ 41.532 |
-| Julho | R$ 21.697 | R$ 10.000 | R$ 1.300 | R$ 642 | R$ 4.720 | R$ 0 | R$ 4.858 | R$ 350 | R$ 43.567 |
-| Agosto | R$ 18.000 | R$ 10.000 | R$ 1.380 | R$ 484 | R$ 4.845 | R$ 450 | R$ 5.881 | R$ 620 | R$ 41.660 |
+| Janeiro | R$ 18.000 | R$ 10.000 | R$ 1.120 | R$ 82 | R$ 3.100 | R$ 0 | R$ 3.630 | R$ 0 | R$ 35.932 |
+| Fevereiro | R$ 18.000 | R$ 10.000 | R$ 820 | R$ 282 | R$ 3.725 | R$ 0 | R$ 2.784 | R$ 620 | R$ 36.231 |
+| Março | R$ 20.000 | R$ 10.000 | R$ 1.550 | R$ 274 | R$ 3.255 | R$ 0 | R$ 2.822 | R$ 350 | R$ 38.251 |
+| Abril | R$ 18.000 | R$ 10.000 | R$ 1.260 | R$ 485 | R$ 6.050 | R$ 0 | R$ 4.459 | R$ 0 | R$ 40.254 |
+| Maio | R$ 18.000 | R$ 10.000 | R$ 1.420 | R$ 478 | R$ 4.385 | R$ 800 | R$ 4.417 | R$ 620 | R$ 40.120 |
+| Junho | R$ 19.500 | R$ 10.000 | R$ 1.510 | R$ 456 | R$ 5.245 | R$ 0 | R$ 4.992 | R$ 0 | R$ 41.703 |
+| Julho | R$ 24.409 | R$ 10.000 | R$ 1.300 | R$ 347 | R$ 4.720 | R$ 0 | R$ 5.196 | R$ 350 | R$ 46.322 |
+| Agosto | R$ 18.000 | R$ 10.000 | R$ 1.380 | R$ 682 | R$ 4.845 | R$ 450 | R$ 4.892 | R$ 620 | R$ 40.869 |
 | Setembro | R$ 0 | R$ 7.900 | R$ 540 | R$ 0 | R$ 5.190 | R$ 0 | R$ 0 | R$ 0 | R$ 13.630 |
 
 - "Pró-labore dos sócios" inclui o pró-labore fixo (18.000/mês), as retiradas extras (Paulo 2.000 em 16/03; Carolina 1.500 em 19/06) e a distribuição de lucro dos trimestres fechados (paga dia 10 do mês seguinte, quando o resultado do trimestre após pró-labore passa de R$ 3.000). "Outras saídas" = despesas pessoais dos sócios pagas pela clínica (a acertar). "Outras entradas" = devolução de despesa pessoal (Carolina, 620 em 14/04).
 - Guia de impostos: paga dia 20, 11 % das entradas do mês anterior (sem Outras entradas); janeiro sobre dezembro/2025 (fictício, base 33.000). A guia de setembro (20/09) ainda não foi paga. Taxas de cartão: uma saída no último dia do mês (o total da 16). Repasse: dia 10, 50 % da produção da Dra. Renata no mês anterior.
-- Setembro: custos fixos com vencimento depois de 11/09, pró-labore (28/09), materiais (22/09) e a guia (20/09) estão como Pago? = Não → **A pagar R$ 25.922**. **A receber (Pago? = Não) R$ 11.497** = lotes de convênio enviados com previsão até 30/09 + parcelas a prazo vencidas e a vencer até 30/09.
-- **09 Painel (Config = Setembro)**: Entrou R$ 21.920 · Saiu R$ 13.630 · Sobrou R$ 8.290 · Saldo acumulado **R$ 52.758** · A receber R$ 11.497 · A pagar R$ 25.922.
+- Setembro: custos fixos com vencimento depois de 11/09, pró-labore (28/09), materiais (22/09) e a guia (20/09) estão como Pago? = Não → **A pagar R$ 26.603**. **A receber (Pago? = Não) R$ 25.467** = lotes de convênio enviados com previsão até 30/09 + parcelas a prazo vencidas e a vencer até 30/09.
+- **09 Painel (Config = Setembro)**: Entrou R$ 20.710 · Saiu R$ 13.630 · Sobrou R$ 7.080 · Saldo acumulado **R$ 38.606** · A receber R$ 25.467 · A pagar R$ 26.603.
 | Entradas por forma (09, setembro / ano) | No mês | % do mês | No ano | % do ano |
 |---|---|---|---|---|
-| Pix | R$ 6.530 | 30 % | R$ 134.745 | 37 % |
+| Pix | R$ 6.530 | 32 % | R$ 134.745 | 39 % |
 | Dinheiro | R$ 300 | 1 % | R$ 14.800 | 4 % |
-| Cartão de débito | R$ 2.800 | 13 % | R$ 46.970 | 13 % |
-| Cartão de crédito | R$ 6.310 | 29 % | R$ 89.670 | 25 % |
-| Transferência | R$ 5.980 | 27 % | R$ 73.702 | 20 % |
+| Cartão de débito | R$ 3.310 | 16 % | R$ 46.970 | 14 % |
+| Cartão de crédito | R$ 4.590 | 22 % | R$ 75.700 | 22 % |
+| Transferência | R$ 5.980 | 29 % | R$ 73.702 | 21 % |
 | Boleto | R$ 0 | 0 % | R$ 0 | 0 % |
 
 | 11 · Parceira (mês / ano até setembro) | Produção no mês | Repasse devido no mês | Produção no ano | Repasse no ano | Pago no ano | A pagar | Fica com a clínica | Material e insumo (ano) | Margem da parceria (ano) | Custo indireto das horas (informativo) |
@@ -186,9 +186,9 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 | 11 · Trimestre | Entradas (sem devoluções) | Saídas sem sócios | Pró-labore fixo | Resultado após pró-labore | Fechado? | Distribuível (50 %) | Já distribuído |
 |---|---|---|---|---|---|---|---|
-| 1º trimestre | R$ 106.395 | R$ 54.736 | R$ 54.000 | −R$ 2.341 | Sim | R$ 0 | R$ 0 |
-| 2º trimestre | R$ 127.840 | R$ 66.446 | R$ 54.000 | R$ 7.394 | Sim | R$ 3.697 | R$ 3.697 |
-| 3º trimestre | R$ 125.032 | R$ 58.190 | R$ 54.000 | R$ 12.842 | Em andamento | R$ 0 | R$ 0 |
+| 1º trimestre | R$ 91.500 | R$ 53.444 | R$ 54.000 | −R$ 15.944 | Sim | R$ 0 | R$ 0 |
+| 2º trimestre | R$ 132.775 | R$ 65.957 | R$ 54.000 | R$ 12.818 | Sim | R$ 6.409 | R$ 6.409 |
+| 3º trimestre | R$ 121.022 | R$ 57.441 | R$ 54.000 | R$ 9.581 | Em andamento | R$ 0 | R$ 0 |
 
 - 11 KPIs: repasse devido no mês R$ 2.925 (setembro até 11/09, pago em 10/10); a pagar no ano R$ 2.925; pró-labore combinado R$ 18.000/mês; a acertar com a clínica no ano R$ 5.440 (Carolina: retirada extra 1.500 + despesas pessoais 1.860 − devolução 620 = 2.740; Paulo: 2.000 + 700 = 2.700). Setembro: pró-labore ainda não pago (dia 28).
 
@@ -196,38 +196,38 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 | Linha da DRE | Julho | Agosto | Jan–ago (total) | Média jan–ago |
 |---|---|---|---|---|
-| Particular à vista | R$ 37.700 | R$ 33.860 | R$ 235.370 | R$ 29.421 |
+| Particular à vista | R$ 28.710 | R$ 40.050 | R$ 222.610 | R$ 27.826 |
 | Particular a prazo | R$ 5.960 | R$ 4.630 | R$ 34.255 | R$ 4.282 |
 | Convênio · Saúde Total | R$ 6.655 | R$ 7.320 | R$ 39.925 | R$ 4.991 |
 | Convênio · MediPlan | R$ 1.570 | R$ 2.130 | R$ 16.250 | R$ 2.031 |
 | Convênio · Vida Care | R$ 1.576 | R$ 1.711 | R$ 11.547 | R$ 1.443 |
-| **Receita total** | R$ 53.461 | R$ 49.651 | R$ 337.347 | R$ 42.168 |
+| **Receita total** | R$ 44.471 | R$ 55.841 | R$ 324.587 | R$ 40.573 |
 | Reembolsos de sócios (fora da receita e do imposto) | R$ 0 | R$ 0 | R$ 620 | R$ 78 |
 | Custos fixos (8 linhas) | R$ 10.000 | R$ 10.000 | R$ 80.000 | R$ 10.000 |
 | Materiais e insumos | R$ 1.300 | R$ 1.380 | R$ 10.360 | R$ 1.295 |
-| Taxas de cartão | R$ 642 | R$ 484 | R$ 3.530 | R$ 441 |
+| Taxas de cartão | R$ 347 | R$ 682 | R$ 3.085 | R$ 386 |
 | Repasse à médica parceira | R$ 4.720 | R$ 4.845 | R$ 35.325 | R$ 4.416 |
 | Manutenção de equipamentos | R$ 0 | R$ 450 | R$ 1.250 | R$ 156 |
-| **Despesas variáveis** | R$ 6.662 | R$ 7.159 | R$ 50.465 | R$ 6.308 |
+| **Despesas variáveis** | R$ 6.367 | R$ 7.357 | R$ 50.020 | R$ 6.253 |
 | Pró-labore fixo (Carolina 9.000 + Paulo 9.000) | R$ 18.000 | R$ 18.000 | R$ 144.000 | R$ 18.000 |
 | Provisão de 13º e férias (planilha 10) | R$ 1.962 | R$ 1.962 | R$ 15.696 | R$ 1.962 |
-| Impostos provisionados (11 % da receita) | R$ 5.881 | R$ 5.462 | R$ 37.109 | R$ 4.639 |
-| **Total de saídas** | R$ 42.505 | R$ 42.583 | R$ 327.270 | R$ 40.909 |
-| **Resultado do mês** | R$ 10.956 | R$ 7.068 | R$ 10.077 | R$ 1.260 |
-| **Margem (resultado ÷ receita)** | **20,5 %** | **14,2 %** | 3,0 % | -1,5 % |
+| Impostos provisionados (11 % da receita) | R$ 4.892 | R$ 6.143 | R$ 35.705 | R$ 4.463 |
+| **Total de saídas** | R$ 41.221 | R$ 43.462 | R$ 325.421 | R$ 40.678 |
+| **Resultado do mês** | R$ 3.250 | R$ 12.379 | −R$ 834 | −R$ 104 |
+| **Margem (resultado ÷ receita)** | **7,3 %** | **22,2 %** | -0,3 % | -6,0 % |
 
-- Agosto: receita **R$ 49.651**, saídas **R$ 42.583**, resultado **R$ 7.068**, margem **14,2 %** (julho: 20,5 %). Previsto de agosto: receita 46.000, custos fixos 10.000, variáveis 6.000, pró-labore 18.000, provisão de 13º e férias 1.962.
+- Agosto: receita **R$ 55.841**, saídas **R$ 43.462**, resultado **R$ 12.379**, margem **22,2 %** (julho: 7,3 %). Previsto de agosto: receita 46.000, custos fixos 10.000, variáveis 6.000, pró-labore 18.000, provisão de 13º e férias 1.962.
 | Comparação (18 Painel, agosto) | Mês | Mês anterior | Variação | Previsto | Vs. previsto | Situação |
 |---|---|---|---|---|---|---|
-| Receita total | R$ 49.651 | R$ 53.461 | -7,1 % | R$ 46.000 | +7,9 % | Dentro do previsto |
+| Receita total | R$ 55.841 | R$ 44.471 | +25,6 % | R$ 46.000 | +21,4 % | Dentro do previsto |
 | Custos fixos | R$ 10.000 | R$ 10.000 | +0,0 % | R$ 10.000 | +0,0 % | Dentro do previsto |
-| Despesas variáveis | R$ 7.159 | R$ 6.662 | +7,5 % | R$ 6.000 | +19,3 % | Fora do previsto |
+| Despesas variáveis | R$ 7.357 | R$ 6.367 | +15,6 % | R$ 6.000 | +22,6 % | Fora do previsto |
 | Pró-labore | R$ 18.000 | R$ 18.000 | +0,0 % | R$ 18.000 | +0,0 % | Informativo |
 | Provisão de 13º e férias | R$ 1.962 | R$ 1.962 | +0,0 % | R$ 1.962 | +0,0 % | Informativo |
-| Impostos provisionados | R$ 5.462 | R$ 5.881 | -7,1 % | R$ 5.060 | +7,9 % | Informativo |
-| Total de saídas | R$ 42.583 | R$ 42.505 | +0,2 % | R$ 41.022 | +3,8 % | Perto |
-| Resultado do mês | R$ 7.068 | R$ 10.956 | -35,5 % | R$ 4.978 | +42,0 % | Dentro do previsto |
-| Margem | 14,2 % | 20,5 % | -6,3 p,p, | 10,8 % | +3,4 p,p, | Dentro do previsto |
+| Impostos provisionados | R$ 6.143 | R$ 4.892 | +25,6 % | R$ 5.060 | +21,4 % | Informativo |
+| Total de saídas | R$ 43.462 | R$ 41.221 | +5,4 % | R$ 41.022 | +5,9 % | Fora do previsto |
+| Resultado do mês | R$ 12.379 | R$ 3.250 | +280,9 % | R$ 4.978 | +148,7 % | Dentro do previsto |
+| Margem | 22,2 % | 7,3 % | +14,9 p,p, | 10,8 % | +11,3 p,p, | Dentro do previsto |
 
 - A DRE não inclui retiradas extras, distribuição de lucro nem despesas pessoais dos sócios (ficam na 11); por isso "Saiu no mês" do caixa é diferente do "Total de saídas" da DRE (impostos são provisão de 11 % da receita, e não a guia paga; a provisão de 13º e férias, R$ 1.962/mês, vem da planilha 10 e ainda não saiu do caixa).
 - Reembolso de sócio (a devolução de despesa pessoal de 14/04, R$ 620) fica numa linha própria, fora da receita e fora da base do imposto: a "Receita total" da 18 é o "Entrou no mês" da 09 menos essa linha, a mesma base das planilhas 10 e 11.
@@ -240,10 +240,10 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Horas atendidas no mês | 51,8 | — | — | Informativo | 01 · Agenda e ocupação (Painel: Horas atendidas) |
 | Horas vazias no mês | 12,2 | — | — | Informativo | 01 · Agenda e ocupação (Painel: Horas vazias) |
 | Taxa de falta no mês (faltas ÷ (faltas + realizados)) | 5,3 % | 6,0 % | Menor é melhor | No alvo | 02 · Faltas e retornos (Painel: Taxa de falta) |
-| Pacientes na lista de retorno | 8 | 8 | Menor é melhor | No alvo | 02 · Faltas e retornos (Painel: Na lista de retorno) |
-| Entrou no mês (recebimentos) | R$ 21.920 | — | — | Informativo | 09 · Caixa da clínica (Painel: Entrou no mês) |
+| Pacientes na lista de retorno | 8 | 8 | Menor é melhor | Perto | 02 · Faltas e retornos (Painel: Na lista de retorno) |
+| Entrou no mês (recebimentos) | R$ 20.710 | — | — | Informativo | 09 · Caixa da clínica (Painel: Entrou no mês) |
 | Saiu no mês (tudo o que saiu do caixa) | R$ 13.630 | — | — | Informativo | 09 · Caixa da clínica (Painel: Saiu no mês) |
-| Sobrou no mês | R$ 8.290 | — | — | Informativo | calculado aqui |
+| Sobrou no mês | R$ 7.080 | — | — | Informativo | calculado aqui |
 | Convênio a receber (lotes enviados e não pagos) | R$ 15.758 | — | — | Informativo | 13 · Convênios a receber (Painel: A receber) |
 | Convênio atrasado (previsão vencida) | R$ 1.727 | R$ 0 | Menor é melhor | Fora | 13 · Convênios a receber (Painel: Atrasado) |
 | Glosa no ano (glosa ÷ (pago + glosa)) | 5,5 % | 4,0 % | Menor é melhor | Fora | 13 · Convênios a receber (Painel: Glosa no ano %) |
@@ -351,7 +351,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ### Caixa, convênios, parcelas e orçamentos na sexta
 
-- Caixa de setembro até 11/09 (09): entrou **R$ 21.920**, saiu **R$ 13.630**, sobrou R$ 8.290; saldo acumulado R$ 52.758.
+- Caixa de setembro até 11/09 (09): entrou **R$ 20.710**, saiu **R$ 13.630**, sobrou R$ 7.080; saldo acumulado R$ 38.606.
 - Convênios (13): **a receber R$ 15.758** (lotes enviados e não pagos) · **atrasado R$ 1.727** (lote de junho da Vida Care) · recebido no ano R$ 73.702 · glosa no ano R$ 4.273 (**5,5 %**) · em recurso R$ 240.
 - Parcelas a prazo (14): vence em 7 dias R$ 970 · vence em 30 dias R$ 4.705 · em aberto (total) R$ 9.855 · **vencido R$ 3.775** em **14 parcelas** · **inadimplência 9,4 %** = R$ 3.775 ÷ (R$ 36.565 pago + R$ 3.775).
 - Orçamentos (15): em aberto **R$ 3.460** · previsão ponderada R$ 1.318 · **aprovado no trimestre R$ 8.960** (50 % da meta de R$ 18.000) · taxa de aprovação 73 % · dias até decidir (média) 11.
@@ -518,7 +518,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ## 9. Cartão e taxas (16 · Conciliação, Config = Agosto)
 
-- **Agosto**: vendas no cartão e Pix R$ 31.820 · taxas **R$ 484,12** (1,52 %) · líquido R$ 31.335,88 · ainda vai cair R$ 12.388,26 · a conferir R$ 3.865,25. "As taxas do mês equivalem a 1.3 consultas particulares. Lance este total no caixa (09) como saída 'Taxas de cartão' no fim do mês."
+- **Agosto**: vendas no cartão e Pix R$ 31.820 · taxas **R$ 484,12** (1,52 %) · líquido R$ 31.335,88 · ainda vai cair R$ 12.388,26 · a conferir R$ 3.865,25. "As taxas do mês equivalem a 1,3 consultas particulares. Lance este total no caixa (09) como saída 'Taxas de cartão' no fim do mês."
 | Tipo (16, agosto) | Vendas | Bruto | Taxas | Taxa média | Líquido | % do bruto |
 |---|---|---|---|---|---|---|
 | Pix | 37 | R$ 13.380 | R$ 0,00 | 0,00 % | R$ 13.380 | 42 % |
@@ -526,11 +526,11 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Cartão de crédito à vista | 16 | R$ 5.840 | R$ 186,88 | 3,20 % | R$ 5.653 | 18 % |
 | Cartão de crédito parcelado | 12 | R$ 4.510 | R$ 175,89 | 3,90 % | R$ 4.334 | 14 % |
 
-- Taxas do exemplo (Config): Pix 0 %, débito 1,5 % (D+1), crédito à vista 3,2 % (D+30), crédito parcelado 3,9 % (parcelas de 30 em 30 dias); sem antecipação. Vendas na aba: 298 (01/06 a 11/09). Taxas de julho (saída do caixa em 31/07): R$ 641,77; de agosto (31/08): R$ 484,12.
+- Taxas do exemplo (Config): Pix 0 %, débito 1,5 % (D+1), crédito à vista 3,2 % (D+30), crédito parcelado 3,9 % (parcelas de 30 em 30 dias); sem antecipação. Vendas na aba: 298 (01/06 a 11/09). Taxas de julho (saída do caixa em 31/07): R$ 346,60; de agosto (31/08): R$ 681,61.
 
 ## 10. Metas do trimestre (19), reserva (12) e provisão (10)
 
-- 3º trimestre de 2026 (01/07 a 30/09): semana **11 de 13**, 82 % decorrido. Resultados-chave: 9 · atingidos 1 · em risco 6 · progresso médio 45 %.
+- 3º trimestre de 2026 (01/07 a 30/09): semana **11 de 13**, 82 % decorrido. Resultados-chave: 9 · atingidos 1 · em risco 6 · progresso médio 44 %.
 | Objetivo | Resultado-chave | Dono | Unid. | Partida (30/06) | Meta | Atual (14/09) | Progresso | Semáforo | Sentido | S1…S11 (sextas 03/07 → 11/09; S11 = atual) |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Agenda cheia, sem faltas | Ocupação da agenda nas últimas 4 semanas (%) | Bruna | % | 75,2 | 80,0 | 74,5 | 0 % | Em risco | Maior é melhor | 75,2 · 74,5 · 71,7 · 72,6 · 71,7 · 70,8 · 72,0 · 68,1 · 70,3 · 74,5 · 74,5 |
@@ -541,63 +541,63 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 |  | Glosa recuperada por recurso no trimestre (R$) | Paulo | R$ | 0,0 | 1.000,0 | 200,0 | 20 % | Em risco | Maior é melhor | 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 200,0 |
 | Caixa previsível | Inadimplência a prazo: vencido ÷ (pago + vencido) (%) | Carolina | % | 10,9 | 8,0 | 9,4 | 52 % | Em risco | Menor é melhor | 10,6 · 9,8 · 10,9 · 10,7 · 10,0 · 10,9 · 9,5 · 10,8 · 10,1 · 8,8 · 9,4 |
 |  | Reserva guardada em conta separada (R$) | Carolina | R$ | 8.000,0 | 17.000,0 | 14.000,0 | 67 % | Atenção | Maior é melhor | 8.000,0 · 8.000,0 · 8.000,0 · 8.000,0 · 11.000,0 · 11.000,0 · 11.000,0 · 11.000,0 · 11.000,0 · 14.000,0 · 14.000,0 |
-|  | Conta de provisão de impostos, 13º e férias (R$) | Carolina | R$ | 8.200,0 | 17.527,0 | 17.500,0 | 100 % | No ritmo | Maior é melhor | 8.200,0 · 8.200,0 · 8.200,0 · 8.200,0 · 11.300,0 · 11.300,0 · 11.300,0 · 11.300,0 · 11.300,0 · 14.400,0 · 17.500,0 |
+|  | Conta de provisão de impostos, 13º e férias (R$) | Carolina | R$ | 8.200,0 | 18.209,0 | 17.500,0 | 93 % | No ritmo | Maior é melhor | 8.200,0 · 8.200,0 · 8.200,0 · 8.200,0 · 11.300,0 · 11.300,0 · 11.300,0 · 11.300,0 · 11.300,0 · 14.400,0 · 17.500,0 |
 
-- **12 Reserva**: meta 3 meses de custo fixo + pró-labore × custo fixo + pró-labore médio R$ 29.732 (jun/jul/ago, como a 09 mostra) = **R$ 89.197**; reserva hoje **R$ 14.000**; falta R$ 75.197; cobre **0,5 meses**; semáforo "Vermelho: menos de 1 mês de custo fixo + pró-labore guardado"; com aporte de R$ 3.000/mês a meta chega em **Novembro/2028**. Saldo em caixa R$ 52.758 − compromissos não pagos R$ 25.922 = caixa livre R$ 26.836.
+- **12 Reserva**: meta 3 meses de custo fixo + pró-labore × custo fixo + pró-labore médio R$ 30.636 (jun/jul/ago, como a 09 mostra) = **R$ 91.909**; reserva hoje **R$ 14.000**; falta R$ 77.909; cobre **0,5 meses**; semáforo "Vermelho: menos de 1 mês de custo fixo + pró-labore guardado"; com aporte de R$ 3.000/mês a meta chega em **Novembro/2028**. Saldo em caixa R$ 38.606 − compromissos não pagos R$ 26.603 = caixa livre R$ 12.003.
 | Meta de caixa do trimestre (12) | Alvo | Atual | Progresso | Prazo | Situação |
 |---|---|---|---|---|---|
 | Reserva com 1 mês de custo fixo + pró-labore | R$ 28.000 | R$ 14.000 | 50 % | 31/12/2026 | Em andamento |
-| Receber R$ 130.000 no trimestre | R$ 130.000 | R$ 125.032 | 96 % | 30/09/2026 | Em andamento |
-| Conta de provisão de impostos com o saldo de agosto (planilha 10) | R$ 17.527 | R$ 17.500 | 100 % | 30/09/2026 | Em andamento |
+| Receber R$ 130.000 no trimestre | R$ 130.000 | R$ 121.022 | 93 % | 30/09/2026 | Em andamento |
+| Conta de provisão de impostos com o saldo de agosto (planilha 10) | R$ 18.209 | R$ 17.500 | 96 % | 30/09/2026 | Em andamento |
 
-- **10 Provisão (Config = Setembro, alíquota 11 %)**: 13º dos sócios 750 + 750 (reserva de dezembro decidida pelos sócios) e da recepcionista 198,00 (com FGTS), férias da recepcionista 264,00 por mês; entradas de setembro até 11/09 R$ 21.920; a separar no mês R$ 4.373; **saldo provisionado ao fim de setembro R$ 21.900**; compromisso do mês seguinte R$ 2.411; situação Coberto.
+- **10 Provisão (Config = Setembro, alíquota 11 %)**: 13º dos sócios 750 + 750 (reserva de dezembro decidida pelos sócios) e da recepcionista 198,00 (com FGTS), férias da recepcionista 264,00 por mês; entradas de setembro até 11/09 R$ 20.710; a separar no mês R$ 4.240; **saldo provisionado ao fim de setembro R$ 22.449**; compromisso do mês seguinte R$ 2.278; situação Coberto.
 | Mês (10) | Entradas (sem Outras) | Provisão 11 % | Total a separar | Guia paga no mês | Saldo provisionado |
 |---|---|---|---|---|---|
-| Janeiro | R$ 33.270 | R$ 3.660 | R$ 5.622 | R$ 3.630 | R$ 1.992 |
-| Fevereiro | R$ 24.795 | R$ 2.727 | R$ 4.689 | R$ 3.660 | R$ 3.021 |
-| Março | R$ 48.330 | R$ 5.316 | R$ 7.278 | R$ 2.727 | R$ 7.572 |
-| Abril | R$ 38.935 | R$ 4.283 | R$ 6.245 | R$ 5.316 | R$ 8.501 |
-| Maio | R$ 44.745 | R$ 4.922 | R$ 6.884 | R$ 4.283 | R$ 11.102 |
-| Junho | R$ 44.160 | R$ 4.858 | R$ 6.820 | R$ 4.922 | R$ 13.000 |
-| Julho | R$ 53.461 | R$ 5.881 | R$ 7.843 | R$ 4.858 | R$ 15.985 |
-| Agosto | R$ 49.651 | R$ 5.462 | R$ 7.424 | R$ 5.881 | R$ 17.527 |
-| Setembro | R$ 21.920 | R$ 2.411 | R$ 4.373 | R$ 0 | R$ 21.900 |
+| Janeiro | R$ 25.310 | R$ 2.784 | R$ 4.746 | R$ 3.630 | R$ 1.116 |
+| Fevereiro | R$ 25.650 | R$ 2.822 | R$ 4.784 | R$ 2.784 | R$ 3.116 |
+| Março | R$ 40.540 | R$ 4.459 | R$ 6.421 | R$ 2.822 | R$ 6.715 |
+| Abril | R$ 40.155 | R$ 4.417 | R$ 6.379 | R$ 4.459 | R$ 8.635 |
+| Maio | R$ 45.380 | R$ 4.992 | R$ 6.954 | R$ 4.417 | R$ 11.172 |
+| Junho | R$ 47.240 | R$ 5.196 | R$ 7.158 | R$ 4.992 | R$ 13.338 |
+| Julho | R$ 44.471 | R$ 4.892 | R$ 6.854 | R$ 5.196 | R$ 14.996 |
+| Agosto | R$ 55.841 | R$ 6.143 | R$ 8.105 | R$ 4.892 | R$ 18.209 |
+| Setembro | R$ 20.710 | R$ 2.278 | R$ 4.240 | R$ 0 | R$ 22.449 |
 
 
 ## 11. Resumo do mês (20): agosto × julho de 2026
 
 | Indicador | Agosto | Julho | Variação | Meta | Vs. meta | Situação |
 |---|---|---|---|---|---|---|
-| Entrou no mês (recebimentos) | R$ 49.651 | R$ 53.461 | -7,1% | R$ 46.000 | +7,9% | No alvo |
-| Saídas do mês (custos, variáveis, pró-labore, provisões e impostos) | R$ 42.583 | R$ 42.505 | +0,2% | R$ 44.000 | -3,2% | No alvo |
-| Resultado do mês | R$ 7.068 | R$ 10.956 | -35,5% | R$ 5.000 | +41,4% | No alvo |
-| Margem do mês | 14,2% | 20,5% | -6,3 p.p. | 12,0% | +2,2 p.p. | No alvo |
-| Ocupação da agenda | 70,4% | 71,7% | -1,3 p.p. | 75,0% | -4,6 p.p. | Abaixo da meta |
-| Taxa de falta | 8,4% | 8,8% | -0,4 p.p. | 6,0% | +2,4 p.p. | Acima da meta |
-| Horas atendidas no mês | 118,3 h | 129,0 h | -8,3% | 140,0 h | -15,5% | Abaixo da meta |
-| Convênio a receber (lotes enviados) | R$ 12.077 | R$ 13.553 | -10,9% | — | — | informativo |
-| Glosa dos lotes pagos no mês | 5,6% | 4,3% | +1,3 p.p. | 4,0% | +1,6 p.p. | Acima da meta |
-| Vencido (parcelas a prazo) | R$ 4.005 | R$ 3.290 | +21,7% | R$ 4.000 | +0,1% | Acima da meta |
-| Inadimplência a prazo (vencido ÷ (pago + vencido)) | 10,5% | 10,0% | +0,5 p.p. | 8,0% | +2,5 p.p. | Acima da meta |
-| Orçamentos em aberto (valor) | R$ 2.700 | R$ 830 | +225,3% | — | — | informativo |
+| Entrou no mês (recebimentos) | R$ 55,841 | R$ 44,471 | +25.6% | R$ 46,000 | +21.4% | No alvo |
+| Saídas do mês (custos, variáveis, pró-labore, provisões e impostos) | R$ 43,462 | R$ 41,221 | +5.4% | R$ 44,000 | -1.2% | No alvo |
+| Resultado do mês | R$ 12,379 | R$ 3,250 | +280.9% | R$ 5,000 | +147.6% | No alvo |
+| Margem do mês | 22.2% | 7.3% | +14.9 p.p. | 12.0% | +10.2 p.p. | No alvo |
+| Ocupação da agenda | 70.4% | 71.7% | -1.3 p.p. | 75.0% | -4.6 p.p. | Abaixo da meta |
+| Taxa de falta | 8.4% | 8.8% | -0.4 p.p. | 6.0% | +2.4 p.p. | Acima da meta |
+| Horas atendidas no mês | 118.3 h | 129.0 h | -8.3% | 140.0 h | -15.5% | Abaixo da meta |
+| Convênio a receber (lotes enviados) | R$ 12,077 | R$ 13,553 | -10.9% | — | — | informativo |
+| Glosa dos lotes pagos no mês | 5.6% | 4.3% | +1.3 p.p. | 4.0% | +1.6 p.p. | Acima da meta |
+| Vencido (parcelas a prazo) | R$ 4,005 | R$ 3,290 | +21.7% | R$ 4,000 | +0.1% | Acima da meta |
+| Inadimplência a prazo (vencido ÷ (pago + vencido)) | 10.5% | 10.0% | +0.5 p.p. | 8.0% | +2.5 p.p. | Acima da meta |
+| Orçamentos em aberto (valor) | R$ 2,700 | R$ 830 | +225.3% | — | — | informativo |
 
 (Valores como o Excel em português mostra; os separadores seguem o idioma do Excel.)
-- Destaques automáticos: • Maior melhora contra Julho: Orçamentos em aberto (valor) (+225,3%), • Maior piora contra Julho: Margem do mês (-6,3 p.p.), • Mais longe da meta: Ocupação da agenda (-4,6 p.p. da meta. abaixo da meta), • Indicadores no alvo: 4 de 10 com meta,
+- Destaques automáticos: • Maior melhora contra Julho: Margem do mês (+14.9 p.p.), • Maior piora contra Julho: Ocupação da agenda (-1.3 p.p.), • Mais longe da meta: Ocupação da agenda (-4.6 p.p. da meta. abaixo da meta), • Indicadores no alvo: 4 de 10 com meta,
 - Observações da clínica (célula amarela do exemplo): "Agosto fechou com a agenda da Dra. Renata mais cheia (dois turnos por semana desde julho) e o lote de junho da Saúde Total pago com glosa, parte dela em recurso; o lote de junho da Vida Care tinha previsão para 04/09 e ainda estava dentro do prazo no fechamento de agosto — em setembro venceu e entrou na cobrança ao convênio; as faltas de segunda de manhã continuam acima da média e a recepção começou a confirmação de véspera por mensagem."
 
 ## 12. Histórico mensal (17 · Histórico; jan–ago = Painel mensal da 09, agenda desde junho, convênios/parcelas no fim de cada mês; setembro = Dados)
 
 | Mês | Ocupação | Horas atendidas | Vazias | Taxa de falta | Lista de retorno | Entrou | Saiu | Sobrou | Convênio a receber | Atrasado | Glosa no mês | Vencido | Inadimpl. | Orçamentos abertos | Valor |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Janeiro | — | — | — | — | — | R$ 33.270 | R$ 36.201 | −R$ 2.931 | R$ 8.740 | R$ 0 | 5,7 % | R$ 0 | 0,0 % | — | — |
-| Fevereiro | — | — | — | — | — | R$ 24.795 | R$ 37.090 | −R$ 12.295 | R$ 8.350 | R$ 0 | 5,8 % | R$ 200 | 9,9 % | — | — |
-| Março | — | — | — | — | — | R$ 48.330 | R$ 38.415 | R$ 9.915 | R$ 7.836 | R$ 0 | 3,4 % | R$ 390 | 6,3 % | — | — |
-| Abril | — | — | — | — | — | R$ 39.555 | R$ 41.062 | −R$ 1.507 | R$ 13.011 | R$ 0 | 7,7 % | R$ 790 | 7,3 % | — | — |
-| Maio | — | — | — | — | — | R$ 44.745 | R$ 39.972 | R$ 4.773 | R$ 9.973 | R$ 0 | 4,9 % | R$ 2.140 | 11,9 % | — | — |
-| Junho | 74 % | 123,7 | 44,3 | 8,0 % | 0 | R$ 44.160 | R$ 41.532 | R$ 2.628 | R$ 12.239 | R$ 0 | 9,3 % | R$ 2.900 | 10,9 % | 2 | R$ 650 |
-| Julho | 72 % | 129,0 | 51,0 | 8,8 % | 1 | R$ 53.461 | R$ 43.567 | R$ 9.894 | R$ 13.553 | R$ 0 | 4,3 % | R$ 3.290 | 10,0 % | 2 | R$ 830 |
-| Agosto | 70 % | 118,3 | 49,7 | 8,4 % | 4 | R$ 49.651 | R$ 41.660 | R$ 7.991 | R$ 12.077 | R$ 0 | 5,6 % | R$ 4.005 | 10,5 % | 7 | R$ 2.700 |
-| Setembro | 81 % | 51,8 | 12,2 | 5,3 % | 8 | R$ 21.920 | R$ 13.630 | R$ 8.290 | R$ 15.758 | R$ 1.727 | 2,9 % | R$ 3.775 | 9,4 % | 6 | R$ 3.460 |
+| Janeiro | — | — | — | — | — | R$ 25.310 | R$ 35.932 | −R$ 10.622 | R$ 8.740 | R$ 0 | 5,7 % | R$ 0 | 0,0 % | — | — |
+| Fevereiro | — | — | — | — | — | R$ 25.650 | R$ 36.231 | −R$ 10.581 | R$ 8.350 | R$ 0 | 5,8 % | R$ 200 | 9,9 % | — | — |
+| Março | — | — | — | — | — | R$ 40.540 | R$ 38.251 | R$ 2.289 | R$ 7.836 | R$ 0 | 3,4 % | R$ 390 | 6,3 % | — | — |
+| Abril | — | — | — | — | — | R$ 40.775 | R$ 40.254 | R$ 521 | R$ 13.011 | R$ 0 | 7,7 % | R$ 790 | 7,3 % | — | — |
+| Maio | — | — | — | — | — | R$ 45.380 | R$ 40.120 | R$ 5.260 | R$ 9.973 | R$ 0 | 4,9 % | R$ 2.140 | 11,9 % | — | — |
+| Junho | 74 % | 123,7 | 44,3 | 8,0 % | 0 | R$ 47.240 | R$ 41.703 | R$ 5.537 | R$ 12.239 | R$ 0 | 9,3 % | R$ 2.900 | 10,9 % | 2 | R$ 650 |
+| Julho | 72 % | 129,0 | 51,0 | 8,8 % | 1 | R$ 44.471 | R$ 46.322 | −R$ 1.851 | R$ 13.553 | R$ 0 | 4,3 % | R$ 3.290 | 10,0 % | 2 | R$ 830 |
+| Agosto | 70 % | 118,3 | 49,7 | 8,4 % | 4 | R$ 55.841 | R$ 40.869 | R$ 14.972 | R$ 12.077 | R$ 0 | 5,6 % | R$ 4.005 | 10,5 % | 7 | R$ 2.700 |
+| Setembro | 81 % | 51,8 | 12,2 | 5,3 % | 8 | R$ 20.710 | R$ 13.630 | R$ 7.080 | R$ 15.758 | R$ 1.727 | 2,9 % | R$ 3.775 | 9,4 % | 6 | R$ 3.460 |
 
 - Agenda: a planilha 01 começou em junho (antes fica em branco). Orçamentos: o funil (15) começou em junho. Glosa no mês = dos lotes pagos naquele mês; no Dados (setembro), o acumulado do ano.
 

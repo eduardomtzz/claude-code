@@ -20,7 +20,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações e régua de cobrança","Células amarelas: você preenche. A régua diz o que fazer em cada faixa de atraso; o texto aparece no Painel, parcela por parcela.",merge_to="H")
 cfg["A4"]="Clínica"; cfg["B4"]=NOME
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Janela curta: vence em até (dias)"; cfg["B6"]=7
 cfg["A7"]="Janela longa: vence em até (dias)"; cfg["B7"]=30
 for r in (4,5,6,7): rotulo(cfg.cell(row=r,column=1))

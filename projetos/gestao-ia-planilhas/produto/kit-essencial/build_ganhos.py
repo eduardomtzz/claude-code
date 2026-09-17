@@ -120,12 +120,21 @@ p["A1"]='=Config!B4&" · "&Config!B6&" de "&Config!B5'; p["A1"].font=F(bold=True
 p["A2"]="Nada para preencher aqui. Escolha o mês em Config; tudo vem de Lançamentos."; p["A2"].font=F(italic=True,size=10,color=LILAS); p.merge_cells("A2:H2")
 M="Config!$B$7"; Y="Config!$B$5"
 LA=f"Lançamentos!$A${R0}:$A${RN}"; LB=f"Lançamentos!$B${R0}:$B${RN}"; LC=f"Lançamentos!$C${R0}:$C${RN}"; LE=f"Lançamentos!$E${R0}:$E${RN}"; LG=f"Lançamentos!$G${R0}:$G${RN}"; LI=f"Lançamentos!$I${R0}:$I${RN}"; LJ=f"Lançamentos!$J${R0}:$J${RN}"
-def somames(tipo,m=M,y=Y): return f'SUMIFS({LE},{LB},"{tipo}",{LI},{m},{LJ},{y})'
+# Painel de CAIXA: só entra o que está marcado Pago? = Sim. Sem esse filtro,
+# "Entrou no mês" e "Saldo acumulado" incluíam conta que ainda não foi paga e o
+# cliente lia como dinheiro disponível. O previsto tem quadro próprio ao lado.
+def somames(tipo,m=M,y=Y,pago=True):
+    filtro=f',{LG},"Sim"' if pago else ""
+    return f'SUMIFS({LE},{LB},"{tipo}",{LI},{m},{LJ},{y}{filtro})'
+def somaate(tipo,fim,pago=True):
+    filtro=f',{LG},"Sim"' if pago else ""
+    return f'SUMIFS({LE},{LB},"{tipo}",{LA},"<="&{fim}{filtro})'
 kp=[("Entrou no mês",f"={somames('Receita')}","DDF3E7","155E3C"),
     ("Saiu no mês",f"={somames('Despesa')}","FBE4E4","7A1F1F"),
     ("Sobrou",f"=A5-C5",SOL,UVA),
-    ("Saldo acumulado",f'=Config!$B$8+SUMIFS({LE},{LB},"Receita",{LA},"<="&DATE({Y},{M}+1,0))-SUMIFS({LE},{LB},"Despesa",{LA},"<="&DATE({Y},{M}+1,0))',LAVANDA,UVA),
-    ("A pagar (não pago)",f'=SUMIFS({LE},{LB},"Despesa",{LG},"Não")',LAVANDA,UVA)]
+    ("Saldo em caixa",f'=Config!$B$8+{somaate("Receita","DATE("+Y+","+M+"+1,0)")}-{somaate("Despesa","DATE("+Y+","+M+"+1,0)")}',LAVANDA,UVA),
+    ("A receber (não recebido)",f'=SUMIFS({LE},{LB},"Receita",{LG},"Não")',LAVANDA,LILAS),
+    ("A pagar (não pago)",f'=SUMIFS({LE},{LB},"Despesa",{LG},"Não")',LAVANDA,LILAS)]
 for i,(lab,fml,bg,fg) in enumerate(kp):
     col=1+i*2
     a=p.cell(row=4,column=col,value=lab); a.font=F(size=9,bold=True,color=fg); a.fill=fill(bg); a.alignment=Alignment(horizontal="center")
@@ -141,7 +150,7 @@ p["A8"]="Média de despesas dos últimos 3 meses (sem a reserva)"
 p["C8"]=f'=IFERROR((SUMIFS({LE},{LB},"Despesa",{LA},">="&{ini},{LA},"<="&{fim})-SUMIFS({LE},{LB},"Despesa",{LC},{RES},{LA},">="&{ini},{LA},"<="&{fim}))/3,0)'
 p["A9"]="Guardado na reserva até o mês (acumulado)"
 p["C9"]=f'=SUMIFS({LE},{LB},"Despesa",{LC},{RES},{LA},"<="&{fim})'
-p["A10"]="Saldo acumulado + reserva equivalem a"; p["C10"]='=IF(C8>0,(G5+C9)/C8,0)'; p["D10"]="meses de despesa"
+p["A10"]="Saldo em caixa + reserva equivalem a"; p["C10"]='=IF(C8>0,(G5+C9)/C8,0)'; p["D10"]="meses de despesa"
 p["A11"]="Meta de reserva"; p["C11"]="=Config!$B$9"; p["D11"]="meses"
 p["A12"]="Situação"; p["C12"]='=IF(C10>=C11,"Meta de reserva atingida",IF(C10>=C11/2,"No caminho: metade da meta","Reserva baixa: priorize guardar"))'
 for r in (8,9,10,11,12): p.cell(row=r,column=1).font=F(color=TINTA,size=10); p.merge_cells(start_row=r,start_column=1,end_row=r,end_column=2)
@@ -184,7 +193,7 @@ for i in range(12):
     p.cell(row=r,column=2,value=f'={somames("Receita",i+1)}'); calc(p.cell(row=r,column=2),BRL)
     p.cell(row=r,column=3,value=f'={somames("Despesa",i+1)}'); calc(p.cell(row=r,column=3),BRL)
     p.cell(row=r,column=4,value=f'=B{r}-C{r}'); calc(p.cell(row=r,column=4),BRL)
-    p.cell(row=r,column=5,value=f'=Config!$B$8+SUMIFS({LE},{LB},"Receita",{LA},"<="&DATE({Y},{i+2},0))-SUMIFS({LE},{LB},"Despesa",{LA},"<="&DATE({Y},{i+2},0))'); calc(p.cell(row=r,column=5),BRL)
+    p.cell(row=r,column=5,value=f'=Config!$B$8+{somaate("Receita",f"DATE({Y},{i+2},0)")}-{somaate("Despesa",f"DATE({Y},{i+2},0)")}'); calc(p.cell(row=r,column=5),BRL)
 p.conditional_formatting.add(f"D{A0+2}:D{A0+13}", FormulaRule(formula=[f'D{A0+2}<0'], font=Font(name="Arial",color="C8402E",size=10,bold=True)))
 bc=BarChart(); bc.type="col"; bc.grouping="clustered"; bc.height=7.5; bc.width=18; bc.title=None; bc.style=2
 bc.add_data(Reference(p,min_col=2,max_col=3,min_row=A0+1,max_row=A0+13),titles_from_data=True); bc.set_categories(Reference(p,min_col=1,min_row=A0+2,max_row=A0+13))

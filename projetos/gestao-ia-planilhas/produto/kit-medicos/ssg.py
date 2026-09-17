@@ -53,7 +53,8 @@ def como_usar(wb,nome,linhas,pos=0):
      ("Requisitos","Excel 2016 ou mais novo, Microsoft 365 ou Google Sheets (só funções do Excel 2007+; nada de MÍNIMOSES, MÁXIMOSES ou UNIRTEXTO). No celular abre nos aplicativos; para preencher, use o computador."),
      ("Dados de pacientes","Guarde só o que a gestão precisa (nome, contato, valor, data). Nada de diagnóstico, prontuário ou exame nestas planilhas: o kit é gestão, não é prontuário. Veja o guia LGPD do kit antes de colar qualquer tabela em uma IA."),
      ("Google Sheets","Faça upload no Google Drive e abra com o Google Sheets. Fórmulas, listas, cores e gráficos funcionam."),
-     ("Exemplos","Clínica Vida Plena é uma clínica fictícia. Pacientes, convênios, nomes, contatos e valores são inventados; não há nenhum dado clínico. Apague o exemplo antes de começar. Agenda futura e vencimentos em aberto do exemplo são relativos a hoje."),
+     ("Exemplos","Clínica Vida Plena é uma clínica fictícia. Pacientes, convênios, nomes, contatos e valores são inventados; não há nenhum dado clínico. Apague o exemplo antes de começar."),
+     ("Data de referência","O exemplo está congelado em 14/09/2026, para todos os arquivos do kit mostrarem a mesma foto e os números fecharem entre eles. Ao começar a usar com os seus dados, troque a data de referência em Config por =HOJE(): daí em diante ela acompanha o dia."),
      ("Suporte","suporte@seusociogestor.com.br · resposta em até 5 dias úteis · reembolso em até 7 dias pelo mesmo canal.")]
     for i,(a,b) in enumerate(base,start=4):
         u.cell(row=i,column=1,value=a).font=F(bold=True,color=UVA); u.cell(row=i,column=2,value=b).font=F(color=TINTA)

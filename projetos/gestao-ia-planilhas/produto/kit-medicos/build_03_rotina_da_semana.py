@@ -10,7 +10,7 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche.",merge_to="F")
 cfg["A4"]="Clínica"; cfg["B4"]=f"{dados.CLINICA} (exemplo fictício)"
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Segunda-feira da semana 1"; cfg["B6"]=date(2026,1,5)
 for c in ("A4","A5","A6"): rotulo(cfg[c])
 inp(cfg["B4"]); inp(cfg["B5"],DATA); inp(cfg["B6"],DATA)
