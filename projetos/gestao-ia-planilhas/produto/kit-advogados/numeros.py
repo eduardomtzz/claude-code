@@ -5,6 +5,14 @@ Fontes: as cópias (data_only) para tudo o que é fórmula; dados.py para listas
 import sys, pathlib, datetime
 import openpyxl, dados
 P=pathlib.Path(sys.argv[1] if len(sys.argv)>1 else ".")
+def linha_por_rotulo(ws,rotulo,col=1,r0=1,r1=200):
+    """Linha cujo rótulo começa com o texto dado. Endereço fixo desloca a cada mudança de
+    estrutura e a referência passa a contradizer a planilha, o que é pior do que não ter
+    referência: ela é o oráculo de quem confere o gerador."""
+    for r in range(r0,r1):
+        v=ws.cell(row=r,column=col).value
+        if isinstance(v,str) and v.startswith(rotulo): return r
+    raise AssertionError(f"{ws.title}: rótulo {rotulo!r} não encontrado")
 def wb(p): return openpyxl.load_workbook(next(P.glob(p+"-*.xlsx")),data_only=True)
 def brl(v,c=0):
     if v in (None,"","—"): return "—"
@@ -20,8 +28,12 @@ def dt(v):
 def rel(d): return f"{dt(dados.HOJE+datetime.timedelta(days=d))} ({d:+d} dia{'s' if abs(d)!=1 else ''})" if d else f"{dt(dados.HOJE)} (hoje)"
 def row(ws,r,cols): return [ws.cell(row=r,column=c).value for c in cols]
 def tab(head,rows):
+    # Linha sem rótulo é sobra de intervalo fixo e saía como "| None | None | — |" na
+    # referência (achado da auditoria de 18/09). Nenhuma tabela daqui tem linha sem rótulo.
     out=["| "+" | ".join(head)+" |","|"+"|".join("---" for _ in head)+"|"]
-    for r in rows: out.append("| "+" | ".join(str(x) for x in r)+" |")
+    for r in rows:
+        if not r or r[0] in (None,"","None"): continue
+        out.append("| "+" | ".join(str(x) for x in r)+" |")
     return "\n".join(out)+"\n"
 M=["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro"]
 L=[]; w=L.append
@@ -83,9 +95,22 @@ w(f"- 11: pró-labore combinado {brl(p11['A5'].value)}/mês; a acertar com o esc
 # ---------- 4. agosto fechado ----------
 r18=W["18"]["Resultado"]; p18=W["18"]["Painel"]
 w("## 4. Agosto de 2026 fechado (18 · Resultado mensal) e julho para comparação\n")
-lin=[(6,"Honorários fixos"),(7,"Honorários por hora"),(8,"Honorários de êxito"),(9,"Consultoria e pareceres"),(10,"Reembolso de custas"),(11,"Outras entradas"),(12,"**Receita total**"),(22,"Custos fixos (8 linhas)"),(24,"Custas e despesas de processo"),(25,"Deslocamento e viagens"),(26,"**Despesas de casos e viagens**"),(30,"Pró-labore fixo (Marina 6.000 + Rafael 6.000)"),(31,"Impostos provisionados (8 % da receita)"),(32,"**Total de saídas**"),(33,"**Resultado do mês**")]
-w(tab(["Linha da DRE","Julho","Agosto","Jan–ago (total)","Média jan–ago"],[(nm,brl(r18.cell(row=r,column=8).value),brl(r18.cell(row=r,column=9).value),brl(r18.cell(row=r,column=14).value),brl(r18.cell(row=r,column=15).value)) for r,nm in lin]+[("**Margem (resultado ÷ receita)**",f"**{pct(r18['H34'].value)}**",f"**{pct(r18['I34'].value)}**",pct(r18['N34'].value),pct(r18['O34'].value))]))
-w(f"- Agosto: receita **{brl(p18['A5'].value)}**, saídas **{brl(p18['C5'].value)}**, resultado **{brl(p18['E5'].value)}**, margem **{pct(p18['G5'].value)}** (julho: {pct(r18['H34'].value)}; variação **−7,1 p.p.**). Previsto de agosto: receita 27.000, custos fixos 6.500, despesas 400, pró-labore 12.000 → resultado previsto 5.940, margem prevista 22,0 %.")
+# (rótulo como está na planilha 18, nome como sai na referência). Sem linha fixa:
+# a faixa da receita muda quando uma categoria entra ou sai.
+_dre=[("Honorários fixos","Honorários fixos"),("Honorários por hora","Honorários por hora"),
+      ("Honorários de êxito","Honorários de êxito"),("Consultoria e pareceres","Consultoria e pareceres"),
+      ("Reembolso de custas","Reembolso de custas"),("Receita total","**Receita total**"),
+      ("Total de custos fixos","Custos fixos (8 linhas)"),
+      ("Custas e despesas de processo","Custas e despesas de processo"),
+      ("Deslocamento e viagens","Deslocamento e viagens"),
+      ("Total de despesas de casos","**Despesas de casos e viagens**"),
+      ("Total de pró-labore","Pró-labore fixo (Marina 6.000 + Rafael 6.000)"),
+      ("Impostos provisionados","Impostos provisionados (8 % da receita)"),
+      ("Total de saídas","**Total de saídas**"),("Resultado do mês","**Resultado do mês**")]
+lin=[(linha_por_rotulo(r18,rot),nm) for rot,nm in _dre]
+_rm=linha_por_rotulo(r18,"Margem")
+w(tab(["Linha da DRE","Julho","Agosto","Jan–ago (total)","Média jan–ago"],[(nm,brl(r18.cell(row=r,column=8).value),brl(r18.cell(row=r,column=9).value),brl(r18.cell(row=r,column=14).value),brl(r18.cell(row=r,column=15).value)) for r,nm in lin]+[("**Margem (resultado ÷ receita)**",f"**{pct(r18.cell(row=_rm,column=8).value)}**",f"**{pct(r18.cell(row=_rm,column=9).value)}**",pct(r18.cell(row=_rm,column=14).value),pct(r18.cell(row=_rm,column=15).value))]))
+w(f"- Agosto: receita **{brl(p18['A5'].value)}**, saídas **{brl(p18['C5'].value)}**, resultado **{brl(p18['E5'].value)}**, margem **{pct(p18['G5'].value)}** (julho: {pct(r18.cell(row=_rm,column=8).value)}; variação **−7,1 p.p.**). Previsto de agosto: receita 27.000, custos fixos 6.500, despesas 400, pró-labore 12.000 → resultado previsto 5.940, margem prevista 22,0 %.")
 w(tab(["Comparação (18 Painel, agosto)","Mês","Mês anterior","Variação","Previsto","Vs. previsto","Situação"],[(a,brl(b) if a!="Margem" else pct(b),brl(c) if a!="Margem" else pct(c),(f"{float(d):+.1f} p.p." if a=="Margem" else f"{float(d)*100:+.1f} %").replace(".",","),brl(e) if a!="Margem" else pct(e),(f"{float(f):+.1f} p.p." if a=="Margem" else f"{float(f)*100:+.1f} %").replace(".",","),g) for a,b,c,d,e,f,g in [row(p18,r,(1,3,4,5,6,7,8)) for r in range(9,17)]]))
 w("- A DRE não inclui retiradas extras, distribuição de lucro nem despesas pessoais dos sócios (ficam na 11); por isso \"Saiu no mês\" do caixa (agosto: 21.897) é diferente do \"Total de saídas\" da DRE (21.212: impostos são provisão de 8 % da receita, e não a guia paga).\n")
 
@@ -160,7 +185,7 @@ w(tab(["Despesa (06)","Valor","Cliente reembolsa?","Custo para o escritório"],[
 w(tab(["Modalidade (06)","Valor pretendido","Receita esperada","Impostos","Custo do caso","Margem esperada","Margem %","Se perder","Risco"],[(a,v,brl(b),brl(c),brl(d),brl(e),pct(f,0),brl(g),i) for (a,b,c,d,e,f,g,h,i),v in zip([row(s06,r,(1,2,3,4,5,6,7,8,9)) for r in range(52,56)],[brl(s06['B44'].value),brl(s06['B45'].value,2)+"/h",pct(s06['B46'].value,0),brl(s06['B47'].value)+" + "+pct(s06['B48'].value,0)])]))
 w(f"- Recomendação do simulador: **{s06['A5'].value}** (margem esperada {brl(s06['C5'].value)}, risco {s06['E5'].value}); fora por risco alto: Êxito. Texto do ponto de equilíbrio da hora: \"{s06['H53'].value}\".")
 w(f"- **Proposta 07 (nº {p07['B4'].value}, {dt(p07['E4'].value)}, válida por {p07['E5'].value} dias até {dt(p07['E6'].value)}, modalidade {p07['E7'].value})**: objeto \"{p07['B8'].value}\".")
-w(tab(["Etapa ou serviço (07)","O que inclui","Prazo previsto","Horas","Valor"],[(a,b,c,d,brl(e)) for a,b,c,d,e in [row(p07,r,(1,2,3,4,5)) for r in range(12,16)]]+[("**Total dos honorários fixos**","","",f"**{p07['D21'].value}**",f"**{brl(p07['E21'].value)}**"),("Honorários de êxito","sobre o resultado, ao fim do caso","","",pct(p07['E22'].value,0))]))
+w(tab(["Etapa ou serviço (07)","O que inclui","Prazo previsto","Horas","Valor"],[(a,b,c,d,brl(e)) for a,b,c,d,e in [row(p07,r,(1,2,3,4,5)) for r in range(linha_por_rotulo(p07,'Etapa ou serviço')+1,linha_por_rotulo(p07,'Total dos honorários fixos')) if p07.cell(row=r,column=1).value]]+[("**Total dos honorários fixos**","","",f"**{p07.cell(row=linha_por_rotulo(p07,'Total dos honorários fixos'),column=4).value}**",f"**{brl(p07.cell(row=linha_por_rotulo(p07,'Total dos honorários fixos'),column=5).value)}**"),("Honorários de êxito","sobre o resultado, ao fim do caso","","",pct(p07.cell(row=linha_por_rotulo(p07,'Honorários de êxito'),column=5).value,0))]))
 w(f"- Condições: entrada {pct(p07['B24'].value,0)} = **{brl(p07['E24'].value)}** na aceitação; restante {brl(p07['E25'].value)} em **{p07['B25'].value} parcelas de {brl(p07['E26'].value)}** ({dt(p07['C32'].value)}, {dt(p07['C33'].value)}, {dt(p07['C34'].value)}; datas contadas da data da proposta = HOJE()); forma de pagamento {p07['E27'].value}. Na 15 a proposta está como \"Proposta enviada\" (entrada 09/09, envio hoje, previsão de fechamento em 15 dias).\n")
 
 # ---------- 10. metas ----------
@@ -188,7 +213,9 @@ w("## 11. Resumo do mês (20): agosto × julho de 2026\n")
 ptbr=lambda x: "—" if x in (None,"") else str(x).replace(" p.p."," PP").translate(str.maketrans(",.",".,")).replace(" PP"," p.p.")   # texto do Painel como o Excel em português mostra
 w(tab(["Indicador","Agosto","Julho","Variação","Meta","Vs. meta","Situação"],[(a,ptbr(b),ptbr(c),ptbr(d),ptbr(e),ptbr(f),g or "informativo") for a,b,c,d,e,f,g in [row(p20,r,(1,2,3,4,5,6,7)) for r in range(5,17)]]))
 w("(Valores como o Excel em português mostra; os separadores seguem o idioma do Excel.)")
-w("- Destaques automáticos: maior melhora contra julho = Horas faturáveis (+4,7 p.p.); maior piora = Margem do mês (−7,1 p.p.); mais longe da meta = Inadimplência (+0,5 p.p. da meta, acima da meta); indicadores no alvo: 9 de 11 com meta.")
+_rs20=W["20"]["Resumo"]
+w("- Destaques automáticos (lidos da 20, aba Resumo): "+" ".join(
+    str(_rs20.cell(row=r,column=1).value).strip() for r in range(22,26) if _rs20.cell(row=r,column=1).value))
 w("- Observações do escritório (célula amarela do exemplo): \"Agosto fechou com quatro propostas novas viradas em caso (Escola Aurora, Loja Verde, Marcos Vinícius e a cobrança da Construtora entrou em julho); Bistrô 42 e Agência Prisma seguem com parcelas vencidas e entraram na régua de cobrança; o caso da Oficina (execução) e o recurso da Escola Aurora estouraram as horas estimadas.\"\n")
 
 # ---------- 12. histórico 17 ----------

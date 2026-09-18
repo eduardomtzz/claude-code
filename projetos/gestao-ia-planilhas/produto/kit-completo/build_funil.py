@@ -80,7 +80,10 @@ p["A19"]="Propostas abertas com fechamento vencido ou paradas há mais tempo, as
 hdr(p,20,["#","Cliente","Proposta","Etapa","Valor","Dias parada","Situação","Responsável"])
 # chave auxiliar em Propostas coluna P
 for r in range(R0,RN+1):
-    pr.cell(row=r,column=16,value=f'=IF(OR(F{r}="",O{r}="Fechada",O{r}="Perdida"),0,IF(O{r}="Fechamento vencido",3000,IF(O{r}="Parada",2000,1000))+MIN(N{r},500)+E{r}/1000000-ROW()/100000)'); pr.cell(row=r,column=16).font=F(color=CINZA,size=9)
+    # chave INTEIRA: situação, dias parada, valor e linha sem sobreposição de casas. A
+    # anterior somava valor/1E+6 com ROW()/1E+5 e colidia com R$ 10 de diferença em linhas
+    # vizinhas, repetindo uma proposta e escondendo outra.
+    pr.cell(row=r,column=16,value=f'=IF(OR(F{r}="",O{r}="Fechada",O{r}="Perdida"),0,IF(O{r}="Fechamento vencido",3,IF(O{r}="Parada",2,1))*1E+13+MIN(N(N{r}),500)*1E+10+MIN(ROUND(N(E{r}),0),999999)*1E+4+({RN}+1-ROW()))'); pr.cell(row=r,column=16).font=F(color=CINZA,size=9)
 pr.column_dimensions["P"].hidden=True
 PP=f"Propostas!$P${R0}:$P${RN}"
 for k in range(1,13):

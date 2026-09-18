@@ -22,7 +22,7 @@ hdr(cfg,10,["Pessoa","Custo mensal (R$)","Horas disponíveis/mês","Custo-hora (
 for i in range(NPES):
     r=11+i
     inp(cfg.cell(row=r,column=1)); inp(cfg.cell(row=r,column=2),BRL0,center=True); inp(cfg.cell(row=r,column=3),center=True)
-    cfg.cell(row=r,column=4,value=f'=IF(OR(A{r}="",C{r}=0),"",B{r}/C{r})'); calc(cfg.cell(row=r,column=4),BRL)
+    cfg.cell(row=r,column=4,value=f'=IF(A{r}="","",IF(OR(B{r}="",N(B{r})<=0),"falta o custo mensal",IF(OR(C{r}="",N(C{r})<=0),"faltam as horas disponíveis",B{r}/C{r})))'); calc(cfg.cell(row=r,column=4),BRL)
 cfg["A22"]="Projetos (até 12)"; rotulo(cfg["A22"])
 hdr(cfg,23,["Projeto","Cliente","Horas orçadas","Valor cobrado (R$)","Status"])
 for i in range(NPROJ):
@@ -40,8 +40,12 @@ for r in range(R0,RN+1):
     for c in (1,2,3,4,5,9): inp(h.cell(row=r,column=c))
     for c in (1,2,3,5,9): h.cell(row=r,column=c).alignment=Alignment(horizontal="center")
     h.cell(row=r,column=1).number_format=DATA; h.cell(row=r,column=5).number_format="0.0"
+    # Se o custo-hora da pessoa não é número (custo mensal ou horas em branco em Config),
+    # o custo da hora NÃO vira zero: vira recado. Zero fazia o projeto parecer mais
+    # lucrativo do que é (achado G-5 da auditoria de 18/09).
+    _ch=f'INDEX(Config!$D$11:$D${10+NPES},MATCH(B{r},Config!$A$11:$A${10+NPES},0))'
     h.cell(row=r,column=6,value=f'=IF(OR(B{r}="",E{r}=""),"",'
-        f'IFERROR(E{r}*INDEX(Config!$D$11:$D${10+NPES},MATCH(B{r},Config!$A$11:$A${10+NPES},0)),'
+        f'IFERROR(IF(ISNUMBER({_ch}),E{r}*{_ch},"cadastro de custo incompleto em Config"),'
         f'"pessoa sem custo-hora em Config"))'); calc(h.cell(row=r,column=6),BRL)
     h.cell(row=r,column=7,value=f'=IF(A{r}="","",MONTH(A{r}))'); calc(h.cell(row=r,column=7))
     h.cell(row=r,column=8,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(h.cell(row=r,column=8))
@@ -62,10 +66,12 @@ kpi(p,4,1,"Horas no mês",f'=SUMIFS({HE},{HG},{M},{HH},{Y})',LAVANDA,UVA,fmt="#,
 kpi(p,4,3,"Custo no mês",f'=SUMIFS({HF},{HG},{M},{HH},{Y})',LAVANDA,UVA,fmt=BRL0)
 kpi(p,4,5,"Horas faturáveis",f'=IFERROR(SUMIFS({HE},{HG},{M},{HH},{Y},{HI},"Sim")/A5,0)',VERDE,VERDE_T,fmt="0%")
 kpi(p,4,7,"Ocupação da equipe",f'=IFERROR(A5/SUMIFS(Config!$C$11:$C${10+NPES},Config!$A$11:$A${10+NPES},"<>"),0)',SOL,UVA,fmt="0%")
-p["A7"]="Por projeto (todo o período)"; p["A7"].font=F(bold=True,size=13,color=UVA)
-hdr(p,8,["Projeto","Cliente","Horas orçadas","Horas usadas","% do orçado","Custo (R$)","Valor cobrado","Margem (R$)","Margem (%)","Situação"])
+p["A7"]=f'=IF(COUNTIF({HF},"*Config*")=0,"","Atenção: "&COUNTIF({HF},"*Config*")&" lançamento(s) de hora sem custo-hora (cadastro incompleto em Config). O custo e a margem dos projetos abaixo estão MENORES do que a realidade até você completar o custo mensal e as horas disponíveis da pessoa.")'
+p["A7"].font=F(size=10,bold=True,color=VERM_T); p.merge_cells("A7:J7"); p["A7"].alignment=Alignment(wrap_text=True,vertical="top")
+p["A8"]="Por projeto (todo o período)"; p["A8"].font=F(bold=True,size=13,color=UVA)
+hdr(p,9,["Projeto","Cliente","Horas orçadas","Horas usadas","% do orçado","Custo (R$)","Valor cobrado","Margem (R$)","Margem (%)","Situação"])
 for i in range(NPROJ):
-    r=9+i; src=f"Config!$A${24+i}"
+    r=10+i; src=f"Config!$A${24+i}"
     p.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(p.cell(row=r,column=1),center=False)
     p.cell(row=r,column=2,value=f'=IF({src}="","",Config!$B${24+i})'); calc(p.cell(row=r,column=2),center=False)
     p.cell(row=r,column=3,value=f'=IF({src}="","",Config!$C${24+i})'); calc(p.cell(row=r,column=3),"0")
@@ -76,11 +82,11 @@ for i in range(NPROJ):
     p.cell(row=r,column=8,value=f'=IF(OR({src}="",G{r}=""),"",G{r}-F{r})'); calc(p.cell(row=r,column=8),BRL0)
     p.cell(row=r,column=9,value=f'=IF(OR({src}="",G{r}="",G{r}=0),"",H{r}/G{r})'); calc(p.cell(row=r,column=9),"0%")
     p.cell(row=r,column=10,value=f'=IF({src}="","",IF(Config!$E${24+i}="Interno","Interno",IF(Config!$E${24+i}="Proposta","Proposta",IF(AND(E{r}<>"",E{r}>1),"Estourou as horas",IF(AND(I{r}<>"",I{r}<0.2),"Margem baixa",IF(AND(E{r}<>"",E{r}>0.85,Config!$E${24+i}="Em andamento"),"Perto do limite","Saudável"))))))'); calc(p.cell(row=r,column=10))
-p.conditional_formatting.add(f"J9:J{8+NPROJ}", FormulaRule(formula=['OR(J9="Estourou as horas",J9="Margem baixa")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
-p.conditional_formatting.add(f"J9:J{8+NPROJ}", FormulaRule(formula=['J9="Perto do limite"'], fill=fill("FFF4CC")))
-p.conditional_formatting.add(f"J9:J{8+NPROJ}", FormulaRule(formula=['J9="Saudável"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
-p.conditional_formatting.add(f"H9:H{8+NPROJ}", FormulaRule(formula=['AND(ISNUMBER(H9),H9<0)'], font=F(color="C8402E",size=10,bold=True)))
-r0=10+NPROJ
+p.conditional_formatting.add(f"J10:J{9+NPROJ}", FormulaRule(formula=['OR(J10="Estourou as horas",J9="Margem baixa")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
+p.conditional_formatting.add(f"J10:J{9+NPROJ}", FormulaRule(formula=['J10="Perto do limite"'], fill=fill("FFF4CC")))
+p.conditional_formatting.add(f"J10:J{9+NPROJ}", FormulaRule(formula=['J10="Saudável"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
+p.conditional_formatting.add(f"H10:H{9+NPROJ}", FormulaRule(formula=['AND(ISNUMBER(H10),H10<0)'], font=F(color="C8402E",size=10,bold=True)))
+r0=11+NPROJ
 p.cell(row=r0,column=1,value="Por pessoa no mês").font=F(bold=True,size=13,color=UVA)
 hdr(p,r0+1,["Pessoa","Horas lançadas","Disponíveis","Ocupação","Faturáveis","Custo no mês","Custo-hora"])
 for i in range(NPES):
@@ -95,7 +101,7 @@ for i in range(NPES):
 p.conditional_formatting.add(f"D{r0+2}:D{r0+11}", FormulaRule(formula=[f'AND(ISNUMBER(D{r0+2}),D{r0+2}>1)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 p.conditional_formatting.add(f"D{r0+2}:D{r0+11}", FormulaRule(formula=[f'AND(ISNUMBER(D{r0+2}),D{r0+2}<0.6)'], fill=fill("FFF4CC")))
 bc=BarChart(); bc.type="bar"; bc.height=7; bc.width=14; bc.title="Horas usadas × orçadas por projeto"; bc.style=2
-bc.add_data(Reference(p,min_col=3,max_col=4,min_row=8,max_row=8+NPROJ),titles_from_data=True); bc.set_categories(Reference(p,min_col=1,min_row=9,max_row=8+NPROJ))
+bc.add_data(Reference(p,min_col=3,max_col=4,min_row=9,max_row=9+NPROJ),titles_from_data=True); bc.set_categories(Reference(p,min_col=1,min_row=10,max_row=9+NPROJ))
 bc.series[0].graphicalProperties.solidFill="B89BE0"; bc.series[1].graphicalProperties.solidFill="3B1F5E"; bc.legend.position="b"; bc.x_axis.majorGridlines=None
 p.add_chart(bc,f"I{r0}")
 widths(p,(30,20,12,12,11,13,14,13,11,17)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
@@ -144,7 +150,7 @@ for i,row in enumerate(rows):
     for c,v in zip((1,2,3,4,5,9),row): h.cell(row=R0+i,column=c,value=v)
 como_usar(wb,"Horas e Custo por Projeto",[
  ("O que esta planilha faz","Cada pessoa lança as horas por projeto; ela transforma em custo (pelo custo-hora), compara com as horas orçadas e o valor cobrado, mostra a margem de cada projeto e a ocupação de cada pessoa no mês."),
- ("Passo 1","Em Config, cadastre as pessoas com custo mensal e horas disponíveis (o custo-hora é calculado), e os projetos com horas orçadas, valor cobrado e status. Projetos internos (comercial, gestão) entram com status Interno; proposta ainda não fechada pode entrar como Proposta, sem horas."),
+ ("Passo 1","Em Config, cadastre as pessoas com custo mensal E horas disponíveis: os dois são obrigatórios, porque o custo-hora sai da divisão. Faltando um, a planilha escreve o que falta em vez de calcular um custo zerado, e os projetos com horas orçadas, valor cobrado e status. Projetos internos (comercial, gestão) entram com status Interno; proposta ainda não fechada pode entrar como Proposta, sem horas."),
  ("Passo 2","Em Horas, uma linha por pessoa, por dia, por projeto: data, pessoa, projeto, atividade, horas e se é faturável."),
  ("Passo 3","Em Painel, escolha o mês em Config. Por projeto: horas usadas contra orçadas, custo, margem e situação. Por pessoa: ocupação e horas faturáveis."),
  ("Rotina","Cada pessoa lança no fim do dia (2 minutos) ou na sexta (10 minutos). Dia 1 do mês: olhe margem por projeto antes de precificar o próximo."),

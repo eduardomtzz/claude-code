@@ -545,8 +545,11 @@ def checa_09(pasta, V):
     V.check("09 Ocupação da equipe", num(p["G5"].value),
             hmes / sum(x["disp"] for x in PES), tol=1e-9)
 
+    # o Painel ganhou o aviso de custo incompleto em A7: a tabela por projeto desceu
+    # uma linha (cabeçalho 9, projetos a partir da 10)
+    V.check("09 Painel sem aviso de custo incompleto no exemplo", txt(p["A7"].value), "")
     for q in PRJ:
-        r = 9 + q["i"]
+        r = 10 + q["i"]
         usadas = sum(x["horas"] for x in H if x["proj"] == q["nome"])
         custo = sum(x["custo"] for x in H if x["proj"] == q["nome"])
         V.check(f"09 {q['nome'][:26]!r} nome", txt(p.cell(row=r, column=1).value), q["nome"])
@@ -573,7 +576,7 @@ def checa_09(pasta, V):
         V.check(f"09 {q['nome'][:26]!r} situação", txt(p.cell(row=r, column=10).value), esp)
 
     for x in PES:
-        r = 24 + x["i"]
+        r = 25 + x["i"]
         lan = sum(q["horas"] for q in H if q["pessoa"] == x["nome"] and q["mes"] == M and q["ano"] == Y)
         V.check(f"09 {x['nome']} horas lançadas no mês", num(p.cell(row=r, column=2).value), lan, tol=0.01)
         V.check(f"09 {x['nome']} disponíveis", num(p.cell(row=r, column=3).value), x["disp"])
@@ -588,7 +591,7 @@ def checa_09(pasta, V):
                     and q["ano"] == Y), tol=0.01)
         V.check(f"09 {x['nome']} custo-hora", num(p.cell(row=r, column=7).value), x["ch"], tol=1e-9)
     V.check("09 horas do mês == soma das pessoas", hmes,
-            sum(num(p.cell(row=24 + x["i"], column=2).value) for x in PES), tol=0.01)
+            sum(num(p.cell(row=25 + x["i"], column=2).value) for x in PES), tol=0.01)
     return PRJ, H
 
 
@@ -651,6 +654,25 @@ def checa_10(pasta, V):
 
 
 # ------------------------------------------------------- entre arquivos
+def checa_02_x_07(pasta, V):
+    """A Prisma tem de contar UMA história por mês. Esta afirmação faltava e por isso o
+    G-25 passou: o relatório mensal dizia resultado 41.400 em setembro e o orçamento,
+    14.171,85 — a mesma empresa, o mesmo mês, R$ 27.228,15 de diferença."""
+    ind = abrir(pasta, "02")["Indicadores"]
+    p7 = abrir(pasta, "07")["Painel"]
+    rot = {txt(ind.cell(row=5 + i, column=1).value): 5 + i for i in range(12)}
+    for j in range(12):
+        mes = MESES[j]
+        r02 = ind.cell(row=rot["Receita"], column=6 + j).value
+        if r02 in (None, ""): continue        # mês ainda não preenchido no exemplo
+        d02 = ind.cell(row=rot["Despesas"], column=6 + j).value
+        s02 = ind.cell(row=rot["Resultado (receita - despesas)"], column=6 + j).value
+        V.check(f"02→07 receita realizada de {mes}", num(p7.cell(row=32 + j, column=3).value), num(r02), tol=0.01)
+        V.check(f"02→07 despesa realizada de {mes}", num(p7.cell(row=32 + j, column=5).value), num(d02), tol=0.01)
+        V.check(f"02→07 resultado realizado de {mes}", num(p7.cell(row=32 + j, column=7).value), num(s02), tol=0.01)
+        V.check(f"02 resultado de {mes} == receita − despesas", num(s02), num(r02) - num(d02), tol=0.01)
+
+
 def checa_entre_arquivos(pasta, V, proj04, etapas04, props08, prj09, horas09):
     """O que só aparece comparando dois arquivos. É aqui que mora o valor real desta
     verificação: o cliente abre a 04, a 08 e a 09 e vê a mesma agência."""
@@ -712,5 +734,6 @@ if __name__ == "__main__":
     props08 = checa_08(pasta, V)
     prj09, horas09 = checa_09(pasta, V)
     checa_10(pasta, V)
+    checa_02_x_07(pasta, V)
     checa_entre_arquivos(pasta, V, proj04, etapas04, props08, prj09, horas09)
     sys.exit(V.fim())

@@ -99,7 +99,9 @@ for r in range(R0,RNC+1):
                                    f'IF(AND(N(G{r})>0,K{r}/G{r}>0.85),"Perto do limite","Saudável")))))))')).font=F(size=9,color=CINZA)
 for col in ("K","L","M"): cs.column_dimensions[col].hidden=True
 MES=f'{LI},{M},{LJ},{Y}'
-RT=30                                  # início da tabela "Todos os casos"
+RT=24+NPES                             # início de "Todos os casos": depois das NPES vagas
+                                       # de "Por pessoa" (cabeçalho 22, linhas 23..22+NPES)
+                                       # e de uma linha em branco
 T0=RT+2; T1=T0+NPAINEL-1
 kpi(p,4,1,"Horas no mês",f'=SUMIFS({LE},{MES})',LAVANDA,UVA,fmt="#,##0.0")
 kpi(p,4,3,"Horas faturáveis no mês",f'=SUMIFS({LE},{MES},{LF},"Sim")',VERDE,VERDE_T,fmt="#,##0.0")

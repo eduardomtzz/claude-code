@@ -75,7 +75,9 @@ for r in range(R0,RNL+1):
     lo.cell(row=r,column=16,value=f'=IF(OR(A{r}="",B{r}=""),"",A{r}&"|"&TEXT(B{r},"yyyy-mm"))'); calc(lo.cell(row=r,column=16)); lo.cell(row=r,column=16).font=F(color=CINZA,size=9)
     lo.cell(row=r,column=17,value=f'=IF(P{r}="","",IF(COUNTIF({GK},P{r})=0,"",SUMIFS({GG},{GK},P{r})))'); calc(lo.cell(row=r,column=17),BRL0)
     lo.cell(row=r,column=18,value=f'=IF(Q{r}="","",D{r}-Q{r})'); calc(lo.cell(row=r,column=18),BRL0)
-    lo.cell(row=r,column=19,value=f'=IF(OR(N{r}="Atrasada",N{r}="Aguardando"),IF(N{r}="Atrasada",100000+O{r},0)+D{r}/1000000+ROW()/100000000,0)'); lo.cell(row=r,column=19).font=F(color=CINZA,size=9)
+    # chave INTEIRA. A anterior somava valor/1E+6 com ROW()/1E+8: um centavo de diferença
+    # entre dois lotes na mesma situação dava a MESMA chave, e o LARGE/MATCH repetia um lote.
+    lo.cell(row=r,column=19,value=f'=IF(OR(N{r}="Atrasada",N{r}="Aguardando"),IF(N{r}="Atrasada",2,1)*1E+13+MIN(N(O{r}),500)*1E+10+MIN(ROUND(N(D{r}),0),999999)*1E+4+({RNL}+1-ROW()),0)'); lo.cell(row=r,column=19).font=F(color=CINZA,size=9)
     lo.cell(row=r,column=20,value=f'=IF(AND(F{r}<>"",E{r}<>""),F{r}-E{r},"")'); lo.cell(row=r,column=20).font=F(color=CINZA,size=9)
 lo.column_dimensions["S"].hidden=True; lo.column_dimensions["T"].hidden=True
 dvs=[(lista(CONV_L),f"A{R0}:A{RNL}"),(lista('"Em recurso,Aceito,Negado"'),f"H{R0}:H{RNL}"),

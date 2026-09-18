@@ -50,9 +50,13 @@ for r in range(R0,RN+1):
     pr.cell(row=r,column=15,value=f'=IF(OR(G{r}="",G{r}="Fechada",G{r}="Perdida",AND(H{r}="",I{r}="")),"",{HOJE}-IF(I{r}="",H{r},I{r}))'); calc(pr.cell(row=r,column=15),"0")
     pr.cell(row=r,column=16,value=f'=IF(AND(G{r}="Fechada",K{r}<>"",H{r}<>""),K{r}-H{r},"")'); calc(pr.cell(row=r,column=16),"0")
     pr.cell(row=r,column=17,value=f'=IF(G{r}="","",IF(G{r}="Fechada","Fechada",IF(G{r}="Perdida","Perdida",IF(AND(J{r}<>"",J{r}<{HOJE}),"Previsão vencida",IF(AND(O{r}<>"",O{r}>{PAR}),"Parada","Ativa")))))'); calc(pr.cell(row=r,column=17))
-    pr.cell(row=r,column=18,value=f'=IF(OR(G{r}="",Q{r}="Fechada",Q{r}="Perdida"),0,IF(Q{r}="Previsão vencida",3000,IF(Q{r}="Parada",2000,1000))+MIN(N(O{r}),500)+N(F{r})/1000000-ROW()/100000)'); pr.cell(row=r,column=18).font=F(color=CINZA,size=9)
+    # chave INTEIRA: situação, dias parada, valor e linha em blocos de casas que não se
+    # sobrepõem. A anterior somava valor/1E+6 com ROW()/1E+5 e colidia quando a diferença
+    # de valor era dez vezes a de linha (R$ 10 em linhas vizinhas) — aí o LARGE/MATCH
+    # repetia a mesma proposta e escondia a outra (mesma raiz do G-19 da auditoria).
+    pr.cell(row=r,column=18,value=f'=IF(OR(G{r}="",Q{r}="Fechada",Q{r}="Perdida"),0,IF(Q{r}="Previsão vencida",3,IF(Q{r}="Parada",2,1))*1E+13+MIN(N(O{r}),500)*1E+10+MIN(ROUND(N(F{r}),0),999999)*1E+4+({RN}+1-ROW()))'); pr.cell(row=r,column=18).font=F(color=CINZA,size=9)
 pr.column_dimensions["R"].hidden=True
-dvs=[lista(AREAS_L), lista(SERV_L,strict=True), lista(ORIG_L,strict=True), lista(RESP_L), lista(f"=Config!$A${E0}:$A${E1}"), lista(MOT_L,strict=True),
+dvs=[lista(AREAS_L), lista(SERV_L,strict=False), lista(ORIG_L,strict=True), lista(RESP_L), lista(f"=Config!$A${E0}:$A${E1}"), lista(MOT_L,strict=True),
      DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True), DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"B{R0}:B{RN}",f"C{R0}:C{RN}",f"D{R0}:D{RN}",f"E{R0}:E{RN}",f"G{R0}:G{RN}",f"L{R0}:L{RN}",f"H{R0}:K{RN}",f"F{R0}:F{RN}"]): dv.add(rng); pr.add_data_validation(dv)
 pr.conditional_formatting.add(f"A{R0}:Q{RN}", FormulaRule(formula=[f'$Q{R0}="Parada"'], fill=fill("FFF4CC")))
@@ -152,7 +156,7 @@ for i,v in enumerate(dados.AREAS): cfg.cell(row=L0+i,column=1,value=v)
 for i,v in enumerate(["Indicação de cliente","Site e Google","Instagram","Cliente antigo","Parceria (contador, imobiliária)","Evento ou palestra"]): cfg.cell(row=L0+i,column=3,value=v)
 for i,v in enumerate(["Preço","Fechou com outro escritório","Desistiu da demanda","Sem resposta","Fora da área de atuação","Prazo de atendimento"]): cfg.cell(row=L0+i,column=5,value=v)
 for i,(nome,_,_,_) in enumerate(dados.PESSOAS[:2]): cfg.cell(row=L0+i,column=7,value=nome)
-for i,v in enumerate(["Assessoria mensal (12 meses)","Ação trabalhista","Defesa em reclamação trabalhista","Revisão de benefício","Planejamento previdenciário","Cobrança judicial","Contratos e consultoria","Contratos com convênios","Divórcio e partilha","Inventário"]): cfg.cell(row=L0+i,column=9,value=v)
+for i,v in enumerate(["Assessoria mensal (12 meses)","Ação trabalhista","Defesa em reclamação trabalhista","Revisão de benefício","Planejamento previdenciário","Cobrança judicial","Contratos e consultoria","Contratos com convênios","Divórcio e partilha","Inventário","Discussão de contrato de prestação de serviços"]): cfg.cell(row=L0+i,column=9,value=v)
 # exemplo: o funil único do kit (dados.PROPOSTAS). As 10 propostas mais recentes já enviadas aparecem também no Registro da 07,
 # e as fechadas em 2026 são casos da carteira (13), abertos no mês do fechamento. Datas abertas em dias relativos a hoje.
 def _dt(x): return None if x is None else (dados.prazo_formula(x) if isinstance(x,int) else x)

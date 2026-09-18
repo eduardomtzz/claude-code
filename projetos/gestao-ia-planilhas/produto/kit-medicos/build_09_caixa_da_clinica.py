@@ -6,7 +6,7 @@ from ssg import *
 import dados
 from openpyxl.chart import BarChart, Reference
 
-N=1500; R0=5; RN=R0+N-1; NCE=12; NCS=16; NREC=30   # ≈ 80 lançamentos/mês no exemplo → folga de mais de 12 meses
+N=1500; R0=5; RN=R0+N-1; NCE=12; NCS=16; NREC=200  # convênios + pacientes: a lista é sugestão, não cadastro fechado
 CAT_ENTRADA=dados.CAT_ENTRADA; CAT_SAIDA=dados.CAT_SAIDA
 FORMAS=["Pix","Dinheiro","Cartão de débito","Cartão de crédito","Transferência","Boleto"]
 
@@ -23,15 +23,16 @@ def build():
     cfg["A9"]="Data de referência"; cfg["B9"]=dados.HOJE
     for r in range(4,10): rotulo(cfg.cell(row=r,column=1))
     inp(cfg["B4"]); inp(cfg["B5"],center=True); inp(cfg["B6"],center=True); calc(cfg["B7"]); inp(cfg["B8"],BRL); calc(cfg["B9"],DATA)
-    cfg["D4"]="Categorias de entrada (até 12)"; cfg["F4"]="Categorias de saída (até 16)"; cfg["H4"]="Todas as categorias (automático)"; cfg["J4"]="Convênios e outros recebedores (até 30)"; cfg["L4"]="Meses"
+    cfg["D4"]="Categorias de entrada (até 12)"; cfg["F4"]="Categorias de saída (até 16)"; cfg["H4"]="Todas as categorias (automático)"; cfg["J4"]="Convênios, pacientes e outros pagadores (sugestão, até 200)"; cfg["L4"]="Meses"
     for c in ("D4","F4","H4","J4","L4"): rotulo(cfg[c])
     for i in range(NCE): inp(cfg.cell(row=5+i,column=4))
     for i in range(NCS): inp(cfg.cell(row=5+i,column=6))
     for i in range(NREC): inp(cfg.cell(row=5+i,column=10))
     for i,v in enumerate(CAT_ENTRADA): cfg.cell(row=5+i,column=4,value=v)
     for i,v in enumerate(CAT_SAIDA): cfg.cell(row=5+i,column=6,value=v)
-    for i,(n_,_,_) in enumerate(dados.CONVENIOS): cfg.cell(row=5+i,column=10,value=n_)
-    cfg.cell(row=5+len(dados.CONVENIOS),column=10,value=dados.REN)
+    _rec=[n_ for n_,_,_ in dados.CONVENIOS]+[dados.REN]+[q["nome"] for q in dados.PACIENTES]
+    assert len(_rec)<=NREC, (len(_rec),NREC)
+    for i,v in enumerate(_rec): cfg.cell(row=5+i,column=10,value=v)
     for i,m_ in enumerate(MESES): cfg.cell(row=5+i,column=12,value=m_).font=F(size=10,color=TINTA)
     NE=f"COUNTA($D$5:$D${4+NCE})"; NS=f"COUNTA($F$5:$F${4+NCS})"
     for i in range(NCE+NCS):
@@ -58,7 +59,7 @@ def build():
         lan.cell(row=r,column=11,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(lan.cell(row=r,column=11))
     dvs=[(lista('"Entrada,Saída"'),f"B{R0}:B{RN}"),
          (lista(f"=OFFSET(Config!$H$5,0,0,MAX(1,COUNTA(Config!$D$5:$D${4+NCE})+COUNTA(Config!$F$5:$F${4+NCS})),1)",strict=True),f"C{R0}:C{RN}"),
-         (lista(f"=OFFSET(Config!$J$5,0,0,MAX(1,COUNTA(Config!$J$5:$J${4+NREC})),1)",strict=True),f"D{R0}:D{RN}"),
+         (lista(f"=OFFSET(Config!$J$5,0,0,MAX(1,COUNTA(Config!$J$5:$J${4+NREC})),1)",strict=False),f"D{R0}:D{RN}"),
          (lista('"'+",".join(FORMAS)+'"'),f"H{R0}:H{RN}"),
          (lista('"Sim,Não"'),f"I{R0}:I{RN}"),
          (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"A{R0}:A{RN}"),

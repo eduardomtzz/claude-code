@@ -160,7 +160,12 @@ def frase(i):
     num=lambda x: f'IF({un}="R$","R$ ","")&FIXED({x},IF({cd}="",0,{cd}))&IF(OR({un}="R$",{un}=""),""," "&{un})'
     return (f'=IF(OR({nome}="",{v}=""),"",'
             f'"• "&{nome}&": "&{num(v)}'
-            f'&IF({a}<>"",IF({var}>=0," (+"," (")&FIXED({var}*100,0)&"% em relação a "&Config!$B$8&")","")'
+            # Três casos, como nas planilhas 20 dos outros kits: mês anterior vazio (não
+            # comenta), mês anterior ZERO (diz que não há base) e variação calculável.
+            # Antes, com C=0 a condição a<>"" era verdadeira e a frase tentava
+            # FIXED(""*100,0) — achado da auditoria de 18/09.
+            f'&IF({a}="","",IF(AND({a}=0,{v}<>0)," (sem base de comparação: "&Config!$B$8&" foi zero)",'
+            f'IF({var}="","",IF({var}>=0," (+"," (")&FIXED({var}*100,0)&"% em relação a "&Config!$B$8&")")))'
             f'&IF({meta}<>"","; meta "&{num(meta)}&", "&LOWER({st}),"")&".")')
 for i in range(NI):
     rs.cell(row=6+i,column=1,value=frase(i)).font=F(size=10,color=TINTA); rs.merge_cells(start_row=6+i,start_column=1,end_row=6+i,end_column=4)
@@ -194,7 +199,8 @@ u=wb.create_sheet("Como usar",0)
 u["A1"]="Relatório Mensal Pronto"; u["A1"].font=F(bold=True,size=20,color=UVA)
 u["A2"]="Kit IA no Trabalho · Seu Sócio Gestor · versão 1.0 (setembro de 2026)"; u["A2"].font=F(size=10,color=LILAS)
 linhas=[
-("O que esta planilha faz","Você digita até 12 indicadores por mês; ela calcula variação contra o mês anterior, comparação com a meta, acumulado (soma; média para % e pts) e média, monta o painel e escreve as frases-base do relatório para você colar na IA."),
+("O que esta planilha faz","Você digita até 12 indicadores por mês; ela calcula variação contra o mês anterior, comparação com a meta, acumulado, média, monta o painel e escreve as frases-base do relatório para você colar na IA."),
+("Como acumular","Cada indicador tem a sua regra, escolhida na última coluna da aba Indicadores: \"Soma\" para o que se empilha (receita, despesa, quantidade, horas) e \"Média\" para razão (ticket médio, custo por lead, taxa de conversão, inadimplência, NPS) — inclusive quando a razão está em reais. Somar razão não significa nada: doze meses de ticket médio somados não são o ticket do ano. A Média usa só os meses preenchidos; um mês com zero digitado ENTRA na conta, um mês em branco não."),
 ("Passo 1","Em Config, preencha o nome da empresa ou área, o ano e escolha o mês do relatório."),
 ("Passo 2","Em Indicadores, troque os exemplos pelos seus (de cima para baixo, sem pular linha): nome, unidade (R$, %, un, h, pts), casas decimais, meta mensal e se maior é melhor. Depois, o valor de cada mês. Em %, digite 4,5 e não 0,045."),
 ("Passo 3","Abra Painel: cada indicador com mês, mês anterior, variação, meta e situação (verde no alvo, vermelho fora). Escolha um indicador para o gráfico de evolução."),

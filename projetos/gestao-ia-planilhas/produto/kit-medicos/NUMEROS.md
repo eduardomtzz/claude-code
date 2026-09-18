@@ -105,7 +105,6 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Saúde Total | 25 | 15,8 | R$ 2.546 | R$ 3.267 | −R$ 720 | 19 % | 9 % |
 | MediPlan | 30 | 19,0 | R$ 2.446 | R$ 3.920 | −R$ 1.474 | 23 % | 9 % |
 | Vida Care | 13 | 8,2 | R$ 906 | R$ 1.699 | −R$ 793 | 10 % | 3 % |
-| None | None | — | — | — | — | — | — |
 | **Total** | 130 | 82,3 | R$ 26.867 | R$ 16.987 | **R$ 9.880** |  |  |
 
 - 07 KPIs: custo cheio da consulta R$ 130,67; hora mínima R$ 338,98; particular líquido por hora R$ 534,00; melhor convênio "Saúde Total: R$ 161"; pior "Vida Care: R$ 110".
@@ -519,7 +518,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ## 9. Cartão e taxas (16 · Conciliação, Config = Agosto)
 
-- **Agosto**: vendas no cartão e Pix R$ 31.820 · taxas **R$ 484,12** (1,52 %) · líquido R$ 31.335,88 · ainda vai cair R$ 12.388,26 · a conferir R$ 5.652,71. "As taxas do mês equivalem a 1,3 consultas particulares. Lance este total no caixa (09) como saída 'Taxas de cartão' no fim do mês."
+- **Agosto**: vendas no cartão e Pix R$ 31.820 · taxas **R$ 484,12** (1,52 %) · líquido R$ 31.335,88 · ainda vai cair R$ 12.388,26 · a conferir R$ 4.758,98. "As taxas das vendas do mês equivalem a 1,3 consultas particulares. Para o caixa (09), a saída 'Taxas de cartão' do mês é R$ 681,61: é a taxa das liquidações que caíram neste mês, e não a das vendas feitas nele."
 | Tipo (16, agosto) | Vendas | Bruto | Taxas | Taxa média | Líquido | % do bruto |
 |---|---|---|---|---|---|---|
 | Pix | 37 | R$ 13.380 | R$ 0,00 | 0,00 % | R$ 13.380 | 42 % |
@@ -535,14 +534,8 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Objetivo | Resultado-chave | Dono | Unid. | Partida (30/06) | Meta | Atual (14/09) | Progresso | Semáforo | Sentido | S1…S11 (sextas 03/07 → 11/09; S11 = atual) |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Agenda cheia, sem faltas | Ocupação da agenda nas últimas 4 semanas (%) | Bruna | % | 75,2 | 80,0 | 74,5 | 0 % | Em risco | Maior é melhor | 75,2 · 74,5 · 71,7 · 72,6 · 71,7 · 70,8 · 72,0 · 68,1 · 70,3 · 74,5 · 74,5 |
-|  | Taxa de falta nas últimas 4 semanas (%) | Bruna | % | 6,9 | 5,0 | 7,1 | 0 % | Em risco | Menor é melhor | 6,9 · 7,4 · 8,7 · 7,9 · 9,1 · 9,1 · 8,6 · 9,4 · 8,8 · 7,4 · 7,1 |
-|  | Pacientes na lista de retorno sem agendamento | Bruna | pacientes | 0,0 | 8,0 | 8,0 | 100 % | Atingido | Menor é melhor | 0,0 · 0,0 · 0,0 · 0,0 · 1,0 · 1,0 · 2,0 · 2,0 · 3,0 · 5,0 · 8,0 |
 | Convênio sob controle | Glosa nos lotes pagos no ano (%) | Paulo | % | 6,1 | 4,0 | 5,5 | 29 % | Em risco | Menor é melhor | 6,1 · 5,6 · 5,6 · 5,8 · 5,8 · 5,8 · 5,8 · 5,8 · 5,8 · 5,8 · 5,5 |
-|  | Prazo real médio de pagamento dos lotes (dias) | Paulo | dias | 46,7 | 40,0 | 44,0 | 40 % | Em risco | Menor é melhor | — · 46,5 · 46,5 · 46,0 · 46,0 · 45,8 · 45,8 · 45,7 · 45,7 · 45,7 · 44,0 |
-|  | Glosa recuperada por recurso no trimestre (R$) | Paulo | R$ | 0,0 | 1.000,0 | 200,0 | 20 % | Em risco | Maior é melhor | 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 0,0 · 200,0 |
 | Caixa previsível | Inadimplência a prazo: vencido ÷ (pago + vencido) (%) | Carolina | % | 10,9 | 8,0 | 9,4 | 52 % | Em risco | Menor é melhor | 10,6 · 9,8 · 10,9 · 10,7 · 10,0 · 10,9 · 9,5 · 10,8 · 10,1 · 8,8 · 9,4 |
-|  | Reserva guardada em conta separada (R$) | Carolina | R$ | 8.000,0 | 17.000,0 | 14.000,0 | 67 % | Atenção | Maior é melhor | 8.000,0 · 8.000,0 · 8.000,0 · 8.000,0 · 11.000,0 · 11.000,0 · 11.000,0 · 11.000,0 · 11.000,0 · 14.000,0 · 14.000,0 |
-|  | Conta de provisão de impostos, 13º e férias (R$) | Carolina | R$ | 8.200,0 | 18.209,0 | 17.500,0 | 93 % | No ritmo | Maior é melhor | 8.200,0 · 8.200,0 · 8.200,0 · 8.200,0 · 11.300,0 · 11.300,0 · 11.300,0 · 11.300,0 · 11.300,0 · 14.400,0 · 17.500,0 |
 
 - **12 Reserva**: meta 3 meses de custo fixo + pró-labore × custo fixo + pró-labore médio R$ 30.636 (jun/jul/ago, como a 09 mostra) = **R$ 91.909**; reserva hoje **R$ 14.000**; falta R$ 77.909; cobre **0,5 meses**; semáforo "Vermelho: menos de 1 mês de custo fixo + pró-labore guardado"; com aporte de R$ 3.000/mês a meta chega em **Novembro/2028**. Saldo em caixa R$ 38.606 − compromissos não pagos R$ 26.603 = caixa livre R$ 12.003.
 | Meta de caixa do trimestre (12) | Alvo | Atual | Progresso | Prazo | Situação |

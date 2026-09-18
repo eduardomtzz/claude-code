@@ -52,28 +52,39 @@ for r in range(R0,RN+1):
     v.cell(row=r,column=8,value=f'=IF(D{r}="","",IFERROR(INDEX({TX},MATCH({tipo},{TT},0)),0)+IF(AND({ANT}="Sim",LEFT(D{r},17)="Cartão de crédito"),{TXA}*IFERROR(INDEX({DD},MATCH({tipo},{TT},0)),0)/30*MAX(1,N(E{r})),0))'); calc(v.cell(row=r,column=8),"0.00%")
     v.cell(row=r,column=9,value=f'=IF(OR(D{r}="",F{r}=""),"",ROUND(F{r}*H{r},2))'); calc(v.cell(row=r,column=9),BRL)
     v.cell(row=r,column=10,value=f'=IF(I{r}="","",F{r}-I{r})'); calc(v.cell(row=r,column=10),BRL)
-    v.cell(row=r,column=11,value=f'=IF(J{r}="","",J{r}/{NP_})'); calc(v.cell(row=r,column=11),BRL)
+    # NEF = liquidações FINANCEIRAS efetivas (coluna V, oculta). Com antecipação integral
+    # o líquido inteiro cai em D+1: é UMA liquidação, embora a taxa use o n comercial de
+    # parcelas. Sem essa separação, L e M mostravam 11/09 nos dois e K/N/O continuavam
+    # dividindo por 2, dizendo que metade ainda ia cair (achado G-20 da auditoria de 18/09).
+    NEF=f'MAX(1,N($V{r}))'
+    v.cell(row=r,column=11,value=f'=IF(J{r}="","",J{r}/{NEF})'); calc(v.cell(row=r,column=11),BRL)
     v.cell(row=r,column=12,value=f'=IF(OR(D{r}="",A{r}=""),"",A{r}+IF(AND({ANT}="Sim",LEFT(D{r},17)="Cartão de crédito"),1,IFERROR(INDEX({DD},MATCH({tipo},{TT},0)),0)))'); calc(v.cell(row=r,column=12),DATA)
     # Com antecipação integral todo o líquido cai em D+1, então a última parcela é a
     # primeira. Antes só a 1ª ia para D+1 e as demais seguiam de 30 em 30, contradizendo
     # o texto da Config.
-    v.cell(row=r,column=13,value=f'=IF(L{r}="","",IF(AND({ANT}="Sim",LEFT(D{r},17)="Cartão de crédito"),L{r},L{r}+30*({NP_}-1)))'); calc(v.cell(row=r,column=13),DATA)
-    v.cell(row=r,column=14,value=f'=IF(OR(L{r}="",K{r}=""),"",K{r}*MIN({NP_},MAX(0,INT(({HOJE}-L{r})/30)+1)))'); calc(v.cell(row=r,column=14),BRL)
+    v.cell(row=r,column=13,value=f'=IF(L{r}="","",L{r}+30*({NEF}-1))'); calc(v.cell(row=r,column=13),DATA)
+    v.cell(row=r,column=14,value=f'=IF(OR(L{r}="",K{r}=""),"",K{r}*MIN({NEF},MAX(0,INT(({HOJE}-L{r})/30)+1)))'); calc(v.cell(row=r,column=14),BRL)
     v.cell(row=r,column=15,value=f'=IF(J{r}="","",J{r}-N(N{r}))'); calc(v.cell(row=r,column=15),BRL)
     v.cell(row=r,column=16,value=f'=IF(A{r}="","",MONTH(A{r}))'); calc(v.cell(row=r,column=16))
     v.cell(row=r,column=17,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(v.cell(row=r,column=17))
     # parcelas que já venceram até a data de referência
-    venc=f'MIN(MAX(1,N(E{r})),MAX(0,INT(({HOJE}-L{r})/30)+1))'
+    venc=f'MIN({NEF},MAX(0,INT(({HOJE}-L{r})/30)+1))'
     v.cell(row=r,column=18,value=f'=IF(L{r}="","",IF(L{r}>{HOJE},"A cair",'
-        f'IF(N(G{r})>={venc},IF(N(G{r})>=MAX(1,N(E{r})),"Conferido","Conferido até aqui"),'
+        f'IF(N(G{r})>={venc},IF(N(G{r})>={NEF},"Conferido","Conferido até aqui"),'
         f'"A conferir")))'); calc(v.cell(row=r,column=18))
-    v.cell(row=r,column=19,value=f'=IF(R{r}="A conferir",({HOJE}-L{r})*1000+N(F{r})/1000+ROW()/100000,0)'); v.cell(row=r,column=19).font=F(color=CINZA,size=9)
-    v.cell(row=r,column=20,value=f'=IF(R{r}="A conferir",N(N{r}),0)'); v.cell(row=r,column=20).font=F(color=CINZA,size=9)
+    v.cell(row=r,column=19,value=f'=IF(R{r}="A conferir",({HOJE}-L{r})*1E+10+MIN(ROUND(N(F{r}),0),99999)*1E+5+({RN}+1-ROW()),0)'); v.cell(row=r,column=19).font=F(color=CINZA,size=9)
+    # Pendência = só as parcelas VENCIDAS e ainda NÃO conferidas. Somar N (todo o
+    # liquidado) fazia o painel pedir reconferência de dinheiro já conciliado: R$ 5.652,71
+    # em vez de R$ 4.758,98 no exemplo, R$ 893,73 a mais em cinco linhas (regressão da
+    # auditoria de 18/09). Quando todas venceram, usa J-K*G para fechar o centavo da última.
+    v.cell(row=r,column=20,value=f'=IF(R{r}<>"A conferir",0,IF({venc}>={NEF},J{r}-K{r}*N(G{r}),K{r}*({venc}-N(G{r}))))'); v.cell(row=r,column=20).font=F(color=CINZA,size=9)
     v.cell(row=r,column=21,value=f'=IF(L{r}="",0,L{r})'); v.cell(row=r,column=21).font=F(color=CINZA,size=9)
-    v.cell(row=r,column=22,value=f'=IF(L{r}="",0,{NP_})'); v.cell(row=r,column=22).font=F(color=CINZA,size=9)
+    v.cell(row=r,column=22,value=f'=IF(L{r}="",0,IF(AND({ANT}="Sim",LEFT(D{r},17)="Cartão de crédito"),1,{NP_}))'); v.cell(row=r,column=22).font=F(color=CINZA,size=9)
     v.cell(row=r,column=23,value=f'=IF(K{r}="",0,K{r})'); v.cell(row=r,column=23).font=F(color=CINZA,size=9)
-for col in "STUVW": v.column_dimensions[col].hidden=True
-dvs=[(lista('"'+",".join(TIPOS)+'"'),f"D{R0}:D{RN}"),(lista('"Sim,Não"'),f"G{R0}:G{RN}"),(DataValidation(type="whole",operator="between",formula1="1",formula2="12",allow_blank=True,showErrorMessage=True),f"E{R0}:E{RN}"),
+    # taxa de cada liquidação: o caixa (09) paga a taxa quando o dinheiro cai, não no dia da venda
+    v.cell(row=r,column=24,value=f'=IF(OR(I{r}="",L{r}=""),0,I{r}/{NEF})'); v.cell(row=r,column=24).font=F(color=CINZA,size=9)
+for col in "STUVWX": v.column_dimensions[col].hidden=True
+dvs=[(lista('"'+",".join(TIPOS)+'"'),f"D{R0}:D{RN}"),(DataValidation(type="custom",formula1=f'=AND(N(G{R0})=INT(N(G{R0})),N(G{R0})>=0,N(G{R0})<=MAX(1,N($V{R0})))',allow_blank=True,showErrorMessage=True,errorTitle="Parcelas já conferidas",error="Digite um número inteiro de 0 até a quantidade de parcelas que caem na conta (com antecipação integral, 1)."),f"G{R0}:G{RN}"),(DataValidation(type="whole",operator="between",formula1="1",formula2="12",allow_blank=True,showErrorMessage=True),f"E{R0}:E{RN}"),
      (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"A{R0}:A{RN}"),(DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True),f"F{R0}:F{RN}")]
 for dv,rng in dvs: dv.add(rng); v.add_data_validation(dv)
 v.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'$R{R0}="A conferir"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
@@ -87,6 +98,7 @@ widths(v,(12,26,20,17,9,13,12,9,11,13,13,13,14,14,13,6,6,16)); v.freeze_panes="C
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
 titulo(p,'=Config!$B$4&" · Conciliação de cartão e taxas · "&Config!$B$6&" de "&Config!$B$5',"Nada para digitar aqui. Escolha o mês em Config; tudo vem de Vendas. Taxas por mês da venda; a receber por previsão na conta.",merge_to="L")
+D0=18   # primeira linha do quadro "dia a dia" (o A7 e a auxiliar N já dependem dela)
 M="Config!$B$7"; Y="Config!$B$5"
 V=lambda col: f"Vendas!${col}${R0}:${col}${RN}"
 MES=f"{V('P')},{M},{V('Q')},{Y}"
@@ -96,7 +108,12 @@ kpi(p,4,5,"Taxa média",'=IF(A5=0,"",C5/A5)',VERM,VERM_T,fmt="0.00%")
 kpi(p,4,7,"Líquido no mês",'=A5-C5',VERDE,VERDE_T,fmt=BRL0)
 kpi(p,4,9,"Ainda vai cair (todas as vendas)",f'=SUM({V("O")})',SOL,UVA,fmt=BRL0)
 kpi(p,4,11,"A conferir",f'=SUM({V("T")})',VERM,VERM_T,fmt=BRL0)
-p["A7"]='="As taxas do mês equivalem a "&FIXED(IF(Config!$B$9=0,0,C5/Config!$B$9),1)&" consultas particulares. Lance este total no caixa (09) como saída \'Taxas de cartão\' no fim do mês."'; nota(p["A7"]); p.merge_cells("A7:L7")
+# Taxa por DATA DE LIQUIDAÇÃO: é quando a operadora desconta. O A7 antigo mandava lançar
+# no caixa o C5 (taxa das vendas do mês); em agosto isso dava R$ 484,12 contra R$ 681,61
+# efetivamente descontados, R$ 197,49 de despesa a menos e saldo inflado (achado de 18/09).
+p["N4"]="Taxas liquidadas no mês (auxiliar)"; p["N4"].font=F(size=9,color=CINZA)
+p["N5"]=f"=SUM(N{D0+2}:N{D0+32})"; p["N5"].font=F(size=9,color=CINZA); p["N5"].number_format=BRL
+p["A7"]='="As taxas das vendas do mês equivalem a "&FIXED(IF(Config!$B$9=0,0,C5/Config!$B$9),1)&" consultas particulares. Para o caixa (09), a saída \'Taxas de cartão\' do mês é "&"R$ "&FIXED($N$5,2)&": é a taxa das liquidações que caíram neste mês, e não a das vendas feitas nele."'; nota(p["A7"]); p.merge_cells("A7:L7")
 p["A9"]="Por tipo de pagamento no mês"; p["A9"].font=F(bold=True,size=13,color=UVA)
 hdr(p,10,["Tipo","Vendas","Bruto (R$)","Taxas (R$)","Taxa média","Líquido (R$)","% do bruto","Barra"]); p.merge_cells("H10:J10")
 # crédito à vista = todo crédito menos o parcelado (parcelas em branco contam como à vista)
@@ -122,7 +139,6 @@ for c in (1,2,3,4,6): p.cell(row=15,column=c).font=F(bold=True,color=UVA,size=10
 p.cell(row=15,column=3).number_format=BRL0; p.cell(row=15,column=4).number_format=BRL; p.cell(row=15,column=6).number_format=BRL0
 p.cell(row=16,column=1,value="Parcelado custa mais e demora mais. Se o parcelado pesa, vale oferecer desconto no Pix em vez de absorver a taxa; a decisão é da clínica.").font=F(size=9,color=LILAS)
 # por semana do mês (dia a dia)
-D0=18
 p.cell(row=D0,column=1,value="Dia a dia do mês: vendas, taxas e previsão de crédito").font=F(bold=True,size=13,color=UVA)
 hdr(p,D0+1,["Dia","Data","Vendas","Bruto (R$)","Taxas (R$)","Líquido (R$)","Cai na conta neste dia (R$)","Conferido?"],height=32)
 for i in range(31):
@@ -135,6 +151,9 @@ for i in range(31):
     p.cell(row=r,column=6,value=f'=IF(B{r}="","",D{r}-E{r})'); calc(p.cell(row=r,column=6),BRL0)
     p.cell(row=r,column=7,value=f'=IF(B{r}="","",SUMPRODUCT(({V("U")}>0)*({V("U")}<=B{r})*(MOD(B{r}-{V("U")},30)=0)*((B{r}-{V("U")})/30<{V("V")})*{V("W")}))'); calc(p.cell(row=r,column=7),BRL0)
     p.cell(row=r,column=8,value=f'=IF(OR(B{r}="",G{r}=0),"",IF(COUNTIFS({V("L")},B{r},{V("R")},"A conferir")>0,"Falta conferir",IF(B{r}>{HOJE},"A cair","Conferido")))'); calc(p.cell(row=r,column=8))
+    # auxiliar oculta: taxa das liquidações deste dia. Mesmo predicado da coluna G, com a
+    # taxa por liquidação (Vendas!X) no lugar do líquido.
+    p.cell(row=r,column=14,value=f'=IF(B{r}="",0,SUMPRODUCT(({V("U")}>0)*({V("U")}<=B{r})*(MOD(B{r}-{V("U")},30)=0)*((B{r}-{V("U")})/30<{V("V")})*{V("X")}))'); p.cell(row=r,column=14).font=F(color=CINZA,size=9)
 p.conditional_formatting.add(f"A{D0+2}:H{D0+32}", FormulaRule(formula=[f'$C{D0+2}=0'], font=F(color="B0A6C4",size=10)))
 p.conditional_formatting.add(f"H{D0+2}:H{D0+32}", FormulaRule(formula=[f'H{D0+2}="Falta conferir"'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 p.conditional_formatting.add(f"H{D0+2}:H{D0+32}", FormulaRule(formula=[f'H{D0+2}="Conferido"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
@@ -161,7 +180,7 @@ bc=BarChart(); bc.type="col"; bc.grouping="stacked"; bc.overlap=100; bc.height=6
 bc.add_data(Reference(p,min_col=6,min_row=10,max_row=14),titles_from_data=True); bc.add_data(Reference(p,min_col=4,min_row=10,max_row=14),titles_from_data=True); bc.set_categories(Reference(p,min_col=1,min_row=11,max_row=14))
 bc.series[0].graphicalProperties.solidFill=UVA; bc.series[1].graphicalProperties.solidFill="C0392B"; bc.legend.position="b"; bc.y_axis.majorGridlines=None
 p.add_chart(bc,"K9")
-widths(p,(24,13,12,13,13,13,16,14,13,12,12,12)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
+widths(p,(24,13,12,13,13,13,16,14,13,12,12,12)); p.column_dimensions["N"].hidden=True; p.freeze_panes="A4"; p.sheet_view.showGridLines=False
 # ---------- Exemplo ----------
 vendas=[r for r in dados.AGENDA if r["situacao"]=="Realizado" and r["pagador"]=="Particular" and r["forma"] in TIPOS]
 assert len(vendas)<=N
@@ -183,8 +202,8 @@ como_usar(wb,"Conciliação de cartão e taxas",[
  ("O que esta planilha faz","Cada pagamento no cartão ou no Pix com a taxa da operadora, o valor líquido e o dia em que cai na conta. Mostra quanto as taxas comem no mês (e a quantas consultas equivalem), o que ainda vai cair, o que já deveria ter caído e não foi conferido, e o dia a dia para bater com o extrato."),
  ("Passo 1","Em Config, digite as taxas e os prazos da sua operadora (contrato da maquininha ou extrato), se antecipa o crédito e o preço da consulta particular (só para a comparação)."),
  ("Passo 2","Em Vendas, uma linha por pagamento: data, paciente, procedimento, tipo, parcelas e valor bruto (copie da Agenda da 01, filtrando os particulares pagos com Pix ou cartão). A cada quinzena, escreva em \"Parcelas já conferidas\" quantas parcelas daquela venda você já achou no extrato: 1 para Pix, débito e crédito à vista; no parcelado vá somando conforme cada parcela cai. Assim a venda volta para \"A conferir\" quando a parcela seguinte vencer, em vez de ficar conferida para sempre depois da primeira."),
- ("Passo 3","Em Painel, escolha o mês em Config: vendas, taxas, líquido, por tipo, dia a dia e a lista \"Falta conferir\". No fechamento do mês, lance o total de taxas como saída \"Taxas de cartão\" no caixa (09)."),
- ("Rotina","É uma planilha QUINZENAL, fora dos 30 minutos semanais da planilha 03: a cada 15 dias, 10 minutos para conferir o extrato da operadora contra \"Cai na conta neste dia\" e marcar as conferidas. No fechamento do mês, lance o total de taxas no caixa (09). Uma vez por semestre: comparar a taxa média com outra operadora."),
+ ("Passo 3","Em Painel, escolha o mês em Config: vendas, taxas, líquido, por tipo, dia a dia e a lista \"Falta conferir\". No fechamento do mês, lance como saída \"Taxas de cartão\" no caixa (09) o valor que a nota abaixo dos quadros indica: a taxa das liquidações que caíram no mês, não a das vendas feitas nele."),
+ ("Rotina","É uma planilha QUINZENAL, fora dos 30 minutos semanais da planilha 03: a cada 15 dias, 10 minutos para conferir o extrato da operadora contra \"Cai na conta neste dia\" e marcar as conferidas. No fechamento do mês, lance no caixa (09) a taxa das liquidações do mês, que a nota abaixo dos quadros mostra pronta. Uma vez por semestre: comparar a taxa média com outra operadora."),
  ("Limite e como estender","A aba Vendas tem 2.000 linhas (5 a 2004): mais de um ano com cerca de 100 pagamentos por mês. Perto do fim, desproteja a aba, copie a última linha para baixo e ajuste o número final nas fórmulas do Painel, ou comece um arquivo por ano."),
  ("Ligação com as outras planilhas","O caixa (09) registra o bruto na data em que cai na conta, usando as datas desta planilha; a taxa do mês é a saída do fim do mês em que o dinheiro caiu. Por isso a taxa desta tela (vendas de agosto) e a do caixa (recebimentos de agosto) são números diferentes de propósito. O resultado mensal (18) mostra as taxas como despesa variável. No exemplo o Painel está em agosto (mês fechado); setembro está em andamento."),
  ("Com a IA","Copie \"Por tipo de pagamento\" e use o prompt \"Caixa 09 · A taxa da maquininha está comendo a margem?\" da biblioteca do kit para decidir entre absorver a taxa, oferecer desconto no Pix ou trocar de operadora."),

@@ -116,8 +116,8 @@ for i,row in enumerate(ex):
     for c,v in enumerate(row,start=1): lan.cell(row=R0+i,column=c,value=v)
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
-p["A1"]='=Config!B4&" · "&Config!B6&" de "&Config!B5'; p["A1"].font=F(bold=True,size=16,color=UVA); p.merge_cells("A1:H1")
-p["A2"]="Nada para preencher aqui. Escolha o mês em Config; tudo vem de Lançamentos."; p["A2"].font=F(italic=True,size=10,color=LILAS); p.merge_cells("A2:H2")
+p["A1"]='=Config!B4&" · "&Config!B6&" de "&Config!B5'; p["A1"].font=F(bold=True,size=16,color=UVA); p.merge_cells("A1:L1")
+p["A2"]="Nada para preencher aqui. Escolha o mês em Config; tudo vem de Lançamentos."; p["A2"].font=F(italic=True,size=10,color=LILAS); p.merge_cells("A2:L2")
 M="Config!$B$7"; Y="Config!$B$5"
 LA=f"Lançamentos!$A${R0}:$A${RN}"; LB=f"Lançamentos!$B${R0}:$B${RN}"; LC=f"Lançamentos!$C${R0}:$C${RN}"; LE=f"Lançamentos!$E${R0}:$E${RN}"; LG=f"Lançamentos!$G${R0}:$G${RN}"; LI=f"Lançamentos!$I${R0}:$I${RN}"; LJ=f"Lançamentos!$J${R0}:$J${RN}"
 # Painel de CAIXA: só entra o que está marcado Pago? = Sim. Sem esse filtro,
@@ -162,7 +162,7 @@ p.merge_cells("C12:F12"); p["D10"].font=F(size=10,color=LILAS); p["D11"].font=F(
 # R$ 4.535,90 (R$ 362 de duas contas de setembro ainda não pagas), com a coluna
 # "% do total" somando 108,7 %.
 p["A13"]='="Todo este painel é de caixa: entra só o lançamento com Pago? = Sim. O que ainda falta pagar ou receber aparece nos dois quadros do alto. O que vai para a categoria "&'+RES+'&" sai da conta (entra em Saiu no mês), mas não é gasto: fica fora da média e soma ao cálculo de meses de reserva."'
-p["A13"].font=F(size=9,color=LILAS); p.merge_cells("A13:H13")
+p["A13"].font=F(size=9,color=LILAS); p.merge_cells("A13:L13")
 # por categoria
 S=2  # deslocamento das seções abaixo (bloco da reserva ganhou 2 linhas)
 p.cell(row=13+S,column=1,value="Para onde foi o dinheiro").font=F(bold=True,size=13,color=UVA)
@@ -204,7 +204,9 @@ bc.add_data(Reference(p,min_col=2,max_col=3,min_row=A0+1,max_row=A0+13),titles_f
 bc.series[0].graphicalProperties.solidFill="7A5AA8"; bc.series[1].graphicalProperties.solidFill="3B1F5E"; bc.legend.position="b"; bc.y_axis.majorGridlines=None
 p.add_chart(bc,f"G{A0}")
 p.cell(row=A0+14,column=1,value="Meses sem lançamento aparecem zerados. Compare só os meses já fechados.").font=F(size=9,color=LILAS)
-for c,w in zip(range(1,11),(30,16,12,16,12,12,12,12,4,4)): p.column_dimensions[L(c)].width=w
+for c,w in zip(range(1,13),(30,16,12,16,12,12,12,12,14,12,14,12)): p.column_dimensions[L(c)].width=w
+for c in (1,3,5,7,9,11): p.cell(row=4,column=c).alignment=Alignment(horizontal="center",wrap_text=True)
+p.row_dimensions[4].height=26
 p.freeze_panes="A4"; p.sheet_view.showGridLines=False
 # ---------- Como usar ----------
 u=wb.create_sheet("Como usar",0)

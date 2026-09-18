@@ -1,4 +1,5 @@
 """Helpers comuns das planilhas do Seu Sócio Gestor (mesmo padrão visual do Kit Essencial)."""
+import re
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side, Protection
 from openpyxl.worksheet.datavalidation import DataValidation
@@ -50,8 +51,8 @@ def como_usar(wb,nome,linhas,pos=0):
      ("Legenda","Células amarelas: você preenche. Brancas: calculadas. Não é preciso mexer em nada fora do amarelo."),
      ("Proteção","Fórmulas protegidas sem senha. Para editar: Revisar > Desproteger planilha (Excel) ou Dados > Proteger intervalos (Google Sheets)."),
      ("Requisitos","Excel 2016 ou mais novo, Microsoft 365 ou Google Sheets (só funções do Excel 2007+; nada de MÍNIMOSES, MÁXIMOSES ou UNIRTEXTO). No celular abre nos aplicativos; para preencher, use o computador."),
-     ("Google Sheets","Faça upload no Google Drive e abra com o Google Sheets. Fórmulas, listas, cores e gráficos funcionam."),
-     ("Data de referência","O exemplo está congelado em 14/09/2026, para todos os arquivos do kit mostrarem a mesma foto e os números fecharem entre eles. Ao começar a usar com os seus dados, troque a data de referência em Config por =HOJE(): daí em diante ela acompanha o dia."),
+     ("Google Sheets","Faça upload no Google Drive e abra com o Google Sheets. Fórmulas, listas, cores, semáforos e gráficos funcionam: as regras de cor que dependem do mês escolhido em Config usam INDIRECT, que é a forma que o Sheets aceita para regra condicional apontar para outra aba."),
+     ("Data de referência","O exemplo está congelado em 14/09/2026, para todos os arquivos do kit mostrarem a mesma foto e os números fecharem entre eles. Ao começar a usar com os SEUS dados, troque em Config: a data de referência por =HOJE(), o ano, o mês do painel, o trimestre (onde houver) e a lista de feriados. Trocar só a data de referência deixa o resto apontando para 2026."),
      ("Exemplos","Prisma Comunicação é uma empresa fictícia. Nomes e valores são inventados. Apague-os antes de começar."),
      ("Suporte","suporte@seusociogestor.com.br · resposta em até 5 dias úteis · reembolso em até 7 dias pelo mesmo canal.")]
     for i,(a,b) in enumerate(base,start=4):
@@ -63,5 +64,25 @@ def proteger(wb):
     for ws in wb.worksheets:
         ws.protection.sheet=True; ws.protection.formatColumns=False; ws.protection.formatRows=False
         ws.protection.selectLockedCells=False; ws.protection.sort=False; ws.protection.autoFilter=False
+_REF_OUTRA_ABA=re.compile("(?<![A-Za-z0-9_!$])((?:'[^']+'|[A-Za-z\u00c0-\u00ff][A-Za-z\u00c0-\u00ff0-9_. ]*)![$]?[A-Z]{1,3}[$]?[0-9]+(?::[$]?[A-Z]{1,3}[$]?[0-9]+)?)")
+def _indireto(formula):
+    """Embrulha referência a OUTRA ABA em INDIRECT, dentro de fórmula de formatação
+    condicional. O Google Sheets não aceita referência a outra aba em regra condicional
+    (só via INDIRECT); sem isso, os semáforos que comparam com o mês escolhido em Config
+    param de acompanhar depois de importar. Excel e LibreOffice aceitam as duas formas.
+    Achado da auditoria de 18/09: 120 das 470 regras estavam nessa situação."""
+    if "INDIRECT(" in formula.upper(): return formula
+    return _REF_OUTRA_ABA.sub(lambda m: 'INDIRECT("%s")' % m.group(1), formula)
+def _condicional_para_sheets(wb):
+    n=0
+    for ws in wb.worksheets:
+        for rng in ws.conditional_formatting:
+            for r in rng.rules:
+                if not r.formula: continue
+                novas=[_indireto(f or "") for f in r.formula]
+                if novas!=list(r.formula): n+=1
+                r.formula=novas
+    return n
 def salvar(wb,arquivo,titulo_doc):
+    _condicional_para_sheets(wb)
     wb.properties.creator="Seu Sócio Gestor"; wb.properties.title=titulo_doc; wb.save(arquivo); print("salvo",arquivo)

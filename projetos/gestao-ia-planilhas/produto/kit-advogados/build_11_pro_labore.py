@@ -19,10 +19,13 @@ cfg["A7"]="Número do mês"; cfg["B7"]="=MATCH(B6,$H$5:$H$16,0)"
 cfg["A8"]="Trimestre do painel"; cfg["B8"]="=ROUNDUP(B7/3,0)"
 cfg["A9"]="Parte do lucro do trimestre distribuída aos sócios"; cfg["B9"]=dados.DISTRIB
 cfg["A10"]="Lucro mínimo do trimestre para haver distribuição"; cfg["B10"]=dados.LUCRO_MINIMO
-for r in range(4,11): rotulo(cfg.cell(row=r,column=1))
-inp(cfg["B4"]); inp(cfg["B5"],center=True); inp(cfg["B6"],center=True); calc(cfg["B7"]); calc(cfg["B8"]); inp(cfg["B9"],PCT,center=True); inp(cfg["B10"],BRL)
+cfg["A11"]="Data de referência (hoje)"; cfg["B11"]=dados.HOJE
+for r in range(4,12): rotulo(cfg.cell(row=r,column=1))
+inp(cfg["B4"]); inp(cfg["B5"],center=True); inp(cfg["B6"],center=True); calc(cfg["B7"]); calc(cfg["B8"]); inp(cfg["B9"],PCT,center=True); inp(cfg["B10"],BRL); inp(cfg["B11"],DATA,center=True)
+cfg["D11"]="O exemplo está congelado em 14/09/2026. Ao usar com os seus dados, troque por =HOJE(). É esta data que decide se um trimestre já terminou."
+nota(cfg["D11"]); cfg.merge_cells("D11:F11"); cfg["D11"].alignment=Alignment(wrap_text=True,vertical="top"); cfg.row_dimensions[11].height=32
 cfg["D9"]="Regra combinada entre os sócios: o restante do lucro fica no escritório (reserva e provisões). Trimestre com lucro abaixo do mínimo não distribui."
-cfg["D10"]="A distribuição é calculada só para trimestres já fechados (os três meses lançados em Resultado mensal e anteriores ao mês do painel)."
+cfg["D10"]="A distribuição é calculada só para trimestres já fechados: o último dia do trimestre já passou (pela data de referência abaixo) E os três meses estão lançados em Resultado mensal, nas três colunas. Mês em branco não fecha o trimestre."
 for r in (9,10): nota(cfg.cell(row=r,column=4)); cfg.cell(row=r,column=4).alignment=Alignment(wrap_text=True,vertical="top"); cfg.merge_cells(start_row=r,start_column=4,end_row=r,end_column=6); cfg.row_dimensions[r].height=32
 cfg["H4"]="Meses"; cfg["J4"]="Tipos de movimento"; rotulo(cfg["H4"]); rotulo(cfg["J4"])
 for i,m_ in enumerate(MESES): cfg.cell(row=5+i,column=8,value=m_).font=F(size=10,color=TINTA)
@@ -109,7 +112,15 @@ for q in range(4):
     p.cell(row=r,column=1,value=TRIMS[q]); calc(p.cell(row=r,column=1),center=False)
     p.cell(row=r,column=2,value=f"=SUM('Resultado mensal'!B{a}:B{b})"); p.cell(row=r,column=3,value=f"=SUM('Resultado mensal'!C{a}:C{b})")
     p.cell(row=r,column=4,value=f"=SUM('Resultado mensal'!D{a}:D{b})"); p.cell(row=r,column=5,value=f"=SUM('Resultado mensal'!E{a}:E{b})")
-    p.cell(row=r,column=6,value=f'=IF({M}>{3*(q+1)},"Sim","Em andamento")')
+    # O trimestre fecha quando a data de referência passou do último dia dele E os três
+    # meses estão lançados nas três colunas (entradas, saídas e pró-labore). O teste antigo
+    # era mês do painel > 3*(q+1), que no 4º trimestre exigia mês 13: nunca fechava. E
+    # contar só as entradas liberava lucro com as despesas em branco (achado G-9 de 18/09).
+    ano_seg = 'Config!$B$5+1' if q == 3 else 'Config!$B$5'
+    mes_seg = 1 if q == 3 else 3*(q+1)+1
+    tres = (f"AND(COUNT('Resultado mensal'!B{a}:B{b})>=3,COUNT('Resultado mensal'!C{a}:C{b})>=3,"
+            f"COUNT('Resultado mensal'!D{a}:D{b})>=3)")
+    p.cell(row=r,column=6,value=f'=IF(AND(Config!$B$11>=DATE({ano_seg},{mes_seg},1),{tres}),"Sim","Em andamento")')
     p.cell(row=r,column=7,value=f'=IF(AND(F{r}="Sim",E{r}>=Config!$B$10),E{r}*Config!$B$9,0)')
     p.cell(row=r,column=8,value=f'=SUMIFS({RE},{RC},"Distribuição de lucro",{RF},A{r},{RH},{Y})')
     p.cell(row=r,column=9,value=f"=IF(ABS(G{r}-H{r})<1,0,G{r}-H{r})")

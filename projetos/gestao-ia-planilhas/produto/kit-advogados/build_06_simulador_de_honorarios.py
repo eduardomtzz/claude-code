@@ -45,7 +45,7 @@ campos=[("Cliente","Cliente",None),("Área","Cível",None),("O que será feito (
 for i,(a,v,fmt) in enumerate(campos):
     r=8+i; s.cell(row=r,column=1,value=a); rotulo(s.cell(row=r,column=1)); s.cell(row=r,column=2,value=v); inp(s.cell(row=r,column=2),fmt,center=fmt is not None)
 s["B8"]=dados.CLIENTES[7][0]
-s["C11"]="Copie da planilha 05 · Custo-hora (Painel, \"Custo-hora do escritório\"). No exemplo, R$ 66,0714 (18.500 ÷ 280 h): a hora mínima abaixo fica igual à da 05 (R$ 106,57)."; nota(s["C11"])
+s["C11"]='="Copie da planilha 05 · Custo-hora (Painel, ""Custo-hora do escritório""). No exemplo, R$ "&FIXED(B11,4)&" (18.500 ÷ 280 h). A hora mínima do caso (abaixo) é MAIOR do que a hora mínima do escritório na 05 sempre que o caso tiver despesa que o escritório absorve: a da 05 cobre só a estrutura, a daqui cobre também essas despesas rateadas pelas horas do caso."'; nota(s["C11"])
 s["C12"]="Quanto o cliente recebe, deixa de pagar ou economiza se o caso der certo. Base do cálculo de êxito."; nota(s["C12"])
 s["C13"]="Sua estimativa honesta. Ela define o valor esperado e o risco das modalidades com êxito."; nota(s["C13"])
 s["A14"]="Valor esperado da causa (R$)"; rotulo(s["A14"]); s["B14"]="=B12*B13"; calc(s["B14"],BRL0); s["C14"]="Valor em discussão × chance. É o que se espera receber, em média."; nota(s["C14"])
@@ -88,7 +88,7 @@ M0=DT+5
 s.cell(row=M0-2,column=1,value="4. O que você pretende cobrar em cada modalidade").font=F(bold=True,size=13,color=UVA)
 hdr(s,M0-1,["Modalidade","Valor","Como funciona"])
 mod_in=[("Fixo · valor fechado (R$)",7000,BRL0,"Um valor pelo caso inteiro, independente das horas. Risco: o caso consumir mais horas que o estimado."),
- ("Hora · valor da hora cobrada (R$)",dados.VALOR_HORA_COBRADA,BRL,"Cobra as horas trabalhadas. Risco baixo para o escritório; o cliente pode questionar as horas."),
+ ("Hora · valor da hora cobrada (R$)",dados.VALOR_HORA_COBRADA,BRL,"Cobra as horas trabalhadas: o escritório não absorve hora a mais, mas o cliente pode questionar as horas. Se a hora cobre a hora mínima do caso ou não, quem diz é a coluna Risco ao lado."),
  ("Êxito · % sobre o resultado",0.25,PCT,"Só recebe se o caso der certo, no fim. Risco: trabalhar e não receber."),
  ("Misto · entrada fixa (R$)",4500,BRL0,"Uma parte fixa no início (cobre o custo) mais um percentual sobre o resultado."),
  ("Misto · % sobre o resultado",0.15,PCT,"")]
@@ -129,9 +129,10 @@ for i,(nome,rec,perde,pe,risco,pq) in enumerate(rows):
     s.cell(row=r,column=6,value=f'=IF(B{r}=0,"",E{r}/B{r})'); calc(s.cell(row=r,column=6),PCT)
     s.cell(row=r,column=7,value=perde.format(r=r)); calc(s.cell(row=r,column=7),BRL)
     s.cell(row=r,column=8,value=f'=IFERROR({pe[1:]},"Preencha horas e valores")'); calc(s.cell(row=r,column=8),center=False); s.cell(row=r,column=8).alignment=Alignment(wrap_text=True,vertical="center")
-    s.cell(row=r,column=9,value=f'=IFERROR({risco[1:]},"Alto")'); calc(s.cell(row=r,column=9))
-    s.cell(row=r,column=10,value=f'=IF(OR(I{r}="Alto",AND(I{r}="Médio",{ACMED}="Não")),-1E+9,E{r})'); calc(s.cell(row=r,column=10),BRL0); s.cell(row=r,column=10).font=F(size=9,color=CINZA)
-    s.cell(row=r,column=11,value=f'=IFERROR({pq[1:]},"")'); calc(s.cell(row=r,column=11),center=False); s.cell(row=r,column=11).alignment=Alignment(wrap_text=True,vertical="center"); nota(s.cell(row=r,column=11))
+    # sem horas estimadas não se classifica risco: não há custo por hora nem margem
+    s.cell(row=r,column=9,value=f'=IF({HT}<=0,"Faltam as horas estimadas",IFERROR({risco[1:]},"Alto"))'); calc(s.cell(row=r,column=9))
+    s.cell(row=r,column=10,value=f'=IF(OR(I{r}="Alto",I{r}="Faltam as horas estimadas",AND(I{r}="Médio",{ACMED}="Não")),-1E+9,E{r})'); calc(s.cell(row=r,column=10),BRL0); s.cell(row=r,column=10).font=F(size=9,color=CINZA)
+    s.cell(row=r,column=11,value=f'=IF({HT}<=0,"Preencha as horas estimadas no bloco 2: sem elas não há custo do caso por hora, nem margem, nem ponto de equilíbrio.",IFERROR({pq[1:]},""))'); calc(s.cell(row=r,column=11),center=False); s.cell(row=r,column=11).alignment=Alignment(wrap_text=True,vertical="center"); nota(s.cell(row=r,column=11))
     s.row_dimensions[r].height=42
 CN=C0+3
 s.conditional_formatting.add(f"I{C0}:I{CN}", FormulaRule(formula=[f'I{C0}="Alto"'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
@@ -142,7 +143,7 @@ s.conditional_formatting.add(f"A{C0}:A{CN}", FormulaRule(formula=[f'$A{C0}=$A$5'
 s.cell(row=CN+1,column=1,value="Pontuação: coluna auxiliar da recomendação (margem esperada; modalidade com risco recusado vale −1 bilhão). Receita esperada de êxito e misto = percentual × valor esperado da causa.").font=F(size=9,color=LILAS)
 # recomendação no topo
 PONT=f"$J${C0}:$J${CN}"; MODS=f"$A${C0}:$A${CN}"; RISC=f"$I${C0}:$I${CN}"
-kpi(s,4,1,"Modalidade recomendada",f'=IF(MAX({PONT})<=-1E+9,"Nenhuma com risco aceitável",INDEX({MODS},MATCH(MAX({PONT}),{PONT},0)))',SOL,UVA,fmt="@")
+kpi(s,4,1,"Modalidade recomendada",f'=IF({HT}<=0,"Estime as horas primeiro",IF(MAX({PONT})<=-1E+9,"Nenhuma com risco aceitável",INDEX({MODS},MATCH(MAX({PONT}),{PONT},0))))',SOL,UVA,fmt="@")
 kpi(s,4,3,"Margem esperada",f'=IF(MAX({PONT})<=-1E+9,"",INDEX($E${C0}:$E${CN},MATCH(MAX({PONT}),{PONT},0)))',VERDE,VERDE_T,fmt=BRL0)
 kpi(s,4,5,"Risco da recomendada",f'=IF(MAX({PONT})<=-1E+9,"",INDEX({RISC},MATCH(MAX({PONT}),{PONT},0)))',LAVANDA,UVA,fmt="@")
 kpi(s,4,7,"Custo total do caso",f"={CUSTO}",LAVANDA,UVA,fmt=BRL0)

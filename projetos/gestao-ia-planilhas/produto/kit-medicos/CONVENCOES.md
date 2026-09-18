@@ -99,3 +99,41 @@ para o Histórico da 17 ter o mês anterior ao trimestre e a "partida" das metas
       mensais/quinzenais e dizem isso; a 04 é o roteiro diário da recepção (3 + 10 min), fora dos 30 minutos dos sócios.
     - **Meta de provisão (12 e 19)** = saldo provisionado do último mês **fechado** (agosto), não o do mês em andamento.
     - "Custo fixo" na 12 é **custo fixo + pró-labore** e o rótulo diz isso (nas 05, 09 e 18, "custo fixo" é só a estrutura).
+
+## Regras que saíram da auditoria externa de 18/09/2026
+
+Seis classes de defeito, cada uma achada em mais de um arquivo. Valem para os quatro kits.
+
+A. **Chave de ranking é INTEIRA.** Nunca somar duas grandezas decimais na mesma chave: valor/1E+6
+   junto com ROW()/1E+5 colide sempre que a diferença de valor é dez vezes a diferença de linha
+   (R$ 380,00 na linha 112 e R$ 379,99 na 113 davam a mesma chave, e o LARGE/MATCH devolvia a
+   mesma venda duas vezes, escondendo a outra). Padrão: cada critério num bloco de casas próprio —
+   `situação*1E+13 + MIN(dias,500)*1E+10 + MIN(ROUND(valor,0),999999)*1E+4 + (ÚLTIMA_LINHA+1-ROW())`.
+   Exato em ponto flutuante até 9.007.199.254.740.992.
+
+B. **Número de exemplo nunca fica escrito dentro de texto.** Nota, "Como usar" e referência leem a
+   célula: `"... "&FIXED($B$13,0)&" ..."`. Texto com número cravado envelhece na primeira regeração
+   ("julho R$ 31.591" contra B14 = 34.409; "caixa livre R$ 26.062 e 2,1 meses" contra 12.003 e 0,8).
+   E **FIXED, nunca TEXT com código de formato**: `TEXT(x,"R$ #,##0")` tem o código traduzido pelo
+   idioma e devolve "R$ 29500,000" em pt-BR. TEXT só para data ("dd/mm/yyyy") e percentual ("0%").
+
+C. **Nada de endereço de linha fixo em quem LÊ a planilha** (verifica_coerencia.py, numeros.py):
+   achar pelo rótulo. Quando uma categoria saiu da receita da 18, a referência passou a dizer que a
+   receita de agosto era "Outras entradas" e o total da proposta virou "None / R$ 0". Referência que
+   contradiz a planilha é pior do que referência nenhuma: ela é o oráculo de quem confere o gerador.
+   O mesmo vale dentro do gerador: seção com âncora fixa engole a seção anterior (a nota "A pagar"
+   da 11 nunca chegou ao cliente, e três das dez vagas de "Por pessoa" da 16 eram sobrescritas).
+
+D. **Regra condicional que aponta para outra aba vai embrulhada em INDIRECT**, feito pelo
+   `salvar()` do ssg.py. O Google Sheets não aceita referência a outra aba em regra condicional;
+   sem isso os semáforos que dependem do mês escolhido em Config param de acompanhar depois da
+   importação. Eram 120 das 470 regras.
+
+E. **Dado ausente não vira zero.** Custo mensal em branco não pode dar custo-hora zero (a hora
+   trabalhada virava trabalho de graça e a margem do projeto subia); mês sem lançamento não fecha
+   trimestre nem libera lucro; sem horas estimadas o simulador não classifica risco. Em todos os
+   casos: pendência escrita na célula e aviso contado no painel.
+
+F. **Lista suspensa bloqueante só onde o universo é fechado.** Paciente, serviço e outros campos de
+   nome livre usam `strict=False`: a lista sugere. Bloquear impedia o cliente de redigitar o próprio
+   exemplo (159 lançamentos da 09 dos Médicos, um serviço da 15 dos Advogados).

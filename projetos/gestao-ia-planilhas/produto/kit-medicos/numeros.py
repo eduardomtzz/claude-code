@@ -6,6 +6,14 @@ No fim, a lista de todos os nomes de prompt citados nas planilhas (para a biblio
 import sys, pathlib, datetime, re
 import openpyxl, dados
 P=pathlib.Path(sys.argv[1] if len(sys.argv)>1 else "."); AQUI=pathlib.Path(__file__).resolve().parent
+def linha_por_rotulo(ws,rotulo,col=1,r0=1,r1=200):
+    """Linha cujo rótulo da coluna A começa com o texto dado. Endereço fixo desloca a cada
+    mudança de painel e a referência passa a contradizer a planilha (achado da auditoria
+    de 18/09, quando o quadro de trimestres desceu três linhas)."""
+    for r in range(r0,r1):
+        v=ws.cell(row=r,column=col).value
+        if isinstance(v,str) and v.startswith(rotulo): return r
+    raise AssertionError(f"{ws.title}: rótulo {rotulo!r} não encontrado")
 def wb(p): return openpyxl.load_workbook(next(P.glob(p+"-*.xlsx")),data_only=True)
 def brl(v,c=0):
     if v in (None,"","—"): return "—"
@@ -21,8 +29,12 @@ def dt(v):
 def rel(d): return f"{dt(dados.HOJE+datetime.timedelta(days=d))} ({d:+d} dia{'s' if abs(d)!=1 else ''})" if d else f"{dt(dados.HOJE)} (hoje)"
 def row(ws,r,cols): return [ws.cell(row=r,column=c).value for c in cols]
 def tab(head,rows):
+    # Linha sem rótulo é sobra de intervalo fixo e saía como "| None | None | — |" na
+    # referência (achado da auditoria de 18/09). Nenhuma tabela daqui tem linha sem rótulo.
     out=["| "+" | ".join(head)+" |","|"+"|".join("---" for _ in head)+"|"]
-    for r in rows: out.append("| "+" | ".join(str(x) for x in r)+" |")
+    for r in rows:
+        if not r or r[0] in (None,"","None"): continue
+        out.append("| "+" | ".join(str(x) for x in r)+" |")
     return "\n".join(out)+"\n"
 M=["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro"]
 L=[]; w=L.append
@@ -86,16 +98,17 @@ w(f"- Setembro: custos fixos com vencimento depois de 11/09, pró-labore (28/09)
 w(f"- **09 Painel (Config = Setembro)**: Entrou {brl(p09['A5'].value)} · Saiu {brl(p09['C5'].value)} · Sobrou {brl(p09['E5'].value)} · Saldo acumulado **{brl(p09['G5'].value)}** · A receber {brl(p09['I5'].value)} · A pagar {brl(p09['K5'].value)}.")
 w(tab(["Entradas por forma (09, setembro / ano)","No mês","% do mês","No ano","% do ano"],[(a,brl(b),pct(c,0),brl(d),pct(e,0)) for a,b,c,d,e in [row(p09,r,(1,2,3,4,5)) for r in range(45,51)]]))
 p11=W["11"]["Painel"]; rp=W["11"]["Repasse"]
-w(tab(["11 · Parceira (mês / ano até setembro)","Produção no mês","Repasse devido no mês","Produção no ano","Repasse no ano","Pago no ano","A pagar","Fica com a clínica","Material e insumo (ano)","Margem da parceria (ano)","Custo indireto das horas (informativo)"],[(a,brl(b),brl(c),brl(d),brl(e),brl(f),brl(g),brl(h),brl(i),brl(j),brl(k)) for a,b,c,d,e,f,g,h,i,j,k in [row(p11,9,list(range(1,12)))]]))
+w(tab(["11 · Parceira (mês / ano até setembro)","Produção no mês","Repasse devido no mês","Produção no ano","Repasse no ano","Pago no ano","A pagar","Fica com a clínica","Material e insumo (ano)","Margem da parceria (ano)","Custo indireto das horas (informativo)"],[(a,brl(b),brl(c),brl(d),brl(e),brl(f),brl(g),brl(h),brl(i),brl(j),brl(k)) for a,b,c,d,e,f,g,h,i,j,k in [row(p11,linha_por_rotulo(p11,dados.REN),list(range(1,12)))]]))
 w(tab(["Repasse (11), mês a mês","Produção","Horas atendidas","Repasse devido (50 %)","Pago em","Valor pago","Fica com a clínica","Material e insumo","Margem da parceria","Custo indireto (inform.)"],[(a,brl(d),n(e,1),brl(g),dt(h),brl(i) if i else "—",brl(k),brl(l),brl(m_),brl(nn)) for a,b,c,d,e,f,g,h,i,j,k,l,m_,nn in [row(rp,r,list(range(1,15))) for r in range(5,14)]]))
-w(tab(["11 · Trimestre","Entradas (sem devoluções)","Saídas sem sócios","Pró-labore fixo","Resultado após pró-labore","Fechado?","Distribuível (50 %)","Já distribuído"],[(a,brl(b),brl(c),brl(d),brl(e),f,brl(g),brl(h)) for a,b,c,d,e,f,g,h,i in [row(p11,r,(1,2,3,4,5,6,7,8,9)) for r in (36,37,38)]]))
+w(tab(["11 · Trimestre","Entradas (sem devoluções)","Saídas sem sócios","Pró-labore fixo","Resultado após pró-labore","Fechado?","Distribuível (50 %)","Já distribuído"],[(a,brl(b),brl(c),brl(d),brl(e),f,brl(g),brl(h)) for a,b,c,d,e,f,g,h,i in [row(p11,r,(1,2,3,4,5,6,7,8,9)) for r in [linha_por_rotulo(p11,t) for t in ("1º trimestre","2º trimestre","3º trimestre")]]]))
 w(f"- 11 KPIs: repasse devido no mês {brl(p11['A5'].value)} (setembro até 11/09, pago em 10/10); a pagar no ano {brl(p11['C5'].value)}; pró-labore combinado {brl(p11['E5'].value)}/mês; a acertar com a clínica no ano {brl(p11['I5'].value)} (Carolina: retirada extra 1.500 + despesas pessoais 1.860 − devolução 620 = 2.740; Paulo: 2.000 + 700 = 2.700). Setembro: pró-labore ainda não pago (dia 28).\n")
 
 # ---------- 4. agosto ----------
 r18=W["18"]["Resultado"]; p18=W["18"]["Painel"]
 w("## 4. Agosto de 2026 fechado (18 · Resultado mensal) e julho para comparação\n")
 lin=[(6,"Particular à vista"),(7,"Particular a prazo"),(8,"Convênio · Saúde Total"),(9,"Convênio · MediPlan"),(10,"Convênio · Vida Care"),(11,"**Receita total**"),(12,"Reembolsos de sócios (fora da receita e do imposto)"),(22,"Custos fixos (8 linhas)"),(24,"Materiais e insumos"),(25,"Taxas de cartão"),(26,"Repasse à médica parceira"),(27,"Manutenção de equipamentos"),(28,"**Despesas variáveis**"),(32,"Pró-labore fixo (Carolina 9.000 + Paulo 9.000)"),(33,"Provisão de 13º e férias (planilha 10)"),(34,"Impostos provisionados (11 % da receita)"),(35,"**Total de saídas**"),(36,"**Resultado do mês**")]
-w(tab(["Linha da DRE","Julho","Agosto","Jan–ago (total)","Média jan–ago"],[(nm,brl(r18.cell(row=r,column=8).value),brl(r18.cell(row=r,column=9).value),brl(r18.cell(row=r,column=14).value),brl(r18.cell(row=r,column=15).value)) for r,nm in lin]+[("**Margem (resultado ÷ receita)**",f"**{pct(r18['H37'].value)}**",f"**{pct(r18['I37'].value)}**",pct(r18['N37'].value),pct(r18['O37'].value))]))
+_rm18=linha_por_rotulo(r18,"Margem")
+w(tab(["Linha da DRE","Julho","Agosto","Jan–ago (total)","Média jan–ago"],[(nm,brl(r18.cell(row=r,column=8).value),brl(r18.cell(row=r,column=9).value),brl(r18.cell(row=r,column=14).value),brl(r18.cell(row=r,column=15).value)) for r,nm in lin]+[("**Margem (resultado ÷ receita)**",f"**{pct(r18.cell(row=_rm18,column=8).value)}**",f"**{pct(r18.cell(row=_rm18,column=9).value)}**",pct(r18.cell(row=_rm18,column=14).value),pct(r18.cell(row=_rm18,column=15).value))]))
 w(f"- Agosto: receita **{brl(p18['A5'].value)}**, saídas **{brl(p18['C5'].value)}**, resultado **{brl(p18['E5'].value)}**, margem **{pct(p18['G5'].value)}** (julho: {pct(r18['H37'].value)}). Previsto de agosto: receita 46.000, custos fixos 10.000, variáveis 6.000, pró-labore 18.000, provisão de 13º e férias 1.962.")
 w(tab(["Comparação (18 Painel, agosto)","Mês","Mês anterior","Variação","Previsto","Vs. previsto","Situação"],[(a,brl(b) if a!="Margem" else pct(b),brl(c) if a!="Margem" else pct(c),(f"{float(d):+.1f} p.p." if a=="Margem" else f"{float(d)*100:+.1f} %").replace(".",","),brl(e) if a!="Margem" else pct(e),(f"{float(f):+.1f} p.p." if a=="Margem" else f"{float(f)*100:+.1f} %").replace(".",","),g) for a,b,c,d,e,f,g in [row(p18,r,(1,3,4,5,6,7,8)) for r in range(9,18)]]))
 w("- A DRE não inclui retiradas extras, distribuição de lucro nem despesas pessoais dos sócios (ficam na 11); por isso \"Saiu no mês\" do caixa é diferente do \"Total de saídas\" da DRE (impostos são provisão de 11 % da receita, e não a guia paga; a provisão de 13º e férias, R$ 1.962/mês, vem da planilha 10 e ainda não saiu do caixa).")

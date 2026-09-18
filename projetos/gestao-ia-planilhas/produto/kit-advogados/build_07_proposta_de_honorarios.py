@@ -71,10 +71,11 @@ for i,(a,v,fa,d,e,fe) in enumerate(cond):
     if i==3: inp(p.cell(row=r,column=5),center=True)
     else: calc(p.cell(row=r,column=5),fe)
 # Zero só é aceitável quando a entrada quita 100 %: senão sobra saldo sem cronograma.
-dvn=DataValidation(type="whole",operator="between",formula1="0",formula2=str(NPAR),
+dvn=DataValidation(type="custom",
+                   formula1=f'=AND(B{Q0+1}=INT(B{Q0+1}),B{Q0+1}>=0,B{Q0+1}<={NPAR},OR(B{Q0+1}>0,ROUND({TOT}-E{Q0},2)<=0))',
                    allow_blank=False,showErrorMessage=True,
                    errorTitle="Parcelas do restante",
-                   error=f"Digite um número inteiro de 1 a {NPAR}. Use 0 apenas se a entrada quitar o valor todo.")
+                   error=f"Digite um número inteiro de 1 a {NPAR}. Zero só é aceito quando a entrada quita o valor todo; com saldo em aberto, a proposta precisa de cronograma.")
 dvn.add(f"B{Q0+1}"); p.add_data_validation(dvn)
 dvf=lista(LST("H")); dvf.add(f"E{Q0+3}"); p.add_data_validation(dvf)
 ENT=f"$B${Q0}"; NPA=f"$B${Q0+1}"; D1=f"$B${Q0+2}"; INT=f"$B${Q0+3}"; VENT=f"$E${Q0}"; VPAR=f"$E${Q0+2}"
@@ -93,6 +94,14 @@ for n in range(1,NPAR+1):
 KN=K0+1+NPAR
 p.cell(row=KN+1,column=1,value="Total"); rotulo(p.cell(row=KN+1,column=1)); p.cell(row=KN+1,column=1).border=borda
 p.cell(row=KN+1,column=3,value=f"=SUM(C{K0+1}:C{KN})"); calc(p.cell(row=KN+1,column=3),BRL); p.cell(row=KN+1,column=3).font=F(bold=True,color=UVA,size=10)
+# conferência: o cronograma tem de somar o valor da proposta. Sem ela, entrada parcial com
+# zero parcelas saía "válida" e o cliente recebia uma proposta sem vencimentos.
+p.cell(row=KN+2,column=1,value="Confere com o valor da proposta?"); rotulo(p.cell(row=KN+2,column=1)); p.cell(row=KN+2,column=1).border=borda
+p.cell(row=KN+2,column=3,value=f'=IF(ABS(C{KN+1}-{TOT})<0.01,"Sim","NÃO: faltam "&FIXED({TOT}-C{KN+1},2)&" sem vencimento. Ajuste a entrada ou o número de parcelas antes de enviar.")')
+calc(p.cell(row=KN+2,column=3),center=False); p.cell(row=KN+2,column=3).font=F(bold=True,color=UVA,size=10)
+p.merge_cells(start_row=KN+2,start_column=3,end_row=KN+2,end_column=6)
+p.conditional_formatting.add(f"C{KN+2}", FormulaRule(formula=[f'LEFT(C{KN+2},3)="NÃO"'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
+p.conditional_formatting.add(f"C{KN+2}", FormulaRule(formula=[f'C{KN+2}="Sim"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10,bold=True)))
 p.cell(row=K0,column=5,value="Datas contadas a partir da data da proposta. Se o aceite demorar, refaça a proposta com a data nova."); nota(p.cell(row=K0,column=5)); p.cell(row=K0,column=5).alignment=Alignment(wrap_text=True,vertical="top"); p.cell(row=K0,column=5).font=F(size=9,color=LILAS)
 # condições gerais
 G0=KN+4

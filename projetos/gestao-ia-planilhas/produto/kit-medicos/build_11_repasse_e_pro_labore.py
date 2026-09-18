@@ -76,8 +76,12 @@ for r in range(RP0,RPN+1):
     inp(rp.cell(row=r,column=12),BRL0,center=True)
     rp.cell(row=r,column=13,value=f'=IF(G{r}="","",K{r}-N(L{r}))'); calc(rp.cell(row=r,column=13),BRL0)
     rp.cell(row=r,column=14,value=f'=IF(OR(G{r}="",E{r}=""),"",E{r}*{CH})'); calc(rp.cell(row=r,column=14),BRL0); rp.cell(row=r,column=14).font=F(color=LILAS,size=10)
-    rp.cell(row=r,column=15,value=f'=IF(A{r}="","",MATCH(A{r},Config!$H$5:$H$16,0))'); rp.cell(row=r,column=15).font=F(color=CINZA,size=9)
-rp.column_dimensions["O"].hidden=True
+    # P: auxiliar do número do mês (oculta). Ficava em O, sobre a entrada de "Recebido
+    # no mês": o acordo sobre o recebido pagava o número do mês × % (agosto, R$ 4).
+    rp.cell(row=r,column=16,value=f'=IF(A{r}="","",MATCH(A{r},Config!$H$5:$H$16,0))'); rp.cell(row=r,column=16).font=F(color=CINZA,size=9)
+    rp.cell(row=r,column=17,value=f'=IF(OR(C{r}="",F{r}=""),0,IF(AND(IFERROR(INDEX(Config!$C${P0}:$C${PN},MATCH(C{r},Config!$A${P0}:$A${PN},0)),"Produção do mês")="Recebido no mês",O{r}=""),1,0))'); rp.cell(row=r,column=17).font=F(color=CINZA,size=9)
+for col in ("P","Q"): rp.column_dimensions[col].hidden=True
+rp.conditional_formatting.add(f"O{RP0}:O{RPN}", FormulaRule(formula=[f'$Q{RP0}=1'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 for dv,rng_ in [(lista("=Config!$H$5:$H$16"),f"A{RP0}:A{RPN}"),(lista(f"={LPAR}",strict=True),f"C{RP0}:C{RPN}"),(DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"H{RP0}:H{RPN}")]:
     dv.add(rng_); rp.add_data_validation(dv)
 rp.conditional_formatting.add(f"J{RP0}:J{RPN}", FormulaRule(formula=[f'AND(ISNUMBER(J{RP0}),J{RP0}>0)'], fill=fill(AMARELO), font=F(color=UVA,size=10,bold=True)))
@@ -85,8 +89,9 @@ rp.conditional_formatting.add(f"J{RP0}:J{RPN}", FormulaRule(formula=[f'AND(ISNUM
 rp.conditional_formatting.add(f"M{RP0}:M{RPN}", FormulaRule(formula=[f'AND(ISNUMBER(M{RP0}),M{RP0}<0)'], font=F(color="C8402E",size=10,bold=True)))
 rp.cell(row=RPN+2,column=1,value="Diferença em amarelo: repasse devido e ainda não pago (ou pago a menos). Margem da parceria = o que fica com a clínica − material e insumo que o parceiro consome (o custo direto da parceria). O custo indireto das horas é só informativo: a estrutura já está paga dentro do custo-hora dos sócios (05), e descontá-la aqui cobraria a mesma sala duas vezes. Margem negativa em vermelho: o repasse combinado não cobre nem o material; reveja o % ou a tabela.").font=F(size=9,color=LILAS)
 rp.merge_cells(start_row=RPN+2,start_column=1,end_row=RPN+2,end_column=13); rp.cell(row=RPN+2,column=1).alignment=Alignment(wrap_text=True,vertical="top"); rp.row_dimensions[RPN+2].height=30
+rp.cell(row=RPN+4,column=1,value="A coluna \"Recebido no mês\" só é usada quando o acordo do parceiro, em Config, for \"Recebido no mês\": aí o repasse sai do que a clínica efetivamente recebeu (convênio já pago), não da produção. Com o acordo sobre a produção, deixe-a vazia.").font=F(size=9,color=LILAS)
 rp.cell(row=RPN+3,column=1,value="No exemplo, a produção de janeiro a junho veio do fechamento do dia (a agenda na planilha 01 começou em julho); julho e agosto são o Painel da 01 por profissional; setembro está em andamento (até 11/09), sem repasse pago ainda.").font=F(size=9,color=LILAS)
-widths(rp,(11,7,24,15,11,10,14,12,13,12,14,15,14,17)); rp.freeze_panes="D5"; rp.sheet_view.showGridLines=False
+widths(rp,(11,7,24,15,11,10,14,12,13,12,14,15,14,17,22)); rp.freeze_panes="D5"; rp.sheet_view.showGridLines=False
 # exemplo: produção da parceira jan-set (dados.AGENDA_TODA); pagamentos = lançamentos "Repasse" da 09
 rep_pagos={}
 for d,t,c,quem,ref,desc,v,f,pago in dados.LANCAMENTOS:
@@ -153,7 +158,10 @@ titulo(p,'=Config!B4&" · Repasse e pró-labore · "&Config!B6&" de "&Config!B5'
 M="Config!$B$7"; Y="Config!$B$5"; Q="Config!$B$8"
 RB=f"Retiradas!$B${R0}:$B${RN}"; RC=f"Retiradas!$C${R0}:$C${RN}"; RE=f"Retiradas!$E${R0}:$E${RN}"; RF=f"Retiradas!$F${R0}:$F${RN}"; RG=f"Retiradas!$G${R0}:$G${RN}"; RH=f"Retiradas!$H${R0}:$H${RN}"
 PB=f"Repasse!$B${RP0}:$B${RPN}"; PC_=f"Repasse!$C${RP0}:$C${RPN}"; PD=f"Repasse!$D${RP0}:$D${RPN}"; PE=f"Repasse!$E${RP0}:$E${RPN}"; PG=f"Repasse!$G${RP0}:$G${RPN}"; PI=f"Repasse!$I${RP0}:$I${RPN}"
-PJ=f"Repasse!$J${RP0}:$J${RPN}"; PK=f"Repasse!$K${RP0}:$K${RPN}"; PL=f"Repasse!$L${RP0}:$L${RPN}"; PM=f"Repasse!$M${RP0}:$M${RPN}"; PCUSTO=f"Repasse!$N${RP0}:$N${RPN}"; PN_=f"Repasse!$O${RP0}:$O${RPN}"
+PJ=f"Repasse!$J${RP0}:$J${RPN}"; PK=f"Repasse!$K${RP0}:$K${RPN}"; PL=f"Repasse!$L${RP0}:$L${RPN}"; PM=f"Repasse!$M${RP0}:$M${RPN}"; AVISO=9+NPAR; NOTA=10+NPAR       # aviso do recebido em branco e a nota da tabela de parceiros
+SM=NOTA+2; SA=SM+11; TQ=SA+12    # "Sócios no mês", "Sócios no ano" e os trimestres
+PCUSTO=f"Repasse!$N${RP0}:$N${RPN}"; PN_=f"Repasse!$P${RP0}:$P${RPN}"   # P = número do mês (auxiliar)
+PQ_=f"Repasse!$Q${RP0}:$Q${RPN}"   # 1 = acordo sobre o recebido, recebido em branco
 def smes(tipo,soc): return f'SUMIFS({RE},{RB},{soc},{RC},"{tipo}",{RG},{M},{RH},{Y})'
 def sano(tipo,soc): return f'SUMIFS({RE},{RB},{soc},{RC},"{tipo}",{RG},"<="&{M},{RH},{Y})'
 # parceiros
@@ -177,10 +185,15 @@ for i in range(NPAR):
     p.cell(row=r,column=11).font=F(color=LILAS,size=10)
 p.conditional_formatting.add(f"G9:G{8+NPAR}", FormulaRule(formula=['AND(ISNUMBER(G9),G9>0)'], fill=fill(AMARELO), font=F(color=UVA,size=10,bold=True)))
 p.conditional_formatting.add(f"J9:J{8+NPAR}", FormulaRule(formula=['AND(ISNUMBER(J9),J9<0)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
-p.cell(row=9+NPAR,column=1,value="A pagar = repasse devido e ainda não pago (no exemplo, o de setembro, que sai dia 10 de outubro). Margem da parceria = o que fica com a clínica − material e insumo do parceiro. O custo indireto das horas (última coluna) é informativo: mostra quanto vale a estrutura que o parceiro ocupa, mas ela já está paga dentro do custo-hora dos sócios (05) — descontá-la de novo cobraria a mesma sala duas vezes."); nota(p.cell(row=9+NPAR,column=1))
-p.merge_cells(start_row=9+NPAR,start_column=1,end_row=9+NPAR,end_column=11); p.cell(row=9+NPAR,column=1).alignment=Alignment(wrap_text=True,vertical="top"); p.row_dimensions[9+NPAR].height=30
+# aviso do acordo sobre o recebido sem valor preenchido: sem ele o repasse do mês
+# simplesmente não aparece e o "A pagar" do ano fica negativo, sem explicação
+p.cell(row=AVISO,column=1,value=f'=IF(SUM({PQ_})=0,"",SUM({PQ_})&" mês(es) com acordo sobre o recebido e a coluna \'Recebido no mês\' em branco na aba Repasse (em vermelho lá): o repasse desses meses não foi calculado. Preencha o valor que a clínica recebeu, ou volte o acordo para produção em Config.")')
+p.cell(row=AVISO,column=1).font=F(size=10,bold=True,color=VERM_T)
+p.merge_cells(start_row=AVISO,start_column=1,end_row=AVISO,end_column=11)
+p.cell(row=AVISO,column=1).alignment=Alignment(wrap_text=True,vertical="top")
+p.cell(row=NOTA,column=1,value="A pagar = repasse devido e ainda não pago (no exemplo, o de setembro, que sai dia 10 de outubro). Margem da parceria = o que fica com a clínica − material e insumo do parceiro. O custo indireto das horas (última coluna) é informativo: mostra quanto vale a estrutura que o parceiro ocupa, mas ela já está paga dentro do custo-hora dos sócios (05) — descontá-la de novo cobraria a mesma sala duas vezes."); nota(p.cell(row=NOTA,column=1))
+p.merge_cells(start_row=NOTA,start_column=1,end_row=NOTA,end_column=11); p.cell(row=NOTA,column=1).alignment=Alignment(wrap_text=True,vertical="top"); p.row_dimensions[NOTA].height=30
 # trimestres
-TQ=36
 p.cell(row=TQ-2,column=1,value="Lucro e distribuição por trimestre").font=F(bold=True,size=13,color=UVA)
 hdr(p,TQ-1,["Trimestre","Entradas","Saídas (sem sócios)","Pró-labore fixo","Resultado após pró-labore","Fechado?","Distribuível aos sócios","Já distribuído","Falta distribuir"],height=40)
 for q in range(4):
@@ -195,8 +208,12 @@ for q in range(4):
     ano_seg = 'Config!$B$5+1' if q == 3 else 'Config!$B$5'
     mes_seg = 1 if q == 3 else 3*(q+1)+1
     fim_tri = f'DATE({ano_seg},{mes_seg},1)'
-    tres = f"COUNT('Resultado mensal'!B{a}:B{b})"
-    p.cell(row=r,column=6,value=f'=IF(AND(Config!$B$12>={fim_tri},{tres}>=3),"Sim","Em andamento")')
+    # os TRÊS meses precisam estar lançados nas três colunas: entradas, saídas e
+    # pró-labore. Contar só as entradas fechava o trimestre com as despesas em branco e
+    # liberava lucro que não existe (achado G-9 da auditoria de 18/09).
+    tres = (f"AND(COUNT('Resultado mensal'!B{a}:B{b})>=3,COUNT('Resultado mensal'!C{a}:C{b})>=3,"
+            f"COUNT('Resultado mensal'!D{a}:D{b})>=3)")
+    p.cell(row=r,column=6,value=f'=IF(AND(Config!$B$12>={fim_tri},{tres}),"Sim","Em andamento")')
     p.cell(row=r,column=7,value=f'=IF(AND(F{r}="Sim",E{r}>=Config!$B$10),E{r}*Config!$B$9,0)')
     p.cell(row=r,column=8,value=f'=SUMIFS({RE},{RC},"Distribuição de lucro",{RF},A{r},{RH},{Y})')
     p.cell(row=r,column=9,value=f"=IF(ABS(G{r}-H{r})<1,0,G{r}-H{r})")
@@ -212,13 +229,13 @@ GDIST=f"SUM($G${TQ}:$G${TQ+3})"
 kpi(p,4,1,"Repasse devido no mês",f"=SUM(C9:C{8+NPAR})",SOL,UVA,fmt=BRL0)
 kpi(p,4,3,"Repasse a pagar (ano)",f"=SUM(G9:G{8+NPAR})",LAVANDA,UVA,fmt=BRL0)
 kpi(p,4,5,"Pró-labore combinado (mês)",f"=Config!$C${SN+1}",LAVANDA,UVA,fmt=BRL0)
-kpi(p,4,7,"Fora do combinado (mês)",f"=SUM(I15:I{14+NS})",VERM,VERM_T,fmt=BRL0)
-kpi(p,4,9,"A acertar com a clínica (ano)",f"=SUM(G26:G{25+NS})",VERM,VERM_T,fmt=BRL0)
+kpi(p,4,7,"Fora do combinado (mês)",f"=SUM(I{SM+2}:I{SM+1+NS})",VERM,VERM_T,fmt=BRL0)
+kpi(p,4,9,"A acertar com a clínica (ano)",f"=SUM(G{SA+2}:G{SA+1+NS})",VERM,VERM_T,fmt=BRL0)
 # no mês por sócio
-p["A13"]="Sócios no mês"; p["A13"].font=F(bold=True,size=13,color=UVA)
-hdr(p,14,["Sócio","Pró-labore combinado","Pró-labore pago","Retiradas extras","Despesas pessoais pela clínica","Devoluções","Distribuição de lucro","Total retirado","Fora do combinado","Situação"],height=40)
+p.cell(row=SM,column=1,value="Sócios no mês").font=F(bold=True,size=13,color=UVA)
+hdr(p,SM+1,["Sócio","Pró-labore combinado","Pró-labore pago","Retiradas extras","Despesas pessoais pela clínica","Devoluções","Distribuição de lucro","Total retirado","Fora do combinado","Situação"],height=40)
 for i in range(NS):
-    r=15+i; src=f"Config!$A${S0+i}"
+    r=SM+2+i; src=f"Config!$A${S0+i}"
     p.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(p.cell(row=r,column=1),center=False)
     p.cell(row=r,column=2,value=f'=IF({src}="","",Config!$C${S0+i})')
     p.cell(row=r,column=3,value=f'=IF({src}="","",{smes("Pró-labore",src)})')
@@ -231,15 +248,15 @@ for i in range(NS):
     p.cell(row=r,column=10,value=f'=IF({src}="","",IF(I{r}>0,"Acima do combinado",IF(C{r}<B{r},"Pró-labore ainda não pago por completo","Conforme o combinado")))')
     for c in range(2,10): calc(p.cell(row=r,column=c),BRL0)
     calc(p.cell(row=r,column=10)); p.cell(row=r,column=8).font=F(bold=True,color=UVA,size=10)
-p.conditional_formatting.add(f"J15:J{14+NS}", FormulaRule(formula=['J15="Acima do combinado"'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
-p.conditional_formatting.add(f"J15:J{14+NS}", FormulaRule(formula=['J15="Conforme o combinado"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
-p.conditional_formatting.add(f"J15:J{14+NS}", FormulaRule(formula=['J15="Pró-labore ainda não pago por completo"'], fill=fill(AMARELO)))
-p.cell(row=15+NS,column=1,value="Fora do combinado = retiradas extras + despesas pessoais pagas pela clínica − devoluções. Distribuição de lucro segue a regra de Config e não conta como \"fora\"."); nota(p.cell(row=15+NS,column=1))
+p.conditional_formatting.add(f"J{SM+2}:J{SM+1+NS}", FormulaRule(formula=[f'J{SM+2}="Acima do combinado"'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
+p.conditional_formatting.add(f"J{SM+2}:J{SM+1+NS}", FormulaRule(formula=[f'J{SM+2}="Conforme o combinado"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
+p.conditional_formatting.add(f"J{SM+2}:J{SM+1+NS}", FormulaRule(formula=[f'J{SM+2}="Pró-labore ainda não pago por completo"'], fill=fill(AMARELO)))
+p.cell(row=SM+2+NS,column=1,value="Fora do combinado = retiradas extras + despesas pessoais pagas pela clínica − devoluções. Distribuição de lucro segue a regra de Config e não conta como \"fora\"."); nota(p.cell(row=SM+2+NS,column=1))
 # no ano por sócio
-p["A24"]="Sócios no ano, até o mês do painel"; p["A24"].font=F(bold=True,size=13,color=UVA)
-hdr(p,25,["Sócio","Pró-labore combinado até o mês","Pró-labore pago","Retiradas extras","Despesas pessoais pela clínica","Devoluções","A acertar com a clínica","Distribuição devida (trimestres fechados)","Distribuição recebida","Distribuição a receber"],height=52)
+p.cell(row=SA,column=1,value="Sócios no ano, até o mês do painel").font=F(bold=True,size=13,color=UVA)
+hdr(p,SA+1,["Sócio","Pró-labore combinado até o mês","Pró-labore pago","Retiradas extras","Despesas pessoais pela clínica","Devoluções","A acertar com a clínica","Distribuição devida (trimestres fechados)","Distribuição recebida","Distribuição a receber"],height=52)
 for i in range(NS):
-    r=26+i; src=f"Config!$A${S0+i}"
+    r=SA+2+i; src=f"Config!$A${S0+i}"
     p.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(p.cell(row=r,column=1),center=False)
     p.cell(row=r,column=2,value=f'=IF({src}="","",Config!$C${S0+i}*{M})')
     p.cell(row=r,column=3,value=f'=IF({src}="","",{sano("Pró-labore",src)})')
@@ -252,9 +269,9 @@ for i in range(NS):
     p.cell(row=r,column=10,value=f'=IF({src}="","",IF(ABS(H{r}-I{r})<1,0,H{r}-I{r}))')
     for c in range(2,11): calc(p.cell(row=r,column=c),BRL0)
     p.cell(row=r,column=7).font=F(bold=True,color=UVA,size=10); p.cell(row=r,column=10).font=F(bold=True,color=UVA,size=10)
-p.conditional_formatting.add(f"G26:G{25+NS}", FormulaRule(formula=['AND(G26<>"",G26>0)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
-p.conditional_formatting.add(f"J26:J{25+NS}", FormulaRule(formula=['AND(J26<>"",J26>0)'], fill=fill(AMARELO), font=F(color=UVA,size=10,bold=True)))
-p.cell(row=26+NS,column=1,value="A acertar com a clínica: o sócio devolve ou desconta da próxima distribuição de lucro. Distribuição devida = distribuível dos trimestres fechados × participação. Pró-labore, retiradas, repasse e distribuição têm tratamento tributário próprio: combine o formato com o contador."); nota(p.cell(row=26+NS,column=1))
+p.conditional_formatting.add(f"G{SA+2}:G{SA+1+NS}", FormulaRule(formula=[f'AND(G{SA+2}<>"",G{SA+2}>0)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
+p.conditional_formatting.add(f"J{SA+2}:J{SA+1+NS}", FormulaRule(formula=[f'AND(J{SA+2}<>"",J{SA+2}>0)'], fill=fill(AMARELO), font=F(color=UVA,size=10,bold=True)))
+p.cell(row=SA+2+NS,column=1,value="A acertar com a clínica: o sócio devolve ou desconta da próxima distribuição de lucro. Distribuição devida = distribuível dos trimestres fechados × participação. Pró-labore, retiradas, repasse e distribuição têm tratamento tributário próprio: combine o formato com o contador."); nota(p.cell(row=SA+2+NS,column=1))
 widths(p,(24,14,15,13,14,12,13,14,14,15,17)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
 como_usar(wb,"Repasse aos médicos parceiros e pró-labore dos sócios",[
  ("O que esta planilha faz","Separa três dinheiros que costumam se misturar: o repasse dos médicos parceiros (% da produção do mês), o pró-labore fixo dos sócios e o que passou do combinado (retirada extra, despesa pessoal paga pela clínica). Mostra se a parceria paga a sala que usa e distribui o lucro de cada trimestre fechado por uma regra clara."),

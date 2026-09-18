@@ -216,7 +216,7 @@ linhas=[
 ("Com a IA","Use o prompt \"Organizar 01\" da biblioteca do kit: cole uma lista bagunçada (e-mail, ata, áudio transcrito) e a IA devolve as tarefas no formato desta planilha, prontas para colar."),
 ("Legenda","Células amarelas: você preenche. Células brancas: calculadas, não mexa. Linhas vermelhas: atrasadas. Linhas amarelas na aba Hoje: vencem hoje."),
 ("Proteção","As fórmulas estão protegidas sem senha, só para evitar apagar sem querer. Para editar: Revisar > Desproteger planilha (Excel) ou Dados > Proteger intervalos (Google Sheets)."),
-("Google Sheets","Faça upload do arquivo no Google Drive e abra com o Google Sheets. Tudo funciona: listas, cores e fórmulas."),
+("Google Sheets","Faça upload no Google Drive e abra com o Google Sheets. Listas, cores, fórmulas e gráfico funcionam."),
 ("Exemplos","Os dados de exemplo são fictícios (Ana, Bruno e Carla numa agência inventada). Os exemplos usam datas relativas a hoje (prazos como =HOJE()+2); apague-os e digite as suas."),
 ("Suporte","suporte@seusociogestor.com.br · resposta em até 5 dias úteis · reembolso em até 7 dias pelo mesmo canal."),
 ]

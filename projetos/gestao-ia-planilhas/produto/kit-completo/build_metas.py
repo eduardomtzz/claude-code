@@ -95,7 +95,7 @@ for i,r in enumerate(rows):
         # último número da linha, sem precisar de função nova
         mz.cell(row=rr,column=3+j,value=f'=IF(Metas!B{r}="","",IFERROR(LOOKUP(9.99E+307,Semanas!${c0}{rr}:${c1}{rr}),""))')
         calc(mz.cell(row=rr,column=3+j))
-    mz.cell(row=rr,column=6,value=f'=IF(OR(Metas!B{r}="",C{rr}="",E{rr}=""),"",E{rr}-IFERROR(Metas!E{r},0))'); calc(mz.cell(row=rr,column=6))
+    mz.cell(row=rr,column=6,value=f'=IF(OR(Metas!B{r}="",E{rr}=""),"",E{rr}-IFERROR(Metas!E{r},0))'); calc(mz.cell(row=rr,column=6))
     mz.cell(row=rr,column=7,value=f'=IF(OR(Metas!B{r}="",E{rr}=""),"",Metas!F{r}-E{rr})'); calc(mz.cell(row=rr,column=7))
 mz.cell(row=5+len(rows)+1,column=1,value="Mês 1 = semanas 1 a 4; Mês 2 = semanas 5 a 9; Mês 3 = semanas 10 a 13. Mês sem nenhuma semana preenchida fica em branco. \"Ganho no trimestre\" compara o fechamento do Mês 3 com o ponto de partida da aba Metas.").font=F(size=9,color=LILAS)
 mz.merge_cells(start_row=5+len(rows)+1,start_column=1,end_row=5+len(rows)+1,end_column=7)

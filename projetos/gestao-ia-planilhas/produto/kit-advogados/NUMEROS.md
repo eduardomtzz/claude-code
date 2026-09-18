@@ -149,19 +149,18 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Honorários de êxito | R$ 0 | R$ 0 | R$ 27.000 | R$ 3.375 |
 | Consultoria e pareceres | R$ 5.680 | R$ 11.290 | R$ 36.390 | R$ 4.549 |
 | Reembolso de custas | R$ 540 | R$ 310 | R$ 1.630 | R$ 204 |
-| Outras entradas | R$ 29.460 | R$ 26.900 | R$ 207.370 | R$ 25.921 |
-| **Receita total** | — | — | — | — |
-| Custos fixos (8 linhas) | — | — | — | — |
-| Custas e despesas de processo | R$ 0 | R$ 180 | R$ 730 | R$ 91 |
-| Deslocamento e viagens | R$ 310 | R$ 560 | R$ 3.535 | R$ 442 |
-| **Despesas de casos e viagens** | — | — | — | — |
-| Pró-labore fixo (Marina 6.000 + Rafael 6.000) | R$ 2.357 | R$ 2.152 | R$ 16.591 | R$ 2.074 |
-| Impostos provisionados (8 % da receita) | R$ 21.167 | R$ 21.212 | R$ 168.126 | R$ 21.016 |
-| **Total de saídas** | R$ 8.293 | R$ 5.688 | R$ 39.244 | R$ 4.906 |
-| **Resultado do mês** | R$ 0 | R$ 0 | R$ 0 | R$ 0 |
-| **Margem (resultado ÷ receita)** | **—** | **—** | — | — |
+| **Receita total** | R$ 29.460 | R$ 26.900 | R$ 207.370 | R$ 25.921 |
+| Custos fixos (8 linhas) | R$ 6.500 | R$ 6.500 | R$ 52.000 | R$ 6.500 |
+| Custas e despesas de processo | R$ 310 | R$ 380 | R$ 2.805 | R$ 351 |
+| Deslocamento e viagens | R$ 0 | R$ 180 | R$ 730 | R$ 91 |
+| **Despesas de casos e viagens** | R$ 310 | R$ 560 | R$ 3.535 | R$ 442 |
+| Pró-labore fixo (Marina 6.000 + Rafael 6.000) | R$ 12.000 | R$ 12.000 | R$ 96.000 | R$ 12.000 |
+| Impostos provisionados (8 % da receita) | R$ 2.357 | R$ 2.152 | R$ 16.591 | R$ 2.074 |
+| **Total de saídas** | R$ 21.167 | R$ 21.212 | R$ 168.126 | R$ 21.016 |
+| **Resultado do mês** | R$ 8.293 | R$ 5.688 | R$ 39.244 | R$ 4.906 |
+| **Margem (resultado ÷ receita)** | **28,2 %** | **21,1 %** | 18,9 % | 17,1 % |
 
-- Agosto: receita **R$ 26.900**, saídas **R$ 21.212**, resultado **R$ 5.688**, margem **21,1 %** (julho: —; variação **−7,1 p.p.**). Previsto de agosto: receita 27.000, custos fixos 6.500, despesas 400, pró-labore 12.000 → resultado previsto 5.940, margem prevista 22,0 %.
+- Agosto: receita **R$ 26.900**, saídas **R$ 21.212**, resultado **R$ 5.688**, margem **21,1 %** (julho: 28,2 %; variação **−7,1 p.p.**). Previsto de agosto: receita 27.000, custos fixos 6.500, despesas 400, pró-labore 12.000 → resultado previsto 5.940, margem prevista 22,0 %.
 | Comparação (18 Painel, agosto) | Mês | Mês anterior | Variação | Previsto | Vs. previsto | Situação |
 |---|---|---|---|---|---|---|
 | Receita total | R$ 26.900 | R$ 29.460 | -8,7 % | R$ 27.000 | -0,4 % | Perto |
@@ -489,8 +488,8 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Fase inicial | Redação e protocolo do pedido, acompanhamento das primeiras respostas | até 60 dias | 18 | R$ 1.800 |
 | Acompanhamento até a decisão | Manifestações, audiências e reuniões com o cliente | durante o caso | 22 | R$ 1.200 |
 | Encerramento | Prestação de contas e organização dos documentos finais | ao fim do caso | 5 | R$ 600 |
-| **Total dos honorários fixos** |  |  | **None** | **R$ 0** |
-| Honorários de êxito | sobre o resultado, ao fim do caso |  |  | — |
+| **Total dos honorários fixos** |  |  | **53** | **R$ 4.500** |
+| Honorários de êxito | sobre o resultado, ao fim do caso |  |  | 15 % |
 
 - Condições: entrada 40 % = **R$ 1.800** na aceitação; restante R$ 2.700 em **3 parcelas de R$ 900** (900, 900, 900; datas contadas da data da proposta = HOJE()); forma de pagamento Pix. Na 15 a proposta está como "Proposta enviada" (entrada 09/09, envio hoje, previsão de fechamento em 15 dias).
 
@@ -500,13 +499,8 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Objetivo | Resultado-chave | Dono | Unid. | Partida (30/06) | Meta | Atual (11/09) | Progresso | Semáforo | Sentido | S1…S11 (sextas 03/07 → 11/09) |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Caixa mais previsível | Inadimplência: vencido ÷ (pago + vencido) (%) | Rafael | % | 3,4 | 3,0 | 4,6 | 0 % | Em risco | Menor é melhor | 3,4 · 3,3 · 4,1 · 3,2 · 3,0 · 3,0 · 2,9 · 3,6 · 3,5 · 4,0 · 4,6 |
-|  | Reserva guardada em conta separada (R$) | Marina | R$ | 6.000,0 | 18.500,0 | 12.000,0 | 48 % | Em risco | Maior é melhor | 6.000,0 · 6.000,0 · 6.000,0 · 6.000,0 · 9.000,0 · 9.000,0 · 9.000,0 · 9.000,0 · 9.000,0 · 12.000,0 · 12.000,0 |
-|  | Conta de provisão de impostos, 13º e férias (R$) | Marina | R$ | 6.200,0 | 11.320,0 | 9.400,0 | 62 % | Atenção | Maior é melhor | 6.200,0 · 6.200,0 · 6.200,0 · 6.200,0 · 7.800,0 · 7.800,0 · 7.800,0 · 7.800,0 · 7.800,0 · 9.400,0 · 9.400,0 |
 | Horas que viram honorário | Horas faturáveis no mês (%) | Rafael | % | 76,9 | 80,0 | 79,5 | 84 % | No ritmo | Maior é melhor | 81,7 · 81,8 · 73,8 · 76,2 · 76,9 · 75,5 · 80,0 · 80,3 · 82,3 · 85,9 · 79,5 |
-|  | Horas faturáveis lançadas no trimestre (h) | Marina | h | 0,0 | 700,0 | 514,5 | 74 % | No ritmo | Maior é melhor | 24,5 · 54,0 · 87,5 · 126,5 · 179,5 · 235,0 · 299,5 · 359,0 · 420,5 · 464,0 · 514,5 |
 | Fechar mais propostas | Propostas fechadas no trimestre | Marina | propostas | 0,0 | 8,0 | 6,0 | 75 % | No ritmo | Maior é melhor | 0,0 · 1,0 · 1,0 · 2,0 · 3,0 · 4,0 · 5,0 · 6,0 · 6,0 · 6,0 · 6,0 |
-|  | Honorários fechados no trimestre (R$) | Marina | R$ | 0,0 | 60.000,0 | 53.000,0 | 88 % | No ritmo | Maior é melhor | 0,0 · 6.000,0 · 6.000,0 · 21.500,0 · 26.900,0 · 40.100,0 · 48.500,0 · 53.000,0 · 53.000,0 · 53.000,0 · 53.000,0 |
-|  | Propostas paradas há mais de 14 dias | Rafael | propostas | 2,0 | 0,0 | 1,0 | 50 % | Em risco | Menor é melhor | 2,0 · 2,0 · 1,0 · 1,0 · 2,0 · 1,0 · 1,0 · 2,0 · 2,0 · 3,0 · 1,0 |
 
 - **12 Reserva**: meta 3 meses de custo fixo × custo fixo médio R$ 18.500 (jun/jul/ago, com pró-labore) = **R$ 55.500**; reserva hoje **R$ 12.000**; falta R$ 43.500; cobre **0,6 meses**; semáforo "Vermelho: menos de 1 mês de custo fixo guardado"; com aporte de R$ 3.000/mês a meta chega em **Dezembro/2027**. Saldo em caixa R$ 43.683 − compromissos não pagos R$ 15.402 = caixa livre R$ 28.281 ("contando o caixa livre: 2,2 meses").
 | Meta de caixa do trimestre (12) | Alvo | Atual | Progresso | Prazo | Situação |
@@ -547,7 +541,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Honorários fechados em propostas no mês | R$ 26,100 | R$ 26,900 | -3.0% | R$ 20,000 | +30.5% | No alvo |
 
 (Valores como o Excel em português mostra; os separadores seguem o idioma do Excel.)
-- Destaques automáticos: maior melhora contra julho = Horas faturáveis (+4,7 p.p.); maior piora = Margem do mês (−7,1 p.p.); mais longe da meta = Inadimplência (+0,5 p.p. da meta, acima da meta); indicadores no alvo: 9 de 11 com meta.
+- Destaques automáticos (lidos da 20, aba Resumo): • Maior melhora contra Julho: Horas faturáveis (+4,7 p.p.). • Maior piora contra Julho: Margem do mês (-7,1 p.p.). • Mais longe da meta: Vencido (parcelas em atraso) (+11,0% da meta, acima da meta). • Indicadores no alvo: 10 de 11 com meta.
 - Observações do escritório (célula amarela do exemplo): "Agosto fechou com quatro propostas novas viradas em caso (Escola Aurora, Loja Verde, Marcos Vinícius e a cobrança da Construtora entrou em julho); Bistrô 42 e Agência Prisma seguem com parcelas vencidas e entraram na régua de cobrança; o caso da Oficina (execução) e o recurso da Escola Aurora estouraram as horas estimadas."
 
 ## 12. Histórico mensal (17 · Histórico; jan–ago = Painel mensal da 09 e 16, carteira no fim de cada mês; setembro = Dados)

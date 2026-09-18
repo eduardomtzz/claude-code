@@ -122,14 +122,36 @@ prev={"Serviços · projetos":[52000,55000,58000,60000,60000,62000,64000,64000,6
       "Treinamento":[500,500,500,500,500,500,500,500,500,500,500,500],"Viagens e eventos":[800,800,800,2500,800,800,800,800,3000,800,800,800],"Reserva":[3000]*12}
 for i,(a,b,c) in enumerate(cats):
     for m_,v in enumerate(prev[a]): pv.cell(row=5+i,column=2+m_,value=v)
+# G-25 da auditoria de 18/09: a Prisma contava duas histórias para o mesmo mês. O
+# relatório mensal (02) dizia receita 131.200, despesas 89.800 e resultado 41.400 em
+# setembro; aqui os lançamentos somavam 95.559,34, 81.387,49 e 14.171,85 — R$ 27.228,15
+# de diferença no resultado. O relatório é o número oficial do mês (está na aula 5, na
+# página de vendas e na biblioteca de prompts); o realizado deste orçamento passa a
+# reconciliar com ele. A igualdade é cobrada por verifica_coerencia.py.
+REC_02=[98500,101200,112400,109800,118300,121900,115700,124600,131200]   # 02!Indicadores, linha "Receita"
+DES_02=[80200,81900,84100,86500,83700,88200,84900,87300,89800]           # 02!Indicadores, linha "Despesas"
 random.seed(3); rows=[]
 fator={"Serviços · projetos":0.96,"Serviços · mensalidades":1.02,"Produtos digitais":1.15,"Salários e pró-labore":1.0,"Freelancers":1.22,"Escritório e contas":1.03,"Softwares e assinaturas":1.12,"Marketing e mídia":1.3,"Impostos":0.99,"Equipamentos":1.0,"Treinamento":0.4,"Viagens e eventos":0.9,"Reserva":1.0}
 desc={"Serviços · projetos":"Projetos faturados no mês","Serviços · mensalidades":"Contratos mensais","Produtos digitais":"Vendas de templates","Salários e pró-labore":"Folha do mês","Freelancers":"Freelas de motion e redação","Escritório e contas":"Aluguel, luz, internet","Softwares e assinaturas":"Adobe, Google, Notion, hospedagem","Marketing e mídia":"Impulsionamento e mídia paga","Impostos":"DAS e retenções","Equipamentos":"Monitor e notebook","Treinamento":"Curso online","Viagens e eventos":"Deslocamentos a clientes","Reserva":"Transferência para a reserva"}
 for m_ in range(1,10):
+    # gera a proporção entre categorias como antes e depois ESCALA cada tipo para fechar
+    # exatamente o total do mês no relatório (02). O último lançamento do grupo absorve o
+    # centavo do arredondamento, para a soma dar o número redondo do relatório.
+    bruto={}
     for (a,b,c) in cats:
         v=prev[a][m_-1]*fator[a]*(1+random.uniform(-0.04,0.04))
-        if v<=0: continue
-        rows.append((date(2026,m_,min(28,5+cats.index((a,b,c))*2)),a,desc[a],round(v,2)))
+        if v>0: bruto[a]=(b,v)
+    for tipo,alvo in (("Receita",REC_02[m_-1]),("Despesa",DES_02[m_-1])):
+        do_tipo=[a for a,(b,v) in bruto.items() if b==tipo]
+        soma=sum(bruto[a][1] for a in do_tipo)
+        acum=0.0
+        for i,a in enumerate(do_tipo):
+            v=round(alvo*bruto[a][1]/soma,2) if i<len(do_tipo)-1 else round(alvo-acum,2)
+            acum+=v
+            rows.append((date(2026,m_,min(28,5+cats.index(next(t for t in cats if t[0]==a))*2)),a,desc[a],v))
+    assert abs(sum(v for d,a,ds,v in rows if d.month==m_ and dict((x[0],x[1]) for x in cats)[a]=="Receita")-REC_02[m_-1])<0.005
+    assert abs(sum(v for d,a,ds,v in rows if d.month==m_ and dict((x[0],x[1]) for x in cats)[a]=="Despesa")-DES_02[m_-1])<0.005
+rows.sort(key=lambda x:(x[0],x[1]))
 for i,(d,a,ds,v) in enumerate(rows):
     for c,val in zip((1,2,3,4),(d,a,ds,v)): re_.cell(row=R0+i,column=c,value=val)
 como_usar(wb,"Orçamento Previsto × Realizado",[
