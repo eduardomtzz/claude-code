@@ -74,8 +74,13 @@ for nome, k in KITS.items():
         outros = {a for a in achados if a != esperado and a > 2}
         if esperado not in achados:
             A('numero', f'{nome}: "{esperado} {campo}" não aparece literalmente em {k["pagina"]}')
-        if outros:
-            A('numero', f'{nome}: {k["pagina"]} também cita {sorted(outros)} {campo}')
+        # O aviso traz a linha: sem ela dá dois minutos de busca para descobrir que era
+        # comparação legítima ("o Essencial tem 3 planilhas", "8 prompts por núcleo").
+        for n in sorted(outros):
+            linhas = [i for i, L in enumerate(h.split("\n"), 1)
+                      if re.search(rf'\b{n}\s+{campo}', L)]
+            A('numero', f'{nome}: {k["pagina"]} também cita "{n} {campo}" '
+                        f'(linha {", ".join(map(str, linhas))})')
 
 # ------------------------------------------- 4. marcadores de rascunho
 # "TODO" e "FIXME" só contam em maiúsculas: em português "todo mês" e "todo dia"
