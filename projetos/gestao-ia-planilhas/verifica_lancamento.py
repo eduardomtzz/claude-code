@@ -69,9 +69,21 @@ for nome, k in KITS.items():
     if k['preco'] not in h: F('preco', f'{nome}: {k["preco"]} não aparece em {k["pagina"]}')
     else: O(f'{nome}: preço {k["preco"]} na página')
     for campo, rx in NUM.items():
-        achados = {int(m) for m in re.findall(rx, h)}
         esperado = k[campo]
-        outros = {a for a in achados if a != esperado and a > 2}
+        achados, outros = set(), set()
+        for m in re.finditer(rx, h):
+            n = int(m.group(1)); achados.add(n)
+            if n == esperado or n <= 2: continue
+            # Uma contagem só é suspeita se fala DESTE produto. Frase que compara com o
+            # Essencial ("o Essencial tem 3 planilhas") ou número seguido de "por "
+            # ("8 prompts por núcleo") é comparação ou subtotal, não promessa — e eram
+            # os três avisos que voltavam a cada rodada sem nada para corrigir.
+            ini = h.rfind('.', 0, m.start()) + 1; fim = h.find('.', m.end())
+            frase = h[ini:fim if fim > 0 else m.end() + 200]
+            if nome != 'essencial' and 'Essencial' in frase: continue
+            if 'acrescenta' in frase: continue          # "acrescenta ... 40 prompts" é delta, não total
+            if h[m.end():m.end() + 5].lstrip().startswith('por '): continue
+            outros.add(n)
         if esperado not in achados:
             A('numero', f'{nome}: "{esperado} {campo}" não aparece literalmente em {k["pagina"]}')
         # O aviso traz a linha: sem ela dá dois minutos de busca para descobrir que era
