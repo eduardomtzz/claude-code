@@ -49,24 +49,31 @@ for r in range(R0,RN+1):
         f'"pessoa sem custo-hora em Config"))'); calc(h.cell(row=r,column=6),BRL)
     h.cell(row=r,column=7,value=f'=IF(A{r}="","",MONTH(A{r}))'); calc(h.cell(row=r,column=7))
     h.cell(row=r,column=8,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(h.cell(row=r,column=8))
+    # J (oculta): 1 = hora lançada sem custo-hora (F virou recado). É por esta coluna que
+    # o Painel conta e propaga a incompletude, sem depender de curinga em COUNTIF.
+    h.cell(row=r,column=10,value=f'=IF(AND(B{r}<>"",E{r}<>"",NOT(ISNUMBER(F{r}))),1,0)'); h.cell(row=r,column=10).font=F(color=CINZA,size=9)
 # strict=True: pessoa ou projeto digitado fora do cadastro é recusado na hora. Antes
 # passava, o MATCH falhava e o IFERROR devolvia custo zero — hora trabalhada virava
 # trabalho de graça, sem nenhum aviso.
 dvs=[lista(f"=Config!$A$11:$A${10+NPES}",strict=True), lista(f"=Config!$A$24:$A${23+NPROJ}",strict=True), lista('"Sim,Não"'),
      DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True), DataValidation(type="decimal",operator="between",formula1="0",formula2="24",allow_blank=True,showErrorMessage=True)]
 for dv,rng in zip(dvs,[f"B{R0}:B{RN}",f"C{R0}:C{RN}",f"I{R0}:I{RN}",f"A{R0}:A{RN}",f"E{R0}:E{RN}"]): dv.add(rng); h.add_data_validation(dv)
-widths(h,(12,16,30,32,8,13,6,7,11)); h.freeze_panes="A5"; h.sheet_view.showGridLines=False; h.auto_filter.ref=f"A4:I{RN}"
+widths(h,(12,16,30,32,8,13,6,7,11)); h.column_dimensions["J"].hidden=True; h.freeze_panes="A5"; h.sheet_view.showGridLines=False; h.auto_filter.ref=f"A4:I{RN}"
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
 p["A1"]='=Config!B4&" · "&Config!B6&" de "&Config!B5'; p["A1"].font=F(bold=True,size=16,color=UVA); p.merge_cells("A1:I1")
 p["A2"]="Nada para preencher aqui. Escolha o mês em Config; tudo vem de Horas."; nota(p["A2"]); p.merge_cells("A2:I2")
 M="Config!$B$7"; Y="Config!$B$5"
-HB=f"Horas!$B${R0}:$B${RN}"; HC=f"Horas!$C${R0}:$C${RN}"; HE=f"Horas!$E${R0}:$E${RN}"; HF=f"Horas!$F${R0}:$F${RN}"; HG=f"Horas!$G${R0}:$G${RN}"; HH=f"Horas!$H${R0}:$H${RN}"; HI=f"Horas!$I${R0}:$I${RN}"
+HB=f"Horas!$B${R0}:$B${RN}"; HC=f"Horas!$C${R0}:$C${RN}"; HE=f"Horas!$E${R0}:$E${RN}"; HF=f"Horas!$F${R0}:$F${RN}"; HG=f"Horas!$G${R0}:$G${RN}"; HH=f"Horas!$H${R0}:$H${RN}"; HI=f"Horas!$I${R0}:$I${RN}"; HJ=f"Horas!$J${R0}:$J${RN}"
+INC="cadastro incompleto"   # texto que ocupa o lugar de custo e margem enquanto falta custo-hora
 kpi(p,4,1,"Horas no mês",f'=SUMIFS({HE},{HG},{M},{HH},{Y})',LAVANDA,UVA,fmt="#,##0.0")
-kpi(p,4,3,"Custo no mês",f'=SUMIFS({HF},{HG},{M},{HH},{Y})',LAVANDA,UVA,fmt=BRL0)
+# Custo com lançamento sem custo-hora não é número parcial: é pendência escrita (rodada 4:
+# apagar um custo mensal derrubava o custo do mês de 14.967 para 10.207 e a margem do
+# projeto SUBIA, sem nada dizer que a soma estava incompleta).
+kpi(p,4,3,"Custo no mês",f'=IF(SUMIFS({HJ},{HG},{M},{HH},{Y})>0,"{INC}",SUMIFS({HF},{HG},{M},{HH},{Y}))',LAVANDA,UVA,fmt=BRL0)
 kpi(p,4,5,"Horas faturáveis",f'=IFERROR(SUMIFS({HE},{HG},{M},{HH},{Y},{HI},"Sim")/A5,0)',VERDE,VERDE_T,fmt="0%")
 kpi(p,4,7,"Ocupação da equipe",f'=IFERROR(A5/SUMIFS(Config!$C$11:$C${10+NPES},Config!$A$11:$A${10+NPES},"<>"),0)',SOL,UVA,fmt="0%")
-p["A7"]=f'=IF(COUNTIF({HF},"*Config*")=0,"","Atenção: "&COUNTIF({HF},"*Config*")&" lançamento(s) de hora sem custo-hora (cadastro incompleto em Config). O custo e a margem dos projetos abaixo estão MENORES do que a realidade até você completar o custo mensal e as horas disponíveis da pessoa.")'
+p["A7"]=f'=IF(SUM({HJ})=0,"","Atenção: "&SUM({HJ})&" lançamento(s) de hora sem custo-hora (cadastro incompleto em Config). O custo desses lançamentos não está contado: o custo real é MAIOR e a margem real é MENOR do que qualquer soma parcial, por isso custo e margem dos projetos e pessoas afetados aparecem como \'{INC}\' até você completar o custo mensal e as horas disponíveis da pessoa.")'
 p["A7"].font=F(size=10,bold=True,color=VERM_T); p.merge_cells("A7:J7"); p["A7"].alignment=Alignment(wrap_text=True,vertical="top")
 p["A8"]="Por projeto (todo o período)"; p["A8"].font=F(bold=True,size=13,color=UVA)
 hdr(p,9,["Projeto","Cliente","Horas orçadas","Horas usadas","% do orçado","Custo (R$)","Valor cobrado","Margem (R$)","Margem (%)","Situação"])
@@ -77,12 +84,13 @@ for i in range(NPROJ):
     p.cell(row=r,column=3,value=f'=IF({src}="","",Config!$C${24+i})'); calc(p.cell(row=r,column=3),"0")
     p.cell(row=r,column=4,value=f'=IF({src}="","",SUMIFS({HE},{HC},{src}))'); calc(p.cell(row=r,column=4),"0.0")
     p.cell(row=r,column=5,value=f'=IF(OR({src}="",C{r}=0,C{r}=""),"",D{r}/C{r})'); calc(p.cell(row=r,column=5),"0%")
-    p.cell(row=r,column=6,value=f'=IF({src}="","",SUMIFS({HF},{HC},{src}))'); calc(p.cell(row=r,column=6),BRL0)
+    p.cell(row=r,column=6,value=f'=IF({src}="","",IF(SUMIFS({HJ},{HC},{src})>0,"{INC}",SUMIFS({HF},{HC},{src})))'); calc(p.cell(row=r,column=6),BRL0)
     p.cell(row=r,column=7,value=f'=IF({src}="","",Config!$D${24+i})'); calc(p.cell(row=r,column=7),BRL0)
-    p.cell(row=r,column=8,value=f'=IF(OR({src}="",G{r}=""),"",G{r}-F{r})'); calc(p.cell(row=r,column=8),BRL0)
-    p.cell(row=r,column=9,value=f'=IF(OR({src}="",G{r}="",G{r}=0),"",H{r}/G{r})'); calc(p.cell(row=r,column=9),"0%")
-    p.cell(row=r,column=10,value=f'=IF({src}="","",IF(Config!$E${24+i}="Interno","Interno",IF(Config!$E${24+i}="Proposta","Proposta",IF(AND(E{r}<>"",E{r}>1),"Estourou as horas",IF(AND(I{r}<>"",I{r}<0.2),"Margem baixa",IF(AND(E{r}<>"",E{r}>0.85,Config!$E${24+i}="Em andamento"),"Perto do limite","Saudável"))))))'); calc(p.cell(row=r,column=10))
-p.conditional_formatting.add(f"J10:J{9+NPROJ}", FormulaRule(formula=['OR(J10="Estourou as horas",J9="Margem baixa")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
+    p.cell(row=r,column=8,value=f'=IF(OR({src}="",G{r}=""),"",IF(ISNUMBER(F{r}),G{r}-F{r},"{INC}"))'); calc(p.cell(row=r,column=8),BRL0)
+    p.cell(row=r,column=9,value=f'=IF(OR({src}="",G{r}="",G{r}=0,NOT(ISNUMBER(H{r}))),"",H{r}/G{r})'); calc(p.cell(row=r,column=9),"0%")
+    p.cell(row=r,column=10,value=f'=IF({src}="","",IF(Config!$E${24+i}="Interno","Interno",IF(Config!$E${24+i}="Proposta","Proposta",IF(NOT(ISNUMBER(F{r})),"Custo incompleto",IF(AND(E{r}<>"",E{r}>1),"Estourou as horas",IF(AND(I{r}<>"",I{r}<0.2),"Margem baixa",IF(AND(E{r}<>"",E{r}>0.85,Config!$E${24+i}="Em andamento"),"Perto do limite","Saudável")))))))'); calc(p.cell(row=r,column=10))
+# (a regra vermelha comparava J9 com "Margem baixa" na linha de J10: pintava a linha de baixo)
+p.conditional_formatting.add(f"J10:J{9+NPROJ}", FormulaRule(formula=['OR(J10="Estourou as horas",J10="Margem baixa",J10="Custo incompleto")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 p.conditional_formatting.add(f"J10:J{9+NPROJ}", FormulaRule(formula=['J10="Perto do limite"'], fill=fill("FFF4CC")))
 p.conditional_formatting.add(f"J10:J{9+NPROJ}", FormulaRule(formula=['J10="Saudável"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
 p.conditional_formatting.add(f"H10:H{9+NPROJ}", FormulaRule(formula=['AND(ISNUMBER(H10),H10<0)'], font=F(color="C8402E",size=10,bold=True)))
@@ -96,7 +104,7 @@ for i in range(NPES):
     p.cell(row=r,column=3,value=f'=IF({src}="","",Config!$C${11+i})'); calc(p.cell(row=r,column=3),"0")
     p.cell(row=r,column=4,value=f'=IF(OR({src}="",C{r}=0,C{r}=""),"",B{r}/C{r})'); calc(p.cell(row=r,column=4),"0%")
     p.cell(row=r,column=5,value=f'=IF(OR({src}="",B{r}=0),"",SUMIFS({HE},{HB},{src},{HG},{M},{HH},{Y},{HI},"Sim")/B{r})'); calc(p.cell(row=r,column=5),"0%")
-    p.cell(row=r,column=6,value=f'=IF({src}="","",SUMIFS({HF},{HB},{src},{HG},{M},{HH},{Y}))'); calc(p.cell(row=r,column=6),BRL0)
+    p.cell(row=r,column=6,value=f'=IF({src}="","",IF(SUMIFS({HJ},{HB},{src},{HG},{M},{HH},{Y})>0,"{INC}",SUMIFS({HF},{HB},{src},{HG},{M},{HH},{Y})))'); calc(p.cell(row=r,column=6),BRL0)
     p.cell(row=r,column=7,value=f'=IF({src}="","",Config!$D${11+i})'); calc(p.cell(row=r,column=7),BRL)
 p.conditional_formatting.add(f"D{r0+2}:D{r0+11}", FormulaRule(formula=[f'AND(ISNUMBER(D{r0+2}),D{r0+2}>1)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 p.conditional_formatting.add(f"D{r0+2}:D{r0+11}", FormulaRule(formula=[f'AND(ISNUMBER(D{r0+2}),D{r0+2}<0.6)'], fill=fill("FFF4CC")))
@@ -150,7 +158,7 @@ for i,row in enumerate(rows):
     for c,v in zip((1,2,3,4,5,9),row): h.cell(row=R0+i,column=c,value=v)
 como_usar(wb,"Horas e Custo por Projeto",[
  ("O que esta planilha faz","Cada pessoa lança as horas por projeto; ela transforma em custo (pelo custo-hora), compara com as horas orçadas e o valor cobrado, mostra a margem de cada projeto e a ocupação de cada pessoa no mês."),
- ("Passo 1","Em Config, cadastre as pessoas com custo mensal E horas disponíveis: os dois são obrigatórios, porque o custo-hora sai da divisão. Faltando um, a planilha escreve o que falta em vez de calcular um custo zerado, e os projetos com horas orçadas, valor cobrado e status. Projetos internos (comercial, gestão) entram com status Interno; proposta ainda não fechada pode entrar como Proposta, sem horas."),
+ ("Passo 1","Em Config, cadastre as pessoas com custo mensal E horas disponíveis: os dois são obrigatórios, porque o custo-hora sai da divisão. Faltando um, a planilha escreve o que falta em vez de calcular um custo zerado, e o custo e a margem dos projetos e pessoas com horas dessa pessoa aparecem como \"cadastro incompleto\" no Painel (uma soma parcial mentiria para menos). Cadastre também os projetos com horas orçadas, valor cobrado e status. Projetos internos (comercial, gestão) entram com status Interno; proposta ainda não fechada pode entrar como Proposta, sem horas."),
  ("Passo 2","Em Horas, uma linha por pessoa, por dia, por projeto: data, pessoa, projeto, atividade, horas e se é faturável."),
  ("Passo 3","Em Painel, escolha o mês em Config. Por projeto: horas usadas contra orçadas, custo, margem e situação. Por pessoa: ocupação e horas faturáveis."),
  ("Rotina","Cada pessoa lança no fim do dia (2 minutos) ou na sexta (10 minutos). Dia 1 do mês: olhe margem por projeto antes de precificar o próximo."),

@@ -80,7 +80,7 @@ pr.conditional_formatting.add(f"A{R0}:M{RNP}", FormulaRule(formula=[f'$I{R0}="Ve
 pr.conditional_formatting.add(f"A{R0}:M{RNP}", FormulaRule(formula=[f'AND($I{R0}="A vencer",$K{R0}<={JC})'], fill=fill("FFF4CC")))
 pr.conditional_formatting.add(f"A{R0}:M{RNP}", FormulaRule(formula=[f'$I{R0}="Paga"'], font=F(color=VERDE_T,size=10)))
 pr.conditional_formatting.add(f"H{R0}:H{RNP}", FormulaRule(formula=[f'AND($G{R0}="Sim",$H{R0}="")'], fill=fill(VERM)))
-pr.cell(row=RNP+2,column=1,value="Vermelho: vencida. Amarelo: vence na janela curta. Verde: paga. Data do pagamento em vermelho: marcada como paga sem data. No exemplo, as parcelas pagas têm data fixa (cada uma é uma entrada do caixa, planilha 09) e as em aberto têm vencimento relativo a hoje.").font=F(size=9,color=LILAS)
+pr.cell(row=RNP+2,column=1,value="Vermelho: vencida. Amarelo: vence na janela curta. Verde: paga. Data do pagamento em vermelho: marcada como paga sem data. No exemplo, as parcelas pagas têm data fixa (cada uma é uma entrada do caixa, planilha 09) e as em aberto têm vencimento em data literal: o exemplo inteiro é uma foto de 14/09/2026 e não se atualiza sozinho. Ao começar com os seus dados, apague o exemplo e lance as suas parcelas.").font=F(size=9,color=LILAS)
 widths(pr,(28,30,12,9,12,12,8,13,13,9,9,16,60)); pr.freeze_panes="C5"; pr.sheet_view.showGridLines=False; pr.auto_filter.ref=f"A4:M{RNP}"
 
 # ---------- Painel ----------

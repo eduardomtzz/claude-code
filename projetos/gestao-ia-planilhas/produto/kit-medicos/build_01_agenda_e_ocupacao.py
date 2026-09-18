@@ -131,6 +131,10 @@ for r in range(R0,RN+1):
     # coluna R (cortada); os quadros por procedimento e por pagador usam esta, para as
     # colunas vizinhas contarem os mesmos atendimentos.
     ag.cell(row=r,column=21,value=f'=IF(AND(H{r}="Realizado",L{r}<>""),L{r}/60,0)'); ag.cell(row=r,column=21).font=F(color=CINZA,size=9)
+    # V (oculta): 1 = atendimento Realizado sem minutos ou sem valor. Em branco não é zero:
+    # sem esta marca, apagar L/M de um realizado baixava horas, produção e ocupação em
+    # silêncio (rodada 4). Valor 0 DIGITADO continua válido (retorno incluído na consulta).
+    ag.cell(row=r,column=22,value=f'=IF(AND(H{r}="Realizado",OR(L{r}="",M{r}="")),1,0)'); ag.cell(row=r,column=22).font=F(color=CINZA,size=9)
 dvs=[(lista(PROF_L),f"C{R0}:C{RN}"),(lista(SALA_L),f"D{R0}:D{RN}"),(lista(PAC_L,strict=True),f"E{R0}:E{RN}"),(lista(PAG_L),f"F{R0}:F{RN}"),(lista(PROC_L),f"G{R0}:G{RN}"),
      (lista('"'+",".join(dados.SITUACOES)+'"'),f"H{R0}:H{RN}"),(lista('"Pix,Dinheiro,Cartão de débito,Cartão de crédito,A prazo,Convênio,Sem cobrança"'),f"I{R0}:I{RN}"),
      (DataValidation(type="whole",operator="between",formula1="1",formula2="12",allow_blank=True,showErrorMessage=True),f"J{R0}:J{RN}"),
@@ -140,22 +144,26 @@ dvs=[(lista(PROF_L),f"C{R0}:C{RN}"),(lista(SALA_L),f"D{R0}:D{RN}"),(lista(PAC_L,
      (DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True,
                      errorTitle="Valor",error="Valor cobrado neste atendimento, em reais. A coluna \"Valor pela tabela de hoje\" mostra o que a sua tabela sugere."),f"M{R0}:M{RN}")]
 for dv,rng in dvs: dv.add(rng); ag.add_data_validation(dv)
-ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'$H{R0}="Realizado"'], font=F(color=VERDE_T,size=10)))
-ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'$H{R0}="Falta"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
-ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'OR($H{R0}="Cancelado",$H{R0}="Remarcado")'], font=F(color="8A86A0",size=10)))
-ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'OR($H{R0}="Agendado",$H{R0}="Confirmado")'], fill=fill(LAVANDA)))
-ag.conditional_formatting.add(f"I{R0}:I{RN}", FormulaRule(formula=[f'AND($H{R0}="Realizado",$M{R0}>0,$I{R0}="")'], fill=fill(VERM)))
+# As regras de L:M vêm ANTES das regras gerais da linha: a prioridade é a ordem de criação
+# e o fundo amarelo da divergência disputava o fundo lilás de Agendado/Confirmado, que
+# vinha antes e ganhava (rodada 4). Vermelho: realizado sem minutos ou sem valor.
+ag.conditional_formatting.add(f"L{R0}:M{RN}", FormulaRule(formula=[f'$V{R0}=1'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 # atendimento AINDA NÃO realizado com valor ou duração diferente da tabela de hoje: pode
 # ser intencional (desconto combinado) ou esquecimento de atualizar. Linha já realizada
 # nunca é apontada: ali o histórico é para ficar como está.
 ag.conditional_formatting.add(f"L{R0}:M{RN}", FormulaRule(
     formula=[f'AND(OR($H{R0}="Agendado",$H{R0}="Confirmado"),$S{R0}<>"",OR($L{R0}<>$S{R0},$M{R0}<>$T{R0}))'],
     fill=fill("FFF4CC")))
-ag.cell(row=RN+5,column=1,value="Minutos e Valor são SEUS, gravados na linha: o atendimento fica com a duração e o preço que valiam no dia dele. Ao lançar uma linha nova, copie o que as duas últimas colunas sugerem pela tabela de Config. Quando você reajustar a tabela, os atendimentos antigos continuam com o valor de antes — é isso que mantém o faturamento e a ocupação do mês passado iguais aos que você fechou na época. Em amarelo: atendimento ainda não realizado com valor ou duração diferente da tabela de hoje.").font=F(size=9,color=LILAS)
+ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'$H{R0}="Realizado"'], font=F(color=VERDE_T,size=10)))
+ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'$H{R0}="Falta"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
+ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'OR($H{R0}="Cancelado",$H{R0}="Remarcado")'], font=F(color="8A86A0",size=10)))
+ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'OR($H{R0}="Agendado",$H{R0}="Confirmado")'], fill=fill(LAVANDA)))
+ag.conditional_formatting.add(f"I{R0}:I{RN}", FormulaRule(formula=[f'AND($H{R0}="Realizado",$M{R0}>0,$I{R0}="")'], fill=fill(VERM)))
+ag.cell(row=RN+5,column=1,value="Minutos e Valor são SEUS, gravados na linha: o atendimento fica com a duração e o preço que valiam no dia dele. Ao lançar uma linha nova, copie o que as duas últimas colunas sugerem pela tabela de Config. Quando você reajustar a tabela, os atendimentos antigos continuam com o valor de antes — é isso que mantém o faturamento e a ocupação do mês passado iguais aos que você fechou na época. Em amarelo: atendimento ainda não realizado com valor ou duração diferente da tabela de hoje. Em vermelho: atendimento REALIZADO sem minutos ou sem valor — ele fica de fora das horas, da ocupação e da produção até você completar (o Painel avisa quantos são). Valor 0 digitado é válido: retorno incluído na consulta.").font=F(size=9,color=LILAS)
 ag.cell(row=RN+2,column=1,value="Verde: realizado. Vermelho: falta. Lilás: agendado ou confirmado. Cinza: cancelado ou remarcado. Forma de pagamento em vermelho: atendimento realizado com valor e sem forma. Convênio: escolha \"Convênio\" (a guia vai para a planilha 13). A prazo: a parcela vai para a planilha 14. Cartão: a conciliação é a planilha 16.").font=F(size=9,color=LILAS)
 ag.cell(row=RN+3,column=1,value=f"No exemplo, a agenda na planilha começou em 01/06/2026 (antes, a recepção só fechava o caixa do dia). Todas as datas são fixas: o exemplo é uma foto de 14/09/2026, para os vinte arquivos fecharem entre eles.").font=F(size=9,color=LILAS)
 ag.cell(row=RN+4,column=1,value=f"Esta aba tem {N} linhas ({R0} a {RN}): cerca de 300 atendimentos por mês cabem 10 meses. Para estender, desproteja a aba (Revisar > Desproteger), selecione a última linha inteira, copie e cole nas linhas seguintes (as fórmulas das colunas brancas vêm juntas) e depois troque {RN} pelo novo número final nas fórmulas do Painel (Localizar e substituir). Ou comece um arquivo por ano, que é o mais simples.").font=F(size=9,color=LILAS)
-widths(ag,(11,7,22,8,26,12,18,11,17,9,26,8,11,6,6,11,8,9,13,13)); ag.column_dimensions["U"].hidden=True; ag.freeze_panes="F5"; ag.sheet_view.showGridLines=False; ag.auto_filter.ref=f"A4:R{RN}"
+widths(ag,(11,7,22,8,26,12,18,11,17,9,26,8,11,6,6,11,8,9,13,13)); ag.column_dimensions["U"].hidden=True; ag.column_dimensions["V"].hidden=True; ag.freeze_panes="F5"; ag.sheet_view.showGridLines=False; ag.auto_filter.ref=f"A4:R{RN}"
 assert len(dados.AGENDA)<=N
 for i,r_ in enumerate(dados.AGENDA):
     r=R0+i
@@ -174,7 +182,7 @@ titulo(p,'=Config!$B$4&" · Agenda e ocupação · "&Config!$B$6&" de "&Config!$
 M="Config!$B$7"; Y="Config!$B$5"; LIM="Config!$B$9"
 AC=f"Agenda!$C${R0}:$C${RN}"; AD=f"Agenda!$D${R0}:$D${RN}"; AF=f"Agenda!$F${R0}:$F${RN}"; AG_=f"Agenda!$G${R0}:$G${RN}"; AM=f"Agenda!$M${R0}:$M${RN}"
 AN=f"Agenda!$N${R0}:$N${RN}"; AO=f"Agenda!$O${R0}:$O${RN}"; AP=f"Agenda!$P${R0}:$P${RN}"; AQ=f"Agenda!$Q${R0}:$Q${RN}"; AR=f"Agenda!$R${R0}:$R${RN}"; AU=f"Agenda!$U${R0}:$U${RN}"   # R = horas até ontem (ocupação); U = horas do mês inteiro
-AL=f"Agenda!$L${R0}:$L${RN}"
+AL=f"Agenda!$L${R0}:$L${RN}"; AV=f"Agenda!$V${R0}:$V${RN}"
 TA=f"Config!$A${T0}:$A${TN}"; TB=f"Config!$B${T0}:$B${TN}"; TC=f"Config!$C${T0}:$C${TN}"; TD=f"Config!$D${T0}:$D${TN}"; TG=f"Config!$G${T0}:$G${TN}"
 MES=f"{AN},{M},{AO},{Y}"
 kpi(p,4,1,"Horas disponíveis (até ontem)",f"=SUM({TG})",LAVANDA,UVA,fmt="#,##0.0")
@@ -184,6 +192,8 @@ kpi(p,4,7,"Horas vazias",'=IF(A5=0,"",MAX(0,A5-C5))',VERM,VERM_T,fmt="#,##0.0")
 kpi(p,4,9,"Faltas no mês",f'=COUNTIFS({AH},"Falta",{MES})',VERM,VERM_T,fmt="0")
 kpi(p,4,11,"Produção (R$)",f'=SUMIFS({AM},{AH},"Realizado",{MES})',LAVANDA,UVA,fmt=BRL0)
 p["A7"]="Horas vazias = disponíveis − atendidas: inclui faltas, cancelamentos e horários que ninguém marcou. Produção = valor de tabela dos atendimentos realizados (particular e convênio), antes de glosa e taxas; o que entrou de fato está no caixa (09)."; nota(p["A7"]); p.merge_cells("A7:L7"); p["A7"].alignment=Alignment(wrap_text=True,vertical="top"); p.row_dimensions[7].height=30
+p["A8"]=f'=IF(SUM({AV})=0,"","Atenção: "&SUM({AV})&" atendimento(s) realizado(s) sem minutos ou sem valor na Agenda (em vermelho lá). Eles não entram nas horas atendidas, na ocupação nem na produção: os números deste Painel estão MENORES do que a realidade até você completar. Valor 0 digitado é válido (retorno incluído na consulta).")'
+p["A8"].font=F(color=VERM_T,size=10,bold=True); p["A8"].alignment=Alignment(wrap_text=True,vertical="top"); p.merge_cells("A8:L8")
 # por profissional
 p["A9"]="Por profissional"; p["A9"].font=F(bold=True,size=13,color=UVA)
 hdr(p,10,["Profissional","Horas disponíveis","Horas atendidas","Ocupação","Realizados","Faltas","Taxa de falta","Produção (R$)","Barra"]); p.merge_cells("I10:L10")
@@ -242,16 +252,18 @@ for i in range(NPROC):
     p.cell(row=r,column=3,value=f'=IF({src}="","",SUMIFS({AU},{AG_},{src},{MES}))'); calc(p.cell(row=r,column=3),"#,##0.0")
     p.cell(row=r,column=4,value=f'=IF({src}="","",SUMIFS({AM},{AG_},{src},{AH},"Realizado",{MES}))'); calc(p.cell(row=r,column=4),BRL0)
     p.cell(row=r,column=5,value=f'=IF(OR({src}="",B{r}=0),"",D{r}/B{r})'); calc(p.cell(row=r,column=5),BRL0)
-hdr(p,P0+1,["Pagador","Realizados","Faltas","Taxa de falta","Produção (R$)","Valor médio (R$)","% da produção"],start=7)
+# Horas por pagador com a mesma coluna U e os mesmos filtros do quadro por procedimento
+hdr(p,P0+1,["Pagador","Realizados","Horas","Faltas","Taxa de falta","Produção (R$)","Valor médio (R$)","% da produção"],start=7)
 for i in range(NPAG):
     r=P0+2+i; src=f"Config!$H${5+i}"
     p.cell(row=r,column=7,value=f'=IF({src}="","",{src})'); calc(p.cell(row=r,column=7),center=False)
     p.cell(row=r,column=8,value=f'=IF({src}="","",COUNTIFS({AF},{src},{AH},"Realizado",{MES}))'); calc(p.cell(row=r,column=8))
-    p.cell(row=r,column=9,value=f'=IF({src}="","",COUNTIFS({AF},{src},{AH},"Falta",{MES}))'); calc(p.cell(row=r,column=9))
-    p.cell(row=r,column=10,value=f'=IF({src}="","",IF(H{r}+I{r}=0,"",I{r}/(H{r}+I{r})))'); calc(p.cell(row=r,column=10),PCT)
-    p.cell(row=r,column=11,value=f'=IF({src}="","",SUMIFS({AM},{AF},{src},{AH},"Realizado",{MES}))'); calc(p.cell(row=r,column=11),BRL0)
-    p.cell(row=r,column=12,value=f'=IF(OR({src}="",H{r}=0),"",K{r}/H{r})'); calc(p.cell(row=r,column=12),BRL0)
-    p.cell(row=r,column=13,value=f'=IF(OR({src}="",$K$5=0),"",K{r}/$K$5)'); calc(p.cell(row=r,column=13),PCT)
+    p.cell(row=r,column=9,value=f'=IF({src}="","",SUMIFS({AU},{AF},{src},{MES}))'); calc(p.cell(row=r,column=9),"#,##0.0")
+    p.cell(row=r,column=10,value=f'=IF({src}="","",COUNTIFS({AF},{src},{AH},"Falta",{MES}))'); calc(p.cell(row=r,column=10))
+    p.cell(row=r,column=11,value=f'=IF({src}="","",IF(H{r}+J{r}=0,"",J{r}/(H{r}+J{r})))'); calc(p.cell(row=r,column=11),PCT)
+    p.cell(row=r,column=12,value=f'=IF({src}="","",SUMIFS({AM},{AF},{src},{AH},"Realizado",{MES}))'); calc(p.cell(row=r,column=12),BRL0)
+    p.cell(row=r,column=13,value=f'=IF(OR({src}="",H{r}=0),"",L{r}/H{r})'); calc(p.cell(row=r,column=13),BRL0)
+    p.cell(row=r,column=14,value=f'=IF(OR({src}="",$K$5=0),"",L{r}/$K$5)'); calc(p.cell(row=r,column=14),PCT)
 p.cell(row=P0+2+NPROC,column=1,value="Estes dois quadros são do MÊS INTEIRO: realizados, horas e produção contam os mesmos atendimentos. Os quadros de ocupação, no alto, param em ontem, porque a capacidade também para lá — dia que ainda não terminou não entra nos dois lados da conta. Retorno tem valor zero (incluído na consulta): ocupa agenda e não produz. A planilha 06 embute esse tempo no preço da consulta.").font=F(size=9,color=LILAS)
 # próximos 7 dias
 Q0=P0+2+NPROC+3
@@ -274,7 +286,7 @@ bc=BarChart(); bc.type="col"; bc.grouping="clustered"; bc.height=7; bc.width=14;
 bc.add_data(Reference(p,min_col=2,max_col=3,min_row=10,max_row=10+len(dados.MEDICOS)),titles_from_data=True); bc.set_categories(Reference(p,min_col=1,min_row=11,max_row=10+len(dados.MEDICOS)))
 bc.series[0].graphicalProperties.solidFill="B89BE0"; bc.series[1].graphicalProperties.solidFill=UVA; bc.legend.position="b"; bc.y_axis.majorGridlines=None
 p.add_chart(bc,f"I{S0}")
-widths(p,(26,14,14,12,12,11,12,14,13,13,14,13,12)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
+widths(p,(26,14,14,12,12,11,12,14,13,13,14,13,12,12)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
 como_usar(wb,"Agenda e ocupação por profissional e sala",[
  ("O que esta planilha faz","Registra cada horário da agenda (quem atende, em que sala, qual paciente, pagador e procedimento, e o que aconteceu) e mede o que ninguém mede: quantas horas a clínica tinha disponíveis, quantas foram atendidas, a ocupação por profissional, por sala e por dia da semana, as faltas e a produção do mês."),
  ("Passo 1","Em Config, cadastre profissionais, salas, pagadores (particular e convênios), procedimentos com duração e a tabela de preços por pagador. Depois os turnos da semana (quem atende em que dia, período e sala) e os feriados. Preencha as listas de cima para baixo, sem pular linha."),

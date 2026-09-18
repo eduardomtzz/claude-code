@@ -446,18 +446,22 @@ def lancamentos():
             parcelas=[(r["data"]+timedelta(days=DIAS_CREDITO["Cartão de débito"]), r["valor"])]
         else:
             n_par=r["parcelas"] or 1
+            # mesma regra de centavo da planilha 16: parcela-base arredondada, a ÚLTIMA leva a diferença
             cota=round(r["valor"]/n_par,2); resto=round(r["valor"]-cota*n_par,2)
             parcelas=[(r["data"]+timedelta(days=DIAS_CREDITO["Cartão de crédito"]*(k+1)),
-                       cota+(resto if k==0 else 0)) for k in range(n_par)]
-        tx_total=taxa_cartao(r)
+                       cota+(resto if k==n_par-1 else 0)) for k in range(n_par)]
+        tx_total=taxa_cartao(r); n_liq=len(parcelas)
+        # taxa por liquidação como na 16 (coluna X, residual em Z): base arredondada ao centavo
+        # e a última parcela fecha a diferença. Ratear pelo peso dava 681,61 em agosto contra
+        # 681,60 no Painel da 16 depois do arredondamento por parcela (rodada 4).
+        tx_base=round(tx_total/n_liq,2)
         for k,(d_liq,v_par) in enumerate(parcelas):
             kk=(d_liq,f); por_liq.setdefault(kk,[0,0,r["data"]])
             por_liq[kk][0]+=v_par; por_liq[kk][1]+=1
             por_liq[kk][2]=min(por_liq[kk][2], r["data"])
             if tx_total:
-                # a taxa acompanha a parcela, rateada pelo peso dela na venda
                 taxa_por_mes.setdefault((d_liq.year,d_liq.month),0.0)
-                taxa_por_mes[(d_liq.year,d_liq.month)]+=tx_total*v_par/r["valor"]
+                taxa_por_mes[(d_liq.year,d_liq.month)]+=(tx_base if k<n_liq-1 else round(tx_total-tx_base*(n_liq-1),2))
     TAXA_LIQ_MES.clear(); TAXA_LIQ_MES.update({k:round(x,2) for k,x in taxa_por_mes.items()})
     for (d,f),(v,n,primeira) in sorted(por_liq.items()):
         if f in ("Pix","Dinheiro"):

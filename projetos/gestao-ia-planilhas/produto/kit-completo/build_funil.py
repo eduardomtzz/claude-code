@@ -83,7 +83,9 @@ for r in range(R0,RN+1):
     # chave INTEIRA: situação, dias parada, valor e linha sem sobreposição de casas. A
     # anterior somava valor/1E+6 com ROW()/1E+5 e colidia com R$ 10 de diferença em linhas
     # vizinhas, repetindo uma proposta e escondendo outra.
-    pr.cell(row=r,column=16,value=f'=IF(OR(F{r}="",O{r}="Fechada",O{r}="Perdida"),0,IF(O{r}="Fechamento vencido",3,IF(O{r}="Parada",2,1))*1E+13+MIN(N(N{r}),500)*1E+10+MIN(ROUND(N(E{r}),0),999999)*1E+4+({RN}+1-ROW()))'); pr.cell(row=r,column=16).font=F(color=CINZA,size=9)
+    # chave inteira: situação · dias (teto 500) · valor em CENTAVOS (teto R$ 999.999,99) · linha.
+    # Máximo 3,5E+15, abaixo de 2^53. ROUND(valor,0) empatava 380,00 com 379,99 (rodada 4).
+    pr.cell(row=r,column=16,value=f'=IF(OR(F{r}="",O{r}="Fechada",O{r}="Perdida"),0,IF(O{r}="Fechamento vencido",3,IF(O{r}="Parada",2,1))*1E+15+MIN(N(N{r}),500)*1E+12+MIN(ROUND(N(E{r})*100,0),99999999)*1E+4+({RN}+1-ROW()))'); pr.cell(row=r,column=16).font=F(color=CINZA,size=9)
 pr.column_dimensions["P"].hidden=True
 PP=f"Propostas!$P${R0}:$P${RN}"
 for k in range(1,13):

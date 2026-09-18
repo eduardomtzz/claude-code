@@ -54,7 +54,9 @@ for r in range(R0,RN+1):
     o.cell(row=r,column=16,value=f'=IF(A{r}="","",DATE(YEAR(A{r}),MONTH(A{r}),1))'); calc(o.cell(row=r,column=16),"mm/yyyy")
     # chave INTEIRA (ver o comentário igual na 16): a soma de valor/1E+6 com ROW()/1E+5
     # colidia com R$ 10 de diferença em linhas vizinhas.
-    o.cell(row=r,column=17,value=f'=IF(OR(G{r}="",O{r}="Aprovado",O{r}="Recusado",O{r}="Sem retorno"),0,IF(O{r}="Parado",2,1)*1E+13+MIN(N(M{r}),500)*1E+10+MIN(ROUND(N(F{r}),0),999999)*1E+4+({RN}+1-ROW()))'); o.cell(row=r,column=17).font=F(color=CINZA,size=9)
+    # chave inteira: situação · dias (teto 500) · valor em CENTAVOS (teto R$ 999.999,99) · linha.
+    # Máximo 3,5E+15, abaixo de 2^53. ROUND(valor,0) empatava 380,00 com 379,99 (rodada 4).
+    o.cell(row=r,column=17,value=f'=IF(OR(G{r}="",O{r}="Aprovado",O{r}="Recusado",O{r}="Sem retorno"),0,IF(O{r}="Parado",2,1)*1E+15+MIN(N(M{r}),500)*1E+12+MIN(ROUND(N(F{r})*100,0),99999999)*1E+4+({RN}+1-ROW()))'); o.cell(row=r,column=17).font=F(color=CINZA,size=9)
 o.column_dimensions["Q"].hidden=True
 dvs=[lista(RESP_L), lista(TIPO_L), lista(ITEM_L,strict=True), lista(f"=Config!$A${E0}:$A${E1}"), lista(MOT_L,strict=True),
      DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True), DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True)]

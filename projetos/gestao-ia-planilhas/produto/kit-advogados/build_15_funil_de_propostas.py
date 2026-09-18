@@ -6,7 +6,7 @@ import dados
 from openpyxl.chart import BarChart, Reference
 
 N=300; R0=5; RN=R0+N-1
-NL=10; L0=18; L1=L0+NL-1           # listas da Config: linhas 18..27
+NL=20; L0=18; L1=L0+NL-1           # listas da Config: linhas 18..37 (eram 10 vagas: o 11º serviço, em I28, ficava fora da lista — rodada 4)
 E0=10; E1=15                       # etapas: linhas 10..15
 ETAPAS=[("Contato",0.10),("Reunião feita",0.25),("Proposta enviada",0.50),("Negociação",0.75),("Fechada",1.0),("Perdida",0.0)]
 def off(sheet,col,r0,r1): return f"=OFFSET({sheet}!${col}${r0},0,0,MAX(1,COUNTA({sheet}!${col}${r0}:${col}${r1})),1)"
@@ -32,7 +32,7 @@ cfg["A16"]="Etapas fixas: contato → reunião → proposta enviada → negocia�
 for col,nome in ((1,"Áreas de atuação"),(3,"Origens do contato"),(5,"Motivos de perda"),(7,"Responsáveis"),(9,"Serviços mais comuns")): hdr(cfg,L0-1,[nome],start=col)
 for r in range(L0,L1+1):
     for c in (1,3,5,7,9): inp(cfg.cell(row=r,column=c))
-cfg.cell(row=L1+2,column=1,value="Preencha cada lista de cima para baixo, sem pular linha: as listas suspensas de Propostas param na primeira célula vazia. Até 10 itens por lista. Serviço é texto livre; a lista só sugere.").font=F(size=9,color=LILAS)
+cfg.cell(row=L1+2,column=1,value="Preencha cada lista de cima para baixo, sem pular linha: as listas suspensas de Propostas param na primeira célula vazia. Até 20 itens por lista. Serviço é texto livre; a lista só sugere.").font=F(size=9,color=LILAS)
 widths(cfg,(40,20,18,3,26,3,20,3,34,3)); cfg.sheet_view.showGridLines=False
 AREAS_L=off("Config","A",L0,L1); ORIG_L=off("Config","C",L0,L1); MOT_L=off("Config","E",L0,L1); RESP_L=off("Config","G",L0,L1); SERV_L=off("Config","I",L0,L1)
 
@@ -54,7 +54,9 @@ for r in range(R0,RN+1):
     # sobrepõem. A anterior somava valor/1E+6 com ROW()/1E+5 e colidia quando a diferença
     # de valor era dez vezes a de linha (R$ 10 em linhas vizinhas) — aí o LARGE/MATCH
     # repetia a mesma proposta e escondia a outra (mesma raiz do G-19 da auditoria).
-    pr.cell(row=r,column=18,value=f'=IF(OR(G{r}="",Q{r}="Fechada",Q{r}="Perdida"),0,IF(Q{r}="Previsão vencida",3,IF(Q{r}="Parada",2,1))*1E+13+MIN(N(O{r}),500)*1E+10+MIN(ROUND(N(F{r}),0),999999)*1E+4+({RN}+1-ROW()))'); pr.cell(row=r,column=18).font=F(color=CINZA,size=9)
+    # chave inteira: situação · dias (teto 500) · valor em CENTAVOS (teto R$ 999.999,99) · linha.
+    # Máximo 3,5E+15, abaixo de 2^53. ROUND(valor,0) empatava 380,00 com 379,99 (rodada 4).
+    pr.cell(row=r,column=18,value=f'=IF(OR(G{r}="",Q{r}="Fechada",Q{r}="Perdida"),0,IF(Q{r}="Previsão vencida",3,IF(Q{r}="Parada",2,1))*1E+15+MIN(N(O{r}),500)*1E+12+MIN(ROUND(N(F{r})*100,0),99999999)*1E+4+({RN}+1-ROW()))'); pr.cell(row=r,column=18).font=F(color=CINZA,size=9)
 pr.column_dimensions["R"].hidden=True
 dvs=[lista(AREAS_L), lista(SERV_L,strict=False), lista(ORIG_L,strict=True), lista(RESP_L), lista(f"=Config!$A${E0}:$A${E1}"), lista(MOT_L,strict=True),
      DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True), DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True)]

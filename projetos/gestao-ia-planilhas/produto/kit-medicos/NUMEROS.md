@@ -221,7 +221,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 |---|---|---|---|---|---|---|
 | Receita total | R$ 55.841 | R$ 44.471 | +25,6 % | R$ 46.000 | +21,4 % | Dentro do previsto |
 | Custos fixos | R$ 10.000 | R$ 10.000 | +0,0 % | R$ 10.000 | +0,0 % | Dentro do previsto |
-| Despesas variáveis | R$ 7.357 | R$ 6.367 | +15,6 % | R$ 6.000 | +22,6 % | Fora do previsto |
+| Despesas variáveis | R$ 7.357 | R$ 6.367 | +15,5 % | R$ 6.000 | +22,6 % | Fora do previsto |
 | Pró-labore | R$ 18.000 | R$ 18.000 | +0,0 % | R$ 18.000 | +0,0 % | Informativo |
 | Provisão de 13º e férias | R$ 1.962 | R$ 1.962 | +0,0 % | R$ 1.962 | +0,0 % | Informativo |
 | Impostos provisionados | R$ 6.143 | R$ 4.892 | +25,6 % | R$ 5.060 | +21,4 % | Informativo |
@@ -284,12 +284,12 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Teste ergométrico | 6 | 4,0 | R$ 1.415 | R$ 236 |
 | Avaliação endócrina | 18 | 12,0 | R$ 5.850 | R$ 325 |
 
-| Pagador (01, setembro) | Realizados | Faltas | Taxa de falta | Produção | Valor médio | % da produção |
-|---|---|---|---|---|---|---|
-| Particular | 55 | 2 | 4 % | R$ 15.620 | R$ 284 | 78 % |
-| Saúde Total | 26 | 2 | 7 % | R$ 2.435 | R$ 94 | 12 % |
-| MediPlan | 19 | 1 | 5 % | R$ 1.445 | R$ 76 | 7 % |
-| Vida Care | 7 | 1 | 12 % | R$ 545 | R$ 78 | 3 % |
+| Pagador (01, setembro) | Realizados | Horas | Faltas | Taxa de falta | Produção | Valor médio | % da produção |
+|---|---|---|---|---|---|---|---|
+| Particular | 55 | 27,0 | 2 | 4 % | R$ 15.620 | R$ 284 | 78 % |
+| Saúde Total | 26 | 12,8 | 2 | 7 % | R$ 2.435 | R$ 94 | 12 % |
+| MediPlan | 19 | 8,7 | 1 | 5 % | R$ 1.445 | R$ 76 | 7 % |
+| Vida Care | 7 | 3,3 | 1 | 12 % | R$ 545 | R$ 78 | 3 % |
 
 | Próximos 7 dias (01) | Data | Agendados | Confirmados | Horas marcadas | Horas de turno | Vagas (h) |
 |---|---|---|---|---|---|---|
@@ -518,7 +518,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ## 9. Cartão e taxas (16 · Conciliação, Config = Agosto)
 
-- **Agosto**: vendas no cartão e Pix R$ 31.820 · taxas **R$ 484,12** (1,52 %) · líquido R$ 31.335,88 · ainda vai cair R$ 12.388,26 · a conferir R$ 4.758,98. "As taxas das vendas do mês equivalem a 1,3 consultas particulares. Para o caixa (09), a saída 'Taxas de cartão' do mês é R$ 681,61: é a taxa das liquidações que caíram neste mês, e não a das vendas feitas nele."
+- **Agosto**: vendas no cartão e Pix R$ 31.820 · taxas **R$ 484,12** (1,52 %) · líquido R$ 31.335,88 · ainda vai cair R$ 12.388,26 · a conferir R$ 4.758,98. "As taxas das vendas do mês equivalem a 1,3 consultas particulares. Para o caixa (09), a saída 'Taxas de cartão' do mês é R$ 681,60: é a taxa das liquidações que caíram neste mês, e não a das vendas feitas nele."
 | Tipo (16, agosto) | Vendas | Bruto | Taxas | Taxa média | Líquido | % do bruto |
 |---|---|---|---|---|---|---|
 | Pix | 37 | R$ 13.380 | R$ 0,00 | 0,00 % | R$ 13.380 | 42 % |
@@ -526,7 +526,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Cartão de crédito à vista | 16 | R$ 5.840 | R$ 186,88 | 3,20 % | R$ 5.653 | 18 % |
 | Cartão de crédito parcelado | 12 | R$ 4.510 | R$ 175,89 | 3,90 % | R$ 4.334 | 14 % |
 
-- Taxas do exemplo (Config): Pix 0 %, débito 1,5 % (D+1), crédito à vista 3,2 % (D+30), crédito parcelado 3,9 % (parcelas de 30 em 30 dias); sem antecipação. Vendas na aba: 298 (01/06 a 11/09). Taxas de julho (saída do caixa em 31/07): R$ 346,60; de agosto (31/08): R$ 681,61.
+- Taxas do exemplo (Config): Pix 0 %, débito 1,5 % (D+1), crédito à vista 3,2 % (D+30), crédito parcelado 3,9 % (parcelas de 30 em 30 dias); sem antecipação. Vendas na aba: 298 (01/06 a 11/09). Taxas de julho (saída do caixa em 31/07): R$ 346,61; de agosto (31/08): R$ 681,60.
 
 ## 10. Metas do trimestre (19), reserva (12) e provisão (10)
 

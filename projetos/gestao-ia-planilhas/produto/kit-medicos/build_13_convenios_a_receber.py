@@ -77,7 +77,9 @@ for r in range(R0,RNL+1):
     lo.cell(row=r,column=18,value=f'=IF(Q{r}="","",D{r}-Q{r})'); calc(lo.cell(row=r,column=18),BRL0)
     # chave INTEIRA. A anterior somava valor/1E+6 com ROW()/1E+8: um centavo de diferença
     # entre dois lotes na mesma situação dava a MESMA chave, e o LARGE/MATCH repetia um lote.
-    lo.cell(row=r,column=19,value=f'=IF(OR(N{r}="Atrasada",N{r}="Aguardando"),IF(N{r}="Atrasada",2,1)*1E+13+MIN(N(O{r}),500)*1E+10+MIN(ROUND(N(D{r}),0),999999)*1E+4+({RNL}+1-ROW()),0)'); lo.cell(row=r,column=19).font=F(color=CINZA,size=9)
+    # chave inteira: situação · dias (teto 500) · valor em CENTAVOS (teto R$ 999.999,99) · linha.
+    # Máximo 3,5E+15, abaixo de 2^53. ROUND(valor,0) empatava 380,00 com 379,99 (rodada 4).
+    lo.cell(row=r,column=19,value=f'=IF(OR(N{r}="Atrasada",N{r}="Aguardando"),IF(N{r}="Atrasada",2,1)*1E+15+MIN(N(O{r}),500)*1E+12+MIN(ROUND(N(D{r})*100,0),99999999)*1E+4+({RNL}+1-ROW()),0)'); lo.cell(row=r,column=19).font=F(color=CINZA,size=9)
     lo.cell(row=r,column=20,value=f'=IF(AND(F{r}<>"",E{r}<>""),F{r}-E{r},"")'); lo.cell(row=r,column=20).font=F(color=CINZA,size=9)
 lo.column_dimensions["S"].hidden=True; lo.column_dimensions["T"].hidden=True
 dvs=[(lista(CONV_L),f"A{R0}:A{RNL}"),(lista('"Em recurso,Aceito,Negado"'),f"H{R0}:H{RNL}"),

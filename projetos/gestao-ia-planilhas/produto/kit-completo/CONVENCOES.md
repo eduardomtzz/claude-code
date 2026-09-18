@@ -70,8 +70,13 @@ A. **Chave de ranking é INTEIRA.** Nunca somar duas grandezas decimais na mesma
    junto com ROW()/1E+5 colide sempre que a diferença de valor é dez vezes a diferença de linha
    (R$ 380,00 na linha 112 e R$ 379,99 na 113 davam a mesma chave, e o LARGE/MATCH devolvia a
    mesma venda duas vezes, escondendo a outra). Padrão: cada critério num bloco de casas próprio —
-   `situação*1E+13 + MIN(dias,500)*1E+10 + MIN(ROUND(valor,0),999999)*1E+4 + (ÚLTIMA_LINHA+1-ROW())`.
-   Exato em ponto flutuante até 9.007.199.254.740.992.
+   `situação*1E+15 + MIN(dias,500)*1E+12 + MIN(ROUND(valor*100,0),99999999)*1E+4 + (ÚLTIMA_LINHA+1-ROW())`
+   (a 16 dos Médicos não tem situação: `MIN(dias,500)*1E+12 + centavos*1E+4 + linha`). O valor
+   entra em CENTAVOS: com ROUND(valor,0), R$ 379,99 numa linha anterior vencia R$ 380,00 na
+   seguinte (rodada 4). Saturações, documentadas de propósito: dias acima de 500 empatam entre
+   si (ordem então pelo valor), valor acima de R$ 999.999,99 idem (ordem então pela linha) e a
+   linha vai até 9.999. Máximo da chave: 3 × 1E+15 + 5E+14 + 1E+12 + 1E+4 ≈ 3,5E+15, exato em
+   ponto flutuante porque fica abaixo de 2^53 = 9.007.199.254.740.992.
 
 B. **Número de exemplo nunca fica escrito dentro de texto.** Nota, "Como usar" e referência leem a
    célula: `"... "&FIXED($B$13,0)&" ..."`. Texto com número cravado envelhece na primeira regeração
