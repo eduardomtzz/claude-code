@@ -13,7 +13,7 @@ cfg["A6"]="Alerta: avisar prazos nos próximos (dias)"; cfg["B6"]=7
 cfg["A7"]="Janela do painel: prazos nos próximos (dias)"; cfg["B7"]=30
 for c in ("A4","A5","A6","A7"): rotulo(cfg[c])
 inp(cfg["B4"]); inp(cfg["B5"],DATA); inp(cfg["B6"],center=True); inp(cfg["B7"],center=True)
-cfg["C5"]="Deixe =HOJE() para acompanhar o dia; troque por uma data para simular outro dia."; nota(cfg["C5"])
+cfg["C5"]="O exemplo está congelado em 14/09/2026, para os arquivos do kit mostrarem a mesma foto. Ao usar com os seus dados, troque por =HOJE()."; nota(cfg["C5"])
 cfg["C6"]="Prazos dentro desse número de dias ficam em alerta amarelo no painel."; nota(cfg["C6"])
 cfg["C7"]="Prazos entre o alerta e essa janela contam no quarto quadro do painel; o resto fica como \"Depois\"."; nota(cfg["C7"])
 cfg["A9"]=f"Responsáveis (até {NRESP})"; cfg["D9"]=f"Tipos de prazo (até {NTIPO})"; rotulo(cfg["A9"]); rotulo(cfg["D9"])
@@ -116,7 +116,7 @@ widths(p,(6,28,26,24,12,8,14,16,10,10,10,10)); p.freeze_panes="A4"; p.sheet_view
 # ---------- Como usar ----------
 como_usar(wb,"Agenda de prazos e audiências",[
  ("O que esta planilha faz","Reúne todos os prazos, audiências e compromissos do escritório em uma lista só e mostra, no Painel, o que está atrasado, o que vence hoje, o que vence nos próximos dias, quem responde por cada um e quantos caem em cada dia da semana."),
- ("Passo 1","Em Config, confira a data de referência (fica em =HOJE()), cadastre as pessoas do escritório e ajuste a lista de tipos de prazo. Preencha de cima para baixo, sem pular linha."),
+ ("Passo 1","Em Config, troque a data de referência por =HOJE() (no exemplo ela está congelada em 14/09/2026), cadastre as pessoas do escritório e ajuste a lista de tipos de prazo. Preencha de cima para baixo, sem pular linha."),
  ("Passo 2","Em Prazos, apague os exemplos e registre uma linha por prazo: processo, cliente, tipo (lista), data, responsável (lista) e observação. Quando cumprir, marque Sim em Feito: a linha fica cinza e sai do painel."),
  ("Passo 3","Em Painel, leia de cima para baixo: quadros de contagem, lista \"O que vence primeiro\", carga por responsável e os próximos 7 dias."),
  ("Rotina de segunda","10 minutos: abra o Painel e trate os atrasados. Prazo processual em atraso NÃO se reagenda aqui: confira na fonte oficial (sistema do tribunal, publicação) e leve ao responsável; a planilha mantém a data original e serve só de registro. Só tarefa administrativa pode ser remarcada. Depois confirme os prazos da semana e registre os que chegaram."),

@@ -161,7 +161,7 @@ p.add_chart(bc,"J9")
 widths(p,(24,14,12,12,14,14,14,14,12,12,12,12)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
 como_usar(wb,"Faltas, remarcações e lista de retorno",[
  ("O que esta planilha faz","Mede por que a agenda esvazia: taxa de falta por dia da semana, período, pagador e profissional, a série das últimas 8 semanas, quem faltou mais de uma vez no mês e a lista de retorno (pacientes que passaram do retorno previsto e não têm horário marcado)."),
- ("Passo 1","Em Config, confira as listas (iguais às da planilha 01) e, para cada procedimento, em quantos dias se espera o retorno. A data de referência fica em =HOJE()."),
+ ("Passo 1","Em Config, confira as listas (iguais às da planilha 01) e, para cada procedimento, em quantos dias se espera o retorno. A data de referência do exemplo está congelada em 14/09/2026; troque por =HOJE() ao usar com os seus dados."),
  ("Passo 2","Em Agenda, cole as colunas A a K da Agenda da planilha 01 (a 01 é a fonte; não digite aqui uma agenda diferente). Toda sexta, cole de novo a agenda atualizada."),
  ("Passo 3","Em Painel, escolha o mês em Config. Leia de cima para baixo: taxa de falta, onde ela é maior, a tendência semanal, a lista de retorno e os reincidentes."),
  ("Rotina de segunda","4 minutos: a recepção liga ou manda mensagem para a lista de retorno (os 25 primeiros), oferece as vagas dos próximos 7 dias (Painel da 01) e registra as faltas da semana passada. Marque o retorno na 01: o paciente sai da lista sozinho. A rotina completa da semana (12 min na segunda, 18 na sexta) está na planilha 03."),

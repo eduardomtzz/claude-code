@@ -13,7 +13,7 @@ cfg["A4"]="Escritório"; cfg["B4"]=f"{dados.ESCRITORIO} (exemplo fictício)"
 cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 for c in ("A4","A5"): rotulo(cfg[c])
 inp(cfg["B4"]); inp(cfg["B5"],DATA)
-cfg["C5"]="Deixe =HOJE() para acompanhar o dia."; nota(cfg["C5"])
+cfg["C5"]="O exemplo está congelado em 14/09/2026, para os arquivos do kit mostrarem a mesma foto. Ao usar com os seus dados, troque por =HOJE()."; nota(cfg["C5"])
 cfg["A9"]=f"Itens de abertura (até {NIT})"; cfg["D9"]=f"Itens de encerramento (até {NIT})"; cfg["F9"]=f"Responsáveis (até {NRESP})"
 for c in ("A9","D9","F9"): rotulo(cfg[c])
 for i in range(NIT):

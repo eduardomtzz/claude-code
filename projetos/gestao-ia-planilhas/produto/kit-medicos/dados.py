@@ -109,7 +109,7 @@ def prazo_formula(dias):
     e só a parte futura andava, então a mesma clínica mostrava ocupação diferente
     em arquivos diferentes conforme o dia em que o cliente abria (auditoria de
     17/09/2026). Com data literal o exemplo é reproduzível e fecha em qualquer dia;
-    o "Como usar" manda trocar a data de referência por =HOJE() ao começar a usar.
+    o "Como usar" e a nota em Config mandam trocar a data de referência por =HOJE() ao começar a usar.
     """
     return HOJE+timedelta(days=dias)
 def dias(d): return (d-HOJE).days

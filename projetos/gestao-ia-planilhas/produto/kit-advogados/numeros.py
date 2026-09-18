@@ -31,12 +31,12 @@ T=dados.TOTAIS; E=dados.estado(dados.HOJE)
 w("# NÚMEROS DO EXEMPLO · Ferraz & Lima Advocacia (Kit de Gestão para Advogados)\n")
 w("Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (fonte única). Use estes valores em prompts, slides, manual e aulas: são exatamente os que aparecem nas planilhas.\n")
 w("## 1. Referência e regras do exemplo\n")
-w("- **Hoje (data de referência, Config = HOJE())**: segunda-feira **14/09/2026**. **Sexta do painel**: **11/09/2026**. Nenhum lançamento pago (caixa, parcela, hora) tem data depois de 11/09/2026.")
+w("- **Hoje (data de referência, Config = data literal 14/09/2026)**: segunda-feira **14/09/2026**. **Sexta do painel**: **11/09/2026**. Nenhum lançamento pago (caixa, parcela, hora) tem data depois de 11/09/2026.")
 w("- **Meses**: caixa (09) e horas (16) lançados de janeiro (caixa) / julho (horas) a 11/09/2026; **17 Painel do escritório** mostra **setembro em andamento**; **18 Resultado mensal** e **20 Resumo do mês** analisam **agosto de 2026** (último mês fechado; 20 = agosto × julho); **19 Metas** = 3º trimestre (semana 11 de 13, 82 % decorrido).")
 w("- **Inadimplência (única no kit: 14, 17, 19, 20)** = vencido ÷ (pago + vencido). Não é vencido ÷ em aberto.")
 w(f"- **Alíquota de impostos** (05, 06, 08, 09, 10, 18): **{dados.ALIQ*100:.0f} %**. **Margem mínima** 30 %, **margem alvo** 45 %, **folga de horas** 20 %.")
 w("- **Fonte do cadastro de casos**: 13 · Carteira (aba Casos). 01, 02, 04, 08, 14 e 16 copiam de lá. Parcela paga na 14 = entrada no caixa da 09 (na data do pagamento); recebido do caso na 13 = soma das parcelas pagas (2025 + 2026; as de 2025 estão no saldo inicial do caixa).")
-w("- **Datas relativas**: prazos (01/02), vencimentos em aberto (14) e propostas abertas (15) são `=HOJE()+n`; ao abrir em outro dia, esses números deslizam. Histórico (abertura, parcelas pagas, caixa, horas) é fixo.\n")
+w("- **Todas as datas são literais**: nenhuma célula do exemplo usa `=HOJE()+n`. O exemplo é uma foto de 14/09/2026 e os números fecham entre os vinte arquivos em qualquer dia em que o cliente abrir. A única exceção é a data da proposta na 07, que é `=HOJE()` de propósito: uma proposta leva a data do dia em que você a envia.\n")
 
 # ---------- 2. escritório ----------
 p05=W["05"]["Painel"]; c08=W["08"]["Config"]; c16=W["16"]["Config"]

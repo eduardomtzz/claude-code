@@ -14,7 +14,7 @@ cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Segunda-feira da semana 1"; cfg["B6"]=date(2026,1,5)
 for c in ("A4","A5","A6"): rotulo(cfg[c])
 inp(cfg["B4"]); inp(cfg["B5"],DATA); inp(cfg["B6"],DATA)
-cfg["C5"]="Deixe =HOJE() para acompanhar o dia; troque por uma data para simular outro dia."; nota(cfg["C5"])
+cfg["C5"]="O exemplo está congelado em 14/09/2026, para os arquivos do kit mostrarem a mesma foto. Ao usar com os seus dados, troque por =HOJE()."; nota(cfg["C5"])
 cfg["C6"]="Sugestão: a primeira segunda-feira do ano. As 52 colunas da aba Rotina contam a partir daqui. O exemplo está preenchido de 20/07 a 07/09/2026 (S29 a S36)."; nota(cfg["C6"])
 cfg["C7"]="Virada do ano: em janeiro de 2027, salve uma cópia desta planilha, troque a data acima pela primeira segunda-feira de 2027 (04/01/2027) e limpe as marcações da aba Rotina. As 52 semanas recomeçam."; nota(cfg["C7"])
 cfg["A8"]=f"Responsáveis (até {NRESP})"; rotulo(cfg["A8"])
@@ -135,7 +135,7 @@ p.conditional_formatting.add(f"A29:H{28+NI}", FormulaRule(formula=['AND(ISNUMBER
 widths(p,(12,56,10,22,10,10,11,26,3,26,12)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
 como_usar(wb,"Rotina da semana da clínica",[
  ("O que esta planilha faz","Fixa a rotina de gestão em dois momentos curtos: segunda (agenda, faltas e retornos) e sexta (caixa, guias, orçamentos e painel). Você marca, semana a semana, o que foi feito; o Painel mostra a aderência das últimas 4 semanas, por dia e por rotina."),
- ("Passo 1","Em Config, confira a data de referência (fica em =HOJE()), a segunda-feira da semana 1 (sugestão: a primeira do ano) e as pessoas da clínica."),
+ ("Passo 1","Em Config, troque a data de referência por =HOJE() (no exemplo ela está congelada em 14/09/2026), a segunda-feira da semana 1 (sugestão: a primeira do ano) e as pessoas da clínica."),
  ("Passo 2","Em Rotina, ajuste as linhas: dia, rotina, minutos e responsável. O exemplo soma 30 minutos por semana (3 rotinas de segunda = 12 min; 5 de sexta = 18 min), a maior parte com a recepção; mantenha curto, o que é longo não vira hábito. O checklist do dia (04) é da recepção e corre por fora destes 30 minutos."),
  ("Passo 3","Toda segunda e toda sexta, depois de fazer a rotina, marque Sim (ou Não, se pulou) na coluna da semana. A coluna da semana atual fica destacada em amarelo."),
  ("Passo 4","Em Painel, veja a aderência das últimas 4 semanas registradas, a série das últimas 8 e qual rotina está sendo pulada. Menos de 70% em vermelho."),

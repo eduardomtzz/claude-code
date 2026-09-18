@@ -12,7 +12,7 @@ cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=dados.HOJE
 cfg["A6"]="Considerar parado após (dias sem atualização)"; cfg["B6"]=30
 for c in ("A4","A5","A6"): rotulo(cfg[c])
 inp(cfg["B4"]); inp(cfg["B5"],DATA); inp(cfg["B6"],center=True)
-cfg["C5"]="Deixe =HOJE() para acompanhar o dia; troque por uma data para simular outro dia."; nota(cfg["C5"])
+cfg["C5"]="O exemplo está congelado em 14/09/2026, para os arquivos do kit mostrarem a mesma foto. Ao usar com os seus dados, troque por =HOJE()."; nota(cfg["C5"])
 cfg["C6"]="Caso sem atualização há mais dias do que isso aparece como parado no Painel."; nota(cfg["C6"])
 cfg["A9"]=f"Fases (até {NL})"; cfg["D9"]=f"Áreas (até {NL})"; cfg["F9"]=f"Responsáveis (até {NL})"
 for c in ("A9","D9","F9"): rotulo(cfg[c])
@@ -134,7 +134,7 @@ widths(p,(22,12,13,12,16,12,14,18,10,11,13,10)); p.freeze_panes="A4"; p.sheet_vi
 # ---------- Como usar ----------
 como_usar(wb,"Andamento por processo",[
  ("O que esta planilha faz","Uma linha por caso com fase, responsável, próxima ação e data. O Painel mostra quantos casos há em cada fase e área, a carga de cada pessoa e quais casos estão parados há mais tempo sem atualização."),
- ("Passo 1","Em Config, confira a data de referência (fica em =HOJE()), o número de dias para considerar um caso parado, e as listas de fases, áreas e responsáveis. Preencha de cima para baixo, sem pular linha."),
+ ("Passo 1","Em Config, troque a data de referência por =HOJE() (no exemplo ela está congelada em 14/09/2026), o número de dias para considerar um caso parado, e as listas de fases, áreas e responsáveis. Preencha de cima para baixo, sem pular linha."),
  ("Passo 2","Em Processos, apague os exemplos e cadastre os seus casos: número, cliente, área, fase, responsável, próxima ação com data, e a data da última atualização. O cadastro (número, cliente, área, fase, responsável) é o mesmo da planilha 13 · Carteira: copie de lá e mantenha a 13 como fonte."),
  ("Passo 3","A cada movimentação, atualize a fase, a próxima ação e a data da última atualização. Ao encerrar, mude a fase para Encerrado: o caso sai das contagens de ativos."),
  ("Passo 4","Em Painel, confira os casos com ação atrasada, os sem próxima ação (ninguém sabe o próximo passo) e os parados há mais de N dias."),

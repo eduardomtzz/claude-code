@@ -168,7 +168,7 @@ como_usar(wb,"Painel do Escritório",[
  ("Toda sexta (10 minutos)","Abra as planilhas 01 (prazos), 16 (horas), 09 (caixa), 13 (carteira), 14 (inadimplência) e 15 (propostas), copie os totais do Painel de cada uma para a coluna B da aba Dados. Pronto: o Painel se refaz. No exemplo, a sexta é 11/09/2026 e cada número é exatamente o que está no Painel da planilha de origem."),
  ("Limites e metas","Na aba Dados, coluna C, escreva o limite de cada indicador (ex.: 0 prazos atrasados, 75% de horas faturáveis, inadimplência de 4%) e diga se maior ou menor é melhor. Linha sem limite fica informativa (A receber é a carteira contratada, inclui êxito esperado: não é problema)."),
  ("Fim do mês","Copie a coluna B da aba Dados para a linha do mês em Histórico. Os gráficos de caixa e de recebíveis usam essa aba; o Painel busca ali o mês anterior."),
- ("Config","Escolha o mês do painel e mantenha a data de referência em =HOJE(). O título do Painel se ajusta."),
+ ("Config","Escolha o mês do painel e troque a data de referência por =HOJE() (no exemplo ela está congelada em 14/09/2026). O título do Painel se ajusta."),
  ("Com a IA","O Painel é a tela da rotina de sexta. Para o texto do mês (sócio, contador), use a planilha 20 · Resumo do mês e o prompt \"Painel 01 · Explicar o mês ao sócio\" da biblioteca."),
 ])
 proteger(wb); salvar(wb,"17-painel-do-escritorio.xlsx","Painel do Escritório · Kit de Gestão para Advogados")

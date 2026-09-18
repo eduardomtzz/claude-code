@@ -8,7 +8,8 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche.",merge_to="F")
 cfg["A4"]="Equipe ou empresa"; cfg["B4"]="Prisma Comunicação (exemplo fictício)"
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=date(2026,9,14)
+cfg["C5"]="O exemplo está congelado em 14/09/2026, para os arquivos do kit mostrarem a mesma foto. Ao usar com os seus dados, troque por =HOJE()."; nota(cfg["C5"])
 cfg["A6"]="Reunião selecionada (para o Resumo)"; cfg["B6"]="R-004"
 for c in ("A4","A5","A6"): rotulo(cfg[c])
 inp(cfg["B4"]); inp(cfg["B5"],DATA); inp(cfg["B6"],center=True)
@@ -157,7 +158,7 @@ widths(s,(6,46,16,12,10,13)); s.sheet_view.showGridLines=False
 dvsel=lista(f"=Reuniões!$A${R0}:$A${RR}",strict=True); dvsel.add("B6"); cfg.add_data_validation(dvsel)
 como_usar(wb,"Ata e Pendências",[
  ("O que esta planilha faz","Registra cada reunião (data, assunto, participantes, decisões) e cada pendência com dono e prazo. Mostra o que cobrar primeiro, a carga por pessoa e monta o resumo pronto para a IA transformar em e-mail ou ata."),
- ("Passo 1","Em Config, preencha o nome da equipe e as pessoas. Deixe a data de referência em =HOJE()."),
+ ("Passo 1","Em Config, preencha o nome da equipe e as pessoas. Troque a data de referência por =HOJE() (no exemplo ela está congelada em 14/09/2026)."),
  ("Passo 2","Em Reuniões, uma linha por reunião. Escreva as decisões em frases curtas separadas por ponto e vírgula. O código (R-001, R-002...) é automático."),
  ("Passo 3","Em Pendências, uma linha por tarefa que saiu da reunião: reunião (lista), pendência, dono (lista), prazo, prioridade e status. Ao concluir, mude o status para Feito."),
  ("Passo 4","Em Em aberto, veja o que cobrar primeiro e a carga por pessoa. Em Resumo, escolha a reunião em Config e copie o bloco único."),

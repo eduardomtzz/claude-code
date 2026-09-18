@@ -4,12 +4,12 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ## 1. Referência e regras do exemplo
 
-- **Hoje (data de referência, Config = HOJE())**: segunda-feira **14/09/2026**. **Sexta do painel**: **11/09/2026**. Nenhum lançamento pago (caixa, parcela, hora) tem data depois de 11/09/2026.
+- **Hoje (data de referência, Config = data literal 14/09/2026)**: segunda-feira **14/09/2026**. **Sexta do painel**: **11/09/2026**. Nenhum lançamento pago (caixa, parcela, hora) tem data depois de 11/09/2026.
 - **Meses**: caixa (09) e horas (16) lançados de janeiro (caixa) / julho (horas) a 11/09/2026; **17 Painel do escritório** mostra **setembro em andamento**; **18 Resultado mensal** e **20 Resumo do mês** analisam **agosto de 2026** (último mês fechado; 20 = agosto × julho); **19 Metas** = 3º trimestre (semana 11 de 13, 82 % decorrido).
 - **Inadimplência (única no kit: 14, 17, 19, 20)** = vencido ÷ (pago + vencido). Não é vencido ÷ em aberto.
 - **Alíquota de impostos** (05, 06, 08, 09, 10, 18): **8 %**. **Margem mínima** 30 %, **margem alvo** 45 %, **folga de horas** 20 %.
 - **Fonte do cadastro de casos**: 13 · Carteira (aba Casos). 01, 02, 04, 08, 14 e 16 copiam de lá. Parcela paga na 14 = entrada no caixa da 09 (na data do pagamento); recebido do caso na 13 = soma das parcelas pagas (2025 + 2026; as de 2025 estão no saldo inicial do caixa).
-- **Datas relativas**: prazos (01/02), vencimentos em aberto (14) e propostas abertas (15) são `=HOJE()+n`; ao abrir em outro dia, esses números deslizam. Histórico (abertura, parcelas pagas, caixa, horas) é fixo.
+- **Todas as datas são literais**: nenhuma célula do exemplo usa `=HOJE()+n`. O exemplo é uma foto de 14/09/2026 e os números fecham entre os vinte arquivos em qualquer dia em que o cliente abrir. A única exceção é a data da proposta na 07, que é `=HOJE()` de propósito: uma proposta leva a data do dia em que você a envia.
 
 ## 2. Escritório, custos e custo-hora (05, 06, 08, 16)
 
@@ -482,7 +482,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Misto | R$ 4.500 + 15 % | R$ 9.450 | R$ 756 | R$ 3.952 | R$ 4.742 | 50 % | R$ 188 | Baixo |
 
 - Recomendação do simulador: **Hora** (margem esperada R$ 4.825, risco Baixo); fora por risco alto: Êxito. Texto do ponto de equilíbrio da hora: "Hora mínima sem prejuízo: R$ 81,05 (você cobra R$ 180,00)".
-- **Proposta 07 (nº 2026-023, 17/09/2026, válida por 15 dias até 02/10/2026, modalidade Misto)**: objeto "Acompanhamento da discussão sobre contrato de prestação de serviços, da análise inicial ao encerramento.".
+- **Proposta 07 (nº 2026-023, 18/09/2026, válida por 15 dias até 03/10/2026, modalidade Misto)**: objeto "Acompanhamento da discussão sobre contrato de prestação de serviços, da análise inicial ao encerramento.".
 | Etapa ou serviço (07) | O que inclui | Prazo previsto | Horas | Valor |
 |---|---|---|---|---|
 | Análise inicial e planejamento | Reunião, leitura dos documentos e definição da estratégia | até 15 dias | 8 | R$ 900 |

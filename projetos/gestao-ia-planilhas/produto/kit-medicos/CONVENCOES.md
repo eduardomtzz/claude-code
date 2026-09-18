@@ -32,15 +32,17 @@ para o Histórico da 17 ter o mês anterior ao trimestre e a "partida" das metas
    Número dentro de texto: `FIXED(x,casas)` (separadores seguem o idioma do Excel), nunca `ROUND(x,2)&""` nem
    `TEXT(x,"#,##0")`. Formatos: `BRL`, `BRL0`, `DATA`, `PCT` do ssg; hora como `hh:mm` (valor de tempo, não texto);
    nunca formatar taxa como soma.
-6. **Datas do exemplo**: agenda futura, vencimentos em aberto e orçamentos abertos como fórmula relativa
-   (`dados.prazo_formula(d)` = `=TODAY()+d`); histórico (atendimentos realizados, lotes, parcelas pagas, caixa) fixo em 2026.
-   Data de referência em Config = `=TODAY()`. Horas disponíveis da agenda só contam dias já passados (até ontem).
+6. **Datas do exemplo**: TODAS literais, inclusive as futuras — `dados.prazo_formula(d)` devolve `HOJE+d` como data,
+   não `=TODAY()+d`. Data de referência em Config = a data literal 14/09/2026, com a nota que manda trocar por
+   `=HOJE()` ao começar a usar. Motivo: com `=TODAY()` o histórico ficava preso em setembro e só a parte futura
+   andava, então a mesma empresa mostrava números diferentes conforme o dia em que o cliente abria o arquivo.
+   Horas disponíveis da agenda só contam dias já passados (até ontem).
 7. **Textos**: português do Brasil, direto, sem "você" acusatório. Nada clínico (diagnóstico, conduta, prontuário, código de
    procedimento, exame): "procedimento" é só o nome administrativo do atendimento; pacientes têm nome e contato fictícios e
    nada mais. Nunca prometer "lotar a agenda", captar pacientes ou resultado financeiro: a planilha AVISA e mede; a decisão é
    da clínica. Divulgação de preços e de serviços segue as regras do CFM (o kit lembra, não redige). Cobrança de paciente
    sem exposição ou constrangimento.
-8. **Exemplo coerente**: HOJE = segunda 14/09/2026 (Config = `=TODAY()`); a sexta do painel é 11/09/2026 e nenhum lançamento
+8. **Exemplo coerente**: HOJE = segunda 14/09/2026 (Config = data literal); a sexta do painel é 11/09/2026 e nenhum lançamento
    pago (caixa, parcela, lote) tem data depois dela; nada "Realizado" na agenda depois de 11/09 e nada "Agendado/Confirmado"
    antes de hoje. 17 mostra setembro em andamento (variação de agenda e caixa só quando Config diz que o mês fechou); 18 e 20
    analisam agosto (último mês fechado; 20 = agosto × julho); 16 fica em agosto; 08 usa o volume de agosto. Uma só definição

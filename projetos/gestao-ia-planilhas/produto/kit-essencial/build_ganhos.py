@@ -147,9 +147,9 @@ RES="Config!$B$10"
 fim=f'DATE({Y},{M}+1,0)'; ini=f'DATE({Y},{M}-2,1)'
 p["A7"]="Reserva"; p["A7"].font=F(bold=True,size=13,color=UVA)
 p["A8"]="Média de despesas dos últimos 3 meses (sem a reserva)"
-p["C8"]=f'=IFERROR((SUMIFS({LE},{LB},"Despesa",{LA},">="&{ini},{LA},"<="&{fim})-SUMIFS({LE},{LB},"Despesa",{LC},{RES},{LA},">="&{ini},{LA},"<="&{fim}))/3,0)'
+p["C8"]=f'=IFERROR((SUMIFS({LE},{LB},"Despesa",{LG},"Sim",{LA},">="&{ini},{LA},"<="&{fim})-SUMIFS({LE},{LB},"Despesa",{LG},"Sim",{LC},{RES},{LA},">="&{ini},{LA},"<="&{fim}))/3,0)'
 p["A9"]="Guardado na reserva até o mês (acumulado)"
-p["C9"]=f'=SUMIFS({LE},{LB},"Despesa",{LC},{RES},{LA},"<="&{fim})'
+p["C9"]=f'=SUMIFS({LE},{LB},"Despesa",{LG},"Sim",{LC},{RES},{LA},"<="&{fim})'
 p["A10"]="Saldo em caixa + reserva equivalem a"; p["C10"]='=IF(C8>0,(G5+C9)/C8,0)'; p["D10"]="meses de despesa"
 p["A11"]="Meta de reserva"; p["C11"]="=Config!$B$9"; p["D11"]="meses"
 p["A12"]="Situação"; p["C12"]='=IF(C10>=C11,"Meta de reserva atingida",IF(C10>=C11/2,"No caminho: metade da meta","Reserva baixa: priorize guardar"))'
@@ -157,7 +157,11 @@ for r in (8,9,10,11,12): p.cell(row=r,column=1).font=F(color=TINTA,size=10); p.m
 p["C8"].number_format=BRL; p["C9"].number_format=BRL; p["C10"].number_format="0.0"; p["C11"].number_format="0"
 for c in ("C8","C9","C10","C11","C12"): p[c].font=F(bold=True,color=UVA,size=10)
 p.merge_cells("C12:F12"); p["D10"].font=F(size=10,color=LILAS); p["D11"].font=F(size=10,color=LILAS)
-p["A13"]='="O que vai para a categoria "&'+RES+'&" sai da conta (entra em Saiu no mês), mas não é gasto: fica fora da média e soma ao cálculo de meses de reserva."'
+# Regra única do painel. Antes o KPI "Saiu no mês" filtrava Pago? = Sim e a tabela
+# "Para onde foi o dinheiro" não: o topo dizia R$ 4.173,90 e o total logo abaixo dizia
+# R$ 4.535,90 (R$ 362 de duas contas de setembro ainda não pagas), com a coluna
+# "% do total" somando 108,7 %.
+p["A13"]='="Todo este painel é de caixa: entra só o lançamento com Pago? = Sim. O que ainda falta pagar ou receber aparece nos dois quadros do alto. O que vai para a categoria "&'+RES+'&" sai da conta (entra em Saiu no mês), mas não é gasto: fica fora da média e soma ao cálculo de meses de reserva."'
 p["A13"].font=F(size=9,color=LILAS); p.merge_cells("A13:H13")
 # por categoria
 S=2  # deslocamento das seções abaixo (bloco da reserva ganhou 2 linhas)
@@ -166,9 +170,9 @@ hdr(p,14+S,["Categoria de despesa","Valor no mês","% do total","Mês anterior",
 for i in range(12):
     r=15+S+i; src=f"Config!$F${5+i}"
     p.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(p.cell(row=r,column=1),center=False)
-    p.cell(row=r,column=2,value=f'=IF({src}="","",SUMIFS({LE},{LB},"Despesa",{LC},{src},{LI},{M},{LJ},{Y}))'); calc(p.cell(row=r,column=2),BRL)
+    p.cell(row=r,column=2,value=f'=IF({src}="","",SUMIFS({LE},{LB},"Despesa",{LG},"Sim",{LC},{src},{LI},{M},{LJ},{Y}))'); calc(p.cell(row=r,column=2),BRL)
     p.cell(row=r,column=3,value=f'=IF(OR({src}="",$C$5=0),"",B{r}/$C$5)'); calc(p.cell(row=r,column=3),"0%")
-    p.cell(row=r,column=4,value=f'=IF({src}="","",IF({M}=1,SUMIFS({LE},{LB},"Despesa",{LC},{src},{LI},12,{LJ},{Y}-1),SUMIFS({LE},{LB},"Despesa",{LC},{src},{LI},{M}-1,{LJ},{Y})))'); calc(p.cell(row=r,column=4),BRL)
+    p.cell(row=r,column=4,value=f'=IF({src}="","",IF({M}=1,SUMIFS({LE},{LB},"Despesa",{LG},"Sim",{LC},{src},{LI},12,{LJ},{Y}-1),SUMIFS({LE},{LB},"Despesa",{LG},"Sim",{LC},{src},{LI},{M}-1,{LJ},{Y})))'); calc(p.cell(row=r,column=4),BRL)
     p.cell(row=r,column=5,value=f'=IF(C{r}="","",REPT("█",ROUND(C{r}*40,0)))'); p.cell(row=r,column=5).font=F(size=10,color=LILAS); p.cell(row=r,column=5).border=borda
     p.merge_cells(start_row=r,start_column=5,end_row=r,end_column=8)
 TOT=27+S
@@ -180,9 +184,9 @@ hdr(p,30+S,["Categoria de receita","Valor no mês","% do total","Mês anterior"]
 for i in range(12):
     r=31+S+i; src=f"Config!$D${5+i}"
     p.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(p.cell(row=r,column=1),center=False)
-    p.cell(row=r,column=2,value=f'=IF({src}="","",SUMIFS({LE},{LB},"Receita",{LC},{src},{LI},{M},{LJ},{Y}))'); calc(p.cell(row=r,column=2),BRL)
+    p.cell(row=r,column=2,value=f'=IF({src}="","",SUMIFS({LE},{LB},"Receita",{LG},"Sim",{LC},{src},{LI},{M},{LJ},{Y}))'); calc(p.cell(row=r,column=2),BRL)
     p.cell(row=r,column=3,value=f'=IF(OR({src}="",$A$5=0),"",B{r}/$A$5)'); calc(p.cell(row=r,column=3),"0%")
-    p.cell(row=r,column=4,value=f'=IF({src}="","",IF({M}=1,SUMIFS({LE},{LB},"Receita",{LC},{src},{LI},12,{LJ},{Y}-1),SUMIFS({LE},{LB},"Receita",{LC},{src},{LI},{M}-1,{LJ},{Y})))'); calc(p.cell(row=r,column=4),BRL)
+    p.cell(row=r,column=4,value=f'=IF({src}="","",IF({M}=1,SUMIFS({LE},{LB},"Receita",{LG},"Sim",{LC},{src},{LI},12,{LJ},{Y}-1),SUMIFS({LE},{LB},"Receita",{LG},"Sim",{LC},{src},{LI},{M}-1,{LJ},{Y})))'); calc(p.cell(row=r,column=4),BRL)
 # ano
 A0=44+S
 p.cell(row=A0,column=1,value="O ano, mês a mês").font=F(bold=True,size=13,color=UVA)
@@ -210,7 +214,7 @@ linhas=[
 ("O que esta planilha faz","Você lança o que entra e o que sai; ela mostra quanto sobrou no mês, para onde o dinheiro foi, quanto falta pagar, o saldo acumulado e quantos meses de reserva você tem. Serve para pessoa, autônomo ou negócio pequeno."),
 ("Passo 1","Em Config, preencha o nome, o ano, o saldo que você tinha antes do primeiro lançamento, a meta de reserva (3 meses é um bom começo) e qual categoria é a sua reserva. Ajuste as categorias se quiser, de cima para baixo, sem pular linha."),
 ("Passo 2","Em Lançamentos, uma linha por entrada ou saída: data, tipo, categoria, descrição, valor, forma e se já foi pago. Apague os exemplos e comece o seu."),
-("Passo 3","Em Painel, escolha o mês em Config e veja: entrou, saiu, sobrou, saldo, a pagar, reserva e as categorias com barra. O que você guarda na categoria de reserva sai da conta, mas não conta como gasto: fica fora da média de despesas e soma aos meses de reserva."),
+("Passo 3","Em Painel, escolha o mês em Config e veja: entrou, saiu, sobrou, saldo, a receber, a pagar, reserva e as categorias com barra. O painel é de caixa: conta só o lançamento marcado Pago? = Sim, e o que falta pagar ou receber aparece nos dois quadros próprios. O que você guarda na categoria de reserva sai da conta, mas não conta como gasto: fica fora da média de despesas e soma aos meses de reserva."),
 ("Rotina","Lance na hora ou uma vez por semana (10 minutos). No fim do mês, olhe o Painel antes de decidir qualquer gasto grande."),
 ("Com a IA","Copie a tabela \"Para onde foi o dinheiro\" e use o prompt \"Analisar 03: onde cortar\" da biblioteca do kit. Para explicar o mês a um cliente ou sócio, use \"Escrever 05\"."),
 ("Legenda","Células amarelas: você preenche. Brancas: calculadas. Linhas em verde: receitas. Linhas em vermelho claro: despesas ainda não pagas."),

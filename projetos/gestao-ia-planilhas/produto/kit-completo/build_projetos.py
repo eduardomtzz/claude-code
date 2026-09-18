@@ -9,11 +9,11 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. Os projetos cadastrados aqui aparecem nas listas da aba Etapas.",merge_to="H")
 cfg["A4"]="Equipe ou empresa"; cfg["B4"]="Prisma Comunicação (exemplo fictício)"
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=date(2026,9,14)
 cfg["A6"]="Avisar entregas nos próximos (dias)"; cfg["B6"]=7
 for c in ("A4","A5","A6"): rotulo(cfg[c])
 inp(cfg["B4"]); inp(cfg["B5"],DATA); inp(cfg["B6"])
-cfg["C5"]="Deixe =HOJE() para acompanhar o dia; troque por uma data para simular."; nota(cfg["C5"])
+cfg["C5"]="O exemplo está congelado em 14/09/2026, para os arquivos do kit mostrarem a mesma foto. Ao usar com os seus dados, troque por =HOJE()."; nota(cfg["C5"])
 cfg["A8"]="Projetos (até 10)"; rotulo(cfg["A8"])
 hdr(cfg,9,["Projeto","Cliente ou área","Responsável","Início","Prazo final","Situação"])
 for i in range(NP):
@@ -164,7 +164,7 @@ widths(lt,[24,30,8,10]+[4.2]*W); lt.freeze_panes="E5"; lt.sheet_view.showGridLin
 # ---------- Como usar ----------
 como_usar(wb,"Projetos e Prazos",[
  ("O que esta planilha faz","Você cadastra os projetos e as etapas de cada um; ela diz o que está atrasado, o que vence em breve, quanto cada projeto avançou, quem está sobrecarregado e desenha a linha do tempo por semanas."),
- ("Passo 1","Em Config, preencha o nome da equipe, deixe a data de referência em =HOJE(), cadastre até 10 projetos (nome, cliente, responsável, início e prazo final) e as pessoas da equipe."),
+ ("Passo 1","Em Config, preencha o nome da equipe, troque a data de referência por =HOJE() (no exemplo ela está congelada em 14/09/2026), cadastre até 10 projetos (nome, cliente, responsável, início e prazo final) e as pessoas da equipe."),
  ("Passo 2","Em Etapas, uma linha por etapa: projeto (lista), etapa, responsável (lista), início, fim previsto e % concluído. Quando terminar, marque 100% ou preencha o fim real."),
  ("Passo 3","Em Painel, veja os projetos com atraso, a lista do que fazer primeiro e a carga por pessoa. Em Linha do tempo, veja as próximas 14 semanas."),
  ("Rotina","Segunda-feira, 10 minutos: atualize o % das etapas em andamento e olhe o Painel. Sexta: registre o que fechou."),

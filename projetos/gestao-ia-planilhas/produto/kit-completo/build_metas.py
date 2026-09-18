@@ -11,12 +11,12 @@ cfg["A4"]="Equipe ou empresa"; cfg["B4"]="Prisma Comunicação (exemplo fictíci
 cfg["A5"]="Trimestre"; cfg["B5"]="3º trimestre de 2026"
 cfg["A6"]="Início do trimestre"; cfg["B6"]=date(2026,7,1)
 cfg["A7"]="Fim do trimestre"; cfg["B7"]=date(2026,9,30)
-cfg["A8"]="Data de referência (hoje)"; cfg["B8"]="=TODAY()"
+cfg["A8"]="Data de referência (hoje)"; cfg["B8"]=date(2026,9,14)
 cfg["A9"]="Semana atual do trimestre"; cfg["B9"]='=IF(B8<B6,0,MIN(13,INT((B8-B6)/7)+1))'
 cfg["A10"]="% do trimestre decorrido"; cfg["B10"]='=MAX(0,MIN(1,(B8-B6)/(B7-B6)))'
 for r in range(4,11): rotulo(cfg.cell(row=r,column=1))
 inp(cfg["B4"]); inp(cfg["B5"]); inp(cfg["B6"],DATA); inp(cfg["B7"],DATA); inp(cfg["B8"],DATA); calc(cfg["B9"]); calc(cfg["B10"],PCT)
-cfg["C8"]="Para simular o fim do trimestre, troque por uma data."; nota(cfg["C8"])
+cfg["C8"]="O exemplo está congelado em 14/09/2026, para os arquivos do kit mostrarem a mesma foto. Ao usar com os seus dados, troque por =HOJE()."; nota(cfg["C8"])
 widths(cfg,(30,28,50)); cfg.sheet_view.showGridLines=False
 # ---------- Metas ----------
 m=wb.create_sheet("Metas")
@@ -137,7 +137,7 @@ for cor,txt,fnt in ((VERDE,"Atingido",VERDE_T),("E6F4EA","No ritmo",VERDE_T),("F
 widths(p,(40,10,10,10,11,10,11,24)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
 como_usar(wb,"Metas do Trimestre",[
  ("O que esta planilha faz","Você define até 5 objetivos com até 4 resultados-chave cada (ponto de partida, meta, valor atual). Ela calcula o progresso, compara com o tempo já decorrido e acende o semáforo: atingido, no ritmo, atenção ou em risco."),
- ("Passo 1","Em Config, preencha o trimestre, as datas de início e fim e deixe a data de referência em =HOJE()."),
+ ("Passo 1","Em Config, preencha o trimestre, as datas de início e fim e troque a data de referência por =HOJE() (no exemplo ela está congelada em 14/09/2026, semana 11 de 13)."),
  ("Passo 2","Em Metas, escreva cada objetivo e seus resultados-chave. Ponto de partida é o valor no dia 1; meta é onde quer chegar; valor atual é o número de hoje. Diga se maior ou menor é melhor."),
  ("Passo 3","Toda semana, atualize o valor atual e copie para a coluna da semana em Semanas. O Painel mostra o resumo por objetivo e a lista completa com semáforo; a aba Meses fecha cada mês do trimestre a partir das semanas, para a reunião mensal."),
  ("Rotina","Sexta-feira, 10 minutos: atualizar os valores. Primeira segunda do mês: reunião de 20 minutos olhando o Painel."),

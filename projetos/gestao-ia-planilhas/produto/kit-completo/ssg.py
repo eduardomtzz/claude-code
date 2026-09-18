@@ -49,7 +49,9 @@ def como_usar(wb,nome,linhas,pos=0):
     base=linhas+[
      ("Legenda","Células amarelas: você preenche. Brancas: calculadas. Não é preciso mexer em nada fora do amarelo."),
      ("Proteção","Fórmulas protegidas sem senha. Para editar: Revisar > Desproteger planilha (Excel) ou Dados > Proteger intervalos (Google Sheets)."),
+     ("Requisitos","Excel 2016 ou mais novo, Microsoft 365 ou Google Sheets (só funções do Excel 2007+; nada de MÍNIMOSES, MÁXIMOSES ou UNIRTEXTO). No celular abre nos aplicativos; para preencher, use o computador."),
      ("Google Sheets","Faça upload no Google Drive e abra com o Google Sheets. Fórmulas, listas, cores e gráficos funcionam."),
+     ("Data de referência","O exemplo está congelado em 14/09/2026, para todos os arquivos do kit mostrarem a mesma foto e os números fecharem entre eles. Ao começar a usar com os seus dados, troque a data de referência em Config por =HOJE(): daí em diante ela acompanha o dia."),
      ("Exemplos","Prisma Comunicação é uma empresa fictícia. Nomes e valores são inventados. Apague-os antes de começar."),
      ("Suporte","suporte@seusociogestor.com.br · resposta em até 5 dias úteis · reembolso em até 7 dias pelo mesmo canal.")]
     for i,(a,b) in enumerate(base,start=4):

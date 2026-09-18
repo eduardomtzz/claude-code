@@ -28,7 +28,7 @@ cfg["C9"]="Capacidade E horas atendidas usam esta mesma data de corte, por isso 
 cfg["A10"]="Horas por turno (padrão)"; cfg["B10"]=dados.HORAS_TURNO
 for r in range(4,11): rotulo(cfg.cell(row=r,column=1))
 inp(cfg["B4"]); inp(cfg["B5"],center=True); inp(cfg["B6"],center=True); calc(cfg["B7"]); inp(cfg["B8"],DATA); calc(cfg["B9"],DATA); inp(cfg["B10"],"0",center=True)
-cfg["C8"]="Deixe =HOJE() para acompanhar o dia; troque por uma data para simular outro dia."; nota(cfg["C8"])
+cfg["C8"]="O exemplo está congelado em 14/09/2026, para os arquivos do kit mostrarem a mesma foto. Ao usar com os seus dados, troque por =HOJE()."; nota(cfg["C8"])
 cfg["C9"]="Ontem, ou o fim do mês do painel se ele já passou: as horas disponíveis só contam dias que já aconteceram."; nota(cfg["C9"])
 cfg["T4"]="Meses"; rotulo(cfg["T4"])
 for i,m in enumerate(MESES): cfg.cell(row=5+i,column=20,value=m).font=F(size=10,color=TINTA)
@@ -134,7 +134,7 @@ ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'OR($H{R0}="
 ag.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'OR($H{R0}="Agendado",$H{R0}="Confirmado")'], fill=fill(LAVANDA)))
 ag.conditional_formatting.add(f"I{R0}:I{RN}", FormulaRule(formula=[f'AND($H{R0}="Realizado",$M{R0}>0,$I{R0}="")'], fill=fill(VERM)))
 ag.cell(row=RN+2,column=1,value="Verde: realizado. Vermelho: falta. Lilás: agendado ou confirmado. Cinza: cancelado ou remarcado. Forma de pagamento em vermelho: atendimento realizado com valor e sem forma. Convênio: escolha \"Convênio\" (a guia vai para a planilha 13). A prazo: a parcela vai para a planilha 14. Cartão: a conciliação é a planilha 16.").font=F(size=9,color=LILAS)
-ag.cell(row=RN+3,column=1,value=f"No exemplo, a agenda na planilha começou em 01/06/2026 (antes, a recepção só fechava o caixa do dia). Datas até 11/09/2026 são fixas; de hoje em diante são relativas a hoje (=HOJE()+n).").font=F(size=9,color=LILAS)
+ag.cell(row=RN+3,column=1,value=f"No exemplo, a agenda na planilha começou em 01/06/2026 (antes, a recepção só fechava o caixa do dia). Todas as datas são fixas: o exemplo é uma foto de 14/09/2026, para os vinte arquivos fecharem entre eles.").font=F(size=9,color=LILAS)
 ag.cell(row=RN+4,column=1,value=f"Esta aba tem {N} linhas ({R0} a {RN}): cerca de 300 atendimentos por mês cabem 10 meses. Para estender, desproteja a aba (Revisar > Desproteger), selecione a última linha inteira, copie e cole nas linhas seguintes (as fórmulas das colunas brancas vêm juntas) e depois troque {RN} pelo novo número final nas fórmulas do Painel (Localizar e substituir). Ou comece um arquivo por ano, que é o mais simples.").font=F(size=9,color=LILAS)
 widths(ag,(11,7,22,8,26,12,18,11,17,9,26,8,11,6,6,11,8,9)); ag.freeze_panes="F5"; ag.sheet_view.showGridLines=False; ag.auto_filter.ref=f"A4:R{RN}"
 assert len(dados.AGENDA)<=N

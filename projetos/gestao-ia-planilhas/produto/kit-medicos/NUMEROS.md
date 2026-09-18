@@ -4,12 +4,13 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 ## 1. Referência e regras do exemplo
 
-- **Hoje (data de referência, Config = HOJE())**: segunda-feira **14/09/2026**. **Sexta do painel**: **11/09/2026**. Nenhum lançamento pago (caixa, parcela, lote de convênio) tem data depois de 11/09/2026.
+- **Hoje (data de referência, Config = data literal 14/09/2026)**: segunda-feira **14/09/2026**. **Sexta do painel**: **11/09/2026**. Nenhum lançamento pago (caixa, parcela, lote de convênio) tem data depois de 11/09/2026.
 - **Meses**: caixa (09) lançado de janeiro a 11/09/2026; agenda (01) registrada de 01/06/2026 a hoje + 21 dias (antes, a recepção só fechava o caixa do dia); **17 Painel da clínica** mostra **setembro em andamento**; **18 Resultado mensal** e **20 Resumo do mês** analisam **agosto de 2026** (último mês fechado; 20 = agosto × julho); **16 Conciliação** está em **agosto**; **19 Metas** = 3º trimestre (semana 11 de 13, 82 % decorrido).
 - **Inadimplência (única no kit: 14, 17, 19, 20)** = vencido ÷ (pago + vencido), só do que foi combinado a prazo. Não é vencido ÷ em aberto.
 - **Alíquota de impostos** (05 a 10, 18): **11 %** (alíquota efetiva combinada com o contador; Simples anexo III/V simplificado; só imposto — a taxa da maquininha é despesa variável, conciliada na 16). **Margem mínima** 30 %, **margem alvo** 45 %, **retornos por consulta** 0,4 × 20 min (embutidos no custo da consulta), **custo do dinheiro** (07) 1,5 % ao mês, **repasse** da médica parceira 50 % da produção.
 - **Fontes de cadastro**: 01 · Agenda (abas Agenda e Pacientes) é a fonte da agenda e dos pacientes: 02 e 16 copiam a Agenda, 14 copia os Pacientes, 13 · Guias vem dos atendimentos de convênio. Particular à vista entra no caixa (09) pelo fechamento do dia (uma linha por dia e forma); particular a prazo vira parcela (14) e entra no caixa quando paga; convênio vira guia (13) e entra no caixa quando o lote é pago (menos a glosa); cartão entra pelo bruto no dia da venda e as taxas do mês saem numa linha só no fim do mês (o total da 16).
-- **Datas relativas**: agenda futura (01/02), vencimentos em aberto (14) e orçamentos abertos (15) são `=HOJE()+n`; ao abrir em outro dia, esses números deslizam. Histórico (atendimentos realizados, lotes, parcelas pagas, caixa) é fixo.
+- **Todas as datas são literais**: nenhuma célula do exemplo usa `=HOJE()+n`. O exemplo é uma foto de 14/09/2026 e os números fecham entre os vinte arquivos em qualquer dia em que o cliente abrir. Ao começar a usar com os seus dados, troque a data de referência em Config por `=HOJE()`.
+
 - **Nada clínico**: procedimento é só o nome administrativo (consulta, retorno, ECG, MAPA, Holter, teste ergométrico, avaliação endócrina); pacientes têm nome fictício e contato fictício (prefixo 90000); sem diagnóstico, prontuário ou exame.
 
 ## 2. Clínica, custos e custo da hora (05, 06, 07, 08)
@@ -582,7 +583,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Orçamentos em aberto (valor) | R$ 2,700 | R$ 830 | +225.3% | — | — | informativo |
 
 (Valores como o Excel em português mostra; os separadores seguem o idioma do Excel.)
-- Destaques automáticos: • Maior melhora contra Julho: Margem do mês (+14.9 p.p.), • Maior piora contra Julho: Ocupação da agenda (-1.3 p.p.), #VALUE! • Indicadores no alvo: 4 de 10 com meta,
+- Destaques automáticos: • Maior melhora contra Julho: Margem do mês (+14.9 p.p.), • Maior piora contra Julho: Ocupação da agenda (-1.3 p.p.), • Mais longe da meta: Ocupação da agenda (-4.6 p.p. da meta. abaixo da meta), • Indicadores no alvo: 4 de 10 com meta,
 - Observações da clínica (célula amarela do exemplo): "Agosto fechou com a agenda da Dra. Renata mais cheia (dois turnos por semana desde julho) e o lote de junho da Saúde Total pago com glosa, parte dela em recurso; o lote de junho da Vida Care tinha previsão para 04/09 e ainda estava dentro do prazo no fechamento de agosto — em setembro venceu e entrou na cobrança ao convênio; as faltas de segunda de manhã continuam acima da média e a recepção começou a confirmação de véspera por mensagem."
 
 ## 12. Histórico mensal (17 · Histórico; jan–ago = Painel mensal da 09, agenda desde junho, convênios/parcelas no fim de cada mês; setembro = Dados)

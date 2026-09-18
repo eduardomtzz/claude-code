@@ -9,7 +9,8 @@ wb=Workbook()
 cfg=wb.active; cfg.title="Config"
 titulo(cfg,"Configurações","Células amarelas: você preenche. As etapas e probabilidades alimentam a previsão ponderada.",merge_to="H")
 cfg["A4"]="Empresa ou vendedor"; cfg["B4"]="Prisma Comunicação (exemplo fictício)"
-cfg["A5"]="Data de referência (hoje)"; cfg["B5"]="=TODAY()"
+cfg["A5"]="Data de referência (hoje)"; cfg["B5"]=date(2026,9,14)
+cfg["C5"]="O exemplo está congelado em 14/09/2026, para os arquivos do kit mostrarem a mesma foto. Ao usar com os seus dados, troque por =HOJE()."; nota(cfg["C5"])
 cfg["A6"]="Meta de vendas no trimestre (R$)"; cfg["B6"]=180000
 cfg["A7"]="Proposta parada há mais de (dias)"; cfg["B7"]=14
 for r in range(4,8): rotulo(cfg.cell(row=r,column=1))

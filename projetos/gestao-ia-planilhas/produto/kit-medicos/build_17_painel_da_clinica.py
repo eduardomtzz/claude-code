@@ -165,7 +165,7 @@ como_usar(wb,"Painel da Clínica",[
  ("Toda sexta (3 minutos)","Abra as planilhas 01 (agenda), 02 (faltas), 09 (caixa), 13 (convênios), 14 (parcelas) e 15 (orçamentos), copie os totais do Painel de cada uma para a coluna B da aba Dados. Pronto: o Painel se refaz. No exemplo, a sexta é 11/09/2026 e cada número é exatamente o que está no Painel da planilha de origem."),
  ("Limites e metas","Na aba Dados, coluna C, escreva o limite de cada indicador (ex.: ocupação de 75 %, taxa de falta de 6 %, glosa de 4 %, inadimplência de 8 %) e diga se maior ou menor é melhor. Linha sem limite fica informativa — é o caso de convênio a receber e dos orçamentos em aberto, que sozinhos não dizem se a clínica vai bem ou mal."),
  ("Fim do mês","Copie a coluna B da aba Dados para a linha do mês em Histórico. Os gráficos de caixa e de agenda usam essa aba; o Painel busca ali o mês anterior."),
- ("Config","Escolha o mês do painel e mantenha a data de referência em =HOJE(). O título do Painel se ajusta."),
+ ("Config","Escolha o mês do painel e troque a data de referência por =HOJE() (no exemplo ela está congelada em 14/09/2026). O título do Painel se ajusta."),
  ("Com a IA","O Painel é a tela da rotina de sexta. Para o texto do mês (sócio, contador), use a planilha 20 · Resumo do mês e o prompt \"Painel 01 · Explicar o mês ao sócio\" da biblioteca."),
 ])
 proteger(wb); salvar(wb,"17-painel-da-clinica.xlsx","Painel da Clínica · Kit de Gestão para Médicos")

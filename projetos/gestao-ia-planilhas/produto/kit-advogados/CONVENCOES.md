@@ -23,11 +23,15 @@ Leia também `../revisao-interna-1.md` (erros que os revisores pegaram nos kits 
    pontuação (oculta) + LARGE/MATCH/INDEX. Data vazia via `IF(x="","",x)`. Número dentro de texto: `FIXED(x,casas)`
    (separadores seguem o idioma do Excel), nunca `ROUND(x,2)&""` nem `TEXT(x,"#,##0")`.
    Formatos: `BRL`, `BRL0`, `DATA`, `PCT` do ssg; nunca formatar taxa como soma.
-6. **Datas do exemplo**: prazos e "próxima ação" como fórmula relativa (`dados.prazo_formula(d)` = `=TODAY()+d`);
-   histórico (abertura, lançamentos) fixo em 2026. Data de referência em Config = `=TODAY()`.
+6. **Datas do exemplo**: TODAS literais, inclusive as futuras — `dados.prazo_formula(d)` devolve `HOJE+d` como data,
+   não `=TODAY()+d`. Data de referência em Config = a data literal 14/09/2026, com a nota que manda trocar por
+   `=HOJE()` ao começar a usar. Motivo: com `=TODAY()` o histórico ficava preso em setembro e só a parte futura
+   andava, então a mesma empresa mostrava números diferentes conforme o dia em que o cliente abria o arquivo.
+   Única exceção do kit: a data da proposta na 07, que é `=HOJE()` de propósito — uma proposta leva a data do dia
+   em que você a envia.
 7. **Textos**: português do Brasil, direto, sem "você" acusatório. Nenhum conteúdo jurídico (peça, tese, prazo legal
    específico): o kit é gestão do escritório. Nunca prometer "nunca mais perder prazo": a planilha AVISA.
-8. **Exemplo coerente**: HOJE = segunda 14/09/2026 (Config = `=TODAY()`); a sexta do painel é 11/09/2026 e nenhum lançamento
+8. **Exemplo coerente**: HOJE = segunda 14/09/2026 (Config = data literal); a sexta do painel é 11/09/2026 e nenhum lançamento
    pago (caixa, parcela, hora) tem data depois dela. 17 mostra setembro em andamento; 18 e 20 analisam agosto (último mês
    fechado); 16 fica em Setembro. Uma só definição de inadimplência (vencido ÷ (pago + vencido)), uma só hora mínima
    (05: R$ 106,57 → R$ 110; 08 mostra a "hora mínima com folga" de 20 %), alíquota única de 8 %. Parcela paga ⇔ entrada no

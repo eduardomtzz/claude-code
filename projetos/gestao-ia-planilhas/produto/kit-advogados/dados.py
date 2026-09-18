@@ -3,8 +3,10 @@ Ferraz & Lima Advocacia: 2 sócios, 1 estagiária, 18 clientes, 38 casos (30 ati
 Tudo inventado; números de processo seguem o formato CNJ mas não existem.
 
 Referência do exemplo: HOJE = segunda-feira 14/09/2026; a "sexta do painel" é 11/09/2026. Nenhum lançamento pago
-(caixa, parcela, horas) tem data depois de 11/09/2026. Datas de prazo/próxima ação/vencimento em aberto são relativas a
-HOJE (fórmula =HOJE()+n, via prazo_formula); histórico (abertura, parcelas pagas, caixa, horas) é fixo.
+(caixa, parcela, horas) tem data depois de 11/09/2026. TODAS as datas são literais, inclusive as futuras
+(prazo_formula devolve HOJE+n, não "=HOJE()+n"): o exemplo é uma foto de 14/09/2026 e fecha em qualquer dia em que
+o cliente abrir. A única data viva do kit é a da proposta na 07, que é =HOJE() de propósito — uma proposta leva a
+data do dia em que você a envia.
 
 Regra do dinheiro: cada caso tem um cronograma de PARCELAS (paga / a vencer / vencida). Parcela paga <=> entrada no
 caixa (09) na data do pagamento (as pagas em 2025 estão no saldo inicial). Recebido do caso (13) = soma das pagas.
