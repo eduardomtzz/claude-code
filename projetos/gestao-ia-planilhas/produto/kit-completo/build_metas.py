@@ -73,7 +73,7 @@ hdr(w,4,["Resultado-chave","Meta"]+[f"S{i}" for i in range(1,14)])
 for i,r in enumerate(rows):
     rr=5+i
     w.cell(row=rr,column=1,value=f'=IF(Metas!B{r}="","",Metas!B{r})'); calc(w.cell(row=rr,column=1),center=False)
-    w.cell(row=rr,column=2,value=f'=IF(Metas!B{r}="","",Metas!F{r})'); calc(w.cell(row=rr,column=2))
+    w.cell(row=rr,column=2,value=f'=IF(OR(Metas!B{r}="",NOT(ISNUMBER(Metas!F{r}))),"",Metas!F{r})'); calc(w.cell(row=rr,column=2))
     for s_ in range(13): inp(w.cell(row=rr,column=3+s_),center=True)
 # exemplo: histórico S1..S11 (painel em 13/09/2026 = semana 11 de 13). A S11 é igual ao "Valor atual" da aba Metas.
 # Receita recorrente: R$ 18 mil em julho (S1-S4), 22,5 mil em agosto (S5-S9), 27,4 mil em setembro (S10-S11), como no modelo de slides 16.
@@ -101,17 +101,19 @@ FAIXAS=[("C","F"),("G","K"),("L","O")]   # S1-S4, S5-S9, S10-S13
 for i,r in enumerate(rows):
     rr=5+i
     mz.cell(row=rr,column=1,value=f'=IF(Metas!B{r}="","",Metas!B{r})'); calc(mz.cell(row=rr,column=1),center=False)
-    mz.cell(row=rr,column=2,value=f'=IF(Metas!B{r}="","",Metas!F{r})'); calc(mz.cell(row=rr,column=2))
+    mz.cell(row=rr,column=2,value=f'=IF(OR(Metas!B{r}="",NOT(ISNUMBER(Metas!F{r}))),"",Metas!F{r})'); calc(mz.cell(row=rr,column=2))
     for j,(c0,c1) in enumerate(FAIXAS):
         # último valor preenchido da faixa: LOOKUP com critério sempre verdadeiro pega o
         # último número da linha, sem precisar de função nova
         mz.cell(row=rr,column=3+j,value=f'=IF(Metas!B{r}="","",IFERROR(LOOKUP(9.99E+307,Semanas!${c0}{rr}:${c1}{rr}),""))')
         calc(mz.cell(row=rr,column=3+j))
-    mz.cell(row=rr,column=6,value=f'=IF(OR(Metas!B{r}="",E{rr}=""),"",E{rr}-IFERROR(Metas!E{r},0))'); calc(mz.cell(row=rr,column=6))
-    mz.cell(row=rr,column=7,value=f'=IF(OR(Metas!B{r}="",E{rr}=""),"",Metas!F{r}-E{rr})'); calc(mz.cell(row=rr,column=7))
+    mz.cell(row=rr,column=6,value=f'=IF(OR(Metas!B{r}="",NOT(ISNUMBER(E{rr})),NOT(ISNUMBER(Metas!E{r}))),"",E{rr}-Metas!E{r})'); calc(mz.cell(row=rr,column=6))
+    mz.cell(row=rr,column=7,value=f'=IF(OR(Metas!B{r}="",NOT(ISNUMBER(E{rr})),NOT(ISNUMBER(Metas!F{r}))),"",Metas!F{r}-E{rr})'); calc(mz.cell(row=rr,column=7))
 mz.cell(row=5+len(rows)+1,column=1,value="Mês 1 = semanas 1 a 4; Mês 2 = semanas 5 a 9; Mês 3 = semanas 10 a 13. Mês sem nenhuma semana preenchida fica em branco. \"Ganho no trimestre\" compara o fechamento do Mês 3 com o ponto de partida da aba Metas.").font=F(size=9,color=LILAS)
 mz.merge_cells(start_row=5+len(rows)+1,start_column=1,end_row=5+len(rows)+1,end_column=7)
 widths(mz,(40,12,14,14,14,18,18)); mz.freeze_panes="C5"; mz.sheet_view.showGridLines=False
+# Rodada 8: Atual e Meta espelhados (Painel, Semanas, Meses) só copiam NÚMERO — referência a
+# célula vazia vira 0, e "meta 0" ou "ganho de 27.400 sem ponto de partida" eram números falsos.
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
 p["A1"]='=Config!B4&" · "&Config!B5'; p["A1"].font=F(bold=True,size=16,color=UVA); p.merge_cells("A1:H1")
@@ -139,8 +141,8 @@ for i,r in enumerate(rows):
     rr=17+i
     p.cell(row=rr,column=1,value=f'=IF(Metas!B{r}="","",Metas!B{r})'); calc(p.cell(row=rr,column=1),center=False)
     p.cell(row=rr,column=2,value=f'=IF(Metas!B{r}="","",Metas!C{r})'); calc(p.cell(row=rr,column=2))
-    p.cell(row=rr,column=3,value=f'=IF(Metas!B{r}="","",Metas!G{r})'); calc(p.cell(row=rr,column=3),"#,##0.##")
-    p.cell(row=rr,column=4,value=f'=IF(Metas!B{r}="","",Metas!F{r})'); calc(p.cell(row=rr,column=4),"#,##0.##")
+    p.cell(row=rr,column=3,value=f'=IF(OR(Metas!B{r}="",NOT(ISNUMBER(Metas!G{r}))),"",Metas!G{r})'); calc(p.cell(row=rr,column=3),"#,##0.##")
+    p.cell(row=rr,column=4,value=f'=IF(OR(Metas!B{r}="",NOT(ISNUMBER(Metas!F{r}))),"",Metas!F{r})'); calc(p.cell(row=rr,column=4),"#,##0.##")
     p.cell(row=rr,column=5,value=f'=IF(Metas!B{r}="","",Metas!H{r})'); calc(p.cell(row=rr,column=5),PCT)
     p.cell(row=rr,column=6,value=f'=IF(Metas!B{r}="","",Metas!I{r})'); calc(p.cell(row=rr,column=6),PCT)
     p.cell(row=rr,column=7,value=f'=IF(Metas!B{r}="","",Metas!J{r})'); calc(p.cell(row=rr,column=7))

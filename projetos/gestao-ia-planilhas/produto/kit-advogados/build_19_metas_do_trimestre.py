@@ -83,7 +83,7 @@ hdr(w,4,["Resultado-chave","Meta"]+[f"S{i}" for i in range(1,14)])
 for i,r in enumerate(rows):
     rr=5+i
     w.cell(row=rr,column=1,value=f'=IF(Metas!B{r}="","",Metas!B{r})'); calc(w.cell(row=rr,column=1),center=False)
-    w.cell(row=rr,column=2,value=f'=IF(Metas!B{r}="","",Metas!F{r})'); calc(w.cell(row=rr,column=2))
+    w.cell(row=rr,column=2,value=f'=IF(OR(Metas!B{r}="",NOT(ISNUMBER(Metas!F{r}))),"",Metas!F{r})'); calc(w.cell(row=rr,column=2))
     for s_ in range(13): inp(w.cell(row=rr,column=3+s_),center=True)
 # exemplo: S1..S11 = sextas de 03/07 a 11/09/2026 (painel em 14/09/2026 = semana 11 de 13). S11 é igual ao "Valor atual" da aba Metas.
 for o,(obj,krs) in enumerate(ex):
@@ -93,6 +93,8 @@ for o,(obj,krs) in enumerate(ex):
 w.conditional_formatting.add("C4:O4", FormulaRule(formula=['COLUMN()-2=Config!$B$9'], fill=fill(SOL), font=F(color=UVA,size=10,bold=True)))
 w.cell(row=RL+2,column=1,value="A coluna da semana atual fica destacada. Valores em % são digitados como 16,8 (não 0,168).").font=F(size=9,color=LILAS)
 widths(w,[44,10]+[7]*13); w.freeze_panes="C5"; w.sheet_view.showGridLines=False
+# Rodada 8: Atual e Meta espelhados (Painel, Semanas, Meses) só copiam NÚMERO — referência a
+# célula vazia vira 0, e "meta 0" ou "ganho de 27.400 sem ponto de partida" eram números falsos.
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
 p["A1"]='=Config!B4&" · Metas do trimestre · "&Config!B5'; p["A1"].font=F(bold=True,size=16,color=UVA); p.merge_cells("A1:H1")
@@ -122,8 +124,8 @@ for i,r in enumerate(rows):
     rr=R_T+2+i
     p.cell(row=rr,column=1,value=f'=IF(Metas!B{r}="","",Metas!B{r})'); calc(p.cell(row=rr,column=1),center=False)
     p.cell(row=rr,column=2,value=f'=IF(Metas!B{r}="","",Metas!C{r})'); calc(p.cell(row=rr,column=2))
-    p.cell(row=rr,column=3,value=f'=IF(Metas!B{r}="","",Metas!G{r})'); calc(p.cell(row=rr,column=3),"#,##0.#")
-    p.cell(row=rr,column=4,value=f'=IF(Metas!B{r}="","",Metas!F{r})'); calc(p.cell(row=rr,column=4),"#,##0.#")
+    p.cell(row=rr,column=3,value=f'=IF(OR(Metas!B{r}="",NOT(ISNUMBER(Metas!G{r}))),"",Metas!G{r})'); calc(p.cell(row=rr,column=3),"#,##0.#")
+    p.cell(row=rr,column=4,value=f'=IF(OR(Metas!B{r}="",NOT(ISNUMBER(Metas!F{r}))),"",Metas!F{r})'); calc(p.cell(row=rr,column=4),"#,##0.#")
     p.cell(row=rr,column=5,value=f'=IF(Metas!B{r}="","",Metas!H{r})'); calc(p.cell(row=rr,column=5),PCT)
     p.cell(row=rr,column=6,value=f'=IF(Metas!B{r}="","",Metas!I{r})'); calc(p.cell(row=rr,column=6),PCT)
     p.cell(row=rr,column=7,value=f'=IF(Metas!B{r}="","",Metas!J{r})'); calc(p.cell(row=rr,column=7))
