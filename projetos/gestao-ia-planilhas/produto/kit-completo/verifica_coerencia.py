@@ -232,11 +232,11 @@ def checa_06(pasta, V):
         # mesma regra da planilha: no alvo = 1; fora, caminho entre partida e meta; partida já
         # dentro da meta (teto/piso) = meta ÷ atual (rodada 5)
         E, Fm, G = x["part"], x["meta"], x["atual"]
-        if G in ("", None): prog = ""
+        if any(v in ("", None) or isinstance(v, str) for v in (E, Fm, G)): prog = ""
         elif x["sentido"] == "Menor é melhor":
-            prog = 1 if G <= Fm else (max(0, (E - G) / (E - Fm)) if E > Fm else (0 if G == 0 else max(0, Fm / G)))
+            prog = 1 if G <= Fm else (max(0, (E - G) / (E - Fm)) if E > Fm else max(0, 1 - (G - Fm) / max(abs(Fm), abs(G))))
         else:
-            prog = 1 if G >= Fm else (max(0, (G - E) / (Fm - E)) if E < Fm else (0 if Fm == 0 else max(0, G / Fm)))
+            prog = 1 if G >= Fm else (max(0, (G - E) / (Fm - E)) if E < Fm else max(0, 1 - (Fm - G) / max(abs(Fm), abs(G))))
         V.check(f"06 progresso de {x['kr'][:30]!r}", num(x["prog"]), num(prog), tol=1e-9)
         V.check(f"06 esperado de {x['kr'][:30]!r}", num(x["esp"]), dec, tol=1e-9)
         pr = num(x["prog"])

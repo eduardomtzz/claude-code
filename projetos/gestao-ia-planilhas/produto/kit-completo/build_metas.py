@@ -31,22 +31,27 @@ for o in range(NO):
             inp(m.cell(row=r,column=1)); m.merge_cells(start_row=r,start_column=1,end_row=r+NK-1,end_column=1); m.cell(row=r,column=1).alignment=Alignment(wrap_text=True,vertical="top")
         for c in (2,3,4,5,6,7,11,12): inp(m.cell(row=r,column=c))
         for c in (3,4,5,6,7,11): m.cell(row=r,column=c).alignment=Alignment(horizontal="center")
-        # Progresso: atual no alvo = 100 %. Fora do alvo, mede o caminho entre ponto de partida e
-        # meta; se o ponto de partida JÁ estava dentro da meta (é um teto ou piso a manter), mede
-        # meta ÷ atual (16 pacientes para um teto de 8 = 50 %). Antes, (E−G)/(E−F) com E=0 e F=8
-        # dava 100 % para 16 e 0 % para zero: o sinal do denominador invertia a meta (rodada 5).
-        m.cell(row=r,column=8,value=f'=IF(OR(B{r}="",G{r}=""),"",IF(K{r}="Menor é melhor",IF(G{r}<=F{r},1,IF(E{r}>F{r},MAX(0,(E{r}-G{r})/(E{r}-F{r})),IF(G{r}=0,0,MAX(0,F{r}/G{r})))),IF(G{r}>=F{r},1,IF(E{r}<F{r},MAX(0,(G{r}-E{r})/(F{r}-E{r})),IF(F{r}=0,0,MAX(0,G{r}/F{r}))))))'); calc(m.cell(row=r,column=8),PCT)
+        # Progresso (rodadas 5 e 6): só calcula com partida, meta e atual NUMÉRICOS (zero vale;
+        # vazio ou texto vira "Faltam dados" e fica fora das contagens). Atual no alvo = 100 %.
+        # Fora do alvo: caminho entre partida e meta; se a partida já estava dentro da meta (teto
+        # ou piso a manter), a distância ao limite relativa ao maior valor absoluto:
+        # 1 − (atual − meta) ÷ MAX(|meta|;|atual|). No domínio positivo isso é meta ÷ atual para
+        # teto (16 para teto 8 = 50 %) e atual ÷ meta para piso (4 para piso 8 = 50 %); com zero
+        # ou negativo continua abaixo de 100 % sempre que a desigualdade do alvo é falsa (antes,
+        # F/G com −1.000 e −500 dava 200 % "Atingido"). Antes disso, meta vazia era lida como 0.
+        m.cell(row=r,column=8,value=f'=IF(B{r}="","",IF(OR(NOT(ISNUMBER(E{r})),NOT(ISNUMBER(F{r})),NOT(ISNUMBER(G{r}))),"",IF(K{r}="Menor é melhor",IF(G{r}<=F{r},1,IF(E{r}>F{r},MAX(0,(E{r}-G{r})/(E{r}-F{r})),MAX(0,1-(G{r}-F{r})/MAX(ABS(F{r}),ABS(G{r}))))),IF(G{r}>=F{r},1,IF(E{r}<F{r},MAX(0,(G{r}-E{r})/(F{r}-E{r})),MAX(0,1-(F{r}-G{r})/MAX(ABS(F{r}),ABS(G{r}))))))))'); calc(m.cell(row=r,column=8),PCT)
         m.cell(row=r,column=9,value=f'=IF(B{r}="","",{DEC})'); calc(m.cell(row=r,column=9),PCT)
-        m.cell(row=r,column=10,value=f'=IF(OR(B{r}="",H{r}=""),"",IF(H{r}>=1,"Atingido",IF(H{r}>=I{r}-0.1,"No ritmo",IF(H{r}>=I{r}-0.25,"Atenção","Em risco"))))'); calc(m.cell(row=r,column=10))
+        m.cell(row=r,column=10,value=f'=IF(B{r}="","",IF(H{r}="","Faltam dados",IF(H{r}>=1,"Atingido",IF(H{r}>=I{r}-0.1,"No ritmo",IF(H{r}>=I{r}-0.25,"Atenção","Em risco")))))'); calc(m.cell(row=r,column=10))
         m.cell(row=r,column=12).alignment=Alignment(wrap_text=True)
 dvsent=lista('"Maior é melhor,Menor é melhor"'); dvsent.add(f"K5:K{4+NO*NK}"); m.add_data_validation(dvsent)
-m.cell(row=4+NO*NK+2,column=1,value="Progresso: valor atual no alvo = 100 %; fora do alvo, é o caminho andado entre o ponto de partida e a meta — e, quando o ponto de partida já estava dentro da meta (um teto ou piso a manter), é meta ÷ atual (16 horas extras para um teto de 8 = 50 %). Semáforo: Atingido (100%); No ritmo (progresso até 10 pontos abaixo do tempo decorrido); Atenção (até 25 pontos abaixo); Em risco (mais que isso).").font=F(size=9,color=LILAS)
+m.cell(row=4+NO*NK+2,column=1,value="Progresso: só é calculado com ponto de partida, meta e valor atual preenchidos (zero vale; vazio vira \"Faltam dados\" e fica fora das contagens). Valor atual no alvo = 100 %. Fora do alvo, é o caminho andado entre o ponto de partida e a meta; quando o ponto de partida já estava dentro da meta (um limite a manter), é a distância ao limite: para um teto (\"Menor é melhor\"), meta ÷ atual (16 para um teto de 8 = 50 %); para um piso (\"Maior é melhor\"), atual ÷ meta (4 para um piso de 8 = 50 %). Com zero ou valores negativos (um limite de prejuízo, por exemplo) a conta usa o maior valor absoluto como escala e nunca dá 100 % sem o alvo estar cumprido. Semáforo: Atingido (100%); No ritmo (progresso até 10 pontos abaixo do tempo decorrido); Atenção (até 25 pontos abaixo); Em risco (mais que isso).").font=F(size=9,color=LILAS)
 dvnum=DataValidation(type="decimal",allow_blank=True,showErrorMessage=True); dvnum.add(f"E5:G{4+NO*NK}"); m.add_data_validation(dvnum)
 RNG=f"A5:L{4+NO*NK}"
 m.conditional_formatting.add(f"J5:J{4+NO*NK}", FormulaRule(formula=['J5="Atingido"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10,bold=True)))
 m.conditional_formatting.add(f"J5:J{4+NO*NK}", FormulaRule(formula=['J5="No ritmo"'], fill=fill("E6F4EA"), font=F(color=VERDE_T,size=10)))
 m.conditional_formatting.add(f"J5:J{4+NO*NK}", FormulaRule(formula=['J5="Atenção"'], fill=fill("FFF4CC"), font=F(color="7A5200",size=10)))
 m.conditional_formatting.add(f"J5:J{4+NO*NK}", FormulaRule(formula=['J5="Em risco"'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
+m.conditional_formatting.add(f"J5:J{4+NO*NK}", FormulaRule(formula=['J5="Faltam dados"'], fill=fill("EDEDED"), font=F(color="8A86A0",size=10)))
 for o in range(NO): m.row_dimensions[5+o*NK].height=18
 widths(m,(28,40,12,10,12,10,11,11,12,11,16,30)); m.freeze_panes="C5"; m.sheet_view.showGridLines=False
 # exemplos
@@ -137,6 +142,7 @@ for i,r in enumerate(rows):
     p.cell(row=rr,column=7,value=f'=IF(Metas!B{r}="","",Metas!J{r})'); calc(p.cell(row=rr,column=7))
     p.cell(row=rr,column=8,value=f'=IF(E{rr}="","",REPT("█",ROUND(E{rr}*20,0)))'); p.cell(row=rr,column=8).font=F(size=10,color=LILAS); p.cell(row=rr,column=8).border=borda
 R1=17; R2=16+NO*NK
+p.conditional_formatting.add(f"G{R1}:G{R2}", FormulaRule(formula=[f'G{R1}="Faltam dados"'], fill=fill("EDEDED"), font=F(color="8A86A0",size=10)))
 for cor,txt,fnt in ((VERDE,"Atingido",VERDE_T),("E6F4EA","No ritmo",VERDE_T),("FFF4CC","Atenção","7A5200"),(VERM,"Em risco",VERM_T)):
     p.conditional_formatting.add(f"G{R1}:G{R2}", FormulaRule(formula=[f'G{R1}="{txt}"'], fill=fill(cor), font=F(color=fnt,size=10,bold=(txt in ("Atingido","Em risco")))))
 widths(p,(40,10,10,10,11,10,11,24)); p.freeze_panes="A4"; p.sheet_view.showGridLines=False
