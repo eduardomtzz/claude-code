@@ -232,7 +232,7 @@ def checa_06(pasta, V):
         # mesma regra da planilha: no alvo = 1; fora, caminho entre partida e meta; partida já
         # dentro da meta (teto/piso) = meta ÷ atual (rodada 5)
         E, Fm, G = x["part"], x["meta"], x["atual"]
-        if any(v in ("", None) or isinstance(v, str) for v in (E, Fm, G)): prog = ""
+        if any(v in ("", None) or isinstance(v, str) for v in (E, Fm, G)) or x["sentido"] not in ("Menor é melhor", "Maior é melhor"): prog = ""
         elif x["sentido"] == "Menor é melhor":
             prog = 1 if G <= Fm else (max(0, (E - G) / (E - Fm)) if E > Fm else max(0, 1 - (G - Fm) / max(abs(Fm), abs(G))))
         else:

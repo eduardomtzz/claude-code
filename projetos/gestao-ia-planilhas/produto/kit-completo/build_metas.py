@@ -39,12 +39,14 @@ for o in range(NO):
         # teto (16 para teto 8 = 50 %) e atual ÷ meta para piso (4 para piso 8 = 50 %); com zero
         # ou negativo continua abaixo de 100 % sempre que a desigualdade do alvo é falsa (antes,
         # F/G com −1.000 e −500 dava 200 % "Atingido"). Antes disso, meta vazia era lida como 0.
-        m.cell(row=r,column=8,value=f'=IF(B{r}="","",IF(OR(NOT(ISNUMBER(E{r})),NOT(ISNUMBER(F{r})),NOT(ISNUMBER(G{r}))),"",IF(K{r}="Menor é melhor",IF(G{r}<=F{r},1,IF(E{r}>F{r},MAX(0,(E{r}-G{r})/(E{r}-F{r})),MAX(0,1-(G{r}-F{r})/MAX(ABS(F{r}),ABS(G{r}))))),IF(G{r}>=F{r},1,IF(E{r}<F{r},MAX(0,(G{r}-E{r})/(F{r}-E{r})),MAX(0,1-(F{r}-G{r})/MAX(ABS(F{r}),ABS(G{r}))))))))'); calc(m.cell(row=r,column=8),PCT)
+        # Rodada 7: o SENTIDO também é guarda — vazio ou texto fora da lista caía no ramo "Maior é
+        # melhor" e um custo acima do teto virava "Atingido".
+        m.cell(row=r,column=8,value=f'=IF(B{r}="","",IF(OR(NOT(ISNUMBER(E{r})),NOT(ISNUMBER(F{r})),NOT(ISNUMBER(G{r})),AND(K{r}<>"Menor é melhor",K{r}<>"Maior é melhor")),"",IF(K{r}="Menor é melhor",IF(G{r}<=F{r},1,IF(E{r}>F{r},MAX(0,(E{r}-G{r})/(E{r}-F{r})),MAX(0,1-(G{r}-F{r})/MAX(ABS(F{r}),ABS(G{r}))))),IF(G{r}>=F{r},1,IF(E{r}<F{r},MAX(0,(G{r}-E{r})/(F{r}-E{r})),MAX(0,1-(F{r}-G{r})/MAX(ABS(F{r}),ABS(G{r}))))))))'); calc(m.cell(row=r,column=8),PCT)
         m.cell(row=r,column=9,value=f'=IF(B{r}="","",{DEC})'); calc(m.cell(row=r,column=9),PCT)
         m.cell(row=r,column=10,value=f'=IF(B{r}="","",IF(H{r}="","Faltam dados",IF(H{r}>=1,"Atingido",IF(H{r}>=I{r}-0.1,"No ritmo",IF(H{r}>=I{r}-0.25,"Atenção","Em risco")))))'); calc(m.cell(row=r,column=10))
         m.cell(row=r,column=12).alignment=Alignment(wrap_text=True)
 dvsent=lista('"Maior é melhor,Menor é melhor"'); dvsent.add(f"K5:K{4+NO*NK}"); m.add_data_validation(dvsent)
-m.cell(row=4+NO*NK+2,column=1,value="Progresso: só é calculado com ponto de partida, meta e valor atual preenchidos (zero vale; vazio vira \"Faltam dados\" e fica fora das contagens). Valor atual no alvo = 100 %. Fora do alvo, é o caminho andado entre o ponto de partida e a meta; quando o ponto de partida já estava dentro da meta (um limite a manter), é a distância ao limite: para um teto (\"Menor é melhor\"), meta ÷ atual (16 para um teto de 8 = 50 %); para um piso (\"Maior é melhor\"), atual ÷ meta (4 para um piso de 8 = 50 %). Com zero ou valores negativos (um limite de prejuízo, por exemplo) a conta usa o maior valor absoluto como escala e nunca dá 100 % sem o alvo estar cumprido. Semáforo: Atingido (100%); No ritmo (progresso até 10 pontos abaixo do tempo decorrido); Atenção (até 25 pontos abaixo); Em risco (mais que isso).").font=F(size=9,color=LILAS)
+m.cell(row=4+NO*NK+2,column=1,value="Progresso: só é calculado com ponto de partida, meta, valor atual e sentido preenchidos (zero vale; vazio vira \"Faltam dados\" e fica fora das contagens; sem nenhuma medição, a média do Painel também diz \"Faltam dados\"). Valor atual no alvo = 100 %. Fora do alvo, é o caminho andado entre o ponto de partida e a meta; quando o ponto de partida já estava dentro da meta (um limite a manter), é a distância ao limite: para um teto (\"Menor é melhor\"), meta ÷ atual (16 para um teto de 8 = 50 %); para um piso (\"Maior é melhor\"), atual ÷ meta (4 para um piso de 8 = 50 %). Com zero ou valores negativos (um limite de prejuízo, por exemplo) a conta usa o maior valor absoluto como escala e nunca dá 100 % sem o alvo estar cumprido. Semáforo: Atingido (100%); No ritmo (progresso até 10 pontos abaixo do tempo decorrido); Atenção (até 25 pontos abaixo); Em risco (mais que isso).").font=F(size=9,color=LILAS)
 dvnum=DataValidation(type="decimal",allow_blank=True,showErrorMessage=True); dvnum.add(f"E5:G{4+NO*NK}"); m.add_data_validation(dvnum)
 RNG=f"A5:L{4+NO*NK}"
 m.conditional_formatting.add(f"J5:J{4+NO*NK}", FormulaRule(formula=['J5="Atingido"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10,bold=True)))
@@ -118,17 +120,19 @@ MJ=f"Metas!$J$5:$J${4+NO*NK}"; MB=f"Metas!$B$5:$B${4+NO*NK}"; MH=f"Metas!$H$5:$H
 kpi(p,4,1,"Resultados-chave",f'=COUNTIFS({MB},"<>")',LAVANDA,UVA)
 kpi(p,4,3,"Atingidos",f'=COUNTIFS({MJ},"Atingido")',VERDE,VERDE_T)
 kpi(p,4,5,"Em risco",f'=COUNTIFS({MJ},"Em risco")',VERM,VERM_T)
-kpi(p,4,7,"Progresso médio",f'=IFERROR(AVERAGEIFS({MH},{MB},"<>"),0)',SOL,UVA,fmt="0%")
+# Média só com progresso NUMÉRICO: sem nenhuma medição, "Faltam dados" em vez de 0 % (o IFERROR
+# escondia 0/0 como zero) — rodada 7.
+kpi(p,4,7,"Progresso médio",f'=IF(COUNT({MH})=0,"Faltam dados",AVERAGEIFS({MH},{MB},"<>"))',SOL,UVA,fmt="0%")
 p["A7"]="Por objetivo"; p["A7"].font=F(bold=True,size=13,color=UVA)
 hdr(p,8,["Objetivo","Resultados-chave","Progresso médio","Atingidos","Em risco","Barra"]); p.merge_cells("F8:H8")
 for o in range(NO):
     r=9+o; a=5+o*NK; b=a+NK-1; src=f"Metas!$A${a}"
     p.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(p.cell(row=r,column=1),center=False)
     p.cell(row=r,column=2,value=f'=IF({src}="","",COUNTIFS(Metas!$B${a}:$B${b},"<>"))'); calc(p.cell(row=r,column=2))
-    p.cell(row=r,column=3,value=f'=IF(OR({src}="",B{r}=0),"",AVERAGEIFS(Metas!$H${a}:$H${b},Metas!$B${a}:$B${b},"<>"))'); calc(p.cell(row=r,column=3),PCT)
+    p.cell(row=r,column=3,value=f'=IF(OR({src}="",B{r}=0),"",IF(COUNT(Metas!$H${a}:$H${b})=0,"Faltam dados",AVERAGEIFS(Metas!$H${a}:$H${b},Metas!$B${a}:$B${b},"<>")))'); calc(p.cell(row=r,column=3),PCT)
     p.cell(row=r,column=4,value=f'=IF({src}="","",COUNTIFS(Metas!$J${a}:$J${b},"Atingido"))'); calc(p.cell(row=r,column=4))
     p.cell(row=r,column=5,value=f'=IF({src}="","",COUNTIFS(Metas!$J${a}:$J${b},"Em risco"))'); calc(p.cell(row=r,column=5))
-    p.cell(row=r,column=6,value=f'=IF(C{r}="","",REPT("█",ROUND(C{r}*30,0)))'); p.cell(row=r,column=6).font=F(size=10,color=LILAS); p.cell(row=r,column=6).border=borda; p.merge_cells(start_row=r,start_column=6,end_row=r,end_column=8)
+    p.cell(row=r,column=6,value=f'=IF(ISNUMBER(C{r}),REPT("█",ROUND(C{r}*30,0)),"")'); p.cell(row=r,column=6).font=F(size=10,color=LILAS); p.cell(row=r,column=6).border=borda; p.merge_cells(start_row=r,start_column=6,end_row=r,end_column=8)
 p["A15"]="Todos os resultados-chave"; p["A15"].font=F(bold=True,size=13,color=UVA)
 hdr(p,16,["Resultado-chave","Dono","Atual","Meta","Progresso","Esperado","Semáforo","Barra"])
 for i,r in enumerate(rows):
