@@ -140,7 +140,7 @@ hdr(p,16,["Resultado-chave","Dono","Atual","Meta","Progresso","Esperado","Semáf
 for i,r in enumerate(rows):
     rr=17+i
     p.cell(row=rr,column=1,value=f'=IF(Metas!B{r}="","",Metas!B{r})'); calc(p.cell(row=rr,column=1),center=False)
-    p.cell(row=rr,column=2,value=f'=IF(Metas!B{r}="","",Metas!C{r})'); calc(p.cell(row=rr,column=2))
+    p.cell(row=rr,column=2,value=f'=IF(OR(Metas!B{r}="",Metas!C{r}=""),"",Metas!C{r})'); calc(p.cell(row=rr,column=2))
     p.cell(row=rr,column=3,value=f'=IF(OR(Metas!B{r}="",NOT(ISNUMBER(Metas!G{r}))),"",Metas!G{r})'); calc(p.cell(row=rr,column=3),"#,##0.##")
     p.cell(row=rr,column=4,value=f'=IF(OR(Metas!B{r}="",NOT(ISNUMBER(Metas!F{r}))),"",Metas!F{r})'); calc(p.cell(row=rr,column=4),"#,##0.##")
     p.cell(row=rr,column=5,value=f'=IF(Metas!B{r}="","",Metas!H{r})'); calc(p.cell(row=rr,column=5),PCT)
