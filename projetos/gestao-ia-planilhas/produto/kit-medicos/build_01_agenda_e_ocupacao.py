@@ -135,6 +135,9 @@ for r in range(R0,RN+1):
     # sem esta marca, apagar L/M de um realizado baixava horas, produção e ocupação em
     # silêncio (rodada 4). Valor 0 DIGITADO continua válido (retorno incluído na consulta).
     ag.cell(row=r,column=22,value=f'=IF(AND(H{r}="Realizado",OR(L{r}="",M{r}="")),1,0)'); ag.cell(row=r,column=22).font=F(color=CINZA,size=9)
+    # W = faltam os minutos (afeta horas e ocupação); X = falta o valor (afeta a produção)
+    ag.cell(row=r,column=23,value=f'=IF(AND(H{r}="Realizado",L{r}=""),1,0)'); ag.cell(row=r,column=23).font=F(color=CINZA,size=9)
+    ag.cell(row=r,column=24,value=f'=IF(AND(H{r}="Realizado",M{r}=""),1,0)'); ag.cell(row=r,column=24).font=F(color=CINZA,size=9)
 dvs=[(lista(PROF_L),f"C{R0}:C{RN}"),(lista(SALA_L),f"D{R0}:D{RN}"),(lista(PAC_L,strict=True),f"E{R0}:E{RN}"),(lista(PAG_L),f"F{R0}:F{RN}"),(lista(PROC_L),f"G{R0}:G{RN}"),
      (lista('"'+",".join(dados.SITUACOES)+'"'),f"H{R0}:H{RN}"),(lista('"Pix,Dinheiro,Cartão de débito,Cartão de crédito,A prazo,Convênio,Sem cobrança"'),f"I{R0}:I{RN}"),
      (DataValidation(type="whole",operator="between",formula1="1",formula2="12",allow_blank=True,showErrorMessage=True),f"J{R0}:J{RN}"),
@@ -163,7 +166,7 @@ ag.cell(row=RN+5,column=1,value="Minutos e Valor são SEUS, gravados na linha: o
 ag.cell(row=RN+2,column=1,value="Verde: realizado. Vermelho: falta. Lilás: agendado ou confirmado. Cinza: cancelado ou remarcado. Forma de pagamento em vermelho: atendimento realizado com valor e sem forma. Convênio: escolha \"Convênio\" (a guia vai para a planilha 13). A prazo: a parcela vai para a planilha 14. Cartão: a conciliação é a planilha 16.").font=F(size=9,color=LILAS)
 ag.cell(row=RN+3,column=1,value=f"No exemplo, a agenda na planilha começou em 01/06/2026 (antes, a recepção só fechava o caixa do dia). Todas as datas são fixas: o exemplo é uma foto de 14/09/2026, para os vinte arquivos fecharem entre eles.").font=F(size=9,color=LILAS)
 ag.cell(row=RN+4,column=1,value=f"Esta aba tem {N} linhas ({R0} a {RN}): cerca de 300 atendimentos por mês cabem 10 meses. Para estender, desproteja a aba (Revisar > Desproteger), selecione a última linha inteira, copie e cole nas linhas seguintes (as fórmulas das colunas brancas vêm juntas) e depois troque {RN} pelo novo número final nas fórmulas do Painel (Localizar e substituir). Ou comece um arquivo por ano, que é o mais simples.").font=F(size=9,color=LILAS)
-widths(ag,(11,7,22,8,26,12,18,11,17,9,26,8,11,6,6,11,8,9,13,13)); ag.column_dimensions["U"].hidden=True; ag.column_dimensions["V"].hidden=True; ag.freeze_panes="F5"; ag.sheet_view.showGridLines=False; ag.auto_filter.ref=f"A4:R{RN}"
+widths(ag,(11,7,22,8,26,12,18,11,17,9,26,8,11,6,6,11,8,9,13,13)); ag.column_dimensions["U"].hidden=True; ag.column_dimensions["V"].hidden=True; ag.column_dimensions["W"].hidden=True; ag.column_dimensions["X"].hidden=True; ag.freeze_panes="F5"; ag.sheet_view.showGridLines=False; ag.auto_filter.ref=f"A4:R{RN}"
 assert len(dados.AGENDA)<=N
 for i,r_ in enumerate(dados.AGENDA):
     r=R0+i
@@ -182,7 +185,7 @@ titulo(p,'=Config!$B$4&" · Agenda e ocupação · "&Config!$B$6&" de "&Config!$
 M="Config!$B$7"; Y="Config!$B$5"; LIM="Config!$B$9"
 AC=f"Agenda!$C${R0}:$C${RN}"; AD=f"Agenda!$D${R0}:$D${RN}"; AF=f"Agenda!$F${R0}:$F${RN}"; AG_=f"Agenda!$G${R0}:$G${RN}"; AM=f"Agenda!$M${R0}:$M${RN}"
 AN=f"Agenda!$N${R0}:$N${RN}"; AO=f"Agenda!$O${R0}:$O${RN}"; AP=f"Agenda!$P${R0}:$P${RN}"; AQ=f"Agenda!$Q${R0}:$Q${RN}"; AR=f"Agenda!$R${R0}:$R${RN}"; AU=f"Agenda!$U${R0}:$U${RN}"   # R = horas até ontem (ocupação); U = horas do mês inteiro
-AL=f"Agenda!$L${R0}:$L${RN}"; AV=f"Agenda!$V${R0}:$V${RN}"
+AL=f"Agenda!$L${R0}:$L${RN}"; AV=f"Agenda!$V${R0}:$V${RN}"; AW=f"Agenda!$W${R0}:$W${RN}"; AX=f"Agenda!$X${R0}:$X${RN}"
 TA=f"Config!$A${T0}:$A${TN}"; TB=f"Config!$B${T0}:$B${TN}"; TC=f"Config!$C${T0}:$C${TN}"; TD=f"Config!$D${T0}:$D${TN}"; TG=f"Config!$G${T0}:$G${TN}"
 MES=f"{AN},{M},{AO},{Y}"
 kpi(p,4,1,"Horas disponíveis (até ontem)",f"=SUM({TG})",LAVANDA,UVA,fmt="#,##0.0")
@@ -192,7 +195,10 @@ kpi(p,4,7,"Horas vazias",'=IF(A5=0,"",MAX(0,A5-C5))',VERM,VERM_T,fmt="#,##0.0")
 kpi(p,4,9,"Faltas no mês",f'=COUNTIFS({AH},"Falta",{MES})',VERM,VERM_T,fmt="0")
 kpi(p,4,11,"Produção (R$)",f'=SUMIFS({AM},{AH},"Realizado",{MES})',LAVANDA,UVA,fmt=BRL0)
 p["A7"]="Horas vazias = disponíveis − atendidas: inclui faltas, cancelamentos e horários que ninguém marcou. Produção = valor de tabela dos atendimentos realizados (particular e convênio), antes de glosa e taxas; o que entrou de fato está no caixa (09)."; nota(p["A7"]); p.merge_cells("A7:L7"); p["A7"].alignment=Alignment(wrap_text=True,vertical="top"); p.row_dimensions[7].height=30
-p["A8"]=f'=IF(SUM({AV})=0,"","Atenção: "&SUM({AV})&" atendimento(s) realizado(s) sem minutos ou sem valor na Agenda (em vermelho lá). Eles não entram nas horas atendidas, na ocupação nem na produção: os números deste Painel estão MENORES do que a realidade até você completar. Valor 0 digitado é válido (retorno incluído na consulta).")'
+# O aviso separa o mês do painel do resto da base e o efeito de cada campo: apagar minutos
+# de um atendimento de junho não muda setembro, e o texto dizia "os números deste Painel
+# estão MENORES" (rodada 5).
+p["A8"]=f'=IF(SUM({AV})=0,"","Atenção: "&SUMIFS({AV},{MES})&" atendimento(s) realizado(s) de "&Config!$B$6&" sem minutos ou sem valor na Agenda ("&SUM({AV})&" em toda a aba, em vermelho lá). Sem os minutos ("&SUMIFS({AW},{MES})&" neste mês), as horas atendidas e a ocupação ficam MENORES do que a realidade; sem o valor ("&SUMIFS({AX},{MES})&" neste mês), a produção fica MENOR. Valor 0 digitado é válido (retorno incluído na consulta).")'
 p["A8"].font=F(color=VERM_T,size=10,bold=True); p["A8"].alignment=Alignment(wrap_text=True,vertical="top"); p.merge_cells("A8:L8")
 # por profissional
 p["A9"]="Por profissional"; p["A9"].font=F(bold=True,size=13,color=UVA)

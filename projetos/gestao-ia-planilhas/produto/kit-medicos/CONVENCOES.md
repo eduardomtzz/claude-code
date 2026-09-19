@@ -142,3 +142,14 @@ E. **Dado ausente não vira zero.** Custo mensal em branco não pode dar custo-h
 F. **Lista suspensa bloqueante só onde o universo é fechado.** Paciente, serviço e outros campos de
    nome livre usam `strict=False`: a lista sugere. Bloquear impedia o cliente de redigitar o próprio
    exemplo (159 lançamentos da 09 dos Médicos, um serviço da 15 dos Advogados).
+
+## Cronograma monetário único do cartão (rodada 5 da auditoria)
+
+Uma venda no cartão tem UM cronograma de liquidações, compartilhado por `dados.py` (caixa 09) e
+pela 16: o bruto de cada parcela é `ROUND(bruto/n;2)` e a última leva a diferença; a taxa de
+cada parcela é `ROUND(taxa/n;2)` e a última leva a diferença; o líquido da parcela é bruto − taxa.
+Assim `bruto = líquido + taxa` fecha em CADA liquidação, não só no total (arredondar líquido e
+taxa separadamente dava 216,23 + 8,78 = 225,01 numa parcela de 225,00). A 16 lista toda venda
+com alguma liquidação a partir do início do controle (01/06), inclusive as de abril e maio: o mês
+selecionado no Painel tem todas as liquidações e a taxa do mês (N5) é a saída do caixa. O
+`verifica_coerencia.py` cobra as duas coisas (identidade por liquidação e taxa/bruto por mês).

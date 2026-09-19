@@ -42,7 +42,11 @@ for o in range(NO):
             inp(m.cell(row=r,column=1)); m.merge_cells(start_row=r,start_column=1,end_row=r+NK-1,end_column=1); m.cell(row=r,column=1).alignment=Alignment(wrap_text=True,vertical="top")
         for c in (2,3,4,5,6,7,11,12): inp(m.cell(row=r,column=c))
         for c in (3,4,5,6,7,11): m.cell(row=r,column=c).alignment=Alignment(horizontal="center")
-        m.cell(row=r,column=8,value=f'=IF(B{r}="","",IF(F{r}=E{r},"",IF(K{r}="Menor é melhor",MAX(0,MIN(1,(E{r}-G{r})/(E{r}-F{r}))),MAX(0,MIN(1,(G{r}-E{r})/(F{r}-E{r}))))))'); calc(m.cell(row=r,column=8),PCT)
+        # Progresso: atual no alvo = 100 %. Fora do alvo, mede o caminho entre ponto de partida e
+        # meta; se o ponto de partida JÁ estava dentro da meta (é um teto ou piso a manter), mede
+        # meta ÷ atual (16 pacientes para um teto de 8 = 50 %). Antes, (E−G)/(E−F) com E=0 e F=8
+        # dava 100 % para 16 e 0 % para zero: o sinal do denominador invertia a meta (rodada 5).
+        m.cell(row=r,column=8,value=f'=IF(OR(B{r}="",G{r}=""),"",IF(K{r}="Menor é melhor",IF(G{r}<=F{r},1,IF(E{r}>F{r},MAX(0,(E{r}-G{r})/(E{r}-F{r})),IF(G{r}=0,0,MAX(0,F{r}/G{r})))),IF(G{r}>=F{r},1,IF(E{r}<F{r},MAX(0,(G{r}-E{r})/(F{r}-E{r})),IF(F{r}=0,0,MAX(0,G{r}/F{r}))))))'); calc(m.cell(row=r,column=8),PCT)
         m.cell(row=r,column=9,value=f'=IF(B{r}="","",{DEC})'); calc(m.cell(row=r,column=9),PCT)
         m.cell(row=r,column=10,value=f'=IF(OR(B{r}="",H{r}=""),"",IF(H{r}>=1,"Atingido",IF(H{r}>=I{r}-0.1,"No ritmo",IF(H{r}>=I{r}-0.25,"Atenção","Em risco"))))'); calc(m.cell(row=r,column=10))
         m.cell(row=r,column=12).alignment=Alignment(wrap_text=True)
@@ -53,7 +57,7 @@ dvnum=DataValidation(type="decimal",allow_blank=True,showErrorMessage=True); dvn
 for cor,txt,fnt in ((VERDE,"Atingido",VERDE_T),("E6F4EA","No ritmo",VERDE_T),(AMARELO,"Atenção","7A5200"),(VERM,"Em risco",VERM_T)):
     m.conditional_formatting.add(f"J5:J{RL}", FormulaRule(formula=[f'J5="{txt}"'], fill=fill(cor), font=F(color=fnt,size=10,bold=(txt in ("Atingido","Em risco")))))
 for o in range(NO): m.row_dimensions[5+o*NK].height=18
-m.cell(row=RL+2,column=1,value="Semáforo: Atingido (100%); No ritmo (progresso até 10 pontos abaixo do tempo decorrido); Atenção (até 25 pontos abaixo); Em risco (mais que isso). A planilha avisa; a ação é do escritório.").font=F(size=9,color=LILAS)
+m.cell(row=RL+2,column=1,value="Progresso: valor atual no alvo = 100 %; fora do alvo, é o caminho andado entre o ponto de partida e a meta — e, quando o ponto de partida já estava dentro da meta (um teto ou piso a manter), é meta ÷ atual (16 pacientes para um teto de 8 = 50 %). Semáforo: Atingido (100%); No ritmo (progresso até 10 pontos abaixo do tempo decorrido); Atenção (até 25 pontos abaixo); Em risco (mais que isso). A planilha avisa; a ação é do escritório.").font=F(size=9,color=LILAS)
 m.merge_cells(start_row=RL+2,start_column=1,end_row=RL+2,end_column=12)
 for r in range(5,RL+1): m.cell(row=r,column=12).alignment=Alignment(wrap_text=True,vertical="top"); m.cell(row=r,column=2).alignment=Alignment(wrap_text=True,vertical="top"); m.row_dimensions[r].height=44
 m.cell(row=RL+3,column=1,value="Inadimplência = vencido ÷ (pago + vencido), a mesma conta das planilhas 14, 17 e 20 (não é vencido ÷ em aberto). Valores em % digitados como 5,1 (não 0,051).").font=F(size=9,color=LILAS)

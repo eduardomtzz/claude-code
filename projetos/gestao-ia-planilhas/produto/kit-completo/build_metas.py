@@ -31,11 +31,16 @@ for o in range(NO):
             inp(m.cell(row=r,column=1)); m.merge_cells(start_row=r,start_column=1,end_row=r+NK-1,end_column=1); m.cell(row=r,column=1).alignment=Alignment(wrap_text=True,vertical="top")
         for c in (2,3,4,5,6,7,11,12): inp(m.cell(row=r,column=c))
         for c in (3,4,5,6,7,11): m.cell(row=r,column=c).alignment=Alignment(horizontal="center")
-        m.cell(row=r,column=8,value=f'=IF(B{r}="","",IF(F{r}=E{r},"",IF(K{r}="Menor é melhor",MAX(0,MIN(1,(E{r}-G{r})/(E{r}-F{r}))),MAX(0,MIN(1,(G{r}-E{r})/(F{r}-E{r}))))))'); calc(m.cell(row=r,column=8),PCT)
+        # Progresso: atual no alvo = 100 %. Fora do alvo, mede o caminho entre ponto de partida e
+        # meta; se o ponto de partida JÁ estava dentro da meta (é um teto ou piso a manter), mede
+        # meta ÷ atual (16 pacientes para um teto de 8 = 50 %). Antes, (E−G)/(E−F) com E=0 e F=8
+        # dava 100 % para 16 e 0 % para zero: o sinal do denominador invertia a meta (rodada 5).
+        m.cell(row=r,column=8,value=f'=IF(OR(B{r}="",G{r}=""),"",IF(K{r}="Menor é melhor",IF(G{r}<=F{r},1,IF(E{r}>F{r},MAX(0,(E{r}-G{r})/(E{r}-F{r})),IF(G{r}=0,0,MAX(0,F{r}/G{r})))),IF(G{r}>=F{r},1,IF(E{r}<F{r},MAX(0,(G{r}-E{r})/(F{r}-E{r})),IF(F{r}=0,0,MAX(0,G{r}/F{r}))))))'); calc(m.cell(row=r,column=8),PCT)
         m.cell(row=r,column=9,value=f'=IF(B{r}="","",{DEC})'); calc(m.cell(row=r,column=9),PCT)
         m.cell(row=r,column=10,value=f'=IF(OR(B{r}="",H{r}=""),"",IF(H{r}>=1,"Atingido",IF(H{r}>=I{r}-0.1,"No ritmo",IF(H{r}>=I{r}-0.25,"Atenção","Em risco"))))'); calc(m.cell(row=r,column=10))
         m.cell(row=r,column=12).alignment=Alignment(wrap_text=True)
 dvsent=lista('"Maior é melhor,Menor é melhor"'); dvsent.add(f"K5:K{4+NO*NK}"); m.add_data_validation(dvsent)
+m.cell(row=4+NO*NK+2,column=1,value="Progresso: valor atual no alvo = 100 %; fora do alvo, é o caminho andado entre o ponto de partida e a meta — e, quando o ponto de partida já estava dentro da meta (um teto ou piso a manter), é meta ÷ atual (16 horas extras para um teto de 8 = 50 %). Semáforo: Atingido (100%); No ritmo (progresso até 10 pontos abaixo do tempo decorrido); Atenção (até 25 pontos abaixo); Em risco (mais que isso).").font=F(size=9,color=LILAS)
 dvnum=DataValidation(type="decimal",allow_blank=True,showErrorMessage=True); dvnum.add(f"E5:G{4+NO*NK}"); m.add_data_validation(dvnum)
 RNG=f"A5:L{4+NO*NK}"
 m.conditional_formatting.add(f"J5:J{4+NO*NK}", FormulaRule(formula=['J5="Atingido"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10,bold=True)))

@@ -170,8 +170,31 @@ check("15 Painel Em aberto == soma dos abertos",p15["A5"].value,sum(o["valor"] f
 # 7. 16 cartão × agenda × 09
 VEN=[dict(data=dt(a),pac=b,proc=c,tipo=d,parc=e,bruto=num(f),taxa=num(i),liq=num(j),porparc=num(k),prev1=dt(l),prevult=dt(m_)) for a,b,c,d,e,f,g,h,i,j,k,l,m_ in rows(v16,5,list(range(1,14)))]
 cart=[x for x in AG if x["sit"]=="Realizado" and x["pag"]=="Particular" and x["forma"] in ("Pix","Cartão de débito","Cartão de crédito")]
-check("16 Vendas == pagamentos com Pix e cartão da agenda 01",len(VEN),len(cart))
-check("16 Vendas bruto == agenda",sum(v["bruto"] for v in VEN),sum(x["valor"] for x in cart))
+# A 16 lista toda venda com alguma liquidação a partir de 01/06: as da agenda visível MAIS as
+# de abril/maio com parcela ainda a cair (sem elas, julho ficava sem sete parcelas: rodada 5).
+def _ult_liq(x): return x["data"]+datetime.timedelta(days=_d.DIAS_CREDITO.get(x["forma"],0)+30*((x["parcelas"] or 1)-1))
+_cart_esp=[x for x in _d.AGENDA_TODA if x["situacao"]=="Realizado" and x["pagador"]=="Particular" and x["forma"] in ("Pix","Cartão de débito","Cartão de crédito") and _ult_liq(x)>=_d.INICIO_AGENDA]
+check("16 Vendas == pagamentos com liquidação desde 01/06 (agenda 01 + parcelas anteriores)",len(VEN),len(_cart_esp))
+check("16 Vendas da agenda visível == pagamentos com Pix e cartão da agenda 01",len([v for v in VEN if v["data"]>=_d.INICIO_AGENDA]),len(cart))
+check("16 Vendas bruto (agenda visível) == agenda",sum(v["bruto"] for v in VEN if v["data"]>=_d.INICIO_AGENDA),sum(x["valor"] for x in cart))
+# identidade por liquidação: bruto (AC/AD) = líquido (K/Y) + taxa (X/Z), e a taxa por mês de
+# liquidação, lida das colunas ocultas, tem de ser a saída "Taxas de cartão" do caixa
+_tx16={}; _br16={}; _dif=0.0
+for _r in range(5,v16.max_row+1):
+    _L=v16.cell(row=_r,column=12).value
+    if _L in (None,""): continue
+    _Vn=int(num(v16.cell(row=_r,column=22).value)); _K=num(v16.cell(row=_r,column=11).value); _X=num(v16.cell(row=_r,column=24).value); _Y=num(v16.cell(row=_r,column=25).value); _Z=num(v16.cell(row=_r,column=26).value); _AC=num(v16.cell(row=_r,column=29).value); _AD=num(v16.cell(row=_r,column=30).value)
+    _dif=max(_dif,abs(_AC-_K-_X),abs(_AD-_Y-_Z))
+    for _k in range(_Vn):
+        _dd=dt(_L)+datetime.timedelta(days=30*_k); _ky=(_dd.year,_dd.month)
+        _tx16[_ky]=_tx16.get(_ky,0)+(_X if _k<_Vn-1 else _Z); _br16[_ky]=_br16.get(_ky,0)+(_AC if _k<_Vn-1 else _AD)
+check("16 bruto = líquido + taxa em cada liquidação (maior diferença)",round(_dif,4),0.0)
+_br09={}
+for d,t,c,q,r,ds,v,f,pg in _d.LANCAMENTOS:
+    if t=="Entrada" and c=="Particular à vista" and f in ("Pix","Cartão de débito","Cartão de crédito"): _br09[(d.year,d.month)]=_br09.get((d.year,d.month),0)+v
+for _m in (6,7,8):
+    check(f"16 taxa das liquidações de {_m} == 09 Taxas de cartão",round(_tx16.get((_d.ANO,_m),0),2),sai_cat[(_m,"Taxas de cartão")],tol=0.005)
+    check(f"16 bruto das liquidações de {_m} == 09 entradas de Pix e cartão",round(_br16.get((_d.ANO,_m),0),2),round(_br09.get((_d.ANO,_m),0),2),tol=0.005)
 # A taxa da operadora sai no fim do mês em que o dinheiro CAIU, não em que foi vendido:
 # o caixa e a conciliação têm de bater pela liquidação, e a soma do ano tem de fechar.
 _esp_tx={}
@@ -187,11 +210,8 @@ for m in (6,7,8):
 _tx_esp_ate_ago=round(sum(x for (y,mm),x in _d.TAXA_LIQ_MES.items() if y==_d.ANO and mm<=8),2)
 check("09 taxa lançada até agosto == taxa das liquidações até agosto",round(sum(_esp_tx.values()),2),_tx_esp_ate_ago,tol=0.02)
 _bruto_16=round(sum(v["bruto"] for v in VEN),2)
-_bruto_esp=round(sum(x["valor"] for x in _d.AGENDA_TODA
-                     if x["situacao"]=="Realizado" and x["pagador"]=="Particular"
-                     and x["forma"] in ("Pix","Cartão de débito","Cartão de crédito")
-                     and x["data"]>=datetime.date(2026,6,1)),2)
-check("16 Vendas bruto == vendas de Pix e cartão desde 01/06",_bruto_16,_bruto_esp,tol=1.0)
+_bruto_esp=round(sum(x["valor"] for x in _cart_esp),2)
+check("16 Vendas bruto == vendas de Pix e cartão com liquidação desde 01/06",_bruto_16,_bruto_esp,tol=0.005)
 check("16 Painel (Agosto) vendas == vendas de agosto",p16["A5"].value,sum(v["bruto"] for v in VEN if v["data"].month==8))
 # o painel do 16 mostra a taxa das VENDAS de agosto; o caixa mostra a taxa do que CAIU
 # em agosto. São números diferentes de propósito, por isso a conferência é do ano.

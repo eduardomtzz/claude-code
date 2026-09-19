@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Planilha 16 do Kit de Gestão para Médicos: Conciliação de cartão e taxas (crédito, débito, Pix, antecipação). Gera 16-conciliacao-de-cartao.xlsx
-Vendas = atendimentos particulares realizados pagos por Pix ou cartão desde 01/07/2026 (Agenda da 01). Taxas do exemplo: débito 1,5 %, crédito 3,2 %,
+Vendas = atendimentos particulares realizados pagos por Pix ou cartão com alguma liquidação a partir de 01/06/2026 (Agenda da 01 mais as vendas de abril/maio com parcela ainda a cair). Taxas do exemplo: débito 1,5 %, crédito 3,2 %,
 crédito parcelado 3,9 %, Pix 0 %. A saída "Taxas de cartão" do caixa (09) no fim de cada mês é o total desta planilha para as vendas do mês."""
 from ssg import *
 import dados
@@ -57,10 +57,12 @@ for r in range(R0,RN+1):
     # parcelas. Sem essa separação, L e M mostravam 11/09 nos dois e K/N/O continuavam
     # dividindo por 2, dizendo que metade ainda ia cair (achado G-20 da auditoria de 18/09).
     NEF=f'MAX(1,N($V{r}))'
-    # Parcela-base ARREDONDADA ao centavo; a última parcela leva a diferença (coluna Y,
-    # oculta). J/NEF sem ROUND dava 32,033333 para 96,10 em 3×: exibido 32,03, mas a
-    # conciliação e o calendário somavam a fração, um centavo abaixo do extrato (rodada 4).
-    v.cell(row=r,column=11,value=f'=IF(J{r}="","",ROUND(J{r}/{NEF},2))'); calc(v.cell(row=r,column=11),BRL)
+    # Cronograma monetário ÚNICO por liquidação: bruto da parcela (AC, última em AD) e taxa
+    # da parcela (X, última em Z) arredondados ao centavo, com a diferença na última; o
+    # líquido da parcela é bruto − taxa. Arredondar líquido e taxa separadamente fazia
+    # 216,23 + 8,78 = 225,01 numa parcela de bruto 225,00 e o calendário do dia discordava
+    # do caixa em um centavo (rodada 5). J/NEF sem ROUND era a rodada 4.
+    v.cell(row=r,column=11,value=f'=IF(J{r}="","",AC{r}-X{r})'); calc(v.cell(row=r,column=11),BRL)
     v.cell(row=r,column=12,value=f'=IF(OR(D{r}="",A{r}=""),"",A{r}+IF(AND({ANT}="Sim",LEFT(D{r},17)="Cartão de crédito"),1,IFERROR(INDEX({DD},MATCH({tipo},{TT},0)),0)))'); calc(v.cell(row=r,column=12),DATA)
     # Com antecipação integral todo o líquido cai em D+1, então a última parcela é a
     # primeira. Antes só a 1ª ia para D+1 e as demais seguiam de 30 em 30, contradizendo
@@ -74,7 +76,7 @@ for r in range(R0,RN+1):
     v.cell(row=r,column=16,value=f'=IF(A{r}="","",MONTH(A{r}))'); calc(v.cell(row=r,column=16))
     v.cell(row=r,column=17,value=f'=IF(A{r}="","",YEAR(A{r}))'); calc(v.cell(row=r,column=17))
     v.cell(row=r,column=18,value=f'=IF(L{r}="","",IF(L{r}>{HOJE},"A cair",'
-        f'IF(N(G{r})>={venc},IF(N(G{r})>={NEF},"Conferido","Conferido até aqui"),'
+        f'IF($AA{r}>={venc},IF($AA{r}>={NEF},"Conferido","Conferido até aqui"),'
         f'"A conferir")))'); calc(v.cell(row=r,column=18))
     # chave inteira: dias vencidos (teto 500) · valor em CENTAVOS (teto R$ 999.999,99) · linha.
     # Máximo 5,01E+14, abaixo de 2^53. ROUND(valor,0) empatava 380,00 com 379,99 (rodada 4).
@@ -83,21 +85,28 @@ for r in range(R0,RN+1):
     # liquidado) fazia o painel pedir reconferência de dinheiro já conciliado: R$ 5.652,71
     # em vez de R$ 4.758,98 no exemplo, R$ 893,73 a mais em cinco linhas (regressão da
     # auditoria de 18/09). Quando todas venceram, usa J-K*G para fechar o centavo da última.
-    v.cell(row=r,column=20,value=f'=IF(R{r}<>"A conferir",0,IF({venc}>={NEF},J{r}-K{r}*N(G{r}),K{r}*({venc}-N(G{r}))))'); v.cell(row=r,column=20).font=F(color=CINZA,size=9)
+    # R, T e o calendário leem $AA (G SANEADO): decimal, negativo ou excesso valiam como
+    # quantidade conferida (G = 1,5 dava pendência 91,295; G = 3 zerava a pendência) — rodada 5.
+    v.cell(row=r,column=20,value=f'=IF(R{r}<>"A conferir",0,IF({venc}>={NEF},J{r}-K{r}*$AA{r},K{r}*({venc}-$AA{r})))'); v.cell(row=r,column=20).font=F(color=CINZA,size=9)
     v.cell(row=r,column=21,value=f'=IF(L{r}="",0,L{r})'); v.cell(row=r,column=21).font=F(color=CINZA,size=9)
     v.cell(row=r,column=22,value=f'=IF(L{r}="",0,IF(AND({ANT}="Sim",LEFT(D{r},17)="Cartão de crédito"),1,{NP_}))'); v.cell(row=r,column=22).font=F(color=CINZA,size=9)
     v.cell(row=r,column=23,value=f'=IF(K{r}="",0,K{r})'); v.cell(row=r,column=23).font=F(color=CINZA,size=9)
     # taxa de cada liquidação: o caixa (09) paga a taxa quando o dinheiro cai, não no dia da venda
     v.cell(row=r,column=24,value=f'=IF(OR(I{r}="",L{r}=""),0,ROUND(I{r}/{NEF},2))'); v.cell(row=r,column=24).font=F(color=CINZA,size=9)
     # Y = última parcela do líquido, Z = última parcela da taxa (residual do centavo)
-    v.cell(row=r,column=25,value=f'=IF(J{r}="",0,J{r}-K{r}*({NEF}-1))'); v.cell(row=r,column=25).font=F(color=CINZA,size=9)
+    v.cell(row=r,column=25,value=f'=IF(J{r}="",0,AD{r}-Z{r})'); v.cell(row=r,column=25).font=F(color=CINZA,size=9)
     v.cell(row=r,column=26,value=f'=IF(OR(I{r}="",L{r}=""),0,I{r}-X{r}*({NEF}-1))'); v.cell(row=r,column=26).font=F(color=CINZA,size=9)
-    # AA = parcelas conferidas como NÚMERO (texto colado vira 0); AB = 1 se G é inválido
-    # (texto, decimal, negativo ou acima das liquidações). A validação barra a digitação,
-    # não a colagem: por isso o diagnóstico existe e o Painel conta (rodada 4).
-    v.cell(row=r,column=27,value=f'=IF(ISNUMBER(G{r}),G{r},0)'); v.cell(row=r,column=27).font=F(color=CINZA,size=9)
+    # AB = 1 se G é inválido (texto, decimal, negativo ou acima das liquidações); AA = G
+    # SANEADO: o valor quando válido, 0 quando inválido ou vazio. A validação barra a
+    # digitação, não a colagem: por isso o diagnóstico existe, o Painel conta e toda conta
+    # (R, T, calendário) lê AA, nunca G (rodadas 4 e 5).
+    v.cell(row=r,column=27,value=f'=IF(OR(G{r}="",AB{r}=1),0,G{r})'); v.cell(row=r,column=27).font=F(color=CINZA,size=9)
     v.cell(row=r,column=28,value=f'=IF(G{r}="",0,IF(ISNUMBER(G{r}),IF(AND(G{r}=INT(G{r}),G{r}>=0,G{r}<={NEF}),0,1),1))'); v.cell(row=r,column=28).font=F(color=CINZA,size=9)
-for col in ("S","T","U","V","W","X","Y","Z","AA","AB"): v.column_dimensions[col].hidden=True
+    # AC/AD = bruto de cada liquidação (base arredondada; a última leva a diferença): é o
+    # que o caixa (09) registra na data em que a parcela cai. dados.py usa a mesma regra.
+    v.cell(row=r,column=29,value=f'=IF(F{r}="",0,ROUND(F{r}/{NEF},2))'); v.cell(row=r,column=29).font=F(color=CINZA,size=9)
+    v.cell(row=r,column=30,value=f'=IF(F{r}="",0,F{r}-AC{r}*({NEF}-1))'); v.cell(row=r,column=30).font=F(color=CINZA,size=9)
+for col in ("S","T","U","V","W","X","Y","Z","AA","AB","AC","AD"): v.column_dimensions[col].hidden=True
 dvs=[(lista('"'+",".join(TIPOS)+'"'),f"D{R0}:D{RN}"),(DataValidation(type="custom",formula1=f'=AND(ISNUMBER(G{R0}),N(G{R0})=INT(N(G{R0})),N(G{R0})>=0,N(G{R0})<=MAX(1,N($V{R0})))',allow_blank=True,showErrorMessage=True,errorTitle="Parcelas já conferidas",error="Digite um número inteiro de 0 até a quantidade de parcelas que caem na conta (com antecipação integral, 1)."),f"G{R0}:G{RN}"),(DataValidation(type="whole",operator="between",formula1="1",formula2="12",allow_blank=True,showErrorMessage=True),f"E{R0}:E{RN}"),
      (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"A{R0}:A{RN}"),(DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True),f"F{R0}:F{RN}")]
 for dv,rng in dvs: dv.add(rng); v.add_data_validation(dv)
@@ -105,10 +114,10 @@ v.conditional_formatting.add(f"G{R0}:G{RN}", FormulaRule(formula=[f'$AB{R0}=1'],
 v.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'$R{R0}="A conferir"'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
 v.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'LEFT($R{R0},9)="Conferido"'], font=F(color=VERDE_T,size=10)))
 v.conditional_formatting.add(f"A{R0}:R{RN}", FormulaRule(formula=[f'$R{R0}="A cair"'], fill=fill(LAVANDA)))
-v.cell(row=RN+2,column=1,value="Vermelho: a previsão da 1ª parcela passou e ninguém conferiu no extrato (ou não caiu). Lilás: ainda vai cair. Verde: conferido. Parcelado: a planilha divide o líquido pelo número de parcelas, arredonda cada parcela ao centavo e põe a diferença na última (R$ 96,10 em 3× = 32,03 + 32,03 + 32,04); cada uma cai de 30 em 30 dias a partir da 1ª — \"Já previsto até hoje\" soma só as parcelas que já venceram e \"Ainda vai cair\" é o resto. Por isso uma venda em 2× aparece com metade do valor em cada dia, e não com o valor inteiro no primeiro. \"Parcelas já conferidas\" só aceita número inteiro; célula em vermelho ali é valor inválido (colado), que conta como não conferido.").font=F(size=9,color=LILAS)
+v.cell(row=RN+2,column=1,value="Vermelho: a previsão da 1ª parcela passou e ninguém conferiu no extrato (ou não caiu). Lilás: ainda vai cair. Verde: conferido. Parcelado: o bruto e a taxa de cada parcela são arredondados ao centavo, com a diferença na última, e o líquido da parcela é bruto menos taxa, igual ao extrato (R$ 100 em 3× a 3,9 %: 33,33 − 1,30 = 32,03; 33,33 − 1,30 = 32,03; 33,34 − 1,30 = 32,04); cada uma cai de 30 em 30 dias a partir da 1ª — \"Já previsto até hoje\" soma só as parcelas que já venceram e \"Ainda vai cair\" é o resto. Por isso uma venda em 2× aparece com metade do valor em cada dia, e não com o valor inteiro no primeiro. \"Parcelas já conferidas\" só aceita número inteiro; célula em vermelho ali é valor inválido (colado), que conta como não conferido.").font=F(size=9,color=LILAS)
 v.merge_cells(start_row=RN+2,start_column=1,end_row=RN+2,end_column=18); v.cell(row=RN+2,column=1).alignment=Alignment(wrap_text=True,vertical="top"); v.row_dimensions[RN+2].height=30
 v.cell(row=RN+4,column=1,value=f"Esta aba tem {N} linhas ({R0} a {RN}): com cerca de 100 pagamentos por mês no Pix e no cartão, passa de um ano. Para estender, desproteja a aba, copie a última linha para baixo e ajuste o número final nas fórmulas do Painel; ou comece um arquivo por ano, junto com a agenda (01).").font=F(size=9,color=LILAS)
-v.cell(row=RN+3,column=1,value="No exemplo, as vendas vêm da Agenda da 01 (01/07 a 11/09/2026); conferidas as que tinham previsão até 09/09. O caixa (09) registra o valor bruto na data em que cada parcela CAI NA CONTA (coluna \"1ª parcela cai em\" e as seguintes de 30 em 30 dias; com antecipação, no dia seguinte à venda), e não no dia da venda; as taxas entram numa saída única no fim do mês, com o valor das liquidações que caíram nele (o Painel mostra esse número pronto).").font=F(size=9,color=LILAS)
+v.cell(row=RN+3,column=1,value="No exemplo, as vendas vêm da Agenda da 01 (01/06 a 11/09/2026) mais as vendas de abril e maio que ainda tinham parcela para cair a partir de 01/06 (elas não estão na Agenda, que começa em junho): assim todo mês que o Painel mostra tem TODAS as liquidações, e a taxa do mês bate com o caixa. Conferidas as que tinham previsão até 09/09. O caixa (09) registra o valor bruto na data em que cada parcela CAI NA CONTA (coluna \"1ª parcela cai em\" e as seguintes de 30 em 30 dias; com antecipação, no dia seguinte à venda), e não no dia da venda; as taxas entram numa saída única no fim do mês, com o valor das liquidações que caíram nele (o Painel mostra esse número pronto).").font=F(size=9,color=LILAS)
 widths(v,(12,26,20,17,9,13,12,9,11,13,13,13,14,14,13,6,6,16)); v.freeze_panes="C5"; v.sheet_view.showGridLines=False; v.auto_filter.ref=f"A4:R{RN}"
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
@@ -206,7 +215,11 @@ bc.series[0].graphicalProperties.solidFill=UVA; bc.series[1].graphicalProperties
 p.add_chart(bc,"K9")
 widths(p,(24,13,12,13,13,13,16,14,13,12,12,12)); p.column_dimensions["N"].hidden=True; p.freeze_panes="A4"; p.sheet_view.showGridLines=False
 # ---------- Exemplo ----------
-vendas=[r for r in dados.AGENDA if r["situacao"]=="Realizado" and r["pagador"]=="Particular" and r["forma"] in TIPOS]
+# Toda venda com alguma liquidação a partir do início do controle (01/06): inclui as de
+# abril e maio com parcela ainda a cair. Sem elas, julho somava 295,13 de taxa contra 346,61
+# no caixa — faltavam sete parcelas de vendas de maio (rodada 5).
+def _ult_liq(r_): return r_["data"]+__import__("datetime").timedelta(days=dados.DIAS_CREDITO.get(r_["forma"],0)+30*((r_["parcelas"] or 1)-1))
+vendas=[r for r in dados.AGENDA_TODA if r["situacao"]=="Realizado" and r["pagador"]=="Particular" and r["forma"] in TIPOS and _ult_liq(r)>=dados.INICIO_AGENDA]
 assert len(vendas)<=N
 LIM=dados.SEXTA-__import__("datetime").timedelta(days=2)
 for i,r_ in enumerate(vendas):
@@ -225,7 +238,7 @@ print(len(vendas),"vendas no exemplo")
 como_usar(wb,"Conciliação de cartão e taxas",[
  ("O que esta planilha faz","Cada pagamento no cartão ou no Pix com a taxa da operadora, o valor líquido e o dia em que cai na conta. Mostra quanto as taxas comem no mês (e a quantas consultas equivalem), o que ainda vai cair, o que já deveria ter caído e não foi conferido, e o dia a dia para bater com o extrato."),
  ("Passo 1","Em Config, digite as taxas e os prazos da sua operadora (contrato da maquininha ou extrato), se antecipa o crédito e o preço da consulta particular (só para a comparação)."),
- ("Passo 2","Em Vendas, uma linha por pagamento: data, paciente, procedimento, tipo, parcelas e valor bruto (copie da Agenda da 01, filtrando os particulares pagos com Pix ou cartão). A cada quinzena, escreva em \"Parcelas já conferidas\" quantas parcelas daquela venda você já achou no extrato: 1 para Pix, débito e crédito à vista; no parcelado vá somando conforme cada parcela cai (só número inteiro; a planilha marca em vermelho e conta no Painel qualquer valor colado fora disso). No parcelado, cada parcela é o líquido dividido pelo número de parcelas, arredondado ao centavo, e a última leva a diferença, igual ao extrato. Assim a venda volta para \"A conferir\" quando a parcela seguinte vencer, em vez de ficar conferida para sempre depois da primeira."),
+ ("Passo 2","Em Vendas, uma linha por pagamento: data, paciente, procedimento, tipo, parcelas e valor bruto (copie da Agenda da 01, filtrando os particulares pagos com Pix ou cartão). A cada quinzena, escreva em \"Parcelas já conferidas\" quantas parcelas daquela venda você já achou no extrato: 1 para Pix, débito e crédito à vista; no parcelado vá somando conforme cada parcela cai (só número inteiro; a planilha marca em vermelho e conta no Painel qualquer valor colado fora disso). No parcelado, o bruto e a taxa de cada parcela são arredondados ao centavo (a última leva a diferença) e o líquido da parcela é bruto menos taxa: é o que o extrato da operadora mostra, e o caixa (09) registra o bruto de cada parcela na data em que ela cai. Ao começar, lance também as vendas anteriores que ainda têm parcela para cair; sem elas, o mês fica sem essas liquidações e a taxa do mês sai menor do que a do extrato. Assim a venda volta para \"A conferir\" quando a parcela seguinte vencer, em vez de ficar conferida para sempre depois da primeira."),
  ("Passo 3","Em Painel, escolha o mês em Config: vendas, taxas, líquido, por tipo, dia a dia e a lista \"Falta conferir\". No fechamento do mês, lance como saída \"Taxas de cartão\" no caixa (09) o valor que a nota abaixo dos quadros indica: a taxa das liquidações que caíram no mês, não a das vendas feitas nele."),
  ("Rotina","É uma planilha QUINZENAL, fora dos 30 minutos semanais da planilha 03: a cada 15 dias, 10 minutos para conferir o extrato da operadora contra \"Cai na conta neste dia\" e marcar as conferidas. No fechamento do mês, lance no caixa (09) a taxa das liquidações do mês, que a nota abaixo dos quadros mostra pronta. Uma vez por semestre: comparar a taxa média com outra operadora."),
  ("Limite e como estender","A aba Vendas tem 2.000 linhas (5 a 2004): mais de um ano com cerca de 100 pagamentos por mês. Perto do fim, desproteja a aba, copie a última linha para baixo e ajuste o número final nas fórmulas do Painel, ou comece um arquivo por ano."),
