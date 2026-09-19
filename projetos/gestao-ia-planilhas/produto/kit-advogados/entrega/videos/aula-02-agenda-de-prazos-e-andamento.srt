@@ -1,0 +1,200 @@
+1
+00:00:00,000 --> 00:00:03,066
+Aula dois. Agenda de prazos
+e andamento por processo.
+
+2
+00:00:03,066 --> 00:00:05,958
+Planilhas um, dois e quatro:
+o que vence primeiro,
+
+3
+00:00:05,958 --> 00:00:09,950
+em que pé está cada caso e o que
+falta na abertura e no encerramento.
+
+4
+00:00:11,050 --> 00:00:14,911
+A Agenda de prazos abre no
+painel: sete atrasados, três hoje,
+
+5
+00:00:14,911 --> 00:00:18,203
+onze nos próximos sete dias,
+treze de oito a trinta.
+
+6
+00:00:18,203 --> 00:00:22,064
+Os números vêm da aba Prazos,
+onde cada prazo tem data, tipo,
+
+7
+00:00:22,064 --> 00:00:23,520
+processo e responsável.
+
+8
+00:00:24,620 --> 00:00:29,114
+O que vence primeiro: atrasados no
+topo, com mais tempo de atraso primeiro:
+
+9
+00:00:29,114 --> 00:00:31,511
+uma juntada de documentos com seis dias.
+
+10
+00:00:31,511 --> 00:00:34,507
+Depois os de hoje, em
+amarelo; depois os próximos.
+
+11
+00:00:34,507 --> 00:00:36,065
+A planilha ordena e avisa.
+
+12
+00:00:36,065 --> 00:00:39,840
+A conferência do prazo continua
+sendo de quem responde por ele.
+
+13
+00:00:40,940 --> 00:00:45,490
+Planilha dois, Andamento por processo:
+cada caso com fase, próxima ação,
+
+14
+00:00:45,490 --> 00:00:46,690
+data e responsável.
+
+15
+00:00:46,690 --> 00:00:51,367
+Trinta ativos, sete com ação atrasada,
+doze com ação hoje ou nesta semana,
+
+16
+00:00:51,367 --> 00:00:55,348
+nenhum sem próxima ação, quatro
+parados há mais de trinta dias.
+
+17
+00:00:55,348 --> 00:00:58,760
+Caso sem próxima ação é caso
+parado sem ninguém saber.
+
+18
+00:00:59,860 --> 00:01:04,936
+Por fase: quantos casos em cada etapa,
+quantos com ação atrasada, quantos parados.
+
+19
+00:01:04,936 --> 00:01:09,145
+Execução: três casos, dois parados.
+É a lista da reunião de segunda;
+
+20
+00:01:09,145 --> 00:01:12,550
+o prompt Prazos zero seis
+monta a pauta a partir daqui.
+
+21
+00:01:13,650 --> 00:01:18,716
+Por responsável: Marina com quinze casos
+ativos, quatro ações atrasadas e um parado;
+
+22
+00:01:18,716 --> 00:01:21,672
+Rafael com quinze, três
+atrasadas e três parados.
+
+23
+00:01:21,672 --> 00:01:25,592
+Quando um nome concentra os
+atrasados, o problema é distribuição.
+
+24
+00:01:25,592 --> 00:01:29,090
+O prompt Prazos zero quatro
+ajuda a redistribuir a semana.
+
+25
+00:01:30,190 --> 00:01:33,453
+Planilha quatro, Checklist
+de abertura e encerramento.
+
+26
+00:01:33,453 --> 00:01:37,079
+Trinta e oito casos, sete abertos
+com pendência de abertura,
+
+27
+00:01:37,079 --> 00:01:40,825
+três encerrados com pendência,
+treze itens pendentes no total.
+
+28
+00:01:40,825 --> 00:01:45,599
+Contrato assinado, procuração, caso
+cadastrado no caixa: itens administrativos,
+
+29
+00:01:45,599 --> 00:01:47,110
+marcados Sim, Não ou N/A.
+
+30
+00:01:48,210 --> 00:01:52,329
+A lista mostra o que falta em cada
+caso: canal de contato combinado,
+
+31
+00:01:52,329 --> 00:01:56,449
+documentos devolvidos ao cliente,
+última parcela cobrada e recebida,
+
+32
+00:01:56,449 --> 00:02:00,810
+contrato de honorários assinado, caso
+cadastrado no caixa e na carteira.
+
+33
+00:02:00,810 --> 00:02:03,960
+Caso encerrado sem cobrar
+e caso aberto sem contrato
+
+34
+00:02:03,960 --> 00:02:07,050
+são os dois erros mais
+caros do escritório pequeno.
+
+35
+00:02:08,150 --> 00:02:09,848
+Com o prompt Prazos zero sete,
+
+36
+00:02:09,848 --> 00:02:13,074
+a lista de pendências vira
+tarefas com responsável e dia.
+
+37
+00:02:13,074 --> 00:02:17,263
+Antes de colar, troque o nome por
+Cliente A e apague o número do processo.
+
+38
+00:02:17,263 --> 00:02:19,810
+A regra de ouro vale para todo prompt do kit.
+
+39
+00:02:20,910 --> 00:02:24,184
+Resumo da aula dois. A agenda
+ordena o que vence primeiro.
+
+40
+00:02:24,184 --> 00:02:27,006
+O andamento mostra em que
+pé está e quem responde.
+
+41
+00:02:27,006 --> 00:02:29,376
+O checklist fecha abertura e encerramento.
+
+42
+00:02:29,376 --> 00:02:31,860
+Na próxima aula, o custo-hora do escritório.

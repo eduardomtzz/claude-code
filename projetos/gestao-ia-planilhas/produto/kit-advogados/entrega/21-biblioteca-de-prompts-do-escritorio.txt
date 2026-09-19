@@ -1,0 +1,612 @@
+BIBLIOTECA DE PROMPTS DO ESCRITÓRIO · KIT DE GESTÃO PARA ADVOGADOS
+==================================================================
+
+Versão 1.0 · setembro de 2026 · Seu Sócio Gestor
+
+40 prompts em 5 grupos, um para cada núcleo do kit. Cada um tem: quando usar, de qual planilha vem o bloco a colar, o prompt pronto (troque o que está entre colchetes), um exemplo com o escritório fictício e o que conferir na resposta. Funcionam no ChatGPT, no Copilot, no Gemini e no Claude, inclusive nas versões gratuitas.
+
+========================================
+REGRA DE OURO: O QUE NUNCA ENTRA EM UMA IA PÚBLICA
+========================================
+
+Nunca cole nome real de cliente, número de processo real, CPF, CNPJ, telefone, endereço, valor de causa identificável ou qualquer trecho de peça, contrato, documento ou conversa com o cliente. O sigilo profissional é seu; a IA pública não tem dever de sigilo nenhum e pode guardar o que recebe. Antes de colar, troque por "Cliente A", "Cliente B", "Processo 1", "Processo 2". Na prática: copie o bloco da planilha para um texto, troque a coluna Cliente por letras (A, B, C, na ordem em que aparecem), apague a coluna do número do processo e leia uma vez procurando nome próprio antes de colar.
+
+Mais três regras:
+
+1. Nenhum prompt aqui produz petição, tese, parecer, cálculo de prazo processual ou orientação jurídica. São prompts de gestão do escritório: explicar o mês, escrever uma cobrança educada, preparar a reunião com o contador, revisar uma proposta pela margem, montar a rotina. O direito continua sendo feito por quem tem OAB.
+2. A IA erra com confiança. Todo número, data e conclusão precisa ser conferido na planilha antes de virar e-mail, proposta ou decisão. Cada prompt diz o que revisar.
+3. Contexto é o segredo. Diga quem lê, para quê e o que você já tem. Por isso os prompts começam com o papel e o contexto.
+
+Como usar: copie o prompt inteiro, cole na IA, substitua os colchetes, cole o bloco da planilha onde indicado e envie. Se a resposta vier ruim, não reescreva o prompt: responda "Refaça: [o que faltou]".
+
+Sobre os exemplos: usam o escritório fictício do kit, Ferraz & Lima Advocacia (dois sócios, uma estagiária, 18 clientes, 38 casos, 30 ativos), na mesma data das 20 planilhas: segunda-feira 14/09/2026, com o caixa e o painel de setembro em andamento e agosto como último mês fechado. Os números são os que aparecem nas planilhas. Para você reconhecer as linhas, os exemplos citam os nomes inventados da planilha; no bloco colado na IA, eles já viraram Cliente A, B, C (a letra segue a ordem da lista de clientes da Config: A Padaria do Sol, B Ana Beatriz Moreira, C Construtora Horizonte...).
+
+========================================
+DE ONDE VEM CADA BLOCO
+========================================
+
+Planilha do kit · Aba que você copia · Usada nos prompts
+1 Agenda de prazos · Prazos (linhas da semana ou do mês) · Prazos 01, 03, 04
+2 Andamento por processo · Processos · Prazos 05, 07
+3 Rotina da semana do escritório · Rotina · Prazos 02, 06, 08
+4 Checklist de abertura e encerramento · Checklist · Prazos 07, Clientes 08
+5 Custo-hora do escritório · Painel, Custos fixos, Pessoas · Honorários 01, 03, Caixa 03
+6 Simulador de honorários · Simulador · Honorários 02, 07
+7 Proposta de honorários · Proposta · Honorários 04, 05, 08
+8 Tabela de referência de honorários · Referência, Nossos casos · Honorários 06
+9 Caixa do escritório · Painel, Lançamentos · Caixa 01, 02, 03, 08
+10 Provisão de impostos, 13º e férias · Painel · Caixa 04, 05
+11 Pró-labore e separação PF × escritório · Retiradas · Caixa 06
+12 Reserva de três meses e metas de caixa · Painel · Caixa 07
+13 Carteira de clientes e casos · Clientes, Casos · Clientes 01, 07
+14 Parcelas e inadimplência · Parcelas (a régua está em Config) · Clientes 02, 03, 04, 05
+15 Funil de propostas · Propostas · Clientes 06
+16 Horas por caso e por pessoa · Horas (por caso e por pessoa) · Prazos 04, Honorários 03
+17 Painel do escritório · Painel · Painel 01, 07, 08, Honorários 08
+18 Resultado mensal simplificado · Resultado · Caixa 02, Painel 02
+19 Metas do trimestre · Metas · Painel 05, 06
+20 Resumo do mês para a IA e para o contador · Resumo ("Bloco único para copiar") · Painel 01, 02, 03, 04, Caixa 04
+
+========================================
+GRUPO 1 · PRAZOS E ROTINA (8)
+========================================
+
+Prazos 01 · Priorizar os prazos da semana pela carga
+----------------------------------------------------
+Quando usar: na segunda de manhã, quando a aba Prazos mostra mais itens vermelhos e amarelos do que cabe na semana. O prompt ordena pela conta de horas e pessoas, não pelo direito.
+Cole: Planilha 1 · aba Prazos, só as linhas com situação Atrasado ou vencendo na semana (Cliente trocado por letra; acrescente as horas estimadas de cada tarefa, da Planilha 16 ou de cabeça).
+
+---- prompt: copie daqui ----
+Você é meu assistente de organização de um escritório de advocacia pequeno. Não dê nenhuma orientação jurídica: não diga o que fazer em cada processo nem calcule prazo processual. Sua tarefa é só de agenda e de carga de trabalho.
+Vou colar a lista de prazos da semana com: Cliente (letra) | Tipo de prazo | Dias para o prazo | Responsável | Horas estimadas. Somos [quantas pessoas], com [horas disponíveis por pessoa nesta semana].
+Faça: 1) ordene do que vence primeiro para o que vence depois; 2) some as horas por dia e por pessoa e diga onde a carga estoura; 3) marque as tarefas que podem ser adiantadas para hoje ou terça sem prejuízo de agenda; 4) aponte quem está sobrecarregado e o que poderia passar para outra pessoa da equipe, se for tarefa que não exige o responsável. Responda em tabela e feche com três frases de plano para a semana.
+Hoje é [data].
+Lista:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: os 21 prazos com semáforo vermelho ou amarelo da Ferraz & Lima em 14/09/2026 (7 atrasados, 3 de hoje, 11 até domingo), com Marina a 40 h disponíveis na semana, Rafael a 36 h e a estagiária Júlia a 20 h. Saída: tabela ordenada, três dias com carga acima de 8 h para Rafael (segunda, terça e quinta), duas preparações de juntada sugeridas para a Júlia e o plano: "resolver os 7 atrasados hoje (3 da Marina, 3 do Rafael, 1 da Júlia), audiência de conciliação da Cliente B na quarta, revisar as horas estimadas do Cliente M antes do recurso".
+Confira: a IA não sabe o que cada tarefa exige; o que "pode passar para outra pessoa" é decisão sua. E o prazo processual continua sendo contado por você, no sistema do tribunal.
+
+Prazos 02 · Rotina de segunda em 30 minutos
+-------------------------------------------
+Quando usar: na primeira semana com o kit, para montar a rotina de segunda (prazos) e de sexta (caixa e painel) do jeito do seu escritório. Depois, repita quando entrar ou sair alguém da equipe.
+Cole: Planilha 3 · aba Rotina (as linhas de segunda e de sexta do exemplo, para adaptar).
+
+---- prompt: copie daqui ----
+Monte a rotina semanal de gestão de um escritório de advocacia com [quantas pessoas: ex.: dois sócios e uma estagiária]. Dois blocos: segunda-feira (prazos e agenda), de no máximo 30 minutos, e sexta-feira (caixa, recebíveis e painel), de no máximo 30 minutos. Para cada bloco: os passos em ordem, quem faz, quantos minutos e qual planilha abre (use os nomes abaixo). Corte tudo que não cabe no tempo e diga o que ficou de fora e em que dia do mês seria feito.
+Planilhas que temos: Agenda de prazos, Andamento por processo, Caixa do escritório, Parcelas e inadimplência, Painel do escritório.
+Nossas particularidades: [ex.: audiências concentradas na quarta; o contador pede o fechamento até o dia 5].
+Rotina de exemplo para adaptar:
+[cole as linhas da aba Rotina]
+---- fim ----
+Exemplo: Entrada: dois sócios e uma estagiária; audiências na quarta; contador pede o fechamento até o dia 5; a rotina de exemplo do kit (4 passos de segunda em 12 minutos, 5 de sexta em 18). Saída: segunda com 5 passos (abrir a Agenda de prazos, resolver os vermelhos, atualizar o Andamento, distribuir, avisar clientes de audiência; 15 min) e sexta com 5 passos (18 min); a conciliação bancária ficou de fora e foi para o dia 1º do mês.
+Confira: se a soma dos minutos bate e se a IA não inventou uma planilha que o kit não tem.
+
+Prazos 03 · O que os prazos atrasados têm em comum
+--------------------------------------------------
+Quando usar: no fim do mês, com as linhas que ficaram vermelhas em algum momento. Serve para achar o padrão de gestão (pessoa, dia, tipo de tarefa), não para discutir o mérito.
+Cole: Planilha 1 · aba Prazos, linhas do mês marcadas como Feito depois da data ou ainda Atrasado, sem os nomes (a coluna Observação ajuda a explicar).
+
+---- prompt: copie daqui ----
+Você é um analista de processos internos. Vou colar a lista de prazos internos que atrasaram neste mês em um escritório de advocacia, com: Cliente (letra) | Tipo de prazo | Dias de atraso | Responsável | Dia da semana em que venceu | Observação. Não comente o conteúdo jurídico nem o efeito do atraso no processo; isso é comigo.
+Responda: 1) o que essas linhas têm em comum (pessoa, tipo de tarefa, dia da semana, semana do mês); 2) hipóteses de causa de gestão, separadas de "o que os dados mostram"; 3) três mudanças de rotina, simples, para testar no mês que vem; 4) o que eu deveria medir para saber se funcionou. Sem culpar ninguém: descreva o sistema, não a pessoa.
+Lista:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: os 7 prazos atrasados da Ferraz & Lima em 14/09 (uma juntada de documentos, duas manifestações, uma réplica, uma impugnação, um embargos, uma reunião com cliente; 3 com Marina, 3 com Rafael, 1 com Júlia; 4 dos 7 venceram entre sexta e domingo). Saída: padrão "prazo que cai no fim de semana só é visto na segunda"; hipótese: a rotina de sexta olha o caixa e não o que vence até segunda; mudanças: incluir "o que vence até segunda" na rotina de sexta, mover as juntadas para quarta, avisar o responsável com 3 dias de antecedência.
+Confira: as hipóteses são chutes educados; teste uma por vez.
+
+Prazos 04 · Distribuir a semana entre as pessoas
+------------------------------------------------
+Quando usar: quando uma pessoa está com o mês estourado e a outra folgada, ou quando entra alguém novo. Junta prazos e horas.
+Cole: Planilha 1 · aba Prazos (semana) e Planilha 16 (Horas por caso, aba Painel, quadro por pessoa).
+
+---- prompt: copie daqui ----
+Ajude-me a redistribuir o trabalho da semana em um escritório de advocacia. Não é para decidir estratégia de nenhum caso; é agenda. Regras: [ex.: audiências e prazos de mérito ficam com o responsável do caso; preparação de documentos, contato com cliente, protocolo e organização podem ir para a estagiária; ninguém passa de 9 horas por dia].
+Pessoas e horas já gastas no mês: [cole o resumo por pessoa da Planilha 16].
+Tarefas da semana: [cole a aba Prazos].
+Entregue: uma tabela por pessoa com as tarefas do dia e as horas; a lista do que mudou de mão; e uma mensagem curta para cada pessoa explicando o que ficou com ela e por quê.
+---- fim ----
+Exemplo: Entrada: Marina com 44 h lançadas em setembro até 11/09 (meta de 110 faturáveis no mês), Rafael com 35,5 h, Júlia com 30 de 60; os 21 prazos da semana. Saída: 4 tarefas mudaram de mão (duas preparações de audiência para a Júlia, uma reunião com cliente de Marina para Rafael porque o caso é de área compartilhada, uma juntada de Rafael para a Júlia), tabela por pessoa e três mensagens de quatro linhas.
+Confira: a regra de quem pode fazer o quê é sua e da OAB; a IA só aplica o que você escreveu.
+
+Prazos 05 · Resumo de andamento para o sócio
+--------------------------------------------
+Quando usar: antes da reunião de sócios ou quando um sócio volta de férias. Transforma a aba Processos em um resumo de gestão: fase, próxima ação, quem cuida.
+Cole: Planilha 2 · aba Processos, colunas Cliente (letra), Área, Fase, Próxima ação, Data da próxima ação, Responsável, Dias sem atualizar, Parado?.
+
+---- prompt: copie daqui ----
+Resuma a carteira de processos abaixo para um sócio que quer saber "em que pé está cada coisa" em dois minutos. Não interprete o mérito nem sugira estratégia processual; descreva a situação de gestão.
+Formato: 1) uma frase com o total de casos ativos e a distribuição por fase; 2) uma lista dos casos com próxima ação nos próximos 7 dias (letra do cliente, ação, data, responsável); 3) casos sem próxima ação definida (isso é um problema de gestão: aponte); 4) três coisas que o sócio deveria perguntar na reunião. Até 200 palavras.
+Lista:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: os 30 casos ativos da Ferraz & Lima (7 consultivos, 8 na fase inicial, 4 em instrução, 3 em sentença, 3 em recurso, 3 em execução, 2 em acordo). Saída: resumo de 180 palavras, 12 casos com ação hoje ou nesta semana, nenhum caso sem próxima ação, 4 parados há mais de 30 dias ("Clientes G, O, P e R estão sem atualização há 33 a 47 dias: espera de andamento ou esquecimento?") e três perguntas para a reunião.
+Confira: "parado" é o que a planilha mostra; confirme antes de falar isso ao sócio.
+
+Prazos 06 · Pauta da reunião de segunda com a equipe
+----------------------------------------------------
+Quando usar: para a reunião de 15 minutos de segunda, com os dados da semana.
+Cole: Planilha 3 · aba Rotina (linhas de segunda) e os totais do Painel da Planilha 1 (atrasados, hoje, próximos dias).
+
+---- prompt: copie daqui ----
+Monte a pauta de uma reunião de 15 minutos de segunda-feira em um escritório de advocacia com [quantas pessoas]. Objetivo: todo mundo sair sabendo o que vence, quem faz e o que travou. Estrutura: 1) números da semana (prazos vermelhos, amarelos e verdes; audiências); 2) o que atrasou na semana passada e o que aprendemos (sem culpa); 3) distribuição do que vence esta semana; 4) pendências com cliente (documento que falta, pagamento em aberto); 5) uma decisão que precisa ser tomada hoje. Diga quantos minutos cada item leva.
+Dados:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: 7 atrasados, 3 hoje, 11 nos próximos 7 dias, 13 de 8 a 30 dias; 1 audiência na semana (Cliente B, conciliação, quarta); 7 casos abertos com pendência de abertura na Planilha 4; decisão: aceitar ou não a proposta 2026-024 do Cliente J (divórcio e partilha, R$ 5.600). Saída: pauta de cinco itens em 15 minutos, com o item 5 marcado como "decidir hoje, com a conta de horas do Honorários 08".
+Confira: só o que está na planilha; a IA gosta de adicionar itens genéricos ("alinhamento").
+
+Prazos 07 · Pendências de abertura e encerramento viram tarefas
+---------------------------------------------------------------
+Quando usar: quando o checklist de abertura tem itens em aberto em vários casos (contrato não assinado, procuração sem cópia, dados de cobrança sem preencher).
+Cole: Planilha 4 · aba Checklist, linhas com pendências (colunas Cliente, Situação, Pendências, O que falta).
+
+---- prompt: copie daqui ----
+Transforme a lista de pendências administrativas abaixo em tarefas para a semana. Cada linha vem como: Cliente (letra) | Situação do caso | O que falta | Responsável | Aberto desde. Agrupe por tipo de pendência (contrato, documento, dados de cobrança, cadastro), escreva uma tarefa por grupo com verbo no infinitivo, sugira um prazo interno (hoje, esta semana, este mês) pela idade da pendência e monte, para as que dependem do cliente, uma mensagem de duas linhas pedindo o item, sem tom de cobrança. Não opine sobre o conteúdo dos documentos.
+Lista:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: as 13 pendências da Ferraz & Lima em 10 casos (7 abertos e 3 encerrados): 2 casos sem cadastro no caixa e na carteira, 1 contrato sem via assinada, 1 procuração não recebida, 1 lista de documentos pendente, 1 honorário sem forma de pagamento definida, 2 avaliações de cliente não pedidas, 1 última parcela não recebida, 1 pasta sem arquivar. Saída: quatro tarefas com prazo, "cadastrar no caixa e na carteira" marcada como "hoje" (Clientes E e K), e duas mensagens curtas para os clientes que devem procuração (P) e documentos (N).
+Confira: que documento pedir e por quê é decisão sua; a IA só escreve a mensagem.
+
+Prazos 08 · Semana revisada na sexta
+------------------------------------
+Quando usar: na sexta, no fechamento, com o que foi feito e o que ficou. Alimenta a rotina da semana seguinte.
+Cole: Planilha 3 · aba Rotina (linhas de sexta, o que foi feito e o que ficou) e os números do Painel da Planilha 17.
+
+---- prompt: copie daqui ----
+Faça a revisão semanal de um escritório de advocacia pequeno. Com a lista abaixo (prazos cumpridos, prazos que atrasaram, audiências feitas, o que entrou de dinheiro, o que vence na próxima semana), responda: 1) o que andou de mais importante; 2) o que travou e a causa provável de gestão (não de mérito); 3) três ajustes simples para a próxima semana; 4) uma mensagem de duas linhas que eu possa mandar para [o sócio / a equipe] resumindo a semana. Tom direto, sem elogio vazio.
+Lista:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: semana de 7 a 11/09 da Ferraz & Lima: 9 prazos cumpridos, 4 que ficaram atrasados (Clientes K, N, C e P), 1 audiência, R$ 5.220 recebidos no mês até sexta, 14 prazos entre hoje e os próximos 7 dias. Saída: os quatro blocos; causa provável dos atrasos: "dois dependiam de documento do cliente e dois venceram no fim de semana"; ajuste: pedir documento com 10 dias de antecedência e conferir na sexta o que vence até segunda; mensagem pronta para o sócio.
+Confira: a causa provável é hipótese; a IA não viu a semana.
+
+========================================
+GRUPO 2 · HONORÁRIOS E PROPOSTAS (8)
+========================================
+
+Honorários 01 · Entender o meu custo-hora
+-----------------------------------------
+Quando usar: logo depois de preencher a Planilha 5 pela primeira vez, quando o número aparece e você quer saber se faz sentido e o que muda se mexer em alguma coisa.
+Cole: Planilha 5 · aba Painel (custo total, horas faturáveis, custo-hora, hora mínima) e a aba Pessoas.
+
+---- prompt: copie daqui ----
+Explique para mim, dono de um escritório de advocacia pequeno, o que o custo-hora abaixo significa na prática, em até 200 palavras e sem jargão. Depois: 1) refaça a conta passo a passo para eu conferir; 2) diga o que acontece com o custo-hora se as horas faturáveis caírem 20% (mês de férias, por exemplo); 3) diga o que acontece se eu somar [ex.: um estagiário a mais por R$ 1.400]; 4) aponte o que costuma ficar de fora dessa conta em escritórios pequenos. Não sugira preço de honorário: a tabela da OAB e o contrato são comigo.
+Números:
+[cole o painel]
+---- fim ----
+Exemplo: Entrada: o painel da Ferraz & Lima: custo fixo R$ 6.500, pró-labore dos dois sócios R$ 12.000, custo total R$ 18.500, 280 horas faturáveis por mês (110 + 110 + 60), custo-hora R$ 66,07, hora mínima R$ 106,57 (arredondada para R$ 110). Saída: explicação em linguagem simples ("cada hora de trabalho do escritório custa R$ 66 antes de qualquer lucro"), a conta refeita, custo-hora subindo para R$ 82,59 com 20 % menos horas (224 h; a aba de sensibilidade da planilha mostra o mesmo) e o alerta de que férias, inadimplência e horas não faturáveis (administrativo, captação) não estão na conta.
+Confira: a conta refeita, com calculadora. Se a IA chegar a outro número, o erro pode ser dela.
+
+Honorários 02 · Revisar a proposta pela margem
+----------------------------------------------
+Quando usar: com a proposta montada no Simulador, antes de enviar. É o "advogado do diabo" da sua própria conta.
+Cole: Planilha 6 · aba Simulador (tipo de honorário, horas estimadas, custo-hora, margem, valor proposto, condições de pagamento).
+
+---- prompt: copie daqui ----
+Revise a conta de uma proposta de honorários pela ótica da margem, não do direito. Dados: custo-hora do escritório R$ [ ]; horas estimadas [ ]; margem desejada [ ]%; valor proposto R$ [ ]; forma: [fixo / por hora / êxito / misto]; parcelas: [ ]; prazo esperado do caso: [meses].
+Responda: 1) a margem real embutida no valor proposto (valor ÷ custo das horas − 1); 2) em quantas horas gastas a mais a margem vira zero; 3) o custo de esperar: se o pagamento só vier em [meses], quanto custa manter o caso no caixa até lá; 4) três perguntas que eu deveria responder antes de enviar. Não opine sobre a viabilidade jurídica nem sobre limites éticos de honorário: isso é comigo e com a OAB.
+---- fim ----
+Exemplo: Entrada: a proposta 2026-023 para o Cliente H (Roberto Almeida, discussão de contrato de prestação de serviços): 53 horas estimadas, custo-hora R$ 66,07 (custo das horas R$ 3.502, mais R$ 450 de despesas que o escritório absorve), margem mínima 30 %, valor proposto R$ 4.500 fixos mais 15 % de êxito, entrada de 40 % e 3 parcelas de R$ 900. Saída: a parte fixa cobre as horas com 28 % de margem (R$ 4.500 contra R$ 3.502), abaixo dos 30 % mínimos; é o êxito (15 % sobre os R$ 33.000 esperados) que leva a margem esperada a 50 %; margem zero da parte fixa com 68 horas; custo de espera baixo (R$ 1.800 entram na aceitação); três perguntas (quem paga as custas, o que acontece se passar de 53 horas, quantos casos de êxito já estão abertos).
+Confira: as duas contas de margem. E lembre que margem sobre custo-hora não é lucro líquido: falta imposto, inadimplência e horas não faturáveis.
+
+Honorários 03 · Casos que consomem mais do que pagam
+----------------------------------------------------
+Quando usar: no fim do mês, cruzando horas gastas com valor contratado. Mostra onde a estimativa errou e onde o próximo contrato do mesmo tipo precisa ser diferente.
+Cole: Planilha 16 (horas por caso: Cliente em letra, Modalidade, Valor contratado, Horas estimadas, Horas gastas, Recebido) e o custo-hora da Planilha 5.
+
+---- prompt: copie daqui ----
+Vou colar a lista de casos ativos com horas estimadas, horas gastas, valor contratado e recebido. Custo-hora do escritório: R$ [ ]. Para cada caso, calcule: custo das horas gastas (horas × custo-hora), valor contratado por hora gasta, e o desvio entre estimado e gasto em %. Depois: 1) liste os casos em que as horas gastas já passaram das estimadas; 2) os casos em que o valor por hora gasta está abaixo do custo-hora; 3) os casos de êxito com muitas horas e nada recebido, como risco de caixa; 4) o que isso sugere para a próxima estimativa de casos parecidos. Não comente estratégia jurídica.
+Lista:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: os 30 casos ativos da Ferraz & Lima com custo-hora R$ 66,07. Saída: 2 casos já passaram das horas estimadas: Cliente G (Bistrô 42, trabalhista, êxito): 50 h gastas para 45, R$ 3.314 de custo e nada recebido; Cliente M (Escola Aurora, cível, misto): 100 h para 90, R$ 6.647 de custo contra R$ 10.000 contratados; outros 12 casos estão acima de 85 % das horas; 5 casos de êxito puro consomem de 22 a 58 horas sem nenhuma entrada; sugestão: "casos trabalhistas de êxito estão saindo acima da estimativa; use 1,2× na próxima proposta e peça entrada".
+Confira: horas gastas dependem de todo mundo lançar; se a Júlia não lançou, a conta engana.
+
+Honorários 04 · Texto de apresentação da proposta
+-------------------------------------------------
+Quando usar: com a tabela de honorários pronta na Planilha 7, para escrever a página de apresentação que vai antes da tabela. Só o texto comercial e administrativo; o contrato é seu.
+Cole: Planilha 7 · aba Proposta (escopo em uma frase, forma de honorário, valor, parcelas, validade).
+
+---- prompt: copie daqui ----
+Escreva a apresentação de uma proposta de honorários de um escritório de advocacia, em até 250 palavras, para [pessoa física / empresa] que nos procurou para [descreva o serviço em uma frase, sem detalhes do caso]. Estrutura: entendimento do pedido (2 frases); como trabalhamos (quem atende, como o cliente é informado, canal e prazo de resposta); o que está incluído e o que não está (só o que eu listar); investimento (R$ [ ], forma [ ], parcelas [ ]); validade da proposta ([dias]); próximo passo. Tom profissional, claro, sem promessa de resultado, sem prazo de conclusão do caso e sem juridiquês. Não invente serviços além dos listados.
+Incluído: [liste]. Não incluído: [liste].
+---- fim ----
+Exemplo: Entrada: empresa (Clínica Bem-Estar, na IA: Cliente I), contratos com convênios, R$ 6.800 em 4 parcelas, validade de 15 dias; incluído: revisão de até 6 contratos, duas reuniões, resposta em 2 dias úteis; não incluído: contencioso e custas. Saída: texto de 230 palavras, com "como trabalhamos" explicando canal e prazo de resposta e sem nenhuma frase do tipo "garantimos".
+Confira: se aparecer qualquer promessa de resultado ou de prazo do caso, apague. Valor e parcelas iguais aos do Simulador.
+
+Honorários 05 · Responder a um pedido de desconto
+-------------------------------------------------
+Quando usar: quando o cliente pediu desconto ou parcelamento maior e você quer responder sem ceder no escuro.
+Cole: Planilha 7 · aba Proposta (valor, parcelas) e a margem do Simulador (Planilha 6).
+
+---- prompt: copie daqui ----
+Recebi um pedido de desconto em uma proposta de honorários. Valor proposto R$ [ ]; custo estimado das horas R$ [ ]; margem atual [ ]%. O cliente pediu [ex.: 20% de desconto / 10 parcelas em vez de 4]. Minha posição: posso [ex.: parcelar em 6, tirar uma reunião mensal do escopo] e não posso [ex.: baixar o valor total].
+Escreva a resposta em até 150 palavras: reconheça o pedido em uma frase, exponha a posição com clareza, ofereça as alternativas concretas e feche com um próximo passo. Sem pedir desculpas em excesso, sem tom defensivo e sem justificar com o caso em si. Antes do texto, calcule o que cada alternativa faz com a margem.
+---- fim ----
+Exemplo: Entrada: proposta 2026-016 de assessoria mensal para o Cliente K (Transportadora Rota Sul): R$ 14.400 em 12 parcelas, custo estimado das horas R$ 7.930 (120 h × R$ 66,07), cliente pediu 15 % de desconto; posso reduzir uma reunião mensal do escopo ou parcelar diferente, não posso baixar o total. Saída: cálculo (15 % de desconto derruba a margem sobre o custo das horas de 82 % para 54 %; tirar a reunião mensal reduz o custo em cerca de R$ 800) e resposta de 140 palavras com as duas alternativas.
+Confira: o que você realmente pode ceder. A IA tende a oferecer mais do que você disse.
+
+Honorários 06 · Montar a tabela de referência interna
+-----------------------------------------------------
+Quando usar: depois de três meses com o kit, quando a Planilha 16 já tem histórico de horas por tipo de caso. Cria faixas para as propostas ficarem coerentes entre si.
+Cole: Planilha 16 (Horas por caso, aba Painel), colunas Área, Modalidade, Horas estimadas, Horas gastas, Valor contratado (casos encerrados e ativos); a Planilha 8 · aba Nossos casos tem o valor por hora já calculado.
+
+---- prompt: copie daqui ----
+Com o histórico abaixo de casos de um escritório de advocacia (área, modalidade de honorário, horas estimadas, horas gastas, valor contratado), monte uma tabela de referência interna por área: horas típicas (mínimo, mediana, máximo), valor contratado típico, valor por hora gasta, e uma faixa sugerida de horas para a próxima estimativa (mediana × 1,2 quando o histórico mostra que estouramos). Marque as áreas com menos de 3 casos como "amostra pequena". Isso é referência interna de gestão; não sugira preço com base em tabela da OAB nem em mercado, só nos meus dados.
+Custo-hora: R$ [ ].
+Histórico:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: os 38 casos da Ferraz & Lima (8 encerrados), custo-hora R$ 66,07. Saída: tabela com cinco áreas; Empresarial (8 casos) com mediana de 66 h e valor típico de R$ 15.000; Previdenciário (7) com 40 h e R$ 5.400; Trabalhista (12) com valor por hora de R$ 126, abaixo da hora mínima com folga de R$ 127,88 da Planilha 8 (7 dos 12 casos abaixo do mínimo); "Família" (3 casos) marcada como amostra pequena; faixa sugerida com 1,2× para Trabalhista.
+Confira: mediana e não média (um caso gigante distorce); preencha a aba Referência da Planilha 8 só depois de conferir dois valores à mão.
+
+Honorários 07 · Fixo, hora, êxito ou misto: perguntas antes de escolher
+-----------------------------------------------------------------------
+Quando usar: com um caso novo em que a forma de cobrar não é óbvia. O prompt ajuda a pensar na conta e no caixa; a escolha, o contrato e os limites éticos são seus.
+Cole: Planilha 6 · aba Simulador, os quatro cenários já calculados para o caso.
+
+---- prompt: copie daqui ----
+Vou colar quatro cenários de honorário para um mesmo caso (fixo, por hora, êxito, misto), com valor esperado, horas estimadas, quando o dinheiro entra e a margem sobre o custo-hora. Não me diga qual escolher e não comente a viabilidade jurídica nem regras da OAB: isso é comigo. Ajude-me a pensar: 1) para cada cenário, o melhor e o pior caso de caixa (quanto entra e quando); 2) o que cada cenário pressupõe sobre o cliente e sobre o caso; 3) cinco perguntas que eu deveria responder antes de decidir; 4) que cenário exige mais reserva de caixa do escritório e quanto.
+Custo fixo mensal do escritório: R$ [ ]. Reserva atual: R$ [ ].
+Cenários:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: o caso novo do Cliente H (Roberto Almeida, cível), 53 h estimadas e R$ 60.000 em discussão com 55 % de chance: fixo R$ 7.000, hora R$ 180 × 53 h, êxito 25 % sobre os R$ 33.000 esperados, misto R$ 4.500 + 15 %; custo do caso R$ 3.952; custo fixo do escritório R$ 18.500 com pró-labore; reserva R$ 12.000. Saída: pior caso de caixa no êxito (R$ 0 até o fim e R$ 3.952 de custo perdidos em 45 % das vezes), cinco perguntas (capacidade de pagamento do cliente, duração provável, quantos casos de êxito já estão abertos) e a conta: "o êxito puro exige guardar o custo do caso na reserva; o misto reduz a perda máxima a R$ 188".
+Confira: os números de "quando entra" são hipóteses suas; a IA só organizou.
+
+Honorários 08 · Antes de aceitar o caso: a conta de horas e de caixa
+--------------------------------------------------------------------
+Quando usar: na primeira conversa com um cliente novo, antes de dizer sim. Não é análise de viabilidade jurídica; é a conta de se o escritório aguenta o caso.
+Cole: Planilha 17 · aba Painel (horas disponíveis no mês, casos ativos por pessoa, caixa) e a estimativa de horas do caso.
+
+---- prompt: copie daqui ----
+Estou decidindo se aceito um caso novo em um escritório de advocacia pequeno. Não avalie o mérito nem a chance de êxito; avalie a capacidade do escritório. Dados: horas estimadas do caso [ ], distribuídas em [meses]; responsável seria [pessoa], que tem [horas livres por mês] e [casos ativos]; forma de cobrar [ ]; primeira entrada de dinheiro em [meses]; custo-hora R$ [ ]; caixa atual R$ [ ]; custo fixo mensal R$ [ ].
+Responda: 1) cabe na agenda? (horas do caso por mês contra horas livres); 2) cabe no caixa? (custo das horas até a primeira entrada); 3) o que teria de sair ou ser adiado para caber; 4) três condições que eu poderia colocar na proposta para reduzir o risco de gestão (entrada, parcelas, limite de horas); 5) uma versão menor do mesmo trabalho, se existir. Não me diga o que decidir.
+---- fim ----
+Exemplo: Entrada: a proposta 2026-020 (Cliente R, ação trabalhista de êxito, R$ 5.800): 70 h em 10 meses para Rafael, que fechou agosto com 112 h lançadas (meta de 110 faturáveis) e tem 15 casos ativos; primeira entrada só no fim do caso; custo-hora R$ 66,07; caixa livre R$ 28.281; custo fixo R$ 18.500. Saída: "não cabe na agenda sem tirar algo: 7 h por mês com Rafael já no limite"; custo de R$ 4.625 até a entrada; adiar o consultivo do Cliente K; condições: entrada de 20 %, teto de horas; versão menor: só a fase inicial.
+Confira: as horas livres de verdade (a Planilha 16 mostra); o resto é conta simples.
+
+========================================
+GRUPO 3 · CAIXA E CONTADOR (8)
+========================================
+
+Caixa 01 · Explicar o mês do caixa
+----------------------------------
+Quando usar: na sexta de fechamento, com o Painel do Caixa, para explicar ao sócio (ou a você mesmo) o que aconteceu com o dinheiro.
+Cole: Planilha 9 · aba Painel (entradas por tipo, saídas por categoria, saldo, comparação com o mês anterior).
+
+---- prompt: copie daqui ----
+Explique o resultado de caixa do mês de um escritório de advocacia para [o sócio / eu mesmo], em até 200 palavras e linguagem simples: quanto entrou (e de que tipo: fixo, hora, êxito, parcelas antigas), quanto saiu, para onde foi a maior parte, quanto sobrou, o que mudou em relação ao mês anterior e uma decisão sugerida para o próximo mês. Separe "entrou" de "faturou": se eu marcar algo como a receber, não conte como dinheiro. Sem termos técnicos.
+Números:
+[cole o painel]
+Contexto: [o que aconteceu de diferente no mês].
+---- fim ----
+Exemplo: Entrada: o Painel de agosto da Ferraz & Lima (Config = Agosto): entradas R$ 26.900 (R$ 15.300 de honorários fixos, R$ 11.290 de consultoria e pareceres, R$ 310 de reembolso de custas; nenhum êxito nem hora), saídas R$ 21.897 (pró-labore R$ 12.000, custos fixos R$ 6.500, guia de impostos R$ 2.357, custas R$ 380, deslocamento R$ 180, despesa pessoal a acertar R$ 480), sobrou R$ 5.003; julho: entrou R$ 29.460 e sobrou R$ 562 (pagou a distribuição do 2º trimestre). Contexto: "agosto teve o dobro de pareceres". Saída: 190 palavras em linguagem de conversa e a decisão sugerida: "levar R$ 3.000 para a reserva, porque R$ 11.290 vieram de pareceres que não se repetem todo mês".
+Confira: números e a decisão. Se a sobra parece grande, veja se a guia de impostos foi lançada.
+
+Caixa 02 · Comparar dois meses do resultado
+-------------------------------------------
+Quando usar: mês contra mês, com o Resultado mensal (DRE simplificado), quando algo mudou e você quer saber o quê.
+Cole: Planilha 18 · aba Resultado, colunas dos dois meses.
+
+---- prompt: copie daqui ----
+Compare os dois meses abaixo do resultado de um escritório de advocacia, linha por linha: variação absoluta, variação percentual e um comentário de uma linha. Depois, os três maiores avanços, os três maiores recuos e uma conclusão de duas frases. Classifique cada linha como "melhorou", "piorou" ou "estável" (estável = variação menor que [3]%). Lembre que para despesas, provisão e inadimplência, menor é melhor. Não invente causas: separe "o que os números mostram" de "hipóteses".
+Mês 1 ([nome]):
+[cole]
+Mês 2 ([nome]):
+[cole]
+---- fim ----
+Exemplo: Entrada: julho e agosto da Ferraz & Lima na Planilha 18 (receita R$ 29.460 para R$ 26.900; total de saídas R$ 21.167 para R$ 21.212; resultado R$ 8.293 para R$ 5.688; margem 28,2 % para 21,1 %; vencido R$ 8.900 para R$ 12.500). Saída: tabela com 9 linhas, receita −8,7 % (piorou), saídas +0,2 % (estável), resultado −31,4 % (piorou), vencido +40,4 % (piorou) e a conclusão: "a queda é de receita, não de custo: julho teve R$ 2.340 de honorários por hora e agosto nenhum; os pareceres seguraram o mês".
+Confira: sinais de "menor é melhor" e as porcentagens; a IA erra conta de variação.
+
+Caixa 03 · Onde cortar custo fixo sem prejudicar o escritório
+-------------------------------------------------------------
+Quando usar: quando o custo fixo subiu, um sócio vai tirar férias ou o caixa apertou.
+Cole: Planilha 5 · aba Custos fixos (custo por categoria) e a Planilha 9 · aba Painel (saídas por categoria dos últimos 3 meses).
+
+---- prompt: copie daqui ----
+Analise o custo fixo de um escritório de advocacia por categoria e me ajude a decidir onde cortar sem prejudicar o atendimento nem a regularidade profissional. Para cada categoria: fixo ou variável? Essencial, importante ou supérfluo? Quanto seria realista reduzir em 60 dias e como? Depois, um plano com três cortes que somem pelo menos R$ [valor alvo] por mês, do mais fácil ao mais difícil, e o que eu perco com cada um. Não sugira cortar anuidade da OAB, contador nem seguro; são obrigatórios ou de proteção.
+Custo fixo:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: os R$ 6.500 de custo fixo da Ferraz & Lima (aluguel R$ 2.800, bolsa da estagiária R$ 1.400, contador R$ 600, sistemas R$ 450, marketing R$ 400, material R$ 380, anuidades e cursos R$ 250, telefone R$ 220); alvo: R$ 600. Saída: sistemas marcados como "conferir o que ninguém usa", marketing como variável, e três cortes (assinaturas duplicadas R$ 180, telefone fixo R$ 120, material R$ 150 com compra trimestral) que chegam perto do alvo, com o aviso de que o aluguel é o único corte grande.
+Confira: a IA não sabe o que é essencial para o seu atendimento; ajuste a classificação.
+
+Caixa 04 · Preparar a reunião mensal com o contador
+---------------------------------------------------
+Quando usar: dois dias antes da reunião com o contador, com o Resumo do mês pronto. Junta o que enviar, o que perguntar e o que anotar (o roteiro completo é o bônus 24).
+Cole: Planilha 20 · aba Resumo ("Bloco único para copiar") e a Planilha 10 · aba Painel (provisão acumulada).
+
+---- prompt: copie daqui ----
+Vou me reunir com o contador do meu escritório de advocacia por 30 minutos. Com o resumo do mês abaixo, monte: 1) a lista do que eu envio antes (documentos e números, com o nome da planilha de origem); 2) a pauta em 4 blocos com minutos; 3) oito perguntas objetivas para o contador, priorizando o que muda dinheiro (provisão, pró-labore, regime, notas, retenções); 4) uma tabela vazia "Pergunta | Resposta | Ação | Prazo" para eu preencher na reunião. Não responda as perguntas no lugar do contador nem dê orientação tributária.
+Resumo do mês:
+[cole aqui]
+Dúvidas que já tenho: [liste]
+---- fim ----
+Exemplo: Entrada: o Resumo de agosto da Ferraz & Lima (receita R$ 26.900, saídas R$ 21.212, pró-labore R$ 12.000, provisão acumulada na Planilha 10 R$ 9.747, guia de setembro prevista R$ 2.152, vencido R$ 12.500) e a dúvida "os R$ 11.290 de consultoria e pareceres entram na mesma base dos honorários?". Saída: lista de 6 itens para enviar (só totais: sem nome de cliente), pauta de 4 blocos (5 + 10 + 10 + 5 min), 8 perguntas ("a provisão de R$ 9.747 cobre as guias até dezembro?") e a tabela vazia.
+Confira: as perguntas são para o contador responder; não use a resposta da IA como resposta dele.
+
+Caixa 05 · Perguntas sobre a provisão de impostos, 13º e férias
+---------------------------------------------------------------
+Quando usar: quando o número da provisão parece alto ou baixo e você não sabe se está certo. O prompt não calcula imposto; ele monta as perguntas certas para o contador.
+Cole: Planilha 10 · aba Painel (receita do mês, alíquota informada pelo contador, provisão do mês, acumulado, próximos vencimentos).
+
+---- prompt: copie daqui ----
+Sou dono de um escritório de advocacia pequeno e provisiono impostos, 13º e férias em uma planilha com a alíquota que o contador me informou. Não calcule imposto nem diga qual regime é melhor: isso é do contador. Com os números abaixo, faça: 1) confira se a conta provisão = receita × alíquota está aritmeticamente certa; 2) diga se o acumulado cobre o que vence nos próximos 90 dias e, se não, o buraco em reais; 3) monte cinco perguntas para o contador que esclareçam o que a planilha não sabe (o que entra na base, retenções, 13º de quem, férias de quem); 4) uma regra simples de quanto separar por semana.
+Números:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: receita de agosto R$ 26.900, alíquota informada 8 %, provisão do mês R$ 2.152, mais R$ 1.000 da reserva de fim de ano dos sócios e R$ 156 da reserva de janeiro (R$ 3.308 a separar), acumulado R$ 9.747, vencimentos dos próximos 90 dias: guias de 20/09 (R$ 2.152), 20/10 e 20/11 (8 % das entradas de setembro e outubro). Saída: conta conferida, acumulado suficiente, cinco perguntas ("a estagiária tem recesso remunerado?"; "consultoria e pareceres entram na mesma base?") e a regra: "separar R$ 830 por semana (o total a separar do mês dividido por quatro)".
+Confira: a alíquota é a que o contador disse, não a que a IA sugerir. Se ela sugerir alguma, ignore.
+
+Caixa 06 · Separar o que é do escritório e o que é pessoal
+----------------------------------------------------------
+Quando usar: quando o extrato veio misturado (conta única, cartão do sócio) e você precisa classificar antes de lançar na aba Retiradas da Planilha 11.
+Cole: o extrato do mês, só com data, descrição resumida e valor, sem número de conta, sem nome de terceiros.
+
+---- prompt: copie daqui ----
+Vou colar lançamentos de um extrato bancário misturado (escritório de advocacia e vida pessoal do sócio), com data, descrição resumida e valor. Classifique cada linha em: Escritório: custo fixo | Escritório: custo variável | Escritório: receita | Pró-labore ou retirada | Pessoal | Não sei. Use a categoria "Não sei" sempre que a descrição for ambígua; não chute. Depois some cada grupo e diga: quanto o sócio retirou além do pró-labore combinado de R$ [ ]; e quais lançamentos pessoais foram pagos pela conta do escritório. Responda em tabela.
+Lançamentos:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: 42 lançamentos de junho da conta da Marina (sócia), descrição resumida. Saída: tabela classificada, 6 linhas em "Não sei" (posto de gasolina, restaurante), retirada de R$ 8.000 contra pró-labore de R$ 6.000 (R$ 2.000 a mais, a lançar como retirada extra na Planilha 11) e um lançamento pessoal pago pela conta do escritório (R$ 480, a acertar).
+Confira: cada "Não sei" e as retiradas; corrija na tabela e só então lance na planilha.
+
+Caixa 07 · Plano para a reserva de três meses
+---------------------------------------------
+Quando usar: quando a Planilha 12 mostra menos de três meses de custo fixo guardados e você quer um plano que caiba no caixa real.
+Cole: Planilha 12 · aba Painel (custo fixo mensal, reserva atual, meses cobertos, sobra média dos últimos 3 meses).
+
+---- prompt: copie daqui ----
+Monte um plano para um escritório de advocacia chegar a três meses de custo fixo em reserva. Dados: custo fixo mensal R$ [ ]; reserva atual R$ [ ]; sobra média mensal dos últimos 3 meses R$ [ ]; entradas previstas fora do comum nos próximos 6 meses: [ex.: êxito do Cliente A, R$ 14.400, sem data certa].
+Responda: 1) a meta em reais e quantos meses faltam no ritmo atual; 2) três ritmos (conservador, provável, ambicioso) com o valor a separar por mês e a data de chegada; 3) regras: o que a reserva pode pagar e o que não pode; 4) o que fazer com uma entrada extraordinária (êxito, acordo) quando vier. Não conte com a entrada extraordinária no cenário provável.
+---- fim ----
+Exemplo: Entrada: custo fixo mensal R$ 18.500 com pró-labore (meta de 3 meses: R$ 55.500), reserva R$ 12.000, sobra média dos últimos 3 meses R$ 3.300, êxito possível do Cliente R (R$ 7.000) sem data. Saída: faltam R$ 43.500; conservador R$ 2.000 por mês (22 meses), provável R$ 3.000 (15 meses: dezembro de 2027, como na Planilha 12), ambicioso R$ 4.000 (11 meses); regra: "a reserva paga custo fixo em mês sem entrada; não paga férias nem equipamento"; entrada extraordinária: 50 % para a reserva até a meta.
+Confira: a sobra média (que a planilha calcula) e se o ritmo cabe no pró-labore combinado.
+
+Caixa 08 · Achar o erro no caixa
+--------------------------------
+Quando usar: quando o saldo do Painel não bate com o banco ou um total parece estranho.
+Cole: Planilha 9 · aba Painel e as linhas suspeitas da aba Lançamentos (sem nomes).
+
+---- prompt: copie daqui ----
+Vou colar um trecho da planilha de caixa de um escritório de advocacia em que algo não bate. Ajude-me a encontrar o erro: verifique somas, sinais (entrada lançada como saída), lançamentos duplicados, transferências para a reserva contadas como despesa, valores em texto, datas fora do mês. Liste cada suspeita com a linha, o que esperava e o que encontrou. Se precisar de mais contexto, diga exatamente qual.
+O que eu esperava: [ex.: sobra do mês de R$ 9.500; o banco mostra R$ 7.250].
+Trecho:
+[cole]
+---- fim ----
+Exemplo: Entrada: "esperava que agosto sobrasse R$ 5.003; o banco mostra R$ 3.203"; o Painel e as 22 linhas de agosto da aba Lançamentos. Saída: uma suspeita que fecha a conta: a parcela 8 de R$ 1.800 do Cliente Q, vencida em 10/08, está marcada como Pago? = Sim sem ter entrado (a Planilha 14 mostra a mesma parcela como vencida há 35 dias). Corrigido para Não, a sobra bate com o banco.
+Confira: tudo. Este prompt acha suspeitas, não prova erros.
+
+========================================
+GRUPO 4 · CLIENTES E COBRANÇA (8)
+========================================
+
+Clientes 01 · Resumir a carteira para o sócio
+---------------------------------------------
+Quando usar: na reunião de sócios ou no fechamento do mês, para responder "quanto ainda vai entrar e de onde".
+Cole: Planilha 13 · aba Casos, colunas Cliente (letra), Área, Modalidade, Fase, Valor contratado, Recebido, A receber (a aba Clientes dá o total por cliente).
+
+---- prompt: copie daqui ----
+Resuma a carteira de um escritório de advocacia abaixo para um sócio, em até 200 palavras: 1) total contratado, recebido e a receber; 2) o a receber dividido em "parcelas com data" e "êxito sem data"; 3) os cinco clientes que mais devem ao escritório (pela letra) e o que é parcela atrasada versus parcela futura; 4) concentração: quanto dos recebíveis depende de um só cliente; 5) três perguntas de gestão que a carteira levanta. Não comente o mérito de nenhum caso. Use só os números colados.
+Carteira:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: os 38 casos da Ferraz & Lima: R$ 383.900 contratados, R$ 271.910 recebidos, R$ 111.990 a receber. Saída: 190 palavras: a receber com R$ 56.730 em parcelas com data (as da Planilha 14) e R$ 53.000 em êxito sem data (5 casos de êxito e a parte de êxito de 6 mistos); os cinco maiores (Cliente M com R$ 15.000, A com R$ 13.500, R com R$ 10.000, C com R$ 9.200, K com R$ 9.000); concentração de 13 % no Cliente M; perguntas: "quantos meses de custo fixo estão presos em êxito?", "o Cliente G tem duas parcelas vencidas há mais de 150 dias: e o caso continua?".
+Confira: a divisão parcela × êxito; e o total a receber, que precisa ser contratado menos recebido.
+
+Clientes 02 · Quem cobrar primeiro
+----------------------------------
+Quando usar: na sexta, com a aba Parcelas mostrando mais atrasos do que dá para ligar em uma tarde. Ordena pela conta, não pela vontade.
+Cole: Planilha 14 · aba Parcelas, linhas vencidas (Cliente em letra, Nº da parcela, Valor, Dias de atraso, Faixa, Ação sugerida); acrescente à mão a data do último contato e se o cliente já atrasou antes.
+
+---- prompt: copie daqui ----
+Ordene as parcelas atrasadas de um escritório de advocacia abaixo para eu decidir quem cobrar primeiro hoje. Critérios, nesta ordem: valor × dias de atraso; cliente que nunca atrasou antes (cobre cedo, com leveza: provavelmente esqueceu); último contato há mais de 7 dias; parcela que trava a continuidade de algo combinado no contrato (eu marco). Para cada linha: prioridade (1 a 3), o degrau da régua de cobrança (1 dia: lembrete gentil; 7 dias: mensagem do responsável; 15 dias: e-mail com demonstrativo e proposta de renegociação; 30 dias: ligação ou reunião com plano por escrito) e o canal (WhatsApp, e-mail, ligação). Sem tom de ameaça em nenhuma sugestão. Não cite consequências processuais nem contratuais: isso é comigo.
+Parcelas:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: as 8 parcelas vencidas em 14/09 (R$ 14.480): Cliente G (Bistrô 42) duas de R$ 2.100 há 180 e 150 dias; Cliente F (Fernanda Castro, caso encerrado) R$ 1.400 há 213 dias; Cliente O (Oficina Mecânica Central) R$ 1.500 há 87; Cliente L (Patrícia Gomes) R$ 2.100 há 31, nunca atrasou; Cliente Q (Agência Prisma) R$ 1.800 há 35 e R$ 1.980 há 4; Cliente R (Helena Duarte) R$ 1.500 há 17. Saída: Cliente G prioridade 1 (ligação ou reunião com plano por escrito, R$ 4.200), Cliente F prioridade 1 (ligação; é a última parcela de um caso encerrado), Cliente Q prioridade 2 (lembrete gentil para a parcela de 4 dias e ligação para a de 35), Cliente L prioridade 2 (ligação leve: primeiro atraso), Cliente R prioridade 3 (e-mail com demonstrativo).
+Confira: o histórico de atraso; a planilha só sabe o que foi lançado.
+
+Clientes 03 · Cobrança educada em três versões
+----------------------------------------------
+Quando usar: com uma parcela atrasada e a régua da Planilha 14 dizendo em que degrau está. Os 15 modelos do bônus são a versão pronta; este prompt é para quando o caso pede algo sob medida.
+Cole: Planilha 14 · aba Parcelas, a linha da parcela (cliente em letra, valor, vencimento, dias de atraso, ação sugerida pela régua).
+
+---- prompt: copie daqui ----
+Escreva três versões de mensagem de cobrança de honorários para [Cliente A], sobre a parcela [n de N] de R$ [ ], vencida em [data]: 1) lembrete amigável (primeiro contato, presuma esquecimento); 2) segunda cobrança, firme e cordial; 3) convite para uma conversa sobre como regularizar, claro e sem ameaça. Cada uma com até 80 palavras, com a forma de pagamento (Pix [chave], boleto) e um caminho fácil para resolver (responder esta mensagem, ligar para [telefone]). Tom de escritório de advocacia: respeitoso, sem "prezado" em excesso e sem juridiquês. Não mencione consequências processuais, contratuais ou de suspensão de atendimento: isso é decisão minha e do contrato.
+---- fim ----
+Exemplo: Entrada: Cliente R, parcela 3 de 5 de R$ 1.500, vencida em 28/08/2026 (17 dias), Pix pelo CNPJ do escritório. Saída: três mensagens de 60 a 80 palavras, da primeira ("pode ter passado despercebido") à terceira ("podemos conversar sobre a melhor forma de regularizar?"), todas com valor, data e chave.
+Confira: valor, data, parcela; e se nenhuma versão insinua consequência que você não decidiu.
+
+Clientes 04 · Roteiro de ligação de cobrança
+--------------------------------------------
+Quando usar: antes de ligar para um cliente com parcela atrasada há mais de 15 dias, quando mensagem já não resolveu.
+Cole: Planilha 14 · aba Parcelas (a linha) e o seu registro de contatos com esse cliente (datas e canal).
+
+---- prompt: copie daqui ----
+Monte um roteiro de ligação de até 4 minutos para cobrar uma parcela de honorários atrasada de [Cliente A]: parcela de R$ [ ], vencida há [dias], já enviamos [quantas mensagens, em que datas]. Estrutura: abertura (uma frase, sem rodeio e sem "desculpa incomodar"); pergunta aberta sobre o que aconteceu; escuta (o que anotar); três saídas possíveis que eu posso oferecer: [ex.: pagar até sexta / dividir a parcela em duas / nova data]; fechamento com combinado explícito e confirmação por escrito. Inclua o que NÃO dizer (ameaça, comparação com outros clientes, comentário sobre o caso) e o que fazer se a pessoa ficar irritada. Português falado, curto.
+---- fim ----
+Exemplo: Entrada: Cliente O, parcela 3 de R$ 1.500, 87 dias de atraso, três mensagens (20/06, 26/06 e 06/07). Saída: roteiro de uma página: abertura em uma frase, pergunta "aconteceu alguma coisa com o pagamento desta parcela?", três saídas, fechamento "então fica combinado dia 25/09, e eu confirmo por e-mail agora" e a lista do que não dizer.
+Confira: as saídas que você oferece têm de caber no caixa; a IA não sabe o que você pode.
+
+Clientes 05 · Responder a um pedido de prazo ou renegociação
+------------------------------------------------------------
+Quando usar: quando o cliente pediu para adiar, dividir ou parar de pagar. Responde sem ceder no escuro e sem entrar no contrato.
+Cole: Planilha 14 · aba Parcelas (o que falta receber desse cliente) e a Planilha 13 (valor contratado, horas gastas).
+
+---- prompt: copie daqui ----
+Recebi de [Cliente A] o pedido abaixo sobre as parcelas de honorários. Situação: falta receber R$ [ ] em [n] parcelas; já recebemos R$ [ ]; horas já gastas no caso [ ]. Minha posição: posso [ex.: adiar 30 dias / dividir a parcela] e não posso [ex.: reduzir o total]. Escreva a resposta em até 150 palavras: reconheça a situação em uma frase, exponha a posição sem se justificar com o caso, ofereça uma alternativa concreta com datas e feche pedindo confirmação por escrito. Antes do texto, mostre o que cada alternativa faz com o caixa do escritório nos próximos 3 meses. Não mencione nada sobre o andamento do caso nem consequências contratuais.
+Pedido do cliente (sem dados pessoais):
+[cole]
+---- fim ----
+Exemplo: Entrada: Cliente R (Helena Duarte, trabalhista, fixo de R$ 7.500 em 5 parcelas): falta receber R$ 3.000 em 2 parcelas (uma vencida em 28/08, outra em 28/09), recebido R$ 4.500, 24 h gastas; cliente pediu para pausar 2 meses; posso adiar 30 dias ou dividir as duas parcelas em quatro. Saída: tabela de caixa (a pausa tira R$ 3.000 do trimestre; dividir em quatro tira R$ 1.500) e resposta de 130 palavras com a alternativa de dividir.
+Confira: os números do trimestre e se a resposta não promete o que o contrato não permite.
+
+Clientes 06 · Por que as propostas não fecham
+---------------------------------------------
+Quando usar: no fim do trimestre, com o funil da Planilha 15 mostrando muita proposta aberta ou perdida.
+Cole: Planilha 15 · aba Propostas (Cliente em letra, Área, Serviço, Origem, Valor, Etapa, Data de entrada, Motivo se perdida, Dias parada, Dias até fechar).
+
+---- prompt: copie daqui ----
+Analise o funil de propostas de honorários de um escritório de advocacia. Para o trimestre: taxa de fechamento geral, por área e por forma de honorário; valor médio das fechadas e das perdidas; tempo médio até a resposta; motivos de perda mais frequentes; propostas abertas há mais de [15] dias que merecem um contato. Separe "o que os dados mostram" de "hipóteses". Termine com três testes simples para o próximo trimestre (ex.: mudar a validade, ligar no terceiro dia, oferecer duas formas de pagamento). Não sugira baixar preço com base em mercado; use só os meus dados.
+Propostas:
+[cole aqui]
+---- fim ----
+Exemplo: Entrada: as 20 propostas do funil da Ferraz & Lima desde junho (7 fechadas somando R$ 71.000, 4 perdidas, 9 abertas somando R$ 72.900). Saída: fechamento de 64 % (71 % nas de valor fixo, 50 % nas de êxito), honorário médio fechado R$ 10.143, 20 dias até fechar, motivo de perda mais comum "preço" (2 de 4), 1 aberta parada há mais de 14 dias (Cliente L), 2 com previsão de fechamento vencida (Clientes I e N) e três testes.
+Confira: as taxas por grupo com poucas propostas (2 de êxito) não provam nada; olhe o tamanho da amostra.
+
+Clientes 07 · Confirmação de contratação em linguagem simples
+-------------------------------------------------------------
+Quando usar: logo depois de assinar o contrato, para o cliente saber como funciona o dia a dia: canal, prazo de resposta, parcelas, o que ele precisa mandar. O contrato continua sendo o que vale.
+Cole: Planilha 13 · aba Casos (valor), Planilha 14 · aba Parcelas (parcelas e datas) e Planilha 7 · aba Proposta (o que foi combinado).
+
+---- prompt: copie daqui ----
+Escreva um e-mail de boas-vindas de até 200 palavras para [Cliente A], pessoa [física/jurídica], que acabou de contratar o escritório para [serviço em uma frase]. Conteúdo: quem é o responsável e quem mais atende; canal e prazo de resposta ([ex.: WhatsApp do escritório, resposta em 1 dia útil]); as parcelas ([n] de R$ [ ], vencendo dia [ ] de cada mês, por [Pix/boleto]); o que precisamos que o cliente envie até [data] (lista curta, sem justificar); como ele vai ser informado do andamento. Tom acolhedor e direto, sem promessa de resultado, sem prazo de conclusão e sem explicar o caso. Diga que o contrato assinado é o que vale em caso de dúvida.
+---- fim ----
+Exemplo: Entrada: Cliente E (Loja Verde Comércio), pessoa jurídica, contratos e consultoria; responsável Marina, Júlia auxilia; WhatsApp do escritório, 1 dia útil; 3 parcelas de R$ 2.800 (a primeira na assinatura, as seguintes dia 17) por Pix; enviar contrato social e contratos em vigor com fornecedores até 20/08. Saída: e-mail de 180 palavras com os cinco pontos e a frase final sobre o contrato.
+Confira: parcelas, datas e a lista de documentos, que é sua; a IA não deve acrescentar nada nela.
+
+Clientes 08 · Encerramento do caso e pedido de opinião
+------------------------------------------------------
+Quando usar: quando o checklist de encerramento da Planilha 4 estiver completo (última parcela recebida, documentos devolvidos). Fecha bem e pede a opinião do cliente sem constranger.
+Cole: Planilha 4 · aba Checklist (colunas de encerramento) e a Planilha 13 · aba Casos (situação financeira do caso).
+
+---- prompt: copie daqui ----
+Escreva duas mensagens para [Cliente A], cujo caso com o escritório foi encerrado: 1) encerramento, até 120 palavras: agradece, confirma que não há valores pendentes (ou informa a última parcela em aberto de R$ [ ] com vencimento em [ ]), diz como o cliente recebe os documentos de volta e por quanto tempo o escritório guarda uma cópia ([prazo que o escritório definiu]), e deixa a porta aberta; 2) pedido de opinião sobre o atendimento, até 60 palavras, enviado uma semana depois, respondido em conversa privada (sem link público nem pedido de indicação), com a frase de que é opcional e é sobre o atendimento, não sobre o resultado. Não comente o resultado do caso nem use palavras como "vitória" ou "ganhamos".
+---- fim ----
+Exemplo: Entrada: Cliente F (Fernanda Castro, família, encerrado em 14/08/2026), com a última parcela de R$ 1.400 em aberto desde 13/02, documentos devolvidos em mãos, cópia guardada pelo prazo definido no guia LGPD do escritório. Saída: duas mensagens: a primeira com 110 palavras, que informa a parcela pendente sem tom de cobrança; a segunda com 55, pedindo uma opinião privada sobre o atendimento, a enviar só depois de a parcela ser quitada; nenhuma menciona o resultado.
+Confira: o prazo de guarda que você escreveu no guia LGPD (bônus 23) e a pendência financeira. A opinião do cliente é para uso interno: avaliação pública e depoimento passam pelo Código de Ética da OAB e pelo Provimento 205/2021 antes de qualquer uso.
+
+========================================
+GRUPO 5 · PAINEL E SÓCIOS (8)
+========================================
+
+Painel 01 · Explicar o mês ao sócio
+-----------------------------------
+Quando usar: na sexta de fechamento, com o Painel do escritório e o Resumo do mês. É o prompt mais usado do kit.
+Cole: Planilha 20 · aba Resumo ("Bloco único para copiar"), que reúne prazos, horas, caixa, recebíveis e propostas do mês.
+
+---- prompt: copie daqui ----
+Explique o mês de um escritório de advocacia para o meu sócio, em até 250 palavras e linguagem direta. Use só os números abaixo. Estrutura: uma frase com o resultado do mês; prazos (quantos cumpridos, quantos atrasaram, o padrão); horas (gastas × faturáveis por pessoa, o caso que mais consumiu); caixa (entrou, saiu, sobrou, provisão feita); recebíveis (a receber, atrasado); propostas (enviadas, fechadas, abertas); uma decisão para o mês que vem. Onde faltar explicação, escreva "[explicar]" para eu preencher. Não comente o mérito de nenhum caso.
+Meus comentários: [o que aconteceu, por quê].
+Números:
+[cole o bloco da aba Resumo]
+---- fim ----
+Exemplo: Entrada: o bloco único de agosto da Planilha 20 da Ferraz & Lima (entrou R$ 26.900, saiu R$ 21.212, resultado R$ 5.688, margem 21,1 %; 304 h registradas, 81,6 % faturáveis: Marina 111,5 h, Rafael 112 h, Júlia 80,5 h; a receber R$ 117.210, vencido R$ 12.500, inadimplência 4,5 %; propostas abertas R$ 46.900; R$ 26.100 fechados em propostas; 30 casos ativos); comentário: "três propostas viraram caso; Bistrô 42 e Agência Prisma entraram na régua de cobrança; o caso da Oficina e o recurso da Escola Aurora estouraram as horas". Saída: texto de 240 palavras com um "[explicar]" nos prazos (o bloco da 20 não traz prazos: acrescente os da Planilha 1 à mão) e a decisão: "ligar esta semana para os dois clientes com parcela vencida há mais de 30 dias".
+Confira: cada "[explicar]" e se nenhum número foi alterado.
+
+Painel 02 · Relatório mensal para os sócios
+-------------------------------------------
+Quando usar: para a reunião de sócios, em vez do texto corrido do Painel 01: formato de relatório, com destaques, atenções e próximos passos.
+Cole: Planilha 20 · aba Resumo e a Planilha 18 · aba Resultado (mês e mês anterior).
+
+---- prompt: copie daqui ----
+Escreva o relatório mensal de gestão de um escritório de advocacia para os sócios, em até 300 palavras, com a estrutura: Resultado do mês em uma frase (com o resultado do mês anterior ao lado); Destaques (3 tópicos com número); Pontos de atenção (até 3, com causa provável e ação); Próximos passos (3, com responsável e prazo). Tom profissional e direto, sem jargão contábil. Use apenas os números abaixo; onde faltar explicação, escreva "[explicar]". Nada sobre o mérito dos casos.
+Meus comentários: [o que aconteceu].
+Números:
+[cole o bloco da aba Resumo e as duas colunas do Resultado]
+---- fim ----
+Exemplo: Entrada: agosto e julho da Ferraz & Lima; comentário: "os R$ 11.290 de pareceres são entrada acima do normal". Saída: relatório de 280 palavras: resultado R$ 5.688 (julho: R$ 8.293), destaques (81,6 % de horas faturáveis, +4,7 p.p.; 3 propostas fechadas, R$ 26.100; 30 casos ativos, +2), atenções (margem −7,1 p.p.; vencido +40 %, R$ 12.500; dois casos acima das horas estimadas; um "[explicar]" nos prazos) e próximos passos com dono.
+Confira: que o "extraordinário" apareça como tal e não como tendência.
+
+Painel 03 · Roteiro de 8 slides para a reunião de sócios
+--------------------------------------------------------
+Quando usar: com o modelo de apresentação "Resultado do mês para os sócios" do kit (8 slides).
+Cole: Planilha 20 · aba Resumo e os comentários do Painel 01.
+
+---- prompt: copie daqui ----
+Monte o roteiro de uma apresentação de 8 slides sobre o mês de [mês] de um escritório de advocacia, para os sócios, usando só os números abaixo. Para cada slide: título em uma frase que já diga a conclusão; 3 tópicos curtos; o número ou gráfico em destaque; uma frase do que eu falo. Estrutura: 1 capa; 2 resumo do mês; 3 prazos e rotina; 4 horas e casos que mais consomem; 5 caixa e provisão; 6 recebíveis e inadimplência; 7 propostas e carteira; 8 decisões que precisamos tomar. Onde faltar explicação, escreva "[explicar]". Nada sobre o mérito dos casos.
+Meus comentários: [o que aconteceu].
+Números:
+[cole]
+---- fim ----
+Exemplo: Entrada: agosto da Ferraz & Lima e os comentários do Painel 01. Saída: 8 slides; slide 4 "Dois casos passaram das horas estimadas: o Cliente G consome 50 h para 45 sem nada recebido; o Cliente M, 100 h para 90"; slide 8 com duas decisões: reserva de R$ 3.000 por mês e ligação para as 6 parcelas vencidas há mais de 30 dias.
+Confira: cada "[explicar]"; o slide 8 precisa ter decisões de verdade, não "alinhar".
+
+Painel 04 · Perguntas difíceis que o sócio vai fazer
+----------------------------------------------------
+Quando usar: na véspera da reunião de sócios, para não ser pego de surpresa.
+Cole: o relatório do Painel 02 ou o roteiro do Painel 03.
+
+---- prompt: copie daqui ----
+Com base no relatório abaixo, liste as 8 perguntas mais prováveis que um sócio cético faria e uma resposta curta e honesta para cada, incluindo o que dizer quando eu não souber ("não tenho o dado agora; trago até sexta"). Marque as 3 mais difíceis. As perguntas devem ser de gestão (dinheiro, horas, prazos, clientes), não sobre o mérito dos casos.
+Relatório:
+[cole]
+---- fim ----
+Exemplo: Entrada: o relatório de agosto do Painel 02. Saída: 8 perguntas ("por que a margem caiu de 28,2 % para 21,1 %?", "quanto do a receber é êxito que pode nunca vir?", "a provisão cobre a guia de setembro?"), respostas curtas e as três mais difíceis marcadas.
+Confira: as respostas devem ser as suas; use as da IA como rascunho.
+
+Painel 05 · Meta realista para o trimestre
+------------------------------------------
+Quando usar: no início do trimestre, com o histórico dos últimos meses, para preencher a Planilha 19.
+Cole: Planilha 18 · aba Resultado (receita e resultado dos últimos 6 meses) e a Planilha 15 (propostas abertas).
+
+---- prompt: copie daqui ----
+Com o histórico abaixo de um escritório de advocacia, sugira metas para o próximo trimestre em três cenários (conservador, provável, ambicioso) para: receita recebida, resultado, propostas fechadas e inadimplência. Explique o cálculo de cada um (média, tendência, sazonalidade, propostas abertas). Diga o que precisaria acontecer para o ambicioso e o que ameaça o conservador. Não conte com êxito sem data no cenário provável.
+Histórico mês a mês:
+[cole]
+Propostas abertas: [valor e quantidade]
+---- fim ----
+Exemplo: Entrada: receita de março a agosto (R$ 28.590, 20.240, 31.120, 27.420, 29.460, 26.900), resultado, 9 propostas abertas somando R$ 72.900. Saída: receita mensal conservadora em torno de R$ 25.000, provável R$ 27.500, ambiciosa R$ 31.000 (com metade das propostas abertas fechando), e a ameaça ao conservador: "dezembro e janeiro costumam ter menos recebimento".
+Confira: a sazonalidade que você conhece (recesso, férias); a IA só viu seis meses.
+
+Painel 06 · Meta × realizado: explicar o desvio
+-----------------------------------------------
+Quando usar: no meio e no fim do trimestre, com a Planilha 19 mostrando o ritmo da meta.
+Cole: Planilha 19 · aba Metas (meta, realizado até hoje, ritmo necessário, dias restantes).
+
+---- prompt: copie daqui ----
+Compare meta e realizado do trimestre de um escritório de advocacia. Para cada meta: % atingido, % do tempo decorrido, ritmo necessário por semana até o fim e se está "no ritmo", "atrás" ou "à frente". Depois: as duas metas mais atrás e, para cada uma, três causas possíveis de gestão e uma ação para as próximas duas semanas. Separe "o que os números mostram" de "hipóteses". Nada sobre o mérito dos casos.
+Metas:
+[cole]
+Hoje é [data]; o trimestre vai de [data] a [data].
+---- fim ----
+Exemplo: Entrada: 14/09/2026, trimestre de julho a setembro (semana 11 de 13); honorários fechados meta R$ 60.000, realizado R$ 53.000; propostas fechadas meta 8, realizado 6; inadimplência meta 3,0 %, realizado 5,1 %; reserva meta R$ 18.500, realizado R$ 12.000. Saída: honorários a 88 % com 82 % do tempo (à frente; faltam R$ 7.000, cerca de R$ 3.500 por semana), propostas a 75 % (atrás: 2 em duas semanas), inadimplência e reserva em risco; ações para as duas semanas.
+Confira: a conta do ritmo por semana; refaça você.
+
+Painel 07 · Contratar, associar ou não: os números antes da decisão
+-------------------------------------------------------------------
+Quando usar: antes de contratar alguém, associar um advogado ou pagar um freelancer fixo. Não decide; organiza a conta.
+Cole: Planilha 17 · aba Painel (horas × faturáveis por pessoa, casos ativos, caixa, reserva) e a Planilha 5 (custo fixo).
+
+---- prompt: copie daqui ----
+Vou tomar a decisão: [ex.: contratar um advogado júnior por R$ 3.500 por mês com encargos / associar um advogado por percentual / manter como está]. Com os dados abaixo de um escritório de advocacia, liste: 1) o que os dados sustentam; 2) o que eles NÃO respondem; 3) o custo mensal total da decisão e quantas horas faturáveis a mais ela precisa gerar para se pagar (custo ÷ valor médio por hora faturada); 4) cinco perguntas que eu deveria responder antes de decidir; 5) o pior cenário realista e como me proteger dele; 6) uma versão menor ou reversível da mesma decisão. Não me diga o que decidir.
+Dados:
+[cole]
+---- fim ----
+Exemplo: Entrada: "contratar um advogado júnior por R$ 3.500 com encargos"; em agosto Marina lançou 111,5 h (meta de 110 faturáveis), Rafael 112 e Júlia 80,5 (meta 60); 30 casos ativos; caixa livre R$ 28.281; reserva R$ 12.000; valor médio por hora dos casos R$ 153 (Planilha 8). Saída: os dados sustentam que os sócios estão no limite; não respondem se a demanda continua; custo total cerca de R$ 4.900; precisa de 32 h faturáveis a mais por mês para se pagar; versão reversível: mais 20 horas da estagiária por três meses.
+Confira: o valor médio por hora faturada (Planilhas 8 e 16) e os encargos, que a IA chuta.
+
+Painel 08 · Segunda opinião sobre uma decisão do escritório
+-----------------------------------------------------------
+Quando usar: antes de uma decisão de gestão que custa dinheiro ou é difícil de desfazer: mudar de sala, assinar um software, dar desconto grande, encerrar uma área de atuação.
+Cole: o que for relevante do Painel da Planilha 17; sem nomes.
+
+---- prompt: copie daqui ----
+Vou tomar a decisão de gestão: [descreva]. Meus motivos: [liste]. Faça o papel do advogado do diabo: os três melhores argumentos contra, o que eu posso estar ignorando, e uma versão menor ou reversível da mesma decisão. Depois, diga honestamente se os argumentos contra são fortes ou fracos. Não entre em nenhuma questão jurídica da decisão (contrato, ética, regulamentação): isso é comigo.
+Dados de apoio:
+[cole]
+---- fim ----
+Exemplo: Entrada: "assinar um software jurídico de R$ 400 por mês; motivos: publicações automáticas, os sócios perdem tempo conferindo diário". Saída: três argumentos contra (custo anual de R$ 4.800 equivale a 73 horas de custo do escritório, a R$ 66,07; a rotina de segunda já confere; o problema pode ser de disciplina, não de ferramenta), o que estou ignorando (o teste gratuito), versão reversível (assinar por três meses com data de revisão) e o veredito.
+Confira: a decisão continua sua. Se ela envolve regra da OAB ou contrato, é assunto do seu jurídico, não da IA.
+
+========================================
+MODELO EM BRANCO PARA CRIAR OS SEUS
+========================================
+
+---- prompt: copie daqui ----
+Papel: você é [assistente de gestão de um escritório de advocacia; não dá orientação jurídica].
+Contexto: [quem sou, para quem é, o que já tenho].
+Tarefa: [o que fazer, em uma frase].
+Formato: [tabela, lista, e-mail, até N palavras].
+Regras: [o que não fazer; marque dúvidas com colchetes; use só os dados colados].
+Dados (sem nomes reais, sem número de processo real):
+[cole]
+---- fim ----
+Exemplo: Entrada: sócio da Ferraz & Lima; explicar à estagiária como preencher a aba Horas toda sexta; formato: passo a passo de 8 itens. Saída: lista de 8 passos com o que lançar, em que unidade e o que fazer quando não souber a qual caso a hora pertence.
+
+Suporte: suporte@seusociogestor.com.br · Reembolso em até 7 dias.

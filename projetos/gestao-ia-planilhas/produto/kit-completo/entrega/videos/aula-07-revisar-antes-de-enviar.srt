@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:04,901
+Aula sete. Revisar antes de enviar. Os
+erros que a IA comete com mais frequência e
+
+2
+00:00:04,901 --> 00:00:07,770
+os dois minutos que evitam o e-mail de
+correção.
+
+3
+00:00:08,870 --> 00:00:13,679
+A IA erra de cinco jeitos previsíveis.
+Inventa um número que não estava no bloco.
+
+4
+00:00:13,679 --> 00:00:17,419
+Troca o sinal, alta vira queda. Confunde
+mês anterior com meta.
+
+5
+00:00:17,419 --> 00:00:20,743
+Escreve com confiança o que devia estar
+entre colchetes.
+
+6
+00:00:20,743 --> 00:00:25,018
+E generaliza: todos os indicadores
+melhoraram, quando foram dez de doze.
+
+7
+00:00:25,018 --> 00:00:27,630
+Sabendo os cinco, você pega em dois
+minutos.
+
+8
+00:00:28,730 --> 00:00:33,381
+A regra mais simples e mais eficaz: leia o
+texto com a planilha aberta do lado.
+
+9
+00:00:33,381 --> 00:00:37,384
+Cada número que aparecer no texto, aponte
+a célula de onde ele veio.
+
+10
+00:00:37,384 --> 00:00:40,210
+Se não tem célula, é invenção. Apaga ou
+corrige.
+
+11
+00:00:41,310 --> 00:00:44,592
+A revisão da planilha está automatizada na
+Base Limpa:
+
+12
+00:00:44,592 --> 00:00:46,477
+o checklist conta os problemas.
+
+13
+00:00:46,477 --> 00:00:50,792
+Para as outras planilhas, o checklist de
+revisão do kit tem nove itens:
+
+14
+00:00:50,792 --> 00:00:55,594
+totais batem, fórmula igual do topo ao
+fim, sem total no meio, datas são datas,
+
+15
+00:00:55,594 --> 00:00:56,810
+categorias de lista.
+
+16
+00:00:57,910 --> 00:01:00,977
+Checklist do relatório. Primeira frase diz
+o principal.
+
+17
+00:01:00,977 --> 00:01:03,597
+Todo explicar resolvido. Cada número
+conferido.
+
+18
+00:01:03,597 --> 00:01:07,556
+Comparações dizem com o quê. Nenhuma frase
+que eu não saberia defender.
+
+19
+00:01:07,556 --> 00:01:10,679
+E leitura em voz alta uma vez: frase que
+embola na boca,
+
+20
+00:01:10,679 --> 00:01:12,240
+embola na cabeça de quem lê.
+
+21
+00:01:13,340 --> 00:01:17,394
+Para acelerar, o prompt Revisar zero três:
+cole a tabela e o texto,
+
+22
+00:01:17,394 --> 00:01:20,965
+e a IA compara número por número, listando
+as divergências.
+
+23
+00:01:20,965 --> 00:01:24,596
+Ela ajuda a revisar, mas a decisão final
+continua sendo sua:
+
+24
+00:01:24,596 --> 00:01:26,290
+a IA também erra ao revisar.
+
+25
+00:01:27,390 --> 00:01:30,330
+Checklist da apresentação. Títulos são
+conclusões.
+
+26
+00:01:30,330 --> 00:01:33,035
+Um gráfico por slide, letra maior que
+dezoito.
+
+27
+00:01:33,035 --> 00:01:36,210
+Tem slide de pontos de atenção. O último
+pede decisão.
+
+28
+00:01:36,210 --> 00:01:41,090
+E cronometrei: cabe em oitenta por cento
+do tempo da reunião, porque sempre atrasa.
+
+29
+00:01:42,190 --> 00:01:47,628
+E o envio. Destinatários, assunto e anexo
+certos, e o anexo aberto antes de enviar.
+
+30
+00:01:47,628 --> 00:01:51,756
+A versão do cliente sem número interno:
+custo, margem, salário.
+
+31
+00:01:51,756 --> 00:01:56,605
+E o nome do arquivo que faça sentido daqui
+a seis meses: cliente, assunto,
+
+32
+00:01:56,605 --> 00:01:57,260
+ano e mês.
+
+33
+00:01:58,360 --> 00:02:01,150
+Resumo da aula sete. Cinco erros
+previsíveis.
+
+34
+00:02:01,150 --> 00:02:03,196
+Cada número, um dedo na planilha.
+
+35
+00:02:03,196 --> 00:02:08,404
+Os quatro checklists estão no PDF do kit:
+planilha, relatório, apresentação e envio.
+
+36
+00:02:08,404 --> 00:02:09,520
+Dois minutos cada.

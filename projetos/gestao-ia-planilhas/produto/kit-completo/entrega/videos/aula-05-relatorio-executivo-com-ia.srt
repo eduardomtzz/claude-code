@@ -1,0 +1,195 @@
+1
+00:00:00,000 --> 00:00:02,393
+Aula cinco. Relatório executivo com IA.
+
+2
+00:00:02,393 --> 00:00:07,240
+Do bloco de números da planilha ao texto
+revisado, em quarenta e cinco minutos.
+
+3
+00:00:08,340 --> 00:00:10,539
+Começa no Relatório Mensal Pronto.
+
+4
+00:00:10,539 --> 00:00:15,391
+Doze indicadores digitados, e o Painel
+calcula mês, mês anterior, variação,
+
+5
+00:00:15,391 --> 00:00:18,302
+meta e situação. É daqui que saem os
+números.
+
+6
+00:00:18,302 --> 00:00:19,660
+Nunca da sua memória.
+
+7
+00:00:20,760 --> 00:00:26,023
+A aba Resumo escreve as frases-base:
+receita, cento e trinta e um mil e duzentos,
+
+8
+00:00:26,023 --> 00:00:30,442
+mais cinco por cento contra agosto, meta
+cento e vinte mil, no alvo.
+
+9
+00:00:30,442 --> 00:00:35,121
+E os destaques automáticos: maior alta,
+maior queda, mais longe da meta.
+
+10
+00:00:35,121 --> 00:00:37,590
+Lá embaixo, o bloco único para copiar.
+
+11
+00:00:38,690 --> 00:00:41,972
+Copie o bloco único e cole no prompt
+Escrever zero um.
+
+12
+00:00:41,972 --> 00:00:44,403
+Diga quem lê: diretoria, cliente, sócio.
+
+13
+00:00:44,403 --> 00:00:47,988
+E acrescente os seus comentários: o que
+aconteceu, por quê.
+
+14
+00:00:47,988 --> 00:00:52,850
+A estrutura já vem no prompt: resultado em
+uma frase, três destaques com número,
+
+15
+00:00:52,850 --> 00:00:56,010
+pontos de atenção com causa e ação,
+próximos passos.
+
+16
+00:00:57,110 --> 00:00:59,399
+A IA devolve o texto na estrutura pedida.
+
+17
+00:00:59,399 --> 00:01:03,029
+Repare nos colchetes com explicar: onde
+ela não tinha informação,
+
+18
+00:01:03,029 --> 00:01:06,546
+ela marca em vez de inventar. Isso está no
+prompt de propósito.
+
+19
+00:01:06,546 --> 00:01:09,450
+É a sua deixa para completar com o que só
+você sabe.
+
+20
+00:01:10,550 --> 00:01:13,939
+Para o relatório trimestral, ou quando uma
+página não basta,
+
+21
+00:01:13,939 --> 00:01:17,553
+o prompt Produzir catorze é a versão
+longa: seiscentas palavras,
+
+22
+00:01:17,553 --> 00:01:19,756
+com a seção do que explica o resultado,
+
+23
+00:01:19,756 --> 00:01:23,370
+o que vem no próximo período e a decisão
+que precisa ser tomada.
+
+24
+00:01:24,470 --> 00:01:27,123
+Revisão. Cada explicar preenchido ou
+apagado.
+
+25
+00:01:27,123 --> 00:01:30,838
+Cada número conferido na planilha, um por
+um; a IA troca sinal,
+
+26
+00:01:30,838 --> 00:01:34,080
+confunde alta com queda. Toda comparação
+diz com o quê.
+
+27
+00:01:34,080 --> 00:01:37,559
+E nenhuma frase que você não saberia
+defender numa reunião.
+
+28
+00:01:37,559 --> 00:01:39,210
+Se não sabe defender, apaga.
+
+29
+00:01:40,310 --> 00:01:43,123
+Quando o mês foi ruim, o prompt Produzir
+dezessete.
+
+30
+00:01:43,123 --> 00:01:47,316
+O número e a distância da meta na primeira
+frase, duas causas com evidência,
+
+31
+00:01:47,316 --> 00:01:51,067
+o que já foi feito, o que será feito, o
+que você precisa de quem lê.
+
+32
+00:01:51,067 --> 00:01:52,777
+Sem drama e sem culpar ninguém.
+
+33
+00:01:52,777 --> 00:01:57,190
+Resultado ruim bem comunicado dá mais
+credibilidade que resultado bom escondido.
+
+34
+00:01:58,290 --> 00:02:01,746
+Outro bloco pronto para a IA está na
+planilha Ata e Pendências:
+
+35
+00:02:01,746 --> 00:02:05,861
+a aba Resumo monta a reunião escolhida,
+decisões e pendências, em um bloco.
+
+36
+00:02:05,861 --> 00:02:09,372
+Com o prompt Escrever zero sete vira o
+resumo para quem não foi;
+
+37
+00:02:09,372 --> 00:02:11,950
+com o Escrever zero dois, o e-mail de
+cobrança.
+
+38
+00:02:13,050 --> 00:02:16,093
+Resumo da aula cinco. Planilha entrega os
+números.
+
+39
+00:02:16,093 --> 00:02:18,953
+Bloco único no prompt, com os seus
+comentários.
+
+40
+00:02:18,953 --> 00:02:22,848
+IA entrega as palavras. Você revisa cada
+número e cada explicar.
+
+41
+00:02:22,848 --> 00:02:25,830
+Na próxima aula, o mesmo bloco vira
+apresentação.
