@@ -97,7 +97,8 @@ for r in range(R0,RP+1):
     pc.cell(row=r,column=7,value=f'=IF(A{r}="","",COUNTIFS({AE},A{r},{AH},"Falta"))'); calc(pc.cell(row=r,column=7))
     mx=f'SUMPRODUCT(MAX(({AE}=A{r})*({AH}="Realizado")*{AA}))'
     pc.cell(row=r,column=8,value=f'=IF(A{r}="","",IF({mx}=0,"",{mx}))'); calc(pc.cell(row=r,column=8),DATA)
-    cond=f'(({AE}=A{r})*(({AH}="Agendado")+({AH}="Confirmado")))'
+    # (auditoria final G06) agendamento sem data não pode virar "próximo agendado = 0"
+    cond=f'(({AE}=A{r})*(({AH}="Agendado")+({AH}="Confirmado"))*({AA}>0))'
     mn=f'SUMPRODUCT(MIN({cond}*{AA}+(1-{cond})*1E+10))'
     pc.cell(row=r,column=9,value=f'=IF(A{r}="","",IF({mn}>=1E+10,"",{mn}))'); calc(pc.cell(row=r,column=9),DATA)
 dvpg=lista(PAG_L,strict=True); dvpg.add(f"B{R0}:B{RP}"); dvpp=lista(PROF_L,strict=True); dvpp.add(f"C{R0}:C{RP}")

@@ -73,7 +73,8 @@ kpi(p,4,1,"Horas no mês",f'=SUMIFS({HE},{HG},{M},{HH},{Y})',LAVANDA,UVA,fmt="#,
 kpi(p,4,3,"Custo no mês",f'=IF(SUMIFS({HJ},{HG},{M},{HH},{Y})>0,"{INC}",SUMIFS({HF},{HG},{M},{HH},{Y}))',LAVANDA,UVA,fmt=BRL0)
 kpi(p,4,5,"Horas faturáveis",f'=IFERROR(SUMIFS({HE},{HG},{M},{HH},{Y},{HI},"Sim")/A5,0)',VERDE,VERDE_T,fmt="0%")
 kpi(p,4,7,"Ocupação da equipe",f'=IFERROR(A5/SUMIFS(Config!$C$11:$C${10+NPES},Config!$A$11:$A${10+NPES},"<>"),0)',SOL,UVA,fmt="0%")
-p["A7"]=f'=IF(SUM({HJ})=0,"","Atenção: "&SUM({HJ})&" lançamento(s) de hora sem custo-hora (cadastro incompleto em Config). O custo desses lançamentos não está contado: o custo real é MAIOR e a margem real é MENOR do que qualquer soma parcial, por isso custo e margem dos projetos e pessoas afetados aparecem como \'{INC}\' até você completar o custo mensal e as horas disponíveis da pessoa.")'
+# (literal de fórmula tem limite de 255 caracteres no Excel: o texto vai em pedaços com &)
+p["A7"]=f'=IF(SUM({HJ})=0,"","Atenção: "&SUM({HJ})&" lançamento(s) de hora sem custo-hora (cadastro incompleto em Config). "&"O custo desses lançamentos não está contado: o custo real é MAIOR e a margem real é MENOR do que qualquer soma parcial, "&"por isso custo e margem dos projetos e pessoas afetados aparecem como \'{INC}\' até você completar o custo mensal e as horas disponíveis da pessoa.")'
 p["A7"].font=F(size=10,bold=True,color=VERM_T); p.merge_cells("A7:J7"); p["A7"].alignment=Alignment(wrap_text=True,vertical="top")
 p["A8"]="Por projeto (todo o período)"; p["A8"].font=F(bold=True,size=13,color=UVA)
 hdr(p,9,["Projeto","Cliente","Horas orçadas","Horas usadas","% do orçado","Custo (R$)","Valor cobrado","Margem (R$)","Margem (%)","Situação"])

@@ -56,7 +56,7 @@ for i,row in enumerate(ex):
         if v!="": pz.cell(row=R0+i,column=col,value=v)
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
-titulo(p,'=Config!$B$4&" · Painel de prazos · "&TEXT(Config!$B$5,"dd/mm/yyyy")',"Nada para digitar aqui: tudo vem de Config e Prazos. A planilha avisa; a conferência do prazo é de quem responde por ele.",merge_to="L")
+titulo(p,'=Config!$B$4&" · Painel de prazos · "&TEXT(DAY(Config!$B$5),"00")&"/"&TEXT(MONTH(Config!$B$5),"00")&"/"&YEAR(Config!$B$5)',"Nada para digitar aqui: tudo vem de Config e Prazos. A planilha avisa; a conferência do prazo é de quem responde por ele.",merge_to="L")
 PA=f"Prazos!$A${R0}:$A${RN}"; PB=f"Prazos!$B${R0}:$B${RN}"; PC=f"Prazos!$C${R0}:$C${RN}"; PD=f"Prazos!$D${R0}:$D${RN}"; PE_=f"Prazos!$E${R0}:$E${RN}"
 PF=f"Prazos!$F${R0}:$F${RN}"; PH=f"Prazos!$H${R0}:$H${RN}"; PI=f"Prazos!$I${R0}:$I${RN}"; PJ=f"Prazos!$J${R0}:$J${RN}"
 kpi(p,4,1,"Atrasados",f'=COUNTIFS({PI},"Atrasado")',VERM,VERM_T)

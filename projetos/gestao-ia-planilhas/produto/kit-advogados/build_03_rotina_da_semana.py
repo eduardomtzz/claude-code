@@ -78,7 +78,7 @@ for k in range(29,37):
         ro.cell(row=R0+i,column=C0+k-1,value="Sim" if rng_.random()<pr else "Não")
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
-titulo(p,'=Config!$B$4&" · Aderência à rotina · "&TEXT(Config!$B$5,"dd/mm/yyyy")',"Nada para digitar aqui: tudo vem de Config e Rotina. Aderência = rotinas feitas ÷ rotinas planejadas nas últimas 4 semanas registradas.",merge_to="H")
+titulo(p,'=Config!$B$4&" · Aderência à rotina · "&TEXT(DAY(Config!$B$5),"00")&"/"&TEXT(MONTH(Config!$B$5),"00")&"/"&YEAR(Config!$B$5)',"Nada para digitar aqui: tudo vem de Config e Rotina. Aderência = rotinas feitas ÷ rotinas planejadas nas últimas 4 semanas registradas.",merge_to="H")
 IDX=f"Rotina!${L(C0)}$2:${LW}$2"; DAT=f"Rotina!${L(C0)}$3:${LW}$3"; FEI=f"Rotina!${L(C0)}${RT}:${LW}${RT}"; REG=f"Rotina!${L(C0)}${RT+1}:${LW}${RT+1}"; PLA=f"Rotina!${L(C0)}${RT+2}:${LW}${RT+2}"; MIN_=f"Rotina!${L(C0)}${RT+4}:${LW}${RT+4}"
 # células de apoio (linha 3, discretas)
 p["J4"]="Última semana registrada"; p["K4"]=f'=SUMPRODUCT(MAX(({REG}>0)*{IDX}))'  # sem MÁXIMOSES (Excel 2016 e Google Sheets)
@@ -88,8 +88,8 @@ p["J7"]="Rotinas planejadas"; p["K7"]=f'=COUNTA(Rotina!$B${R0}:$B${RI})'
 for r in (4,5,6,7): nota(p.cell(row=r,column=10)); p.cell(row=r,column=11).font=F(size=9,color=LILAS); p.cell(row=r,column=11).alignment=Alignment(horizontal="center")
 ULT="$K$4"; CUR="$K$5"; NS="$K$6"; NPL="$K$7"
 kpi(p,4,1,"Aderência (últimas 4 semanas)",f'=IF(OR({ULT}=0,{NPL}=0),"",SUMPRODUCT(({IDX}>={ULT}-3)*({IDX}<={ULT})*{FEI})/({NS}*{NPL}))',LAVANDA,UVA,fmt="0%")
-kpi(p,4,3,"Semana atual",f'="S"&{CUR}&" · "&TEXT({INI}+7*({CUR}-1),"dd/mm")',SOL,UVA,fmt="@")
-kpi(p,4,5,"Última registrada",f'=IF({ULT}=0,"nenhuma","S"&{ULT}&" · "&TEXT({INI}+7*({ULT}-1),"dd/mm"))',LAVANDA,UVA,fmt="@")
+kpi(p,4,3,"Semana atual",f'="S"&{CUR}&" · "&TEXT(DAY({INI}+7*({CUR}-1)),"00")&"/"&TEXT(MONTH({INI}+7*({CUR}-1)),"00")',SOL,UVA,fmt="@")
+kpi(p,4,5,"Última registrada",f'=IF({ULT}=0,"nenhuma","S"&{ULT}&" · "&TEXT(DAY({INI}+7*({ULT}-1)),"00")&"/"&TEXT(MONTH({INI}+7*({ULT}-1)),"00"))',LAVANDA,UVA,fmt="@")
 kpi(p,4,7,"Minutos por semana",f'=SUM(Rotina!$C${R0}:$C${RI})',VERDE,VERDE_T)
 p["A7"]="Por dia da semana (últimas 4 semanas registradas)"; p["A7"].font=F(bold=True,size=13,color=UVA)
 hdr(p,8,["Dia","Rotinas","Minutos","Feitas","Planejadas","Aderência"])

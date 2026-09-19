@@ -26,7 +26,7 @@ quando um texto precisa dessa revisão).
 1. **Agenda que se mede.** Horas disponíveis × atendidas por profissional e sala, faltas e remarcações, lista de
    retorno. A rotina de segunda confere a semana; a de sexta fecha o caixa.
 2. **Preço pela hora, não pela tabela do vizinho.** Custo da hora de atendimento (fixo + equipe + pró-labore ÷
-   horas atendidas) + material + margem = preço de consulta e procedimento. Simulador convênio × particular com
+   horas de atendimento planejadas) + material + margem = preço de consulta e procedimento. Simulador convênio × particular com
    prazo de recebimento e glosa esperada.
 3. **Caixa com provisão e repasse.** Entradas por paciente, convênio e categoria; saídas; provisão de impostos, 13º e
    férias; repasse aos médicos parceiros e pró-labore separados; reserva de três meses de custo fixo.
@@ -57,7 +57,7 @@ Formato: Excel 2016+/Microsoft 365 e Google Sheets, só funções 2007+, fórmul
 preenchida ("Clínica Vida Plena", 2 sócios: Dra. Carolina Mendes, clínica médica, e Dr. Paulo Andrade, cardiologia;
 1 médica parceira por repasse, Dra. Renata Sousa, endocrinologia, 2 turnos por semana; 1 recepcionista, Bruna
 Carvalho; 3 convênios fictícios: Saúde Total, MediPlan, Vida Care; 156 pacientes fictícios), dados de setembro de
-2026 com agosto fechado, datas relativas a hoje onde houver agenda, aba "Como usar" em cada arquivo, formato
+2026 com agosto fechado, exemplo congelado em 14/09/2026, aba "Como usar" em cada arquivo, formato
 brasileiro, valores em cache. Só dados administrativos fictícios. **Nada clínico. O kit não é prontuário.**
 
 | Núcleo | # | Planilha | Resolve |

@@ -109,7 +109,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 - "Pró-labore dos sócios" inclui o pró-labore fixo (12.000/mês), as retiradas extras (Rafael 1.500 em 16/03; Marina 2.000 em 19/06) e a distribuição de lucro dos trimestres fechados (paga dia 10 do mês seguinte: 1º tri em abril, 2º tri em julho). "Outras saídas" = despesas pessoais dos sócios pagas pelo escritório (a acertar). "Outras entradas" = devolução de despesa pessoal (Marina, 480 em 14/04).
 - Guia de impostos: paga dia 20, 8 % das entradas do mês anterior (sem Outras entradas); janeiro sobre dezembro/2025 (fictício, base 20.600). A guia de setembro (20/09) ainda não foi paga.
-- Setembro: custos fixos com vencimento depois de 11/09 (telefone, anuidades, marketing, material), pró-labore (28/09) e a guia (20/09) estão como Pago? = Não → **A pagar {brl(W['09']['Painel']['K5'].value)}**. **A receber (Pago? = Não) {brl(W['09']['Painel']['I5'].value)}** = parcelas vencidas + a vencer até 30/09 (o cronograma completo fica na 14).
+- Setembro: custos fixos com vencimento depois de 11/09 (telefone, anuidades, marketing, material), pró-labore (28/09) e a guia (20/09) estão como Pago? = Não → **A pagar R$ 15.402**. **A receber (Pago? = Não) R$ 25.930** = parcelas vencidas + a vencer até 30/09 (o cronograma completo fica na 14).
 - **09 Painel (Config = Setembro)**: Entrou R$ 5.220 · Saiu R$ 5.320 · Sobrou −R$ 100 · Saldo acumulado **R$ 43.683** · A receber R$ 25.930 · A pagar R$ 15.402.
 | Por cliente (09, ano até 11/09) | Entrou no ano | A receber (Pago? = Não) | Custas pagas no ano |
 |---|---|---|---|
@@ -315,7 +315,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Ativo | 30 | R$ 307.900 | R$ 195.910 | R$ 111.990 | 64 % |
 | Encerrado | 8 | R$ 76.000 | R$ 76.000 | R$ 0 | 100 % |
 
-- A receber dos encerrados (1.400) = última parcela de Fernanda Castro, vencida em 13/02/2026 (também pendência de encerramento na 04).
+- A receber dos encerrados: R$ 0 (todos os casos encerrados estão quitados; o checklist da 04 não tem parcela pendente).
 | Cliente (13) | Tipo | Área | Casos | Ativos | Contratado | Recebido | A receber | Último caso aberto |
 |---|---|---|---|---|---|---|---|---|
 | Padaria do Sol Ltda | PJ | Empresarial | 2 | 1 | R$ 30.000 | R$ 16.500 | R$ 13.500 | 29/06/2026 |
@@ -481,7 +481,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Misto | R$ 4.500 + 15 % | R$ 9.450 | R$ 756 | R$ 3.952 | R$ 4.742 | 50 % | R$ 188 | Baixo |
 
 - Recomendação do simulador: **Hora** (margem esperada R$ 4.825, risco Baixo); fora por risco alto: Êxito. Texto do ponto de equilíbrio da hora: "Hora mínima sem prejuízo: R$ 81,05 (você cobra R$ 180,00)".
-- **Proposta 07 (nº 2026-023, 18/09/2026, válida por 15 dias até 03/10/2026, modalidade Misto)**: objeto "Acompanhamento da discussão sobre contrato de prestação de serviços, da análise inicial ao encerramento.".
+- **Proposta 07 (nº 2026-023, 19/09/2026, válida por 15 dias até 04/10/2026, modalidade Misto)**: objeto "Acompanhamento da discussão sobre contrato de prestação de serviços, da análise inicial ao encerramento.".
 | Etapa ou serviço (07) | O que inclui | Prazo previsto | Horas | Valor |
 |---|---|---|---|---|
 | Análise inicial e planejamento | Reunião, leitura dos documentos e definição da estratégia | até 15 dias | 8 | R$ 900 |
@@ -542,8 +542,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 
 (Valores como o Excel em português mostra; os separadores seguem o idioma do Excel.)
 - Destaques automáticos (lidos da 20, aba Resumo): • Maior melhora contra Julho: Horas faturáveis (+4,7 p.p.). • Maior piora contra Julho: Margem do mês (-7,1 p.p.). • Mais longe da meta: Vencido (parcelas em atraso) (+11,0% da meta, acima da meta). • Indicadores no alvo: 10 de 11 com meta.
-- Observações do escritório (célula amarela do exemplo): "Agosto fechou com quatro propostas novas viradas em caso (Escola Aurora, Loja Verde, Marcos Vinícius e a cobrança da Construtora entrou em julho); Bistrô 42 e Agência Prisma seguem com parcelas vencidas e entraram na régua de cobrança; o caso da Oficina (execução) e o recurso da Escola Aurora estouraram as horas estimadas."
-
+- Observações do escritório (célula amarela do exemplo, lida da 20): "Agosto fechou com três propostas novas viradas em caso (Escola Aurora, Loja Verde e Marcos Vinícius); a cobrança da Construtora já havia entrado em julho e não conta neste mês; Bistrô 42 e Agência Prisma seguem com parcelas vencidas e entraram na régua de cobrança; o caso da Oficina (execução) e o recurso da Escola Aurora estouraram as horas estimadas."
 ## 12. Histórico mensal (17 · Histórico; jan–ago = Painel mensal da 09 e 16, carteira no fim de cada mês; setembro = Dados)
 
 | Mês | Prazos hoje+7 | Atrasados | Horas | Faturáveis | % fat. | Entrou | Saiu | Sobrou | A receber | Vencido | Inadimpl. | Propostas abertas | Valor das propostas | Casos ativos |
@@ -563,4 +562,4 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 ## 13. Rotina (03) e checklist (04)
 
 - **03 Rotina**: 9 rotinas (4 de segunda = 12 min; 5 de sexta = 18 min; **30 min/semana**); registradas S29 a S36 (20/07 a 07/09/2026); semana atual S37 · 14/09; aderência nas últimas 4 semanas **83 %** (segunda 94 %, sexta 75 %); rotina mais pulada: "Enviar a cobrança educada das parcelas atrasadas" (1 de 4). Série S29–S36: 67 %, 78 %, 89 %, 89 %, 100 %, 78 %, 78 %, 78 %.
-- **04 Checklist**: casos cadastrados 38 · abertos com pendência de abertura 7 · encerrados com pendência 3 · itens pendentes no total **13** · casos sem pendência 28. Itens mais esquecidos: "Caso cadastrado no caixa e na carteira" (2) e, no encerramento, "Avaliação do cliente pedida" (2). Fernanda Castro (encerrado) pende "Última parcela cobrada e recebida" (a parcela vencida da 14).
+- **04 Checklist**: casos cadastrados 38 · abertos com pendência de abertura 7 · encerrados com pendência 3 · itens pendentes no total **12** · casos sem pendência 28. Itens mais esquecidos: "Caso cadastrado no caixa e na carteira" (2) e, no encerramento, "Avaliação do cliente pedida" (2). Fernanda Castro (encerrado) pende "Última parcela cobrada e recebida" (a parcela vencida da 14).

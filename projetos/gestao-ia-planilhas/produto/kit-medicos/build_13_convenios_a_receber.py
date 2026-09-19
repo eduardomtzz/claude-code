@@ -45,10 +45,12 @@ for r in range(R0,RNG+1):
     for c in range(1,10): inp(gu.cell(row=r,column=c),center=(c not in (3,5,6)))
     gu.cell(row=r,column=2).number_format=DATA; gu.cell(row=r,column=7).number_format=BRL0
     gu.cell(row=r,column=10,value=f'=IF(B{r}="","",DATE(YEAR(B{r}),MONTH(B{r}),1))'); calc(gu.cell(row=r,column=10),"mm/yyyy")
-    gu.cell(row=r,column=11,value=f'=IF(OR(B{r}="",D{r}=""),"",D{r}&"|"&TEXT(J{r},"yyyy-mm"))'); calc(gu.cell(row=r,column=11)); gu.cell(row=r,column=11).font=F(color=CINZA,size=9)
+    gu.cell(row=r,column=11,value=f'=IF(OR(B{r}="",D{r}=""),"",D{r}&"|"&YEAR(J{r})&"-"&TEXT(MONTH(J{r}),"00"))'); calc(gu.cell(row=r,column=11)); gu.cell(row=r,column=11).font=F(color=CINZA,size=9)
     gu.cell(row=r,column=12,value=f'=IF(K{r}="","",IFERROR(INDEX({LN},MATCH(K{r},{LK},0)),"Sem lote cadastrado"))'); calc(gu.cell(row=r,column=12))
     gu.cell(row=r,column=13,value=f'=IF(H{r}="Sim",G{r},0)'); calc(gu.cell(row=r,column=13),BRL0)
-    gu.cell(row=r,column=14,value=f'=IF(AND(H{r}="Sim",I{r}<>"Aceito"),G{r}+ROW()/100000,0)'); gu.cell(row=r,column=14).font=F(color=CINZA,size=9)
+    # chave INTEIRA (regra A): centavos × 1E+4 + linha; G + ROW()/1E5 empatava 380,00 na linha 5
+    # com 379,99 na linha 1005 e a lista de glosas repetia uma guia e escondia a outra (auditoria final)
+    gu.cell(row=r,column=14,value=f'=IF(AND(H{r}="Sim",I{r}<>"Aceito"),MIN(ROUND(N(G{r})*100,0),99999999)*1E+4+({RNG}+1-ROW()),0)'); gu.cell(row=r,column=14).font=F(color=CINZA,size=9)
 gu.column_dimensions["N"].hidden=True
 dvs=[(lista(CONV_L),f"D{R0}:D{RNG}"),(lista('"Sim"'),f"H{R0}:H{RNG}"),(lista('"Em recurso,Aceito,Negado"'),f"I{R0}:I{RNG}"),
      (DataValidation(type="date",operator="greaterThan",formula1="1",allow_blank=True,showErrorMessage=True),f"B{R0}:B{RNG}"),(DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True),f"G{R0}:G{RNG}")]
@@ -72,7 +74,7 @@ for r in range(R0,RNL+1):
     lo.cell(row=r,column=13,value=f'=IF(OR(A{r}="",F{r}=""),0,MAX(0,D{r}-G{r}))'); calc(lo.cell(row=r,column=13),BRL0)
     lo.cell(row=r,column=14,value=f'=IF(A{r}="","",IF(E{r}="","Em separação",IF(F{r}<>"",IF(H{r}="Em recurso","Em recurso",IF(M{r}>0,"Paga com glosa","Paga")),IF(L{r}+{TOL}<{HOJE},"Atrasada","Aguardando"))))'); calc(lo.cell(row=r,column=14))
     lo.cell(row=r,column=15,value=f'=IF(N{r}="Atrasada",{HOJE}-L{r},"")'); calc(lo.cell(row=r,column=15),"0")
-    lo.cell(row=r,column=16,value=f'=IF(OR(A{r}="",B{r}=""),"",A{r}&"|"&TEXT(B{r},"yyyy-mm"))'); calc(lo.cell(row=r,column=16)); lo.cell(row=r,column=16).font=F(color=CINZA,size=9)
+    lo.cell(row=r,column=16,value=f'=IF(OR(A{r}="",B{r}=""),"",A{r}&"|"&YEAR(B{r})&"-"&TEXT(MONTH(B{r}),"00"))'); calc(lo.cell(row=r,column=16)); lo.cell(row=r,column=16).font=F(color=CINZA,size=9)
     lo.cell(row=r,column=17,value=f'=IF(P{r}="","",IF(COUNTIF({GK},P{r})=0,"",SUMIFS({GG},{GK},P{r})))'); calc(lo.cell(row=r,column=17),BRL0)
     lo.cell(row=r,column=18,value=f'=IF(Q{r}="","",D{r}-Q{r})'); calc(lo.cell(row=r,column=18),BRL0)
     # chave INTEIRA. A anterior somava valor/1E+6 com ROW()/1E+8: um centavo de diferença

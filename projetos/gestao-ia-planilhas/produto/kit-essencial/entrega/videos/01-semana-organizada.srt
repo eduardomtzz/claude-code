@@ -1,75 +1,74 @@
 1
-00:00:00,000 --> 00:00:03,990
+00:00:00,000 --> 00:00:03,983
 Esta é a Semana Organizada, a primeira
 planilha do Kit IA no Trabalho.
 
 2
-00:00:03,990 --> 00:00:05,700
+00:00:03,983 --> 00:00:05,690
 Em quinze minutos você começa.
 
 3
-00:00:06,600 --> 00:00:11,451
+00:00:06,590 --> 00:00:11,436
 Na aba Tarefas, você preenche só as
 células amarelas: nome da tarefa, projeto,
 
 4
-00:00:11,451 --> 00:00:15,680
-responsável, prazo, impacto e urgência de
-um a três, horas e status.
+00:00:11,436 --> 00:00:15,660
+responsável, prazo, impacto e
+urgência de um a três, horas e status.
 
 5
-00:00:16,580 --> 00:00:20,309
-Prioridade, dias para o prazo e situação
-são calculados na hora.
+00:00:16,560 --> 00:00:20,336
+Prioridade, dias para o prazo e
+situação são calculados na hora.
 
 6
-00:00:20,309 --> 00:00:24,680
-Tarefa atrasada fica vermelha; a de hoje,
-amarela; o que está feito, cinza.
+00:00:20,336 --> 00:00:24,760
+Tarefa atrasada fica vermelha; a de
+hoje, amarela; o que está feito, cinza.
 
 7
-00:00:25,580 --> 00:00:27,431
+00:00:25,660 --> 00:00:27,516
 Na aba Hoje não se preenche nada.
 
 8
-00:00:27,431 --> 00:00:31,359
-O painel mostra atrasadas, para hoje, esta
-semana e o total em aberto,
+00:00:27,516 --> 00:00:31,452
+O painel mostra atrasadas, para hoje,
+esta semana e o total em aberto,
 
 9
-00:00:31,359 --> 00:00:34,220
-e a lista do que fazer primeiro, já na
-ordem certa.
+00:00:31,452 --> 00:00:34,320
+e a lista do que fazer
+primeiro, já na ordem certa.
 
 10
-00:00:35,120 --> 00:00:38,984
-Logo abaixo, a carga dos próximos sete
-dias contra a sua capacidade,
+00:00:35,220 --> 00:00:39,149
+Logo abaixo, a carga dos próximos
+sete dias contra a sua capacidade,
 
 11
-00:00:38,984 --> 00:00:42,280
-com um aviso quando o dia não cabe, e o
-resumo por pessoa.
+00:00:39,149 --> 00:00:42,500
+com um aviso quando o dia não
+cabe, e o resumo por pessoa.
 
 12
-00:00:43,180 --> 00:00:45,653
-Com o prompt Organizar zero um da
-biblioteca,
+00:00:43,400 --> 00:00:45,888
+Com o prompt Organizar zero um da biblioteca,
 
 13
-00:00:45,653 --> 00:00:48,896
-a IA transforma uma lista bagunçada nas
-linhas da planilha.
+00:00:45,888 --> 00:00:49,150
+a IA transforma uma lista
+bagunçada nas linhas da planilha.
 
 14
-00:00:48,896 --> 00:00:49,940
+00:00:49,150 --> 00:00:50,200
 Você cola e pronto.
 
 15
-00:00:50,840 --> 00:00:54,444
-Todo dia, marque o que foi feito. Toda
-sexta, revise os prazos.
+00:00:51,100 --> 00:00:54,773
+Todo dia, marque o que foi feito.
+Toda sexta, revise os prazos.
 
 16
-00:00:54,444 --> 00:00:56,560
+00:00:54,773 --> 00:00:56,930
 O mini-manual mostra o passo a passo.

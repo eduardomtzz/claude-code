@@ -48,9 +48,9 @@ tarefa administrativa, cliente inadimplente.
 
 ## Produto: 20 planilhas em 5 núcleos
 
-Formato: Excel 2019+/Microsoft 365 e Google Sheets, fórmulas protegidas sem senha, escritório fictício
+Formato: Excel 2016 ou mais novo (inclusive Microsoft 365) e Google Sheets, fórmulas protegidas sem senha, escritório fictício
 preenchido ("Ferraz & Lima Advocacia", 2 sócios, 1 estagiária, 38 casos (30 ativos), dados de setembro de
-2026, datas relativas a hoje onde houver prazo), aba "Como usar" em cada arquivo, formato brasileiro.
+2026, exemplo congelado em 14/09/2026; só a proposta 07 e o registro usam a data do dia), aba "Como usar" em cada arquivo, formato brasileiro.
 Só dados administrativos fictícios: nome de cliente inventado, número de processo inventado, valor e
 data. **Nada de conteúdo jurídico.**
 

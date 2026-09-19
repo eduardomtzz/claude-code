@@ -120,7 +120,7 @@ hdr(p,W0+1,["Semana","Segunda-feira","Realizados","Faltas","Taxa de falta","Canc
 for k in range(8):
     rr=W0+2+k; j=7-k
     p.cell(row=rr,column=2,value=f'={HOJE}-WEEKDAY({HOJE},2)+1-{7*j}'); calc(p.cell(row=rr,column=2),DATA)
-    p.cell(row=rr,column=1,value=f'="S"&TEXT(B{rr},"dd/mm")'); calc(p.cell(row=rr,column=1))
+    p.cell(row=rr,column=1,value=f'="S"&TEXT(DAY(B{rr}),"00")&"/"&TEXT(MONTH(B{rr}),"00")'); calc(p.cell(row=rr,column=1))
     for c,st in ((3,"Realizado"),(4,"Falta"),(6,"Cancelado"),(7,"Remarcado")):
         p.cell(row=rr,column=c,value=f'=COUNTIFS({A("A")},">="&B{rr},{A("A")},"<="&B{rr}+6,{A("H")},"{st}")'); calc(p.cell(row=rr,column=c))
     p.cell(row=rr,column=5,value=f'=IF(C{rr}+D{rr}=0,"",D{rr}/(C{rr}+D{rr}))'); calc(p.cell(row=rr,column=5),"0.0%")

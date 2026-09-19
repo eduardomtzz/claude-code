@@ -69,7 +69,7 @@ for i,c in enumerate(dados.CASOS):
         if v not in ("",None): ps.cell(row=r,column=col,value=v)
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
-titulo(p,'=Config!$B$4&" · Andamento dos processos · "&TEXT(Config!$B$5,"dd/mm/yyyy")',"Nada para digitar aqui: tudo vem de Config e Processos.",merge_to="L")
+titulo(p,'=Config!$B$4&" · Andamento dos processos · "&TEXT(DAY(Config!$B$5),"00")&"/"&TEXT(MONTH(Config!$B$5),"00")&"/"&YEAR(Config!$B$5)',"Nada para digitar aqui: tudo vem de Config e Processos.",merge_to="L")
 PA=f"Processos!$A${R0}:$A${RN}"; PB=f"Processos!$B${R0}:$B${RN}"; PC=f"Processos!$C${R0}:$C${RN}"; PD=f"Processos!$D${R0}:$D${RN}"; PE_=f"Processos!$E${R0}:$E${RN}"
 PF=f"Processos!$F${R0}:$F${RN}"; PG=f"Processos!$G${R0}:$G${RN}"; PH=f"Processos!$H${R0}:$H${RN}"; PK=f"Processos!$K${R0}:$K${RN}"; PL=f"Processos!$L${R0}:$L${RN}"; PM=f"Processos!$M${R0}:$M${RN}"; PN=f"Processos!$N${R0}:$N${RN}"
 kpi(p,4,1,"Casos ativos",f'=COUNTIFS({PA},"<>",{PD},"<>Encerrado")',LAVANDA,UVA)

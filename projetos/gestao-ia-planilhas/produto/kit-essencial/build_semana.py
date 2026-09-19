@@ -114,7 +114,7 @@ for i,row in enumerate(ex):
 # ---------- Hoje ----------
 h=wb.create_sheet("Hoje",0)
 h["A1"]="Hoje"; h["A1"].font=F(bold=True,size=18,color=UVA)
-h["A2"]="=\"Painel de \"&TEXT(Config!B4,\"dd/mm/yyyy\")&\". Nada para preencher aqui: tudo vem da aba Tarefas.\""; h["A2"].font=F(italic=True,size=10,color=LILAS)
+h["A2"]="=\"Painel de \"&TEXT(DAY(Config!B4),\"00\")&\"/\"&TEXT(MONTH(Config!B4),\"00\")&\"/\"&YEAR(Config!B4)&\". Nada para preencher aqui: tudo vem da aba Tarefas.\""; h["A2"].font=F(italic=True,size=10,color=LILAS)
 kpis=[("Atrasadas",'=COUNTIF(Tarefas!$L$4:$L$303,"Atrasada")',"FBE4E4","7A1F1F"),
       ("Para hoje",'=COUNTIF(Tarefas!$L$4:$L$303,"Hoje")',SOL,UVA),
       ("Esta semana",'=COUNTIF(Tarefas!$L$4:$L$303,"Esta semana")',LAVANDA,UVA),

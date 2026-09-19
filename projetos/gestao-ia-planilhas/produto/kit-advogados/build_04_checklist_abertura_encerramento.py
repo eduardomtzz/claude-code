@@ -85,7 +85,7 @@ for i,c in enumerate(dados.CASOS):
             if v: ck.cell(row=r,column=CE+j,value=v)
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
-titulo(p,'=Config!$B$4&" · Abertura e encerramento · "&TEXT(Config!$B$5,"dd/mm/yyyy")',"Nada para digitar aqui: tudo vem de Config e Checklist. Pendência = item de abertura (ou de encerramento, em caso encerrado) que não está marcado como Sim ou N/A.",merge_to="J")
+titulo(p,'=Config!$B$4&" · Abertura e encerramento · "&TEXT(DAY(Config!$B$5),"00")&"/"&TEXT(MONTH(Config!$B$5),"00")&"/"&YEAR(Config!$B$5)',"Nada para digitar aqui: tudo vem de Config e Checklist. Pendência = item de abertura (ou de encerramento, em caso encerrado) que não está marcado como Sim ou N/A.",merge_to="J")
 KA=f"Checklist!$A${R0}:$A${RN}"; KB=f"Checklist!$B${R0}:$B${RN}"; KC=f"Checklist!$C${R0}:$C${RN}"; KD=f"Checklist!$D${R0}:$D${RN}"
 KPA=f"Checklist!${L(CPA)}${R0}:${L(CPA)}${RN}"; KPE=f"Checklist!${L(CPE)}${R0}:${L(CPE)}${RN}"; KNA=f"Checklist!${L(CNA)}${R0}:${L(CNA)}${RN}"; KNE=f"Checklist!${L(CNE)}${R0}:${L(CNE)}${RN}"
 KT=f"Checklist!${L(CTOT)}${R0}:${L(CTOT)}${RN}"; KF=f"Checklist!${L(CFAL)}${R0}:${L(CFAL)}${RN}"; KK=f"Checklist!${L(CKEY)}${R0}:${L(CKEY)}${RN}"

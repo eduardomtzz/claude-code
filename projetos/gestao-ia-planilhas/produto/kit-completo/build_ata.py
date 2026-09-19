@@ -77,7 +77,7 @@ for i,row in enumerate(pend):
         if v is not None: pe.cell(row=R0+i,column=c,value=v)
 # ---------- Em aberto ----------
 p=wb.create_sheet("Em aberto",0)
-p["A1"]='=Config!B4&" · pendências em "&TEXT(Config!B5,"dd/mm/yyyy")'; p["A1"].font=F(bold=True,size=16,color=UVA); p.merge_cells("A1:H1")
+p["A1"]='=Config!B4&" · pendências em "&TEXT(DAY(Config!B5),"00")&"/"&TEXT(MONTH(Config!B5),"00")&"/"&YEAR(Config!B5)'; p["A1"].font=F(bold=True,size=16,color=UVA); p.merge_cells("A1:H1")
 p["A2"]="Nada para preencher aqui: tudo vem de Reuniões e Pendências."; nota(p["A2"]); p.merge_cells("A2:H2")
 PA=f"Pendências!$A${R0}:$A${RP}"; PB=f"Pendências!$B${R0}:$B${RP}"; PC=f"Pendências!$C${R0}:$C${RP}"; PD=f"Pendências!$D${R0}:$D${RP}"; PE_=f"Pendências!$E${R0}:$E${RP}"; PF=f"Pendências!$F${R0}:$F${RP}"; PH=f"Pendências!$H${R0}:$H${RP}"; PI=f"Pendências!$I${R0}:$I${RP}"; PJ=f"Pendências!$J${R0}:$J${RP}"
 kpi(p,4,1,"Abertas",f'=COUNTIFS({PB},"<>",{PF},"<>Feito")',LAVANDA,UVA)
@@ -146,13 +146,13 @@ s["A32"]="Bloco único para copiar"; s["A32"].font=F(bold=True,size=13,color=UVA
 # coluna H oculta, cumulativa linha a linha, e no fim se corta o separador sobrando.
 for k in range(1,21):
     r=10+k
-    item=(f'IF(B{r}="","",B{r}&" (dono: "&C{r}&"; prazo: "&IF(D{r}="","sem prazo",TEXT(D{r},"dd/mm"))'
+    item=(f'IF(B{r}="","",B{r}&" (dono: "&C{r}&"; prazo: "&IF(D{r}="","sem prazo",TEXT(DAY(D{r}),"00")&"/"&TEXT(MONTH(D{r}),"00"))'
           f'&IF(F{r}="Sem prazo","","; "&LOWER(F{r}))&") | ")')
     ant=f'H{r-1}' if k>1 else '""'
     s.cell(row=r,column=8,value=f'={ant}&{item}').font=F(color=CINZA,size=9)
 s.column_dimensions["H"].hidden=True
 pend='IF(LEN(H30)>3,LEFT(H30,LEN(H30)-3),"nenhuma")'
-s["A33"]=f'="Reunião: "&B5&" · "&TEXT(B4,"dd/mm/yyyy")&CHAR(10)&"Participantes: "&B6&CHAR(10)&"Decisões: "&B7&CHAR(10)&"Pendências: "&{pend}'
+s["A33"]=f'="Reunião: "&B5&" · "&TEXT(DAY(B4),"00")&"/"&TEXT(MONTH(B4),"00")&"/"&YEAR(B4)&CHAR(10)&"Participantes: "&B6&CHAR(10)&"Decisões: "&B7&CHAR(10)&"Pendências: "&{pend}'
 s["A33"].font=F(size=10,color=TINTA); s["A33"].alignment=Alignment(wrap_text=True,vertical="top"); s.merge_cells("A33:F40"); s["A33"].border=borda
 widths(s,(6,46,16,12,10,13)); s.sheet_view.showGridLines=False
 dvsel=lista(f"=Reuniões!$A${R0}:$A${RR}",strict=True); dvsel.add("B6"); cfg.add_data_validation(dvsel)

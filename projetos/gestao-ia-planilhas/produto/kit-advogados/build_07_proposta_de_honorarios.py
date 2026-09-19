@@ -60,9 +60,11 @@ TOT=f"$E${ST}"
 # condições
 Q0=ST+4
 p.cell(row=Q0-1,column=1,value="Condições de pagamento").font=F(bold=True,size=12,color=UVA)
-cond=[("Entrada (% do valor fixo)",0.40,PCT,"Entrada (R$)",f"={TOT}*B{Q0}",BRL),
+# Auditoria final (G05): entrada e parcela arredondadas ao centavo e a última parcela fecha a
+# diferença; 4.500 com 40 % em 7× dava 7 × 385,71 = 4.499,97 com "confere: Sim".
+cond=[("Entrada (% do valor fixo)",0.40,PCT,"Entrada (R$)",f"=ROUND({TOT}*B{Q0},2)",BRL),
       ("Parcelas do restante (1 a 12)",3,"0","Restante (R$)",f'=IF(AND(B{Q0+1}=0,{TOT}-E{Q0}>0),"ATENÇÃO: "&FIXED({TOT}-E{Q0},2)&" sem parcelas",{TOT}-E{Q0})',BRL),
-      ("Primeira parcela (dias após a entrada)",30,"0","Valor de cada parcela (R$)",f'=IF(B{Q0+1}=0,0,E{Q0+1}/B{Q0+1})',BRL),
+      ("Primeira parcela (dias após a entrada)",30,"0","Valor da parcela (R$; a última fecha o centavo)",f'=IF(B{Q0+1}=0,0,ROUND(E{Q0+1}/B{Q0+1},2))',BRL),
       ("Intervalo entre parcelas (dias)",30,"0","Forma de pagamento","Pix",None)]
 for i,(a,v,fa,d,e,fe) in enumerate(cond):
     r=Q0+i
@@ -90,7 +92,7 @@ for n in range(1,NPAR+1):
     r=K0+1+n
     p.cell(row=r,column=1,value=f'=IF({n}>{NPA},"","Parcela {n} de "&{NPA})'); calc(p.cell(row=r,column=1),center=False)
     p.cell(row=r,column=2,value=f'=IF({n}>{NPA},"",{DT}+{D1}+({n}-1)*{INT})'); calc(p.cell(row=r,column=2),DATA)
-    p.cell(row=r,column=3,value=f'=IF({n}>{NPA},"",{VPAR})'); calc(p.cell(row=r,column=3),BRL)
+    p.cell(row=r,column=3,value=f'=IF({n}>{NPA},"",IF({n}={NPA},$E${Q0+1}-{VPAR}*({NPA}-1),{VPAR}))'); calc(p.cell(row=r,column=3),BRL)
 KN=K0+1+NPAR
 p.cell(row=KN+1,column=1,value="Total"); rotulo(p.cell(row=KN+1,column=1)); p.cell(row=KN+1,column=1).border=borda
 p.cell(row=KN+1,column=3,value=f"=SUM(C{K0+1}:C{KN})"); calc(p.cell(row=KN+1,column=3),BRL); p.cell(row=KN+1,column=3).font=F(bold=True,color=UVA,size=10)

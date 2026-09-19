@@ -123,7 +123,7 @@ widths(h,[12]+[12]*14); h.freeze_panes="B5"; h.sheet_view.showGridLines=False
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
 p["A1"]='=Config!B4&" · Painel do escritório · "&Config!B5&" de "&Config!B6'; p["A1"].font=F(bold=True,size=16,color=UVA); p.merge_cells("A1:J1")
-p["A2"]='="Nada para digitar aqui. Os números vêm da aba Dados (atualizada toda sexta) e o mês anterior vem do Histórico. Referência: "&TEXT(Config!B7,"dd/mm/yyyy")&"."'; nota(p["A2"]); p.merge_cells("A2:J2")
+p["A2"]='="Nada para digitar aqui. Os números vêm da aba Dados (atualizada toda sexta) e o mês anterior vem do Histórico. Referência: "&TEXT(DAY(Config!B7),"00")&"/"&TEXT(MONTH(Config!B7),"00")&"/"&YEAR(Config!B7)&"."'; nota(p["A2"]); p.merge_cells("A2:J2")
 def dv_(k): return f"Dados!$B${ROW[k]}"
 def val(k): return f'=IF({dv_(k)}="","—",{dv_(k)})'
 tiles=[(4,[("prazos","Prazos hoje + 7 dias","#,##0"),("atras","Prazos atrasados","#,##0"),("horas","Horas do mês","#,##0.0"),("fatur","Horas faturáveis","#,##0.0"),("casos","Casos ativos","#,##0")]),

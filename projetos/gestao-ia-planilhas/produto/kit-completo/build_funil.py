@@ -49,7 +49,7 @@ pr.conditional_formatting.add(f"A{R0}:O{RN}", FormulaRule(formula=[f'$O{R0}="Per
 widths(pr,(22,30,14,12,13,16,12,13,13,13,20,11,14,9,16)); pr.freeze_panes="C5"; pr.sheet_view.showGridLines=False; pr.auto_filter.ref=f"A4:O{RN}"
 # ---------- Painel ----------
 p=wb.create_sheet("Painel",0)
-p["A1"]='=Config!B4&" · funil em "&TEXT(Config!B5,"dd/mm/yyyy")'; p["A1"].font=F(bold=True,size=16,color=UVA); p.merge_cells("A1:H1")
+p["A1"]='=Config!B4&" · funil em "&TEXT(DAY(Config!B5),"00")&"/"&TEXT(MONTH(Config!B5),"00")&"/"&YEAR(Config!B5)'; p["A1"].font=F(bold=True,size=16,color=UVA); p.merge_cells("A1:H1")
 p["A2"]="Nada para preencher aqui: tudo vem de Propostas."; nota(p["A2"]); p.merge_cells("A2:H2")
 PE=f"Propostas!$E${R0}:$E${RN}"; PF=f"Propostas!$F${R0}:$F${RN}"; PM=f"Propostas!$M${R0}:$M${RN}"; PO=f"Propostas!$O${R0}:$O${RN}"; PJ=f"Propostas!$J${R0}:$J${RN}"; PC=f"Propostas!$C${R0}:$C${RN}"; PK=f"Propostas!$K${R0}:$K${RN}"; PD=f"Propostas!$D${R0}:$D${RN}"; PA=f"Propostas!$A${R0}:$A${RN}"; PB=f"Propostas!$B${R0}:$B${RN}"; PN=f"Propostas!$N${R0}:$N${RN}"; PG=f"Propostas!$G${R0}:$G${RN}"
 ABERTA=f'{PF},"<>Ganha",{PF},"<>Perdida",{PF},"<>"'

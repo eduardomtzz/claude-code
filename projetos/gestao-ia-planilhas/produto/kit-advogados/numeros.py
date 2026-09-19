@@ -84,7 +84,7 @@ def sc(m,c):
 w(tab(["Mês"]+scats+["Total"],[(M[m-1],*[brl(sc(m,c)) for c in scats],brl(T[m]['sai_total'])) for m in range(1,10)]))
 w("- \"Pró-labore dos sócios\" inclui o pró-labore fixo (12.000/mês), as retiradas extras (Rafael 1.500 em 16/03; Marina 2.000 em 19/06) e a distribuição de lucro dos trimestres fechados (paga dia 10 do mês seguinte: 1º tri em abril, 2º tri em julho). \"Outras saídas\" = despesas pessoais dos sócios pagas pelo escritório (a acertar). \"Outras entradas\" = devolução de despesa pessoal (Marina, 480 em 14/04).")
 w("- Guia de impostos: paga dia 20, 8 % das entradas do mês anterior (sem Outras entradas); janeiro sobre dezembro/2025 (fictício, base 20.600). A guia de setembro (20/09) ainda não foi paga.")
-w("- Setembro: custos fixos com vencimento depois de 11/09 (telefone, anuidades, marketing, material), pró-labore (28/09) e a guia (20/09) estão como Pago? = Não → **A pagar {brl(W['09']['Painel']['K5'].value)}**. **A receber (Pago? = Não) {brl(W['09']['Painel']['I5'].value)}** = parcelas vencidas + a vencer até 30/09 (o cronograma completo fica na 14).")
+w(f"- Setembro: custos fixos com vencimento depois de 11/09 (telefone, anuidades, marketing, material), pró-labore (28/09) e a guia (20/09) estão como Pago? = Não → **A pagar {brl(W['09']['Painel']['K5'].value)}**. **A receber (Pago? = Não) {brl(W['09']['Painel']['I5'].value)}** = parcelas vencidas + a vencer até 30/09 (o cronograma completo fica na 14).")
 p09=W["09"]["Painel"]
 w(f"- **09 Painel (Config = Setembro)**: Entrou {brl(p09['A5'].value)} · Saiu {brl(p09['C5'].value)} · Sobrou {brl(p09['E5'].value)} · Saldo acumulado **{brl(p09['G5'].value)}** · A receber {brl(p09['I5'].value)} · A pagar {brl(p09['K5'].value)}.")
 w(tab(["Por cliente (09, ano até 11/09)","Entrou no ano","A receber (Pago? = Não)","Custas pagas no ano"],[(a,brl(c),brl(e),brl(f)) for a,b,c,e,f in [row(p09,r,(1,2,3,5,6)) for r in range(45,63)]]))
@@ -150,7 +150,8 @@ w(tab(["Responsável","Casos","Ativos","Contratado","Recebido","A receber","% re
 w(tab(["Modalidade","Casos","Ativos","Contratado","Recebido","A receber","% recebido"],[(a,b,c,brl(d),brl(e),brl(f),pct(g,0)) for a,b,c,d,e,f,g in [row(p13,r,(1,2,3,4,5,6,7)) for r in range(35,39)]]))
 w(tab(["#","Top 5 clientes","Tipo","Casos","Contratado","Recebido","A receber","% recebido"],[(a,b,c,d,brl(e),brl(f),brl(g),pct(h,0)) for a,b,c,d,e,f,g,h in [row(p13,r,(1,2,3,4,5,6,7,8)) for r in range(48,53)]]))
 w(tab(["Situação","Casos","Contratado","Recebido","A receber","% recebido"],[(a,b,brl(c),brl(d),brl(e),pct(f,0)) for a,b,c,d,e,f in [row(p13,r,(1,2,3,4,5,6)) for r in (56,57)]]))
-w("- A receber dos encerrados (1.400) = última parcela de Fernanda Castro, vencida em 13/02/2026 (também pendência de encerramento na 04).")
+_enc=row(p13,57,(1,2,3,4,5,6))
+w(f"- A receber dos encerrados: {brl(_enc[4])}" + (" (todos os casos encerrados estão quitados; o checklist da 04 não tem parcela pendente)." if not _enc[4] else " (ver a 14: parcelas em aberto de casos encerrados).") )
 w(tab(["Cliente (13)","Tipo","Área","Casos","Ativos","Contratado","Recebido","A receber","Último caso aberto"],[(a,b,c,d,e,brl(f),brl(g),brl(h),dt(j)) for a,b,c,d,e,f,g,h,i,j in [row(W["13"]["Clientes"],r,(1,2,3,4,5,6,7,8,9,10)) for r in range(5,23)]]))
 def acao(c):
     if c["fase"]=="Encerrado": return f"encerrado em {dt(c['encerramento'])}"
@@ -216,7 +217,8 @@ w("(Valores como o Excel em português mostra; os separadores seguem o idioma do
 _rs20=W["20"]["Resumo"]
 w("- Destaques automáticos (lidos da 20, aba Resumo): "+" ".join(
     str(_rs20.cell(row=r,column=1).value).strip() for r in range(22,26) if _rs20.cell(row=r,column=1).value))
-w("- Observações do escritório (célula amarela do exemplo): \"Agosto fechou com quatro propostas novas viradas em caso (Escola Aurora, Loja Verde, Marcos Vinícius e a cobrança da Construtora entrou em julho); Bistrô 42 e Agência Prisma seguem com parcelas vencidas e entraram na régua de cobrança; o caso da Oficina (execução) e o recurso da Escola Aurora estouraram as horas estimadas.\"\n")
+w("- Observações do escritório (célula amarela do exemplo, lida da 20): \""+str(_rs20["A6"].value)+"\"")
+if False: w("- Observações do escritório (célula amarela do exemplo): \"Agosto fechou com quatro propostas novas viradas em caso (Escola Aurora, Loja Verde, Marcos Vinícius e a cobrança da Construtora entrou em julho); Bistrô 42 e Agência Prisma seguem com parcelas vencidas e entraram na régua de cobrança; o caso da Oficina (execução) e o recurso da Escola Aurora estouraram as horas estimadas.\"\n")
 
 # ---------- 12. histórico 17 ----------
 h17=W["17"]["Histórico"]

@@ -211,6 +211,28 @@ for _k,_c in sorted(_casos.items()):
         check(f"cronograma do caso {_k} ({_c['cliente']}) entre fixo e contratado",
               _c["valor_fixo"]-0.01<=_t<=_c["valor_contratado"]+0.01,True)
 
+# ---------- auditoria final: G03 (checklist × parcelas quitadas) e G05 (cronograma em centavos)
+w04=wb("04"); ck=w04["Checklist"]; par=w14["Parcelas"]
+_pagas={}
+for r in range(5,par.max_row+1):
+    caso=par.cell(row=r,column=1).value
+    if caso: _pagas.setdefault(caso,[]).append(par.cell(row=r,column=6).value=="Sim")
+_c_ult=next(c for c in range(1,40) if ck.cell(row=4,column=c).value=="Última parcela cobrada e recebida")
+_n=0
+for r in range(5,ck.max_row+1):
+    caso=ck.cell(row=r,column=1).value
+    if caso and ck.cell(row=r,column=4).value=="Encerrado" and caso in _pagas and all(_pagas[caso]):
+        _n+=1; check(f"04 {ck.cell(row=r,column=2).value}: encerrado e quitado na 14 → 'Última parcela cobrada e recebida' = Sim",ck.cell(row=r,column=_c_ult).value,"Sim")
+check("04 há casos encerrados quitados conferidos",_n>0,True)
+p07=w07["Proposta"]
+_rt=next(r for r in range(20,60) if p07.cell(row=r,column=1).value=="Total")
+_tot07=next(p07.cell(row=r,column=5).value for r in range(10,24) if str(p07.cell(row=r,column=1).value or "").startswith("Total dos honorários fixos"))
+check("07 cronograma (entrada + parcelas) soma o valor da proposta",round(num(p07.cell(row=_rt,column=3).value),2),round(num(_tot07),2),tol=0.001)
+check("07 'Confere com o valor da proposta?' = Sim",p07.cell(row=_rt+1,column=3).value,"Sim")
+for r in range(_rt-13,_rt):
+    v=p07.cell(row=r,column=3).value
+    if isinstance(v,(int,float)): check(f"07 parcela da linha {r} em centavos",round(v,2),v,tol=1e-9)
+
 print(f"{OK} verificações OK, {len(FALHAS)} falhas")
 for f in FALHAS: print("  FALHA:", f)
 import sys as _sys; _sys.exit(1 if FALHAS else 0)

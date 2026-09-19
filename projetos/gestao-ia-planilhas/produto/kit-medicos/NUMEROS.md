@@ -407,8 +407,8 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Guias glosadas para recorrer (13 Painel) | Data | Paciente | Convênio | Procedimento | Profissional | Valor | Recurso |
 |---|---|---|---|---|---|---|---|
 | G2026-0577 | 09/07/2026 | Isabela Barbosa | Saúde Total | Avaliação endócrina | Dra. Renata Sousa | R$ 130 | — |
-| G2026-0495 | 18/06/2026 | Daniel Melo | Saúde Total | Consulta | Dra. Carolina Mendes | R$ 120 | Em recurso |
 | G2026-0481 | 16/06/2026 | Carlos Castro | Saúde Total | Consulta | Dra. Carolina Mendes | R$ 120 | Em recurso |
+| G2026-0495 | 18/06/2026 | Daniel Melo | Saúde Total | Consulta | Dra. Carolina Mendes | R$ 120 | Em recurso |
 | G2026-0483 | 16/06/2026 | Sérgio Teixeira | MediPlan | Consulta | Dr. Paulo Andrade | R$ 100 | — |
 | G2026-0582 | 10/07/2026 | Débora Machado | Saúde Total | ECG | Dr. Paulo Andrade | R$ 40 | — |
 | G2026-0527 | 25/06/2026 | Sérgio Batista | MediPlan | ECG | Dr. Paulo Andrade | R$ 35 | — |

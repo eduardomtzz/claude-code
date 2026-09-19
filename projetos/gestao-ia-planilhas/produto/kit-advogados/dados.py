@@ -180,7 +180,7 @@ _c("E08","Ana Beatriz Moreira","Trabalhista","Encerrado","Misto",3000,5500,D(202
    ("entrada",3000,D(2025,1,27),[],D(2026,3,20)))
 # pendências do checklist (04): índice do item de abertura / encerramento -> "Não" ou "" (vazio)
 PEND_ABERTURA={"A02":{0:"Não"},"A05":{4:""},"A15":{4:"Não"},"A20":{2:"Não"},"A22":{7:"",8:""},"A24":{1:"Não"},"A28":{3:"Não"}}
-PEND_ENCERRAMENTO={"E06":{0:"Não",5:"Não"},"E05":{2:"",5:"Não"},"E02":{3:"Não"}}
+PEND_ENCERRAMENTO={"E06":{5:"Não"},"E05":{2:"",5:"Não"},"E02":{3:"Não"}}
 # observações da aba Processos (02) para os casos parados ou aguardando algo
 OBS_ANDAMENTO={"A09":"Aguardando andamento da execução (penhora)","A22":"Aguardando designação da audiência","A24":"Aguardando homologação do acordo pelo juízo",
                "A27":"Aguardando andamento da execução","A16":"Cliente pediu para remarcar a reunião","A30":"Aguardando documentos do cliente","A18":"Aguardando documentos do cliente"}

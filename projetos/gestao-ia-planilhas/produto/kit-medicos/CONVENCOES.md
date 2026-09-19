@@ -120,7 +120,12 @@ B. **Número de exemplo nunca fica escrito dentro de texto.** Nota, "Como usar" 
    célula: `"... "&FIXED($B$13,0)&" ..."`. Texto com número cravado envelhece na primeira regeração
    ("julho R$ 31.591" contra B14 = 34.409; "caixa livre R$ 26.062 e 2,1 meses" contra 12.003 e 0,8).
    E **FIXED, nunca TEXT com código de formato**: `TEXT(x,"R$ #,##0")` tem o código traduzido pelo
-   idioma e devolve "R$ 29500,000" em pt-BR. TEXT só para data ("dd/mm/yyyy") e percentual ("0%").
+   idioma e devolve "R$ 29500,000" em pt-BR. TEXT só com código de DÍGITO ("0", "00", "000", "0%"),
+   que é igual em qualquer idioma. Data em texto é montada com
+   `TEXT(DAY(x),"00")&"/"&TEXT(MONTH(x),"00")&"/"&YEAR(x)` e chave de competência com
+   `YEAR(x)&"-"&TEXT(MONTH(x),"00")`: os códigos "dd/mm/yyyy" e "yyyy-mm" passam no LibreOffice e no
+   Sheets, mas o Excel em português espera "aaaa" — nunca ficou provado que "yyyy" funciona lá
+   (auditoria final, L01).
 
 C. **Nada de endereço de linha fixo em quem LÊ a planilha** (verifica_coerencia.py, numeros.py):
    achar pelo rótulo. Quando uma categoria saiu da receita da 18, a referência passou a dizer que a
@@ -136,8 +141,12 @@ D. **Regra condicional que aponta para outra aba vai embrulhada em INDIRECT**, f
 
 E. **Dado ausente não vira zero.** Custo mensal em branco não pode dar custo-hora zero (a hora
    trabalhada virava trabalho de graça e a margem do projeto subia); mês sem lançamento não fecha
-   trimestre nem libera lucro; sem horas estimadas o simulador não classifica risco. Em todos os
-   casos: pendência escrita na célula e aviso contado no painel.
+   trimestre nem libera lucro; sem horas estimadas o simulador não classifica risco; pró-labore,
+   horas ou custo-hora em branco nas 05 e 06 suspendem custo, preço, margem e risco com "cadastro
+   incompleto" / "falta o custo-hora"; data em branco não é atraso nem "próximo agendado = 0"; meta,
+   partida, atual ou sentido em branco viram "Faltam dados". Em todos os casos: pendência escrita
+   na célula e aviso contado no painel. E **parâmetro impossível não vira número**: imposto + margem
+   em 100 % ou mais dá "margens inválidas (Config)", nunca preço negativo (validação + guarda).
 
 F. **Lista suspensa bloqueante só onde o universo é fechado.** Paciente, serviço e outros campos de
    nome livre usam `strict=False`: a lista sugere. Bloquear impedia o cliente de redigitar o próprio
