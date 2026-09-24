@@ -20,8 +20,8 @@ for i,(a,v,fmt) in enumerate(campos):
 # alvo, soma de 100 %) viram "margens inválidas (Config)". Todas as saídas da tabela dependem de
 # B12/B13 e só calculam quando elas são números.
 _OK='IF(AND(ISNUMBER(B8),ISNUMBER(B9),ISNUMBER(B10),ISNUMBER(B11)),AND(B8>=0,B8<1,B9>=0,B9<=B10,B10<1,B8+B10<1,B11>=0),FALSE)'
-cfg["A12"]="Hora mínima com folga (20 % de horas não previstas) (R$)"; cfg["B12"]=f'=IF(NOT(ISNUMBER(B7)),"falta o custo-hora",IF({_OK},B7*(1+B11)/(1-B8-B9),"margens inválidas (Config)"))'
-cfg["A13"]="Hora alvo com folga (R$)"; cfg["B13"]=f'=IF(NOT(ISNUMBER(B7)),"falta o custo-hora",IF({_OK},B7*(1+B11)/(1-B8-B10),"margens inválidas (Config)"))'
+cfg["A12"]="Hora mínima com folga (20 % de horas não previstas) (R$)"; cfg["B12"]=f'=IF(NOT(IF(ISNUMBER(B7),B7>=0,FALSE)),"falta o custo-hora",IF({_OK},B7*(1+B11)/(1-B8-B9),"margens inválidas (Config)"))'
+cfg["A13"]="Hora alvo com folga (R$)"; cfg["B13"]=f'=IF(NOT(IF(ISNUMBER(B7),B7>=0,FALSE)),"falta o custo-hora",IF({_OK},B7*(1+B11)/(1-B8-B10),"margens inválidas (Config)"))'
 for _c,_f,_m in (("B8",'=IF(ISNUMBER(B8),AND(B8>=0,B8<1,B8+N(B10)<1),FALSE)',"Impostos entre 0 % e 99 %, e impostos + margem alvo abaixo de 100 %."),
                  ("B9",'=IF(ISNUMBER(B9),AND(B9>=0,B9<=N(B10),N(B8)+B9<1),FALSE)',"Margem mínima entre 0 % e a margem alvo, e impostos + margem abaixo de 100 %."),
                  ("B10",'=IF(ISNUMBER(B10),AND(B10>=N(B9),B10<1,N(B8)+B10<1),FALSE)',"Margem alvo entre a margem mínima e 99 %, e impostos + margem alvo abaixo de 100 %."),
@@ -82,12 +82,14 @@ kpi(p,4,9,"Valor por hora médio",f'=IF({KINV}>0,{MSGINC},IFERROR(SUM({KF})/SUM(
 p["A7"]="Faixa de referência por área e tipo de serviço"; p["A7"].font=F(bold=True,size=13,color=UVA)
 hdr(p,8,["Área","Tipo de serviço","Horas típicas · de","Horas típicas · até","Modalidade recomendada","Mínimo (R$)","Máximo (R$)","Ponto médio (R$)","Como usar a faixa"],height=32)
 T0=9; TN=T0+NREF-1
+# Auditoria final-6 (M02): faixa com "de" maior que "até" não vira mínimo acima do máximo: F e G avisam,
+# H fica vazio e I pede a correção.
 for r in range(T0,TN+1):
     inp(p.cell(row=r,column=1)); inp(p.cell(row=r,column=2)); inp(p.cell(row=r,column=3),"0",center=True); inp(p.cell(row=r,column=4),"0",center=True); inp(p.cell(row=r,column=5),center=True)
-    p.cell(row=r,column=6,value=f'=IF(OR(A{r}="",C{r}=""),"",IF(NOT(IF(ISNUMBER(C{r}),C{r}>=0,FALSE)),"horas inválidas",IF(ISNUMBER({HMIN}),C{r}*{HMIN},{HMIN})))'); calc(p.cell(row=r,column=6),BRL0)
-    p.cell(row=r,column=7,value=f'=IF(OR(A{r}="",D{r}=""),"",IF(NOT(IF(ISNUMBER(D{r}),D{r}>=0,FALSE)),"horas inválidas",IF(ISNUMBER({HALVO}),D{r}*{HALVO},{HALVO})))'); calc(p.cell(row=r,column=7),BRL0)
+    p.cell(row=r,column=6,value=f'=IF(OR(A{r}="",C{r}=""),"",IF(NOT(IF(ISNUMBER(C{r}),C{r}>=0,FALSE)),"horas inválidas",IF(AND(ISNUMBER(C{r}),ISNUMBER(D{r}),C{r}>D{r}),"faixa invertida (de > até)",IF(ISNUMBER({HMIN}),C{r}*{HMIN},{HMIN}))))'); calc(p.cell(row=r,column=6),BRL0)
+    p.cell(row=r,column=7,value=f'=IF(OR(A{r}="",D{r}=""),"",IF(NOT(IF(ISNUMBER(D{r}),D{r}>=0,FALSE)),"horas inválidas",IF(AND(ISNUMBER(C{r}),ISNUMBER(D{r}),C{r}>D{r}),"faixa invertida (de > até)",IF(ISNUMBER({HALVO}),D{r}*{HALVO},{HALVO}))))'); calc(p.cell(row=r,column=7),BRL0)
     p.cell(row=r,column=8,value=f'=IF(OR(NOT(ISNUMBER(F{r})),NOT(ISNUMBER(G{r}))),"",(F{r}+G{r})/2)'); calc(p.cell(row=r,column=8),BRL0)
-    p.cell(row=r,column=9,value=f'=IF(A{r}="","",IF(E{r}="Hora","Cobre a hora entre a mínima e a alvo; a faixa é o total esperado",IF(E{r}="Êxito","Percentual que, na chance esperada, fique dentro da faixa",IF(E{r}="Misto","Entrada perto do mínimo; o êxito leva ao máximo","Caso simples perto do mínimo; complexo perto do máximo"))))'); calc(p.cell(row=r,column=9),center=False); nota(p.cell(row=r,column=9))
+    p.cell(row=r,column=9,value=f'=IF(A{r}="","",IF(AND(ISNUMBER(C{r}),ISNUMBER(D{r}),C{r}>D{r}),"Corrija a faixa de horas: o de é maior que o até",IF(E{r}="Hora","Cobre a hora entre a mínima e a alvo; a faixa é o total esperado",IF(E{r}="Êxito","Percentual que, na chance esperada, fique dentro da faixa",IF(E{r}="Misto","Entrada perto do mínimo; o êxito leva ao máximo","Caso simples perto do mínimo; complexo perto do máximo")))))'); calc(p.cell(row=r,column=9),center=False); nota(p.cell(row=r,column=9))
 for dv,rng in ((lista(LST("E")),f"A{T0}:A{TN}"),(lista(LST("G")),f"B{T0}:B{TN}"),(lista(LST("I")),f"E{T0}:E{TN}")): dv.add(rng); p.add_data_validation(dv)
 p.cell(row=TN+1,column=1,value="Mínimo = horas de × hora mínima com folga. Máximo = horas até × hora alvo com folga (as duas incluem os 20 % de horas não previstas de Config; por isso a hora mínima daqui é maior que a da planilha 05). Abaixo do mínimo, o caso paga o custo mas não a margem que o escritório precisa.").font=F(size=9,color=LILAS)
 # comparação por área
@@ -147,4 +149,6 @@ como_usar(wb,"Tabela de referência de honorários",[
  ("Rotina","Revise a tabela a cada trimestre, junto com o custo-hora. Antes de aceitar caso novo, confira a faixa."),
  ("Com a IA","Copie \"O que cobramos hoje, por área\" e use o prompt \"Honorários 06 · Montar a tabela de referência interna\" da biblioteca do kit para apontar onde o escritório está cobrando abaixo do custo e sugerir uma conversa de reajuste. Os valores da tabela são do seu escritório, não uma tabela oficial."),
 ])
+# Auditoria final-6 (G01): custo-hora aceita só número >= 0 ao digitar; a fórmula também confere.
+_dvch=DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True,errorTitle="Custo-hora",error="Número maior ou igual a zero."); _dvch.add("B7"); cfg.add_data_validation(_dvch)
 proteger(wb); salvar(wb,"08-tabela-de-referencia.xlsx","Tabela de referência de honorários · Kit de Gestão para Advogados")

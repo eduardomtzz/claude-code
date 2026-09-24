@@ -49,7 +49,8 @@ for r in range(CF0,CFN+1):
     inp(cfx.cell(row=r,column=1)); inp(cfx.cell(row=r,column=2),BRL,center=True); inp(cfx.cell(row=r,column=3))
 cfx.cell(row=CFT,column=1,value="Total de custos fixos"); rotulo(cfx.cell(row=CFT,column=1)); cfx.cell(row=CFT,column=1).border=borda
 # Auditoria final-4 (F4-G01): custo fixo com nome e sem valor, ou com texto, não é zero
-cfx.cell(row=CFT,column=2,value=f'=IF(SUMPRODUCT(((A{CF0}:A{CFN}<>"")+(B{CF0}:B{CFN}<>"")>0)*((ISNUMBER(B{CF0}:B{CFN})=FALSE)+ISNUMBER(B{CF0}:B{CFN})*(B{CF0}:B{CFN}<0)>0))>0,"custo fixo sem valor numérico ou negativo",SUM(B{CF0}:B{CFN}))'); calc(cfx.cell(row=CFT,column=2),BRL); cfx.cell(row=CFT,column=2).font=F(bold=True,color=UVA,size=10)
+# Auditoria final-6 (varredura): custo fixo com dado e sem descrição também é incompleto (mesma regra de resíduo das pessoas)
+cfx.cell(row=CFT,column=2,value=f'=IF(SUMPRODUCT(((A{CF0}:A{CFN}<>"")+(B{CF0}:B{CFN}<>"")>0)*((A{CF0}:A{CFN}="")+(ISNUMBER(B{CF0}:B{CFN})=FALSE)+ISNUMBER(B{CF0}:B{CFN})*(B{CF0}:B{CFN}<0)>0))>0,"custo fixo sem descrição, sem valor numérico ou negativo",SUM(B{CF0}:B{CFN}))'); calc(cfx.cell(row=CFT,column=2),BRL); cfx.cell(row=CFT,column=2).font=F(bold=True,color=UVA,size=10)
 cfx.cell(row=CFT+2,column=1,value="Pró-labore dos sócios vai na aba Pessoas. Se alguém da equipe já aparece aqui (bolsa de estágio, salário), marque \"Sim\" na aba Pessoas para não contar duas vezes.").font=F(size=9,color=LILAS)
 widths(cfx,(38,18,50)); cfx.freeze_panes="A5"; cfx.sheet_view.showGridLines=False
 # ---------- Pessoas ----------
@@ -65,10 +66,10 @@ for r in range(P0,PN+1):
     # Auditoria final (G01): pró-labore ou horas em branco não viram custo zero — a pessoa
     # escreve o que falta, e a coluna K (oculta) marca a linha para o Painel suspender o
     # custo-hora, a hora mínima e a sensibilidade com "cadastro incompleto".
-    pes.cell(row=r,column=8,value=f'=IF(A{r}="","",IF(NOT(IF(ISNUMBER(C{r}),C{r}>=0,FALSE)),"falta o pró-labore",IF(AND(D{r}<>"Sim",D{r}<>"Não"),"falta: já está nos custos fixos?",IF(NOT(IF(ISNUMBER(F{r}),F{r}>0,FALSE)),"faltam as horas faturáveis",C{r}/F{r}))))'); calc(pes.cell(row=r,column=8),BRL)
+    pes.cell(row=r,column=8,value=f'=IF(NOT(OR(A{r}<>"",B{r}<>"",C{r}<>"",D{r}<>"",E{r}<>"",F{r}<>"")),"",IF(A{r}="","falta o nome",IF(NOT(IF(ISNUMBER(C{r}),C{r}>=0,FALSE)),"falta o pró-labore",IF(AND(D{r}<>"Sim",D{r}<>"Não"),"falta: já está nos custos fixos?",IF(NOT(IF(ISNUMBER(F{r}),F{r}>0,FALSE)),"faltam as horas faturáveis",C{r}/F{r})))))'); calc(pes.cell(row=r,column=8),BRL)
     pes.cell(row=r,column=9,value=f'=IF(H{r}="","",IF(NOT(ISNUMBER(H{r})),H{r},IF(NOT(ISNUMBER({IND_H})),{INC},H{r}+{IND_H})))'); calc(pes.cell(row=r,column=9),BRL)
     pes.cell(row=r,column=10,value=f'=IF(I{r}="","",IF(NOT(ISNUMBER(I{r})),I{r},IF({CFGX},{MINV},I{r}/{DIV})))'); calc(pes.cell(row=r,column=10),BRL)
-    pes.cell(row=r,column=11,value=f'=IF(AND(A{r}<>"",OR(NOT(IF(ISNUMBER(C{r}),C{r}>=0,FALSE)),NOT(IF(ISNUMBER(F{r}),F{r}>0,FALSE)),AND(D{r}<>"Sim",D{r}<>"Não"))),1,0)'); pes.cell(row=r,column=11).font=F(color=CINZA,size=9)
+    pes.cell(row=r,column=11,value=f'=IF(AND(OR(A{r}<>"",B{r}<>"",C{r}<>"",D{r}<>"",E{r}<>"",F{r}<>""),OR(A{r}="",NOT(IF(ISNUMBER(C{r}),C{r}>=0,FALSE)),NOT(IF(ISNUMBER(F{r}),F{r}>0,FALSE)),AND(D{r}<>"Sim",D{r}<>"Não"))),1,0)'); pes.cell(row=r,column=11).font=F(color=CINZA,size=9)
 dv=lista('"Sim,Não"'); dv.add(f"D{P0}:D{PN}"); pes.add_data_validation(dv)
 pes.cell(row=PN+2,column=1,value="Custo direto por hora = pró-labore ou salário ÷ horas faturáveis. Custo-hora completo = custo direto + rateio dos custos indiretos do escritório por hora faturável (o rateio é calculado no Painel). Hora mínima = custo-hora completo ÷ (1 − margem − impostos).").font=F(size=9,color=LILAS)
 pes.cell(row=PN+3,column=1,value="Horas de trabalho no mês: 160 para tempo integral; 120 para meio período. Horas faturáveis: uma média realista; 60% a 70% das horas de trabalho já é bom para quem também administra o escritório.").font=F(size=9,color=LILAS)
@@ -80,7 +81,7 @@ PC=f"Pessoas!$C${P0}:$C${PN}"; PD=f"Pessoas!$D${P0}:$D${PN}"; PE=f"Pessoas!$E${P
 FLAGP=f"SUM(Pessoas!$K${P0}:$K${PN})"   # pessoas com pró-labore, horas ou "já nos fixos?" em branco
 FLAGC=f"IF(ISNUMBER('Custos fixos'!$B${CFT}),0,1)"   # custo fixo sem valor numérico (auditoria final-4)
 FLAG=f"({FLAGP}+{FLAGC})"
-p["A6"]=(f'=IF({FLAG}=0,"",IF({FLAGC}>0,"Atenção: há custo fixo sem valor, com texto ou negativo na aba Custos fixos. ","")&IF({FLAGP}>0,"Atenção: "&{FLAGP}&" pessoa(s) na aba Pessoas com pró-labore, horas faturáveis ou \'já está nos custos fixos?\' em branco. ","")'
+p["A6"]=(f'=IF({FLAG}=0,"",IF({FLAGC}>0,"Atenção: há custo fixo sem descrição, sem valor, com texto ou negativo na aba Custos fixos. ","")&IF({FLAGP}>0,"Atenção: "&{FLAGP}&" pessoa(s) na aba Pessoas com pró-labore, horas faturáveis ou \'já está nos custos fixos?\' em branco. ","")'
          f'&"Custo do mês, custo-hora e hora mínima ficam como \'cadastro incompleto\' até você completar: uma soma parcial daria um custo-hora MENOR do que o real.")')
 p["A6"].font=F(size=10,bold=True,color=VERM_T); p.merge_cells("A6:J6"); p["A6"].alignment=Alignment(wrap_text=True,vertical="top")
 kpi(p,4,1,"Custo total do mês","=B11",LAVANDA,UVA,fmt=BRL0)
@@ -102,7 +103,7 @@ linhas=[
  ("Hora mínima a cobrar (arredondada)",'=IF(B16="","",IF(NOT(ISNUMBER(B16)),B16,IF(NOT(IF(ISNUMBER(Config!$B$9),Config!$B$9>0,FALSE)),"falta o múltiplo de arredondamento em Config",CEILING(B16,Config!$B$9))))',BRL,"Arredondada para cima, no múltiplo de Config"),
  ("Custos indiretos (custos fixos menos pessoas já contadas neles)",f'=IF({FLAG}>0,{INC},B9-SUMIFS({PC},{PD},"Sim"))',BRL,"Para ratear entre as pessoas"),
  ("Custo indireto por hora faturável",f'=IF({FLAG}>0,{INC},IF(B12=0,0,B18/B12))',BRL,"Custos indiretos ÷ horas faturáveis"),
- ("Horas de trabalho no mês (todas as pessoas)",f'=IF(SUMPRODUCT((Pessoas!$A${P0}:$A${PN}<>"")*((ISNUMBER({PE})=FALSE)+ISNUMBER({PE})*({PE}<0)>0))>0,"faltam horas de trabalho",SUM({PE}))',"#,##0","Aba Pessoas"),
+ ("Horas de trabalho no mês (todas as pessoas)",f'=IF({FLAG}>0,{INC},IF(SUMPRODUCT((Pessoas!$A${P0}:$A${PN}<>"")*((ISNUMBER({PE})=FALSE)+ISNUMBER({PE})*({PE}<0)>0))>0,"faltam horas de trabalho",SUM({PE})))',"#,##0","Aba Pessoas"),
  ("Tempo faturável planejado (horas faturáveis ÷ horas de trabalho)",'=IF(OR(NOT(ISNUMBER(B20)),N(B20)=0,NOT(ISNUMBER(B12))),"",B12/B20)',PCT,"Quanto do tempo pago vira hora cobrável (a planilha 16 mede o realizado contra a meta)"),
 ]
 for i,(a,f_,fmt,c) in enumerate(linhas):
@@ -119,7 +120,7 @@ hdr(p,r0+1,["Pessoa","Papel","Horas faturáveis","Ocupação","Custo direto por 
 for i in range(NP):
     r=r0+2+i; src=f"Pessoas!$A${P0+i}"
     p.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(p.cell(row=r,column=1),center=False)
-    p.cell(row=r,column=2,value=f'=IF({src}="","",Pessoas!$B${P0+i})'); calc(p.cell(row=r,column=2),center=False)
+    p.cell(row=r,column=2,value=f'=IF(OR({src}="",Pessoas!$B${P0+i}=""),"",Pessoas!$B${P0+i})'); calc(p.cell(row=r,column=2),center=False)
     p.cell(row=r,column=3,value=f'=IF(OR({src}="",Pessoas!$F${P0+i}=""),"",Pessoas!$F${P0+i})'); calc(p.cell(row=r,column=3),"#,##0")
     p.cell(row=r,column=4,value=f'=IF({src}="","",Pessoas!$G${P0+i})'); calc(p.cell(row=r,column=4),PCT)
     p.cell(row=r,column=5,value=f'=IF({src}="","",Pessoas!$H${P0+i})'); calc(p.cell(row=r,column=5),BRL)

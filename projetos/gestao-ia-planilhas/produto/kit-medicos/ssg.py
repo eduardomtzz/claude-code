@@ -124,5 +124,5 @@ def f_tempo(b,c,nret,dret):
             f'IF(AND({c}="Sim",NOT(AND({num_ok(nret)},{num_ok(dret)}))),"falta o retorno em Config",{b}+IF({c}="Sim",{nret}*{dret},0))))')
 def f_custo(tempo,material,ch):
     """Custo cheio = tempo ÷ 60 × custo-hora + material; tempo em texto passa adiante o que falta."""
-    return (f'IF(NOT(ISNUMBER({tempo})),{tempo},IF(NOT(ISNUMBER({ch})),"falta o custo-hora em Config",'
+    return (f'IF(NOT(ISNUMBER({tempo})),{tempo},IF(NOT({num_ok(ch)}),"falta o custo-hora em Config",'
             f'IF(NOT({num_ok(material)}),"falta o material",{tempo}/60*{ch}+{material})))')

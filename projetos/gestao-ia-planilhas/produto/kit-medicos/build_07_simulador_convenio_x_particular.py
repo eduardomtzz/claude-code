@@ -53,12 +53,14 @@ s["C8"]="Os valores de tabela do quadro 2 saem da planilha 08 · Tabela de preç
 dvp=lista(f"=OFFSET(Config!$A${Q0},0,0,MAX(1,COUNTA(Config!$A${Q0}:$A${QN})),1)"); dvp.add("B8"); s.add_data_validation(dvp)
 # Auditoria final-4 (F4-G01): célula vazia na Config do procedimento não vira 0 minutos, retorno
 # "Não" ou material zero; o INDEX devolve a célula e ISNUMBER diz se há número nela.
-campos=[("Minutos",f'=IFERROR(IF(ISNUMBER(INDEX(Config!$B${Q0}:$B${QN},MATCH(B8,{PROCS},0))),INDEX(Config!$B${Q0}:$B${QN},MATCH(B8,{PROCS},0)),"faltam os minutos em Config"),"")',"0"),
+# Auditoria final-6 (G05): minutos e material negativos na Config também são pendência (num_ok ≥ 0).
+IXB=f"INDEX(Config!$B${Q0}:$B${QN},MATCH(B8,{PROCS},0))"; IXD=f"INDEX(Config!$D${Q0}:$D${QN},MATCH(B8,{PROCS},0))"
+campos=[("Minutos",f'=IFERROR(IF({num_ok(IXB)},INDEX(Config!$B${Q0}:$B${QN},MATCH(B8,{PROCS},0)),"faltam os minutos em Config (número ≥ 0)"),"")',"0"),
         ("Gera retorno?",f'=IFERROR(IF(OR(INDEX(Config!$C${Q0}:$C${QN},MATCH(B8,{PROCS},0))="Sim",INDEX(Config!$C${Q0}:$C${QN},MATCH(B8,{PROCS},0))="Não"),INDEX(Config!$C${Q0}:$C${QN},MATCH(B8,{PROCS},0)),"falta: gera retorno? em Config"),"")',None),
-        ("Material (R$)",f'=IFERROR(IF(ISNUMBER(INDEX(Config!$D${Q0}:$D${QN},MATCH(B8,{PROCS},0))),INDEX(Config!$D${Q0}:$D${QN},MATCH(B8,{PROCS},0)),"falta o material em Config"),"")',BRL),
+        ("Material (R$)",f'=IFERROR(IF({num_ok(IXD)},INDEX(Config!$D${Q0}:$D${QN},MATCH(B8,{PROCS},0)),"falta o material em Config (número ≥ 0)"),"")',BRL),
         ("Tempo com retorno embutido (min)",f'=IF(B9="","",{f_tempo("B9","B10",NRET,DRET)})',"0.0"),
         ("Custo cheio do atendimento (R$)",f'=IF(B12="","",{f_custo("B12","B11",CH)})',BRL),
-        ("Hora mínima a cobrar (R$)",f'=IF(NOT(ISNUMBER({CH})),"falta o custo-hora em Config",IF({OKC},{CH}/(1-{IMP}-{MMIN}),"margens inválidas (Config)"))',BRL),
+        ("Hora mínima a cobrar (R$)",f'=IF(NOT(IF(ISNUMBER({CH}),{CH}>=0,FALSE)),"falta o custo-hora em Config",IF({OKC},{CH}/(1-{IMP}-{MMIN}),"margens inválidas (Config)"))',BRL),
         ("Preço mínimo deste procedimento (R$)",f'=IF(B13="","",IF(NOT(ISNUMBER(B13)),B13,IF({OKC},B13/(1-{IMP}-{MMIN}),"margens inválidas (Config)")))',BRL)]
 for i,(a,f_,fmt) in enumerate(campos):
     r=9+i; s.cell(row=r,column=1,value=a); rotulo(s.cell(row=r,column=1),bold=False); s.cell(row=r,column=1).border=borda; s.cell(row=r,column=2,value=f_); calc(s.cell(row=r,column=2),fmt)
@@ -76,7 +78,7 @@ for i in range(NPAG):
     inp(s.cell(row=r,column=2),BRL0,center=True)
     s.cell(row=r,column=3,value=f'=IF({src}="","",IF({num_ok(f"Config!$B${P0+i}")},Config!$B${P0+i},"falta o prazo"))'); calc(s.cell(row=r,column=3),"0")
     s.cell(row=r,column=4,value=f'=IF({src}="","",IF({num_ok(f"Config!$C${P0+i}","0","1")},Config!$C${P0+i},"falta a glosa"))'); calc(s.cell(row=r,column=4),"0.0%")
-    s.cell(row=r,column=5,value=f'=IF(OR({src}="",B{r}=""),"",IF(NOT({num_ok(f"B{r}")}),"valor inválido",IF(NOT(ISNUMBER(D{r})),D{r},B{r}*(1-D{r}))))'); calc(s.cell(row=r,column=5),BRL)
+    s.cell(row=r,column=5,value=f'=IF(B{r}="","",IF({src}="","pagador sem nome",IF(NOT({num_ok(f"B{r}")}),"valor inválido",IF(NOT(ISNUMBER(D{r})),D{r},B{r}*(1-D{r})))))'); calc(s.cell(row=r,column=5),BRL)
     s.cell(row=r,column=6,value=f'=IF(OR(NOT(ISNUMBER(E{r})),NOT(ISNUMBER(C{r}))),"",IF(C{r}=0,0,IF(NOT({num_ok(JUR)}),"",E{r}*{JUR}*C{r}/30)))'); calc(s.cell(row=r,column=6),BRL)
     s.cell(row=r,column=7,value=f'=IF(OR(NOT(ISNUMBER(E{r})),NOT({OKC})),"",E{r}*{IMP})'); calc(s.cell(row=r,column=7),BRL)
     s.cell(row=r,column=8,value=f'=IF(OR(NOT(ISNUMBER(E{r})),NOT(ISNUMBER(F{r})),NOT(ISNUMBER(G{r}))),"",E{r}-F{r}-G{r})'); calc(s.cell(row=r,column=8),BRL); s.cell(row=r,column=8).font=F(bold=True,color=UVA,size=10)
@@ -85,7 +87,7 @@ for i in range(NPAG):
     s.cell(row=r,column=11,value=f'=IF(OR(NOT(ISNUMBER(J{r})),N(B{r})=0),"",J{r}/B{r})'); calc(s.cell(row=r,column=11),PCT)
     s.cell(row=r,column=12,value=f'=IF(OR(NOT(ISNUMBER(H{r})),N({TEMPO})=0),"",H{r}/({TEMPO}/60))'); calc(s.cell(row=r,column=12),BRL)
     s.cell(row=r,column=13,value=f'=IF(OR(L{r}="",NOT(ISNUMBER({HMIN}))),"",IF({HMIN}=0,"sem base (mínimo zero)",L{r}/{HMIN}-1))'); calc(s.cell(row=r,column=13),"+0%;-0%;0%")
-    s.cell(row=r,column=14,value=f'=IF(E{r}="","",IF(NOT(ISNUMBER(E{r})),E{r},IF(NOT(ISNUMBER(C{r})),C{r},IF(AND(C{r}>0,NOT({num_ok(JUR)})),"falta o custo do dinheiro em Config",IF(NOT({OKC}),"Margens inválidas em Config",IF(NOT(ISNUMBER(I{r})),IF(ISNUMBER({CH}),"Faltam dados do procedimento em Config","Falta o custo-hora em Config"),IF(J{r}<0,"Não cobre o custo cheio",IF(K{r}<{MMIN},"Cobre o custo, não a margem mínima","Cobre custo e margem"))))))))'); calc(s.cell(row=r,column=14),center=False)
+    s.cell(row=r,column=14,value=f'=IF(E{r}="","",IF(NOT(ISNUMBER(E{r})),E{r},IF(NOT(ISNUMBER(C{r})),C{r},IF(AND(C{r}>0,NOT({num_ok(JUR)})),"falta o custo do dinheiro em Config",IF(NOT({OKC}),"Margens inválidas em Config",IF(NOT(ISNUMBER(I{r})),IF(IF(ISNUMBER({CH}),{CH}>=0,FALSE),"Faltam dados do procedimento em Config","Falta o custo-hora em Config"),IF(J{r}<0,"Não cobre o custo cheio",IF(K{r}<{MMIN},"Cobre o custo, não a margem mínima","Cobre custo e margem"))))))))'); calc(s.cell(row=r,column=14),center=False)
 s.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'AND(N{T0}<>"",N{T0}<>"Cobre o custo, não a margem mínima",N{T0}<>"Cobre custo e margem")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 s.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Cobre o custo, não a margem mínima"'], fill=fill(AMARELO)))
 s.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Cobre custo e margem"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
@@ -138,7 +140,7 @@ TXTB=f'SUMPRODUCT(({_R(2)}<>"")*((A{M0+3}:A{rt-1}="")+ISTEXT({_R(2)})+ISNUMBER({
 tot={2:f'=IF({TXTB}>0,"atendimentos inválidos ou sem pagador",SUM({_R(2)}))',
      3:f'=IF(OR(NOT(ISNUMBER(B{rt})),NOT(ISNUMBER({TEMPO}))),"",SUM({_R(3)}))',
      4:f'=IF(NOT({OKC}),"margens inválidas",IF({INCD}>0,"líquido incompleto em "&{INCD}&" pagador(es)",SUM({_R(4)})))',
-     5:f'=IF(NOT(ISNUMBER({CUSTO})),IF(ISNUMBER({CH}),"faltam dados do procedimento","falta o custo-hora"),IF({TXTB}>0,"atendimentos inválidos ou sem pagador",SUM({_R(5)})))',
+     5:f'=IF(NOT(ISNUMBER({CUSTO})),IF(IF(ISNUMBER({CH}),{CH}>=0,FALSE),"faltam dados do procedimento","falta o custo-hora"),IF({TXTB}>0,"atendimentos inválidos ou sem pagador",SUM({_R(5)})))',
      6:f'=IF(NOT(ISNUMBER(D{rt})),D{rt},IF(NOT(ISNUMBER(E{rt})),E{rt},SUM({_R(6)})))'}
 for c in (2,3,4,5,6):
     s.cell(row=rt,column=c,value=tot[c]); calc(s.cell(row=rt,column=c),"#,##0.0" if c==3 else ("0" if c==2 else BRL0)); s.cell(row=rt,column=c).font=F(bold=True,color=UVA,size=10)
@@ -152,7 +154,7 @@ kpi(s,4,5,"Particular · líquido por hora",f'=IF(L{T0}="","",L{T0})',VERDE,VERD
 LR=f"$L${T0+1}:$L${TN}"; AR=f"$A${T0+1}:$A${TN}"
 # Auditoria final-5 (F5-G02): convênio com tabela e sem líquido por hora conhecido impede apontar o
 # melhor e o pior: a comparação teria só uma parte dos participantes.
-INCL=f'SUMPRODUCT(({AR}<>"")*($B${T0+1}:$B${TN}<>"")*(ISNUMBER({LR})=FALSE))'
+INCL=f'SUMPRODUCT(($B${T0+1}:$B${TN}<>"")*(ISNUMBER({LR})=FALSE))'   # inclui tabela sem pagador identificado (auditoria final-6)
 
 kpi(s,4,7,"Melhor convênio (líquido/hora)",f'=IF({INCL}>0,"incompleto: "&{INCL}&" convênio(s) sem líquido",IFERROR(INDEX({AR},MATCH(MAX({LR}),{LR},0))&": R$ "&FIXED(MAX({LR}),0),""))',SOL,UVA,fmt="@",span=3)
 kpi(s,4,10,"Pior convênio (líquido/hora)",f'=IF({INCL}>0,"incompleto: "&{INCL}&" convênio(s) sem líquido",IFERROR(INDEX({AR},MATCH(MIN({LR}),{LR},0))&": R$ "&FIXED(MIN({LR}),0),""))',VERM,VERM_T,fmt="@",span=3)
@@ -175,4 +177,6 @@ como_usar(wb,"Simulador convênio × particular",[
  ("Rotina","Antes de renovar, aceitar ou descredenciar um convênio, e uma vez por semestre para os que já estão. Leva 15 minutos por procedimento. No exemplo: consulta, com as tabelas da 08 e as consultas realizadas em agosto."),
  ("Com a IA","Copie os quadros 2 e 3 e use o prompt \"Preço 03 · Vale a pena este convênio?\" da biblioteca do kit para preparar os argumentos da negociação de tabela (sem prometer descredenciamento: é decisão da clínica, com contrato)."),
 ])
+# Auditoria final-6 (G01): custo-hora aceita só número >= 0 ao digitar; a fórmula também confere.
+_dvch=DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True,errorTitle="Custo-hora",error="Número maior ou igual a zero."); _dvch.add("B5"); cfg.add_data_validation(_dvch)
 proteger(wb); salvar(wb,"07-simulador-convenio-x-particular.xlsx","Simulador convênio × particular · Kit de Gestão para Médicos")

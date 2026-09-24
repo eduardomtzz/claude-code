@@ -154,3 +154,16 @@ Config da 08 dos Advogados deixa os casos dela fora da lista: os cartões gerais
 incompleto. A varredura automática de entradas (vazio, texto e −1 em cada célula de entrada do
 exemplo, três linhas por coluna) roda depois de cada mudança e tem de terminar com zero mudança
 silenciosa fora dessas decisões.
+
+## Custo-hora, zero legítimo e faixas (auditoria final-6)
+
+O custo-hora é conferido como `ISNUMBER(custo-hora)` e custo-hora ≥ 0 em todos os consumidores
+(custo das horas, preço mínimo, comparação e recomendação), e a célula de entrada tem validação
+"número ≥ 0". Custo-hora zero continua valendo. Linha ativa é qualquer linha com algum campo
+preenchido, não só a que tem nome: "falta o nome" aparece na linha e os avisos do Painel contam
+o resíduo. Total bruto de despesas não soma por cima de despesa ativa sem valor, com texto ou
+negativa (mostra "despesa incompleta"); a resposta de reembolso só é exigida para o custo absorvido.
+Na tabela de referência (08), horas típicas "de" maior que "até" é faixa invertida: mínimo e
+máximo avisam, o ponto médio fica vazio e a instrução pede a correção. A varredura automática testa
+todas as células de entrada preenchidas (não mais três por coluna) e também acusa célula calculada
+que passa de vazia a número.

@@ -51,7 +51,8 @@ for r in range(CF0,CFN+1):
     inp(cfx.cell(row=r,column=1)); inp(cfx.cell(row=r,column=2),BRL,center=True); inp(cfx.cell(row=r,column=3))
 cfx.cell(row=CFT,column=1,value="Total de custos fixos"); rotulo(cfx.cell(row=CFT,column=1)); cfx.cell(row=CFT,column=1).border=borda
 # Auditoria final-4 (F4-G01): custo fixo com nome e sem valor, ou com texto, não é zero
-cfx.cell(row=CFT,column=2,value=f'=IF(SUMPRODUCT(((A{CF0}:A{CFN}<>"")+(B{CF0}:B{CFN}<>"")>0)*((ISNUMBER(B{CF0}:B{CFN})=FALSE)+ISNUMBER(B{CF0}:B{CFN})*(B{CF0}:B{CFN}<0)>0))>0,"custo fixo sem valor numérico ou negativo",SUM(B{CF0}:B{CFN}))'); calc(cfx.cell(row=CFT,column=2),BRL); cfx.cell(row=CFT,column=2).font=F(bold=True,color=UVA,size=10)
+# Auditoria final-6 (varredura): custo fixo com dado e sem descrição também é incompleto (mesma regra de resíduo das pessoas)
+cfx.cell(row=CFT,column=2,value=f'=IF(SUMPRODUCT(((A{CF0}:A{CFN}<>"")+(B{CF0}:B{CFN}<>"")>0)*((A{CF0}:A{CFN}="")+(ISNUMBER(B{CF0}:B{CFN})=FALSE)+ISNUMBER(B{CF0}:B{CFN})*(B{CF0}:B{CFN}<0)>0))>0,"custo fixo sem descrição, sem valor numérico ou negativo",SUM(B{CF0}:B{CFN}))'); calc(cfx.cell(row=CFT,column=2),BRL); cfx.cell(row=CFT,column=2).font=F(bold=True,color=UVA,size=10)
 cfx.cell(row=CFT+2,column=1,value="Pró-labore dos sócios vai na aba Equipe. Salário da recepção com encargos fica aqui (e marcado \"Sim\" na Equipe, para não contar duas vezes). Materiais de atendimento, taxas de cartão e repasse não são fixos: ficam na precificação (06) e no caixa (09).").font=F(size=9,color=LILAS)
 widths(cfx,(40,18,60)); cfx.freeze_panes="A5"; cfx.sheet_view.showGridLines=False
 # ---------- Equipe ----------
@@ -65,10 +66,10 @@ for r in range(P0,PN+1):
     # Auditoria final (G01): valor mensal ou horas em branco não viram custo zero — a linha
     # escreve o que falta e a coluna K (oculta) marca para o Painel suspender custo-hora,
     # hora mínima e sensibilidade com "cadastro incompleto".
-    eq.cell(row=r,column=8,value=f'=IF(A{r}="","",IF(AND(G{r}<>"Sim",G{r}<>"Não"),"falta: entra no custo-hora?",IF(G{r}<>"Sim","",IF(AND(E{r}<>"Sim",E{r}<>"Não"),"falta: já está nos custos fixos?",IF(NOT(IF(ISNUMBER(F{r}),F{r}>0,FALSE)),"faltam as horas planejadas",IF(AND(E{r}<>"Sim",NOT(IF(ISNUMBER(D{r}),D{r}>=0,FALSE))),"falta o valor mensal",IF(E{r}="Sim",0,D{r})/F{r}))))))'); calc(eq.cell(row=r,column=8),BRL)
+    eq.cell(row=r,column=8,value=f'=IF(NOT(OR(A{r}<>"",B{r}<>"",C{r}<>"",D{r}<>"",E{r}<>"",F{r}<>"",G{r}<>"")),"",IF(A{r}="","falta o nome",IF(AND(G{r}<>"Sim",G{r}<>"Não"),"falta: entra no custo-hora?",IF(G{r}<>"Sim","",IF(AND(E{r}<>"Sim",E{r}<>"Não"),"falta: já está nos custos fixos?",IF(NOT(IF(ISNUMBER(F{r}),F{r}>0,FALSE)),"faltam as horas planejadas",IF(AND(E{r}<>"Sim",NOT(IF(ISNUMBER(D{r}),D{r}>=0,FALSE))),"falta o valor mensal",IF(E{r}="Sim",0,D{r})/F{r})))))))'); calc(eq.cell(row=r,column=8),BRL)
     eq.cell(row=r,column=9,value=f'=IF(H{r}="","",IF(NOT(ISNUMBER(H{r})),H{r},IF(NOT(ISNUMBER({IND_H})),{INC},H{r}+{IND_H})))'); calc(eq.cell(row=r,column=9),BRL)
     eq.cell(row=r,column=10,value=f'=IF(I{r}="","",IF(NOT(ISNUMBER(I{r})),I{r},IF({CFGX},{MINV},I{r}/{DIV})))'); calc(eq.cell(row=r,column=10),BRL)
-    eq.cell(row=r,column=11,value=f'=IF(AND(A{r}<>"",OR(AND(G{r}<>"Sim",G{r}<>"Não"),AND(G{r}="Sim",OR(NOT(IF(ISNUMBER(F{r}),F{r}>0,FALSE)),AND(E{r}<>"Sim",E{r}<>"Não"),AND(E{r}<>"Sim",NOT(IF(ISNUMBER(D{r}),D{r}>=0,FALSE))))))),1,0)'); eq.cell(row=r,column=11).font=F(color=CINZA,size=9)
+    eq.cell(row=r,column=11,value=f'=IF(AND(OR(A{r}<>"",B{r}<>"",C{r}<>"",D{r}<>"",E{r}<>"",F{r}<>"",G{r}<>""),OR(A{r}="",AND(G{r}<>"Sim",G{r}<>"Não"),AND(G{r}="Sim",OR(NOT(IF(ISNUMBER(F{r}),F{r}>0,FALSE)),AND(E{r}<>"Sim",E{r}<>"Não"),AND(E{r}<>"Sim",NOT(IF(ISNUMBER(D{r}),D{r}>=0,FALSE))))))),1,0)'); eq.cell(row=r,column=11).font=F(color=CINZA,size=9)
 dv=lista('"Sim,Não"'); dv.add(f"E{P0}:E{PN}"); dv.add(f"G{P0}:G{PN}"); eq.add_data_validation(dv)
 dvr=lista('"Pró-labore,Salário,Repasse"'); dvr.add(f"C{P0}:C{PN}"); eq.add_data_validation(dvr)
 eq.cell(row=PN+2,column=1,value="Custo direto por hora = pró-labore ÷ horas de atendimento. Custo-hora completo = custo direto + rateio dos custos fixos por hora (calculado no Painel). Hora mínima = custo-hora completo ÷ (1 − margem − impostos).").font=F(size=9,color=LILAS)
@@ -87,7 +88,7 @@ kpi(p,4,5,"Custo da hora de atendimento","=B13",SOL,UVA,fmt=BRL)
 kpi(p,4,7,"Hora mínima a cobrar","=B17",VERDE,VERDE_T,fmt=BRL)
 kpi(p,4,9,"Custo de um horário vazio","=B21",VERM,VERM_T,fmt=BRL)
 p["A6"]="A base do custo-hora são as horas de atendimento PLANEJADAS do mês (turnos × 4,33 semanas): é o preço que cobre o custo quando a agenda está cheia, e é ele que as planilhas 06, 07 e 08 usam. Como a agenda real nunca fica 100 % cheia, o bloco \"Sensibilidade\", no fim desta tela, mostra o custo-hora com as horas de fato atendidas (a última linha usa agosto, da planilha 01): é o número da conversa sobre faltas e horários vazios, não o da tabela de preços."
-p["A3"]=(f'=IF({FLAG}=0,"",IF({FLAGC}>0,"Atenção: há custo fixo sem valor, com texto ou negativo na aba Custos fixos. ","")&IF({FLAGP}>0,"Atenção: "&{FLAGP}&" pessoa(s) na aba Equipe com valor mensal, horas ou marcação (entra no custo-hora? / já nos fixos?) em branco. ","")'
+p["A3"]=(f'=IF({FLAG}=0,"",IF({FLAGC}>0,"Atenção: há custo fixo sem descrição, sem valor, com texto ou negativo na aba Custos fixos. ","")&IF({FLAGP}>0,"Atenção: "&{FLAGP}&" pessoa(s) na aba Equipe com valor mensal, horas ou marcação (entra no custo-hora? / já nos fixos?) em branco. ","")'
          f'&"Custo do mês, custo-hora e hora mínima ficam como \'cadastro incompleto\' até você completar: soma parcial daria custo-hora MENOR do que o real.")')
 p["A3"].font=F(size=10,bold=True,color=VERM_T); p.merge_cells("A3:J3"); p["A3"].alignment=Alignment(wrap_text=True,vertical="top")
 
@@ -123,8 +124,8 @@ hdr(p,r0+1,["Pessoa","Papel","Remuneração","Horas planejadas","Custo direto po
 for i in range(NP):
     r=r0+2+i; src=f"Equipe!$A${P0+i}"
     p.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(p.cell(row=r,column=1),center=False)
-    p.cell(row=r,column=2,value=f'=IF({src}="","",Equipe!$B${P0+i})'); calc(p.cell(row=r,column=2),center=False)
-    p.cell(row=r,column=3,value=f'=IF({src}="","",Equipe!$C${P0+i})'); calc(p.cell(row=r,column=3))
+    p.cell(row=r,column=2,value=f'=IF(OR({src}="",Equipe!$B${P0+i}=""),"",Equipe!$B${P0+i})'); calc(p.cell(row=r,column=2),center=False)
+    p.cell(row=r,column=3,value=f'=IF(OR({src}="",Equipe!$C${P0+i}=""),"",Equipe!$C${P0+i})'); calc(p.cell(row=r,column=3))
     p.cell(row=r,column=4,value=f'=IF({src}="","",IF(Equipe!$F${P0+i}="","",Equipe!$F${P0+i}))'); calc(p.cell(row=r,column=4),"#,##0")
     for col,src_c in ((5,"H"),(6,"I"),(7,"J")):
         p.cell(row=r,column=col,value=f'=IF({src}="","",IF(Equipe!${src_c}${P0+i}="","—",Equipe!${src_c}${P0+i}))'); calc(p.cell(row=r,column=col),BRL)
