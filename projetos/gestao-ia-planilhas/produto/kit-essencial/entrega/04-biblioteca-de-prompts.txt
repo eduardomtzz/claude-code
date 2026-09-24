@@ -1,0 +1,277 @@
+BIBLIOTECA DE PROMPTS · KIT IA NO TRABALHO · ESSENCIAL · SEU SÓCIO GESTOR
+Copie o prompt, troque o que está entre colchetes, cole os seus dados no fim.
+
+======================================================================
+ORGANIZAR 01 · LISTA BAGUNÇADA VIRA TAREFAS PRONTAS
+----------------------------------------------------------------------
+Você é meu assistente de organização. Vou colar um texto bagunçado com coisas que preciso fazer.
+Transforme em uma tabela com as colunas: Tarefa | Projeto ou cliente | Responsável | Prazo | Impacto (1-3) | Urgência (1-3) | Horas estimadas.
+Regras: uma tarefa por linha, começando com verbo no infinitivo; se o prazo não estiver no texto, escreva "definir"; impacto 3 = afeta cliente ou receita, 1 = interno e pequeno; urgência 3 = vence esta semana, 1 = sem pressa; horas como sua melhor estimativa, entre 0,5 e 8. Hoje é [data]. Meu nome é [seu nome].
+Texto:
+[cole aqui]
+
+======================================================================
+ORGANIZAR 02 · DIA PLANEJADO EM BLOCOS
+----------------------------------------------------------------------
+Monte o meu dia de trabalho em blocos de tempo, das [hora de início] às [hora de fim], com almoço de [minutos] minutos. Coloque primeiro o que exige mais concentração. Tarefas de hoje, com horas estimadas:
+[cole as linhas da aba Hoje]
+Compromissos fixos: [ex.: reunião 14h às 15h].
+Se não couber tudo, diga o que ficaria para amanhã e por quê. Responda em tabela: Horário | Tarefa | Observação.
+
+======================================================================
+ORGANIZAR 03 · PRIORIDADE QUANDO TUDO PARECE URGENTE
+----------------------------------------------------------------------
+Ajude-me a priorizar. Para cada tarefa abaixo, classifique em uma das quatro caixas: Fazer agora (alto impacto, urgente), Agendar (alto impacto, não urgente), Delegar ou simplificar (baixo impacto, urgente), Cortar (baixo impacto, não urgente). Explique em uma frase por que cada uma caiu na caixa. No fim, diga as três que eu deveria fazer hoje.
+Contexto do meu trabalho: [uma frase sobre o que você faz e o que é mais importante este mês].
+Tarefas:
+[cole aqui]
+
+======================================================================
+ORGANIZAR 04 · ATA DE REUNIÃO EM 5 MINUTOS
+----------------------------------------------------------------------
+Transforme estas anotações em uma ata curta com quatro partes: Decisões tomadas; Tarefas (quem, o quê, até quando); Pendências sem dono; Próxima reunião. Use frases curtas. Não invente decisões que não estão no texto; se algo ficou ambíguo, marque com "[confirmar]".
+Reunião: [assunto], em [data], com [participantes por função, sem nomes se preferir].
+Anotações:
+[cole aqui]
+
+======================================================================
+ORGANIZAR 05 · SEMANA REVISADA NA SEXTA
+----------------------------------------------------------------------
+Faça a minha revisão semanal. Com a lista abaixo (tarefas feitas, atrasadas e para a próxima semana), responda: 1) o que andou de mais importante; 2) o que travou e a causa provável; 3) três ajustes simples para a próxima semana; 4) uma mensagem de duas linhas que eu possa mandar para [chefe/cliente/equipe] resumindo a semana. Tom direto, sem elogio vazio.
+Lista:
+[cole aqui]
+
+======================================================================
+ANALISAR 01 · O QUE ESSES NÚMEROS DIZEM
+----------------------------------------------------------------------
+Você é um analista objetivo. Vou colar uma tabela. Faça: 1) descreva em três frases o que a tabela mostra; 2) aponte os cinco fatos mais relevantes com os números; 3) liste anomalias ou valores que parecem errados; 4) diga o que você perguntaria antes de tirar conclusões. Não invente causas: separe claramente "o que os dados mostram" de "hipóteses".
+Contexto: [o que é a tabela, período, unidade dos valores].
+Tabela:
+[cole aqui]
+
+======================================================================
+ANALISAR 02 · COMPARAR DOIS PERÍODOS
+----------------------------------------------------------------------
+Compare os dois períodos abaixo, indicador por indicador. Para cada um: variação absoluta, variação percentual e um comentário de uma linha. Depois, os três maiores avanços, os três maiores recuos e uma conclusão de duas frases. Classifique os indicadores em "melhorou", "piorou" ou "estável" (estável = variação menor que [2]%). Lembre que para alguns indicadores menor é melhor: [liste quais].
+Período 1 ([nome]):
+[cole]
+Período 2 ([nome]):
+[cole]
+
+======================================================================
+ANALISAR 03 · ONDE CORTAR GASTOS
+----------------------------------------------------------------------
+Analise meus gastos por categoria e me ajude a decidir onde cortar sem prejudicar o essencial. Para cada categoria: é fixo ou variável? É essencial, importante ou supérfluo? Quanto seria realista reduzir em 30 dias e como? Depois, monte um plano com três cortes que somem pelo menos R$ [valor alvo] por mês, do mais fácil ao mais difícil. Seja específico e não moralize.
+Contexto: [pessoa ou negócio, renda média mensal, objetivo do corte].
+Gastos do mês:
+[cole aqui]
+
+======================================================================
+ANALISAR 04 · META REALISTA
+----------------------------------------------------------------------
+Com o histórico abaixo, sugira uma meta mensal para os próximos três meses em três cenários: conservador, provável e ambicioso. Explique o cálculo de cada um (média, tendência, sazonalidade). Diga o que precisaria acontecer para atingir o cenário ambicioso.
+Indicador: [nome, unidade, maior é melhor ou menor é melhor].
+Histórico mês a mês:
+[cole]
+
+======================================================================
+ANALISAR 05 · ACHAR O ERRO NA PLANILHA
+----------------------------------------------------------------------
+Vou colar um trecho de planilha em que algo não bate. Ajude-me a encontrar o erro: verifique somas, percentuais, sinais, unidades e valores repetidos ou faltando. Liste cada suspeita com a célula ou linha, o que esperava e o que encontrou. Se precisar de mais contexto, diga exatamente qual.
+O que eu esperava: [ex.: o total deveria ser 12.400].
+Trecho:
+[cole]
+
+======================================================================
+ANALISAR 06 · PERGUNTAS ANTES DE DECIDIR
+----------------------------------------------------------------------
+Vou tomar a decisão: [descreva]. Com os dados abaixo, liste: 1) o que os dados sustentam; 2) o que eles NÃO respondem; 3) cinco perguntas que eu deveria responder antes de decidir; 4) o pior cenário realista e como me proteger dele. Não me diga o que decidir; me ajude a pensar.
+Dados:
+[cole]
+
+======================================================================
+ANALISAR 07 · GRÁFICO CERTO PARA O DADO
+----------------------------------------------------------------------
+Quero mostrar [o que você quer que a pessoa entenda] para [público]. Os dados são: [descreva as colunas e o período]. Indique o tipo de gráfico mais adequado, o que vai em cada eixo, se precisa de linha de meta, e o título em uma frase que já diga a conclusão (ex.: "Receita cresceu 12% em setembro, puxada por serviços"). Diga também o que evitar (ex.: pizza com 12 fatias).
+
+======================================================================
+ANALISAR 08 · RESUMO EXECUTIVO DE UMA TABELA GRANDE
+----------------------------------------------------------------------
+Resuma a tabela abaixo em no máximo 120 palavras para alguém que tem um minuto: comece pela conclusão principal, dê os dois números que a sustentam, aponte o maior risco e termine com a ação recomendada. Sem adjetivos, sem introdução.
+Contexto: [o que é, período, unidade].
+Tabela:
+[cole]
+
+======================================================================
+ESCREVER 01 · RELATÓRIO EXECUTIVO A PARTIR DO RESUMO
+----------------------------------------------------------------------
+Escreva o relatório mensal para [quem lê: diretoria, cliente, sócio], em até 300 palavras, com a estrutura: Resultado do mês em uma frase; Destaques (3 tópicos com número); Pontos de atenção (até 3, com causa e ação); Próximos passos (3, com responsável e prazo). Tom profissional e direto, sem jargão. Use apenas os números abaixo; onde faltar explicação, escreva "[explicar]" para eu preencher.
+Meus comentários sobre o mês: [o que aconteceu, por quê].
+Números:
+[cole o bloco da aba Resumo]
+
+======================================================================
+ESCREVER 02 · E-MAIL CURTO QUE PEDE ALGO
+----------------------------------------------------------------------
+Escreva um e-mail de até 120 palavras para [pessoa e cargo] pedindo [o quê] até [prazo]. Comece pelo pedido na primeira frase, explique o motivo em duas linhas, diga o que acontece se não vier no prazo (sem ameaça) e termine com uma pergunta fechada. Assunto de até 8 palavras. Tom: [cordial e direto / formal].
+Contexto extra: [o que a pessoa já sabe].
+
+======================================================================
+ESCREVER 03 · RESPONDER UM E-MAIL DIFÍCIL
+----------------------------------------------------------------------
+Recebi o e-mail abaixo e preciso responder. Meu objetivo: [ex.: manter o cliente sem dar o desconto]. Minha posição: [o que posso e não posso ceder]. Escreva a resposta em até 150 palavras: reconheça o ponto da pessoa em uma frase, exponha a posição com clareza, ofereça uma alternativa concreta e feche com próximo passo. Sem pedir desculpas em excesso e sem tom defensivo.
+E-mail recebido (sem dados pessoais):
+[cole]
+
+======================================================================
+ESCREVER 04 · JUSTIFICATIVA PARA CHEFE OU CLIENTE
+----------------------------------------------------------------------
+Escreva uma justificativa de até 180 palavras para [quem] sobre [o fato]. Estrutura: o que aconteceu (fato, sem culpa); impacto real (prazo, custo, qualidade); o que já foi feito; o que proponho; o que preciso da pessoa. Tom responsável e objetivo, sem desculpas em cascata.
+Fatos:
+[cole]
+
+======================================================================
+ESCREVER 05 · EXPLICAR O MÊS FINANCEIRO PARA ALGUÉM
+----------------------------------------------------------------------
+Explique o resultado financeiro do mês para [quem, e o quanto entende de números], em até 200 palavras e linguagem simples: quanto entrou, quanto saiu, quanto sobrou, para onde foi a maior parte, o que mudou em relação ao mês anterior e uma decisão sugerida para o próximo mês. Sem termos técnicos.
+Números:
+[cole o painel]
+Contexto: [o que aconteceu de diferente no mês].
+
+======================================================================
+ESCREVER 06 · PROPOSTA COMERCIAL SIMPLES
+----------------------------------------------------------------------
+Escreva uma proposta de serviço de uma página para [cliente e ramo] com as seções: Entendimento do pedido (2 frases); O que será entregue (lista objetiva); O que não está incluído; Prazo; Investimento (R$ [valor], condições de pagamento [ex.: 50% na aprovação, 50% na entrega]); Validade da proposta ([dias]); Próximo passo. Tom profissional e claro. Não invente entregas além das listadas.
+O pedido do cliente: [descreva].
+O que vou entregar: [liste].
+
+======================================================================
+ESCREVER 07 · RESUMO DE REUNIÃO PARA QUEM NÃO FOI
+----------------------------------------------------------------------
+Escreva um resumo de até 150 palavras para [quem] que não participou da reunião sobre [assunto]. Comece com a decisão principal, depois o que muda para a pessoa, e o que ela precisa fazer (se algo). Anexe a lista de tarefas com prazo. Baseie-se só na ata abaixo.
+Ata:
+[cole]
+
+======================================================================
+ESCREVER 08 · TEXTO SIMPLIFICADO
+----------------------------------------------------------------------
+Reescreva o texto abaixo para ser lido em metade do tempo, mantendo todo o conteúdo factual: frases curtas, voz ativa, sem jargão, sem repetição. Marque entre colchetes qualquer trecho em que você teve dúvida do sentido. Mantenha o tom [formal/informal].
+Texto:
+[cole]
+
+======================================================================
+ESCREVER 09 · DESCRIÇÃO DE TAREFA PARA DELEGAR
+----------------------------------------------------------------------
+Escreva a descrição de uma tarefa para eu delegar a [quem, nível de experiência]. Estrutura: objetivo em uma frase; o que exatamente entregar (formato, tamanho, exemplo); como saberemos que está bom (3 critérios); o que evitar; prazo e onde entregar; a quem perguntar em caso de dúvida. Máximo 200 palavras.
+Tarefa: [descreva do seu jeito].
+
+======================================================================
+ESCREVER 10 · MENSAGEM DE COBRANÇA EDUCADA
+----------------------------------------------------------------------
+Escreva três versões de mensagem de cobrança para [cliente], sobre [o que, valor R$ [ ], vencido em [data]]: 1) lembrete amigável (primeiro contato); 2) segunda cobrança, firme e cordial; 3) última antes de suspender o serviço, clara e sem ameaça. Cada uma com até 80 palavras, com Pix/forma de pagamento e um caminho fácil para resolver. Tom respeitoso: presuma que foi esquecimento.
+
+======================================================================
+APRESENTAR 01 · ROTEIRO DE 8 SLIDES A PARTIR DO RESUMO
+----------------------------------------------------------------------
+Monte o roteiro de uma apresentação de 8 slides sobre os resultados de [mês] para [público], usando só os números abaixo. Para cada slide: título em uma frase que já diga a conclusão; 3 tópicos curtos; o gráfico ou número em destaque; uma frase do que eu falo. Estrutura: 1 capa; 2 resumo do mês; 3 destaque positivo; 4 destaque positivo; 5 ponto de atenção; 6 ponto de atenção; 7 próximos passos; 8 pedido ou decisão necessária. Onde faltar explicação, escreva "[explicar]".
+Meus comentários: [o que aconteceu].
+Números:
+[cole]
+
+======================================================================
+APRESENTAR 02 · FALA DE ABERTURA DE 60 SEGUNDOS
+----------------------------------------------------------------------
+Escreva o que eu digo nos primeiros 60 segundos da apresentação sobre [assunto] para [público]: o que vamos ver, por que importa para eles, qual a decisão que preciso no fim, e quanto tempo vai durar. Máximo 120 palavras, linguagem falada, sem "bom dia a todos" genérico.
+
+======================================================================
+APRESENTAR 03 · PERGUNTAS PROVÁVEIS E RESPOSTAS
+----------------------------------------------------------------------
+Com base no roteiro abaixo, liste as 8 perguntas mais prováveis de [público] e uma resposta curta e honesta para cada, incluindo o que dizer quando eu não souber. Marque as 3 mais difíceis.
+Roteiro:
+[cole]
+
+======================================================================
+APRESENTAR 04 · UM SLIDE QUE EXPLICA TUDO
+----------------------------------------------------------------------
+Condense o assunto abaixo em UM slide: título-conclusão (até 12 palavras), três tópicos com número, um gráfico sugerido (tipo e o que mostra) e uma frase de pedido. Máximo 60 palavras no slide.
+Assunto e dados:
+[cole]
+
+======================================================================
+APRESENTAR 05 · TRANSFORMAR RELATÓRIO EM APRESENTAÇÃO
+----------------------------------------------------------------------
+Transforme o relatório abaixo em uma apresentação de [n] slides. Um tema por slide, título-conclusão, no máximo 25 palavras por slide, e uma nota do apresentador com o que falar (até 40 palavras). Corte tudo que não muda uma decisão.
+Relatório:
+[cole]
+
+======================================================================
+APRESENTAR 06 · FEEDBACK DO MEU ROTEIRO
+----------------------------------------------------------------------
+Aja como um diretor exigente que vai assistir a esta apresentação. Aponte: onde perco a atenção; o que está em ordem errada; frases vagas e como torná-las concretas; slides que podem ser cortados; a pergunta desconfortável que você faria. Seja específico e direto.
+Roteiro:
+[cole]
+
+======================================================================
+REVISAR 01 · REVISÃO DE TEXTO ANTES DE ENVIAR
+----------------------------------------------------------------------
+Revise o texto abaixo em três passes: 1) erros de português e digitação (liste com correção); 2) clareza (frases que podem ser mal entendidas, com sugestão); 3) tom (algo que pode soar rude, defensivo ou exagerado). Não reescreva tudo; aponte e sugira. Português do Brasil.
+Texto:
+[cole]
+
+======================================================================
+REVISAR 02 · CONFERIR UMA CONTA DE PORCENTAGEM OU VARIAÇÃO
+----------------------------------------------------------------------
+Confira os cálculos abaixo. Para cada linha, refaça a conta passo a passo e diga se está certa; se não, dê o valor correto. Explique a diferença entre variação percentual e pontos percentuais quando aparecer.
+Cálculos:
+[cole]
+
+======================================================================
+REVISAR 03 · CHECAR CONSISTÊNCIA ENTRE PLANILHA E TEXTO
+----------------------------------------------------------------------
+Compare os números do texto com os da tabela e liste toda divergência (número no texto, número na tabela, onde). Aponte também números citados no texto que não existem na tabela.
+Texto:
+[cole]
+Tabela:
+[cole]
+
+======================================================================
+REVISAR 04 · SIMPLIFICAR UMA FÓRMULA OU EXPLICAR O QUE ELA FAZ
+----------------------------------------------------------------------
+Explique em português simples o que esta fórmula de planilha faz, passo a passo, e diga se há uma forma mais simples ou mais segura de escrevê-la (compatível com Excel e Google Sheets). Aponte casos em que ela pode dar erro (célula vazia, divisão por zero, texto no lugar de número).
+Fórmula:
+[cole]
+
+======================================================================
+REVISAR 05 · CHECKLIST ANTES DE ENTREGAR
+----------------------------------------------------------------------
+Monte um checklist de verificação para [o que vou entregar: relatório, planilha, apresentação, proposta] para [público], com no máximo 12 itens, do mais crítico ao menos crítico. Inclua itens de número, de texto, de formato e de envio (destinatário, anexo, assunto).
+
+======================================================================
+REVISAR 06 · SEGUNDA OPINIÃO SOBRE UMA DECISÃO
+----------------------------------------------------------------------
+Vou tomar a decisão: [descreva]. Meus motivos: [liste]. Faça o papel do advogado do diabo: os três melhores argumentos contra, o que eu posso estar ignorando, e uma versão menor ou reversível da mesma decisão. Depois, diga honestamente se os argumentos contra são fortes ou fracos.
+
+======================================================================
+APRENDER 01 · EXPLICAR UM TERMO DE PLANILHA OU DE GESTÃO
+----------------------------------------------------------------------
+Explique "[termo]" para alguém que nunca estudou gestão, em até 100 palavras, com um exemplo do dia a dia de [seu tipo de trabalho]. Depois dê a definição técnica em uma frase.
+
+======================================================================
+APRENDER 02 · MONTAR UMA TABELA DINÂMICA (PASSO A PASSO)
+----------------------------------------------------------------------
+Tenho uma tabela com as colunas [liste] no [Excel/Google Sheets]. Quero ver [ex.: total de vendas por mês e por vendedor]. Me dê o passo a passo, clique por clique, para montar uma tabela dinâmica que mostre isso, e diga como atualizar quando eu incluir dados novos.
+
+======================================================================
+APRENDER 03 · ESCOLHER A FUNÇÃO CERTA
+----------------------------------------------------------------------
+No [Excel/Google Sheets], preciso [descreva o que quer calcular, com exemplo de entrada e saída]. Diga qual função usar, escreva a fórmula pronta para as células [ex.: valores em B2:B50, categorias em A2:A50], explique cada parte e dê uma alternativa mais simples se existir. Evite funções que só existem nas versões mais novas.
+
+======================================================================
+APRENDER 04 · PLANO DE ESTUDO DE 4 SEMANAS
+----------------------------------------------------------------------
+Monte um plano de 4 semanas, com 30 minutos por dia, para eu aprender [tema, ex.: fórmulas essenciais de planilha / apresentações objetivas / usar IA no trabalho] partindo de [nível]. Cada semana: objetivo, o que praticar por dia, um exercício com meus próprios dados e como saber que aprendi. Sem cursos pagos.
+
+======================================================================
+APRENDER 05 · COMO EXPLICAR MEU TRABALHO COM NÚMEROS
+----------------------------------------------------------------------
+Trabalho como [função] e preciso mostrar meu valor para [chefe/cliente] com números. Sugira 6 indicadores que eu consiga medir sozinho com uma planilha simples, como calcular cada um, com que frequência olhar e o que seria um bom resultado. Explique em linguagem simples.

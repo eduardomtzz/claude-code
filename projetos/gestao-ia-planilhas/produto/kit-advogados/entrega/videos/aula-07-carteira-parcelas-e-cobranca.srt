@@ -1,0 +1,212 @@
+1
+00:00:00,000 --> 00:00:03,072
+Aula sete. Carteira,
+parcelas e cobrança educada.
+
+2
+00:00:03,072 --> 00:00:07,272
+Planilhas treze a dezesseis: quanto
+ainda vai entrar, quem atrasou,
+
+3
+00:00:07,272 --> 00:00:10,720
+quanto vai fechar e qual caso
+consome mais do que paga.
+
+4
+00:00:11,820 --> 00:00:14,604
+Carteira de clientes e casos, planilha treze.
+
+5
+00:00:14,604 --> 00:00:18,070
+Contratado, trezentos e oitenta
+e três mil e novecentos.
+
+6
+00:00:18,070 --> 00:00:21,473
+Recebido, duzentos e setenta
+e um mil novecentos e dez.
+
+7
+00:00:21,473 --> 00:00:26,547
+A receber, cento e onze mil novecentos e
+noventa: setenta e um por cento recebido.
+
+8
+00:00:26,547 --> 00:00:29,950
+Inclui o êxito esperado dos
+casos ativos; não é atraso.
+
+9
+00:00:31,050 --> 00:00:35,093
+Por área: empresarial concentra
+cento e quinze mil contratados,
+
+10
+00:00:35,093 --> 00:00:39,650
+setenta e cinco por cento recebidos;
+trabalhista tem o maior a receber,
+
+11
+00:00:39,650 --> 00:00:41,640
+trinta e sete mil e setecentos.
+
+12
+00:00:42,740 --> 00:00:46,812
+Por responsável: Marina com setenta
+e quatro por cento recebido,
+
+13
+00:00:46,812 --> 00:00:48,530
+Rafael com sessenta e seis.
+
+14
+00:00:49,630 --> 00:00:52,300
+Parcelas e inadimplência, planilha catorze.
+
+15
+00:00:52,300 --> 00:00:55,591
+Vence em sete dias, dois
+mil e oitocentos; em aberto,
+
+16
+00:00:55,591 --> 00:00:58,137
+cinquenta e seis mil setecentos e trinta.
+
+17
+00:00:58,137 --> 00:01:01,924
+Vencido, catorze mil quatrocentos
+e oitenta em oito parcelas:
+
+18
+00:01:01,924 --> 00:01:07,140
+inadimplência de cinco vírgula um por cento,
+vencido dividido por pago mais vencido.
+
+19
+00:01:08,240 --> 00:01:11,577
+A régua fica em Config e
+aparece por faixa de atraso.
+
+20
+00:01:11,577 --> 00:01:13,592
+Um a seis dias: lembrete gentil.
+
+21
+00:01:13,592 --> 00:01:17,181
+Sete a catorze: mensagem
+perguntando se houve imprevisto.
+
+22
+00:01:17,181 --> 00:01:20,455
+Quinze a vinte e nove:
+demonstrativo e renegociação.
+
+23
+00:01:20,455 --> 00:01:23,225
+Trinta ou mais: ligação e plano por escrito.
+
+24
+00:01:23,225 --> 00:01:26,940
+Hoje, seis parcelas, onze mil,
+já passaram dos trinta dias.
+
+25
+00:01:28,040 --> 00:01:31,993
+Cobrar primeiro: as vencidas em
+ordem de valor vezes dias de atraso.
+
+26
+00:01:31,993 --> 00:01:35,248
+Bistrô quarenta e dois, duas
+parcelas de dois mil e cem,
+
+27
+00:01:35,248 --> 00:01:39,318
+cento e oitenta e cento e cinquenta
+dias: ligação e plano por escrito.
+
+28
+00:01:39,318 --> 00:01:42,980
+O prompt Clientes zero dois monta
+essa ordem com justificativa.
+
+29
+00:01:44,080 --> 00:01:48,283
+O bônus de quinze mensagens segue a
+mesma régua: lembrete, imprevisto,
+
+30
+00:01:48,283 --> 00:01:49,544
+demonstrativo, plano.
+
+31
+00:01:49,544 --> 00:01:53,747
+E-mail e WhatsApp, sem ameaça, sem
+juridiquês, um pedido por mensagem.
+
+32
+00:01:53,747 --> 00:01:57,710
+O prompt Clientes zero três escreve
+a cobrança educada no seu tom.
+
+33
+00:01:58,810 --> 00:02:03,284
+Funil de propostas, planilha quinze.
+Setenta e dois mil e novecentos em aberto,
+
+34
+00:02:03,284 --> 00:02:06,229
+previsão ponderada de trinta
+mil oitocentos e cinco.
+
+35
+00:02:06,229 --> 00:02:10,590
+Fechado no trimestre, cinquenta e três
+mil, oitenta e oito por cento da meta.
+
+36
+00:02:11,690 --> 00:02:13,752
+Horas por caso, planilha dezesseis.
+
+37
+00:02:13,752 --> 00:02:18,346
+Setembro até o dia onze: cento e nove
+horas e meia, oitenta e sete faturáveis,
+
+38
+00:02:18,346 --> 00:02:23,058
+setenta e nove por cento. Casos para olhar
+primeiro: os que estouraram as horas.
+
+39
+00:02:23,058 --> 00:02:27,711
+Bistrô quarenta e dois, cinquenta horas
+contra quarenta e cinco; Escola Aurora,
+
+40
+00:02:27,711 --> 00:02:28,830
+cem contra noventa.
+
+41
+00:02:29,930 --> 00:02:33,165
+Resumo da aula sete. A
+carteira diz quanto vai entrar.
+
+42
+00:02:33,165 --> 00:02:35,682
+Parcelas e régua dizem quem cobrar e como.
+
+43
+00:02:35,682 --> 00:02:37,479
+O funil diz quanto vai fechar.
+
+44
+00:02:37,479 --> 00:02:41,014
+Horas por caso mostram o caso
+que consome mais do que paga.
+
+45
+00:02:41,014 --> 00:02:44,010
+Na próxima aula, o painel
+de sexta e o fechamento.

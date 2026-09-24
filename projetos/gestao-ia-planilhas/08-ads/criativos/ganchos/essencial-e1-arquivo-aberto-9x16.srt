@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:03,500
+Veja esta planilha de relatório por dentro.
+
+2
+00:00:04,000 --> 00:00:09,500
+Mês, mês anterior, variação e se ficou dentro da meta. A planilha classifica cada indicador.
+
+3
+00:00:10,000 --> 00:00:14,500
+E a aba Resumo monta o bloco de frases do mês com os seus próprios números.
+
+4
+00:00:15,000 --> 00:00:19,000
+Três planilhas, quarenta prompts, mini-manual e três demonstrações.
+
+5
+00:00:19,500 --> 00:00:24,060
+Trinta e sete reais, uma vez. Sete dias para desistir. Toque em comprar.

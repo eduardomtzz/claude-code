@@ -1,0 +1,57 @@
+<!--
+title: Quem está por trás · Seu Sócio Gestor
+description: O Seu Sócio Gestor é uma marca da ZTRAINING SERVICE LTDA, empresa brasileira de treinamento e consultoria em gestão. Conheça como os kits são feitos.
+-->
+<section class="doc">
+  <div class="wrap doc__in">
+    <details class="doc__indice">
+      <summary>Nesta página</summary>
+      <a href="#empresa">A empresa</a>
+      <a href="#como-fazemos">Como os kits são feitos</a>
+      <a href="#o-que-nao-fazemos">O que não fazemos</a>
+      <a href="#contato">Contato e dados</a>
+    </details>
+    <div class="doc__corpo">
+      <div class="cab-mascote">
+        <div>
+        <p class="eyebrow">Sobre</p>
+      <h1>Quem está por trás do Seu Sócio Gestor</h1>
+      <p class="lead">Uma marca de kits de gestão criada por uma empresa de treinamento e consultoria com experiência em dados. Sem mentoria, sem promessa de ficar rico.</p>
+        </div>
+        <img class="" src="/assets/img/mascote/oi-480.webp" srcset="/assets/img/mascote/oi-480.webp 480w, /assets/img/mascote/oi-960.webp 960w" sizes="160px" alt="Mascote do Seu Sócio Gestor acenando, com uma planilha na mão" width="160" height="188">
+      </div>
+
+      <h2 id="empresa">A empresa</h2>
+      <p>O Seu Sócio Gestor é uma marca da <strong>{{empresa.razao_social}}</strong>, CNPJ {{empresa.cnpj}}, empresa brasileira de treinamento em desenvolvimento profissional e gerencial e consultoria em gestão, com sede em Barueri, SP. Foi criada pelos sócios da Z2 Data Services, consultoria de dados, para transformar em produto o que a gente via todo dia: quem trabalha por conta própria, do consultório ao aplicativo de entrega, aprende o ofício e nunca aprende a administrar. Quando o negócio começa, a gestão vem sem manual.</p>
+      <p>Os kits são a nossa resposta: planilhas prontas, um manual que diz por onde começar, demonstrações em vídeo e prompts para usar inteligência artificial em cima dos seus números. Tudo por pagamento único, sem mensalidade.</p>
+
+      <h2 id="como-fazemos">Como os kits são feitos</h2>
+      <ul>
+        <li><strong>Pesquisa antes do produto.</strong> Cada kit começa com pesquisa de mercado sobre a profissão: tamanho, rotina, dores de gestão na voz dos próprios profissionais, preços do software da categoria e regras dos conselhos.</li>
+        <li><strong>Produção própria e revisão.</strong> Planilhas, manual, roteiros e prompts são produzidos pela nossa equipe e revisados antes de publicar. As narrações dos vídeos são sintéticas e sempre legendadas.</li>
+        <li><strong>Exemplo preenchido.</strong> Cada kit vem com uma empresa de exemplo (uma clínica, um escritório) para você ver o resultado antes de colocar os seus dados. Nenhum dado real de paciente, cliente ou processo é usado.</li>
+        <li><strong>Conferido antes de publicar.</strong> Fórmulas recalculadas, cada célula conferida, manual revisado contra o arquivo. Cada kit tem versão e data de revisão na página.</li>
+        <li><strong>Fórmulas protegidas, dados seus.</strong> Você preenche as células de entrada; o cálculo fica protegido para não quebrar sem querer. Os arquivos ficam com você, no seu computador ou no seu Google Drive.</li>
+      </ul>
+
+      <h2 id="o-que-nao-fazemos">O que não fazemos</h2>
+      <ul>
+        <li>Não vendemos software, aplicativo ou sistema com login.</li>
+        <li>Não fazemos consultoria, mentoria, aula ao vivo ou atendimento por telefone e WhatsApp.</li>
+        <li>Não substituímos contador, advogado, médico ou dentista. Os kits organizam a gestão; decisões profissionais continuam com você e com quem te assessora.</li>
+        <li>Não prometemos resultado financeiro. Organização ajuda; o resultado depende do seu negócio.</li>
+        <li>Não inventamos depoimentos, números de clientes ou avaliações. Quando houver avaliações na página, elas vêm de compradores reais, com autorização.</li>
+      </ul>
+
+      <h2 id="contato">Contato e dados da empresa</h2>
+      <table>
+        <tr><th>Razão social</th><td>{{empresa.razao_social}}</td></tr>
+        <tr><th>CNPJ</th><td>{{empresa.cnpj}}</td></tr>
+        <tr><th>Endereço</th><td>{{empresa.endereco}}</td></tr>
+        <tr><th>Atendimento</th><td><a href="mailto:{{empresa.email_suporte}}">{{empresa.email_suporte}}</a>, resposta em {{empresa.prazo_resposta}}</td></tr>
+        <tr><th>Privacidade e dados pessoais</th><td><a href="mailto:{{empresa.email_privacidade}}">{{empresa.email_privacidade}}</a></td></tr>
+      </table>
+      <p class="doc__meta">Atualizado em {{atualizado_em}}.</p>
+    </div>
+  </div>
+</section>

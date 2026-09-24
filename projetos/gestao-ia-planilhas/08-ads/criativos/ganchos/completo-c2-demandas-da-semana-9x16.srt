@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:04,500
+Relatório, projeto, reunião. De novo, toda semana.
+
+2
+00:00:05,000 --> 00:00:09,010
+O relatório tem planilha própria, com comparação e classificação prontas.
+
+3
+00:00:09,510 --> 00:00:13,510
+O acompanhamento de projeto tem etapa, prazo e responsável.
+
+4
+00:00:14,010 --> 00:00:18,010
+E a ata guarda o que ficou pendente, com dono e data.
+
+5
+00:00:18,510 --> 00:00:23,460
+Dez planilhas, oitenta prompts, oito aulas curtas e três modelos de apresentação.
+
+6
+00:00:23,960 --> 00:00:30,100
+Cento e noventa e sete reais, uma vez, sem mensalidade. Sete dias para desistir. Veja o que vem no kit.

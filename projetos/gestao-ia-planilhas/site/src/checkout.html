@@ -1,0 +1,31 @@
+<section class="doc">
+  <div class="wrap">
+    <p class="eyebrow">Checkout · demonstração</p>
+    <h1>Finalizar a compra</h1>
+    <p class="demo-aviso"><strong>Prévia do checkout.</strong> Nenhum pagamento é feito aqui e nenhum dado é pedido. Quando a plataforma de pagamento estiver ligada, o botão Comprar leva direto ao pagamento seguro, com Pix e cartão. Os botões ao lado mostram o que o cliente vê depois de pagar.</p>
+    <div class="checkout">
+      <div class="checkout__resumo">
+        <div class="kit__img"><img src="/assets/{{ck_slug}}/hero-mockup-640.webp" alt="Telas do {{ck_nome}} no computador e no celular" width="640" height="433"></div>
+        <div class="checkout__corpo">
+          <p class="kit__para">Seu pedido</p>
+          <h2 style="margin:0">{{ck_nome}}</h2>
+          <ul>
+{{ck_itens}}
+          </ul>
+          <div class="checkout__total"><span class="mono">Total · pagamento único</span><b>R$ {{ck_preco}}</b></div>
+          <p class="hero__nota">Pix ou 12× no cartão · acesso imediato · 7 dias para desistir</p>
+        </div>
+      </div>
+      <div class="checkout__acoes">
+        <img class="checkout__mascote" src="/assets/img/mascote/aviao-480.webp" srcset="/assets/img/mascote/aviao-480.webp 480w, /assets/img/mascote/aviao-960.webp 960w" sizes="140px" alt="Mascote voando num avião de papel" width="140" height="148">
+        <a class="btn btn--sol btn--grande" href="/obrigado/">Simular pagamento aprovado</a>
+        <small>Cartão aprovado: o cliente cai na página de compra confirmada, com o botão de acesso ao kit.</small>
+        <a class="btn btn--uva" href="/obrigado/pix/">Simular Pix gerado</a>
+        <small>Pix emitido e ainda não pago: a página explica como pagar e quando o acesso chega.</small>
+        <a class="btn btn--linha" href="/obrigado/recusado/">Simular pagamento recusado</a>
+        <small>Cartão recusado: nada é cobrado e a página mostra o que costuma resolver.</small>
+        <p style="margin-top:8px"><a href="{{ck_pagina}}">Voltar para a página do kit</a></p>
+      </div>
+    </div>
+  </div>
+</section>

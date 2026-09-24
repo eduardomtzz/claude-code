@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:03,500
+Em qual categoria o orçamento passou do previsto?
+
+2
+00:00:04,000 --> 00:00:08,000
+A planilha mostra categoria, previsto, realizado e a diferença.
+
+3
+00:00:08,500 --> 00:00:12,500
+E a aba Previsto mostra de onde veio cada valor.
+
+4
+00:00:13,000 --> 00:00:17,500
+Metas, projetos, funil e horas seguem a mesma lógica.
+
+5
+00:00:18,000 --> 00:00:23,000
+Dez planilhas, oitenta prompts, oito aulas curtas e três modelos de apresentação.
+
+6
+00:00:23,500 --> 00:00:29,700
+Cento e noventa e sete reais, uma vez, sem mensalidade. Sete dias para desistir. Veja o que vem no kit.

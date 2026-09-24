@@ -1,0 +1,209 @@
+**Premissas a corrigir antes dos oito pontos:**
+
+- **300 horas por ano, 6 horas por semana e 40 horas de montagem não têm sustentação apresentada.** Eu eliminaria essas contas. Colocar “estimativa” em letra pequena não resolve uma comparação construída sobre números arbitrários.
+- **“Prompt sem planilha não tem dado” é falso.** Os dados podem vir de outros formatos. O mecanismo defensável é combinar instruções, contexto e números organizados.
+- **A copy anexada ainda promete “relatório em 45 minutos” e anuncia 12× de R$ 19,90, totalizando R$ 238,80.** Isso precisa ser alinhado ao briefing. Abaixo uso **R$ 197 à vista**, sem anunciar uma parcela ainda não confirmada.
+- **R$ 50–80 por dia permite uma triagem sequencial, não dez testes simultâneos com conclusões confiáveis.** Os limites abaixo são regras operacionais propostas para esta conta, não benchmarks comprovados do mercado brasileiro.
+
+**1. Corte e reordene**
+
+A ordem abaixo é a minha prioridade de teste.
+
+| Prioridade | Ângulo original | Decisão e motivo |
+|---|---|---|
+| **E1 — Arquivo aberto** | Custo da inação: 300 horas | **Mato e substituo por demonstração direta:** um arquivo verificável sustenta melhor a compra do que uma conta inventada. |
+| **E2 — Relatório rapidinho** | Callout e agitação | **Mantenho:** identifica uma tarefa reconhecível; mostre o produto antes de transformar o anúncio em reclamação. |
+| **E3 — Números no prompt** | Mecanismo único | **Reescrevo:** demonstre como inserir dados no prompt, sem declarar que planilha é obrigatória ou que o método é exclusivo. |
+| **E4 — Primeiro preenchimento** | Sexta, 17h, relatório entregue | **Substituo:** a cena imaginada é fraca sem personagem e presume um resultado; mostrar onde preencher reduz uma objeção concreta. |
+| **E5 — Compra de arquivos** | 6 horas por semana versus R$ 37 | **Mato a ancoragem e substituo pela clareza da compra:** arquivos prontos, pagamento único e entrega após aprovação. |
+| **C1 — Pergunta de trabalho** | 40 horas para montar dez planilhas | **Mato e substituo por uma pergunta concreta:** “Em qual categoria o orçamento passou do previsto?” dá utilidade ao produto imediatamente. |
+| **C2 — Demandas da semana** | Relatório, projeto e reunião | **Mantenho:** justifica a abrangência do Completo quando cada demanda aparece acompanhada do arquivo correspondente. |
+| **C3 — Inspeção do produto** | 40 horas versus R$ 197 | **Mato e substituo por inspeção:** mostrar uma planilha em profundidade torna o preço mais avaliável. |
+| **C4 — Destinatário do relatório** | O erro acontece antes do Excel | **Reescrevo:** “quem vai ler e decidir o quê?” é demonstrável; “o erro acontece antes” é uma generalização abstrata. |
+| **C5 — Qualificação por escopo** | Não é para quem precisa de uma planilha | **Mantenho a seleção, mudo a abertura:** comece por quem acompanha projetos, metas e orçamento; a negativa desperdiça os primeiros segundos. |
+
+**Os mais fracos para este teste são as quatro comparações de horas e o “sexta às 17h”.** Dependem de acreditar na narrativa antes de entender o que está à venda.
+
+**2. Os ângulos que faltam**
+
+| Ângulo novo | Objeção que derruba | Execução dentro das restrições |
+|---|---|---|
+| **Inspeção antes da compra** | “Vou pagar por um arquivo genérico que só parece bonito.” | Abra uma planilha real, amplie campos e mostre uma saída real. É prova do produto, sem precisar de clientes. |
+| **Primeiro uso guiado** | “Vou comprar e não saber por onde começar.” | Mostre o campo de preenchimento, um dado inserido e o resultado correspondente; depois, o trecho do vídeo que explica esse passo. |
+| **Clareza sobre o que se compra** | “É assinatura? É uma plataforma? Vou precisar assistir a um curso?” | Mostre os arquivos e explique compra, download e uso. Não prometa ausência de esforço. |
+| **Uma pergunta concreta respondida** | “Por que eu precisaria dessas dez planilhas?” | Demonstre uma pergunta, como previsto versus realizado, usando a planilha correspondente e dados da empresa fictícia. |
+
+**3. A copy dos três primeiros segundos**
+
+As frases abaixo têm até oito palavras. A informação principal já aparece no primeiro quadro; a animação destaca algo que já está visível.
+
+**Essencial — R$ 37**
+
+| Ângulo | Primeira frase falada | Primeira linha na tela | Primeiro segundo |
+|---|---|---|---|
+| **E1 — Arquivo aberto** | “Veja esta planilha de relatório por dentro.” | **Relatório Mensal Pronto, por dentro** | Recorte ampliado do painel real; destaque percorre um indicador e seu gráfico. |
+| **E2 — Relatório rapidinho** | “Pedem um relatório rapidinho. Você começa do zero?” | **“Um relatório rapidinho”** | A frase entra sobre a planilha real, já visível ao fundo. |
+| **E3 — Números no prompt** | “Seu prompt tem os números do trabalho?” | **Seu prompt tem os números?** | Dois recortes reais, um acima do outro: números da planilha e campo correspondente do prompt. |
+| **E4 — Primeiro preenchimento** | “Veja onde preencher. As fórmulas já estão prontas.” | **Preencha os campos indicados** | Campo real de entrada destacado; o restante da planilha perde contraste. |
+| **E5 — Compra de arquivos** | “Você compra os arquivos. Não paga mensalidade.” | **Arquivos prontos. Pagamento único.** | Três cartões identificados: planilha, biblioteca de prompts e manual; miniaturas reais dentro deles. |
+
+**Completo — R$ 197**
+
+| Ângulo | Primeira frase falada | Primeira linha na tela | Primeiro segundo |
+|---|---|---|---|
+| **C1 — Pergunta de trabalho** | “Em qual categoria o orçamento passou do previsto?” | **Previsto versus realizado** | Recorte real da planilha de orçamento, com categoria, previsto, realizado e diferença legíveis. |
+| **C2 — Demandas da semana** | “Relatório, projeto, reunião. De novo, toda semana.” | **Relatório. Projeto. Reunião.** | Os três termos recebem destaque sucessivo sobre miniaturas dos arquivos correspondentes. |
+| **C3 — Inspeção do produto** | “Veja uma das dez planilhas por dentro.” | **Uma das dez, por dentro** | Projetos e Prazos aberto; aproximação de um trecho que permita entender seu funcionamento. |
+| **C4 — Destinatário do relatório** | “Quem vai ler o seu próximo relatório?” | **Comece por quem vai ler** | Recorte do prompt real de estruturação; destaque na instrução sobre destinatário e finalidade. |
+| **C5 — Qualificação por escopo** | “Você cuida de projetos, metas e orçamento?” | **Projetos, metas e orçamento** | Os três nomes aparecem associados às respectivas telas reais, sem sugerir integração automática. |
+
+Em toda demonstração, mantenha **“Tela real do arquivo · dados de empresa fictícia”** legível. A identificação deve acompanhar a tela, não ficar escondida no encerramento.
+
+**4. A estrutura de cada vídeo**
+
+Eu usaria **22 segundos no Essencial e 30 segundos no Completo**. O Completo precisa demonstrar por que alguém compraria um conjunto mais amplo.
+
+| Cena | Essencial: 22 segundos | Completo: 30 segundos |
+|---|---|---|
+| **1 — Gancho** | **0–3s:** frase e primeiro quadro definidos acima. | **0–3s:** frase e primeiro quadro definidos acima. |
+| **2 — Primeira prova** | **3–8s:** uma operação ou trecho real do arquivo. | **3–8s:** uma pergunta respondida pela tela real. |
+| **3 — Funcionamento** | **8–13s:** entrada, saída ou uso do prompt. **Preço aparece aos 8s.** | **8–12s:** mostre de onde veio a informação exibida. |
+| **4 — Oferta** | **13–18s:** três planilhas, 40 prompts e apoio de uso; destaque uma objeção do ângulo. | **12–19s:** mostre como usar o arquivo e identifique o kit. **Preço aparece aos 12s.** |
+| **5 — Abrangência/fecho** | **18–22s:** preço, pagamento único, desistência e CTA. | **19–25s:** dez planilhas, 80 prompts, vídeos e modelos, agrupados por utilidade. |
+| **6 — Fecho** | — | **25–30s:** preço à vista, ausência de mensalidade, desistência e CTA. |
+
+O primeiro preço aparece **em uma etiqueta discreta enquanto a demonstração continua**. O cartão exclusivo de fechamento dura quatro ou cinco segundos.
+
+Para cada ângulo, a prova central deve mudar assim:
+
+| Essencial | Completo |
+|---|---|
+| **E1:** indicador, gráfico e trecho do relatório. | **C1:** categoria, previsto, realizado e diferença. |
+| **E2:** campos recorrentes do Relatório Mensal Pronto. | **C2:** relatório, acompanhamento de projeto e pendência de reunião. |
+| **E3:** trecho da planilha copiado para o campo do prompt. | **C3:** entrada e saída de Projetos e Prazos. |
+| **E4:** preenchimento de um campo e recálculo correspondente. | **C4:** destinatário e finalidade preenchidos no prompt de estruturação. |
+| **E5:** abrir um arquivo e localizar sua demonstração curta. | **C5:** uma aplicação concreta de cada uma das três planilhas destacadas. |
+
+**Não transforme a lista de conteúdos na demonstração.** “80 prompts” informa quantidade; abrir um prompt e mostrar seus campos permite avaliar o produto.
+
+As demonstrações pressupõem o funcionamento descrito no briefing. Os anexos incluem páginas e materiais de apresentação, mas não os `.xlsx` para eu verificar suas fórmulas. Capture os estados nos arquivos entregáveis; use o código para editar e destacar esses estados.
+
+**5. O fecho**
+
+**Mantenha o mesmo fecho nos cinco anúncios de cada produto na primeira rodada.** Mantenha também duração, voz, página de destino e momento de apresentação do preço.
+
+Isso controla parte das diferenças. Como argumento e demonstração também mudam, você estará testando **conceitos completos de anúncio**. Depois, no conceito vencedor, faça uma rodada mudando somente os primeiros três segundos.
+
+Minha escolha inicial:
+
+| Elemento | Essencial | Completo |
+|---|---|---|
+| **Preço principal** | R$ 37 | R$ 197 à vista |
+| **Condição** | Pagamento único | Sem mensalidade |
+| **Direito de desistência** | 7 dias para desistir, sem explicar | 7 dias para desistir, sem explicar |
+| **CTA no vídeo** | **Comprar por R$ 37** | **Ver o que vem no kit** |
+| **Botão nativo do anúncio** | Comprar agora | Saiba mais |
+| **Destino** | Página específica do Essencial | Página específica do Completo, com demonstração próxima do topo |
+| **CTA de compra na página** | Comprar por R$ 37 | Comprar por R$ 197 |
+
+No Essencial, a decisão pode ser apresentada diretamente. No Completo, minha hipótese é que **inspecionar a abrangência** seja um próximo passo mais convincente. O anúncio continua mostrando o preço e a campanha continua buscando compras.
+
+Não mandaria nenhum deles para a home: o print anexado mostra vários kits, criando outra escolha antes da compra.
+
+Os sete dias são um direito de arrependimento previsto no CDC; comunique-o com clareza, sem apresentá-lo como vantagem exclusiva da marca. [CDC, art. 49](https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm)
+
+**6. Vídeo sem gente**
+
+A ausência de rosto dificulta principalmente **identificação com a situação e confiança em quem vende**, sobretudo no Completo. Não tenho evidência para atribuir uma penalidade percentual específica ao feed brasileiro. Aqui, a compensação mais forte é permitir que a pessoa examine o que está comprando.
+
+Eu produziria assim:
+
+| Elemento | Direção executável |
+|---|---|
+| **Primeiro quadro** | Título completo e produto visíveis desde o início. Destaque ou aproximação começa nos primeiros **150–250 ms**. |
+| **Ritmo** | Uma mudança relevante a cada **2–3 segundos**. Preserve **3–4 segundos** quando houver números que precisam ser entendidos. |
+| **Texto editorial** | Título de **4–7 palavras**, apoio de até **8 palavras**. Uma ideia principal por tela. |
+| **Tela do produto** | Amplie poucos campos. Mostre notebook inteiro por até **1 segundo** para contextualizar e depois entre no recorte legível. |
+| **Comparações** | No celular, prefira quadros empilhados. Lado a lado só quando ambos continuam legíveis. |
+| **Movimento** | Destaque de célula, aproximação curta, seleção de bloco, entrada de um item. Cada movimento deve explicar uma operação. |
+| **Legenda queimada** | Até **duas linhas**, em blocos de **4–6 palavras**, sincronizados por frase. Evite uma palavra pulando de cada vez. |
+| **Narração** | Português brasileiro, **155–170 palavras por minuto**, com pausas entre demonstração e oferta. Revise pronúncia de preços, Excel e siglas. |
+| **Som** | Voz em primeiro plano; música instrumental **15–20 dB abaixo**; efeitos discretos somente em ações relevantes. |
+| **Compreensão sem áudio** | Faça uma revisão inteira no mudo: tarefa, produto, preço e ação precisam continuar claros. |
+
+Na identidade da marca, eu usaria creme como base, uva para texto e amarelo para **um destaque por vez**. Bricolage nos títulos e Figtree nas legendas. O produto deve ocupar mais atenção do que os elementos decorativos.
+
+Use a prévia e a marcação de área segura do Gerenciador para conferir legenda, preço e CTA. A Meta recomenda produção vertical com áudio e elementos importantes dentro dessa área. [Orientações para Reels](https://www.facebook.com/business/ads/facebook-instagram-reels-ads), [área segura](https://www.facebook.com/business/help/980593475366490)
+
+**7. Como subir**
+
+Faltam **taxas efetivas, impostos, reembolsos e custos variáveis**. Para dar números utilizáveis, assumo margem de contribuição antes da mídia de **70% do preço**, já descontando esses itens. Não conto com recompra, order bump ou upgrade.
+
+| Referência provisória | Essencial | Completo |
+|---|---:|---:|
+| Preço | R$ 37,00 | R$ 197,00 |
+| Margem disponível antes da mídia | R$ 25,90 | R$ 137,90 |
+| **CPA-alvo inicial** | **R$ 18,50** | **R$ 98,50** |
+| Limite por anúncio sem compra: 3× o alvo | R$ 55,50 | R$ 295,50 |
+| Limite da rodada sem compra: 5× o alvo | R$ 92,50 | R$ 492,50 |
+
+A margem disponível é o teto para empatar **antes dos custos fixos**, não uma meta desejável. Substitua essa hipótese pelos custos reais antes de investir.
+
+**Configuração que eu usaria:**
+
+| Item | Configuração |
+|---|---|
+| **Campanhas** | **Duas criadas, uma ativa por vez:** Essencial e Completo. |
+| **Objetivo** | Vendas, conversão no site, evento **Purchase**, maximizar número de compras. |
+| **Conjuntos** | **Um por campanha.** |
+| **Criativos ativos** | **Dois por conjunto.** |
+| **Orçamento** | Começaria com **R$ 60/dia**, integralmente no produto em teste. A estrutura permanece igual a R$ 50 ou R$ 80. |
+| **Público** | Brasil, maiores de 18 anos, todos os gêneros, sem interesses ou cargos. |
+| **Tráfego frio** | Havendo histórico, excluir compradores e públicos recentes de visitantes e engajamento para não misturar aquisição com retorno. |
+| **Advantage+** | Público e posicionamentos automáticos; controle manual dos anúncios. Desativar alterações automáticas de texto, cenas e música durante a comparação. |
+| **Lance** | Maior volume, sem limite de CPA nesta primeira rodada. |
+| **Rastreamento** | Purchase apenas após pagamento aprovado, valor e produto corretos, UTMs por criativo. Se houver Pixel e API, conferir deduplicação. |
+| **Leitura de atribuição** | Comparar compras atribuídas a clique em sete dias e conferir pedidos no checkout. |
+
+A experiência Advantage+ mantém controles manuais; a escolha acima preserva a entrega automatizada e controla o material apresentado. Se Pixel e API enviarem a mesma compra, a deduplicação evita contagem dupla. [Controles Advantage+](https://www.facebook.com/business/help/1292656978738967), [documentação da API de Conversões](https://developers.facebook.com/documentation/ads-commerce/conversions-api/guides/end-to-end-implementation)
+
+**Sequência:**
+
+1. **Primeira rodada: E1 e E2, por até sete dias**, respeitando os limites de perda.
+2. **Segunda rodada: C1 e C2, por sete dias.** Estenda até 14 somente se a entrega ainda for insuficiente para avaliar e os limites de perda não tiverem sido atingidos.
+3. Depois, mantenha o melhor anúncio do produto escolhido e coloque **um desafiante por vez**, na ordem E3–E5 ou C3–C5.
+4. Um anúncio que quase não recebeu verba fica **inconclusivo**. Se necessário, dê a ele uma janela sozinho dentro do mesmo limite financeiro.
+
+Não interprete a distribuição desigual de verba entre anúncios como um teste A/B equilibrado. Essa configuração serve para triagem comercial.
+
+**Números para tomar decisões:**
+
+| Etapa | Primeiro número | Regra inicial |
+|---|---|---|
+| **Abertura** | Reproduções de 3 segundos ÷ impressões | Após **1.000 impressões**, abaixo de **20%** sinaliza abertura fraca. **30% ou mais** justifica continuar investigando o restante. |
+| **Interesse** | CTR de saída | Após **1.000 impressões**, abaixo de **0,7%**, junto com retenção fraca e ausência de compra, leva à substituição. **1% ou mais** é sinal para examinar a página. |
+| **Chegada ao site** | Visualizações da página ÷ cliques de saída | Após **50 cliques**, abaixo de **70%** pede revisão de carregamento e medição. |
+| **Oferta na página** | Inícios de checkout ÷ visitas | Após **100 visitas**, abaixo de **5% no Essencial** ou **3% no Completo** pede revisão de clareza, demonstração e adequação da oferta. |
+| **Pagamento** | Compras aprovadas ÷ inícios de checkout | Após **20 checkouts**, abaixo de **20%** pede inspeção de erros, pagamento, preço final e confiança. |
+| **Venda** | CPA de compras pagas | **Zero compras após 3× o CPA-alvo:** pausar o anúncio. |
+| **Rodada** | Gasto acumulado sem compra | **5× o CPA-alvo, com pelo menos dois conceitos recebendo entrega:** interromper a rodada e revisar página, oferta e checkout. |
+
+Esses cortes são **gatilhos de investigação**, não provas da causa. Se o limite financeiro chegar antes da amostra mínima, pause sem inventar uma conclusão sobre a etapa. Se o anúncio vende dentro do CPA-alvo, uma retenção abaixo da referência não é motivo para matá-lo.
+
+Não julgaria por CTR nas primeiras **48 horas**, salvo falha evidente. Os limites financeiros continuam valendo. Após uma pausa, confira novamente em **48 horas** para incorporar compras tardias.
+
+**Para aumentar orçamento:** pelo menos **sete dias de observação**, **cinco compras pagas** e CPA dentro do alvo. Isso autoriza um aumento pequeno, não uma declaração de produto validado. Faça aumentos de **15% a cada 72 horas**, mantendo o CPA sob controle: aproximadamente **R$ 60 → R$ 69 → R$ 79**. Dentro do teto informado, pare aí.
+
+Com esse orçamento, especialmente no Completo, você provavelmente terá pouco volume para os cerca de 50 eventos semanais associados à saída da fase de aprendizado. Não mudaria para cliques apenas para gerar mais eventos. [Aprendizado limitado na Meta](https://www.facebook.com/business/help/269269737396981)
+
+Também trate o orçamento diário como média: a Meta informa que pode gastar até 75% acima dele em determinados dias. Para uma rodada com teto total rígido, use orçamento total e datas definidas. [Orçamento diário da Meta](https://www.facebook.com/business/help/190490051321426)
+
+**8. O que eu mataria**
+
+- **Dez versões do mesmo catálogo animado.** Trocar a primeira frase e repetir vinte segundos de lista dificilmente produz aprendizados úteis sobre argumentos diferentes.
+- **“IA no Trabalho” como benefício principal.** É amplo. O anúncio precisa começar com relatório, orçamento, prazo ou outra tarefa identificável.
+- **O Completo sustentado apenas por quantidade.** Ele custa **5,32 vezes** o Essencial. Mais arquivos não demonstram, sozinhos, por que aquela pessoa precisa pagar a diferença.
+- **A expectativa de que R$ 37 torna a aquisição fácil.** Com CPC hipotético de R$ 1, você precisaria converter aproximadamente **5,4% dos cliques em compras** para alcançar CPA de R$ 18,50. Preço baixo também deixa menos margem para comprar tráfego.
+- **Promessa visual de automação inexistente.** Se a pessoa precisa preencher, copiar, colar e revisar, a demonstração deve deixar esses passos perceptíveis.
+- **Comprar no celular confundido com trabalhar confortavelmente no celular.** O mockup não pode sugerir uma experiência móvel que os arquivos não entregam. Explique na página o ambiente recomendado.
+- **Insistir no criativo quando a oferta perdeu.** Se anúncios diferentes geram visitas, a página é compreensível, o checkout funciona e a margem não fecha, reveja a utilidade percebida, o recorte do público e a composição do kit antes de produzir o décimo primeiro vídeo.

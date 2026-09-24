@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:03,500
+Você cuida de projetos, metas e orçamento?
+
+2
+00:00:04,000 --> 00:00:08,000
+Cada meta do trimestre com o realizado ao lado.
+
+3
+00:00:08,500 --> 00:00:12,500
+Cada categoria do orçamento com previsto, realizado e diferença.
+
+4
+00:00:13,000 --> 00:00:17,000
+E quanto cada projeto consumiu de hora e de custo.
+
+5
+00:00:17,500 --> 00:00:22,320
+Dez planilhas, oitenta prompts, oito aulas curtas e três modelos de apresentação.
+
+6
+00:00:22,820 --> 00:00:29,100
+Cento e noventa e sete reais, uma vez, sem mensalidade. Sete dias para desistir. Veja o que vem no kit.

@@ -1,0 +1,4137 @@
+[
+{
+"entrada": "Tabela!A8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!A8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!A27: Consulta→abc"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!A9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!A9",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→17",
+"Tabela!O9: 0→3"
+],
+"NEW": [],
+"CLS": [
+"Tabela!A28: Retorno→abc"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!A10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!A10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!A29: ECG→abc"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!A11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!A11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!A30: MAPA→abc"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!A12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!A12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!A31: Holter→abc"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!A13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!A13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!A32: Teste ergométrico→abc"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!A14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!A14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!A33: Avaliação endócrina→abc"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B8",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→11",
+"Tabela!I5: 410.966→911.831",
+"Tabela!K5: 0.21235→1.6899",
+"Tabela!E8: 130.667→30.6667",
+"Tabela!F8: 221.469→51.9774",
+"Tabela!G8: 296.97→69.697",
+"Tabela!O8: 3→0",
+"Tabela!S8: 0.0673489→3.54783",
+"Tabela!B27: 38→8",
+"Tabela!C27: 600→2850",
+"Tabela!D27: 189.474→900",
+"Tabela!E27: 157.895→750",
+"Tabela!F27: 142.105→675"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B8",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→69.1436",
+"Tabela!K5: 0.21235→-0.796026",
+"Tabela!E8: 130.667→1030.67",
+"Tabela!F8: 221.469→1746.89",
+"Tabela!G8: 296.97→2342.42",
+"Tabela!S8: 0.0673489→-0.864683",
+"Tabela!B27: 38→308",
+"Tabela!C27: 600→74.026",
+"Tabela!D27: 189.474→23.3766",
+"Tabela!E27: 157.895→19.4805",
+"Tabela!F27: 142.105→17.5325"
+],
+"NEW": [],
+"CLS": [
+"Tabela!C5: 0 de 7→1 de 7",
+"Tabela!N8: No alvo ou acima→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!B9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B9",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→475.221",
+"Tabela!K5: 0.21235→0.401903",
+"Tabela!E9: 68.6667→2",
+"Tabela!F9: 116.384→3.38983",
+"Tabela!G9: 156.061→4.54545",
+"Tabela!B28: 20→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B9",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→185.379",
+"Tabela!K5: 0.21235→-0.453133",
+"Tabela!E9: 68.6667→668.667",
+"Tabela!F9: 116.384→1133.33",
+"Tabela!G9: 156.061→1519.7",
+"Tabela!B28: 20→200"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B10",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→11",
+"Tabela!I5: 410.966→432.917",
+"Tabela!K5: 0.21235→0.277105",
+"Tabela!E10: 74.6667→8",
+"Tabela!F10: 126.554→13.5593",
+"Tabela!G10: 169.697→18.1818",
+"Tabela!O10: 3→0",
+"Tabela!S10: -0.378393→4.80167",
+"Tabela!B29: 20→0"
+],
+"NEW": [],
+"CLS": [
+"Tabela!N10: Entre mínimo e alvo→No alvo ou acima"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!B10",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→282.191",
+"Tabela!K5: 0.21235→-0.167535",
+"Tabela!E10: 74.6667→674.667",
+"Tabela!F10: 126.554→1143.5",
+"Tabela!G10: 169.697→1533.33",
+"Tabela!S10: -0.378393→-0.931206",
+"Tabela!B29: 20→200",
+"Tabela!C29: 390→39",
+"Tabela!D29: 120→12",
+"Tabela!E29: 105→10.5",
+"Tabela!F29: 96→9.6"
+],
+"NEW": [],
+"CLS": [
+"Tabela!C5: 0 de 7→1 de 7",
+"Tabela!N10: Entre mínimo e alvo→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!B11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B11",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→12",
+"Tabela!I5: 410.966→420.441",
+"Tabela!K5: 0.21235→0.240301",
+"Tabela!E11: 81.6667→15",
+"Tabela!F11: 138.418→25.4237",
+"Tabela!G11: 185.606→34.0909",
+"Tabela!O11: 2→0",
+"Tabela!S11: 0.214617→5.61292",
+"Tabela!B30: 20→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B11",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→15",
+"Tabela!I5: 410.966→341.67",
+"Tabela!K5: 0.21235→0.00792588",
+"Tabela!E11: 81.6667→681.667",
+"Tabela!F11: 138.418→1155.37",
+"Tabela!G11: 185.606→1549.24",
+"Tabela!O11: 2→3",
+"Tabela!S11: 0.214617→-0.854483",
+"Tabela!B30: 20→200",
+"Tabela!C30: 900→90",
+"Tabela!D30: 285→28.5",
+"Tabela!E30: 255→25.5",
+"Tabela!F30: 225→22.5"
+],
+"NEW": [],
+"CLS": [
+"Tabela!C5: 0 de 7→1 de 7",
+"Tabela!N11: No alvo ou acima→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!B12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B12",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→12",
+"Tabela!I5: 410.966→422.878",
+"Tabela!K5: 0.21235→0.247491",
+"Tabela!E12: 84.6667→18",
+"Tabela!F12: 143.503→30.5085",
+"Tabela!G12: 192.424→40.9091",
+"Tabela!O12: 2→0",
+"Tabela!S12: 0.735157→7.16167",
+"Tabela!B31: 20→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B12",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→15",
+"Tabela!I5: 410.966→327.849",
+"Tabela!K5: 0.21235→-0.0328442",
+"Tabela!E12: 84.6667→684.667",
+"Tabela!F12: 143.503→1160.45",
+"Tabela!G12: 192.424→1556.06",
+"Tabela!O12: 2→3",
+"Tabela!S12: 0.735157→-0.785428",
+"Tabela!B31: 20→200",
+"Tabela!C31: 1050→105",
+"Tabela!D31: 315→31.5",
+"Tabela!E31: 285→28.5",
+"Tabela!F31: 255→25.5"
+],
+"NEW": [],
+"CLS": [
+"Tabela!C5: 0 de 7→1 de 7",
+"Tabela!N12: No alvo ou acima→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!B13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B13",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→11",
+"Tabela!I5: 410.966→430.363",
+"Tabela!K5: 0.21235→0.26957",
+"Tabela!E13: 158.333→25",
+"Tabela!F13: 268.362→42.3729",
+"Tabela!G13: 359.848→56.8182",
+"Tabela!O13: 3→0",
+"Tabela!S13: 0.0573421→5.6965",
+"Tabela!B32: 40→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B13",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→292.371",
+"Tabela!K5: 0.21235→-0.137506",
+"Tabela!E13: 158.333→1358.33",
+"Tabela!F13: 268.362→2302.26",
+"Tabela!G13: 359.848→3087.12",
+"Tabela!S13: 0.0573421→-0.876752",
+"Tabela!B32: 40→400",
+"Tabela!C32: 675→67.5",
+"Tabela!D32: 210→21",
+"Tabela!E32: 187.5→18.75",
+"Tabela!F32: 165→16.5"
+],
+"NEW": [],
+"CLS": [
+"Tabela!C5: 0 de 7→1 de 7",
+"Tabela!N13: No alvo ou acima→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!B14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B14",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B14",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!I5: 410.966→494.553",
+"Tabela!K5: 0.21235→0.45893",
+"Tabela!E14: 164→30.6667",
+"Tabela!F14: 277.966→51.9774",
+"Tabela!G14: 372.727→69.697",
+"Tabela!O14: 1→0",
+"Tabela!S14: 0.244756→5.65674",
+"Tabela!B33: 48→8",
+"Tabela!C33: 500→3000",
+"Tabela!D33: 162.5→975"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B14",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→163.009",
+"Tabela!K5: 0.21235→-0.519124",
+"Tabela!E14: 164→1364",
+"Tabela!F14: 277.966→2311.86",
+"Tabela!G14: 372.727→3100",
+"Tabela!S14: 0.244756→-0.850337",
+"Tabela!B33: 48→408",
+"Tabela!C33: 500→58.8235",
+"Tabela!D33: 162.5→19.1176"
+],
+"NEW": [],
+"CLS": [
+"Tabela!C5: 0 de 7→1 de 7",
+"Tabela!N14: No alvo ou acima→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!C8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D8",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E8: 130.667→126.667",
+"Tabela!F8: 221.469→214.689",
+"Tabela!G8: 296.97→287.879",
+"Tabela!S8: 0.0673489→0.101055"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D8",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E8: 130.667→166.667",
+"Tabela!F8: 221.469→282.486",
+"Tabela!G8: 296.97→378.788",
+"Tabela!S8: 0.0673489→-0.163198"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D9",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E9: 68.6667→66.6667",
+"Tabela!F9: 116.384→112.994",
+"Tabela!G9: 156.061→151.515"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D9",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E9: 68.6667→86.6667",
+"Tabela!F9: 116.384→146.893",
+"Tabela!G9: 156.061→196.97"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D10",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E10: 74.6667→66.6667",
+"Tabela!F10: 126.554→112.994",
+"Tabela!G10: 169.697→151.515",
+"Tabela!S10: -0.378393→-0.3038"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D10",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E10: 74.6667→146.667",
+"Tabela!F10: 126.554→248.588",
+"Tabela!G10: 169.697→333.333",
+"Tabela!S10: -0.378393→-0.683545"
+],
+"NEW": [],
+"CLS": [
+"Tabela!C5: 0 de 7→1 de 7",
+"Tabela!N10: Entre mínimo e alvo→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!D11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D11",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→12",
+"Tabela!E11: 81.6667→66.6667",
+"Tabela!F11: 138.418→112.994",
+"Tabela!G11: 185.606→151.515",
+"Tabela!O11: 2→0",
+"Tabela!S11: 0.214617→0.487906"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D11",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→15",
+"Tabela!E11: 81.6667→216.667",
+"Tabela!F11: 138.418→367.232",
+"Tabela!G11: 185.606→492.424",
+"Tabela!O11: 2→3",
+"Tabela!S11: 0.214617→-0.542183"
+],
+"NEW": [],
+"CLS": [
+"Tabela!C5: 0 de 7→1 de 7",
+"Tabela!N11: No alvo ou acima→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!D12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D12",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→12",
+"Tabela!E12: 84.6667→66.6667",
+"Tabela!F12: 143.503→112.994",
+"Tabela!G12: 192.424→151.515",
+"Tabela!O12: 2→0",
+"Tabela!S12: 0.735157→1.20365"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D12",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→15",
+"Tabela!E12: 84.6667→246.667",
+"Tabela!F12: 143.503→418.079",
+"Tabela!G12: 192.424→560.606",
+"Tabela!O12: 2→3",
+"Tabela!S12: 0.735157→-0.404419"
+],
+"NEW": [],
+"CLS": [
+"Tabela!C5: 0 de 7→1 de 7",
+"Tabela!N12: No alvo ou acima→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!D13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D13",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E13: 158.333→133.333",
+"Tabela!F13: 268.362→225.989",
+"Tabela!G13: 359.848→303.03",
+"Tabela!S13: 0.0573421→0.255594"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D13",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E13: 158.333→383.333",
+"Tabela!F13: 268.362→649.718",
+"Tabela!G13: 359.848→871.212",
+"Tabela!S13: 0.0573421→-0.563272"
+],
+"NEW": [],
+"CLS": [
+"Tabela!C5: 0 de 7→1 de 7",
+"Tabela!N13: No alvo ou acima→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!D14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D14",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D14",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E14: 164→160",
+"Tabela!F14: 277.966→271.186",
+"Tabela!G14: 372.727→363.636",
+"Tabela!S14: 0.244756→0.275875"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D14",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E14: 164→200",
+"Tabela!F14: 277.966→338.983",
+"Tabela!G14: 372.727→454.545",
+"Tabela!S14: 0.244756→0.0207"
+],
+"NEW": [],
+"CLS": [
+"Tabela!N14: No alvo ou acima→Entre mínimo e alvo"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!H8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H8",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!C27: 600→0"
+],
+"NEW": [],
+"CLS": [
+"Tabela!N8: No alvo ou acima→Sem cobrança"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!H8",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!C27: 600→6000"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H9",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!C28: 0→30"
+],
+"NEW": [
+"Tabela!S9: vazio→-1"
+],
+"CLS": [
+"Tabela!C5: 0 de 7→1 de 7",
+"Tabela!N9: Sem cobrança→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!H10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H10",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!C29: 390→0"
+],
+"NEW": [],
+"CLS": [
+"Tabela!N10: Entre mínimo e alvo→Sem cobrança"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!H10",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!C29: 390→3900"
+],
+"NEW": [],
+"CLS": [
+"Tabela!N10: Entre mínimo e alvo→No alvo ou acima"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!H11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H11",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!C30: 900→0"
+],
+"NEW": [],
+"CLS": [
+"Tabela!N11: No alvo ou acima→Sem cobrança"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!H11",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!C30: 900→9000"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H12",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!C31: 1050→0"
+],
+"NEW": [],
+"CLS": [
+"Tabela!N12: No alvo ou acima→Sem cobrança"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!H12",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!C31: 1050→10500"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H13",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!C32: 675→0"
+],
+"NEW": [],
+"CLS": [
+"Tabela!N13: No alvo ou acima→Sem cobrança"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!H13",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!C32: 675→6750"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H14",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H14",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!C33: 500→0"
+],
+"NEW": [],
+"CLS": [
+"Tabela!N14: No alvo ou acima→Sem cobrança"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!H14",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!C33: 500→5000"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O8: 3→2"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I8",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!D27: 189.474→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I8",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O8: 3→2",
+"Tabela!D27: 189.474→1894.74"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I9",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→15",
+"Tabela!O9: 0→1",
+"Tabela!D28: 0→30"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O10: 3→2"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I10",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!D29: 120→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I10",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O10: 3→2",
+"Tabela!D29: 120→1200"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I11",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→15",
+"Tabela!O11: 2→3",
+"Tabela!D30: 285→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I11",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!D30: 285→2850"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I12",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→15",
+"Tabela!O12: 2→3",
+"Tabela!D31: 315→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I12",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!D31: 315→3150"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O13: 3→2"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I13",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!D32: 210→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I13",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O13: 3→2",
+"Tabela!D32: 210→2100"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O14: 1→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I14",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I14",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!D33: 162.5→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I14",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O14: 1→0",
+"Tabela!D33: 162.5→1625"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O8: 3→2"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J8",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E27: 157.895→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J8",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O8: 3→2",
+"Tabela!E27: 157.895→1578.95"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J9",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→15",
+"Tabela!O9: 0→1",
+"Tabela!E28: 0→30"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O10: 3→2"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J10",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E29: 105→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J10",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O10: 3→2",
+"Tabela!E29: 105→1050"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O11: 2→1"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J11",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E30: 255→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J11",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O11: 2→1",
+"Tabela!E30: 255→2550"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O12: 2→1"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J12",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E31: 285→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J12",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O12: 2→1",
+"Tabela!E31: 285→2850"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O13: 3→2"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J13",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E32: 187.5→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J13",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O13: 3→2",
+"Tabela!E32: 187.5→1875"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O8: 3→2"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K8",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!F27: 142.105→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K8",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O8: 3→2",
+"Tabela!F27: 142.105→1421.05"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K9",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→15",
+"Tabela!O9: 0→1",
+"Tabela!F28: 0→30"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O10: 3→2"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K10",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!F29: 96→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K10",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O10: 3→2",
+"Tabela!F29: 96→960"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O11: 2→1"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K11",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!F30: 225→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K11",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O11: 2→1",
+"Tabela!F30: 225→2250"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O12: 2→1"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K12",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!F31: 255→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K12",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O12: 2→1",
+"Tabela!F31: 255→2550"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O13: 3→2"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K13",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!F32: 165→0"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K13",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O13: 3→2",
+"Tabela!F32: 165→1650"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P8",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→911.831",
+"Tabela!K5: 0.21235→1.6899"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P8",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→69.1436",
+"Tabela!K5: 0.21235→-0.796026",
+"Tabela!R8: 236.385→23.6385",
+"Tabela!S8: 0.0673489→-0.893265"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P9",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→475.221",
+"Tabela!K5: 0.21235→0.401903"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P9",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→185.379",
+"Tabela!K5: 0.21235→-0.453133"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P10",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→432.917",
+"Tabela!K5: 0.21235→0.277105"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P10",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→282.191",
+"Tabela!K5: 0.21235→-0.167535",
+"Tabela!R10: 78.6667→7.86667",
+"Tabela!S10: -0.378393→-0.937839"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P11",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→420.441",
+"Tabela!K5: 0.21235→0.240301"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P11",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→341.67",
+"Tabela!K5: 0.21235→0.00792588",
+"Tabela!R11: 168.125→16.8125",
+"Tabela!S11: 0.214617→-0.878538"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P12",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→422.878",
+"Tabela!K5: 0.21235→0.247491"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P12",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→327.849",
+"Tabela!K5: 0.21235→-0.0328442",
+"Tabela!R12: 249→24.9",
+"Tabela!S12: 0.735157→-0.826484"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P13",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→430.363",
+"Tabela!K5: 0.21235→0.26957"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P13",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→292.371",
+"Tabela!K5: 0.21235→-0.137506",
+"Tabela!R13: 283.75→28.375",
+"Tabela!S13: 0.0573421→-0.894266"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P14",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P14",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→494.553",
+"Tabela!K5: 0.21235→0.45893"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P14",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!I5: 410.966→163.009",
+"Tabela!K5: 0.21235→-0.519124",
+"Tabela!R14: 346→34.6",
+"Tabela!S14: 0.244756→-0.875524"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q8",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!G5: 48631→17901",
+"Tabela!I5: 410.966→151.276",
+"Tabela!K5: 0.21235→-0.553736",
+"Tabela!R8: 236.385→0",
+"Tabela!S8: 0.0673489→-1"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q8",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!G5: 48631→325201",
+"Tabela!I5: 410.966→2748.18",
+"Tabela!K5: 0.21235→7.10712",
+"Tabela!R8: 236.385→2363.85",
+"Tabela!S8: 0.0673489→9.67349"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q9",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!G5: 48631→48641",
+"Tabela!I5: 410.966→411.051",
+"Tabela!K5: 0.21235→0.2126",
+"Tabela!R9: 0→0.208333"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q10",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!G5: 48631→47215",
+"Tabela!I5: 410.966→399",
+"Tabela!K5: 0.21235→0.17705",
+"Tabela!R10: 78.6667→0",
+"Tabela!S10: -0.378393→-1"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q10",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!G5: 48631→61375",
+"Tabela!I5: 410.966→518.662",
+"Tabela!K5: 0.21235→0.530053",
+"Tabela!R10: 78.6667→786.667",
+"Tabela!S10: -0.378393→5.21607"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q11",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!G5: 48631→47286",
+"Tabela!I5: 410.966→399.6",
+"Tabela!K5: 0.21235→0.17882",
+"Tabela!R11: 168.125→0",
+"Tabela!S11: 0.214617→-1"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q11",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!G5: 48631→60736",
+"Tabela!I5: 410.966→513.262",
+"Tabela!K5: 0.21235→0.514123",
+"Tabela!R11: 168.125→1681.25",
+"Tabela!S11: 0.214617→11.1462"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q12",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!G5: 48631→46141",
+"Tabela!I5: 410.966→389.924",
+"Tabela!K5: 0.21235→0.150276",
+"Tabela!R12: 249→0",
+"Tabela!S12: 0.735157→-1"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q12",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!G5: 48631→71041",
+"Tabela!I5: 410.966→600.346",
+"Tabela!K5: 0.21235→0.771022",
+"Tabela!R12: 249→2490",
+"Tabela!S12: 0.735157→16.3516"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q13",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!G5: 48631→46361",
+"Tabela!I5: 410.966→391.783",
+"Tabela!K5: 0.21235→0.15576",
+"Tabela!R13: 283.75→0",
+"Tabela!S13: 0.0573421→-1"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q13",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!G5: 48631→69061",
+"Tabela!I5: 410.966→583.614",
+"Tabela!K5: 0.21235→0.721662",
+"Tabela!R13: 283.75→2837.5",
+"Tabela!S13: 0.0573421→9.57342"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q14",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q14",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!G5: 48631→38251",
+"Tabela!I5: 410.966→323.248",
+"Tabela!K5: 0.21235→-0.0464187",
+"Tabela!R14: 346→0",
+"Tabela!S14: 0.244756→-1"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q14",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!G5: 48631→142051",
+"Tabela!I5: 410.966→1200.43",
+"Tabela!K5: 0.21235→2.54127",
+"Tabela!R14: 346→3460",
+"Tabela!S14: 0.244756→11.4476"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B4",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B4",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B7",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!A5: 338.983→0",
+"Tabela!E5: 14→0",
+"Tabela!E8: 130.667→4",
+"Tabela!F8: 221.469→6.77966",
+"Tabela!G8: 296.97→9.09091",
+"Tabela!O8: 3→0",
+"Tabela!S8: 0.0673489→33.8667",
+"Tabela!E9: 68.6667→2",
+"Tabela!F9: 116.384→3.38983",
+"Tabela!G9: 156.061→4.54545",
+"Tabela!E10: 74.6667→8",
+"Tabela!F10: 126.554→13.5593",
+"Tabela!G10: 169.697→18.1818",
+"Tabela!O10: 3→0",
+"Tabela!S10: -0.378393→4.80167",
+"Tabela!E11: 81.6667→15",
+"Tabela!F11: 138.418→25.4237",
+"Tabela!G11: 185.606→34.0909",
+"Tabela!O11: 2→0",
+"Tabela!S11: 0.214617→5.61292",
+"Tabela!E12: 84.6667→18",
+"Tabela!F12: 143.503→30.5085",
+"Tabela!G12: 192.424→40.9091",
+"Tabela!O12: 2→0",
+"Tabela!S12: 0.735157→7.16167",
+"Tabela!E13: 158.333→25",
+"Tabela!F13: 268.362→42.3729",
+"Tabela!G13: 359.848→56.8182",
+"Tabela!O13: 3→0",
+"Tabela!S13: 0.0573421→5.6965",
+"Tabela!E14: 164→4",
+"Tabela!F14: 277.966→6.77966",
+"Tabela!G14: 372.727→9.09091",
+"Tabela!O14: 1→0",
+"Tabela!S14: 0.244756→50.035",
+"Tabela!I27: 338.983→0",
+"Tabela!J27: 454.545→0",
+"Tabela!I28: 338.983→0",
+"Tabela!J28: 454.545→0",
+"Tabela!I29: 338.983→0",
+"Tabela!J29: 454.545→0",
+"Tabela!I30: 338.983→0",
+"Tabela!J30: 454.545→0",
+"Tabela!I31: 338.983→0",
+"Tabela!J31: 454.545→0",
+"Tabela!I32: 338.983→0",
+"Tabela!J32: 454.545→0",
+"Tabela!I33: 338.983→0",
+"Tabela!J33: 454.545→0",
+"Config!B13: 338.983→0",
+"Config!B14: 454.545→0"
+],
+"NEW": [],
+"CLS": [
+"Tabela!N10: Entre mínimo e alvo→No alvo ou acima"
+],
+"INV": []
+},
+{
+"entrada": "Config!B7",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!A5: 338.983→3389.83",
+"Tabela!E5: 14→16",
+"Tabela!K5: 0.21235→-0.878765",
+"Tabela!E8: 130.667→1270.67",
+"Tabela!F8: 221.469→2153.67",
+"Tabela!G8: 296.97→2887.88",
+"Tabela!S8: 0.0673489→-0.890241",
+"Tabela!E9: 68.6667→668.667",
+"Tabela!F9: 116.384→1133.33",
+"Tabela!G9: 156.061→1519.7",
+"Tabela!E10: 74.6667→674.667",
+"Tabela!F10: 126.554→1143.5",
+"Tabela!G10: 169.697→1533.33",
+"Tabela!S10: -0.378393→-0.931206",
+"Tabela!E11: 81.6667→681.667",
+"Tabela!F11: 138.418→1155.37",
+"Tabela!G11: 185.606→1549.24",
+"Tabela!O11: 2→3",
+"Tabela!S11: 0.214617→-0.854483",
+"Tabela!E12: 84.6667→684.667",
+"Tabela!F12: 143.503→1160.45",
+"Tabela!G12: 192.424→1556.06",
+"Tabela!O12: 2→3",
+"Tabela!S12: 0.735157→-0.785428",
+"Tabela!E13: 158.333→1358.33",
+"Tabela!F13: 268.362→2302.26",
+"Tabela!G13: 359.848→3087.12",
+"Tabela!S13: 0.0573421→-0.876752",
+"Tabela!E14: 164→1604",
+"Tabela!F14: 277.966→2718.64",
+"Tabela!G14: 372.727→3645.45",
+"Tabela!S14: 0.244756→-0.872731",
+"Tabela!I27: 338.983→3389.83",
+"Tabela!J27: 454.545→4545.45",
+"Tabela!I28: 338.983→3389.83",
+"Tabela!J28: 454.545→4545.45",
+"Tabela!I29: 338.983→3389.83",
+"Tabela!J29: 454.545→4545.45",
+"Tabela!I30: 338.983→3389.83",
+"Tabela!J30: 454.545→4545.45",
+"Tabela!I31: 338.983→3389.83",
+"Tabela!J31: 454.545→4545.45",
+"Tabela!I32: 338.983→3389.83",
+"Tabela!J32: 454.545→4545.45",
+"Tabela!I33: 338.983→3389.83",
+"Tabela!J33: 454.545→4545.45",
+"Config!B13: 338.983→3389.83",
+"Config!B14: 454.545→4545.45"
+],
+"NEW": [],
+"CLS": [
+"Tabela!C5: 0 de 7→6 de 7",
+"Tabela!N8: No alvo ou acima→Abaixo do mínimo",
+"Tabela!N10: Entre mínimo e alvo→Abaixo do mínimo",
+"Tabela!N11: No alvo ou acima→Abaixo do mínimo",
+"Tabela!N12: No alvo ou acima→Abaixo do mínimo",
+"Tabela!N13: No alvo ou acima→Abaixo do mínimo",
+"Tabela!N14: No alvo ou acima→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Config!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+],
+"INV": []
+},
+{
+"entrada": "Config!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+],
+"INV": []
+},
+{
+"entrada": "Config!B8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+],
+"INV": []
+},
+{
+"entrada": "Config!B8",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!A5: 338.983→285.714",
+"Tabela!E5: 14→11",
+"Tabela!K5: 0.21235→0.438382",
+"Tabela!F8: 221.469→186.667",
+"Tabela!G8: 296.97→237.576",
+"Tabela!S8: 0.0673489→0.266346",
+"Tabela!F9: 116.384→98.0952",
+"Tabela!G9: 156.061→124.848",
+"Tabela!F10: 126.554→106.667",
+"Tabela!G10: 169.697→135.758",
+"Tabela!S10: -0.378393→-0.2625",
+"Tabela!F11: 138.418→116.667",
+"Tabela!G11: 185.606→148.485",
+"Tabela!O11: 2→1",
+"Tabela!S11: 0.214617→0.441071",
+"Tabela!F12: 143.503→120.952",
+"Tabela!G12: 192.424→153.939",
+"Tabela!O12: 2→0",
+"Tabela!S12: 0.735157→1.05866",
+"Tabela!F13: 268.362→226.19",
+"Tabela!G13: 359.848→287.879",
+"Tabela!S13: 0.0573421→0.254474",
+"Tabela!F14: 277.966→234.286",
+"Tabela!G14: 372.727→298.182",
+"Tabela!S14: 0.244756→0.476829",
+"Tabela!I27: 338.983→285.714",
+"Tabela!J27: 454.545→363.636",
+"Tabela!I28: 338.983→285.714",
+"Tabela!J28: 454.545→363.636",
+"Tabela!I29: 338.983→285.714",
+"Tabela!J29: 454.545→363.636",
+"Tabela!I30: 338.983→285.714",
+"Tabela!J30: 454.545→363.636",
+"Tabela!I31: 338.983→285.714",
+"Tabela!J31: 454.545→363.636",
+"Tabela!I32: 338.983→285.714",
+"Tabela!J32: 454.545→363.636",
+"Tabela!I33: 338.983→285.714",
+"Tabela!J33: 454.545→363.636",
+"Config!B13: 338.983→285.714",
+"Config!B14: 454.545→363.636"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B8",
+"modo": "x10",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+],
+"INV": []
+},
+{
+"entrada": "Config!B9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+],
+"INV": []
+},
+{
+"entrada": "Config!B9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+],
+"INV": []
+},
+{
+"entrada": "Config!B9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+],
+"INV": []
+},
+{
+"entrada": "Config!B9",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!A5: 338.983→224.719",
+"Tabela!K5: 0.21235→0.8288",
+"Tabela!F8: 221.469→146.816",
+"Tabela!S8: 0.0673489→0.610069",
+"Tabela!F9: 116.384→77.1536",
+"Tabela!F10: 126.554→83.8951",
+"Tabela!S10: -0.378393→-0.0623214",
+"Tabela!F11: 138.418→91.7603",
+"Tabela!S11: 0.214617→0.832219",
+"Tabela!F12: 143.503→95.1311",
+"Tabela!S12: 0.735157→1.61744",
+"Tabela!F13: 268.362→177.903",
+"Tabela!S13: 0.0573421→0.594974",
+"Tabela!F14: 277.966→184.27",
+"Tabela!S14: 0.244756→0.877683",
+"Tabela!I27: 338.983→224.719",
+"Tabela!I28: 338.983→224.719",
+"Tabela!I29: 338.983→224.719",
+"Tabela!I30: 338.983→224.719",
+"Tabela!I31: 338.983→224.719",
+"Tabela!I32: 338.983→224.719",
+"Tabela!I33: 338.983→224.719",
+"Config!B13: 338.983→224.719"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B9",
+"modo": "x10",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+],
+"INV": []
+},
+{
+"entrada": "Config!B10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+],
+"INV": []
+},
+{
+"entrada": "Config!B10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+],
+"INV": []
+},
+{
+"entrada": "Config!B10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+],
+"INV": []
+},
+{
+"entrada": "Config!B10",
+"modo": "zero",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+],
+"INV": []
+},
+{
+"entrada": "Config!B10",
+"modo": "x10",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+],
+"INV": []
+},
+{
+"entrada": "Config!B11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B11",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!E8: 130.667→104",
+"Tabela!F8: 221.469→176.271",
+"Tabela!G8: 296.97→236.364",
+"Tabela!O8: 3→2",
+"Tabela!S8: 0.0673489→0.341028",
+"Tabela!E14: 164→137.333",
+"Tabela!F14: 277.966→232.768",
+"Tabela!G14: 372.727→312.121",
+"Tabela!S14: 0.244756→0.486456",
+"Tabela!B27: 38→30",
+"Tabela!C27: 600→760",
+"Tabela!D27: 189.474→240",
+"Tabela!E27: 157.895→200",
+"Tabela!F27: 142.105→180",
+"Tabela!B33: 48→40",
+"Tabela!C33: 500→600",
+"Tabela!D33: 162.5→195"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B11",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E8: 130.667→370.667",
+"Tabela!F8: 221.469→628.249",
+"Tabela!G8: 296.97→842.424",
+"Tabela!S8: 0.0673489→-0.62374",
+"Tabela!E14: 164→404",
+"Tabela!F14: 277.966→684.746",
+"Tabela!G14: 372.727→918.182",
+"Tabela!S14: 0.244756→-0.494703",
+"Tabela!B27: 38→110",
+"Tabela!C27: 600→207.273",
+"Tabela!D27: 189.474→65.4545",
+"Tabela!E27: 157.895→54.5455",
+"Tabela!F27: 142.105→49.0909",
+"Tabela!B33: 48→120",
+"Tabela!C33: 500→200",
+"Tabela!D33: 162.5→65"
+],
+"NEW": [],
+"CLS": [
+"Tabela!C5: 0 de 7→2 de 7",
+"Tabela!N8: No alvo ou acima→Abaixo do mínimo",
+"Tabela!N14: No alvo ou acima→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Config!B12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B12",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!E8: 130.667→104",
+"Tabela!F8: 221.469→176.271",
+"Tabela!G8: 296.97→236.364",
+"Tabela!O8: 3→2",
+"Tabela!S8: 0.0673489→0.341028",
+"Tabela!E14: 164→137.333",
+"Tabela!F14: 277.966→232.768",
+"Tabela!G14: 372.727→312.121",
+"Tabela!S14: 0.244756→0.486456",
+"Tabela!B27: 38→30",
+"Tabela!C27: 600→760",
+"Tabela!D27: 189.474→240",
+"Tabela!E27: 157.895→200",
+"Tabela!F27: 142.105→180",
+"Tabela!B33: 48→40",
+"Tabela!C33: 500→600",
+"Tabela!D33: 162.5→195"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B12",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Tabela!E8: 130.667→370.667",
+"Tabela!F8: 221.469→628.249",
+"Tabela!G8: 296.97→842.424",
+"Tabela!S8: 0.0673489→-0.62374",
+"Tabela!E14: 164→404",
+"Tabela!F14: 277.966→684.746",
+"Tabela!G14: 372.727→918.182",
+"Tabela!S14: 0.244756→-0.494703",
+"Tabela!B27: 38→110",
+"Tabela!C27: 600→207.273",
+"Tabela!D27: 189.474→65.4545",
+"Tabela!E27: 157.895→54.5455",
+"Tabela!F27: 142.105→49.0909",
+"Tabela!B33: 48→120",
+"Tabela!C33: 500→200",
+"Tabela!D33: 162.5→65"
+],
+"NEW": [],
+"CLS": [
+"Tabela!C5: 0 de 7→2 de 7",
+"Tabela!N8: No alvo ou acima→Abaixo do mínimo",
+"Tabela!N14: No alvo ou acima→Abaixo do mínimo"
+],
+"INV": []
+},
+{
+"entrada": "Config!B17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!H7: Particular→abc",
+"Tabela!C26: Particular→abc"
+],
+"INV": []
+},
+{
+"entrada": "Config!B18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!I7: Saúde Total→abc",
+"Tabela!D26: Saúde Total→abc"
+],
+"INV": []
+},
+{
+"entrada": "Config!B19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!J7: MediPlan→abc",
+"Tabela!E26: MediPlan→abc"
+],
+"INV": []
+},
+{
+"entrada": "Config!B20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!K7: Vida Care→abc",
+"Tabela!F26: Vida Care→abc"
+],
+"INV": []
+},
+{
+"entrada": "Tabela!A15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [
+"Tabela!I34: vazio→338.983",
+"Tabela!J34: vazio→454.545"
+],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!A15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [
+"Tabela!A34: vazio→1",
+"Tabela!I34: vazio→338.983",
+"Tabela!J34: vazio→454.545"
+],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!B15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!C15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!D15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!H15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!I15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J14",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!J14",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→15",
+"Tabela!O14: 1→2"
+],
+"NEW": [
+"Tabela!E33: vazio→1.25"
+],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K14",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!K14",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→15",
+"Tabela!O14: 1→2"
+],
+"NEW": [
+"Tabela!F33: vazio→1.25"
+],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!P15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Tabela!Q15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B21",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B21",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [
+"Tabela!L7: vazio→1",
+"Tabela!G26: vazio→1"
+],
+"CLS": [],
+"INV": []
+}
+]
