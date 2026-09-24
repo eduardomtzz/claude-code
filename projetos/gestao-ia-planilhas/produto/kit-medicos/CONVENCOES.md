@@ -186,3 +186,17 @@ IFERROR convertendo erro em "Alto". Parâmetro de regra (chance mínima, folgas)
 ("Regras de risco conferem?" na 06 dos Advogados) e suspende só as modalidades que o usam, mais a
 recomendação. Validação customizada começa por `IF(ISNUMBER(x);AND(...);FALSE)`: texto dá FALSE,
 não erro. Nota ao lado de entrada não formata a entrada: o exemplo vai escrito.
+
+## Dado obrigatório e totais sobre a mesma população (auditoria final-4)
+
+Todo número que entra numa conta de preço, custo ou classificação é conferido antes, com
+`ISNUMBER` e domínio: minutos, retorno, material, prazo, glosa, custo do dinheiro, valor em
+discussão, chance, valores das modalidades, horas, despesas, custo fixo e marcações Sim/Não da
+equipe. Vazio ou texto não é zero: a linha diz qual dado falta ("faltam os minutos", "falta a
+glosa", "falta a hora cobrada"), só os resultados que dependem dele são suspensos, e a
+recomendação ou o resumo que dependeriam da linha também. Zero digitado continua valendo onde o
+domínio aceita. Lookup na Config (`INDEX`) passa por `ISNUMBER(INDEX(...))`, porque célula vazia
+devolvida por INDEX vira 0 numa conta. Totais e médias somam a MESMA população: pagador com
+atendimentos e sem líquido suspende o líquido e o resultado do mês; receita por hora exige volume,
+produção e minutos em todas as linhas com dados. Contagens de resumo ("x de N") só com todas as
+linhas completas.

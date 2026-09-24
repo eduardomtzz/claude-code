@@ -113,3 +113,16 @@ def salvar(wb,arquivo,titulo_doc):
     _sem_grafico(wb)
     _condicional_para_sheets(wb)
     wb.properties.creator="Seu Sócio Gestor"; wb.properties.title=titulo_doc; wb.save(arquivo); print("salvo",arquivo)
+
+# ---------- auditoria final-4 (F4-G01): dados obrigatórios do procedimento ----------
+def num_ok(c,mn="0",mx=None):
+    """Predicado sem erro: número (não texto, não vazio) dentro do domínio."""
+    return f"IF(ISNUMBER({c}),AND({c}>={mn}{','+c+'<='+mx if mx else ''}),FALSE)"
+def f_tempo(b,c,nret,dret):
+    """Minutos com o retorno embutido, ou o nome do dado que falta. Vazio nunca vira zero."""
+    return (f'IF(NOT({num_ok(b)}),"faltam os minutos",IF(AND({c}<>"Sim",{c}<>"Não"),"falta: gera retorno?",'
+            f'IF(AND({c}="Sim",NOT(AND({num_ok(nret)},{num_ok(dret)}))),"falta o retorno em Config",{b}+IF({c}="Sim",{nret}*{dret},0))))')
+def f_custo(tempo,material,ch):
+    """Custo cheio = tempo ÷ 60 × custo-hora + material; tempo em texto passa adiante o que falta."""
+    return (f'IF(NOT(ISNUMBER({tempo})),{tempo},IF(NOT(ISNUMBER({ch})),"falta o custo-hora em Config",'
+            f'IF(NOT({num_ok(material)}),"falta o material",{tempo}/60*{ch}+{material})))')

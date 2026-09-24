@@ -50,18 +50,19 @@ heads=["Procedimento","Minutos","Gera retorno?","Material (R$)","Custo cheio (R$
 hdr(t,T0-1,heads,height=44)
 for r in range(T0,TN+1):
     inp(t.cell(row=r,column=1)); inp(t.cell(row=r,column=2),"0",center=True); inp(t.cell(row=r,column=3),center=True); inp(t.cell(row=r,column=4),BRL,center=True)
-    t.cell(row=r,column=5,value=f'=IF(A{r}="","",IF(NOT(ISNUMBER({CH})),"falta o custo-hora em Config",(B{r}+IF(C{r}="Sim",{NRET}*{DRET},0))/60*{CH}+D{r}))'); calc(t.cell(row=r,column=5),BRL)
+    # Auditoria final-4 (F4-G01): minutos, retorno e material vazios ou em texto não viram zero
+    t.cell(row=r,column=5,value=f'=IF(A{r}="","",{f_custo("("+f_tempo(f"B{r}",f"C{r}",NRET,DRET)+")",f"D{r}",CH)})'); calc(t.cell(row=r,column=5),BRL)
     t.cell(row=r,column=6,value=f'=IF(A{r}="","",IF(NOT(ISNUMBER(E{r})),E{r},IF({CFGX},"margens inválidas (Config)",E{r}/(1-{IMP}-{MMIN}))))'); calc(t.cell(row=r,column=6),BRL); t.cell(row=r,column=6).font=F(bold=True,color=UVA,size=10)
     t.cell(row=r,column=7,value=f'=IF(A{r}="","",IF(NOT(ISNUMBER(E{r})),E{r},IF({CFGX},"margens inválidas (Config)",E{r}/(1-{IMP}-{MALVO}))))'); calc(t.cell(row=r,column=7),BRL)
     for j in range(NPAG): inp(t.cell(row=r,column=8+j),BRL0,center=True)
-    t.cell(row=r,column=14,value=f'=IF(OR(A{r}="",H{r}=""),"",IF(NOT(ISNUMBER(E{r})),"Falta o custo-hora",IF(OR(NOT(ISNUMBER(F{r})),NOT(ISNUMBER(G{r}))),"Margens inválidas",IF(H{r}=0,"Sem cobrança",IF(H{r}<F{r},"Abaixo do mínimo",IF(H{r}<G{r},"Entre mínimo e alvo","No alvo ou acima"))))))'); calc(t.cell(row=r,column=14))
-    t.cell(row=r,column=15,value=f'=IF(OR(A{r}="",NOT(ISNUMBER(F{r}))),"",SUMPRODUCT((I{r}:M{r}<>"")*(I{r}:M{r}>0)*(I{r}:M{r}*(1-{IMP})<E{r})))'); calc(t.cell(row=r,column=15),"0")
+    t.cell(row=r,column=14,value=f'=IF(OR(A{r}="",H{r}=""),"",IF(NOT(ISNUMBER(H{r})),"Preço inválido",IF(NOT(ISNUMBER(E{r})),IF(ISNUMBER({CH}),"Faltam dados da linha","Falta o custo-hora"),IF(OR(NOT(ISNUMBER(F{r})),NOT(ISNUMBER(G{r}))),"Margens inválidas",IF(H{r}=0,"Sem cobrança",IF(H{r}<F{r},"Abaixo do mínimo",IF(H{r}<G{r},"Entre mínimo e alvo","No alvo ou acima")))))))'); calc(t.cell(row=r,column=14))
+    t.cell(row=r,column=15,value=f'=IF(OR(A{r}="",NOT(ISNUMBER(F{r}))),"",IF(SUMPRODUCT(ISTEXT(I{r}:M{r})*1)>0,"tabela com texto",SUMPRODUCT((I{r}:M{r}<>"")*(I{r}:M{r}>0)*(I{r}:M{r}*(1-{IMP})<E{r}))))'); calc(t.cell(row=r,column=15),"0")
     inp(t.cell(row=r,column=16),"0",center=True); inp(t.cell(row=r,column=17),BRL0,center=True)
-    t.cell(row=r,column=18,value=f'=IF(OR(A{r}="",P{r}="",P{r}=0),"",Q{r}/P{r})'); calc(t.cell(row=r,column=18),BRL)
-    t.cell(row=r,column=19,value=f'=IF(OR(R{r}="",NOT(ISNUMBER(F{r})),N(H{r})=0),"",IF(F{r}=0,"sem base (mínimo zero)",R{r}/F{r}-1))'); calc(t.cell(row=r,column=19),"+0%;-0%;0%")
+    t.cell(row=r,column=18,value=f'=IF(OR(A{r}="",AND(P{r}="",Q{r}="")),"",IF(OR(NOT(ISNUMBER(P{r})),NOT(ISNUMBER(Q{r}))),"volume ou produção faltando",IF(P{r}=0,"",Q{r}/P{r})))'); calc(t.cell(row=r,column=18),BRL)
+    t.cell(row=r,column=19,value=f'=IF(OR(NOT(ISNUMBER(R{r})),NOT(ISNUMBER(F{r})),N(H{r})=0),"",IF(F{r}=0,"sem base (mínimo zero)",R{r}/F{r}-1))'); calc(t.cell(row=r,column=19),"+0%;-0%;0%")
     inp(t.cell(row=r,column=20))
 dvs=lista('"Sim,Não"'); dvs.add(f"C{T0}:C{TN}"); t.add_data_validation(dvs)
-t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'OR(N{T0}="Abaixo do mínimo",N{T0}="Falta o custo-hora",N{T0}="Margens inválidas")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
+t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'OR(N{T0}="Abaixo do mínimo",N{T0}="Falta o custo-hora",N{T0}="Margens inválidas",N{T0}="Faltam dados da linha",N{T0}="Preço inválido")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Entre mínimo e alvo"'], fill=fill(AMARELO)))
 t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="No alvo ou acima"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
 t.conditional_formatting.add(f"I{T0}:M{TN}", FormulaRule(formula=[f'AND(ISNUMBER(I{T0}),I{T0}>0,ISNUMBER($F{T0}),I{T0}*(1-{IMP})<$E{T0})'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
@@ -70,11 +71,15 @@ t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Sem c
 t.conditional_formatting.add(f"O{T0}:O{TN}", FormulaRule(formula=[f'AND(ISNUMBER(O{T0}),O{T0}>0)'], font=F(color="C8402E",size=10,bold=True)))
 t.conditional_formatting.add(f"S{T0}:S{TN}", FormulaRule(formula=[f'AND(ISNUMBER(S{T0}),S{T0}<0)'], font=F(color="C8402E",size=10,bold=True)))
 KA=f"$A${T0}:$A${TN}"; KN=f"$N${T0}:$N${TN}"; KO=f"$O${T0}:$O${TN}"; KP=f"$P${T0}:$P${TN}"; KQ=f"$Q${T0}:$Q${TN}"; KB=f"$B${T0}:$B${TN}"; KF=f"$F${T0}:$F${TN}"
+# Auditoria final-4 (F4-G01/G02): contagens e médias só com todas as linhas completas; a receita
+# por hora exige, em cada linha com volume ou produção, os dois números e os minutos.
+NINC=(f'(SUMPRODUCT(({KA}<>"")*(ISNUMBER({KF})=FALSE))+SUMPRODUCT(ISTEXT($H${T0}:$M${TN})*1))')
+INCV=(f'SUMPRODUCT((({KP}<>"")+({KQ}<>"")>0)*((ISNUMBER({KP})=FALSE)+(ISNUMBER({KQ})=FALSE)+(ISNUMBER({KB})=FALSE)>0))')
 kpi(t,4,1,"Hora mínima (05)",f"={HMIN}",LAVANDA,UVA,fmt=BRL)
-kpi(t,4,3,"Particular abaixo do mínimo",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},COUNTIF({KN},"Abaixo do mínimo")&" de "&COUNTA({KA}))',VERM,VERM_T,fmt="@")
-kpi(t,4,5,"Tabelas de convênio abaixo do custo cheio + imposto",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},SUM({KO}))',VERM,VERM_T,fmt="0")
-kpi(t,4,7,"Produção no mês (R$)",f"=SUM({KQ})",VERDE,VERDE_T,fmt=BRL0)
-kpi(t,4,9,"Valor médio por hora no mês",f'=IFERROR(SUM({KQ})/(SUMPRODUCT({KP},{KB})/60),0)',SOL,UVA,fmt=BRL)
+kpi(t,4,3,"Particular abaixo do mínimo",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},IF({NINC}>0,{NINC}&" linha(s) ou preço(s) incompletos",COUNTIF({KN},"Abaixo do mínimo")&" de "&COUNTA({KA})))',VERM,VERM_T,fmt="@")
+kpi(t,4,5,"Tabelas de convênio abaixo do custo cheio + imposto",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},IF({NINC}>0,{NINC}&" linha(s) ou preço(s) incompletos",SUM({KO})))',VERM,VERM_T,fmt="0")
+kpi(t,4,7,"Produção no mês (R$)",f'=IF(SUMPRODUCT(ISTEXT({KQ})*1)>0,"produção com texto",SUM({KQ}))',VERDE,VERDE_T,fmt=BRL0)
+kpi(t,4,9,"Valor médio por hora no mês",f'=IF({INCV}>0,"volume incompleto em "&{INCV}&" linha(s)",IFERROR(SUM({KQ})/(SUMPRODUCT({KP},{KB})/60),""))',SOL,UVA,fmt=BRL)
 kpi(t,4,11,"Contra a hora mínima",f'=IF(NOT(ISNUMBER({HMIN})),"",IF({HMIN}=0,"sem base (mínimo zero)",IFERROR(I5/{HMIN}-1,"")))',LAVANDA,UVA,fmt="+0%;-0%;0%")
 NT=TN+2
 notas=["Custo cheio, preço mínimo e preço alvo: a mesma conta da planilha 06 (tempo com retorno × custo-hora + material; ÷ (1 − impostos − margem)). Tabela de convênio em vermelho: depois dos impostos não cobre o custo cheio (margem negativa) — é a mesma conta e o mesmo número do KPI \"Tabelas de convênio abaixo do custo cheio + imposto\" e do Resumo da planilha 06. Amarela: cobre o custo, mas não a margem mínima.",
@@ -89,10 +94,10 @@ hdr(t,H0+1,["Procedimento","Minutos com retorno"]+PAG_H+["Hora mínima","Hora al
 for i in range(NPROC):
     r=H0+2+i; s=T0+i
     t.cell(row=r,column=1,value=f'=IF($A{s}="","",$A{s})'); calc(t.cell(row=r,column=1),center=False)
-    t.cell(row=r,column=2,value=f'=IF($A{s}="","",B{s}+IF(C{s}="Sim",{NRET}*{DRET},0))'); calc(t.cell(row=r,column=2),"0.0")
+    t.cell(row=r,column=2,value=f'=IF($A{s}="","",{f_tempo(f"B{s}",f"C{s}",NRET,DRET)})'); calc(t.cell(row=r,column=2),"0.0")
     for j in range(NPAG):
         c=3+j; src=f"{L(8+j)}{s}"
-        t.cell(row=r,column=c,value=f'=IF(OR($A{s}="",{src}="",$B{r}=0),"",{src}/($B{r}/60))'); calc(t.cell(row=r,column=c),BRL0)
+        t.cell(row=r,column=c,value=f'=IF(OR($A{s}="",{src}="",NOT(ISNUMBER({src})),NOT(ISNUMBER($B{r})),N($B{r})=0),"",{src}/($B{r}/60))'); calc(t.cell(row=r,column=c),BRL0)
     t.cell(row=r,column=9,value=f'=IF($A{s}="","",{HMIN})'); calc(t.cell(row=r,column=9),BRL0)
     t.cell(row=r,column=10,value=f'=IF($A{s}="","",{HALVO})'); calc(t.cell(row=r,column=10),BRL0)
 t.conditional_formatting.add(f"C{H0+2}:H{H0+1+NPROC}", FormulaRule(formula=[f'AND(ISNUMBER(C{H0+2}),C{H0+2}>0,ISNUMBER({HMIN}),C{H0+2}<{HMIN})'], fill=fill(VERM), font=F(color=VERM_T,size=10)))

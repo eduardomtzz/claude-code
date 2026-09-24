@@ -35,7 +35,7 @@ Gerado dos próprios arquivos de `entrega/` com openpyxl. As sete últimas colun
 | `03-rotina-da-semana.xlsx` | Como usar · Painel · Config · Rotina | 594 | 1357 | 4 | 9 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `04-checklist-abertura-e-encerramento.xlsx` | Como usar · Painel · Config · Checklist | 2688 | 7232 | 3 | 11 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `05-custo-hora.xlsx` | Como usar · Painel · Config · Custos fixos · Pessoas | 161 | 158 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| `06-simulador-de-honorarios.xlsx` | Como usar · Simulador · Config | 72 | 83 | 8 | 5 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| `06-simulador-de-honorarios.xlsx` | Como usar · Simulador · Config | 73 | 83 | 15 | 5 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `07-proposta-de-honorarios.xlsx` | Como usar · Proposta · Config · Registro | 260 | 1244 | 8 | 6 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `08-tabela-de-referencia.xlsx` | Como usar · Referência · Config · Nossos casos | 1400 | 1667 | 9 | 5 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `09-caixa-do-escritorio.xlsx` | Como usar · Painel · Config · Lançamentos | 1642 | 5462 | 8 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -78,4 +78,4 @@ Gerado dos próprios arquivos de `entrega/` com openpyxl. As sete últimas colun
 
 ## Total
 
-53 arquivos · 234 abas · 189.799 fórmulas · 216.894 células de entrada · 299 validações · 483 regras condicionais · 0 TEXT com código de data · 0 arquivo(s) de entrega diferentes do gerado.
+53 arquivos · 234 abas · 189.800 fórmulas · 216.894 células de entrada · 306 validações · 483 regras condicionais · 0 TEXT com código de data · 0 arquivo(s) de entrega diferentes do gerado.

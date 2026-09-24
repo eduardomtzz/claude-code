@@ -49,7 +49,8 @@ hdr(cfx,4,["Custo fixo","Valor mensal (R$)","Observação"])
 for r in range(CF0,CFN+1):
     inp(cfx.cell(row=r,column=1)); inp(cfx.cell(row=r,column=2),BRL,center=True); inp(cfx.cell(row=r,column=3))
 cfx.cell(row=CFT,column=1,value="Total de custos fixos"); rotulo(cfx.cell(row=CFT,column=1)); cfx.cell(row=CFT,column=1).border=borda
-cfx.cell(row=CFT,column=2,value=f"=SUM(B{CF0}:B{CFN})"); calc(cfx.cell(row=CFT,column=2),BRL); cfx.cell(row=CFT,column=2).font=F(bold=True,color=UVA,size=10)
+# Auditoria final-4 (F4-G01): custo fixo com nome e sem valor, ou com texto, não é zero
+cfx.cell(row=CFT,column=2,value=f'=IF(SUMPRODUCT(((A{CF0}:A{CFN}<>"")+(B{CF0}:B{CFN}<>"")>0)*(ISNUMBER(B{CF0}:B{CFN})=FALSE))>0,"custo fixo sem valor numérico",SUM(B{CF0}:B{CFN}))'); calc(cfx.cell(row=CFT,column=2),BRL); cfx.cell(row=CFT,column=2).font=F(bold=True,color=UVA,size=10)
 cfx.cell(row=CFT+2,column=1,value="Pró-labore dos sócios vai na aba Equipe. Salário da recepção com encargos fica aqui (e marcado \"Sim\" na Equipe, para não contar duas vezes). Materiais de atendimento, taxas de cartão e repasse não são fixos: ficam na precificação (06) e no caixa (09).").font=F(size=9,color=LILAS)
 widths(cfx,(40,18,60)); cfx.freeze_panes="A5"; cfx.sheet_view.showGridLines=False
 # ---------- Equipe ----------
@@ -63,10 +64,10 @@ for r in range(P0,PN+1):
     # Auditoria final (G01): valor mensal ou horas em branco não viram custo zero — a linha
     # escreve o que falta e a coluna K (oculta) marca para o Painel suspender custo-hora,
     # hora mínima e sensibilidade com "cadastro incompleto".
-    eq.cell(row=r,column=8,value=f'=IF(OR(A{r}="",G{r}<>"Sim"),"",IF(OR(NOT(ISNUMBER(F{r})),F{r}=0),"faltam as horas planejadas",IF(AND(E{r}<>"Sim",NOT(ISNUMBER(D{r}))),"falta o valor mensal",IF(E{r}="Sim",0,D{r})/F{r})))'); calc(eq.cell(row=r,column=8),BRL)
+    eq.cell(row=r,column=8,value=f'=IF(A{r}="","",IF(AND(G{r}<>"Sim",G{r}<>"Não"),"falta: entra no custo-hora?",IF(G{r}<>"Sim","",IF(AND(E{r}<>"Sim",E{r}<>"Não"),"falta: já está nos custos fixos?",IF(OR(NOT(ISNUMBER(F{r})),F{r}=0),"faltam as horas planejadas",IF(AND(E{r}<>"Sim",NOT(ISNUMBER(D{r}))),"falta o valor mensal",IF(E{r}="Sim",0,D{r})/F{r}))))))'); calc(eq.cell(row=r,column=8),BRL)
     eq.cell(row=r,column=9,value=f'=IF(H{r}="","",IF(NOT(ISNUMBER(H{r})),H{r},IF(NOT(ISNUMBER({IND_H})),{INC},H{r}+{IND_H})))'); calc(eq.cell(row=r,column=9),BRL)
     eq.cell(row=r,column=10,value=f'=IF(I{r}="","",IF(NOT(ISNUMBER(I{r})),I{r},IF({CFGX},{MINV},I{r}/{DIV})))'); calc(eq.cell(row=r,column=10),BRL)
-    eq.cell(row=r,column=11,value=f'=IF(AND(A{r}<>"",G{r}="Sim",OR(NOT(ISNUMBER(F{r})),AND(E{r}<>"Sim",NOT(ISNUMBER(D{r}))))),1,0)'); eq.cell(row=r,column=11).font=F(color=CINZA,size=9)
+    eq.cell(row=r,column=11,value=f'=IF(AND(A{r}<>"",OR(AND(G{r}<>"Sim",G{r}<>"Não"),AND(G{r}="Sim",OR(NOT(ISNUMBER(F{r})),AND(E{r}<>"Sim",E{r}<>"Não"),AND(E{r}<>"Sim",NOT(ISNUMBER(D{r}))))))),1,0)'); eq.cell(row=r,column=11).font=F(color=CINZA,size=9)
 dv=lista('"Sim,Não"'); dv.add(f"E{P0}:E{PN}"); dv.add(f"G{P0}:G{PN}"); eq.add_data_validation(dv)
 dvr=lista('"Pró-labore,Salário,Repasse"'); dvr.add(f"C{P0}:C{PN}"); eq.add_data_validation(dvr)
 eq.cell(row=PN+2,column=1,value="Custo direto por hora = pró-labore ÷ horas de atendimento. Custo-hora completo = custo direto + rateio dos custos fixos por hora (calculado no Painel). Hora mínima = custo-hora completo ÷ (1 − margem − impostos).").font=F(size=9,color=LILAS)
@@ -76,14 +77,17 @@ widths(eq,(24,30,14,16,14,14,12,14,14,14)); eq.column_dimensions["K"].hidden=Tru
 p=wb.create_sheet("Painel",0)
 titulo(p,'=Config!$B$4&" · Custo da hora de atendimento · "&Config!$B$5',"Nada para digitar aqui, exceto os percentuais da sensibilidade e as horas atendidas de verdade. Custos vêm de Custos fixos, pessoas de Equipe, margem e impostos de Config.",merge_to="J")
 PD=f"Equipe!$D${P0}:$D${PN}"; PE=f"Equipe!$E${P0}:$E${PN}"; PF=f"Equipe!$F${P0}:$F${PN}"; PG=f"Equipe!$G${P0}:$G${PN}"
-FLAG=f"SUM(Equipe!$K${P0}:$K${PN})"   # pessoas do custo-hora com valor mensal ou horas em branco
+FLAGP=f"SUM(Equipe!$K${P0}:$K${PN})"   # pessoas com valor, horas ou marcações em branco
+FLAGC=f"IF(ISNUMBER('Custos fixos'!$B${CFT}),0,1)"   # custo fixo sem valor numérico (auditoria final-4)
+FLAG=f"({FLAGP}+{FLAGC})"
 kpi(p,4,1,"Custo total do mês","=B11",LAVANDA,UVA,fmt=BRL0)
 kpi(p,4,3,"Horas de atendimento planejadas no mês","=B12",LAVANDA,UVA,fmt="#,##0")
 kpi(p,4,5,"Custo da hora de atendimento","=B13",SOL,UVA,fmt=BRL)
 kpi(p,4,7,"Hora mínima a cobrar","=B17",VERDE,VERDE_T,fmt=BRL)
 kpi(p,4,9,"Custo de um horário vazio","=B21",VERM,VERM_T,fmt=BRL)
 p["A6"]="A base do custo-hora são as horas de atendimento PLANEJADAS do mês (turnos × 4,33 semanas): é o preço que cobre o custo quando a agenda está cheia, e é ele que as planilhas 06, 07 e 08 usam. Como a agenda real nunca fica 100 % cheia, o bloco \"Sensibilidade\", no fim desta tela, mostra o custo-hora com as horas de fato atendidas (a última linha usa agosto, da planilha 01): é o número da conversa sobre faltas e horários vazios, não o da tabela de preços."
-p["A3"]=f'=IF({FLAG}=0,"","Atenção: "&{FLAG}&" pessoa(s) na aba Equipe (das que entram no custo-hora) sem valor mensal ou sem horas planejadas. Custo do mês, custo-hora e hora mínima ficam como \'cadastro incompleto\' até você completar: soma parcial daria custo-hora MENOR do que o real.")'
+p["A3"]=(f'=IF({FLAG}=0,"",IF({FLAGC}>0,"Atenção: há custo fixo sem valor numérico na aba Custos fixos. ","")&IF({FLAGP}>0,"Atenção: "&{FLAGP}&" pessoa(s) na aba Equipe com valor mensal, horas ou marcação (entra no custo-hora? / já nos fixos?) em branco. ","")'
+         f'&"Custo do mês, custo-hora e hora mínima ficam como \'cadastro incompleto\' até você completar: soma parcial daria custo-hora MENOR do que o real.")')
 p["A3"].font=F(size=10,bold=True,color=VERM_T); p.merge_cells("A3:J3"); p["A3"].alignment=Alignment(wrap_text=True,vertical="top")
 
 nota(p["A6"]); p.merge_cells("A6:J6"); p["A6"].alignment=Alignment(wrap_text=True,vertical="top"); p.row_dimensions[6].height=30
@@ -100,7 +104,7 @@ linhas=[
  ("Hora mínima a cobrar (exata)",f'=IF(B13="","",IF(NOT(ISNUMBER(B13)),B13,IF({CFGX},{MINV},B13/{DIV})))',BRL,"Custo-hora ÷ (1 − margem − impostos)"),
  ("Hora mínima a cobrar (arredondada)",'=IF(B16="","",IF(NOT(ISNUMBER(B16)),B16,CEILING(B16,Config!$B$9)))',BRL,"Arredondada para cima, no múltiplo de Config"),
  ("Custo direto médio por hora (pró-labore ÷ horas)",f'=IF({FLAG}>0,{INC},IF(B12=0,0,B10/B12))',BRL,"O que os sócios custam por hora de agenda"),
- ("Custos indiretos (custos fixos, com a recepção)","=B9",BRL,"Para ratear por hora de atendimento"),
+ ("Custos indiretos (custos fixos, com a recepção)",f'=IF({FLAG}>0,{INC},B9)',BRL,"Para ratear por hora de atendimento"),
  ("Custo indireto por hora de atendimento",f'=IF({FLAG}>0,{INC},IF(B12=0,0,B19/B12))',BRL,"Custos fixos ÷ horas de atendimento (estrutura, recepção, aluguel). Já está dentro do custo-hora acima: na 11 serve só para mostrar quanto vale a hora de sala"),
  ("Custo de um horário vazio (consulta de Config, em minutos)",'=IF(B13="","",IF(NOT(ISNUMBER(B13)),B13,B13*Config!$B$10/60))',BRL,"Custo-hora × duração da consulta: o que uma falta custa à clínica"),
 ]
