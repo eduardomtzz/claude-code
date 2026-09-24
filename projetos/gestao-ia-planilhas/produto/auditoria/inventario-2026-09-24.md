@@ -60,7 +60,7 @@ Gerado dos próprios arquivos de `entrega/` com openpyxl. As sete últimas colun
 | `03-rotina-da-semana.xlsx` | Como usar · Painel · Config · Rotina | 594 | 1357 | 4 | 9 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `04-checklist-do-dia.xlsx` | Como usar · Painel · Config · Checklist | 3204 | 5429 | 3 | 9 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `05-custo-da-hora.xlsx` | Como usar · Painel · Config · Custos fixos · Equipe | 155 | 170 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| `06-precificacao.xlsx` | Como usar · Precificação · Config | 189 | 125 | 6 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| `06-precificacao.xlsx` | Como usar · Precificação · Config | 189 | 125 | 6 | 22 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `07-simulador-convenio-x-particular.xlsx` | Como usar · Simulador · Config | 180 | 92 | 5 | 8 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `08-tabela-de-precos.xlsx` | Como usar · Tabela · Config | 226 | 170 | 5 | 10 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `09-caixa-da-clinica.xlsx` | Como usar · Painel · Config · Lançamentos | 3284 | 13732 | 8 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -78,4 +78,4 @@ Gerado dos próprios arquivos de `entrega/` com openpyxl. As sete últimas colun
 
 ## Total
 
-53 arquivos · 234 abas · 189.800 fórmulas · 216.894 células de entrada · 313 validações · 483 regras condicionais · 0 TEXT com código de data · 0 arquivo(s) de entrega diferentes do gerado.
+53 arquivos · 234 abas · 189.800 fórmulas · 216.894 células de entrada · 313 validações · 487 regras condicionais · 0 TEXT com código de data · 0 arquivo(s) de entrega diferentes do gerado.

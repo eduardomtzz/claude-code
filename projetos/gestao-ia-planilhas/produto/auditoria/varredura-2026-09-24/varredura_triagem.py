@@ -20,6 +20,8 @@ DEC={('08-tabela-de-referencia',r'Config!E\d+','texto'):'renomear uma área deix
      ('08-tabela-de-precos',r'Tabela![IJKLM]\d+','novo-num'):'preço de convênio digitado numa linha completa é dado válido: contagem e hora por pagador mudam de verdade',
      ('08-tabela-de-precos',r'Tabela!A\d+','novo-texto'):'procedimento novo só com nome: o quadro de hora por pagador mostra a hora mínima e a alvo da Config, iguais para todas as linhas',
      ('08-tabela-de-precos',r'Tabela!A\d+','novo-num'):'procedimento novo só com nome (numérico): idem',
+     ('06-precificacao',r'Precificação!A6$','texto'):'renomear a linha do Retorno tira a exceção (auditoria final-7): a tabela 0 dela passa a contar como prejuízo',
+     ('08-tabela-de-precos',r'Tabela!A9$','texto'):'renomear a linha do Retorno tira a exceção (auditoria final-7): a tabela 0 dela passa a contar',
      ('07-simulador-convenio-x-particular',r'Simulador!B(19|2[0-4])$','vazio'):'valor de tabela em branco = pagador não atende',
      ('07-simulador-convenio-x-particular',r'Simulador!B4[3-8]$','vazio'):'atendimentos em branco = sem volume no mês'}
 AREA=r'Referência![B-H](5[4-9]|6\d|7[0-3])$'   # quadro por área (linhas 54 a 73)
@@ -33,7 +35,8 @@ SAI={('08-tabela-de-referencia',r'Config!E\d+','texto'):AREA,('08-tabela-de-refe
      ('08-tabela-de-precos',r'Tabela![IJKLM]\d+','vazio'):r'Tabela!(O\d+|E5|[A-M](2[7-9]|3\d))$',
      ('08-tabela-de-precos',r'Tabela![IJKLM]\d+','novo-num'):r'Tabela!(O\d+|E5|[A-M](2[7-9]|3\d))$',
      ('08-tabela-de-precos',r'Tabela!A\d+','novo-texto'):r'Tabela![A-M](2[7-9]|3\d)$',
-     ('08-tabela-de-precos',r'Tabela!A\d+','novo-num'):r'Tabela![A-M](2[7-9]|3\d)$'}
+     ('08-tabela-de-precos',r'Tabela!A\d+','novo-num'):r'Tabela![A-M](2[7-9]|3\d)$',
+     ('06-precificacao',r'Precificação!A6$','texto'):r'Precificação!E2[56]$',('08-tabela-de-precos',r'Tabela!A9$','texto'):r'Tabela!(O9|E5)$'}
 # colunas de nome/descrição livre: texto nelas é eco, não defeito (auditoria final-6: só nomes, não listas nem modalidades)
 TEXTCOL=re.compile(r'^(Pessoas![AB]\d|Equipe![AB]\d|Nossos casos![AB]\d|Referência!B\d|Simulador!A(19|2\d|3\d)$|Custos fixos![AC]\d|Config!A1[0-5]$|Precificação!A\d|Tabela!(A|T)\d)')
 tot=0
@@ -45,11 +48,13 @@ for f in sorted(glob.glob(f'/tmp/claude-0/-home-user-claude-code/a6ac5a85-3495-5
         dec=[(arq,pat,m) for (arq,pat,m) in DEC if arq in f and m==modo and re.match(pat,ent)]
         num=[x for x in r['NUM']+r.get('NEW',[]) if not AUX.match(x) and not PRED.match(x) and not (ECO.match(x) and (modo in ('negativo','novo-num') or 'Referência' in x)) and not (modo=='novo-num' and NOME.match(x))]
         cls=[x for x in r['CLS'] if not PRED.match(x) and not x.endswith('→abc') and not ECO.match(x) and 'sem nome' not in x]   # 'pagador sem nome' é aviso (mesma lista de avisos da varredura)
+        inv=r.get('INV',[])   # regra de negócio violada: nunca é dispensada
+        if modo in ('zero','x10'): num=[]; cls=[]   # dado válido: número mudar é o esperado; contam só ERR e INV
         if TEXTCOL.match(ent) and modo=='texto': cls=[]; num=[x for x in num if 'Painel!A2' not in x]
         if dec:
             ok=re.compile(SAI.get(dec[0],'$^'))
             num=[x for x in num if not ok.match(x.split(':')[0])]; cls=[x for x in cls if not ok.match(x.split(':')[0])]
-        if r['ERR'] or num or cls:
-            linhas.append(f"  {ent:24} {modo:8} ERR{len(r['ERR'])} NUM/NEW{len(num)} CLS{len(cls)} | "+'; '.join(r['ERR'][:2]+num[:3]+cls[:2])[:230])
+        if r['ERR'] or num or cls or inv:
+            linhas.append(f"  {ent:24} {modo:8} ERR{len(r['ERR'])} NUM/NEW{len(num)} CLS{len(cls)} INV{len(inv)} | "+'; '.join(r['ERR'][:2]+inv[:2]+num[:3]+cls[:2])[:230])
     print(f'== {nome}: {len(linhas)} caso(s) a triar'); print('\n'.join(linhas)); tot+=len(linhas)
 print('TOTAL a triar:',tot)

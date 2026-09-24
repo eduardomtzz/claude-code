@@ -1,40 +1,35 @@
-# Varredura automática das entradas dos sete arquivos de preço (versão da rodada 7)
+# Varredura automática das entradas dos sete arquivos de preço (versão da rodada 8)
 
-O que mudou depois da sua revisão ampliada, ponto a ponto:
+Base: a versão da rodada 7 (todas as entradas preenchidas, linha nova, NEW, decisões limitadas por
+saída, TEXTCOL estreito). O que entrou por causa do seu parecer final-7:
 
-- **Sem amostragem.** Antes eram três linhas por coluna, por isso a varredura não chegava ao custo-hora
-  do simulador nem às linhas do meio. Agora TODA célula de entrada preenchida do exemplo (desbloqueada
-  e sem fórmula) recebe **vazio**, **"abc"** e **−1** (quando numérica), uma por vez, a partir do
-  exemplo intacto.
-- **Linha nova.** Em cada coluna de tabela, a primeira célula de entrada vazia depois da última
-  preenchida recebe **"abc"** e **1**. É o caso da despesa nova sem valor (F6-G03) e do resíduo sem
-  nome.
-- **NEW.** Além de ERR (erro de fórmula), NUM (número que mudou sem aviso) e CLS (rótulo trocado por
-  outro, sem palavra de aviso), a varredura acusa fórmula que estava vazia e **passou a mostrar
-  número**.
-- **Decisões por saída.** Uma decisão de produto ("branco = não se aplica") não pula mais o cenário
-  inteiro. Cada decisão diz, em `SAI` no código da triagem, quais células podem mudar: a margem da
-  própria célula, a contagem e o maior prejuízo, o quadro por área. Qualquer outra mudança continua
-  sendo triada, e erro de fórmula nunca é pulado.
-- **TEXTCOL estreito.** Só as colunas de nome ou descrição livre contam como eco de texto: pessoa,
-  papel, nº e cliente do caso, tipo de serviço, nome de etapa ou despesa, descrição de custo fixo,
-  nome do procedimento e nome do pagador. Área, modalidade, marcações Sim/Não e listas saíram.
-
-Cada exclusão da triagem está escrita no código (`varredura_triagem.py`), com o motivo.
+- **Zero e ×10.** Cada entrada numérica recebe também **0** (quando o exemplo não é zero) e o **valor
+  ×10**. São dados válidos, que podem ser incoerentes com outro campo: F7-M01 era 110 faturáveis
+  contra 10 de trabalho, F7-G01 eram dois zeros. Nesses dois modos a mudança de número é esperada, por
+  isso só contam ERR e INV.
+- **INV: regras de negócio conferidas fora da planilha, em TODO modo.** Não dependem de a célula
+  mudar, o que fecha o ponto cego "resultado indevido que fica igual ao exemplo":
+  - 03/05: ocupação ≤ 100 % em cada pessoa;
+  - 03/08: mínimo ≤ máximo em cada faixa;
+  - 04/06: prejuízo auxiliar de cada tabela de convênio recalculado em Python como
+    MIN(0, preço × (1 − imposto) − custo cheio), zero só na linha Retorno com tabela 0; e mínimo ≤ alvo;
+  - 04/08: quantidade de tabelas abaixo do custo recalculada por linha; e mínimo ≤ alvo.
+- **Cor.** As regras de cor da 04/08 que multiplicavam o preço agora são IF(ISNUMBER(...), teste,
+  FALSE), como no seu apêndice I. A varredura continua sem avaliar predicados de cor.
 
 ## Resultado final (arquivos deste pacote)
 
-| Arquivo | Células de entrada testadas | Mutações (vazio, texto, −1, linha nova) | Com erro de fórmula |
-|---|---:|---:|---:|
-| kit-advogados-05-custo-hora | 51 | 125 | 0 |
-| kit-advogados-06-simulador-de-honorarios | 51 | 125 | 0 |
-| kit-advogados-08-tabela-de-referencia | 427 | 985 | 0 |
-| kit-medicos-05-custo-da-hora | 62 | 146 | 0 |
-| kit-medicos-06-precificacao | 78 | 205 | 0 |
-| kit-medicos-07-simulador-convenio-x-particular | 65 | 166 | 0 |
-| kit-medicos-08-tabela-de-precos | 91 | 242 | 0 |
+| Arquivo | Células de entrada testadas | Mutações (vazio, texto, −1, zero, ×10, linha nova) | Com regra violada | Com erro de fórmula |
+|---|---:|---:|---:|---:|
+| kit-advogados-05-custo-hora | 51 | 171 | 0 | 0 |
+| kit-advogados-06-simulador-de-honorarios | 51 | 170 | 0 | 0 |
+| kit-advogados-08-tabela-de-referencia | 427 | 1247 | 0 | 0 |
+| kit-medicos-05-custo-da-hora | 62 | 190 | 0 | 0 |
+| kit-medicos-06-precificacao | 78 | 299 | 0 | 0 |
+| kit-medicos-07-simulador-convenio-x-particular | 65 | 236 | 0 | 0 |
+| kit-medicos-08-tabela-de-precos | 91 | 357 | 0 | 0 |
 
-Total: 1994 mutações.
+Total: 2670 mutações.
 
 ```
 == 05-custo-hora: 0 caso(s) a triar
@@ -54,15 +49,13 @@ Total: 1994 mutações.
 TOTAL a triar: 0
 ```
 
-Na primeira passada desta versão, sobre os arquivos já com as correções F6, a varredura achou quatro
-defeitos que a versão anterior não via. Todos foram corrigidos no gerador:
+A única dispensa nova é renomear a linha do Retorno (04/06 A6, 04/08 A9). Com isso a exceção sai e a
+tabela 0 dela passa a contar, que é o comportamento pedido. A dispensa está limitada às saídas E25/E26
+e O9/E5.
 
-1. Custo fixo digitado sem descrição entrava no total sem aviso (05 dos dois kits).
-2. As horas de trabalho de uma pessoa com cadastro incompleto entravam no total do Painel (03/05 B20).
-3. O Painel mostrava 0 no papel ou na remuneração de uma pessoa nova com o campo vazio (05 dos dois kits).
-4. Particular −1 no retorno fazia "valor médio contra o mínimo" mostrar −100 % (04/08 S9).
-
-Limites que continuam: a varredura muda uma entrada por vez (não combina duas) e roda no LibreOffice,
-não no Excel nem no Sheets. Os quatro arquivos que não mudaram depois da primeira passada (03/06,
-03/08, 04/06, 04/07) foram varridos com o mesmo código, exceto a palavra "sem nome", que só entrou
-depois na lista de avisos. A triagem aplica a mesma regra aos resultados deles.
+Limites que continuam:
+- uma entrada por vez; as combinações ficam nos cenários nomeados;
+- a primeira linha vazia é a seguinte à última preenchida de cada coluna;
+- só existem as invariantes listadas acima;
+- predicados de cor e validação não são avaliados;
+- tudo roda no LibreOffice, não no Excel nem no Sheets.

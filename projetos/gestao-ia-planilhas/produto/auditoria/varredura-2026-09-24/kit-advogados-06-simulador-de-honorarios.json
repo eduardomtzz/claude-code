@@ -5,7 +5,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B8",
@@ -13,7 +14,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B9",
@@ -21,7 +23,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B9",
@@ -29,7 +32,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B10",
@@ -37,7 +41,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B10",
@@ -45,7 +50,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B11",
@@ -57,7 +63,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B11",
@@ -69,7 +76,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B11",
@@ -81,7 +89,95 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B11",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→8326.8",
+"Simulador!G5: 3951.78→450",
+"Simulador!I5: 120.261→13.6945",
+"Simulador!B15: 120.261→13.6945",
+"Simulador!C19: 264.286→0",
+"Simulador!C20: 396.428→0",
+"Simulador!C21: 792.857→0",
+"Simulador!C22: 1321.43→0",
+"Simulador!C23: 528.571→0",
+"Simulador!C24: 198.214→0",
+"Simulador!C29: 3501.78→0",
+"Simulador!D40: 3951.78→450",
+"Simulador!D52: 3951.78→450",
+"Simulador!E52: 2488.22→5990",
+"Simulador!F52: 0.355459→0.855714",
+"Simulador!G52: 2488.22→5990",
+"Simulador!J52: 2488.22→5990",
+"Simulador!D53: 3951.78→450",
+"Simulador!E53: 4825.02→8326.8",
+"Simulador!F53: 0.505767→0.87283",
+"Simulador!G53: 4825.02→8326.8",
+"Simulador!J53: 4825.02→8326.8",
+"Simulador!D54: 3951.78→450",
+"Simulador!E54: 3638.22→7140",
+"Simulador!F54: 0.440996→0.865455",
+"Simulador!G54: -3951.78→-450",
+"Simulador!D55: 3951.78→450",
+"Simulador!E55: 4742.22→8244",
+"Simulador!F55: 0.501822→0.872381",
+"Simulador!G55: 188.216→3690",
+"Simulador!J55: 4742.22→8244"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B11",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!G5: 3951.78→35467.8",
+"Simulador!I5: 120.261→1079.36",
+"Simulador!B15: 120.261→1079.36",
+"Simulador!C19: 264.286→2642.86",
+"Simulador!C20: 396.428→3964.28",
+"Simulador!C21: 792.857→7928.57",
+"Simulador!C22: 1321.43→13214.3",
+"Simulador!C23: 528.571→5285.71",
+"Simulador!C24: 198.214→1982.14",
+"Simulador!C29: 3501.78→35017.8",
+"Simulador!D40: 3951.78→35467.8",
+"Simulador!D52: 3951.78→35467.8",
+"Simulador!E52: 2488.22→-29027.8",
+"Simulador!F52: 0.355459→-4.14683",
+"Simulador!G52: 2488.22→-29027.8",
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!D53: 3951.78→35467.8",
+"Simulador!E53: 4825.02→-26691",
+"Simulador!F53: 0.505767→-2.7978",
+"Simulador!G53: 4825.02→-26691",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!D54: 3951.78→35467.8",
+"Simulador!E54: 3638.22→-27877.8",
+"Simulador!F54: 0.440996→-3.37913",
+"Simulador!G54: -3951.78→-35467.8",
+"Simulador!D55: 3951.78→35467.8",
+"Simulador!E55: 4742.22→-26773.8",
+"Simulador!F55: 0.501822→-2.83321",
+"Simulador!G55: 188.216→-31327.8",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Simulador!A5: Hora→Nenhuma com risco aceitável",
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 9 horas sem prejuízo (estimadas: 53)",
+"Simulador!I52: Baixo→Alto",
+"Simulador!I53: Baixo→Alto",
+"Simulador!I55: Baixo→Alto"
+],
+"INV": []
 },
 {
 "entrada": "Simulador!B12",
@@ -91,7 +187,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B12",
@@ -101,7 +198,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B12",
@@ -111,7 +209,50 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B12",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!B14: 33000→0",
+"Simulador!B54: 8250→0",
+"Simulador!C54: 660→0",
+"Simulador!E54: 3638.22→-3951.78",
+"Simulador!B55: 9450→4500",
+"Simulador!C55: 756→360",
+"Simulador!E55: 4742.22→188.216",
+"Simulador!F55: 0.501822→0.0418257",
+"Simulador!J55: 4742.22→188.216"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B12",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→45728.2",
+"Simulador!B14: 33000→330000",
+"Simulador!B54: 8250→82500",
+"Simulador!C54: 660→6600",
+"Simulador!E54: 3638.22→71948.2",
+"Simulador!F54: 0.440996→0.8721",
+"Simulador!B55: 9450→54000",
+"Simulador!C55: 756→4320",
+"Simulador!E55: 4742.22→45728.2",
+"Simulador!F55: 0.501822→0.846819",
+"Simulador!J55: 4742.22→45728.2"
+],
+"NEW": [],
+"CLS": [
+"Simulador!A5: Hora→Misto"
+],
+"INV": []
 },
 {
 "entrada": "Simulador!B13",
@@ -121,7 +262,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B13",
@@ -131,7 +273,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B13",
@@ -141,7 +284,40 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B13",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!B14: 33000→0",
+"Simulador!B54: 8250→0",
+"Simulador!C54: 660→0",
+"Simulador!E54: 3638.22→-3951.78",
+"Simulador!B55: 9450→4500",
+"Simulador!C55: 756→360",
+"Simulador!E55: 4742.22→188.216",
+"Simulador!F55: 0.501822→0.0418257",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Simulador!I55: Baixo→Alto"
+],
+"INV": []
+},
+{
+"entrada": "Simulador!B13",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B19",
@@ -153,7 +329,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B19",
@@ -165,7 +342,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B19",
@@ -177,7 +355,93 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B19",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→5006.5",
+"Simulador!G5: 3951.78→3687.5",
+"Simulador!I5: 120.261→121.379",
+"Simulador!B15: 120.261→121.379",
+"Simulador!C19: 264.286→0",
+"Simulador!B29: 53→49",
+"Simulador!C29: 3501.78→3237.5",
+"Simulador!D40: 3951.78→3687.5",
+"Simulador!D52: 3951.78→3687.5",
+"Simulador!E52: 2488.22→2752.5",
+"Simulador!F52: 0.355459→0.393214",
+"Simulador!G52: 2488.22→2752.5",
+"Simulador!J52: 2488.22→2752.5",
+"Simulador!B53: 9540→8820",
+"Simulador!C53: 763.2→705.6",
+"Simulador!D53: 3951.78→3687.5",
+"Simulador!E53: 4825.02→4426.9",
+"Simulador!F53: 0.505767→0.501916",
+"Simulador!G53: 4825.02→4426.9",
+"Simulador!J53: 4825.02→4426.9",
+"Simulador!D54: 3951.78→3687.5",
+"Simulador!E54: 3638.22→3902.5",
+"Simulador!F54: 0.440996→0.47303",
+"Simulador!G54: -3951.78→-3687.5",
+"Simulador!D55: 3951.78→3687.5",
+"Simulador!E55: 4742.22→5006.5",
+"Simulador!F55: 0.501822→0.529789",
+"Simulador!G55: 188.216→452.501",
+"Simulador!J55: 4742.22→5006.5"
+],
+"NEW": [],
+"CLS": [
+"Simulador!A5: Hora→Misto",
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 91 horas sem prejuízo (estimadas: 49)"
+],
+"INV": []
+},
+{
+"entrada": "Simulador!B19",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→8408.05",
+"Simulador!G5: 3951.78→6330.35",
+"Simulador!I5: 120.261→114.722",
+"Simulador!B15: 120.261→114.722",
+"Simulador!C19: 264.286→2642.86",
+"Simulador!B29: 53→89",
+"Simulador!C29: 3501.78→5880.35",
+"Simulador!D40: 3951.78→6330.35",
+"Simulador!D52: 3951.78→6330.35",
+"Simulador!E52: 2488.22→109.645",
+"Simulador!F52: 0.355459→0.0156636",
+"Simulador!G52: 2488.22→109.645",
+"Simulador!J52: 2488.22→109.645",
+"Simulador!B53: 9540→16020",
+"Simulador!C53: 763.2→1281.6",
+"Simulador!D53: 3951.78→6330.35",
+"Simulador!E53: 4825.02→8408.05",
+"Simulador!F53: 0.505767→0.524847",
+"Simulador!G53: 4825.02→8408.05",
+"Simulador!J53: 4825.02→8408.05",
+"Simulador!D54: 3951.78→6330.35",
+"Simulador!E54: 3638.22→1259.65",
+"Simulador!F54: 0.440996→0.152684",
+"Simulador!G54: -3951.78→-6330.35",
+"Simulador!D55: 3951.78→6330.35",
+"Simulador!E55: 4742.22→2363.65",
+"Simulador!F55: 0.501822→0.250121",
+"Simulador!G55: 188.216→-2190.35",
+"Simulador!J55: 4742.22→2363.65"
+],
+"NEW": [],
+"CLS": [
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 91 horas sem prejuízo (estimadas: 89)",
+"Simulador!I52: Baixo→Médio",
+"Simulador!I55: Baixo→Médio"
+],
+"INV": []
 },
 {
 "entrada": "Simulador!B20",
@@ -189,7 +453,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B20",
@@ -201,7 +466,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B20",
@@ -213,7 +479,93 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B20",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→5138.64",
+"Simulador!G5: 3951.78→3555.36",
+"Simulador!I5: 120.261→122.009",
+"Simulador!B15: 120.261→122.009",
+"Simulador!C20: 396.428→0",
+"Simulador!B29: 53→47",
+"Simulador!C29: 3501.78→3105.36",
+"Simulador!D40: 3951.78→3555.36",
+"Simulador!D52: 3951.78→3555.36",
+"Simulador!E52: 2488.22→2884.64",
+"Simulador!F52: 0.355459→0.412092",
+"Simulador!G52: 2488.22→2884.64",
+"Simulador!J52: 2488.22→2884.64",
+"Simulador!B53: 9540→8460",
+"Simulador!C53: 763.2→676.8",
+"Simulador!D53: 3951.78→3555.36",
+"Simulador!E53: 4825.02→4227.84",
+"Simulador!F53: 0.505767→0.499745",
+"Simulador!G53: 4825.02→4227.84",
+"Simulador!J53: 4825.02→4227.84",
+"Simulador!D54: 3951.78→3555.36",
+"Simulador!E54: 3638.22→4034.64",
+"Simulador!F54: 0.440996→0.489048",
+"Simulador!G54: -3951.78→-3555.36",
+"Simulador!D55: 3951.78→3555.36",
+"Simulador!E55: 4742.22→5138.64",
+"Simulador!F55: 0.501822→0.543772",
+"Simulador!G55: 188.216→584.644",
+"Simulador!J55: 4742.22→5138.64"
+],
+"NEW": [],
+"CLS": [
+"Simulador!A5: Hora→Misto",
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 91 horas sem prejuízo (estimadas: 47)"
+],
+"INV": []
+},
+{
+"entrada": "Simulador!B20",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→10199.6",
+"Simulador!G5: 3951.78→7519.64",
+"Simulador!I5: 120.261→113.35",
+"Simulador!B15: 120.261→113.35",
+"Simulador!C20: 396.428→3964.28",
+"Simulador!B29: 53→107",
+"Simulador!C29: 3501.78→7069.64",
+"Simulador!D40: 3951.78→7519.64",
+"Simulador!D52: 3951.78→7519.64",
+"Simulador!E52: 2488.22→-1079.64",
+"Simulador!F52: 0.355459→-0.154234",
+"Simulador!G52: 2488.22→-1079.64",
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!B53: 9540→19260",
+"Simulador!C53: 763.2→1540.8",
+"Simulador!D53: 3951.78→7519.64",
+"Simulador!E53: 4825.02→10199.6",
+"Simulador!F53: 0.505767→0.529572",
+"Simulador!G53: 4825.02→10199.6",
+"Simulador!J53: 4825.02→10199.6",
+"Simulador!D54: 3951.78→7519.64",
+"Simulador!E54: 3638.22→70.3602",
+"Simulador!F54: 0.440996→0.00852851",
+"Simulador!G54: -3951.78→-7519.64",
+"Simulador!D55: 3951.78→7519.64",
+"Simulador!E55: 4742.22→1174.36",
+"Simulador!F55: 0.501822→0.124271",
+"Simulador!G55: 188.216→-3379.64",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 91 horas sem prejuízo (estimadas: 107)",
+"Simulador!I52: Baixo→Alto",
+"Simulador!I55: Baixo→Alto"
+],
+"INV": []
 },
 {
 "entrada": "Simulador!B21",
@@ -225,7 +577,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B21",
@@ -237,7 +590,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B21",
@@ -249,7 +603,93 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B21",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→5535.07",
+"Simulador!G5: 3951.78→3158.93",
+"Simulador!I5: 120.261→124.269",
+"Simulador!B15: 120.261→124.269",
+"Simulador!C21: 792.857→0",
+"Simulador!B29: 53→41",
+"Simulador!C29: 3501.78→2708.93",
+"Simulador!D40: 3951.78→3158.93",
+"Simulador!D52: 3951.78→3158.93",
+"Simulador!E52: 2488.22→3281.07",
+"Simulador!F52: 0.355459→0.468725",
+"Simulador!G52: 2488.22→3281.07",
+"Simulador!J52: 2488.22→3281.07",
+"Simulador!B53: 9540→7380",
+"Simulador!C53: 763.2→590.4",
+"Simulador!D53: 3951.78→3158.93",
+"Simulador!E53: 4825.02→3630.67",
+"Simulador!F53: 0.505767→0.491961",
+"Simulador!G53: 4825.02→3630.67",
+"Simulador!J53: 4825.02→3630.67",
+"Simulador!D54: 3951.78→3158.93",
+"Simulador!E54: 3638.22→4431.07",
+"Simulador!F54: 0.440996→0.5371",
+"Simulador!G54: -3951.78→-3158.93",
+"Simulador!D55: 3951.78→3158.93",
+"Simulador!E55: 4742.22→5535.07",
+"Simulador!F55: 0.501822→0.585722",
+"Simulador!G55: 188.216→981.073",
+"Simulador!J55: 4742.22→5535.07"
+],
+"NEW": [],
+"CLS": [
+"Simulador!A5: Hora→Misto",
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 91 horas sem prejuízo (estimadas: 41)"
+],
+"INV": []
+},
+{
+"entrada": "Simulador!B21",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→15574.1",
+"Simulador!G5: 3951.78→11087.5",
+"Simulador!I5: 120.261→111.075",
+"Simulador!B15: 120.261→111.075",
+"Simulador!C21: 792.857→7928.57",
+"Simulador!B29: 53→161",
+"Simulador!C29: 3501.78→10637.5",
+"Simulador!D40: 3951.78→11087.5",
+"Simulador!D52: 3951.78→11087.5",
+"Simulador!E52: 2488.22→-4647.5",
+"Simulador!F52: 0.355459→-0.663928",
+"Simulador!G52: 2488.22→-4647.5",
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!B53: 9540→28980",
+"Simulador!C53: 763.2→2318.4",
+"Simulador!D53: 3951.78→11087.5",
+"Simulador!E53: 4825.02→15574.1",
+"Simulador!F53: 0.505767→0.537409",
+"Simulador!G53: 4825.02→15574.1",
+"Simulador!J53: 4825.02→15574.1",
+"Simulador!D54: 3951.78→11087.5",
+"Simulador!E54: 3638.22→-3497.5",
+"Simulador!F54: 0.440996→-0.423939",
+"Simulador!G54: -3951.78→-11087.5",
+"Simulador!D55: 3951.78→11087.5",
+"Simulador!E55: 4742.22→-2393.5",
+"Simulador!F55: 0.501822→-0.25328",
+"Simulador!G55: 188.216→-6947.5",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 91 horas sem prejuízo (estimadas: 161)",
+"Simulador!I52: Baixo→Alto",
+"Simulador!I55: Baixo→Alto"
+],
+"INV": []
 },
 {
 "entrada": "Simulador!B22",
@@ -261,7 +701,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B22",
@@ -273,7 +714,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B22",
@@ -285,7 +727,93 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B22",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→6063.64",
+"Simulador!G5: 3951.78→2630.36",
+"Simulador!I5: 120.261→128.561",
+"Simulador!B15: 120.261→128.561",
+"Simulador!C22: 1321.43→0",
+"Simulador!B29: 53→33",
+"Simulador!C29: 3501.78→2180.36",
+"Simulador!D40: 3951.78→2630.36",
+"Simulador!D52: 3951.78→2630.36",
+"Simulador!E52: 2488.22→3809.64",
+"Simulador!F52: 0.355459→0.544235",
+"Simulador!G52: 2488.22→3809.64",
+"Simulador!J52: 2488.22→3809.64",
+"Simulador!B53: 9540→5940",
+"Simulador!C53: 763.2→475.2",
+"Simulador!D53: 3951.78→2630.36",
+"Simulador!E53: 4825.02→2834.44",
+"Simulador!F53: 0.505767→0.477179",
+"Simulador!G53: 4825.02→2834.44",
+"Simulador!J53: 4825.02→2834.44",
+"Simulador!D54: 3951.78→2630.36",
+"Simulador!E54: 3638.22→4959.64",
+"Simulador!F54: 0.440996→0.601169",
+"Simulador!G54: -3951.78→-2630.36",
+"Simulador!D55: 3951.78→2630.36",
+"Simulador!E55: 4742.22→6063.64",
+"Simulador!F55: 0.501822→0.641655",
+"Simulador!G55: 188.216→1509.64",
+"Simulador!J55: 4742.22→6063.64"
+],
+"NEW": [],
+"CLS": [
+"Simulador!A5: Hora→Misto",
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 91 horas sem prejuízo (estimadas: 33)"
+],
+"INV": []
+},
+{
+"entrada": "Simulador!B22",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→22740.2",
+"Simulador!G5: 3951.78→15844.6",
+"Simulador!I5: 120.261→109.682",
+"Simulador!B15: 120.261→109.682",
+"Simulador!C22: 1321.43→13214.3",
+"Simulador!B29: 53→233",
+"Simulador!C29: 3501.78→15394.6",
+"Simulador!D40: 3951.78→15844.6",
+"Simulador!D52: 3951.78→15844.6",
+"Simulador!E52: 2488.22→-9404.64",
+"Simulador!F52: 0.355459→-1.34352",
+"Simulador!G52: 2488.22→-9404.64",
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!B53: 9540→41940",
+"Simulador!C53: 763.2→3355.2",
+"Simulador!D53: 3951.78→15844.6",
+"Simulador!E53: 4825.02→22740.2",
+"Simulador!F53: 0.505767→0.542207",
+"Simulador!G53: 4825.02→22740.2",
+"Simulador!J53: 4825.02→22740.2",
+"Simulador!D54: 3951.78→15844.6",
+"Simulador!E54: 3638.22→-8254.64",
+"Simulador!F54: 0.440996→-1.00056",
+"Simulador!G54: -3951.78→-15844.6",
+"Simulador!D55: 3951.78→15844.6",
+"Simulador!E55: 4742.22→-7150.64",
+"Simulador!F55: 0.501822→-0.756681",
+"Simulador!G55: 188.216→-11704.6",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 91 horas sem prejuízo (estimadas: 233)",
+"Simulador!I52: Baixo→Alto",
+"Simulador!I55: Baixo→Alto"
+],
+"INV": []
 },
 {
 "entrada": "Simulador!B23",
@@ -297,7 +825,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B23",
@@ -309,7 +838,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B23",
@@ -321,7 +851,93 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B23",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→5270.79",
+"Simulador!G5: 3951.78→3423.21",
+"Simulador!I5: 120.261→122.696",
+"Simulador!B15: 120.261→122.696",
+"Simulador!C23: 528.571→0",
+"Simulador!B29: 53→45",
+"Simulador!C29: 3501.78→2973.21",
+"Simulador!D40: 3951.78→3423.21",
+"Simulador!D52: 3951.78→3423.21",
+"Simulador!E52: 2488.22→3016.79",
+"Simulador!F52: 0.355459→0.43097",
+"Simulador!G52: 2488.22→3016.79",
+"Simulador!J52: 2488.22→3016.79",
+"Simulador!B53: 9540→8100",
+"Simulador!C53: 763.2→648",
+"Simulador!D53: 3951.78→3423.21",
+"Simulador!E53: 4825.02→4028.79",
+"Simulador!F53: 0.505767→0.497381",
+"Simulador!G53: 4825.02→4028.79",
+"Simulador!J53: 4825.02→4028.79",
+"Simulador!D54: 3951.78→3423.21",
+"Simulador!E54: 3638.22→4166.79",
+"Simulador!F54: 0.440996→0.505065",
+"Simulador!G54: -3951.78→-3423.21",
+"Simulador!D55: 3951.78→3423.21",
+"Simulador!E55: 4742.22→5270.79",
+"Simulador!F55: 0.501822→0.557755",
+"Simulador!G55: 188.216→716.787",
+"Simulador!J55: 4742.22→5270.79"
+],
+"NEW": [],
+"CLS": [
+"Simulador!A5: Hora→Misto",
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 91 horas sem prejuízo (estimadas: 45)"
+],
+"INV": []
+},
+{
+"entrada": "Simulador!B23",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→11991.1",
+"Simulador!G5: 3951.78→8708.92",
+"Simulador!I5: 120.261→112.373",
+"Simulador!B15: 120.261→112.373",
+"Simulador!C23: 528.571→5285.71",
+"Simulador!B29: 53→125",
+"Simulador!C29: 3501.78→8258.92",
+"Simulador!D40: 3951.78→8708.92",
+"Simulador!D52: 3951.78→8708.92",
+"Simulador!E52: 2488.22→-2268.93",
+"Simulador!F52: 0.355459→-0.324132",
+"Simulador!G52: 2488.22→-2268.93",
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!B53: 9540→22500",
+"Simulador!C53: 763.2→1800",
+"Simulador!D53: 3951.78→8708.92",
+"Simulador!E53: 4825.02→11991.1",
+"Simulador!F53: 0.505767→0.532937",
+"Simulador!G53: 4825.02→11991.1",
+"Simulador!J53: 4825.02→11991.1",
+"Simulador!D54: 3951.78→8708.92",
+"Simulador!E54: 3638.22→-1118.92",
+"Simulador!F54: 0.440996→-0.135627",
+"Simulador!G54: -3951.78→-8708.92",
+"Simulador!D55: 3951.78→8708.92",
+"Simulador!E55: 4742.22→-14.925",
+"Simulador!F55: 0.501822→-0.00157937",
+"Simulador!G55: 188.216→-4568.93",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 91 horas sem prejuízo (estimadas: 125)",
+"Simulador!I52: Baixo→Alto",
+"Simulador!I55: Baixo→Alto"
+],
+"INV": []
 },
 {
 "entrada": "Simulador!B24",
@@ -333,7 +949,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B24",
@@ -345,7 +962,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B24",
@@ -357,7 +975,93 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B24",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→4940.43",
+"Simulador!G5: 3951.78→3753.57",
+"Simulador!I5: 120.261→121.083",
+"Simulador!B15: 120.261→121.083",
+"Simulador!C24: 198.214→0",
+"Simulador!B29: 53→50",
+"Simulador!C29: 3501.78→3303.57",
+"Simulador!D40: 3951.78→3753.57",
+"Simulador!D52: 3951.78→3753.57",
+"Simulador!E52: 2488.22→2686.43",
+"Simulador!F52: 0.355459→0.383776",
+"Simulador!G52: 2488.22→2686.43",
+"Simulador!J52: 2488.22→2686.43",
+"Simulador!B53: 9540→9000",
+"Simulador!C53: 763.2→720",
+"Simulador!D53: 3951.78→3753.57",
+"Simulador!E53: 4825.02→4526.43",
+"Simulador!F53: 0.505767→0.502937",
+"Simulador!G53: 4825.02→4526.43",
+"Simulador!J53: 4825.02→4526.43",
+"Simulador!D54: 3951.78→3753.57",
+"Simulador!E54: 3638.22→3836.43",
+"Simulador!F54: 0.440996→0.465022",
+"Simulador!G54: -3951.78→-3753.57",
+"Simulador!D55: 3951.78→3753.57",
+"Simulador!E55: 4742.22→4940.43",
+"Simulador!F55: 0.501822→0.522797",
+"Simulador!G55: 188.216→386.43",
+"Simulador!J55: 4742.22→4940.43"
+],
+"NEW": [],
+"CLS": [
+"Simulador!A5: Hora→Misto",
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 91 horas sem prejuízo (estimadas: 50)"
+],
+"INV": []
+},
+{
+"entrada": "Simulador!B24",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→7512.29",
+"Simulador!G5: 3951.78→5735.71",
+"Simulador!I5: 120.261→115.639",
+"Simulador!B15: 120.261→115.639",
+"Simulador!C24: 198.214→1982.14",
+"Simulador!B29: 53→80",
+"Simulador!C29: 3501.78→5285.71",
+"Simulador!D40: 3951.78→5735.71",
+"Simulador!D52: 3951.78→5735.71",
+"Simulador!E52: 2488.22→704.288",
+"Simulador!F52: 0.355459→0.100613",
+"Simulador!G52: 2488.22→704.288",
+"Simulador!J52: 2488.22→704.288",
+"Simulador!B53: 9540→14400",
+"Simulador!C53: 763.2→1152",
+"Simulador!D53: 3951.78→5735.71",
+"Simulador!E53: 4825.02→7512.29",
+"Simulador!F53: 0.505767→0.521687",
+"Simulador!G53: 4825.02→7512.29",
+"Simulador!J53: 4825.02→7512.29",
+"Simulador!D54: 3951.78→5735.71",
+"Simulador!E54: 3638.22→1854.29",
+"Simulador!F54: 0.440996→0.224762",
+"Simulador!G54: -3951.78→-5735.71",
+"Simulador!D55: 3951.78→5735.71",
+"Simulador!E55: 4742.22→2958.29",
+"Simulador!F55: 0.501822→0.313046",
+"Simulador!G55: 188.216→-1595.71",
+"Simulador!J55: 4742.22→2958.29"
+],
+"NEW": [],
+"CLS": [
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 91 horas sem prejuízo (estimadas: 80)",
+"Simulador!I52: Baixo→Médio",
+"Simulador!I55: Baixo→Médio"
+],
+"INV": []
 },
 {
 "entrada": "Simulador!B33",
@@ -369,7 +1073,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B33",
@@ -381,7 +1086,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B33",
@@ -393,7 +1099,30 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B33",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!B39: 1250→450"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B33",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!B39: 1250→8450"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B34",
@@ -405,7 +1134,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B34",
@@ -417,7 +1147,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B34",
@@ -429,7 +1160,90 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B34",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→5125.02",
+"Simulador!G5: 3951.78→3651.78",
+"Simulador!I5: 120.261→111.132",
+"Simulador!B15: 120.261→111.132",
+"Simulador!D34: 300→0",
+"Simulador!B39: 1250→950",
+"Simulador!D39: 450→150",
+"Simulador!D40: 3951.78→3651.78",
+"Simulador!D52: 3951.78→3651.78",
+"Simulador!E52: 2488.22→2788.22",
+"Simulador!F52: 0.355459→0.398317",
+"Simulador!G52: 2488.22→2788.22",
+"Simulador!J52: 2488.22→2788.22",
+"Simulador!D53: 3951.78→3651.78",
+"Simulador!E53: 4825.02→5125.02",
+"Simulador!F53: 0.505767→0.537213",
+"Simulador!G53: 4825.02→5125.02",
+"Simulador!J53: 4825.02→5125.02",
+"Simulador!D54: 3951.78→3651.78",
+"Simulador!E54: 3638.22→3938.22",
+"Simulador!F54: 0.440996→0.477359",
+"Simulador!G54: -3951.78→-3651.78",
+"Simulador!D55: 3951.78→3651.78",
+"Simulador!E55: 4742.22→5042.22",
+"Simulador!F55: 0.501822→0.533568",
+"Simulador!G55: 188.216→488.216",
+"Simulador!J55: 4742.22→5042.22"
+],
+"NEW": [],
+"CLS": [
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 95 horas sem prejuízo (estimadas: 53)"
+],
+"INV": []
+},
+{
+"entrada": "Simulador!B34",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→2125.02",
+"Simulador!G5: 3951.78→6651.78",
+"Simulador!I5: 120.261→202.428",
+"Simulador!B15: 120.261→202.428",
+"Simulador!D34: 300→3000",
+"Simulador!B39: 1250→3950",
+"Simulador!D39: 450→3150",
+"Simulador!D40: 3951.78→6651.78",
+"Simulador!D52: 3951.78→6651.78",
+"Simulador!E52: 2488.22→-211.784",
+"Simulador!F52: 0.355459→-0.0302549",
+"Simulador!G52: 2488.22→-211.784",
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!D53: 3951.78→6651.78",
+"Simulador!E53: 4825.02→2125.02",
+"Simulador!F53: 0.505767→0.222748",
+"Simulador!G53: 4825.02→2125.02",
+"Simulador!J53: 4825.02→2125.02",
+"Simulador!D54: 3951.78→6651.78",
+"Simulador!E54: 3638.22→938.216",
+"Simulador!F54: 0.440996→0.113723",
+"Simulador!G54: -3951.78→-6651.78",
+"Simulador!D55: 3951.78→6651.78",
+"Simulador!E55: 4742.22→2042.22",
+"Simulador!F55: 0.501822→0.216107",
+"Simulador!G55: 188.216→-2511.78",
+"Simulador!J55: 4742.22→2042.22"
+],
+"NEW": [],
+"CLS": [
+"Simulador!E5: Baixo→Médio",
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 50 horas sem prejuízo (estimadas: 53)",
+"Simulador!I52: Baixo→Alto",
+"Simulador!I53: Baixo→Médio",
+"Simulador!I55: Baixo→Médio"
+],
+"INV": []
 },
 {
 "entrada": "Simulador!B35",
@@ -441,7 +1255,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B35",
@@ -453,7 +1268,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B35",
@@ -465,7 +1281,87 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B35",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→4975.02",
+"Simulador!G5: 3951.78→3801.78",
+"Simulador!I5: 120.261→115.696",
+"Simulador!B15: 120.261→115.696",
+"Simulador!D35: 150→0",
+"Simulador!B39: 1250→1100",
+"Simulador!D39: 450→300",
+"Simulador!D40: 3951.78→3801.78",
+"Simulador!D52: 3951.78→3801.78",
+"Simulador!E52: 2488.22→2638.22",
+"Simulador!F52: 0.355459→0.376888",
+"Simulador!G52: 2488.22→2638.22",
+"Simulador!J52: 2488.22→2638.22",
+"Simulador!D53: 3951.78→3801.78",
+"Simulador!E53: 4825.02→4975.02",
+"Simulador!F53: 0.505767→0.52149",
+"Simulador!G53: 4825.02→4975.02",
+"Simulador!J53: 4825.02→4975.02",
+"Simulador!D54: 3951.78→3801.78",
+"Simulador!E54: 3638.22→3788.22",
+"Simulador!F54: 0.440996→0.459178",
+"Simulador!G54: -3951.78→-3801.78",
+"Simulador!D55: 3951.78→3801.78",
+"Simulador!E55: 4742.22→4892.22",
+"Simulador!F55: 0.501822→0.517695",
+"Simulador!G55: 188.216→338.216",
+"Simulador!J55: 4742.22→4892.22"
+],
+"NEW": [],
+"CLS": [
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 93 horas sem prejuízo (estimadas: 53)"
+],
+"INV": []
+},
+{
+"entrada": "Simulador!B35",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→3475.02",
+"Simulador!G5: 3951.78→5301.78",
+"Simulador!I5: 120.261→161.345",
+"Simulador!B15: 120.261→161.345",
+"Simulador!D35: 150→1500",
+"Simulador!B39: 1250→2600",
+"Simulador!D39: 450→1800",
+"Simulador!D40: 3951.78→5301.78",
+"Simulador!D52: 3951.78→5301.78",
+"Simulador!E52: 2488.22→1138.22",
+"Simulador!F52: 0.355459→0.162602",
+"Simulador!G52: 2488.22→1138.22",
+"Simulador!J52: 2488.22→1138.22",
+"Simulador!D53: 3951.78→5301.78",
+"Simulador!E53: 4825.02→3475.02",
+"Simulador!F53: 0.505767→0.364257",
+"Simulador!G53: 4825.02→3475.02",
+"Simulador!J53: 4825.02→3475.02",
+"Simulador!D54: 3951.78→5301.78",
+"Simulador!E54: 3638.22→2288.22",
+"Simulador!F54: 0.440996→0.277359",
+"Simulador!G54: -3951.78→-5301.78",
+"Simulador!D55: 3951.78→5301.78",
+"Simulador!E55: 4742.22→3392.22",
+"Simulador!F55: 0.501822→0.358965",
+"Simulador!G55: 188.216→-1161.78",
+"Simulador!J55: 4742.22→3392.22"
+],
+"NEW": [],
+"CLS": [
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 70 horas sem prejuízo (estimadas: 53)",
+"Simulador!I55: Baixo→Médio"
+],
+"INV": []
 },
 {
 "entrada": "Simulador!B36",
@@ -477,7 +1373,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B36",
@@ -489,7 +1386,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B36",
@@ -501,7 +1399,19 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B36",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!B39: 1250→1260"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B44",
@@ -511,7 +1421,8 @@
 "Simulador!J52: 2488.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B44",
@@ -521,7 +1432,8 @@
 "Simulador!J52: 2488.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B44",
@@ -531,7 +1443,46 @@
 "Simulador!J52: 2488.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B44",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!B52: 7000→0",
+"Simulador!C52: 560→0",
+"Simulador!E52: 2488.22→-3951.78",
+"Simulador!G52: 2488.22→-3951.78",
+"Simulador!J52: 2488.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até -7 horas sem prejuízo (estimadas: 53)",
+"Simulador!I52: Baixo→Alto"
+],
+"INV": []
+},
+{
+"entrada": "Simulador!B44",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→60448.2",
+"Simulador!B52: 7000→70000",
+"Simulador!C52: 560→5600",
+"Simulador!E52: 2488.22→60448.2",
+"Simulador!F52: 0.355459→0.863546",
+"Simulador!G52: 2488.22→60448.2",
+"Simulador!J52: 2488.22→60448.2"
+],
+"NEW": [],
+"CLS": [
+"Simulador!A5: Hora→Fixo",
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 968 horas sem prejuízo (estimadas: 53)"
+],
+"INV": []
 },
 {
 "entrada": "Simulador!B45",
@@ -541,7 +1492,8 @@
 "Simulador!J53: 4825.02→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B45",
@@ -551,7 +1503,8 @@
 "Simulador!J53: 4825.02→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B45",
@@ -561,7 +1514,44 @@
 "Simulador!J53: 4825.02→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B45",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→4742.22",
+"Simulador!B53: 9540→0",
+"Simulador!C53: 763.2→0",
+"Simulador!E53: 4825.02→-3951.78",
+"Simulador!G53: 4825.02→-3951.78",
+"Simulador!J53: 4825.02→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Simulador!A5: Hora→Misto",
+"Simulador!I53: Baixo→Alto"
+],
+"INV": []
+},
+{
+"entrada": "Simulador!B45",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→83816.2",
+"Simulador!B53: 9540→95400",
+"Simulador!C53: 763.2→7632",
+"Simulador!E53: 4825.02→83816.2",
+"Simulador!F53: 0.505767→0.878577",
+"Simulador!G53: 4825.02→83816.2",
+"Simulador!J53: 4825.02→83816.2"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B46",
@@ -569,7 +1559,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B46",
@@ -577,7 +1568,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B46",
@@ -585,7 +1577,30 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B46",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!B54: 8250→0",
+"Simulador!C54: 660→0",
+"Simulador!E54: 3638.22→-3951.78"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B46",
+"modo": "x10",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B47",
@@ -595,7 +1610,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B47",
@@ -605,7 +1621,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B47",
@@ -615,7 +1632,45 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B47",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!B55: 9450→4950",
+"Simulador!C55: 756→396",
+"Simulador!E55: 4742.22→602.216",
+"Simulador!F55: 0.501822→0.12166",
+"Simulador!G55: 188.216→-3951.78",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Simulador!I55: Baixo→Alto"
+],
+"INV": []
+},
+{
+"entrada": "Simulador!B47",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→42002.2",
+"Simulador!B55: 9450→49950",
+"Simulador!C55: 756→3996",
+"Simulador!E55: 4742.22→42002.2",
+"Simulador!F55: 0.501822→0.840885",
+"Simulador!G55: 188.216→37448.2",
+"Simulador!J55: 4742.22→42002.2"
+],
+"NEW": [],
+"CLS": [
+"Simulador!A5: Hora→Misto"
+],
+"INV": []
 },
 {
 "entrada": "Simulador!B48",
@@ -625,7 +1680,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B48",
@@ -635,7 +1691,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!B48",
@@ -645,7 +1702,34 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B48",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!B55: 9450→4500",
+"Simulador!C55: 756→360",
+"Simulador!E55: 4742.22→188.216",
+"Simulador!F55: 0.501822→0.0418257",
+"Simulador!J55: 4742.22→188.216"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Simulador!B48",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A19",
@@ -653,7 +1737,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A19",
@@ -661,7 +1746,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A20",
@@ -669,7 +1755,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A20",
@@ -677,7 +1764,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A21",
@@ -685,7 +1773,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A21",
@@ -693,7 +1782,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A22",
@@ -701,7 +1791,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A22",
@@ -709,7 +1800,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A23",
@@ -717,7 +1809,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A23",
@@ -725,7 +1818,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A24",
@@ -733,7 +1827,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A24",
@@ -741,7 +1836,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A33",
@@ -749,7 +1845,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A33",
@@ -757,7 +1854,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A34",
@@ -765,7 +1863,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A34",
@@ -773,7 +1872,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A35",
@@ -781,7 +1881,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A35",
@@ -789,7 +1890,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A36",
@@ -797,7 +1899,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A36",
@@ -805,7 +1908,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!C33",
@@ -817,7 +1921,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!C33",
@@ -829,7 +1934,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!C34",
@@ -841,7 +1947,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!C34",
@@ -853,7 +1960,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!C35",
@@ -865,7 +1973,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!C35",
@@ -877,7 +1986,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!C36",
@@ -889,7 +1999,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!C36",
@@ -901,7 +2012,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!B4",
@@ -909,7 +2021,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!B4",
@@ -917,7 +2030,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!B5",
@@ -925,7 +2039,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!B5",
@@ -933,7 +2048,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!B7",
@@ -947,7 +2063,8 @@
 "NEW": [],
 "CLS": [
 "Config!B13: Sim→Não"
-]
+],
+"INV": []
 },
 {
 "entrada": "Config!B7",
@@ -961,7 +2078,8 @@
 "NEW": [],
 "CLS": [
 "Config!B13: Sim→Não"
-]
+],
+"INV": []
 },
 {
 "entrada": "Config!B7",
@@ -975,7 +2093,56 @@
 "NEW": [],
 "CLS": [
 "Config!B13: Sim→Não"
-]
+],
+"INV": []
+},
+{
+"entrada": "Config!B7",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!C5: 4825.02→5588.22",
+"Simulador!I5: 120.261→106.517",
+"Simulador!B15: 120.261→106.517",
+"Simulador!C52: 560→0",
+"Simulador!E52: 2488.22→3048.22",
+"Simulador!F52: 0.355459→0.435459",
+"Simulador!G52: 2488.22→3048.22",
+"Simulador!J52: 2488.22→3048.22",
+"Simulador!C53: 763.2→0",
+"Simulador!E53: 4825.02→5588.22",
+"Simulador!F53: 0.505767→0.585767",
+"Simulador!G53: 4825.02→5588.22",
+"Simulador!J53: 4825.02→5588.22",
+"Simulador!C54: 660→0",
+"Simulador!E54: 3638.22→4298.22",
+"Simulador!F54: 0.440996→0.520996",
+"Simulador!C55: 756→0",
+"Simulador!E55: 4742.22→5498.22",
+"Simulador!F55: 0.501822→0.581822",
+"Simulador!G55: 188.216→548.216",
+"Simulador!J55: 4742.22→5498.22"
+],
+"NEW": [],
+"CLS": [
+"Simulador!H52: Até 91 horas sem prejuízo (estimadas: 53)→Até 99 horas sem prejuízo (estimadas: 53)"
+],
+"INV": []
+},
+{
+"entrada": "Config!B7",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+],
+"INV": []
 },
 {
 "entrada": "Config!B8",
@@ -989,7 +2156,8 @@
 "NEW": [],
 "CLS": [
 "Config!B13: Sim→Não"
-]
+],
+"INV": []
 },
 {
 "entrada": "Config!B8",
@@ -1003,7 +2171,8 @@
 "NEW": [],
 "CLS": [
 "Config!B13: Sim→Não"
-]
+],
+"INV": []
 },
 {
 "entrada": "Config!B8",
@@ -1017,7 +2186,35 @@
 "NEW": [],
 "CLS": [
 "Config!B13: Sim→Não"
-]
+],
+"INV": []
+},
+{
+"entrada": "Config!B8",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!I5: 120.261→81.0456",
+"Simulador!B15: 120.261→81.0456"
+],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B8",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+],
+"INV": []
 },
 {
 "entrada": "Config!B9",
@@ -1027,7 +2224,8 @@
 "NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
-]
+],
+"INV": []
 },
 {
 "entrada": "Config!B9",
@@ -1037,7 +2235,8 @@
 "NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
-]
+],
+"INV": []
 },
 {
 "entrada": "Config!B9",
@@ -1047,7 +2246,32 @@
 "NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
-]
+],
+"INV": []
+},
+{
+"entrada": "Config!B9",
+"modo": "zero",
+"ERR": [],
+"NUM": [
+"Simulador!J54: -1e+09→3638.22"
+],
+"NEW": [],
+"CLS": [
+"Simulador!I54: Alto→Médio"
+],
+"INV": []
+},
+{
+"entrada": "Config!B9",
+"modo": "x10",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B14: Sim→Não"
+],
+"INV": []
 },
 {
 "entrada": "Config!B10",
@@ -1059,7 +2283,8 @@
 "NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
-]
+],
+"INV": []
 },
 {
 "entrada": "Config!B10",
@@ -1071,7 +2296,8 @@
 "NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
-]
+],
+"INV": []
 },
 {
 "entrada": "Config!B10",
@@ -1083,7 +2309,30 @@
 "NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
-]
+],
+"INV": []
+},
+{
+"entrada": "Config!B10",
+"modo": "zero",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B10",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B14: Sim→Não"
+],
+"INV": []
 },
 {
 "entrada": "Config!B11",
@@ -1095,7 +2344,8 @@
 "NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
-]
+],
+"INV": []
 },
 {
 "entrada": "Config!B11",
@@ -1107,7 +2357,8 @@
 "NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
-]
+],
+"INV": []
 },
 {
 "entrada": "Config!B11",
@@ -1119,7 +2370,30 @@
 "NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
-]
+],
+"INV": []
+},
+{
+"entrada": "Config!B11",
+"modo": "zero",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [],
+"INV": []
+},
+{
+"entrada": "Config!B11",
+"modo": "x10",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B14: Sim→Não"
+],
+"INV": []
 },
 {
 "entrada": "Config!B12",
@@ -1129,7 +2403,8 @@
 "NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
-]
+],
+"INV": []
 },
 {
 "entrada": "Config!B12",
@@ -1139,7 +2414,8 @@
 "NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
-]
+],
+"INV": []
 },
 {
 "entrada": "Config!E5",
@@ -1147,7 +2423,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!E5",
@@ -1155,7 +2432,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!E6",
@@ -1163,7 +2441,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!E6",
@@ -1171,7 +2450,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!E7",
@@ -1179,7 +2459,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!E7",
@@ -1187,7 +2468,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!E8",
@@ -1195,7 +2477,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!E8",
@@ -1203,7 +2486,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!E9",
@@ -1211,7 +2495,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!E9",
@@ -1219,7 +2504,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A37",
@@ -1231,7 +2517,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!A37",
@@ -1243,7 +2530,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!C37",
@@ -1255,7 +2543,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Simulador!C37",
@@ -1267,7 +2556,8 @@
 "Simulador!J55: 4742.22→-1e+09"
 ],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!E10",
@@ -1275,7 +2565,8 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 },
 {
 "entrada": "Config!E10",
@@ -1283,6 +2574,7 @@
 "ERR": [],
 "NUM": [],
 "NEW": [],
-"CLS": []
+"CLS": [],
+"INV": []
 }
 ]
