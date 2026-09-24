@@ -83,25 +83,29 @@ hdr(s,E0-1,["Etapa","Horas estimadas","Custo (R$)"])
 for r in range(E0,EN+1):
     inp(s.cell(row=r,column=1)); inp(s.cell(row=r,column=2),"0.0",center=True)
     # Auditoria final (G01): sem o custo-hora (B11) o custo das horas não é zero, é pendência
-    s.cell(row=r,column=3,value=f'=IF(B{r}="","",IF(NOT(ISNUMBER(B{r})),"horas inválidas",IF(ISNUMBER({CH}),B{r}*{CH},"falta o custo-hora")))'); calc(s.cell(row=r,column=3),BRL)
+    s.cell(row=r,column=3,value=f'=IF(AND(A{r}="",B{r}=""),"",IF(NOT(IF(ISNUMBER(B{r}),B{r}>=0,FALSE)),"faltam as horas",IF(ISNUMBER({CH}),B{r}*{CH},"falta o custo-hora")))'); calc(s.cell(row=r,column=3),BRL)
 s.cell(row=ET,column=1,value="Total de horas e custo das horas"); rotulo(s.cell(row=ET,column=1)); s.cell(row=ET,column=1).border=borda
-s.cell(row=ET,column=2,value=f"=SUM(B{E0}:B{EN})"); calc(s.cell(row=ET,column=2),"0.0"); s.cell(row=ET,column=3,value=f'=IF(NOT(ISNUMBER({CH})),"falta o custo-hora",IF(COUNT(B{E0}:B{EN})<COUNTA(B{E0}:B{EN}),"horas com texto",SUM(C{E0}:C{EN})))'); calc(s.cell(row=ET,column=3),BRL)
+s.cell(row=ET,column=2,value=f'=IF(SUMPRODUCT(((A{E0}:A{EN}<>"")+(B{E0}:B{EN}<>"")>0)*((ISNUMBER(B{E0}:B{EN})=FALSE)+ISNUMBER(B{E0}:B{EN})*(B{E0}:B{EN}<0)>0))=0,SUM(B{E0}:B{EN}),"horas faltando ou inválidas")'); calc(s.cell(row=ET,column=2),"0.0"); s.cell(row=ET,column=3,value=f'=IF(NOT(ISNUMBER({CH})),"falta o custo-hora",IF(SUMPRODUCT(((A{E0}:A{EN}<>"")+(B{E0}:B{EN}<>"")>0)*((ISNUMBER(B{E0}:B{EN})=FALSE)+ISNUMBER(B{E0}:B{EN})*(B{E0}:B{EN}<0)>0))>0,"horas faltando ou inválidas",SUM(C{E0}:C{EN})))'); calc(s.cell(row=ET,column=3),BRL)
 for c in (2,3): s.cell(row=ET,column=c).font=F(bold=True,color=UVA,size=10)
 HT=f"$B${ET}"; CHT=f"$C${ET}"
+HOK=f'SUMPRODUCT((($A${E0}:$A${EN}<>"")+($B${E0}:$B${EN}<>"")>0)*((ISNUMBER($B${E0}:$B${EN})=FALSE)+ISNUMBER($B${E0}:$B${EN})*($B${E0}:$B${EN}<0)>0))=0'   # todas as etapas com horas ≥ 0 (auditoria final-5)
 # 3. despesas
 D0=ET+4; DN=D0+ND-1; DT=DN+1
 s.cell(row=D0-2,column=1,value="3. Despesas do caso").font=F(bold=True,size=13,color=UVA)
 hdr(s,D0-1,["Despesa","Valor (R$)","Cliente reembolsa?","Custo para o escritório (R$)"])
 for r in range(D0,DN+1):
     inp(s.cell(row=r,column=1)); inp(s.cell(row=r,column=2),BRL,center=True); inp(s.cell(row=r,column=3),center=True)
-    s.cell(row=r,column=4,value=f'=IF(B{r}="","",IF(NOT(ISNUMBER(B{r})),"valor inválido",IF(C{r}="Sim",0,B{r})))'); calc(s.cell(row=r,column=4),BRL)
+    s.cell(row=r,column=4,value=f'=IF(AND(A{r}="",B{r}="",C{r}=""),"",IF(NOT(IF(ISNUMBER(B{r}),B{r}>=0,FALSE)),"falta o valor",IF(AND(C{r}<>"Sim",C{r}<>"Não"),"falta: reembolsa?",IF(C{r}="Sim",0,B{r}))))'); calc(s.cell(row=r,column=4),BRL)
 dvr=lista('"Sim,Não"'); dvr.add(f"C{D0}:C{DN}"); s.add_data_validation(dvr)
+# Auditoria final-5 (F5-G01): horas e valores de despesa são números ≥ 0 (zero digitado vale)
+for _rg in (f"B{E0}:B{EN}",f"B{D0}:B{DN}"):
+    _dv=DataValidation(type="decimal",operator="greaterThanOrEqual",formula1="0",allow_blank=True,showErrorMessage=True,errorTitle="Valor",error="Número maior ou igual a zero."); _dv.add(_rg); s.add_data_validation(_dv)
 s.cell(row=DT,column=1,value="Total de despesas · custo para o escritório"); rotulo(s.cell(row=DT,column=1)); s.cell(row=DT,column=1).border=borda
-s.cell(row=DT,column=2,value=f"=SUM(B{D0}:B{DN})"); calc(s.cell(row=DT,column=2),BRL); s.cell(row=DT,column=4,value=f'=IF(COUNT(B{D0}:B{DN})<COUNTA(B{D0}:B{DN}),"despesa com texto",SUM(D{D0}:D{DN}))'); calc(s.cell(row=DT,column=4),BRL)
+s.cell(row=DT,column=2,value=f"=SUM(B{D0}:B{DN})"); calc(s.cell(row=DT,column=2),BRL); s.cell(row=DT,column=4,value=f'=IF(SUMPRODUCT(((A{D0}:A{DN}<>"")+(B{D0}:B{DN}<>"")+(C{D0}:C{DN}<>"")>0)*(ISNUMBER(D{D0}:D{DN})=FALSE))>0,"despesa incompleta",SUM(D{D0}:D{DN}))'); calc(s.cell(row=DT,column=4),BRL)
 s.cell(row=DT,column=4).font=F(bold=True,color=UVA,size=10)
 DESP=f"$D${DT}"
 s.cell(row=DT+1,column=1,value="Custo total do caso (horas + despesas que o escritório absorve)"); rotulo(s.cell(row=DT+1,column=1)); s.cell(row=DT+1,column=1).border=borda
-s.cell(row=DT+1,column=4,value=f'=IF(NOT(ISNUMBER({CH})),"Falta o custo-hora (B11)",IF(NOT(ISNUMBER({CHT})),"Horas com texto (bloco 2)",IF(NOT(ISNUMBER({DESP})),"Despesa com texto (bloco 3)",{CHT}+{DESP})))'); calc(s.cell(row=DT+1,column=4),BRL); s.cell(row=DT+1,column=4).font=F(bold=True,color=UVA,size=10)
+s.cell(row=DT+1,column=4,value=f'=IF(NOT(ISNUMBER({CH})),"Falta o custo-hora (B11)",IF(NOT(ISNUMBER({CHT})),"Horas faltando ou inválidas (bloco 2)",IF(NOT(ISNUMBER({DESP})),"Despesa incompleta (bloco 3)",{CHT}+{DESP})))'); calc(s.cell(row=DT+1,column=4),BRL); s.cell(row=DT+1,column=4).font=F(bold=True,color=UVA,size=10)
 CUSTO=f"$D${DT+1}"
 # Hora mínima do caso: depende de CUSTO e HT, por isso fica aqui e não junto do rótulo.
 s["A15"]="Hora mínima para este caso (R$)"; rotulo(s["A15"])
@@ -150,7 +154,7 @@ rows=[
   f'=IF({SOBRA_FX}>={CH}*{HT}*(1+{FOLGAH}),"Baixo",IF({SOBRA_FX}>={CH}*{HT},"Médio","Alto"))',
   f'=IF({CH}=0,IF({SOBRA_FX}>=0,"Sem custo de hora: só as despesas absorvidas contam, e o fixo as cobre","O fixo não cobre nem as despesas absorvidas"),"Folga de horas: "&ROUND(({SOBRA_FX}/{CH}/{HT}-1)*100,0)&"% (mínimo para risco baixo: "&ROUND({FOLGAH}*100,0)&"%)")',
   OK_FOLGAH, OK_FX, "Falta o valor do fixo"),
- ("Hora",f"={HR}*{HT}",f"=E{{r}}",
+ ("Hora",f'=IF({HOK},{HR}*{HT},"")',f"=E{{r}}",
   f'="Hora mínima sem prejuízo: R$ "&FIXED({CUSTO}/({HT}*{LIQ}),2)&" (você cobra R$ "&FIXED({HR},2)&")"',   # FIXED usa o separador do idioma do Excel (pt-BR: 1.234,56)
   f'=IF({HR}>=$B$15,"Baixo",IF({HR}*{HT}*{LIQ}>={CUSTO},"Médio","Alto"))',
   f'=IF({HR}>=$B$15,"A hora cobrada cobre custo, impostos e margem desejada","A hora cobrada fica abaixo da hora mínima com margem (R$ "&FIXED($B$15,2)&")")',
@@ -179,9 +183,9 @@ for i,(nome,rec,perde,pe,risco,pq,okr,okin,msgin) in enumerate(rows):
     s.cell(row=r,column=7,value=f'=IF(AND(ISNUMBER({CUSTO}),NOT({MINV_}),{okin}),{perde.format(r=r)[1:]},"")'); calc(s.cell(row=r,column=7),BRL)
     s.cell(row=r,column=8,value=f'=IF(NOT(ISNUMBER({CUSTO})),{CUSTO},IF({MINV_},"Margens inválidas (Config)",IF(NOT({okin}),"{msgin}",IFERROR({pe[1:]},"Preencha horas e valores"))))'); calc(s.cell(row=r,column=8),center=False); s.cell(row=r,column=8).alignment=Alignment(wrap_text=True,vertical="center")
     # sem horas estimadas não se classifica risco: não há custo por hora nem margem
-    s.cell(row=r,column=9,value=f'=IF(NOT(ISNUMBER({CUSTO})),IF(ISNUMBER({CH}),"Horas ou despesas com texto","Falta o custo-hora"),IF({MINV_},"Margens inválidas",IF({HT}<=0,"Faltam as horas estimadas",IF(NOT({okr}),"Regra de risco inválida (Config)",IF(NOT({okin}),"{msgin}",IFERROR({risco[1:]},"Sem base para classificar"))))))'); calc(s.cell(row=r,column=9))
+    s.cell(row=r,column=9,value=f'=IF(NOT(ISNUMBER({CUSTO})),IF(ISNUMBER({CH}),"Horas ou despesas incompletas","Falta o custo-hora"),IF({MINV_},"Margens inválidas",IF({HT}<=0,"Faltam as horas estimadas",IF(NOT({okr}),"Regra de risco inválida (Config)",IF(NOT({okin}),"{msgin}",IFERROR({risco[1:]},"Sem base para classificar"))))))'); calc(s.cell(row=r,column=9))
     s.cell(row=r,column=10,value=f'=IF(OR(I{r}="Baixo",AND(I{r}="Médio",{ACMED}="Sim")),E{r},-1E+9)'); calc(s.cell(row=r,column=10),BRL0); s.cell(row=r,column=10).font=F(size=9,color=CINZA)
-    s.cell(row=r,column=11,value=f'=IF(NOT(ISNUMBER({CUSTO})),IF(ISNUMBER({CH}),"Corrija o bloco 2 ou 3: há texto onde deveria haver horas ou valor de despesa.","Preencha o custo-hora do escritório (B11): sem ele não há custo do caso, margem nem risco."),IF({MINV_},"Impostos e margem em Config fora do permitido (cada um de 0 % a 99 %, soma abaixo de 100 %). Corrija a Config.",IF({HT}<=0,"Preencha as horas estimadas no bloco 2: sem elas não há custo do caso por hora, nem margem, nem ponto de equilíbrio.",IF(NOT({okr}),"A regra de risco desta modalidade em Config está vazia ou fora de 0 % a 100 %. Corrija a Config.",IF(NOT({okin}),"Preencha no bloco 1 ou 4 o dado que falta: "&$B$16&".",IFERROR({pq[1:]},""))))))'); calc(s.cell(row=r,column=11),center=False); s.cell(row=r,column=11).alignment=Alignment(wrap_text=True,vertical="center"); nota(s.cell(row=r,column=11))
+    s.cell(row=r,column=11,value=f'=IF(NOT(ISNUMBER({CUSTO})),IF(ISNUMBER({CH}),"Corrija o bloco 2 ou 3: etapa sem horas (ou negativa), despesa sem valor ou sem a resposta de reembolso.","Preencha o custo-hora do escritório (B11): sem ele não há custo do caso, margem nem risco."),IF({MINV_},"Impostos e margem em Config fora do permitido (cada um de 0 % a 99 %, soma abaixo de 100 %). Corrija a Config.",IF({HT}<=0,"Preencha as horas estimadas no bloco 2: sem elas não há custo do caso por hora, nem margem, nem ponto de equilíbrio.",IF(NOT({okr}),"A regra de risco desta modalidade em Config está vazia ou fora de 0 % a 100 %. Corrija a Config.",IF(NOT({okin}),"Preencha no bloco 1 ou 4 o dado que falta: "&$B$16&".",IFERROR({pq[1:]},""))))))'); calc(s.cell(row=r,column=11),center=False); s.cell(row=r,column=11).alignment=Alignment(wrap_text=True,vertical="center"); nota(s.cell(row=r,column=11))
     s.row_dimensions[r].height=42
 CN=C0+3
 s.conditional_formatting.add(f"I{C0}:I{CN}", FormulaRule(formula=[f'AND(I{C0}<>"",I{C0}<>"Baixo",I{C0}<>"Médio",I{C0}<>"Faltam as horas estimadas")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))

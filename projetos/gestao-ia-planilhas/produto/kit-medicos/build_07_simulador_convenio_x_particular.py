@@ -120,12 +120,12 @@ for i in range(NPAG):
     r=M0+3+i; t=T0+i
     s.cell(row=r,column=1,value=f'=A{t}'); calc(s.cell(row=r,column=1),center=False)
     inp(s.cell(row=r,column=2),"0",center=True)
-    s.cell(row=r,column=3,value=f'=IF(OR(A{r}="",B{r}=""),"",IF(AND(ISNUMBER(B{r}),ISNUMBER({TEMPO})),B{r}*{TEMPO}/60,""))'); calc(s.cell(row=r,column=3),"#,##0.0")
+    s.cell(row=r,column=3,value=f'=IF(OR(A{r}="",B{r}=""),"",IF(AND({num_ok(f"B{r}")},ISNUMBER({TEMPO})),B{r}*{TEMPO}/60,""))'); calc(s.cell(row=r,column=3),"#,##0.0")
     # Auditoria final-4 (F4-G02): pagador com atendimentos e sem líquido conhecido não soma zero
-    s.cell(row=r,column=4,value=f'=IF(OR(A{r}="",B{r}=""),"",IF(NOT({num_ok(f"B{r}")}),"atendimentos inválidos",IF(B{r}=0,0,IF(NOT(ISNUMBER(H{t})),"falta o valor líquido",B{r}*H{t}))))'); calc(s.cell(row=r,column=4),BRL0)
+    s.cell(row=r,column=4,value=f'=IF(AND(A{r}="",B{r}=""),"",IF(B{r}="","",IF(A{r}="","pagador sem nome",IF(NOT({num_ok(f"B{r}")}),"atendimentos inválidos",IF(B{r}=0,0,IF(NOT(ISNUMBER(H{t})),"falta o valor líquido",B{r}*H{t}))))))'); calc(s.cell(row=r,column=4),BRL0)
     s.cell(row=r,column=5,value=f'=IF(OR(A{r}="",B{r}="",NOT({num_ok(f"B{r}")}),NOT(ISNUMBER({CUSTO}))),"",B{r}*{CUSTO})'); calc(s.cell(row=r,column=5),BRL0)
     s.cell(row=r,column=6,value=f'=IF(AND(ISNUMBER(D{r}),ISNUMBER(E{r})),D{r}-E{r},"")'); calc(s.cell(row=r,column=6),BRL0)
-    s.cell(row=r,column=7,value=f'=IF(OR(NOT(ISNUMBER(B{r})),NOT(ISNUMBER($B${M0+3+NPAG})),N($B${M0+3+NPAG})=0),"",B{r}/$B${M0+3+NPAG})'); calc(s.cell(row=r,column=7),PCT)
+    s.cell(row=r,column=7,value=f'=IF(OR(NOT({num_ok(f"B{r}")}),NOT(ISNUMBER($B${M0+3+NPAG})),N($B${M0+3+NPAG})=0),"",B{r}/$B${M0+3+NPAG})'); calc(s.cell(row=r,column=7),PCT)
     s.cell(row=r,column=8,value=f'=IF(OR(NOT(ISNUMBER(D{r})),NOT(ISNUMBER($D${M0+3+NPAG})),N($D${M0+3+NPAG})=0),"",D{r}/$D${M0+3+NPAG})'); calc(s.cell(row=r,column=8),PCT)
 rt=M0+3+NPAG
 s.cell(row=rt,column=1,value="Total"); rotulo(s.cell(row=rt,column=1)); s.cell(row=rt,column=1).border=borda
@@ -134,11 +134,11 @@ s.cell(row=rt,column=1,value="Total"); rotulo(s.cell(row=rt,column=1)); s.cell(r
 # do preço). Assim, quando há número, Resultado = Líquido − Custo cheio.
 _R=lambda c: f"{L(c)}{M0+3}:{L(c)}{rt-1}"
 INCD=f'SUMPRODUCT(({_R(2)}<>"")*(ISNUMBER({_R(4)})=FALSE))'
-TXTB=f'SUMPRODUCT(ISTEXT({_R(2)})*1)'
-tot={2:f'=IF({TXTB}>0,"atendimentos com texto",SUM({_R(2)}))',
+TXTB=f'SUMPRODUCT(({_R(2)}<>"")*((A{M0+3}:A{rt-1}="")+ISTEXT({_R(2)})+ISNUMBER({_R(2)})*({_R(2)}<0)>0))'   # atendimentos com texto, negativos ou sem pagador (auditoria final-5)
+tot={2:f'=IF({TXTB}>0,"atendimentos inválidos ou sem pagador",SUM({_R(2)}))',
      3:f'=IF(OR(NOT(ISNUMBER(B{rt})),NOT(ISNUMBER({TEMPO}))),"",SUM({_R(3)}))',
      4:f'=IF(NOT({OKC}),"margens inválidas",IF({INCD}>0,"líquido incompleto em "&{INCD}&" pagador(es)",SUM({_R(4)})))',
-     5:f'=IF(NOT(ISNUMBER({CUSTO})),IF(ISNUMBER({CH}),"faltam dados do procedimento","falta o custo-hora"),IF({TXTB}>0,"atendimentos com texto",SUM({_R(5)})))',
+     5:f'=IF(NOT(ISNUMBER({CUSTO})),IF(ISNUMBER({CH}),"faltam dados do procedimento","falta o custo-hora"),IF({TXTB}>0,"atendimentos inválidos ou sem pagador",SUM({_R(5)})))',
      6:f'=IF(NOT(ISNUMBER(D{rt})),D{rt},IF(NOT(ISNUMBER(E{rt})),E{rt},SUM({_R(6)})))'}
 for c in (2,3,4,5,6):
     s.cell(row=rt,column=c,value=tot[c]); calc(s.cell(row=rt,column=c),"#,##0.0" if c==3 else ("0" if c==2 else BRL0)); s.cell(row=rt,column=c).font=F(bold=True,color=UVA,size=10)
@@ -150,8 +150,12 @@ kpi(s,4,1,"Custo cheio do atendimento",f"={CUSTO}",LAVANDA,UVA,fmt=BRL)
 kpi(s,4,3,"Hora mínima (05)",f"={HMIN}",LAVANDA,UVA,fmt=BRL)
 kpi(s,4,5,"Particular · líquido por hora",f'=IF(L{T0}="","",L{T0})',VERDE,VERDE_T,fmt=BRL)
 LR=f"$L${T0+1}:$L${TN}"; AR=f"$A${T0+1}:$A${TN}"
-kpi(s,4,7,"Melhor convênio (líquido/hora)",f'=IFERROR(INDEX({AR},MATCH(MAX({LR}),{LR},0))&": R$ "&FIXED(MAX({LR}),0),"")',SOL,UVA,fmt="@",span=3)
-kpi(s,4,10,"Pior convênio (líquido/hora)",f'=IFERROR(INDEX({AR},MATCH(MIN({LR}),{LR},0))&": R$ "&FIXED(MIN({LR}),0),"")',VERM,VERM_T,fmt="@",span=3)
+# Auditoria final-5 (F5-G02): convênio com tabela e sem líquido por hora conhecido impede apontar o
+# melhor e o pior: a comparação teria só uma parte dos participantes.
+INCL=f'SUMPRODUCT(({AR}<>"")*($B${T0+1}:$B${TN}<>"")*(ISNUMBER({LR})=FALSE))'
+
+kpi(s,4,7,"Melhor convênio (líquido/hora)",f'=IF({INCL}>0,"incompleto: "&{INCL}&" convênio(s) sem líquido",IFERROR(INDEX({AR},MATCH(MAX({LR}),{LR},0))&": R$ "&FIXED(MAX({LR}),0),""))',SOL,UVA,fmt="@",span=3)
+kpi(s,4,10,"Pior convênio (líquido/hora)",f'=IF({INCL}>0,"incompleto: "&{INCL}&" convênio(s) sem líquido",IFERROR(INDEX({AR},MATCH(MIN({LR}),{LR},0))&": R$ "&FIXED(MIN({LR}),0),""))',VERM,VERM_T,fmt="@",span=3)
 s["G5"].font=F(size=13,bold=True,color=UVA); s["J5"].font=F(size=13,bold=True,color=VERM_T)
 bc=BarChart(); bc.type="bar"; bc.height=6.5; bc.width=13; bc.title="Líquido por hora × hora mínima"; bc.style=2
 bc.add_data(Reference(s,min_col=12,min_row=T0-1,max_row=T0+len(dados.PAGADORES)-1),titles_from_data=True); bc.set_categories(Reference(s,min_col=1,min_row=T0,max_row=T0+len(dados.PAGADORES)-1))

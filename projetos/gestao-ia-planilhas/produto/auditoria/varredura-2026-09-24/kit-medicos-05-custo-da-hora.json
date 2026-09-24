@@ -1,0 +1,667 @@
+[
+{
+"entrada": "Painel!B42",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Painel!B42",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Painel!B42",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Painel!B43",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Painel!B43",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Painel!B43",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Painel!B44",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Painel!B44",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Painel!B44",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Painel!C45",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Painel!C45",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Painel!C45",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B4",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B4",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Config!B11: Sim→Não"
+]
+},
+{
+"entrada": "Config!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Config!B11: Sim→Não"
+]
+},
+{
+"entrada": "Config!B8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Painel!B15: 0.11→-1"
+],
+"CLS": [
+"Config!B11: Sim→Não"
+]
+},
+{
+"entrada": "Config!B10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B5",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!C6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!C6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!A5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!A5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Painel!A26: Dra. Carolina Mendes→abc"
+]
+},
+{
+"entrada": "Equipe!A7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!A7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Painel!A28: Dra. Renata Sousa→abc"
+]
+},
+{
+"entrada": "Equipe!A8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!A8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Painel!A29: Bruna Carvalho→abc"
+]
+},
+{
+"entrada": "Equipe!B5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!B5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Painel!B26: Sócia · clínica médica→abc"
+]
+},
+{
+"entrada": "Equipe!B7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!B7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Painel!B28: Médica parceira · endocrinologia→abc"
+]
+},
+{
+"entrada": "Equipe!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Painel!B29: Recepcionista (CLT)→abc"
+]
+},
+{
+"entrada": "Equipe!C5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!C5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Painel!C26: Pró-labore→abc"
+]
+},
+{
+"entrada": "Equipe!C7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!C7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Painel!C28: Repasse→abc"
+]
+},
+{
+"entrada": "Equipe!C8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!C8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Painel!C29: Salário→abc"
+]
+},
+{
+"entrada": "Equipe!D5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Equipe!K5: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!D5",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Equipe!K5: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!D5",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Equipe!K5: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!D6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Equipe!K6: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!D6",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Equipe!K6: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!D6",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Equipe!K6: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!D8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!D8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!D8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!E5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Equipe!K5: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!E5",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Equipe!K5: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!E7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!E7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!E8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!E8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!F5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Equipe!K5: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!F5",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Equipe!K5: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!F5",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Painel!D26: 70→-1",
+"Equipe!K5: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!F6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Equipe!K6: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!F6",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Equipe!K6: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!F6",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Painel!D27: 70→-1",
+"Equipe!K6: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!F7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!F7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!F7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Painel!D28: 35→-1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!G5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Equipe!K5: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!G5",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Equipe!K5: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!G7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Equipe!K7: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!G7",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Equipe!K7: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!G8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Equipe!K8: 0→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!G8",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Equipe!K8: 0→1"
+],
+"CLS": []
+}
+]

@@ -51,7 +51,7 @@ for r in range(C0,CN+1):
     for c in (3,4,5,7): k.cell(row=r,column=c).alignment=Alignment(horizontal="center")
     k.cell(row=r,column=6).number_format=BRL0; k.cell(row=r,column=7).number_format="0"
     # Auditoria final-4 (F4-G01): valor ou horas em texto não viram #VALUE! nem somem das contagens
-    k.cell(row=r,column=8,value=f'=IF(OR(A{r}="",G{r}="",F{r}=""),"",IF(OR(NOT(ISNUMBER(F{r})),NOT(ISNUMBER(G{r}))),"valor ou horas inválidos",IF(G{r}=0,"",F{r}/G{r})))'); calc(k.cell(row=r,column=8),BRL)
+    k.cell(row=r,column=8,value=f'=IF(OR(A{r}="",G{r}="",F{r}=""),"",IF(OR(NOT(IF(ISNUMBER(F{r}),F{r}>=0,FALSE)),NOT(IF(ISNUMBER(G{r}),G{r}>=0,FALSE))),"valor ou horas inválidos",IF(G{r}=0,"",F{r}/G{r})))'); calc(k.cell(row=r,column=8),BRL)
     k.cell(row=r,column=9,value=f'=IF(OR(NOT(ISNUMBER(H{r})),NOT(ISNUMBER({HMIN}))),"",IF({HMIN}=0,"sem base (mínimo zero)",H{r}/{HMIN}-1))'); calc(k.cell(row=r,column=9),"+0%;-0%;0%")
     k.cell(row=r,column=10,value=f'=IF(H{r}="","",IF(NOT(ISNUMBER(H{r})),H{r},IF(NOT(ISNUMBER({HMIN})),{HMIN},IF(NOT(ISNUMBER({HALVO})),{HALVO},IF(H{r}<{HMIN},"Abaixo do mínimo",IF(H{r}<{HALVO},"Na faixa","Acima do alvo"))))))'); calc(k.cell(row=r,column=10))
     k.cell(row=r,column=11,value=f'=IF(OR(NOT(ISNUMBER(H{r})),NOT(ISNUMBER({HMIN}))),"",MAX(0,{HMIN}*G{r}-F{r}))'); calc(k.cell(row=r,column=11),BRL0)
@@ -69,17 +69,23 @@ p=wb.create_sheet("Referência",0)
 titulo(p,'=Config!$B$4&" · Tabela de referência de honorários · "&Config!$B$5',"Tabela interna: faixa de valor por área e tipo de serviço, calculada do custo-hora. Amarelo: horas típicas e modalidade. Abaixo, o que cobramos hoje contra a referência.",merge_to="K")
 kpi(p,4,1,"Hora mínima com folga",f"={HMIN}",LAVANDA,UVA,fmt=BRL)
 kpi(p,4,3,"Hora alvo com folga",f"={HALVO}",SOL,UVA,fmt=BRL)
-KINV=f'COUNTIF({KH},"valor ou horas inválidos")'
-kpi(p,4,5,"Casos abaixo do mínimo",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},IF({KINV}>0,{KINV}&" caso(s) com valor ou horas inválidos",COUNTIF({KJ},"Abaixo do mínimo")&" de "&(COUNTIF({KJ},"Abaixo do mínimo")+COUNTIF({KJ},"Na faixa")+COUNTIF({KJ},"Acima do alvo"))))',VERM,VERM_T,fmt="@")
-kpi(p,4,7,"Falta até o mínimo",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},IF({KINV}>0,{KINV}&" caso(s) com valor ou horas inválidos",SUM({KK})))',VERM,VERM_T,fmt=BRL0)
-kpi(p,4,9,"Valor por hora médio",f'=IFERROR(SUM({KF})/SUM({KG}),0)',VERDE,VERDE_T,fmt=BRL)
+# Auditoria final-5 (F5-G02): caso incompleto = linha com algum dado e sem nº, sem área, ou com valor
+# ou horas que não são número. Ele suspende médias, totais e contagens (geral e da área), em vez de
+# entrar só com o dinheiro ou só com as horas.
+AREAS="Config!$E$16:$E$35"
+INCROW=(f'((({KA}<>"")+({KC}<>"")+({KF}<>"")+({KG}<>"")>0)*((({KA}="")+(ISNUMBER(MATCH({KC},{AREAS},0))=FALSE)+(ISNUMBER({KF})=FALSE)+ISNUMBER({KF})*({KF}<0)+(ISNUMBER({KG})=FALSE)+ISNUMBER({KG})*({KG}<0))>0))')
+KINV=f'SUMPRODUCT({INCROW})'
+MSGINC=f'{KINV}&" caso(s) incompletos (nº, área, valor ou horas)"'
+kpi(p,4,5,"Casos abaixo do mínimo",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},IF({KINV}>0,{MSGINC},COUNTIF({KJ},"Abaixo do mínimo")&" de "&(COUNTIF({KJ},"Abaixo do mínimo")+COUNTIF({KJ},"Na faixa")+COUNTIF({KJ},"Acima do alvo"))))',VERM,VERM_T,fmt="@")
+kpi(p,4,7,"Falta até o mínimo",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},IF({KINV}>0,{MSGINC},SUM({KK})))',VERM,VERM_T,fmt=BRL0)
+kpi(p,4,9,"Valor por hora médio",f'=IF({KINV}>0,{MSGINC},IFERROR(SUM({KF})/SUM({KG}),""))',VERDE,VERDE_T,fmt=BRL)
 p["A7"]="Faixa de referência por área e tipo de serviço"; p["A7"].font=F(bold=True,size=13,color=UVA)
 hdr(p,8,["Área","Tipo de serviço","Horas típicas · de","Horas típicas · até","Modalidade recomendada","Mínimo (R$)","Máximo (R$)","Ponto médio (R$)","Como usar a faixa"],height=32)
 T0=9; TN=T0+NREF-1
 for r in range(T0,TN+1):
     inp(p.cell(row=r,column=1)); inp(p.cell(row=r,column=2)); inp(p.cell(row=r,column=3),"0",center=True); inp(p.cell(row=r,column=4),"0",center=True); inp(p.cell(row=r,column=5),center=True)
-    p.cell(row=r,column=6,value=f'=IF(OR(A{r}="",C{r}=""),"",IF(NOT(ISNUMBER(C{r})),"horas inválidas",IF(ISNUMBER({HMIN}),C{r}*{HMIN},{HMIN})))'); calc(p.cell(row=r,column=6),BRL0)
-    p.cell(row=r,column=7,value=f'=IF(OR(A{r}="",D{r}=""),"",IF(NOT(ISNUMBER(D{r})),"horas inválidas",IF(ISNUMBER({HALVO}),D{r}*{HALVO},{HALVO})))'); calc(p.cell(row=r,column=7),BRL0)
+    p.cell(row=r,column=6,value=f'=IF(OR(A{r}="",C{r}=""),"",IF(NOT(IF(ISNUMBER(C{r}),C{r}>=0,FALSE)),"horas inválidas",IF(ISNUMBER({HMIN}),C{r}*{HMIN},{HMIN})))'); calc(p.cell(row=r,column=6),BRL0)
+    p.cell(row=r,column=7,value=f'=IF(OR(A{r}="",D{r}=""),"",IF(NOT(IF(ISNUMBER(D{r}),D{r}>=0,FALSE)),"horas inválidas",IF(ISNUMBER({HALVO}),D{r}*{HALVO},{HALVO})))'); calc(p.cell(row=r,column=7),BRL0)
     p.cell(row=r,column=8,value=f'=IF(OR(NOT(ISNUMBER(F{r})),NOT(ISNUMBER(G{r}))),"",(F{r}+G{r})/2)'); calc(p.cell(row=r,column=8),BRL0)
     p.cell(row=r,column=9,value=f'=IF(A{r}="","",IF(E{r}="Hora","Cobre a hora entre a mínima e a alvo; a faixa é o total esperado",IF(E{r}="Êxito","Percentual que, na chance esperada, fique dentro da faixa",IF(E{r}="Misto","Entrada perto do mínimo; o êxito leva ao máximo","Caso simples perto do mínimo; complexo perto do máximo"))))'); calc(p.cell(row=r,column=9),center=False); nota(p.cell(row=r,column=9))
 for dv,rng in ((lista(LST("E")),f"A{T0}:A{TN}"),(lista(LST("G")),f"B{T0}:B{TN}"),(lista(LST("I")),f"E{T0}:E{TN}")): dv.add(rng); p.add_data_validation(dv)
@@ -92,12 +98,13 @@ for i in range(20):
     r=A0+2+i; src=f"Config!$E${16+i}"
     p.cell(row=r,column=1,value=f'=IF({src}="","",{src})'); calc(p.cell(row=r,column=1),center=False)
     p.cell(row=r,column=2,value=f'=IF({src}="","",COUNTIFS({KC},{src},{KJ},"<>"))'); calc(p.cell(row=r,column=2),"0")
-    p.cell(row=r,column=3,value=f'=IF({src}="","",SUMIFS({KF},{KC},{src}))'); calc(p.cell(row=r,column=3),BRL0)
-    p.cell(row=r,column=4,value=f'=IF({src}="","",SUMIFS({KG},{KC},{src}))'); calc(p.cell(row=r,column=4),"0")
-    p.cell(row=r,column=5,value=f'=IF(OR({src}="",D{r}=0),"",C{r}/D{r})'); calc(p.cell(row=r,column=5),BRL)
-    p.cell(row=r,column=6,value=f'=IF(OR(E{r}="",NOT(ISNUMBER({HMIN}))),"",IF({HMIN}=0,"sem base (mínimo zero)",E{r}/{HMIN}-1))'); calc(p.cell(row=r,column=6),"+0%;-0%;0%")
-    p.cell(row=r,column=7,value=f'=IF(OR({src}="",NOT(ISNUMBER({HMIN}))),"",COUNTIFS({KC},{src},{KJ},"Abaixo do mínimo"))'); calc(p.cell(row=r,column=7),"0")
-    p.cell(row=r,column=8,value=f'=IF(OR({src}="",NOT(ISNUMBER({HMIN}))),"",SUMIFS({KK},{KC},{src}))'); calc(p.cell(row=r,column=8),BRL0)
+    INCA=f'SUMPRODUCT(({KC}={src})*{INCROW})'
+    p.cell(row=r,column=3,value=f'=IF({src}="","",IF({INCA}>0,"caso incompleto",SUMIFS({KF},{KC},{src})))'); calc(p.cell(row=r,column=3),BRL0)
+    p.cell(row=r,column=4,value=f'=IF(OR({src}="",{INCA}>0),"",SUMIFS({KG},{KC},{src}))'); calc(p.cell(row=r,column=4),"0")
+    p.cell(row=r,column=5,value=f'=IF(OR({src}="",NOT(ISNUMBER(C{r})),NOT(ISNUMBER(D{r})),N(D{r})=0),"",C{r}/D{r})'); calc(p.cell(row=r,column=5),BRL)
+    p.cell(row=r,column=6,value=f'=IF(OR(NOT(ISNUMBER(E{r})),NOT(ISNUMBER({HMIN}))),"",IF({HMIN}=0,"sem base (mínimo zero)",E{r}/{HMIN}-1))'); calc(p.cell(row=r,column=6),"+0%;-0%;0%")
+    p.cell(row=r,column=7,value=f'=IF(OR({src}="",NOT(ISNUMBER({HMIN})),{INCA}>0),"",COUNTIFS({KC},{src},{KJ},"Abaixo do mínimo"))'); calc(p.cell(row=r,column=7),"0")
+    p.cell(row=r,column=8,value=f'=IF(OR({src}="",NOT(ISNUMBER({HMIN})),{INCA}>0),"",SUMIFS({KK},{KC},{src}))'); calc(p.cell(row=r,column=8),BRL0)
 AN=A0+21
 p.conditional_formatting.add(f"F{A0+2}:F{AN}", FormulaRule(formula=[f'AND(ISNUMBER(F{A0+2}),F{A0+2}<0)'], font=F(color="C8402E",size=10,bold=True)))
 p.conditional_formatting.add(f"G{A0+2}:G{AN}", FormulaRule(formula=[f'AND(ISNUMBER(G{A0+2}),G{A0+2}>0)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))

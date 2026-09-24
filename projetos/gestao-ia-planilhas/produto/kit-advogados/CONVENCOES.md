@@ -140,3 +140,17 @@ devolvida por INDEX vira 0 numa conta. Totais e médias somam a MESMA populaçã
 atendimentos e sem líquido suspende o líquido e o resultado do mês; receita por hora exige volume,
 produção e minutos em todas as linhas com dados. Contagens de resumo ("x de N") só com todas as
 linhas completas.
+
+## Domínio, resíduo e decisões de "em branco" (auditoria final-5)
+
+Dinheiro, horas, minutos, quantidades e percentuais de entrada são números ≥ 0 (horas faturáveis e
+planejadas > 0; múltiplo de arredondamento e duração da consulta > 0; queda da sensibilidade de 0 a
+99 %). Negativo é tratado como texto: avisa e suspende o que depende dele. Linha sem nome mas com
+dado (resíduo) conta como incompleta em todos os agregados da aba. Decisões de produto em que o
+branco significa "não se aplica", e por isso muda o total sem aviso: preço de convênio em branco na
+06 e na 08 dos Médicos (convênio não atende o procedimento); valor de tabela em branco na 07 (o
+pagador não atende); atendimentos em branco no mix da 07 (sem volume no mês). Renomear uma área na
+Config da 08 dos Advogados deixa os casos dela fora da lista: os cartões gerais avisam caso
+incompleto. A varredura automática de entradas (vazio, texto e −1 em cada célula de entrada do
+exemplo, três linhas por coluna) roda depois de cada mudança e tem de terminar com zero mudança
+silenciosa fora dessas decisões.

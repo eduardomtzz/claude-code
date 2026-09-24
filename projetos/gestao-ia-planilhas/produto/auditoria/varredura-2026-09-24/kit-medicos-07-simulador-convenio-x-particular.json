@@ -1,0 +1,321 @@
+[
+{
+"entrada": "Simulador!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Simulador!J5: Vida Care: R$ 110→MediPlan: R$ 129"
+]
+},
+{
+"entrada": "Simulador!B22",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B22",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B46",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!G43: 0.476923→0.529915",
+"Simulador!H43: 0.780464→0.807688",
+"Simulador!G44: 0.192308→0.213675",
+"Simulador!H44: 0.0947739→0.0980798",
+"Simulador!G45: 0.230769→0.25641",
+"Simulador!H45: 0.0910555→0.0942317",
+"Simulador!B49: 130→117",
+"Simulador!C49: 82.3333→74.1",
+"Simulador!D49: 26866.6→25961",
+"Simulador!E49: 16986.7→15288",
+"Simulador!F49: 9879.91→10673"
+],
+"CLS": []
+},
+{
+"entrada": "Simulador!B46",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B46",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B3",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B3",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B25",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!A10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!A10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Simulador!A19: Particular→abc",
+"Simulador!A31: Particular→abc",
+"Simulador!A43: Particular→abc"
+]
+},
+{
+"entrada": "Config!A20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!A20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!A25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!A25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!C10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!C10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!C10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!C20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!C20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!C25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!C25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!D10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!D10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!D20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!D20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!D20",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!D25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!D25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!D25",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!E19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!E19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!E19",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!F19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!F19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!F19",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+}
+]

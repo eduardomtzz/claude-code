@@ -1,0 +1,1115 @@
+[
+{
+"entrada": "Referência!A9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A21",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A33",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B21",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B33",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C21",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C21",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C33",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C33",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D21",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D21",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D33",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D33",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E21",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E33",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B4",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B4",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!E16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!E16",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→0",
+"Referência!C54: 101500→0",
+"Referência!D54: 632→0",
+"Referência!G54: 1→0",
+"Referência!H54: 1509.21→0"
+],
+"CLS": [
+"Referência!A54: Cível→abc"
+]
+},
+{
+"entrada": "Config!E18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!E18",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→0",
+"Referência!C56: 39400→0",
+"Referência!D56: 264→0",
+"Referência!G56: 1→0",
+"Referência!H56: 1115.21→0"
+],
+"CLS": [
+"Referência!A56: Previdenciário→abc"
+]
+},
+{
+"entrada": "Config!E20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!E20",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B58: 3→0",
+"Referência!C58: 22600→0",
+"Referência!D58: 155→0",
+"Referência!G58: 1→0",
+"Referência!H58: 33.4071→0"
+],
+"CLS": [
+"Referência!A58: Família→abc"
+]
+},
+{
+"entrada": "Config!G16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!G16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!G18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!G18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!G20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!G20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!I16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!I16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!I18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!I18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!I19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!I19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!A24",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Referência!A83: 5900991-46.2026.8.26.0469→abc"
+]
+},
+{
+"entrada": "Nossos casos!A42",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!A42",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Referência!A85: 9420478-99.2025.8.26.0491→abc"
+]
+},
+{
+"entrada": "Nossos casos!B5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B24",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Referência!B83: José Antônio Ribeiro→abc"
+]
+},
+{
+"entrada": "Nossos casos!B42",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B42",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Referência!B85: Ana Beatriz Moreira→abc"
+]
+},
+{
+"entrada": "Nossos casos!C5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→97000",
+"Referência!D57: 615→543",
+"Referência!E57: 186.992→178.637",
+"Referência!F57: 0.462243→0.396911"
+],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C5",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→97000",
+"Referência!D57: 615→543",
+"Referência!E57: 186.992→178.637",
+"Referência!F57: 0.462243→0.396911"
+],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→35400",
+"Referência!D56: 264→224",
+"Referência!E56: 149.242→158.036",
+"Referência!F56: 0.167049→0.235811",
+"Referência!G56: 1→0",
+"Referência!H56: 1115.21→0"
+],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C24",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→35400",
+"Referência!D56: 264→224",
+"Referência!E56: 149.242→158.036",
+"Referência!F56: 0.167049→0.235811",
+"Referência!G56: 1→0",
+"Referência!H56: 1115.21→0"
+],
+"CLS": [
+"Referência!C83: Previdenciário→abc"
+]
+},
+{
+"entrada": "Nossos casos!C42",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→96900",
+"Referência!D55: 838→768",
+"Referência!E55: 125.776→126.172",
+"Referência!F55: -0.0164566→-0.0133582",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→8767.26"
+],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C42",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→96900",
+"Referência!D55: 838→768",
+"Referência!E55: 125.776→126.172",
+"Referência!F55: -0.0164566→-0.0133582",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→8767.26"
+],
+"CLS": [
+"Referência!C85: Trabalhista→abc"
+]
+},
+{
+"entrada": "Nossos casos!D5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D24",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Referência!D83: Êxito→abc"
+]
+},
+{
+"entrada": "Nossos casos!D42",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D42",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Referência!D85: Misto→abc"
+]
+},
+{
+"entrada": "Nossos casos!E5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E24",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E42",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E42",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F5",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F24",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F24",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F42",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F42",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F42",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G5",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G24",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G24",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G42",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G42",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G42",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"CLS": [
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+}
+]

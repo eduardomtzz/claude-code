@@ -1,0 +1,285 @@
+[
+{
+"entrada": "Simulador!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"CLS": []
+},
+{
+"entrada": "Simulador!B23",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"CLS": []
+},
+{
+"entrada": "Simulador!B23",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"CLS": []
+},
+{
+"entrada": "Simulador!B48",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"CLS": []
+},
+{
+"entrada": "Simulador!B48",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"CLS": []
+},
+{
+"entrada": "Simulador!B48",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"CLS": []
+},
+{
+"entrada": "Simulador!A19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A24",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A36",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A36",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!C33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"CLS": []
+},
+{
+"entrada": "Simulador!C33",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"CLS": []
+},
+{
+"entrada": "Simulador!C35",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"CLS": []
+},
+{
+"entrada": "Simulador!C35",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"CLS": []
+},
+{
+"entrada": "Simulador!C36",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"CLS": []
+},
+{
+"entrada": "Simulador!C36",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"CLS": []
+},
+{
+"entrada": "Config!B4",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B4",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!B9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Config!B14: Sim→Não"
+]
+},
+{
+"entrada": "Config!B9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Config!B14: Sim→Não"
+]
+},
+{
+"entrada": "Config!B9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Config!B14: Sim→Não"
+]
+},
+{
+"entrada": "Config!B12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Config!B14: Sim→Não"
+]
+},
+{
+"entrada": "Config!B12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": [
+"Config!B14: Sim→Não"
+]
+},
+{
+"entrada": "Config!E5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!E5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!E7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!E7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!E9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"CLS": []
+},
+{
+"entrada": "Config!E9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"CLS": []
+}
+]
