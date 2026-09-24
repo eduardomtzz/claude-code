@@ -22,10 +22,10 @@ for i,(a,v,fmt) in enumerate(campos):
 _OK='IF(AND(ISNUMBER(B8),ISNUMBER(B9),ISNUMBER(B10),ISNUMBER(B11)),AND(B8>=0,B8<1,B9>=0,B9<=B10,B10<1,B8+B10<1,B11>=0),FALSE)'
 cfg["A12"]="Hora mínima com folga (20 % de horas não previstas) (R$)"; cfg["B12"]=f'=IF(NOT(ISNUMBER(B7)),"falta o custo-hora",IF({_OK},B7*(1+B11)/(1-B8-B9),"margens inválidas (Config)"))'
 cfg["A13"]="Hora alvo com folga (R$)"; cfg["B13"]=f'=IF(NOT(ISNUMBER(B7)),"falta o custo-hora",IF({_OK},B7*(1+B11)/(1-B8-B10),"margens inválidas (Config)"))'
-for _c,_f,_m in (("B8",'=AND(ISNUMBER(B8),B8>=0,B8<1,B8+N(B10)<1)',"Impostos entre 0 % e 99 %, e impostos + margem alvo abaixo de 100 %."),
-                 ("B9",'=AND(ISNUMBER(B9),B9>=0,B9<=N(B10),N(B8)+B9<1)',"Margem mínima entre 0 % e a margem alvo, e impostos + margem abaixo de 100 %."),
-                 ("B10",'=AND(ISNUMBER(B10),B10>=N(B9),B10<1,N(B8)+B10<1)',"Margem alvo entre a margem mínima e 99 %, e impostos + margem alvo abaixo de 100 %."),
-                 ("B11",'=AND(ISNUMBER(B11),B11>=0)',"Folga de 0 % para cima.")):
+for _c,_f,_m in (("B8",'=IF(ISNUMBER(B8),AND(B8>=0,B8<1,B8+N(B10)<1),FALSE)',"Impostos entre 0 % e 99 %, e impostos + margem alvo abaixo de 100 %."),
+                 ("B9",'=IF(ISNUMBER(B9),AND(B9>=0,B9<=N(B10),N(B8)+B9<1),FALSE)',"Margem mínima entre 0 % e a margem alvo, e impostos + margem abaixo de 100 %."),
+                 ("B10",'=IF(ISNUMBER(B10),AND(B10>=N(B9),B10<1,N(B8)+B10<1),FALSE)',"Margem alvo entre a margem mínima e 99 %, e impostos + margem alvo abaixo de 100 %."),
+                 ("B11",'=IF(ISNUMBER(B11),AND(B11>=0),FALSE)',"Folga de 0 % para cima.")):
     _dv=DataValidation(type="custom",formula1=_f,allow_blank=False,showErrorMessage=True,errorTitle="Percentual",error=_m); _dv.add(_c); cfg.add_data_validation(_dv)
 for r in (12,13): rotulo(cfg.cell(row=r,column=1)); calc(cfg.cell(row=r,column=2),BRL); cfg.cell(row=r,column=2).font=F(bold=True,color=UVA,size=10)
 cfg["C7"]="Copie do Painel da planilha 05 (\"Custo-hora do escritório\")."; cfg["C8"]="Exemplo; confira com o contador."
@@ -51,7 +51,7 @@ for r in range(C0,CN+1):
     for c in (3,4,5,7): k.cell(row=r,column=c).alignment=Alignment(horizontal="center")
     k.cell(row=r,column=6).number_format=BRL0; k.cell(row=r,column=7).number_format="0"
     k.cell(row=r,column=8,value=f'=IF(OR(A{r}="",G{r}="",G{r}=0,F{r}=""),"",F{r}/G{r})'); calc(k.cell(row=r,column=8),BRL)
-    k.cell(row=r,column=9,value=f'=IF(OR(H{r}="",NOT(ISNUMBER({HMIN}))),"",H{r}/{HMIN}-1)'); calc(k.cell(row=r,column=9),"+0%;-0%;0%")
+    k.cell(row=r,column=9,value=f'=IF(OR(H{r}="",NOT(ISNUMBER({HMIN}))),"",IF({HMIN}=0,"sem base (mínimo zero)",H{r}/{HMIN}-1))'); calc(k.cell(row=r,column=9),"+0%;-0%;0%")
     k.cell(row=r,column=10,value=f'=IF(H{r}="","",IF(NOT(ISNUMBER({HMIN})),{HMIN},IF(NOT(ISNUMBER({HALVO})),{HALVO},IF(H{r}<{HMIN},"Abaixo do mínimo",IF(H{r}<{HALVO},"Na faixa","Acima do alvo")))))'); calc(k.cell(row=r,column=10))
     k.cell(row=r,column=11,value=f'=IF(OR(H{r}="",NOT(ISNUMBER({HMIN}))),"",MAX(0,{HMIN}*G{r}-F{r}))'); calc(k.cell(row=r,column=11),BRL0)
     k.cell(row=r,column=12,value=f'=IF(K{r}="","",K{r}+ROW()/1000000)'); calc(k.cell(row=r,column=12),"0.00"); k.cell(row=r,column=12).font=F(size=9,color=CINZA)
@@ -93,7 +93,7 @@ for i in range(20):
     p.cell(row=r,column=3,value=f'=IF({src}="","",SUMIFS({KF},{KC},{src}))'); calc(p.cell(row=r,column=3),BRL0)
     p.cell(row=r,column=4,value=f'=IF({src}="","",SUMIFS({KG},{KC},{src}))'); calc(p.cell(row=r,column=4),"0")
     p.cell(row=r,column=5,value=f'=IF(OR({src}="",D{r}=0),"",C{r}/D{r})'); calc(p.cell(row=r,column=5),BRL)
-    p.cell(row=r,column=6,value=f'=IF(OR(E{r}="",NOT(ISNUMBER({HMIN}))),"",E{r}/{HMIN}-1)'); calc(p.cell(row=r,column=6),"+0%;-0%;0%")
+    p.cell(row=r,column=6,value=f'=IF(OR(E{r}="",NOT(ISNUMBER({HMIN}))),"",IF({HMIN}=0,"sem base (mínimo zero)",E{r}/{HMIN}-1))'); calc(p.cell(row=r,column=6),"+0%;-0%;0%")
     p.cell(row=r,column=7,value=f'=IF(OR({src}="",NOT(ISNUMBER({HMIN}))),"",COUNTIFS({KC},{src},{KJ},"Abaixo do mínimo"))'); calc(p.cell(row=r,column=7),"0")
     p.cell(row=r,column=8,value=f'=IF(OR({src}="",NOT(ISNUMBER({HMIN}))),"",SUMIFS({KK},{KC},{src}))'); calc(p.cell(row=r,column=8),BRL0)
 AN=A0+21

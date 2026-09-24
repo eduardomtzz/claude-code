@@ -43,7 +43,7 @@ PROCS=f"Config!$A${Q0}:$A${QN}"; PAGS=f"Config!$A${P0}:$A${PN}"
 # abaixo de 100 %, sem texto nem branco), num predicado só; custo-hora em branco não é custo zero.
 OKC=f'IF(AND(ISNUMBER({IMP}),ISNUMBER({MMIN})),AND({IMP}>=0,{IMP}<1,{MMIN}>=0,{MMIN}<1,{IMP}+{MMIN}<1),FALSE)'
 for _c,_o,_m in (("B6","B7","Impostos entre 0 % e 99 %, e impostos + margem abaixo de 100 %."),("B7","B6","Margem entre 0 % e 99 %, e impostos + margem abaixo de 100 %.")):
-    _dv=DataValidation(type="custom",formula1=f'=AND(ISNUMBER({_c}),{_c}>=0,{_c}<1,{_c}+N({_o})<1)',allow_blank=False,showErrorMessage=True,errorTitle="Percentual",error=_m); _dv.add(_c); cfg.add_data_validation(_dv)
+    _dv=DataValidation(type="custom",formula1=f'=IF(ISNUMBER({_c}),AND({_c}>=0,{_c}<1,{_c}+N({_o})<1),FALSE)',allow_blank=False,showErrorMessage=True,errorTitle="Percentual",error=_m); _dv.add(_c); cfg.add_data_validation(_dv)
 # ---------- Simulador ----------
 s=wb.create_sheet("Simulador",0)
 titulo(s,'=Config!$B$3&" · Simulador convênio × particular · "&TEXT(DAY(Config!$B$4),"00")&"/"&TEXT(MONTH(Config!$B$4),"00")&"/"&YEAR(Config!$B$4)',"Escolha o procedimento e digite o valor de tabela de cada pagador (amarelo). O resto é calculado: glosa, custo do dinheiro pelo prazo, impostos, custo cheio, margem e as duas leituras (agenda cheia × agenda vazia).",merge_to="N")
@@ -82,7 +82,7 @@ for i in range(NPAG):
     s.cell(row=r,column=10,value=f'=IF(OR(NOT(ISNUMBER(H{r})),NOT(ISNUMBER(I{r}))),"",H{r}-I{r})'); calc(s.cell(row=r,column=10),BRL)
     s.cell(row=r,column=11,value=f'=IF(OR(NOT(ISNUMBER(J{r})),N(B{r})=0),"",J{r}/B{r})'); calc(s.cell(row=r,column=11),PCT)
     s.cell(row=r,column=12,value=f'=IF(OR(NOT(ISNUMBER(H{r})),N({TEMPO})=0),"",H{r}/({TEMPO}/60))'); calc(s.cell(row=r,column=12),BRL)
-    s.cell(row=r,column=13,value=f'=IF(OR(L{r}="",NOT(ISNUMBER({HMIN}))),"",L{r}/{HMIN}-1)'); calc(s.cell(row=r,column=13),"+0%;-0%;0%")
+    s.cell(row=r,column=13,value=f'=IF(OR(L{r}="",NOT(ISNUMBER({HMIN}))),"",IF({HMIN}=0,"sem base (mínimo zero)",L{r}/{HMIN}-1))'); calc(s.cell(row=r,column=13),"+0%;-0%;0%")
     s.cell(row=r,column=14,value=f'=IF(E{r}="","",IF(NOT({OKC}),"Margens inválidas em Config",IF(NOT(ISNUMBER(I{r})),"Falta o custo-hora em Config",IF(J{r}<0,"Não cobre o custo cheio",IF(K{r}<{MMIN},"Cobre o custo, não a margem mínima","Cobre custo e margem")))))'); calc(s.cell(row=r,column=14),center=False)
 s.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Não cobre o custo cheio"'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 s.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Cobre o custo, não a margem mínima"'], fill=fill(AMARELO)))

@@ -23,7 +23,7 @@ inp(cfg["B4"]); inp(cfg["B5"]); calc(cfg["B6"],DATA); inp(cfg["B7"],PCT,center=T
 # abaixo de 100 %; senão o denominador (1 − margem − impostos) zera ou inverte e o preço
 # mínimo sai negativo. A validação barra a digitação; as fórmulas guardam a colagem.
 def _val_pct(ws,cel,outro,msg):
-    dv=DataValidation(type="custom",formula1=f'=AND(ISNUMBER({cel}),{cel}>=0,{cel}<1,{cel}+N({outro})<1)',allow_blank=False,showErrorMessage=True,errorTitle="Percentual",error=msg)
+    dv=DataValidation(type="custom",formula1=f'=IF(ISNUMBER({cel}),AND({cel}>=0,{cel}<1,{cel}+N({outro})<1),FALSE)',allow_blank=False,showErrorMessage=True,errorTitle="Percentual",error=msg)
     dv.add(cel); ws.add_data_validation(dv)
 _val_pct(cfg,"B7","B8","Margem entre 0 % e 99 %, e margem + impostos abaixo de 100 %: senão nenhum preço cobre o custo.")
 _val_pct(cfg,"B8","B7","Impostos entre 0 % e 99 %, e margem + impostos abaixo de 100 %: senão nenhum preço cobre o custo.")

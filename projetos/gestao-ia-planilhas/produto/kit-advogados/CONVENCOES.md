@@ -115,3 +115,14 @@ margem negativa passa por essa guarda. Com o predicado em "Não", preço, margem
 resumo e totais dizem "margens inválidas (Config)"; com o custo-hora em branco, dizem "falta o
 custo-hora". Subtotal e contagem que dependem dessas linhas também: SUM, COUNTIF e MIN ignoram texto
 e devolveriam zero como se fosse resultado apurado. Zero digitado continua zero.
+
+## Zero legítimo não é denominador (auditoria final-3)
+
+Custo-hora, percentual de êxito, valor em discussão e hora mínima podem ser zero de verdade. Nenhuma
+classificação divide por eles: a desigualdade é multiplicada pelo denominador (`sobra ≥ custo-hora ×
+horas × (1 + folga)` em vez de `sobra ÷ custo-hora ÷ horas − 1 ≥ folga`). Comparação percentual
+contra uma base zero diz "sem base (mínimo zero)"; nunca #DIV/0!, nunca 0 % por IFERROR, e nunca
+IFERROR convertendo erro em "Alto". Parâmetro de regra (chance mínima, folgas) tem a sua conferência
+("Regras de risco conferem?" na 06 dos Advogados) e suspende só as modalidades que o usam, mais a
+recomendação. Validação customizada começa por `IF(ISNUMBER(x);AND(...);FALSE)`: texto dá FALSE,
+não erro. Nota ao lado de entrada não formata a entrada: o exemplo vai escrito.

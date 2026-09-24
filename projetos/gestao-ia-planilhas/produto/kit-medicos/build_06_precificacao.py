@@ -31,9 +31,9 @@ CH="Config!$B$7"; IMP="Config!$B$8"; MMIN="Config!$B$9"; MALVO="Config!$B$10"; N
 DIVMIN=f"(1-{IMP}-{MMIN})"; DIVALVO=f"(1-{IMP}-{MALVO})"; CFGX='(Config!$B$13<>"Sim")'
 # Auditoria final (G02): imposto + margem alvo abaixo de 100 % e margem mínima ≤ margem alvo,
 # validado na digitação e guardado nas fórmulas (colagem).
-for _c,_f,_m in (("B8",'=AND(ISNUMBER(B8),B8>=0,B8<1,B8+N(B10)<1)',"Impostos entre 0 % e 99 %, e impostos + margem alvo abaixo de 100 %."),
-                 ("B9",'=AND(ISNUMBER(B9),B9>=0,B9<=N(B10),N(B8)+B9<1)',"Margem mínima entre 0 % e a margem alvo, e impostos + margem abaixo de 100 %."),
-                 ("B10",'=AND(ISNUMBER(B10),B10>=N(B9),B10<1,N(B8)+B10<1)',"Margem alvo entre a margem mínima e 99 %, e impostos + margem alvo abaixo de 100 %.")):
+for _c,_f,_m in (("B8",'=IF(ISNUMBER(B8),AND(B8>=0,B8<1,B8+N(B10)<1),FALSE)',"Impostos entre 0 % e 99 %, e impostos + margem alvo abaixo de 100 %."),
+                 ("B9",'=IF(ISNUMBER(B9),AND(B9>=0,B9<=N(B10),N(B8)+B9<1),FALSE)',"Margem mínima entre 0 % e a margem alvo, e impostos + margem abaixo de 100 %."),
+                 ("B10",'=IF(ISNUMBER(B10),AND(B10>=N(B9),B10<1,N(B8)+B10<1),FALSE)',"Margem alvo entre a margem mínima e 99 %, e impostos + margem alvo abaixo de 100 %.")):
     _dv=DataValidation(type="custom",formula1=_f,allow_blank=False,showErrorMessage=True,errorTitle="Percentual",error=_m); _dv.add(_c); cfg.add_data_validation(_dv)
 # Auditoria final-2 (G02): o mesmo conjunto de condições da validação, num predicado só, visível
 # em Config!B13. Preço mínimo, preço alvo, margens, situação, resumo e simulação consultam essa

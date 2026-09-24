@@ -25,7 +25,7 @@ inp(cfg["B12"],center=True)
 # abaixo de 100 %; senão o denominador (1 − margem − impostos) zera ou inverte e o preço
 # mínimo sai negativo. A validação barra a digitação; as fórmulas guardam a colagem.
 def _val_pct(ws,cel,outro,msg):
-    dv=DataValidation(type="custom",formula1=f'=AND(ISNUMBER({cel}),{cel}>=0,{cel}<1,{cel}+N({outro})<1)',allow_blank=False,showErrorMessage=True,errorTitle="Percentual",error=msg)
+    dv=DataValidation(type="custom",formula1=f'=IF(ISNUMBER({cel}),AND({cel}>=0,{cel}<1,{cel}+N({outro})<1),FALSE)',allow_blank=False,showErrorMessage=True,errorTitle="Percentual",error=msg)
     dv.add(cel); ws.add_data_validation(dv)
 _val_pct(cfg,"B7","B8","Impostos entre 0 % e 99 %, e impostos + margem abaixo de 100 %: senão nenhum preço cobre o custo.")
 _val_pct(cfg,"B8","B7","Margem entre 0 % e 99 %, e impostos + margem abaixo de 100 %: senão nenhum preço cobre o custo.")
@@ -44,6 +44,11 @@ for r,t in notas.items(): cfg.cell(row=r,column=3,value=t); nota(cfg.cell(row=r,
 cfg["A13"]="Impostos e margem conferem? (calculado)"; rotulo(cfg["A13"])
 cfg["B13"]='=IF(AND(ISNUMBER(B7),ISNUMBER(B8)),IF(AND(B7>=0,B7<1,B8>=0,B8<1,B7+B8<1),"Sim","Não"),"Não")'; calc(cfg["B13"])
 cfg["C13"]="\"Não\" suspende hora mínima, margens, risco e recomendação no Simulador até a Config ser corrigida."; nota(cfg["C13"])
+# Auditoria final-3 (F3-G01): as regras de risco (B9:B12) têm conferência própria; "Não" suspende a
+# recomendação e as modalidades que usam o parâmetro inválido.
+cfg["A14"]="Regras de risco conferem? (calculado)"; rotulo(cfg["A14"])
+cfg["B14"]='=IF(AND(ISNUMBER(B9),ISNUMBER(B10),ISNUMBER(B11)),IF(AND(B9>=0,B9<=1,B10>=0,B10<=1,B11>=0,B11<=1,OR(B12="Sim",B12="Não")),"Sim","Não"),"Não")'; calc(cfg["B14"])
+cfg["C14"]="\"Não\" suspende a recomendação: chance mínima e folgas de 0 % a 100 %, e \"Aceitar risco médio\" = Sim ou Não."; nota(cfg["C14"])
 cfg["E4"]="Áreas"; rotulo(cfg["E4"]); cfg["E3"]="Preencha de cima para baixo, sem pular linha."; nota(cfg["E3"])
 for i in range(26): inp(cfg.cell(row=5+i,column=5))
 for i,a in enumerate(dados.AREAS): cfg.cell(row=5+i,column=5,value=a)
@@ -61,7 +66,7 @@ campos=[("Cliente","Cliente",None),("Área","Cível",None),("O que será feito (
 for i,(a,v,fmt) in enumerate(campos):
     r=8+i; s.cell(row=r,column=1,value=a); rotulo(s.cell(row=r,column=1)); s.cell(row=r,column=2,value=v); inp(s.cell(row=r,column=2),fmt,center=fmt is not None)
 s["B8"]=dados.CLIENTES[7][0]
-s["C11"]='="Copie da planilha 05 · Custo-hora (Painel, ""Custo-hora do escritório""). No exemplo, R$ "&FIXED(B11,4)&" (18.500 ÷ 280 h). A hora mínima do caso (abaixo) é MAIOR do que a hora mínima do escritório na 05 sempre que o caso tiver despesa que o escritório absorve: a da 05 cobre só a estrutura, a daqui cobre também essas despesas rateadas pelas horas do caso."'; nota(s["C11"])
+s["C11"]="Copie da planilha 05 · Custo-hora (Painel, \"Custo-hora do escritório\"). No exemplo, R$ 66,0714 (18.500 ÷ 280 h). A hora mínima do caso (abaixo) é MAIOR do que a hora mínima do escritório na 05 sempre que o caso tiver despesa que o escritório absorve: a da 05 cobre só a estrutura, a daqui cobre também essas despesas rateadas pelas horas do caso."; nota(s["C11"])
 s["C12"]="Quanto o cliente recebe, deixa de pagar ou economiza se o caso der certo. Base do cálculo de êxito."; nota(s["C12"])
 s["C13"]="Sua estimativa honesta. Ela define o valor esperado e o risco das modalidades com êxito."; nota(s["C13"])
 s["A14"]="Valor esperado da causa (R$)"; rotulo(s["A14"]); s["B14"]="=B12*B13"; calc(s["B14"],BRL0); s["C14"]="Valor em discussão × chance. É o que se espera receber, em média."; nota(s["C14"])
@@ -119,25 +124,37 @@ C0=M0+8
 s.cell(row=C0-2,column=1,value="5. Comparação das modalidades").font=F(bold=True,size=13,color=UVA)
 hdr(s,C0-1,["Modalidade","Receita esperada (R$)","Impostos e taxas (R$)","Custo do caso (R$)","Margem esperada (R$)","Margem (%)","Se o caso for perdido (R$)","Ponto de equilíbrio","Risco","Pontuação","Por que este risco"],height=40)
 LIQ=f"(1-{IMP})"
+# Auditoria final-3 (F3-G01): cada regra de risco vale só com o parâmetro dela numérico e de 0 a
+# 100 % (chance mínima B9, folga de chance B10, folga de horas B11); Hora não usa nenhum.
+# (F3-G02): nenhuma classificação divide por custo-hora, percentual ou valor que podem ser zero
+# legítimos; as desigualdades foram multiplicadas pelos denominadores (positivos quando não zero).
+def _okp(c): return f"IF(ISNUMBER({c}),AND({c}>=0,{c}<=1),FALSE)"
+OK_FOLGAH=_okp(FOLGAH); OK_CHMIN=_okp(CHMIN); OK_FOLGA=_okp(FOLGA)
+SOBRA_FX=f"({FX}*{LIQ}-{DESP})"          # o que o fixo deixa depois de impostos e despesas absorvidas
+D_EX=f"({EX}*{VC}*{LIQ})"; D_MP=f"({MP}*{VC}*{LIQ})"; N_MX=f"({CUSTO}-{ME}*{LIQ})"
 rows=[
  ("Fixo",f"={FX}",f"=E{{r}}",
-  f'="Até "&ROUND(({FX}*{LIQ}-{DESP})/{CH},0)&" horas sem prejuízo (estimadas: "&ROUND({HT},0)&")"',
-  f'=IF({HT}=0,"Alto",IF(({FX}*{LIQ}-{DESP})/{CH}/{HT}-1>={FOLGAH},"Baixo",IF(({FX}*{LIQ}-{DESP})/{CH}>={HT},"Médio","Alto")))',
-  f'="Folga de horas: "&ROUND((({FX}*{LIQ}-{DESP})/{CH}/{HT}-1)*100,0)&"% (mínimo para risco baixo: "&ROUND({FOLGAH}*100,0)&"%)"'),
+  f'=IF({CH}=0,IF({SOBRA_FX}>=0,"Custo-hora zero: o fixo cobre as despesas absorvidas","Custo-hora zero, mas o fixo não cobre as despesas absorvidas"),"Até "&ROUND({SOBRA_FX}/{CH},0)&" horas sem prejuízo (estimadas: "&ROUND({HT},0)&")")',
+  f'=IF({SOBRA_FX}>={CH}*{HT}*(1+{FOLGAH}),"Baixo",IF({SOBRA_FX}>={CH}*{HT},"Médio","Alto"))',
+  f'=IF({CH}=0,IF({SOBRA_FX}>=0,"Sem custo de hora: só as despesas absorvidas contam, e o fixo as cobre","O fixo não cobre nem as despesas absorvidas"),"Folga de horas: "&ROUND(({SOBRA_FX}/{CH}/{HT}-1)*100,0)&"% (mínimo para risco baixo: "&ROUND({FOLGAH}*100,0)&"%)")',
+  OK_FOLGAH),
  ("Hora",f"={HR}*{HT}",f"=E{{r}}",
   f'="Hora mínima sem prejuízo: R$ "&FIXED({CUSTO}/({HT}*{LIQ}),2)&" (você cobra R$ "&FIXED({HR},2)&")"',   # FIXED usa o separador do idioma do Excel (pt-BR: 1.234,56)
   f'=IF({HR}>=$B$15,"Baixo",IF({HR}*{HT}*{LIQ}>={CUSTO},"Médio","Alto"))',
-  f'=IF({HR}>=$B$15,"A hora cobrada cobre custo, impostos e margem desejada","A hora cobrada fica abaixo da hora mínima com margem (R$ "&FIXED($B$15,2)&")")'),
+  f'=IF({HR}>=$B$15,"A hora cobrada cobre custo, impostos e margem desejada","A hora cobrada fica abaixo da hora mínima com margem (R$ "&FIXED($B$15,2)&")")',
+  "TRUE"),
  ("Êxito",f"={EX}*{VE}",f"=-{CUSTO}",
-  f'="Chance mínima de êxito para não ter prejuízo: "&ROUND({CUSTO}/({EX}*{VC}*{LIQ})*100,0)&"% (estimada: "&ROUND({PCH}*100,0)&"%)"',
-  f'=IF(OR({PCH}<{CHMIN},{PCH}<{CUSTO}/({EX}*{VC}*{LIQ})+{FOLGA}),"Alto","Médio")',
-  f'=IF({PCH}<{CHMIN},"Chance estimada abaixo do mínimo aceitável para êxito puro ("&ROUND({CHMIN}*100,0)&"%)",IF({PCH}<{CUSTO}/({EX}*{VC}*{LIQ})+{FOLGA},"Chance estimada perto demais do ponto de equilíbrio","Só recebe no fim; o caixa precisa aguentar até lá"))'),
+  f'=IF({D_EX}<=0,"Sem percentual de êxito ou valor em discussão: o êxito não paga o custo","Chance mínima de êxito para não ter prejuízo: "&ROUND({CUSTO}/{D_EX}*100,0)&"% (estimada: "&ROUND({PCH}*100,0)&"%)")',
+  f'=IF(OR({PCH}<{CHMIN},({PCH}-{FOLGA})*{D_EX}<{CUSTO}),"Alto","Médio")',
+  f'=IF({PCH}<{CHMIN},"Chance estimada abaixo do mínimo aceitável para êxito puro ("&ROUND({CHMIN}*100,0)&"%)",IF(({PCH}-{FOLGA})*{D_EX}<{CUSTO},"Chance estimada perto demais do ponto de equilíbrio (ou sem êxito que pague o custo)","Só recebe no fim; o caixa precisa aguentar até lá"))',
+  f"AND({OK_CHMIN},{OK_FOLGA})"),
  ("Misto",f"={ME}+{MP}*{VE}",f"={ME}*{LIQ}-{CUSTO}",
-  f'=IF({ME}*{LIQ}>={CUSTO},"A entrada já cobre o custo do caso; o êxito é margem","Chance mínima de êxito para não ter prejuízo: "&ROUND(({CUSTO}-{ME}*{LIQ})/({MP}*{VC}*{LIQ})*100,0)&"% (estimada: "&ROUND({PCH}*100,0)&"%)")',
-  f'=IF({PCH}<MAX(0,({CUSTO}-{ME}*{LIQ})/({MP}*{VC}*{LIQ}))+{FOLGA},"Alto",IF({ME}*{LIQ}<{CUSTO},"Médio","Baixo"))',
-  f'=IF({ME}*{LIQ}>={CUSTO},"Entrada cobre o custo: mesmo perdendo, não há prejuízo",IF({ME}*{LIQ}<{CUSTO},"Entrada não cobre todo o custo; parte depende do êxito",""))'),
+  f'=IF({N_MX}<=0,"A entrada já cobre o custo do caso; o êxito é margem",IF({D_MP}<=0,"A entrada não cobre o custo e não há êxito que complete","Chance mínima de êxito para não ter prejuízo: "&ROUND({N_MX}/{D_MP}*100,0)&"% (estimada: "&ROUND({PCH}*100,0)&"%)"))',
+  f'=IF(IF({N_MX}<=0,{PCH}<{FOLGA},({PCH}-{FOLGA})*{D_MP}<{N_MX}),"Alto",IF({N_MX}>0,"Médio","Baixo"))',
+  f'=IF({N_MX}<=0,"Entrada cobre o custo: mesmo perdendo, não há prejuízo","Entrada não cobre todo o custo; parte depende do êxito")',
+  OK_FOLGA),
 ]
-for i,(nome,rec,perde,pe,risco,pq) in enumerate(rows):
+for i,(nome,rec,perde,pe,risco,pq,okr) in enumerate(rows):
     r=C0+i
     s.cell(row=r,column=1,value=nome); calc(s.cell(row=r,column=1),center=False); s.cell(row=r,column=1).font=F(bold=True,color=UVA,size=10)
     s.cell(row=r,column=2,value=rec); calc(s.cell(row=r,column=2),BRL)
@@ -150,12 +167,12 @@ for i,(nome,rec,perde,pe,risco,pq) in enumerate(rows):
     s.cell(row=r,column=7,value=f'=IF(AND(ISNUMBER({CUSTO}),NOT({MINV_})),{perde.format(r=r)[1:]},"")'); calc(s.cell(row=r,column=7),BRL)
     s.cell(row=r,column=8,value=f'=IF(NOT(ISNUMBER({CUSTO})),"Falta o custo-hora (B11)",IF({MINV_},"Margens inválidas (Config)",IFERROR({pe[1:]},"Preencha horas e valores")))'); calc(s.cell(row=r,column=8),center=False); s.cell(row=r,column=8).alignment=Alignment(wrap_text=True,vertical="center")
     # sem horas estimadas não se classifica risco: não há custo por hora nem margem
-    s.cell(row=r,column=9,value=f'=IF(NOT(ISNUMBER({CUSTO})),"Falta o custo-hora",IF({MINV_},"Margens inválidas",IF({HT}<=0,"Faltam as horas estimadas",IFERROR({risco[1:]},"Alto"))))'); calc(s.cell(row=r,column=9))
+    s.cell(row=r,column=9,value=f'=IF(NOT(ISNUMBER({CUSTO})),"Falta o custo-hora",IF({MINV_},"Margens inválidas",IF({HT}<=0,"Faltam as horas estimadas",IF(NOT({okr}),"Regra de risco inválida (Config)",IFERROR({risco[1:]},"Sem base para classificar")))))'); calc(s.cell(row=r,column=9))
     s.cell(row=r,column=10,value=f'=IF(OR(I{r}="Baixo",AND(I{r}="Médio",{ACMED}="Sim")),E{r},-1E+9)'); calc(s.cell(row=r,column=10),BRL0); s.cell(row=r,column=10).font=F(size=9,color=CINZA)
-    s.cell(row=r,column=11,value=f'=IF(NOT(ISNUMBER({CUSTO})),"Preencha o custo-hora do escritório (B11): sem ele não há custo do caso, margem nem risco.",IF({MINV_},"Impostos e margem em Config fora do permitido (cada um de 0 % a 99 %, soma abaixo de 100 %). Corrija a Config.",IF({HT}<=0,"Preencha as horas estimadas no bloco 2: sem elas não há custo do caso por hora, nem margem, nem ponto de equilíbrio.",IFERROR({pq[1:]},""))))'); calc(s.cell(row=r,column=11),center=False); s.cell(row=r,column=11).alignment=Alignment(wrap_text=True,vertical="center"); nota(s.cell(row=r,column=11))
+    s.cell(row=r,column=11,value=f'=IF(NOT(ISNUMBER({CUSTO})),"Preencha o custo-hora do escritório (B11): sem ele não há custo do caso, margem nem risco.",IF({MINV_},"Impostos e margem em Config fora do permitido (cada um de 0 % a 99 %, soma abaixo de 100 %). Corrija a Config.",IF({HT}<=0,"Preencha as horas estimadas no bloco 2: sem elas não há custo do caso por hora, nem margem, nem ponto de equilíbrio.",IF(NOT({okr}),"A regra de risco desta modalidade em Config está vazia ou fora de 0 % a 100 %. Corrija a Config.",IFERROR({pq[1:]},"")))))'); calc(s.cell(row=r,column=11),center=False); s.cell(row=r,column=11).alignment=Alignment(wrap_text=True,vertical="center"); nota(s.cell(row=r,column=11))
     s.row_dimensions[r].height=42
 CN=C0+3
-s.conditional_formatting.add(f"I{C0}:I{CN}", FormulaRule(formula=[f'OR(I{C0}="Alto",I{C0}="Falta o custo-hora",I{C0}="Margens inválidas")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
+s.conditional_formatting.add(f"I{C0}:I{CN}", FormulaRule(formula=[f'OR(I{C0}="Alto",I{C0}="Falta o custo-hora",I{C0}="Margens inválidas",I{C0}="Regra de risco inválida (Config)",I{C0}="Sem base para classificar")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 s.conditional_formatting.add(f"I{C0}:I{CN}", FormulaRule(formula=[f'I{C0}="Médio"'], fill=fill(AMARELO)))
 s.conditional_formatting.add(f"I{C0}:I{CN}", FormulaRule(formula=[f'I{C0}="Baixo"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
 s.conditional_formatting.add(f"E{C0}:G{CN}", FormulaRule(formula=[f'AND(ISNUMBER(E{C0}),E{C0}<0)'], font=F(color="C8402E",size=10,bold=True)))
@@ -163,13 +180,13 @@ s.conditional_formatting.add(f"A{C0}:A{CN}", FormulaRule(formula=[f'$A{C0}=$A$5'
 s.cell(row=CN+1,column=1,value="Pontuação: coluna auxiliar da recomendação (margem esperada; modalidade com risco recusado vale −1 bilhão). Receita esperada de êxito e misto = percentual × valor esperado da causa.").font=F(size=9,color=LILAS)
 # recomendação no topo
 PONT=f"$J${C0}:$J${CN}"; MODS=f"$A${C0}:$A${CN}"; RISC=f"$I${C0}:$I${CN}"
-kpi(s,4,1,"Modalidade recomendada",f'=IF(NOT(ISNUMBER({CH})),"Preencha o custo-hora primeiro",IF({MINV_},"Corrija as margens em Config",IF({HT}<=0,"Estime as horas primeiro",IF(MAX({PONT})<=-1E+9,"Nenhuma com risco aceitável",INDEX({MODS},MATCH(MAX({PONT}),{PONT},0))))))',SOL,UVA,fmt="@")
-kpi(s,4,3,"Margem esperada",f'=IF(MAX({PONT})<=-1E+9,"",INDEX($E${C0}:$E${CN},MATCH(MAX({PONT}),{PONT},0)))',VERDE,VERDE_T,fmt=BRL0)
-kpi(s,4,5,"Risco da recomendada",f'=IF(MAX({PONT})<=-1E+9,"",INDEX({RISC},MATCH(MAX({PONT}),{PONT},0)))',LAVANDA,UVA,fmt="@")
+kpi(s,4,1,"Modalidade recomendada",f'=IF(NOT(ISNUMBER({CH})),"Preencha o custo-hora primeiro",IF({MINV_},"Corrija as margens em Config",IF({HT}<=0,"Estime as horas primeiro",IF(Config!$B$14<>"Sim","Corrija as regras de risco em Config",IF(MAX({PONT})<=-1E+9,"Nenhuma com risco aceitável",INDEX({MODS},MATCH(MAX({PONT}),{PONT},0)))))))',SOL,UVA,fmt="@")
+kpi(s,4,3,"Margem esperada",f'=IF(OR(Config!$B$14<>"Sim",MAX({PONT})<=-1E+9),"",INDEX($E${C0}:$E${CN},MATCH(MAX({PONT}),{PONT},0)))',VERDE,VERDE_T,fmt=BRL0)
+kpi(s,4,5,"Risco da recomendada",f'=IF(OR(Config!$B$14<>"Sim",MAX({PONT})<=-1E+9),"",INDEX({RISC},MATCH(MAX({PONT}),{PONT},0)))',LAVANDA,UVA,fmt="@")
 kpi(s,4,7,"Custo total do caso",f"={CUSTO}",LAVANDA,UVA,fmt=BRL0)
 kpi(s,4,9,"Hora mínima para o caso","=$B$15",LAVANDA,UVA,fmt=BRL)
 fora=f'IF($I${C0}="Alto","Fixo, ","")&IF($I${C0+1}="Alto","Hora, ","")&IF($I${C0+2}="Alto","Êxito, ","")&IF($I${C0+3}="Alto","Misto, ","")'
-s["A6"]=(f'=IF(OR(COUNT($E${C0}:$E${CN})=0,{HT}<=0),"Sem recomendação ainda: complete o custo-hora, as horas estimadas e a Config.",'
+s["A6"]=(f'=IF(OR(COUNT($E${C0}:$E${CN})=0,{HT}<=0,Config!$B$14<>"Sim"),"Sem recomendação ainda: complete o custo-hora, as horas estimadas e a Config (margens e regras de risco).",'
          f'IF(MAX({PONT})<=-1E+9,"Nenhuma modalidade ficou com risco aceitável. Reveja horas, valores ou a chance de êxito; a maior margem em números seria "&INDEX({MODS},MATCH(MAX($E${C0}:$E${CN}),$E${C0}:$E${CN},0))&".",'
          f'"Regra: maior margem esperada entre as modalidades com risco aceitável. Fora por risco alto: "&IF(COUNTIF({RISC},"Alto")=0,"nenhuma",LEFT({fora},LEN({fora})-2))&". Compare também a coluna \'Se o caso for perdido\' antes de decidir."))')
 nota(s["A6"]); s.merge_cells("A6:K6"); s["A6"].alignment=Alignment(wrap_text=True,vertical="top"); s.row_dimensions[6].height=30

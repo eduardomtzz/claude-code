@@ -23,9 +23,9 @@ for i,(a,v,fmt) in enumerate(campos):
 cfg["A15"]="Impostos e margens conferem? (calculado)"; rotulo(cfg["A15"])
 cfg["B15"]='=IF(AND(ISNUMBER(B8),ISNUMBER(B9),ISNUMBER(B10)),IF(AND(B8>=0,B8<1,B9>=0,B9<=B10,B10<1,B8+B10<1),"Sim","Não"),"Não")'; calc(cfg["B15"])
 cfg["C15"]="\"Não\" suspende preços, situação e contagens: impostos e margens de 0 % a 99 %, mínima ≤ alvo e impostos + margem alvo abaixo de 100 %."; nota(cfg["C15"])
-for _c,_f,_m in (("B8",'=AND(ISNUMBER(B8),B8>=0,B8<1,B8+N(B10)<1)',"Impostos entre 0 % e 99 %, e impostos + margem alvo abaixo de 100 %."),
-                 ("B9",'=AND(ISNUMBER(B9),B9>=0,B9<=N(B10),N(B8)+B9<1)',"Margem mínima entre 0 % e a margem alvo, e impostos + margem abaixo de 100 %."),
-                 ("B10",'=AND(ISNUMBER(B10),B10>=N(B9),B10<1,N(B8)+B10<1)',"Margem alvo entre a margem mínima e 99 %, e impostos + margem alvo abaixo de 100 %.")):
+for _c,_f,_m in (("B8",'=IF(ISNUMBER(B8),AND(B8>=0,B8<1,B8+N(B10)<1),FALSE)',"Impostos entre 0 % e 99 %, e impostos + margem alvo abaixo de 100 %."),
+                 ("B9",'=IF(ISNUMBER(B9),AND(B9>=0,B9<=N(B10),N(B8)+B9<1),FALSE)',"Margem mínima entre 0 % e a margem alvo, e impostos + margem abaixo de 100 %."),
+                 ("B10",'=IF(ISNUMBER(B10),AND(B10>=N(B9),B10<1,N(B8)+B10<1),FALSE)',"Margem alvo entre a margem mínima e 99 %, e impostos + margem alvo abaixo de 100 %.")):
     _dv=DataValidation(type="custom",formula1=_f,allow_blank=False,showErrorMessage=True,errorTitle="Percentual",error=_m); _dv.add(_c); cfg.add_data_validation(_dv)
 cfg["A13"]="Hora mínima a cobrar (R$)"; cfg["B13"]='=IF(NOT(ISNUMBER(B7)),"falta o custo-hora",IF(B15<>"Sim","margens inválidas (Config)",B7/(1-B8-B9)))'
 cfg["A14"]="Hora alvo (R$)"; cfg["B14"]='=IF(NOT(ISNUMBER(B7)),"falta o custo-hora",IF(B15<>"Sim","margens inválidas (Config)",B7/(1-B8-B10)))'
@@ -58,7 +58,7 @@ for r in range(T0,TN+1):
     t.cell(row=r,column=15,value=f'=IF(OR(A{r}="",NOT(ISNUMBER(F{r}))),"",SUMPRODUCT((I{r}:M{r}<>"")*(I{r}:M{r}>0)*(I{r}:M{r}*(1-{IMP})<E{r})))'); calc(t.cell(row=r,column=15),"0")
     inp(t.cell(row=r,column=16),"0",center=True); inp(t.cell(row=r,column=17),BRL0,center=True)
     t.cell(row=r,column=18,value=f'=IF(OR(A{r}="",P{r}="",P{r}=0),"",Q{r}/P{r})'); calc(t.cell(row=r,column=18),BRL)
-    t.cell(row=r,column=19,value=f'=IF(OR(R{r}="",NOT(ISNUMBER(F{r})),N(H{r})=0),"",R{r}/F{r}-1)'); calc(t.cell(row=r,column=19),"+0%;-0%;0%")
+    t.cell(row=r,column=19,value=f'=IF(OR(R{r}="",NOT(ISNUMBER(F{r})),N(H{r})=0),"",IF(F{r}=0,"sem base (mínimo zero)",R{r}/F{r}-1))'); calc(t.cell(row=r,column=19),"+0%;-0%;0%")
     inp(t.cell(row=r,column=20))
 dvs=lista('"Sim,Não"'); dvs.add(f"C{T0}:C{TN}"); t.add_data_validation(dvs)
 t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'OR(N{T0}="Abaixo do mínimo",N{T0}="Falta o custo-hora",N{T0}="Margens inválidas")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
@@ -75,7 +75,7 @@ kpi(t,4,3,"Particular abaixo do mínimo",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},COUN
 kpi(t,4,5,"Tabelas de convênio abaixo do custo cheio + imposto",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},SUM({KO}))',VERM,VERM_T,fmt="0")
 kpi(t,4,7,"Produção no mês (R$)",f"=SUM({KQ})",VERDE,VERDE_T,fmt=BRL0)
 kpi(t,4,9,"Valor médio por hora no mês",f'=IFERROR(SUM({KQ})/(SUMPRODUCT({KP},{KB})/60),0)',SOL,UVA,fmt=BRL)
-kpi(t,4,11,"Contra a hora mínima",f'=IF(NOT(ISNUMBER({HMIN})),"",IFERROR(I5/{HMIN}-1,0))',LAVANDA,UVA,fmt="+0%;-0%;0%")
+kpi(t,4,11,"Contra a hora mínima",f'=IF(NOT(ISNUMBER({HMIN})),"",IF({HMIN}=0,"sem base (mínimo zero)",IFERROR(I5/{HMIN}-1,"")))',LAVANDA,UVA,fmt="+0%;-0%;0%")
 NT=TN+2
 notas=["Custo cheio, preço mínimo e preço alvo: a mesma conta da planilha 06 (tempo com retorno × custo-hora + material; ÷ (1 − impostos − margem)). Tabela de convênio em vermelho: depois dos impostos não cobre o custo cheio (margem negativa) — é a mesma conta e o mesmo número do KPI \"Tabelas de convênio abaixo do custo cheio + imposto\" e do Resumo da planilha 06. Amarela: cobre o custo, mas não a margem mínima.",
        "Realizados e Produção no mês: copie de \"Por procedimento\" no Painel da planilha 01 com o mês fechado escolhido em Config (no exemplo, agosto de 2026). Valor médio praticado = produção ÷ realizados: mistura particular e convênio, por isso fica abaixo do preço particular.",
