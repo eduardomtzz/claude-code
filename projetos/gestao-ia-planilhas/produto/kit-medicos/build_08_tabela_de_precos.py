@@ -60,7 +60,8 @@ for r in range(T0,TN+1):
     t.cell(row=r,column=15,value=f'=IF(OR(A{r}="",NOT(ISNUMBER(F{r}))),"",IF(SUMPRODUCT(ISTEXT(I{r}:M{r})+ISNUMBER(I{r}:M{r})*(I{r}:M{r}<0))>0,"tabela inválida (texto ou negativo)",SUMPRODUCT((I{r}:M{r}<>"")*ISNUMBER(I{r}:M{r})*(((I{r}:M{r})>0)+(N(H{r})>0)>0)*(I{r}:M{r}*(1-{IMP})<E{r}))))'); calc(t.cell(row=r,column=15),"0")
     inp(t.cell(row=r,column=16),"0",center=True); inp(t.cell(row=r,column=17),BRL0,center=True)
     t.cell(row=r,column=18,value=f'=IF(OR(A{r}="",AND(P{r}="",Q{r}="")),"",IF(OR(NOT({num_ok(f"P{r}")}),NOT({num_ok(f"Q{r}")})),"volume ou produção faltando ou negativos",IF(P{r}=0,"",Q{r}/P{r})))'); calc(t.cell(row=r,column=18),BRL)
-    t.cell(row=r,column=19,value=f'=IF(OR(NOT(ISNUMBER(R{r})),NOT(ISNUMBER(F{r})),N(H{r})=0),"",IF(F{r}=0,"sem base (mínimo zero)",R{r}/F{r}-1))'); calc(t.cell(row=r,column=19),"+0%;-0%;0%")
+    # Auditoria final-6 (varredura): particular negativo ou em texto não gera comparação; zero (retorno) fica vazio
+    t.cell(row=r,column=19,value=f'=IF(OR(NOT(ISNUMBER(R{r})),NOT(ISNUMBER(F{r})),NOT(IF(ISNUMBER(H{r}),H{r}>0,FALSE))),"",IF(F{r}=0,"sem base (mínimo zero)",R{r}/F{r}-1))'); calc(t.cell(row=r,column=19),"+0%;-0%;0%")
     inp(t.cell(row=r,column=20))
 dvs=lista('"Sim,Não"'); dvs.add(f"C{T0}:C{TN}"); t.add_data_validation(dvs)
 t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'OR(N{T0}="Abaixo do mínimo",N{T0}="Falta o custo-hora",N{T0}="Margens inválidas",N{T0}="Faltam dados da linha",N{T0}="Preço inválido",N{T0}="Falta o preço particular")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
