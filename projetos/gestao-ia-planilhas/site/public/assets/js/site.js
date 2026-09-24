@@ -15,6 +15,21 @@
     window.addEventListener('load', topo);
   } catch (e) {}
 
+  /* Links para uma seção da mesma página (#id): rola até ela sem recarregar. Funciona igual no site
+     publicado e em visualizadores que servem a página com outro endereço-base (prévia). "#" puro não faz nada. */
+  try {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a || a.hasAttribute('data-checkout') && a.getAttribute('href') === '#') { if (a) e.preventDefault(); return; }
+      var h = a.getAttribute('href'); e.preventDefault();
+      if (h.length < 2) return;
+      var alvo = document.getElementById(decodeURIComponent(h.slice(1)));
+      if (!alvo) return;
+      alvo.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+      try { history.replaceState(null, '', h); } catch (err) {}
+    });
+  } catch (e) {}
+
   /* Índice das páginas de texto: aberto no desktop, recolhido no celular */
   try {
     var idx = document.querySelector('details.doc__indice');

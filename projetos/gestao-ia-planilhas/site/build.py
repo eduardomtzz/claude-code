@@ -19,6 +19,23 @@ def render(tpl, extra):
     ctx = dict(vars_); ctx.update(extra)
     return re.sub(r'\{\{\s*([\w.]+)\s*\}\}', lambda m: ctx.get(m.group(1), ''), tpl)
 
+# Checkout de demonstração: enquanto o link da plataforma de pagamento não existe (valor começa com "#"),
+# o botão Comprar leva a /checkout/<kit>/, uma página noindex que diz ser prévia, não pede dado nenhum
+# e simula os três desfechos (aprovado, Pix gerado, recusado). Com o link real no config, ela some.
+import shutil as _sh
+CHECKOUT_DEMO = {'kit_essencial': ('essencial', 'kit', 'Kit IA no Trabalho · Essencial', '37', '/kit/'),
+                 'kit_completo': ('completo', 'completo', 'Kit IA no Trabalho · Completo', '197', '/completo/'),
+                 'kit_advogados': ('advogados', 'advogados', 'Kit de Gestão para Advogados', '497', '/advogados/'),
+                 'kit_medicos': ('medicos', 'medicos', 'Kit de Gestão para Médicos', '697', '/medicos/')}
+demo_ativos = {}
+for chave, (slug, pasta, nome, preco, pagina) in CHECKOUT_DEMO.items():
+    destino = ROOT / 'public' / 'checkout' / slug
+    if str(cfg['checkout'].get(chave, '')).startswith('#'):
+        vars_['checkout.' + chave] = f'/checkout/{slug}/'
+        demo_ativos[chave] = (slug, pasta, nome, preco, pagina)
+    elif destino.exists():
+        _sh.rmtree(destino)
+
 pages = sorted((ROOT / 'src' / 'pages').glob('*.html'))
 sitemap = []
 for p in pages:
@@ -44,6 +61,19 @@ for p in pages:
     out.write_text(html, encoding='utf-8')
     if p.stem != '404' and 'noindex' not in meta.get('robots', ''): sitemap.append(cfg['url'] + slug)
     print('ok', slug, '->', out.relative_to(ROOT))
+
+checkout_tpl = (ROOT / 'src' / 'checkout.html').read_text(encoding='utf-8')
+for chave, (slug, pasta, nome, preco, pagina) in demo_ativos.items():
+    fonte = (ROOT / 'src' / 'pages' / (pasta + '.html')).read_text(encoding='utf-8')
+    lista = re.search(r'<ul class="preco__lista">(.*?)</ul>', fonte, re.S)
+    itens = '\n'.join('            ' + li.strip() for li in re.findall(r'<li>.*?</li>', lista.group(1), re.S)) if lista else ''
+    extra = {'ck_slug': pasta, 'ck_nome': nome, 'ck_preco': preco, 'ck_pagina': pagina, 'ck_itens': itens}
+    conteudo = render(checkout_tpl, extra)
+    ctx = {'content': conteudo, 'title': f'Checkout (demonstração) · {nome}', 'description': 'Prévia do checkout. Nenhum pagamento é feito nesta página.',
+           'path': f'/checkout/{slug}/', 'body_class': 'pagina-checkout', 'robots': 'noindex, nofollow',
+           'og_image': '/assets/img/og-1200x630.png', 'cta_href': pagina, 'cta_label': 'Voltar ao kit'}
+    out = ROOT / 'public' / 'checkout' / slug / 'index.html'; out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(render(layout, ctx), encoding='utf-8'); print('ok', f'/checkout/{slug}/ (demonstração)')
 
 # Vídeos de demonstração: copiados do pacote do produto (não ficam no git dentro de site/)
 import shutil

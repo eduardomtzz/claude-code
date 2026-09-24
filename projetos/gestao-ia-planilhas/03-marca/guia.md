@@ -40,6 +40,23 @@ Fala com "você". Frases curtas. Diz o que é e o que não é ("kit de planilhas
 Nunca promete resultado financeiro, clínico ou jurídico. Palavras da casa: kit, sócio, fechar o mês,
 pronto, seu. Palavras proibidas: sistema (para o produto), garantido, renda passiva, milagre.
 
+## Mascote (desde 24/09/2026)
+Quatro poses enviadas pelo Eduardo, recortadas com fundo transparente em `03-marca/mascotes/`
+(`mascote-oi.png`, `mascote-mesa.png`, `mascote-aviao.png`, `mascote-etapas.png`). No site ficam em
+`site/public/assets/img/mascote/<pose>-480.webp` e `-960.webp`. O mascote ainda não tem nome; não
+inventar um sem decisão do Eduardo.
+
+| Pose | Significa | Onde usar |
+|---|---|---|
+| oi (acenando com a planilha) | boas-vindas, "estou aqui" | herói da home, bloco de preço, "Qual kit é o seu", página Sobre, pagamento recusado |
+| mesa (planilhas organizadas) | trabalho em ordem, suporte | passo "Fecha o mês", coluna "Ficou alguma dúvida?", Suporte, Pix gerado |
+| aviao (avião de papel) | envio, entrega | passo "Compra e recebe", obrigado, checkout |
+| etapas (ligando cartões) | método, uma parte por vez | passo "Abre e preenche", página 404 |
+
+Regras: um mascote por dobra, nunca maior que o título ao lado; nunca sobre texto ou botão; fica
+fora de anúncio que simule depoimento ou resultado; sem alterar cores, proporção ou recortar o
+personagem. Em fundo uva ou creme ele funciona sem contorno.
+
 ## Aplicações prontas
 `avatar-instagram-1080.png` (símbolo branco sobre uva), `capa-facebook-1640x624.png`,
 `logo-horizontal-2400.png`, `logo-branco-2400.png`, `logo-empilhado-1200.png`, `simbolo-1024.png`.
