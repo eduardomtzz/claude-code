@@ -15,7 +15,18 @@ for i,(a,v,fmt) in enumerate(campos):
     r=4+i; cfg.cell(row=r,column=1,value=a); rotulo(cfg.cell(row=r,column=1)); cfg.cell(row=r,column=2,value=v)
     if r==6: calc(cfg.cell(row=r,column=2),fmt)
     else: inp(cfg.cell(row=r,column=2),fmt,center=fmt is not None)
-cfg["A12"]="Hora mínima com folga (20 % de horas não previstas) (R$)"; cfg["B12"]="=IFERROR(B7*(1+B11)/(1-B8-B9),\"\")"; cfg["A13"]="Hora alvo com folga (R$)"; cfg["B13"]="=IFERROR(B7*(1+B11)/(1-B8-B10),\"\")"
+# Auditoria final-2 (G01/G02): mesma regra da 06 dos Médicos. Custo-hora em branco não é hora
+# mínima zero; impostos, margens e folga fora do domínio (texto, branco, negativo, mínima acima da
+# alvo, soma de 100 %) viram "margens inválidas (Config)". Todas as saídas da tabela dependem de
+# B12/B13 e só calculam quando elas são números.
+_OK='IF(AND(ISNUMBER(B8),ISNUMBER(B9),ISNUMBER(B10),ISNUMBER(B11)),AND(B8>=0,B8<1,B9>=0,B9<=B10,B10<1,B8+B10<1,B11>=0),FALSE)'
+cfg["A12"]="Hora mínima com folga (20 % de horas não previstas) (R$)"; cfg["B12"]=f'=IF(NOT(ISNUMBER(B7)),"falta o custo-hora",IF({_OK},B7*(1+B11)/(1-B8-B9),"margens inválidas (Config)"))'
+cfg["A13"]="Hora alvo com folga (R$)"; cfg["B13"]=f'=IF(NOT(ISNUMBER(B7)),"falta o custo-hora",IF({_OK},B7*(1+B11)/(1-B8-B10),"margens inválidas (Config)"))'
+for _c,_f,_m in (("B8",'=AND(ISNUMBER(B8),B8>=0,B8<1,B8+N(B10)<1)',"Impostos entre 0 % e 99 %, e impostos + margem alvo abaixo de 100 %."),
+                 ("B9",'=AND(ISNUMBER(B9),B9>=0,B9<=N(B10),N(B8)+B9<1)',"Margem mínima entre 0 % e a margem alvo, e impostos + margem abaixo de 100 %."),
+                 ("B10",'=AND(ISNUMBER(B10),B10>=N(B9),B10<1,N(B8)+B10<1)',"Margem alvo entre a margem mínima e 99 %, e impostos + margem alvo abaixo de 100 %."),
+                 ("B11",'=AND(ISNUMBER(B11),B11>=0)',"Folga de 0 % para cima.")):
+    _dv=DataValidation(type="custom",formula1=_f,allow_blank=False,showErrorMessage=True,errorTitle="Percentual",error=_m); _dv.add(_c); cfg.add_data_validation(_dv)
 for r in (12,13): rotulo(cfg.cell(row=r,column=1)); calc(cfg.cell(row=r,column=2),BRL); cfg.cell(row=r,column=2).font=F(bold=True,color=UVA,size=10)
 cfg["C7"]="Copie do Painel da planilha 05 (\"Custo-hora do escritório\")."; cfg["C8"]="Exemplo; confira com o contador."
 cfg["C9"]="Abaixo disso o caso não vale a pena. Define o piso da faixa. A mesma margem desejada da planilha 05."; cfg["C10"]="A margem que você quer de verdade. Define o teto da faixa."
@@ -40,9 +51,9 @@ for r in range(C0,CN+1):
     for c in (3,4,5,7): k.cell(row=r,column=c).alignment=Alignment(horizontal="center")
     k.cell(row=r,column=6).number_format=BRL0; k.cell(row=r,column=7).number_format="0"
     k.cell(row=r,column=8,value=f'=IF(OR(A{r}="",G{r}="",G{r}=0,F{r}=""),"",F{r}/G{r})'); calc(k.cell(row=r,column=8),BRL)
-    k.cell(row=r,column=9,value=f'=IF(H{r}="","",H{r}/{HMIN}-1)'); calc(k.cell(row=r,column=9),"+0%;-0%;0%")
-    k.cell(row=r,column=10,value=f'=IF(H{r}="","",IF(H{r}<{HMIN},"Abaixo do mínimo",IF(H{r}<{HALVO},"Na faixa","Acima do alvo")))'); calc(k.cell(row=r,column=10))
-    k.cell(row=r,column=11,value=f'=IF(H{r}="","",MAX(0,{HMIN}*G{r}-F{r}))'); calc(k.cell(row=r,column=11),BRL0)
+    k.cell(row=r,column=9,value=f'=IF(OR(H{r}="",NOT(ISNUMBER({HMIN}))),"",H{r}/{HMIN}-1)'); calc(k.cell(row=r,column=9),"+0%;-0%;0%")
+    k.cell(row=r,column=10,value=f'=IF(H{r}="","",IF(NOT(ISNUMBER({HMIN})),{HMIN},IF(NOT(ISNUMBER({HALVO})),{HALVO},IF(H{r}<{HMIN},"Abaixo do mínimo",IF(H{r}<{HALVO},"Na faixa","Acima do alvo")))))'); calc(k.cell(row=r,column=10))
+    k.cell(row=r,column=11,value=f'=IF(OR(H{r}="",NOT(ISNUMBER({HMIN}))),"",MAX(0,{HMIN}*G{r}-F{r}))'); calc(k.cell(row=r,column=11),BRL0)
     k.cell(row=r,column=12,value=f'=IF(K{r}="","",K{r}+ROW()/1000000)'); calc(k.cell(row=r,column=12),"0.00"); k.cell(row=r,column=12).font=F(size=9,color=CINZA)
 for dv,rng in ((lista(LST("E"),strict=True),f"C{C0}:C{CN}"),(lista(LST("I")),f"D{C0}:D{CN}")): dv.add(rng); k.add_data_validation(dv)
 k.conditional_formatting.add(f"J{C0}:J{CN}", FormulaRule(formula=[f'$J{C0}="Abaixo do mínimo"'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
@@ -57,17 +68,17 @@ p=wb.create_sheet("Referência",0)
 titulo(p,'=Config!$B$4&" · Tabela de referência de honorários · "&Config!$B$5',"Tabela interna: faixa de valor por área e tipo de serviço, calculada do custo-hora. Amarelo: horas típicas e modalidade. Abaixo, o que cobramos hoje contra a referência.",merge_to="K")
 kpi(p,4,1,"Hora mínima com folga",f"={HMIN}",LAVANDA,UVA,fmt=BRL)
 kpi(p,4,3,"Hora alvo com folga",f"={HALVO}",SOL,UVA,fmt=BRL)
-kpi(p,4,5,"Casos abaixo do mínimo",f'=COUNTIF({KJ},"Abaixo do mínimo")&" de "&(COUNTIF({KJ},"Abaixo do mínimo")+COUNTIF({KJ},"Na faixa")+COUNTIF({KJ},"Acima do alvo"))',VERM,VERM_T,fmt="@")
-kpi(p,4,7,"Falta até o mínimo",f"=SUM({KK})",VERM,VERM_T,fmt=BRL0)
+kpi(p,4,5,"Casos abaixo do mínimo",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},COUNTIF({KJ},"Abaixo do mínimo")&" de "&(COUNTIF({KJ},"Abaixo do mínimo")+COUNTIF({KJ},"Na faixa")+COUNTIF({KJ},"Acima do alvo")))',VERM,VERM_T,fmt="@")
+kpi(p,4,7,"Falta até o mínimo",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},SUM({KK}))',VERM,VERM_T,fmt=BRL0)
 kpi(p,4,9,"Valor por hora médio",f'=IFERROR(SUM({KF})/SUM({KG}),0)',VERDE,VERDE_T,fmt=BRL)
 p["A7"]="Faixa de referência por área e tipo de serviço"; p["A7"].font=F(bold=True,size=13,color=UVA)
 hdr(p,8,["Área","Tipo de serviço","Horas típicas · de","Horas típicas · até","Modalidade recomendada","Mínimo (R$)","Máximo (R$)","Ponto médio (R$)","Como usar a faixa"],height=32)
 T0=9; TN=T0+NREF-1
 for r in range(T0,TN+1):
     inp(p.cell(row=r,column=1)); inp(p.cell(row=r,column=2)); inp(p.cell(row=r,column=3),"0",center=True); inp(p.cell(row=r,column=4),"0",center=True); inp(p.cell(row=r,column=5),center=True)
-    p.cell(row=r,column=6,value=f'=IF(OR(A{r}="",C{r}=""),"",C{r}*{HMIN})'); calc(p.cell(row=r,column=6),BRL0)
-    p.cell(row=r,column=7,value=f'=IF(OR(A{r}="",D{r}=""),"",D{r}*{HALVO})'); calc(p.cell(row=r,column=7),BRL0)
-    p.cell(row=r,column=8,value=f'=IF(OR(F{r}="",G{r}=""),"",(F{r}+G{r})/2)'); calc(p.cell(row=r,column=8),BRL0)
+    p.cell(row=r,column=6,value=f'=IF(OR(A{r}="",C{r}=""),"",IF(ISNUMBER({HMIN}),C{r}*{HMIN},{HMIN}))'); calc(p.cell(row=r,column=6),BRL0)
+    p.cell(row=r,column=7,value=f'=IF(OR(A{r}="",D{r}=""),"",IF(ISNUMBER({HALVO}),D{r}*{HALVO},{HALVO}))'); calc(p.cell(row=r,column=7),BRL0)
+    p.cell(row=r,column=8,value=f'=IF(OR(NOT(ISNUMBER(F{r})),NOT(ISNUMBER(G{r}))),"",(F{r}+G{r})/2)'); calc(p.cell(row=r,column=8),BRL0)
     p.cell(row=r,column=9,value=f'=IF(A{r}="","",IF(E{r}="Hora","Cobre a hora entre a mínima e a alvo; a faixa é o total esperado",IF(E{r}="Êxito","Percentual que, na chance esperada, fique dentro da faixa",IF(E{r}="Misto","Entrada perto do mínimo; o êxito leva ao máximo","Caso simples perto do mínimo; complexo perto do máximo"))))'); calc(p.cell(row=r,column=9),center=False); nota(p.cell(row=r,column=9))
 for dv,rng in ((lista(LST("E")),f"A{T0}:A{TN}"),(lista(LST("G")),f"B{T0}:B{TN}"),(lista(LST("I")),f"E{T0}:E{TN}")): dv.add(rng); p.add_data_validation(dv)
 p.cell(row=TN+1,column=1,value="Mínimo = horas de × hora mínima com folga. Máximo = horas até × hora alvo com folga (as duas incluem os 20 % de horas não previstas de Config; por isso a hora mínima daqui é maior que a da planilha 05). Abaixo do mínimo, o caso paga o custo mas não a margem que o escritório precisa.").font=F(size=9,color=LILAS)
@@ -82,9 +93,9 @@ for i in range(20):
     p.cell(row=r,column=3,value=f'=IF({src}="","",SUMIFS({KF},{KC},{src}))'); calc(p.cell(row=r,column=3),BRL0)
     p.cell(row=r,column=4,value=f'=IF({src}="","",SUMIFS({KG},{KC},{src}))'); calc(p.cell(row=r,column=4),"0")
     p.cell(row=r,column=5,value=f'=IF(OR({src}="",D{r}=0),"",C{r}/D{r})'); calc(p.cell(row=r,column=5),BRL)
-    p.cell(row=r,column=6,value=f'=IF(E{r}="","",E{r}/{HMIN}-1)'); calc(p.cell(row=r,column=6),"+0%;-0%;0%")
-    p.cell(row=r,column=7,value=f'=IF({src}="","",COUNTIFS({KC},{src},{KJ},"Abaixo do mínimo"))'); calc(p.cell(row=r,column=7),"0")
-    p.cell(row=r,column=8,value=f'=IF({src}="","",SUMIFS({KK},{KC},{src}))'); calc(p.cell(row=r,column=8),BRL0)
+    p.cell(row=r,column=6,value=f'=IF(OR(E{r}="",NOT(ISNUMBER({HMIN}))),"",E{r}/{HMIN}-1)'); calc(p.cell(row=r,column=6),"+0%;-0%;0%")
+    p.cell(row=r,column=7,value=f'=IF(OR({src}="",NOT(ISNUMBER({HMIN}))),"",COUNTIFS({KC},{src},{KJ},"Abaixo do mínimo"))'); calc(p.cell(row=r,column=7),"0")
+    p.cell(row=r,column=8,value=f'=IF(OR({src}="",NOT(ISNUMBER({HMIN}))),"",SUMIFS({KK},{KC},{src}))'); calc(p.cell(row=r,column=8),BRL0)
 AN=A0+21
 p.conditional_formatting.add(f"F{A0+2}:F{AN}", FormulaRule(formula=[f'AND(ISNUMBER(F{A0+2}),F{A0+2}<0)'], font=F(color="C8402E",size=10,bold=True)))
 p.conditional_formatting.add(f"G{A0+2}:G{AN}", FormulaRule(formula=[f'AND(ISNUMBER(G{A0+2}),G{A0+2}>0)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))

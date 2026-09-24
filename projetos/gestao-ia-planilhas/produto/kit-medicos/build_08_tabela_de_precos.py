@@ -17,7 +17,18 @@ for i,(a,v,fmt) in enumerate(campos):
     r=4+i; cfg.cell(row=r,column=1,value=a); rotulo(cfg.cell(row=r,column=1)); cfg.cell(row=r,column=2,value=v)
     if r==6: calc(cfg.cell(row=r,column=2),fmt)
     else: inp(cfg.cell(row=r,column=2),fmt,center=fmt is not None)
-cfg["A13"]="Hora mínima a cobrar (R$)"; cfg["B13"]="=IFERROR(B7/(1-B8-B9),\"\")"; cfg["A14"]="Hora alvo (R$)"; cfg["B14"]="=IFERROR(B7/(1-B8-B10),\"\")"
+# Auditoria final-2 (G01/G02): mesmo predicado da 06, visível em Config!B15; custo-hora em branco
+# não é hora mínima zero. Custo cheio, preços, situação, tabelas abaixo do custo e KPIs consultam
+# B13/B15 e dizem o que falta em vez de calcular com Config fora do domínio.
+cfg["A15"]="Impostos e margens conferem? (calculado)"; rotulo(cfg["A15"])
+cfg["B15"]='=IF(AND(ISNUMBER(B8),ISNUMBER(B9),ISNUMBER(B10)),IF(AND(B8>=0,B8<1,B9>=0,B9<=B10,B10<1,B8+B10<1),"Sim","Não"),"Não")'; calc(cfg["B15"])
+cfg["C15"]="\"Não\" suspende preços, situação e contagens: impostos e margens de 0 % a 99 %, mínima ≤ alvo e impostos + margem alvo abaixo de 100 %."; nota(cfg["C15"])
+for _c,_f,_m in (("B8",'=AND(ISNUMBER(B8),B8>=0,B8<1,B8+N(B10)<1)',"Impostos entre 0 % e 99 %, e impostos + margem alvo abaixo de 100 %."),
+                 ("B9",'=AND(ISNUMBER(B9),B9>=0,B9<=N(B10),N(B8)+B9<1)',"Margem mínima entre 0 % e a margem alvo, e impostos + margem abaixo de 100 %."),
+                 ("B10",'=AND(ISNUMBER(B10),B10>=N(B9),B10<1,N(B8)+B10<1)',"Margem alvo entre a margem mínima e 99 %, e impostos + margem alvo abaixo de 100 %.")):
+    _dv=DataValidation(type="custom",formula1=_f,allow_blank=False,showErrorMessage=True,errorTitle="Percentual",error=_m); _dv.add(_c); cfg.add_data_validation(_dv)
+cfg["A13"]="Hora mínima a cobrar (R$)"; cfg["B13"]='=IF(NOT(ISNUMBER(B7)),"falta o custo-hora",IF(B15<>"Sim","margens inválidas (Config)",B7/(1-B8-B9)))'
+cfg["A14"]="Hora alvo (R$)"; cfg["B14"]='=IF(NOT(ISNUMBER(B7)),"falta o custo-hora",IF(B15<>"Sim","margens inválidas (Config)",B7/(1-B8-B10)))'
 for r in (13,14): rotulo(cfg.cell(row=r,column=1)); calc(cfg.cell(row=r,column=2),BRL); cfg.cell(row=r,column=2).font=F(bold=True,color=UVA,size=10)
 cfg["C7"]="Copie do Painel da planilha 05 (\"Custo da hora de atendimento\"). No exemplo, R$ 200,00."; cfg["C8"]="A mesma alíquota efetiva das planilhas 05, 06 e 07 (exemplo: 11 %). Só imposto: a taxa da maquininha não entra aqui (fica na 16 e no resultado 18)."
 cfg["C9"]="Piso da faixa (a mesma margem da 05 e da 06)."; cfg["C10"]="Teto da faixa (a mesma da 06)."; cfg["C11"]="Iguais à 06: o tempo do retorno entra no custo da consulta."
@@ -30,7 +41,7 @@ for i in range(NPAG): inp(cfg.cell(row=17+i,column=2))
 for i,pg in enumerate(dados.PAGADORES): cfg.cell(row=17+i,column=2,value=pg)
 cfg["A17"]="Nomes"; rotulo(cfg["A17"],bold=False); cfg["C17"]="Preencha de cima para baixo, sem pular linha. Os mesmos da Config da planilha 01."; nota(cfg["C17"])
 widths(cfg,(52,16,90)); cfg.sheet_view.showGridLines=False
-CH="Config!$B$7"; IMP="Config!$B$8"; MMIN="Config!$B$9"; MALVO="Config!$B$10"; NRET="Config!$B$11"; DRET="Config!$B$12"; HMIN="Config!$B$13"; HALVO="Config!$B$14"
+CH="Config!$B$7"; IMP="Config!$B$8"; MMIN="Config!$B$9"; MALVO="Config!$B$10"; NRET="Config!$B$11"; DRET="Config!$B$12"; HMIN="Config!$B$13"; HALVO="Config!$B$14"; CFGX='(Config!$B$15<>"Sim")'
 # ---------- Tabela ----------
 t=wb.create_sheet("Tabela",0)
 titulo(t,'=Config!$B$4&" · Tabela de preços e referência · volume de "&Config!$B$5',"Amarelo: procedimento, minutos, retorno, material, valor de cada pagador e o volume do mês (Painel da 01, por procedimento). Branco: custo cheio, mínimo, alvo, situação e valor médio praticado.",merge_to="T")
@@ -39,32 +50,32 @@ heads=["Procedimento","Minutos","Gera retorno?","Material (R$)","Custo cheio (R$
 hdr(t,T0-1,heads,height=44)
 for r in range(T0,TN+1):
     inp(t.cell(row=r,column=1)); inp(t.cell(row=r,column=2),"0",center=True); inp(t.cell(row=r,column=3),center=True); inp(t.cell(row=r,column=4),BRL,center=True)
-    t.cell(row=r,column=5,value=f'=IF(A{r}="","",(B{r}+IF(C{r}="Sim",{NRET}*{DRET},0))/60*{CH}+D{r})'); calc(t.cell(row=r,column=5),BRL)
-    t.cell(row=r,column=6,value=f'=IF(A{r}="","",IFERROR(E{r}/(1-{IMP}-{MMIN}),""))'); calc(t.cell(row=r,column=6),BRL); t.cell(row=r,column=6).font=F(bold=True,color=UVA,size=10)
-    t.cell(row=r,column=7,value=f'=IF(A{r}="","",IFERROR(E{r}/(1-{IMP}-{MALVO}),""))'); calc(t.cell(row=r,column=7),BRL)
+    t.cell(row=r,column=5,value=f'=IF(A{r}="","",IF(NOT(ISNUMBER({CH})),"falta o custo-hora em Config",(B{r}+IF(C{r}="Sim",{NRET}*{DRET},0))/60*{CH}+D{r}))'); calc(t.cell(row=r,column=5),BRL)
+    t.cell(row=r,column=6,value=f'=IF(A{r}="","",IF(NOT(ISNUMBER(E{r})),E{r},IF({CFGX},"margens inválidas (Config)",E{r}/(1-{IMP}-{MMIN}))))'); calc(t.cell(row=r,column=6),BRL); t.cell(row=r,column=6).font=F(bold=True,color=UVA,size=10)
+    t.cell(row=r,column=7,value=f'=IF(A{r}="","",IF(NOT(ISNUMBER(E{r})),E{r},IF({CFGX},"margens inválidas (Config)",E{r}/(1-{IMP}-{MALVO}))))'); calc(t.cell(row=r,column=7),BRL)
     for j in range(NPAG): inp(t.cell(row=r,column=8+j),BRL0,center=True)
-    t.cell(row=r,column=14,value=f'=IF(OR(A{r}="",H{r}=""),"",IF(H{r}=0,"Sem cobrança",IF(H{r}<F{r},"Abaixo do mínimo",IF(H{r}<G{r},"Entre mínimo e alvo","No alvo ou acima"))))'); calc(t.cell(row=r,column=14))
-    t.cell(row=r,column=15,value=f'=IF(A{r}="","",SUMPRODUCT((I{r}:M{r}<>"")*(I{r}:M{r}>0)*(I{r}:M{r}*(1-{IMP})<E{r})))'); calc(t.cell(row=r,column=15),"0")
+    t.cell(row=r,column=14,value=f'=IF(OR(A{r}="",H{r}=""),"",IF(NOT(ISNUMBER(E{r})),"Falta o custo-hora",IF(OR(NOT(ISNUMBER(F{r})),NOT(ISNUMBER(G{r}))),"Margens inválidas",IF(H{r}=0,"Sem cobrança",IF(H{r}<F{r},"Abaixo do mínimo",IF(H{r}<G{r},"Entre mínimo e alvo","No alvo ou acima"))))))'); calc(t.cell(row=r,column=14))
+    t.cell(row=r,column=15,value=f'=IF(OR(A{r}="",NOT(ISNUMBER(F{r}))),"",SUMPRODUCT((I{r}:M{r}<>"")*(I{r}:M{r}>0)*(I{r}:M{r}*(1-{IMP})<E{r})))'); calc(t.cell(row=r,column=15),"0")
     inp(t.cell(row=r,column=16),"0",center=True); inp(t.cell(row=r,column=17),BRL0,center=True)
     t.cell(row=r,column=18,value=f'=IF(OR(A{r}="",P{r}="",P{r}=0),"",Q{r}/P{r})'); calc(t.cell(row=r,column=18),BRL)
-    t.cell(row=r,column=19,value=f'=IF(OR(R{r}="",F{r}="",H{r}=0),"",R{r}/F{r}-1)'); calc(t.cell(row=r,column=19),"+0%;-0%;0%")
+    t.cell(row=r,column=19,value=f'=IF(OR(R{r}="",NOT(ISNUMBER(F{r})),N(H{r})=0),"",R{r}/F{r}-1)'); calc(t.cell(row=r,column=19),"+0%;-0%;0%")
     inp(t.cell(row=r,column=20))
 dvs=lista('"Sim,Não"'); dvs.add(f"C{T0}:C{TN}"); t.add_data_validation(dvs)
-t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Abaixo do mínimo"'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
+t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'OR(N{T0}="Abaixo do mínimo",N{T0}="Falta o custo-hora",N{T0}="Margens inválidas")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Entre mínimo e alvo"'], fill=fill(AMARELO)))
 t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="No alvo ou acima"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
-t.conditional_formatting.add(f"I{T0}:M{TN}", FormulaRule(formula=[f'AND(ISNUMBER(I{T0}),I{T0}>0,I{T0}*(1-{IMP})<$E{T0})'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
-t.conditional_formatting.add(f"I{T0}:M{TN}", FormulaRule(formula=[f'AND(ISNUMBER(I{T0}),I{T0}*(1-{IMP})>=$E{T0},I{T0}<$F{T0})'], fill=fill(AMARELO)))
+t.conditional_formatting.add(f"I{T0}:M{TN}", FormulaRule(formula=[f'AND(ISNUMBER(I{T0}),I{T0}>0,ISNUMBER($F{T0}),I{T0}*(1-{IMP})<$E{T0})'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
+t.conditional_formatting.add(f"I{T0}:M{TN}", FormulaRule(formula=[f'AND(ISNUMBER(I{T0}),ISNUMBER($F{T0}),I{T0}*(1-{IMP})>=$E{T0},I{T0}<$F{T0})'], fill=fill(AMARELO)))
 t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Sem cobrança"'], font=F(color="8A86A0",size=10)))
 t.conditional_formatting.add(f"O{T0}:O{TN}", FormulaRule(formula=[f'AND(ISNUMBER(O{T0}),O{T0}>0)'], font=F(color="C8402E",size=10,bold=True)))
 t.conditional_formatting.add(f"S{T0}:S{TN}", FormulaRule(formula=[f'AND(ISNUMBER(S{T0}),S{T0}<0)'], font=F(color="C8402E",size=10,bold=True)))
 KA=f"$A${T0}:$A${TN}"; KN=f"$N${T0}:$N${TN}"; KO=f"$O${T0}:$O${TN}"; KP=f"$P${T0}:$P${TN}"; KQ=f"$Q${T0}:$Q${TN}"; KB=f"$B${T0}:$B${TN}"; KF=f"$F${T0}:$F${TN}"
 kpi(t,4,1,"Hora mínima (05)",f"={HMIN}",LAVANDA,UVA,fmt=BRL)
-kpi(t,4,3,"Particular abaixo do mínimo",f'=COUNTIF({KN},"Abaixo do mínimo")&" de "&COUNTA({KA})',VERM,VERM_T,fmt="@")
-kpi(t,4,5,"Tabelas de convênio abaixo do custo cheio + imposto",f"=SUM({KO})",VERM,VERM_T,fmt="0")
+kpi(t,4,3,"Particular abaixo do mínimo",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},COUNTIF({KN},"Abaixo do mínimo")&" de "&COUNTA({KA}))',VERM,VERM_T,fmt="@")
+kpi(t,4,5,"Tabelas de convênio abaixo do custo cheio + imposto",f'=IF(NOT(ISNUMBER({HMIN})),{HMIN},SUM({KO}))',VERM,VERM_T,fmt="0")
 kpi(t,4,7,"Produção no mês (R$)",f"=SUM({KQ})",VERDE,VERDE_T,fmt=BRL0)
 kpi(t,4,9,"Valor médio por hora no mês",f'=IFERROR(SUM({KQ})/(SUMPRODUCT({KP},{KB})/60),0)',SOL,UVA,fmt=BRL)
-kpi(t,4,11,"Contra a hora mínima",f'=IFERROR(I5/{HMIN}-1,0)',LAVANDA,UVA,fmt="+0%;-0%;0%")
+kpi(t,4,11,"Contra a hora mínima",f'=IF(NOT(ISNUMBER({HMIN})),"",IFERROR(I5/{HMIN}-1,0))',LAVANDA,UVA,fmt="+0%;-0%;0%")
 NT=TN+2
 notas=["Custo cheio, preço mínimo e preço alvo: a mesma conta da planilha 06 (tempo com retorno × custo-hora + material; ÷ (1 − impostos − margem)). Tabela de convênio em vermelho: depois dos impostos não cobre o custo cheio (margem negativa) — é a mesma conta e o mesmo número do KPI \"Tabelas de convênio abaixo do custo cheio + imposto\" e do Resumo da planilha 06. Amarela: cobre o custo, mas não a margem mínima.",
        "Realizados e Produção no mês: copie de \"Por procedimento\" no Painel da planilha 01 com o mês fechado escolhido em Config (no exemplo, agosto de 2026). Valor médio praticado = produção ÷ realizados: mistura particular e convênio, por isso fica abaixo do preço particular.",
@@ -84,8 +95,8 @@ for i in range(NPROC):
         t.cell(row=r,column=c,value=f'=IF(OR($A{s}="",{src}="",$B{r}=0),"",{src}/($B{r}/60))'); calc(t.cell(row=r,column=c),BRL0)
     t.cell(row=r,column=9,value=f'=IF($A{s}="","",{HMIN})'); calc(t.cell(row=r,column=9),BRL0)
     t.cell(row=r,column=10,value=f'=IF($A{s}="","",{HALVO})'); calc(t.cell(row=r,column=10),BRL0)
-t.conditional_formatting.add(f"C{H0+2}:H{H0+1+NPROC}", FormulaRule(formula=[f'AND(ISNUMBER(C{H0+2}),C{H0+2}>0,C{H0+2}<{HMIN})'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
-t.conditional_formatting.add(f"C{H0+2}:H{H0+1+NPROC}", FormulaRule(formula=[f'AND(ISNUMBER(C{H0+2}),C{H0+2}>={HALVO})'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
+t.conditional_formatting.add(f"C{H0+2}:H{H0+1+NPROC}", FormulaRule(formula=[f'AND(ISNUMBER(C{H0+2}),C{H0+2}>0,ISNUMBER({HMIN}),C{H0+2}<{HMIN})'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
+t.conditional_formatting.add(f"C{H0+2}:H{H0+1+NPROC}", FormulaRule(formula=[f'AND(ISNUMBER(C{H0+2}),ISNUMBER({HALVO}),C{H0+2}>={HALVO})'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
 t.cell(row=H0+2+NPROC,column=1,value="Vermelho: abaixo da hora mínima. Verde: na hora alvo ou acima. Retorno aparece vazio (valor zero). Este quadro é o argumento na negociação de tabela: quanto cada convênio paga pela hora da clínica.").font=F(size=9,color=LILAS)
 t.merge_cells(start_row=H0+2+NPROC,start_column=1,end_row=H0+2+NPROC,end_column=20)
 bc=BarChart(); bc.type="bar"; bc.grouping="clustered"; bc.height=8; bc.width=16; bc.title="Valor por hora: particular × convênios (R$)"; bc.style=2

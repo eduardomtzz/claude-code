@@ -162,3 +162,16 @@ taxa separadamente dava 216,23 + 8,78 = 225,01 numa parcela de 225,00). A 16 lis
 com alguma liquidação a partir do início do controle (01/06), inclusive as de abril e maio: o mês
 selecionado no Painel tem todas as liquidações e a taxa do mês (N5) é a saída do caixa. O
 `verifica_coerencia.py` cobra as duas coisas (identidade por liquidação e taxa/bruto por mês).
+
+## Configuração de preço: um predicado só (auditoria final-2)
+
+Impostos, margens e folga valem por um predicado único, escrito uma vez na Config e consultado
+por TODA saída de preço: "Margem e impostos conferem?" (05), "Impostos e margem(ns) conferem?"
+(06 e 08 dos Médicos) ou dentro da hora mínima (08 dos Advogados, 07 dos Médicos). O predicado
+repete as condições da validação de digitação (cada percentual de 0 % a 99 %, mínima ≤ alvo,
+impostos + margem abaixo de 100 %, folga ≥ 0) e começa por ISNUMBER, para texto, branco e colagem
+não virarem #VALUE! nem número. Proibido guardar só o denominador (`1 − impostos − margem ≤ 0`):
+margem negativa passa por essa guarda. Com o predicado em "Não", preço, margem, situação, risco,
+resumo e totais dizem "margens inválidas (Config)"; com o custo-hora em branco, dizem "falta o
+custo-hora". Subtotal e contagem que dependem dessas linhas também: SUM, COUNTIF e MIN ignoram texto
+e devolveriam zero como se fosse resultado apurado. Zero digitado continua zero.

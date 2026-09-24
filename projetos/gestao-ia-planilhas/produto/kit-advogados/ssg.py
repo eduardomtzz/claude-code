@@ -84,6 +84,14 @@ def _condicional_para_sheets(wb):
                 if novas!=list(r.formula): n+=1
                 r.formula=novas
     return n
+def _sem_grafico(wb):
+    """O texto padrão do "Como usar" promete gráfico no Sheets; num arquivo sem gráfico a
+    promessa sai (auditoria final-2: 16 planilhas diziam que "gráficos funcionam" sem ter um)."""
+    if any(ws._charts for ws in wb.worksheets) or "Como usar" not in wb.sheetnames: return
+    for row in wb["Como usar"].iter_rows(min_col=2,max_col=2):
+        c=row[0]
+        if isinstance(c.value,str): c.value=c.value.replace("Fórmulas, listas, cores, semáforos e gráficos funcionam","Fórmulas, listas, cores e semáforos funcionam")
 def salvar(wb,arquivo,titulo_doc):
+    _sem_grafico(wb)
     _condicional_para_sheets(wb)
     wb.properties.creator="Seu Sócio Gestor"; wb.properties.title=titulo_doc; wb.save(arquivo); print("salvo",arquivo)

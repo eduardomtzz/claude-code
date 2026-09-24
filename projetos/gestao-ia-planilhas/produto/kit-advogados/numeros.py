@@ -231,7 +231,22 @@ w("- Prazos: a agenda (01) não guarda histórico (o escritório começou a anot
 p03=W["03"]["Painel"]; p04=W["04"]["Painel"]
 w("## 13. Rotina (03) e checklist (04)\n")
 w(f"- **03 Rotina**: 9 rotinas (4 de segunda = 12 min; 5 de sexta = 18 min; **30 min/semana**); registradas S29 a S36 (20/07 a 07/09/2026); semana atual {p03['C5'].value}; aderência nas últimas 4 semanas **{pct(p03['A5'].value,0)}** (segunda 94 %, sexta 75 %); rotina mais pulada: \"Enviar a cobrança educada das parcelas atrasadas\" (1 de 4). Série S29–S36: 67 %, 78 %, 89 %, 89 %, 100 %, 78 %, 78 %, 78 %.")
-w(f"- **04 Checklist**: casos cadastrados {p04['A5'].value} · abertos com pendência de abertura {p04['C5'].value} · encerrados com pendência {p04['E5'].value} · itens pendentes no total **{p04['G5'].value}** · casos sem pendência {p04['I5'].value}. Itens mais esquecidos: \"Caso cadastrado no caixa e na carteira\" (2) e, no encerramento, \"Avaliação do cliente pedida\" (2). Fernanda Castro (encerrado) pende \"Última parcela cobrada e recebida\" (a parcela vencida da 14).")
+# Auditoria final-2 (M01): itens esquecidos e pendências dos encerrados lidos do Checklist da 04,
+# não escritos à mão (a frase fixa sobre Fernanda sobreviveu à correção do exemplo).
+_ck=W["04"]["Checklist"]; _cab={c.column:str(c.value) for c in _ck[4] if c.value}
+_ab=[c for c in range(5,15) if c in _cab]; _en=[c for c in range(15,25) if c in _cab]
+_cont={}
+for _r in range(5,_ck.max_row+1):
+    if not _ck.cell(row=_r,column=1).value: continue
+    _sit=_ck.cell(row=_r,column=4).value
+    for _c in _ab+(_en if _sit=="Encerrado" else []):
+        if _ck.cell(row=_r,column=_c).value not in ("Sim","N/A"): _cont[_c]=_cont.get(_c,0)+1   # pendente = nem Sim nem N/A (a mesma regra de AA/AB)
+_top=sorted(_cont.items(),key=lambda kv:(-kv[1],kv[0]))
+_ta=[(c,n) for c,n in _top if c in _ab][:1]; _te=[(c,n) for c,n in _top if c in _en][:1]
+_esq="; ".join([f'"{_cab[c]}" ({n})' for c,n in _ta]+[f'no encerramento, "{_cab[c]}" ({n})' for c,n in _te])
+_pend=[f"{_ck.cell(row=_r,column=2).value} ({_ck.cell(row=_r,column=30).value})" for _r in range(5,_ck.max_row+1)
+       if _ck.cell(row=_r,column=4).value=="Encerrado" and (_ck.cell(row=_r,column=28).value or 0)>0]
+w(f"- **04 Checklist**: casos cadastrados {p04['A5'].value} · abertos com pendência de abertura {p04['C5'].value} · encerrados com pendência {p04['E5'].value} · itens pendentes no total **{p04['G5'].value}** · casos sem pendência {p04['I5'].value}. Itens mais esquecidos: {_esq}. Encerrados com pendência e o que falta (coluna \"O que falta\" do Checklist): {'; '.join(_pend)}. Nenhum encerrado tem parcela pendente: todos estão quitados na 13 e na 14.")
 w("")
 open(pathlib.Path(__file__).resolve().parent/"NUMEROS.md","w").write("\n".join(L))
 print("NUMEROS.md gerado:",len("\n".join(L)),"caracteres")

@@ -28,13 +28,19 @@ cfg["A15"]="Nomes"; rotulo(cfg["A15"],bold=False)
 cfg["C15"]="Preencha de cima para baixo, sem pular linha. As tabelas de cada convênio ficam na aba Precificação."; nota(cfg["C15"])
 widths(cfg,(46,16,90)); cfg.sheet_view.showGridLines=False
 CH="Config!$B$7"; IMP="Config!$B$8"; MMIN="Config!$B$9"; MALVO="Config!$B$10"; NRET="Config!$B$11"; DRET="Config!$B$12"
-DIVMIN=f"(1-{IMP}-{MMIN})"; DIVALVO=f"(1-{IMP}-{MALVO})"
+DIVMIN=f"(1-{IMP}-{MMIN})"; DIVALVO=f"(1-{IMP}-{MALVO})"; CFGX='(Config!$B$13<>"Sim")'
 # Auditoria final (G02): imposto + margem alvo abaixo de 100 % e margem mínima ≤ margem alvo,
 # validado na digitação e guardado nas fórmulas (colagem).
 for _c,_f,_m in (("B8",'=AND(ISNUMBER(B8),B8>=0,B8<1,B8+N(B10)<1)',"Impostos entre 0 % e 99 %, e impostos + margem alvo abaixo de 100 %."),
                  ("B9",'=AND(ISNUMBER(B9),B9>=0,B9<=N(B10),N(B8)+B9<1)',"Margem mínima entre 0 % e a margem alvo, e impostos + margem abaixo de 100 %."),
                  ("B10",'=AND(ISNUMBER(B10),B10>=N(B9),B10<1,N(B8)+B10<1)',"Margem alvo entre a margem mínima e 99 %, e impostos + margem alvo abaixo de 100 %.")):
     _dv=DataValidation(type="custom",formula1=_f,allow_blank=False,showErrorMessage=True,errorTitle="Percentual",error=_m); _dv.add(_c); cfg.add_data_validation(_dv)
+# Auditoria final-2 (G02): o mesmo conjunto de condições da validação, num predicado só, visível
+# em Config!B13. Preço mínimo, preço alvo, margens, situação, resumo e simulação consultam essa
+# célula: colar -30 %, texto, branco, mínima acima da alvo ou soma de 100 % suspende tudo.
+cfg["A13"]="Impostos e margens conferem? (calculado)"; rotulo(cfg["A13"])
+cfg["B13"]='=IF(AND(ISNUMBER(B8),ISNUMBER(B9),ISNUMBER(B10)),IF(AND(B8>=0,B8<1,B9>=0,B9<=B10,B10<1,B8+B10<1),"Sim","Não"),"Não")'; calc(cfg["B13"])
+cfg["C13"]="\"Não\" suspende preços, margens, situação e resumo: impostos e margens de 0 % a 99 %, mínima ≤ alvo e impostos + margem alvo abaixo de 100 %."; nota(cfg["C13"])
 # ---------- Precificação ----------
 s=wb.create_sheet("Precificação",0)
 titulo(s,'=Config!$B$4&" · Precificação de consulta e procedimento · "&Config!$B$5',"Amarelo: procedimento, minutos, se gera retorno, material, preço particular praticado e tabelas de convênio. O resto é calculado: custo cheio, preço mínimo, preço alvo e margem por pagador.",merge_to="R")
@@ -48,15 +54,15 @@ for r in range(T0,TN+1):
     # Auditoria final (G01/G02): custo-hora em branco não é custo zero (dava consulta a R$ 4 de
     # custo e 88 % de margem); margens que somam 100 % não dão preço negativo.
     s.cell(row=r,column=6,value=f'=IF(A{r}="","",IF(NOT(ISNUMBER({CH})),"falta o custo-hora em Config",E{r}/60*{CH}+D{r}))'); calc(s.cell(row=r,column=6),BRL)
-    s.cell(row=r,column=7,value=f'=IF(A{r}="","",IF(NOT(ISNUMBER(F{r})),F{r},IF({DIVMIN}<=0,"margens inválidas (Config)",F{r}/{DIVMIN})))'); calc(s.cell(row=r,column=7),BRL)
-    s.cell(row=r,column=8,value=f'=IF(A{r}="","",IF(NOT(ISNUMBER(F{r})),F{r},IF({DIVALVO}<=0,"margens inválidas (Config)",F{r}/{DIVALVO})))'); calc(s.cell(row=r,column=8),BRL)
+    s.cell(row=r,column=7,value=f'=IF(A{r}="","",IF(NOT(ISNUMBER(F{r})),F{r},IF({CFGX},"margens inválidas (Config)",F{r}/{DIVMIN})))'); calc(s.cell(row=r,column=7),BRL)
+    s.cell(row=r,column=8,value=f'=IF(A{r}="","",IF(NOT(ISNUMBER(F{r})),F{r},IF({CFGX},"margens inválidas (Config)",F{r}/{DIVALVO})))'); calc(s.cell(row=r,column=8),BRL)
     inp(s.cell(row=r,column=9),BRL0,center=True)
-    s.cell(row=r,column=10,value=f'=IF(OR(A{r}="",I{r}="",I{r}=0,NOT(ISNUMBER(F{r}))),"",(I{r}*(1-{IMP})-F{r})/I{r})'); calc(s.cell(row=r,column=10),PCT)
-    s.cell(row=r,column=11,value=f'=IF(OR(A{r}="",I{r}=""),"",IF(NOT(ISNUMBER(F{r})),"Falta o custo-hora",IF(NOT(ISNUMBER(G{r})),"Margens inválidas",IF(I{r}=0,"Sem cobrança",IF(I{r}<G{r},"Abaixo do mínimo",IF(I{r}<H{r},"Entre mínimo e alvo","No alvo ou acima"))))))'); calc(s.cell(row=r,column=11))
+    s.cell(row=r,column=10,value=f'=IF(OR(A{r}="",I{r}="",I{r}=0,NOT(ISNUMBER(F{r})),{CFGX}),"",(I{r}*(1-{IMP})-F{r})/I{r})'); calc(s.cell(row=r,column=10),PCT)
+    s.cell(row=r,column=11,value=f'=IF(OR(A{r}="",I{r}=""),"",IF(NOT(ISNUMBER(F{r})),"Falta o custo-hora",IF(OR(NOT(ISNUMBER(G{r})),NOT(ISNUMBER(H{r}))),"Margens inválidas",IF(I{r}=0,"Sem cobrança",IF(I{r}<G{r},"Abaixo do mínimo",IF(I{r}<H{r},"Entre mínimo e alvo","No alvo ou acima"))))))'); calc(s.cell(row=r,column=11))
     for j in range(NCONV):
         cv=12+2*j; cm=cv+1
         inp(s.cell(row=r,column=cv),BRL0,center=True)
-        s.cell(row=r,column=cm,value=f'=IF(OR(A{r}="",{L(cv)}{r}="",{L(cv)}{r}=0,NOT(ISNUMBER(F{r}))),"",({L(cv)}{r}*(1-{IMP})-F{r})/{L(cv)}{r})'); calc(s.cell(row=r,column=cm),PCT)
+        s.cell(row=r,column=cm,value=f'=IF(OR(A{r}="",{L(cv)}{r}="",{L(cv)}{r}=0,NOT(ISNUMBER(F{r})),{CFGX}),"",({L(cv)}{r}*(1-{IMP})-F{r})/{L(cv)}{r})'); calc(s.cell(row=r,column=cm),PCT)
     for c in (6,7,8): s.cell(row=r,column=c).font=F(color=UVA,size=10,bold=(c==7))
     for j in range(NCONV):   # auxiliar oculta: prejuízo por atendimento (R$) quando a tabela não cobre o custo cheio
         cv=12+2*j; cm=cv+1
@@ -78,10 +84,14 @@ s.merge_cells(start_row=NT+1,start_column=1,end_row=NT+1,end_column=19); s.cell(
 SA=f"$A${T0}:$A${TN}"; SK=f"$K${T0}:$K${TN}"; SF=f"$F${T0}:$F${TN}"
 R0=NT+3
 s.cell(row=R0,column=1,value="Resumo").font=F(bold=True,size=13,color=UVA)
-res=[("Custo da hora de atendimento (planilha 05)",f"={CH}",BRL),("Hora mínima a cobrar (custo-hora ÷ (1 − impostos − margem mínima))",f"=IFERROR({CH}/{DIVMIN},\"\")",BRL),
-     ("Procedimentos com particular abaixo do mínimo",f'=COUNTIF({SK},"Abaixo do mínimo")&" de "&COUNTA({SA})',"@"),
-     ("Tabelas de convênio abaixo do custo cheio + imposto",f'=COUNTIF($T${T0}:$W${TN},"<0")',"0"),
-     ("Maior prejuízo por atendimento em convênio (R$)",f'=-MIN($T${T0}:$W${TN})',BRL)]
+# Auditoria final-2 (G01): sem custo-hora ou com Config inválida, o resumo diz o que falta em vez
+# de "0 de 7", zero tabelas e zero prejuízo (as auxiliares T:W viram 0 quando não há margem).
+FALTA=f'IF(NOT(ISNUMBER({CH})),"falta o custo-hora em Config",IF({CFGX},"margens inválidas (Config)",'
+res=[("Custo da hora de atendimento (planilha 05)",f'=IF(ISNUMBER({CH}),{CH},"falta o custo-hora em Config")',BRL),
+     ("Hora mínima a cobrar (custo-hora ÷ (1 − impostos − margem mínima))",f"={FALTA}{CH}/{DIVMIN}))",BRL),
+     ("Procedimentos com particular abaixo do mínimo",f'={FALTA}COUNTIF({SK},"Abaixo do mínimo")&" de "&COUNTA({SA})))',"@"),
+     ("Tabelas de convênio abaixo do custo cheio + imposto",f'={FALTA}COUNTIF($T${T0}:$W${TN},"<0")))',"0"),
+     ("Maior prejuízo por atendimento em convênio (R$)",f'={FALTA}-MIN($T${T0}:$W${TN})))',BRL)]
 for i,(a,f_,fmt) in enumerate(res):
     r=R0+1+i; s.cell(row=r,column=1,value=a); calc(s.cell(row=r,column=1),center=False); s.cell(row=r,column=5,value=f_); calc(s.cell(row=r,column=5),fmt); s.cell(row=r,column=5).font=F(bold=True,color=UVA,size=10)
     s.merge_cells(start_row=r,start_column=1,end_row=r,end_column=4)
@@ -95,9 +105,9 @@ for i,(a,v,fmt) in enumerate(sim):
     r=Q0+1+i; s.cell(row=r,column=1,value=a); rotulo(s.cell(row=r,column=1),bold=False); s.cell(row=r,column=1).border=borda; s.cell(row=r,column=2,value=v); inp(s.cell(row=r,column=2),fmt,center=fmt is not None)
 dvq=lista('"Sim,Não"'); dvq.add(f"B{Q0+3}"); s.add_data_validation(dvq)
 out=[("Tempo com retorno (min)",f'=B{Q0+2}+IF(B{Q0+3}="Sim",{NRET}*{DRET},0)',"0.0"),("Custo cheio (R$)",f'=IF(NOT(ISNUMBER({CH})),"falta o custo-hora em Config",B{Q0+6}/60*{CH}+B{Q0+4})',BRL),
-     ("Preço mínimo (R$)",f'=IF(NOT(ISNUMBER(B{Q0+7})),B{Q0+7},IF({DIVMIN}<=0,"margens inválidas (Config)",B{Q0+7}/{DIVMIN}))',BRL),("Preço alvo (R$)",f'=IF(NOT(ISNUMBER(B{Q0+7})),B{Q0+7},IF({DIVALVO}<=0,"margens inválidas (Config)",B{Q0+7}/{DIVALVO}))',BRL),
-     ("Margem no preço pretendido",f'=IF(OR(B{Q0+5}=0,NOT(ISNUMBER(B{Q0+7}))),"",(B{Q0+5}*(1-{IMP})-B{Q0+7})/B{Q0+5})',PCT),
-     ("Leitura",f'=IF(B{Q0+5}=0,"",IF(NOT(ISNUMBER(B{Q0+7})),"Falta o custo-hora em Config",IF(NOT(ISNUMBER(B{Q0+8})),"Margens inválidas em Config",IF(B{Q0+5}<B{Q0+8},"Abaixo do mínimo: cobre parte do custo, não a margem",IF(B{Q0+5}<B{Q0+9},"Entre o mínimo e o alvo","No alvo ou acima")))))',"@")]
+     ("Preço mínimo (R$)",f'=IF(NOT(ISNUMBER(B{Q0+7})),B{Q0+7},IF({CFGX},"margens inválidas (Config)",B{Q0+7}/{DIVMIN}))',BRL),("Preço alvo (R$)",f'=IF(NOT(ISNUMBER(B{Q0+7})),B{Q0+7},IF({CFGX},"margens inválidas (Config)",B{Q0+7}/{DIVALVO}))',BRL),
+     ("Margem no preço pretendido",f'=IF(OR(B{Q0+5}=0,NOT(ISNUMBER(B{Q0+7})),{CFGX}),"",(B{Q0+5}*(1-{IMP})-B{Q0+7})/B{Q0+5})',PCT),
+     ("Leitura",f'=IF(B{Q0+5}=0,"",IF(NOT(ISNUMBER(B{Q0+7})),"Falta o custo-hora em Config",IF(OR(NOT(ISNUMBER(B{Q0+8})),NOT(ISNUMBER(B{Q0+9}))),"Margens inválidas em Config",IF(B{Q0+5}<B{Q0+8},"Abaixo do mínimo: cobre parte do custo, não a margem",IF(B{Q0+5}<B{Q0+9},"Entre o mínimo e o alvo","No alvo ou acima")))))',"@")]
 for i,(a,f_,fmt) in enumerate(out):
     r=Q0+6+i; s.cell(row=r,column=1,value=a); calc(s.cell(row=r,column=1),center=False); s.cell(row=r,column=2,value=f_); calc(s.cell(row=r,column=2),fmt)
     if fmt=="@": s.merge_cells(start_row=r,start_column=2,end_row=r,end_column=6); s.cell(row=r,column=2).alignment=Alignment(horizontal="left")

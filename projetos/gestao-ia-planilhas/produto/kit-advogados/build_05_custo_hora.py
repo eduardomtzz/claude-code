@@ -27,6 +27,12 @@ def _val_pct(ws,cel,outro,msg):
     dv.add(cel); ws.add_data_validation(dv)
 _val_pct(cfg,"B7","B8","Margem entre 0 % e 99 %, e margem + impostos abaixo de 100 %: senão nenhum preço cobre o custo.")
 _val_pct(cfg,"B8","B7","Impostos entre 0 % e 99 %, e margem + impostos abaixo de 100 %: senão nenhum preço cobre o custo.")
+# Auditoria final-2 (G02): um predicado só, visível em Config!B10, decide se margem e impostos
+# valem; toda hora mínima e todo preço desta planilha consultam essa célula (a validação acima
+# barra a digitação; esta célula cobre colagem, texto, branco e negativo).
+cfg["A10"]="Margem e impostos conferem? (calculado)"; rotulo(cfg["A10"])
+cfg["B10"]='=IF(AND(ISNUMBER(B7),ISNUMBER(B8)),IF(AND(B7>=0,B7<1,B8>=0,B8<1,B7+B8<1),"Sim","Não"),"Não")'; calc(cfg["B10"])
+cfg["C10"]="\"Não\" suspende a hora mínima em todas as abas: cada percentual precisa ficar entre 0 % e 99 %, e margem + impostos abaixo de 100 %."; nota(cfg["C10"])
 cfg["C7"]="Quanto do preço deve sobrar depois de pagar o custo do escritório. 30% é um ponto de partida; ajuste ao seu mercado."
 cfg["C8"]="Percentual que sai de cada real recebido (imposto do escritório e taxa de recebimento). Exemplo; confira com o seu contador."
 cfg["C9"]="Só para o número ficar redondo na proposta."
@@ -49,7 +55,7 @@ pes=wb.create_sheet("Pessoas")
 titulo(pes,"Pessoas, pró-labore e horas faturáveis","Uma linha por pessoa que trabalha nos casos. Horas faturáveis: as que podem ser cobradas de algum cliente (reunião interna e administração não contam).",merge_to="J")
 hdr(pes,4,["Pessoa","Papel","Pró-labore ou salário (R$/mês)","Já está nos custos fixos?","Horas de trabalho no mês","Horas faturáveis no mês","Ocupação","Custo direto por hora","Custo-hora completo","Hora mínima a cobrar"],height=40)
 IND_H="Painel!$B$19"   # custo indireto por hora faturável (calculado no Painel)
-DIV="(1-Config!$B$7-Config!$B$8)"
+DIV="(1-Config!$B$7-Config!$B$8)"; CFGX='Config!$B$10<>"Sim"'
 for r in range(P0,PN+1):
     inp(pes.cell(row=r,column=1)); inp(pes.cell(row=r,column=2)); inp(pes.cell(row=r,column=3),BRL,center=True); inp(pes.cell(row=r,column=4),center=True)
     inp(pes.cell(row=r,column=5),"0",center=True); inp(pes.cell(row=r,column=6),"0",center=True)
@@ -59,7 +65,7 @@ for r in range(P0,PN+1):
     # custo-hora, a hora mínima e a sensibilidade com "cadastro incompleto".
     pes.cell(row=r,column=8,value=f'=IF(A{r}="","",IF(NOT(ISNUMBER(C{r})),"falta o pró-labore",IF(OR(NOT(ISNUMBER(F{r})),F{r}=0),"faltam as horas faturáveis",C{r}/F{r})))'); calc(pes.cell(row=r,column=8),BRL)
     pes.cell(row=r,column=9,value=f'=IF(H{r}="","",IF(NOT(ISNUMBER(H{r})),H{r},IF(NOT(ISNUMBER({IND_H})),{INC},H{r}+{IND_H})))'); calc(pes.cell(row=r,column=9),BRL)
-    pes.cell(row=r,column=10,value=f'=IF(I{r}="","",IF(NOT(ISNUMBER(I{r})),I{r},IF({DIV}<=0,{MINV},I{r}/{DIV})))'); calc(pes.cell(row=r,column=10),BRL)
+    pes.cell(row=r,column=10,value=f'=IF(I{r}="","",IF(NOT(ISNUMBER(I{r})),I{r},IF({CFGX},{MINV},I{r}/{DIV})))'); calc(pes.cell(row=r,column=10),BRL)
     pes.cell(row=r,column=11,value=f'=IF(AND(A{r}<>"",OR(NOT(ISNUMBER(C{r})),NOT(ISNUMBER(F{r})))),1,0)'); pes.cell(row=r,column=11).font=F(color=CINZA,size=9)
 dv=lista('"Sim,Não"'); dv.add(f"D{P0}:D{PN}"); pes.add_data_validation(dv)
 pes.cell(row=PN+2,column=1,value="Custo direto por hora = pró-labore ou salário ÷ horas faturáveis. Custo-hora completo = custo direto + rateio dos custos indiretos do escritório por hora faturável (o rateio é calculado no Painel). Hora mínima = custo-hora completo ÷ (1 − margem − impostos).").font=F(size=9,color=LILAS)
@@ -87,7 +93,7 @@ linhas=[
  ("Custo-hora do escritório",f'=IF({FLAG}>0,{INC},IF(B12=0,"",B11/B12))',BRL,"Custo total ÷ horas faturáveis"),
  ("Margem desejada sobre o preço","=Config!$B$7",PCT,"Config"),
  ("Impostos e taxas sobre o que entra","=Config!$B$8",PCT,"Config"),
- ("Hora mínima a cobrar (exata)",f'=IF(B13="","",IF(NOT(ISNUMBER(B13)),B13,IF({DIV}<=0,{MINV},B13/{DIV})))',BRL,"Custo-hora ÷ (1 − margem − impostos)"),
+ ("Hora mínima a cobrar (exata)",f'=IF(B13="","",IF(NOT(ISNUMBER(B13)),B13,IF({CFGX},{MINV},B13/{DIV})))',BRL,"Custo-hora ÷ (1 − margem − impostos)"),
  ("Hora mínima a cobrar (arredondada)",'=IF(B16="","",IF(NOT(ISNUMBER(B16)),B16,CEILING(B16,Config!$B$9)))',BRL,"Arredondada para cima, no múltiplo de Config"),
  ("Custos indiretos (custos fixos menos pessoas já contadas neles)",f'=IF({FLAG}>0,{INC},B9-SUMIFS({PC},{PD},"Sim"))',BRL,"Para ratear entre as pessoas"),
  ("Custo indireto por hora faturável",f'=IF({FLAG}>0,{INC},IF(B12=0,0,B18/B12))',BRL,"Custos indiretos ÷ horas faturáveis"),
@@ -130,7 +136,7 @@ for i,q in enumerate((0,0.10,0.20,0.30)):
         p.cell(row=r,column=2,value=q); inp(p.cell(row=r,column=2),PCT,center=True)
     p.cell(row=r,column=3,value=f'=IF(ISNUMBER($B$12),$B$12*(1-B{r}),"")'); calc(p.cell(row=r,column=3),"#,##0")
     p.cell(row=r,column=4,value=f'=IF(OR(C{r}="",C{r}=0,NOT(ISNUMBER($B$11))),"",$B$11/C{r})'); calc(p.cell(row=r,column=4),BRL)
-    p.cell(row=r,column=5,value=f'=IF(D{r}="","",IF({DIV}<=0,{MINV},D{r}/{DIV}))'); calc(p.cell(row=r,column=5),BRL)
+    p.cell(row=r,column=5,value=f'=IF(D{r}="","",IF({CFGX},{MINV},D{r}/{DIV}))'); calc(p.cell(row=r,column=5),BRL)
     p.cell(row=r,column=6,value=f'=IF(D{r}="","",D{r}-$D${s0+3})'); calc(p.cell(row=r,column=6),BRL)
 bc=BarChart(); bc.type="col"; bc.height=7; bc.width=14; bc.title="Custo-hora por cenário"; bc.style=2
 bc.add_data(Reference(p,min_col=4,min_row=s0+2,max_row=s0+6),titles_from_data=True); bc.set_categories(Reference(p,min_col=1,min_row=s0+3,max_row=s0+6))

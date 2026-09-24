@@ -51,14 +51,14 @@ apresentação, checklists.
 
 | # | Planilha | O que faz | Origem |
 |---|---|---|---|
-| 1 | Semana Organizada | 2 min | Essencial |
-| 2 | Relatório Mensal Pronto | 3 min | Essencial |
-| 3 | Ganhos e Gastos | 3 min | Essencial |
-| 4 | Projetos e Prazos | 2 min | nova |
-| 5 | Ata e Pendências | 2 min | nova |
-| 6 | Metas do Trimestre | 2 min | nova |
-| 7 | Orçamento Previsto × Realizado | 2 min | nova |
-| 8 | Funil de Propostas | 3 min | nova |
+| 1 | Semana Organizada | Tarefas, prioridade, aba Hoje, carga dos 7 dias | Essencial |
+| 2 | Relatório Mensal Pronto | 12 indicadores, variação, meta, gráfico, aba Resumo que escreve as frases | Essencial |
+| 3 | Ganhos e Gastos | Entradas, saídas, sobra, reserva, categorias, ano | Essencial |
+| 4 | Projetos e Prazos | Vários projetos, etapas com início/fim, % concluído, atrasos, linha do tempo simples (Gantt por células) | nova |
+| 5 | Ata e Pendências | Pauta, decisões, pendências com dono e prazo, aba "O que está em aberto" por pessoa; gera o bloco para o prompt "Resumo de reunião" | nova |
+| 6 | Metas do Trimestre | Objetivos, resultados-chave, progresso semanal, semáforo; aba de acompanhamento mensal | nova |
+| 7 | Orçamento Previsto × Realizado | 12 meses por categoria, desvio em R$ e %, alerta de estouro, gráfico previsto × realizado | nova |
+| 8 | Funil de Propostas | Propostas por etapa, valor, probabilidade, previsão ponderada, taxa de conversão geral e por origem, motivo de perda | nova |
 | 9 | Horas e Custo por Projeto | Lançamento de horas por pessoa e projeto, custo-hora, custo por projeto vs orçado, ocupação | nova |
 | 10 | Base Limpa | Modelo de base de dados "certa" (uma linha por registro, validações, sem mescla), com aba Resumo (análise por categoria e mês feita com SOMASES), checklist de limpeza e a aula que mostra como montar a tabela dinâmica a partir da Base; é a planilha que ensina a fazer as outras | nova |
 
@@ -80,16 +80,16 @@ resposta a perguntas difíceis da diretoria, comparação de cenários, e-mail d
 
 ### 8 aulas curtas (tela + narração + legenda)
 
-| # | Aula | Duração alvo | Planilha usada |
+| # | Aula | Duração (medida no arquivo) | Planilha usada |
 |---|---|---|---|
-| 1 | Pensar antes de abrir o Excel: o que a planilha responde | 2 min | Base Limpa |
-| 2 | Base limpa e tabela dinâmica em 10 minutos | 3 min | Base Limpa |
-| 3 | As 8 fórmulas que resolvem 80% (SOMASES, CONT.SES, ÍNDICE+CORRESP, SE, SEERRO, DATADIF, TEXTO, PROCV) | 3 min | Orçamento |
-| 4 | O gráfico certo para cada pergunta | 2 min | Relatório Mensal |
-| 5 | Relatório executivo com IA: do bloco Resumo ao texto revisado | 2 min | Relatório Mensal |
-| 6 | Apresentação de 8 slides com IA, sem enfeite | 2 min | Modelo de slides |
-| 7 | Revisar antes de enviar: erros que a IA comete e como pegar | 2 min | Checklist |
-| 8 | A rotina: segunda, dia 30 e fim de trimestre | 3 min | Semana, Relatório, Metas |
+| 1 | Pensar antes de abrir o Excel: o que a planilha responde | 2:25 | Base Limpa |
+| 2 | Base limpa e tabela dinâmica em 10 minutos | 2:36 | Base Limpa |
+| 3 | As 8 fórmulas que resolvem 80% (SOMASES, CONT.SES, ÍNDICE+CORRESP, SE, SEERRO, DATADIF, TEXTO, PROCV) | 2:56 | Orçamento |
+| 4 | O gráfico certo para cada pergunta | 2:01 | Relatório Mensal |
+| 5 | Relatório executivo com IA: do bloco Resumo ao texto revisado | 2:27 | Relatório Mensal |
+| 6 | Apresentação de 8 slides com IA, sem enfeite | 2:16 | Modelo de slides |
+| 7 | Revisar antes de enviar: erros que a IA comete e como pegar | 2:11 | Checklist |
+| 8 | A rotina: segunda, dia 30 e fim de trimestre | 2:41 | Semana, Relatório, Metas |
 
 Sem apresentador em vídeo (regra do projeto). Narração sintética declarada e legendada.
 

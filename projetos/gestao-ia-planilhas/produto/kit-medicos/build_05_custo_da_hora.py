@@ -30,6 +30,11 @@ def _val_pct(ws,cel,outro,msg):
     dv.add(cel); ws.add_data_validation(dv)
 _val_pct(cfg,"B7","B8","Margem entre 0 % e 99 %, e margem + impostos abaixo de 100 %: senão nenhum preço cobre o custo.")
 _val_pct(cfg,"B8","B7","Impostos entre 0 % e 99 %, e margem + impostos abaixo de 100 %: senão nenhum preço cobre o custo.")
+# Auditoria final-2 (G02): um predicado só, visível em Config!B11, decide se margem e impostos
+# valem; toda hora mínima e todo preço desta planilha consultam essa célula.
+cfg["A11"]="Margem e impostos conferem? (calculado)"; rotulo(cfg["A11"])
+cfg["B11"]='=IF(AND(ISNUMBER(B7),ISNUMBER(B8)),IF(AND(B7>=0,B7<1,B8>=0,B8<1,B7+B8<1),"Sim","Não"),"Não")'; calc(cfg["B11"])
+cfg["C11"]="\"Não\" suspende a hora mínima em todas as abas: cada percentual precisa ficar entre 0 % e 99 %, e margem + impostos abaixo de 100 %."; nota(cfg["C11"])
 cfg["C7"]="Quanto do preço deve sobrar depois de pagar o custo da clínica. 30 % é um ponto de partida; ajuste ao seu mercado."
 cfg["C8"]="Percentual de imposto que sai de cada real recebido pela PJ médica. No exemplo, 11 %: alíquota efetiva combinada com o contador (Simples, anexo III ou V, simplificado). Confira a sua com o contador. Só imposto: a taxa da maquininha NÃO entra aqui (ela é despesa variável, conciliada na 16 e lançada no caixa 09 e no resultado 18), e o convênio, que não passa na maquininha, pagaria a taxa sem dever."
 cfg["C9"]="Só para o número ficar redondo na tabela de preços."
@@ -51,7 +56,7 @@ widths(cfx,(40,18,60)); cfx.freeze_panes="A5"; cfx.sheet_view.showGridLines=Fals
 eq=wb.create_sheet("Equipe")
 titulo(eq,"Equipe, pró-labore e horas de atendimento","Uma linha por pessoa. Horas de atendimento: as horas de agenda planejadas no mês (turnos × semanas). Quem é pago por repasse não entra no custo-hora.",merge_to="K")
 hdr(eq,4,["Pessoa","Papel","Remuneração","Valor mensal (R$)","Já está nos custos fixos?","Horas de atendimento planejadas no mês","Entra no custo-hora?","Custo direto por hora","Custo-hora completo","Hora mínima a cobrar"],height=40)
-IND_H="Painel!$B$20"; DIV="(1-Config!$B$7-Config!$B$8)"
+IND_H="Painel!$B$20"; DIV="(1-Config!$B$7-Config!$B$8)"; CFGX='Config!$B$11<>"Sim"'
 for r in range(P0,PN+1):
     inp(eq.cell(row=r,column=1)); inp(eq.cell(row=r,column=2)); inp(eq.cell(row=r,column=3),center=True); inp(eq.cell(row=r,column=4),BRL,center=True); inp(eq.cell(row=r,column=5),center=True)
     inp(eq.cell(row=r,column=6),"0",center=True); inp(eq.cell(row=r,column=7),center=True)
@@ -60,7 +65,7 @@ for r in range(P0,PN+1):
     # hora mínima e sensibilidade com "cadastro incompleto".
     eq.cell(row=r,column=8,value=f'=IF(OR(A{r}="",G{r}<>"Sim"),"",IF(OR(NOT(ISNUMBER(F{r})),F{r}=0),"faltam as horas planejadas",IF(AND(E{r}<>"Sim",NOT(ISNUMBER(D{r}))),"falta o valor mensal",IF(E{r}="Sim",0,D{r})/F{r})))'); calc(eq.cell(row=r,column=8),BRL)
     eq.cell(row=r,column=9,value=f'=IF(H{r}="","",IF(NOT(ISNUMBER(H{r})),H{r},IF(NOT(ISNUMBER({IND_H})),{INC},H{r}+{IND_H})))'); calc(eq.cell(row=r,column=9),BRL)
-    eq.cell(row=r,column=10,value=f'=IF(I{r}="","",IF(NOT(ISNUMBER(I{r})),I{r},IF({DIV}<=0,{MINV},I{r}/{DIV})))'); calc(eq.cell(row=r,column=10),BRL)
+    eq.cell(row=r,column=10,value=f'=IF(I{r}="","",IF(NOT(ISNUMBER(I{r})),I{r},IF({CFGX},{MINV},I{r}/{DIV})))'); calc(eq.cell(row=r,column=10),BRL)
     eq.cell(row=r,column=11,value=f'=IF(AND(A{r}<>"",G{r}="Sim",OR(NOT(ISNUMBER(F{r})),AND(E{r}<>"Sim",NOT(ISNUMBER(D{r}))))),1,0)'); eq.cell(row=r,column=11).font=F(color=CINZA,size=9)
 dv=lista('"Sim,Não"'); dv.add(f"E{P0}:E{PN}"); dv.add(f"G{P0}:G{PN}"); eq.add_data_validation(dv)
 dvr=lista('"Pró-labore,Salário,Repasse"'); dvr.add(f"C{P0}:C{PN}"); eq.add_data_validation(dvr)
@@ -92,7 +97,7 @@ linhas=[
  ("Custo da hora de atendimento",f'=IF({FLAG}>0,{INC},IF(B12=0,"",B11/B12))',BRL,"Custo total ÷ horas de atendimento"),
  ("Margem mínima sobre o preço","=Config!$B$7",PCT,"Config"),
  ("Impostos sobre o que entra","=Config!$B$8",PCT,"Config"),
- ("Hora mínima a cobrar (exata)",f'=IF(B13="","",IF(NOT(ISNUMBER(B13)),B13,IF({DIV}<=0,{MINV},B13/{DIV})))',BRL,"Custo-hora ÷ (1 − margem − impostos)"),
+ ("Hora mínima a cobrar (exata)",f'=IF(B13="","",IF(NOT(ISNUMBER(B13)),B13,IF({CFGX},{MINV},B13/{DIV})))',BRL,"Custo-hora ÷ (1 − margem − impostos)"),
  ("Hora mínima a cobrar (arredondada)",'=IF(B16="","",IF(NOT(ISNUMBER(B16)),B16,CEILING(B16,Config!$B$9)))',BRL,"Arredondada para cima, no múltiplo de Config"),
  ("Custo direto médio por hora (pró-labore ÷ horas)",f'=IF({FLAG}>0,{INC},IF(B12=0,0,B10/B12))',BRL,"O que os sócios custam por hora de agenda"),
  ("Custos indiretos (custos fixos, com a recepção)","=B9",BRL,"Para ratear por hora de atendimento"),
@@ -131,7 +136,7 @@ for i,q in enumerate((0,0.10,0.20,0.30)):
     else: p.cell(row=r,column=2,value=q); inp(p.cell(row=r,column=2),PCT,center=True)
     p.cell(row=r,column=3,value=f'=IF(ISNUMBER($B$12),$B$12*(1-B{r}),"")'); calc(p.cell(row=r,column=3),"#,##0.0")
     p.cell(row=r,column=4,value=f'=IF(OR(C{r}="",C{r}=0,NOT(ISNUMBER($B$11))),"",$B$11/C{r})'); calc(p.cell(row=r,column=4),BRL)
-    p.cell(row=r,column=5,value=f'=IF(D{r}="","",IF({DIV}<=0,{MINV},D{r}/{DIV}))'); calc(p.cell(row=r,column=5),BRL)
+    p.cell(row=r,column=5,value=f'=IF(D{r}="","",IF({CFGX},{MINV},D{r}/{DIV}))'); calc(p.cell(row=r,column=5),BRL)
     p.cell(row=r,column=6,value=f'=IF(D{r}="","",D{r}-$D${s0+3})'); calc(p.cell(row=r,column=6),BRL)
 r=s0+7
 p.cell(row=r,column=1,value="Agosto de 2026 realizado (horas atendidas dos sócios: Painel da 01 com Config = Agosto, coluna \"Horas atendidas\" da Dra. Carolina + do Dr. Paulo, sem a médica parceira)"); calc(p.cell(row=r,column=1),center=False)
@@ -139,7 +144,7 @@ h_ago=round(dados.horas_atendidas(8,prof=dados.CAR)+dados.horas_atendidas(8,prof
 p.cell(row=r,column=3,value=h_ago); inp(p.cell(row=r,column=3),"#,##0.0",center=True)
 p.cell(row=r,column=2,value=f'=IF(OR(C{r}="",NOT(ISNUMBER($B$12))),"",1-C{r}/$B$12)'); calc(p.cell(row=r,column=2),PCT)
 p.cell(row=r,column=4,value=f'=IF(OR(C{r}="",C{r}=0,NOT(ISNUMBER($B$11))),"",$B$11/C{r})'); calc(p.cell(row=r,column=4),BRL)
-p.cell(row=r,column=5,value=f'=IF(D{r}="","",IF({DIV}<=0,{MINV},D{r}/{DIV}))'); calc(p.cell(row=r,column=5),BRL)
+p.cell(row=r,column=5,value=f'=IF(D{r}="","",IF({CFGX},{MINV},D{r}/{DIV}))'); calc(p.cell(row=r,column=5),BRL)
 p.cell(row=r,column=6,value=f'=IF(D{r}="","",D{r}-$D${s0+3})'); calc(p.cell(row=r,column=6),BRL)
 p.cell(row=r+1,column=1,value="Planejado × realizado: a diferença entre o custo-hora de R$ 200 e o de agosto é o preço das faltas e dos horários vazios. Reduzir faltas (planilha 02) barateia a hora sem cortar nada.").font=F(size=9,color=LILAS)
 bc=BarChart(); bc.type="col"; bc.height=7; bc.width=14; bc.title="Custo-hora por cenário"; bc.style=2

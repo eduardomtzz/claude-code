@@ -102,3 +102,16 @@ E. **Dado ausente não vira zero.** Custo mensal em branco não pode dar custo-h
 F. **Lista suspensa bloqueante só onde o universo é fechado.** Paciente, serviço e outros campos de
    nome livre usam `strict=False`: a lista sugere. Bloquear impedia o cliente de redigitar o próprio
    exemplo (159 lançamentos da 09 dos Médicos, um serviço da 15 dos Advogados).
+
+## Configuração de preço: um predicado só (auditoria final-2)
+
+Impostos, margens e folga valem por um predicado único, escrito uma vez na Config e consultado
+por TODA saída de preço: "Margem e impostos conferem?" (05), "Impostos e margem(ns) conferem?"
+(06 e 08 dos Médicos) ou dentro da hora mínima (08 dos Advogados, 07 dos Médicos). O predicado
+repete as condições da validação de digitação (cada percentual de 0 % a 99 %, mínima ≤ alvo,
+impostos + margem abaixo de 100 %, folga ≥ 0) e começa por ISNUMBER, para texto, branco e colagem
+não virarem #VALUE! nem número. Proibido guardar só o denominador (`1 − impostos − margem ≤ 0`):
+margem negativa passa por essa guarda. Com o predicado em "Não", preço, margem, situação, risco,
+resumo e totais dizem "margens inválidas (Config)"; com o custo-hora em branco, dizem "falta o
+custo-hora". Subtotal e contagem que dependem dessas linhas também: SUM, COUNTIF e MIN ignoram texto
+e devolveriam zero como se fosse resultado apurado. Zero digitado continua zero.

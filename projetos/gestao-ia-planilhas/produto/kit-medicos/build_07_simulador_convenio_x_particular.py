@@ -39,6 +39,11 @@ dvs=lista('"Sim,Não"'); dvs.add(f"C{Q0}:C{QN}"); cfg.add_data_validation(dvs)
 widths(cfg,(40,16,16,50,14,14,3,3)); cfg.sheet_view.showGridLines=False
 CH="Config!$B$5"; IMP="Config!$B$6"; MMIN="Config!$B$7"; JUR="Config!$B$8"; NRET=f"Config!$E${Q0}"; DRET=f"Config!$F${Q0}"
 PROCS=f"Config!$A${Q0}:$A${QN}"; PAGS=f"Config!$A${P0}:$A${PN}"
+# Auditoria final-2 (G01/G02): o mesmo domínio da 05 e da 06 (impostos e margem de 0 a 99 %, soma
+# abaixo de 100 %, sem texto nem branco), num predicado só; custo-hora em branco não é custo zero.
+OKC=f'IF(AND(ISNUMBER({IMP}),ISNUMBER({MMIN})),AND({IMP}>=0,{IMP}<1,{MMIN}>=0,{MMIN}<1,{IMP}+{MMIN}<1),FALSE)'
+for _c,_o,_m in (("B6","B7","Impostos entre 0 % e 99 %, e impostos + margem abaixo de 100 %."),("B7","B6","Margem entre 0 % e 99 %, e impostos + margem abaixo de 100 %.")):
+    _dv=DataValidation(type="custom",formula1=f'=AND(ISNUMBER({_c}),{_c}>=0,{_c}<1,{_c}+N({_o})<1)',allow_blank=False,showErrorMessage=True,errorTitle="Percentual",error=_m); _dv.add(_c); cfg.add_data_validation(_dv)
 # ---------- Simulador ----------
 s=wb.create_sheet("Simulador",0)
 titulo(s,'=Config!$B$3&" · Simulador convênio × particular · "&TEXT(DAY(Config!$B$4),"00")&"/"&TEXT(MONTH(Config!$B$4),"00")&"/"&YEAR(Config!$B$4)',"Escolha o procedimento e digite o valor de tabela de cada pagador (amarelo). O resto é calculado: glosa, custo do dinheiro pelo prazo, impostos, custo cheio, margem e as duas leituras (agenda cheia × agenda vazia).",merge_to="N")
@@ -50,9 +55,9 @@ campos=[("Minutos",f'=IFERROR(INDEX(Config!$B${Q0}:$B${QN},MATCH(B8,{PROCS},0)),
         ("Gera retorno?",f'=IFERROR(INDEX(Config!$C${Q0}:$C${QN},MATCH(B8,{PROCS},0)),"")',None),
         ("Material (R$)",f'=IFERROR(INDEX(Config!$D${Q0}:$D${QN},MATCH(B8,{PROCS},0)),0)',BRL),
         ("Tempo com retorno embutido (min)",f'=IF(B9="","",B9+IF(B10="Sim",{NRET}*{DRET},0))',"0.0"),
-        ("Custo cheio do atendimento (R$)",f'=IF(B12="","",B12/60*{CH}+B11)',BRL),
-        ("Hora mínima a cobrar (R$)",f'=IFERROR({CH}/(1-{IMP}-{MMIN}),"")',BRL),
-        ("Preço mínimo deste procedimento (R$)",f'=IF(B13="","",IFERROR(B13/(1-{IMP}-{MMIN}),""))',BRL)]
+        ("Custo cheio do atendimento (R$)",f'=IF(B12="","",IF(NOT(ISNUMBER({CH})),"falta o custo-hora em Config",B12/60*{CH}+B11))',BRL),
+        ("Hora mínima a cobrar (R$)",f'=IF(NOT(ISNUMBER({CH})),"falta o custo-hora em Config",IF({OKC},{CH}/(1-{IMP}-{MMIN}),"margens inválidas (Config)"))',BRL),
+        ("Preço mínimo deste procedimento (R$)",f'=IF(B13="","",IF(NOT(ISNUMBER(B13)),B13,IF({OKC},B13/(1-{IMP}-{MMIN}),"margens inválidas (Config)")))',BRL)]
 for i,(a,f_,fmt) in enumerate(campos):
     r=9+i; s.cell(row=r,column=1,value=a); rotulo(s.cell(row=r,column=1),bold=False); s.cell(row=r,column=1).border=borda; s.cell(row=r,column=2,value=f_); calc(s.cell(row=r,column=2),fmt)
 s["B13"].font=F(bold=True,color=UVA,size=10); s["B15"].font=F(bold=True,color=UVA,size=10)
@@ -71,14 +76,14 @@ for i in range(NPAG):
     s.cell(row=r,column=4,value=f'=IF({src}="","",Config!$C${P0+i})'); calc(s.cell(row=r,column=4),"0.0%")
     s.cell(row=r,column=5,value=f'=IF(OR({src}="",B{r}=""),"",B{r}*(1-D{r}))'); calc(s.cell(row=r,column=5),BRL)
     s.cell(row=r,column=6,value=f'=IF(E{r}="","",E{r}*{JUR}*C{r}/30)'); calc(s.cell(row=r,column=6),BRL)
-    s.cell(row=r,column=7,value=f'=IF(E{r}="","",E{r}*{IMP})'); calc(s.cell(row=r,column=7),BRL)
-    s.cell(row=r,column=8,value=f'=IF(E{r}="","",E{r}-F{r}-G{r})'); calc(s.cell(row=r,column=8),BRL); s.cell(row=r,column=8).font=F(bold=True,color=UVA,size=10)
+    s.cell(row=r,column=7,value=f'=IF(OR(E{r}="",NOT({OKC})),"",E{r}*{IMP})'); calc(s.cell(row=r,column=7),BRL)
+    s.cell(row=r,column=8,value=f'=IF(OR(E{r}="",NOT(ISNUMBER(G{r}))),"",E{r}-F{r}-G{r})'); calc(s.cell(row=r,column=8),BRL); s.cell(row=r,column=8).font=F(bold=True,color=UVA,size=10)
     s.cell(row=r,column=9,value=f'=IF(E{r}="","",{CUSTO})'); calc(s.cell(row=r,column=9),BRL)
-    s.cell(row=r,column=10,value=f'=IF(E{r}="","",H{r}-I{r})'); calc(s.cell(row=r,column=10),BRL)
-    s.cell(row=r,column=11,value=f'=IF(OR(E{r}="",B{r}=0),"",J{r}/B{r})'); calc(s.cell(row=r,column=11),PCT)
-    s.cell(row=r,column=12,value=f'=IF(OR(E{r}="",{TEMPO}=0),"",H{r}/({TEMPO}/60))'); calc(s.cell(row=r,column=12),BRL)
-    s.cell(row=r,column=13,value=f'=IF(L{r}="","",L{r}/{HMIN}-1)'); calc(s.cell(row=r,column=13),"+0%;-0%;0%")
-    s.cell(row=r,column=14,value=f'=IF(E{r}="","",IF(J{r}<0,"Não cobre o custo cheio",IF(K{r}<{MMIN},"Cobre o custo, não a margem mínima","Cobre custo e margem")))'); calc(s.cell(row=r,column=14),center=False)
+    s.cell(row=r,column=10,value=f'=IF(OR(NOT(ISNUMBER(H{r})),NOT(ISNUMBER(I{r}))),"",H{r}-I{r})'); calc(s.cell(row=r,column=10),BRL)
+    s.cell(row=r,column=11,value=f'=IF(OR(NOT(ISNUMBER(J{r})),N(B{r})=0),"",J{r}/B{r})'); calc(s.cell(row=r,column=11),PCT)
+    s.cell(row=r,column=12,value=f'=IF(OR(NOT(ISNUMBER(H{r})),N({TEMPO})=0),"",H{r}/({TEMPO}/60))'); calc(s.cell(row=r,column=12),BRL)
+    s.cell(row=r,column=13,value=f'=IF(OR(L{r}="",NOT(ISNUMBER({HMIN}))),"",L{r}/{HMIN}-1)'); calc(s.cell(row=r,column=13),"+0%;-0%;0%")
+    s.cell(row=r,column=14,value=f'=IF(E{r}="","",IF(NOT({OKC}),"Margens inválidas em Config",IF(NOT(ISNUMBER(I{r})),"Falta o custo-hora em Config",IF(J{r}<0,"Não cobre o custo cheio",IF(K{r}<{MMIN},"Cobre o custo, não a margem mínima","Cobre custo e margem")))))'); calc(s.cell(row=r,column=14),center=False)
 s.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Não cobre o custo cheio"'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 s.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Cobre o custo, não a margem mínima"'], fill=fill(AMARELO)))
 s.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Cobre custo e margem"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
@@ -115,14 +120,18 @@ for i in range(NPAG):
     inp(s.cell(row=r,column=2),"0",center=True)
     s.cell(row=r,column=3,value=f'=IF(OR(A{r}="",B{r}=""),"",B{r}*{TEMPO}/60)'); calc(s.cell(row=r,column=3),"#,##0.0")
     s.cell(row=r,column=4,value=f'=IF(OR(A{r}="",B{r}="",H{t}=""),"",B{r}*H{t})'); calc(s.cell(row=r,column=4),BRL0)
-    s.cell(row=r,column=5,value=f'=IF(D{r}="","",B{r}*{CUSTO})'); calc(s.cell(row=r,column=5),BRL0)
-    s.cell(row=r,column=6,value=f'=IF(D{r}="","",D{r}-E{r})'); calc(s.cell(row=r,column=6),BRL0)
+    s.cell(row=r,column=5,value=f'=IF(OR(A{r}="",B{r}="",NOT(ISNUMBER({CUSTO}))),"",B{r}*{CUSTO})'); calc(s.cell(row=r,column=5),BRL0)
+    s.cell(row=r,column=6,value=f'=IF(OR(D{r}="",E{r}=""),"",D{r}-E{r})'); calc(s.cell(row=r,column=6),BRL0)
     s.cell(row=r,column=7,value=f'=IF(OR(D{r}="",$B${M0+3+NPAG}=0),"",B{r}/$B${M0+3+NPAG})'); calc(s.cell(row=r,column=7),PCT)
     s.cell(row=r,column=8,value=f'=IF(OR(D{r}="",$D${M0+3+NPAG}=0),"",D{r}/$D${M0+3+NPAG})'); calc(s.cell(row=r,column=8),PCT)
 rt=M0+3+NPAG
 s.cell(row=rt,column=1,value="Total"); rotulo(s.cell(row=rt,column=1)); s.cell(row=rt,column=1).border=borda
 for c in (2,3,4,5,6):
-    s.cell(row=rt,column=c,value=f"=SUM({L(c)}{M0+3}:{L(c)}{rt-1})"); calc(s.cell(row=rt,column=c),"#,##0.0" if c==3 else ("0" if c==2 else BRL0)); s.cell(row=rt,column=c).font=F(bold=True,color=UVA,size=10)
+    # totais: soma de linhas suspensas não é zero apurado (auditoria final-2, G01)
+    _g={4:f'NOT({OKC})',5:f'NOT(ISNUMBER({CUSTO}))',6:f'OR(NOT({OKC}),NOT(ISNUMBER({CUSTO})))'}.get(c)
+    _t=f"SUM({L(c)}{M0+3}:{L(c)}{rt-1})"
+    _msg={4:'"margens inválidas"',5:'"falta o custo-hora"',6:f'IF(NOT(ISNUMBER({CUSTO})),"falta o custo-hora","margens inválidas")'}.get(c)
+    s.cell(row=rt,column=c,value=f'=IF({_g},{_msg},{_t})' if _g else "="+_t); calc(s.cell(row=rt,column=c),"#,##0.0" if c==3 else ("0" if c==2 else BRL0)); s.cell(row=rt,column=c).font=F(bold=True,color=UVA,size=10)
 s.conditional_formatting.add(f"F{M0+3}:F{rt}", FormulaRule(formula=[f'AND(ISNUMBER(F{M0+3}),F{M0+3}<0)'], font=F(color="C8402E",size=10,bold=True)))
 s.cell(row=rt+1,column=1,value="Resultado negativo num pagador e positivo no total é a situação comum: o particular sustenta o convênio. Pergunta certa: o convênio traz pacientes que virariam particulares ou exames? Se não, negocie a tabela ou reduza os horários dele.").font=F(size=9,color=LILAS)
 s.merge_cells(start_row=rt+1,start_column=1,end_row=rt+1,end_column=14)

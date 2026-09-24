@@ -481,7 +481,7 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 | Misto | R$ 4.500 + 15 % | R$ 9.450 | R$ 756 | R$ 3.952 | R$ 4.742 | 50 % | R$ 188 | Baixo |
 
 - Recomendação do simulador: **Hora** (margem esperada R$ 4.825, risco Baixo); fora por risco alto: Êxito. Texto do ponto de equilíbrio da hora: "Hora mínima sem prejuízo: R$ 81,05 (você cobra R$ 180,00)".
-- **Proposta 07 (nº 2026-023, 19/09/2026, válida por 15 dias até 04/10/2026, modalidade Misto)**: objeto "Acompanhamento da discussão sobre contrato de prestação de serviços, da análise inicial ao encerramento.".
+- **Proposta 07 (nº 2026-023, 24/09/2026, válida por 15 dias até 09/10/2026, modalidade Misto)**: objeto "Acompanhamento da discussão sobre contrato de prestação de serviços, da análise inicial ao encerramento.".
 | Etapa ou serviço (07) | O que inclui | Prazo previsto | Horas | Valor |
 |---|---|---|---|---|
 | Análise inicial e planejamento | Reunião, leitura dos documentos e definição da estratégia | até 15 dias | 8 | R$ 900 |
@@ -562,4 +562,4 @@ Gerado por `numeros.py` a partir das 20 planilhas recalculadas e de `dados.py` (
 ## 13. Rotina (03) e checklist (04)
 
 - **03 Rotina**: 9 rotinas (4 de segunda = 12 min; 5 de sexta = 18 min; **30 min/semana**); registradas S29 a S36 (20/07 a 07/09/2026); semana atual S37 · 14/09; aderência nas últimas 4 semanas **83 %** (segunda 94 %, sexta 75 %); rotina mais pulada: "Enviar a cobrança educada das parcelas atrasadas" (1 de 4). Série S29–S36: 67 %, 78 %, 89 %, 89 %, 100 %, 78 %, 78 %, 78 %.
-- **04 Checklist**: casos cadastrados 38 · abertos com pendência de abertura 7 · encerrados com pendência 3 · itens pendentes no total **12** · casos sem pendência 28. Itens mais esquecidos: "Caso cadastrado no caixa e na carteira" (2) e, no encerramento, "Avaliação do cliente pedida" (2). Fernanda Castro (encerrado) pende "Última parcela cobrada e recebida" (a parcela vencida da 14).
+- **04 Checklist**: casos cadastrados 38 · abertos com pendência de abertura 7 · encerrados com pendência 3 · itens pendentes no total **12** · casos sem pendência 28. Itens mais esquecidos: "Caso cadastrado no caixa e na carteira" (2); no encerramento, "Avaliação do cliente pedida" (2). Encerrados com pendência e o que falta (coluna "O que falta" do Checklist): Construtora Horizonte (Pasta arquivada); Oficina Mecânica Central (Documentos devolvidos ao cliente; Avaliação do cliente pedida); Fernanda Castro (Avaliação do cliente pedida). Nenhum encerrado tem parcela pendente: todos estão quitados na 13 e na 14.
