@@ -225,8 +225,10 @@ o resíduo. Total bruto de despesas não soma por cima de despesa ativa sem valo
 negativa (mostra "despesa incompleta"); a resposta de reembolso só é exigida para o custo absorvido.
 Preço de convênio 0 digitado é convênio que não paga nada: conta como tabela abaixo do custo e o
 prejuízo é o custo cheio, sem depender da margem percentual (que não existe com preço zero). A
-exceção é o procedimento sem cobrança também no particular (o retorno, cujo tempo já está no custo
-da consulta): ali tabela 0 não é prejuízo. Preço particular é obrigatório: em branco mostra "Falta o
+única exceção é a linha identificada como Retorno (o procedimento chamado exatamente "Retorno", cujo
+tempo já está no custo da consulta pela Config: retornos por consulta e duração do retorno): ali tabela
+0 não é prejuízo. Dois preços zero em qualquer outro procedimento continuam perda (auditoria final-7).
+A cor vermelha usa o mesmo predicado da conta. Preço particular é obrigatório: em branco mostra "Falta o
 preço particular" e entra na contagem de incompletos; zero digitado é "Sem cobrança". Minutos e
 material procurados na Config (07) passam pelo mesmo predicado ≥ 0, e a leitura de agenda vazia se
 suspende junto. A varredura automática testa todas as células de entrada preenchidas (não mais

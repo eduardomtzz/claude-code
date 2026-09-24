@@ -56,8 +56,8 @@ for r in range(T0,TN+1):
     t.cell(row=r,column=7,value=f'=IF(A{r}="","",IF(NOT(ISNUMBER(E{r})),E{r},IF({CFGX},"margens inválidas (Config)",E{r}/(1-{IMP}-{MALVO}))))'); calc(t.cell(row=r,column=7),BRL)
     for j in range(NPAG): inp(t.cell(row=r,column=8+j),BRL0,center=True)
     t.cell(row=r,column=14,value=f'=IF(A{r}="","",IF(H{r}="","Falta o preço particular",IF(NOT({num_ok(f"H{r}")}),"Preço inválido",IF(NOT(ISNUMBER(E{r})),IF(IF(ISNUMBER({CH}),{CH}>=0,FALSE),"Faltam dados da linha","Falta o custo-hora"),IF(OR(NOT(ISNUMBER(F{r})),NOT(ISNUMBER(G{r}))),"Margens inválidas",IF(H{r}=0,"Sem cobrança",IF(H{r}<F{r},"Abaixo do mínimo",IF(H{r}<G{r},"Entre mínimo e alvo","No alvo ou acima"))))))))'); calc(t.cell(row=r,column=14))
-    # Auditoria final-6 (G04): tabela 0 conta como abaixo do custo, salvo no procedimento sem cobrança (particular 0: o retorno)
-    t.cell(row=r,column=15,value=f'=IF(OR(A{r}="",NOT(ISNUMBER(F{r}))),"",IF(SUMPRODUCT(ISTEXT(I{r}:M{r})+ISNUMBER(I{r}:M{r})*(I{r}:M{r}<0))>0,"tabela inválida (texto ou negativo)",SUMPRODUCT((I{r}:M{r}<>"")*ISNUMBER(I{r}:M{r})*(((I{r}:M{r})>0)+(N(H{r})>0)>0)*(I{r}:M{r}*(1-{IMP})<E{r}))))'); calc(t.cell(row=r,column=15),"0")
+    # Auditoria final-6 (G04) e final-7 (F7-G01): tabela 0 conta como abaixo do custo, salvo na linha identificada como Retorno
+    t.cell(row=r,column=15,value=f'=IF(OR(A{r}="",NOT(ISNUMBER(F{r}))),"",IF(SUMPRODUCT(ISTEXT(I{r}:M{r})+ISNUMBER(I{r}:M{r})*(I{r}:M{r}<0))>0,"tabela inválida (texto ou negativo)",SUMPRODUCT((I{r}:M{r}<>"")*ISNUMBER(I{r}:M{r})*(((I{r}:M{r})>0)+(TRIM(A{r})<>"Retorno")>0)*(I{r}:M{r}*(1-{IMP})<E{r}))))'); calc(t.cell(row=r,column=15),"0")
     inp(t.cell(row=r,column=16),"0",center=True); inp(t.cell(row=r,column=17),BRL0,center=True)
     t.cell(row=r,column=18,value=f'=IF(OR(A{r}="",AND(P{r}="",Q{r}="")),"",IF(OR(NOT({num_ok(f"P{r}")}),NOT({num_ok(f"Q{r}")})),"volume ou produção faltando ou negativos",IF(P{r}=0,"",Q{r}/P{r})))'); calc(t.cell(row=r,column=18),BRL)
     # Auditoria final-6 (varredura): particular negativo ou em texto não gera comparação; zero (retorno) fica vazio
@@ -67,8 +67,8 @@ dvs=lista('"Sim,Não"'); dvs.add(f"C{T0}:C{TN}"); t.add_data_validation(dvs)
 t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'OR(N{T0}="Abaixo do mínimo",N{T0}="Falta o custo-hora",N{T0}="Margens inválidas",N{T0}="Faltam dados da linha",N{T0}="Preço inválido",N{T0}="Falta o preço particular")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Entre mínimo e alvo"'], fill=fill(AMARELO)))
 t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="No alvo ou acima"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
-t.conditional_formatting.add(f"I{T0}:M{TN}", FormulaRule(formula=[f'AND(ISNUMBER(I{T0}),OR(I{T0}>0,N($H{T0})>0),ISNUMBER($F{T0}),I{T0}*(1-{IMP})<$E{T0})'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
-t.conditional_formatting.add(f"I{T0}:M{TN}", FormulaRule(formula=[f'AND(ISNUMBER(I{T0}),ISNUMBER($F{T0}),I{T0}*(1-{IMP})>=$E{T0},I{T0}<$F{T0})'], fill=fill(AMARELO)))
+t.conditional_formatting.add(f"I{T0}:M{TN}", FormulaRule(formula=[f'IF(AND(ISNUMBER(I{T0}),ISNUMBER($E{T0}),ISNUMBER($F{T0})),AND(OR(I{T0}>0,TRIM($A{T0})<>"Retorno"),I{T0}*(1-{IMP})<$E{T0}),FALSE)'], fill=fill(VERM), font=F(color=VERM_T,size=10)))
+t.conditional_formatting.add(f"I{T0}:M{TN}", FormulaRule(formula=[f'IF(AND(ISNUMBER(I{T0}),ISNUMBER($E{T0}),ISNUMBER($F{T0})),AND(I{T0}*(1-{IMP})>=$E{T0},I{T0}<$F{T0}),FALSE)'], fill=fill(AMARELO)))
 t.conditional_formatting.add(f"N{T0}:N{TN}", FormulaRule(formula=[f'N{T0}="Sem cobrança"'], font=F(color="8A86A0",size=10)))
 t.conditional_formatting.add(f"O{T0}:O{TN}", FormulaRule(formula=[f'AND(ISNUMBER(O{T0}),O{T0}>0)'], font=F(color="C8402E",size=10,bold=True)))
 t.conditional_formatting.add(f"S{T0}:S{TN}", FormulaRule(formula=[f'AND(ISNUMBER(S{T0}),S{T0}<0)'], font=F(color="C8402E",size=10,bold=True)))
@@ -90,7 +90,7 @@ kpi(t,4,7,"Produção no mês (R$)",f'=IF({INCPQ}>0,"produção incompleta em "&
 kpi(t,4,9,"Valor médio por hora no mês",f'=IF({INCV}>0,"volume incompleto em "&{INCV}&" linha(s)",IFERROR(SUM({KQ})/(SUMPRODUCT({KP},{KB})/60),""))',SOL,UVA,fmt=BRL)
 kpi(t,4,11,"Contra a hora mínima",f'=IF(NOT(ISNUMBER({HMIN})),"",IF({HMIN}=0,"sem base (mínimo zero)",IFERROR(I5/{HMIN}-1,"")))',LAVANDA,UVA,fmt="+0%;-0%;0%")
 NT=TN+2
-notas=["Custo cheio, preço mínimo e preço alvo: a mesma conta da planilha 06 (tempo com retorno × custo-hora + material; ÷ (1 − impostos − margem)). Tabela de convênio em vermelho: depois dos impostos não cobre o custo cheio (margem negativa) — é a mesma conta e o mesmo número do KPI \"Tabelas de convênio abaixo do custo cheio + imposto\" e do Resumo da planilha 06. Tabela 0 em procedimento cobrado conta (o convênio não paga o custo); no retorno, com particular 0 também, não conta. Amarela: cobre o custo, mas não a margem mínima.",
+notas=["Custo cheio, preço mínimo e preço alvo: a mesma conta da planilha 06 (tempo com retorno × custo-hora + material; ÷ (1 − impostos − margem)). Tabela de convênio em vermelho: depois dos impostos não cobre o custo cheio (margem negativa) — é a mesma conta e o mesmo número do KPI \"Tabelas de convênio abaixo do custo cheio + imposto\" e do Resumo da planilha 06. Tabela 0 conta (o convênio não paga o custo), inclusive em procedimento sem cobrança no particular; só não conta na linha chamada Retorno, cujo tempo já está no custo da consulta. Amarela: cobre o custo, mas não a margem mínima.",
        "Realizados e Produção no mês: copie de \"Por procedimento\" no Painel da planilha 01 com o mês fechado escolhido em Config (no exemplo, agosto de 2026). Valor médio praticado = produção ÷ realizados: mistura particular e convênio, por isso fica abaixo do preço particular.",
        "Referência de mercado é opcional e sua: pesquise a faixa da sua região e anote; a planilha não afirma preço de mercado. A tabela de preços e a divulgação de valores seguem as regras do CFM: revise antes de publicar."]
 for i,tx in enumerate(notas):

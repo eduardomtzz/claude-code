@@ -167,3 +167,11 @@ Na tabela de referência (08), horas típicas "de" maior que "até" é faixa inv
 máximo avisam, o ponto médio fica vazio e a instrução pede a correção. A varredura automática testa
 todas as células de entrada preenchidas (não mais três por coluna) e também acusa célula calculada
 que passa de vazia a número.
+
+## Coerência entre campos (auditoria final-7)
+
+Horas faturáveis são parte das horas de trabalho: com as duas preenchidas e faturáveis maiores, a linha
+diz "faturáveis acima das horas de trabalho", a ocupação não é publicada e o Painel mostra "cadastro
+incompleto". Faturáveis iguais às de trabalho (100 %) valem. A varredura passou a testar também zero e
+valor ×10 em cada entrada numérica e confere regras de negócio fora da planilha (ocupação ≤ 100 %,
+mínimo ≤ máximo, prejuízo do convênio recalculado).

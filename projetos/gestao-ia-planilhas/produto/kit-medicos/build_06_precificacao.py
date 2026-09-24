@@ -65,14 +65,19 @@ for r in range(T0,TN+1):
         s.cell(row=r,column=cm,value=f'=IF(OR(A{r}="",{L(cv)}{r}="",NOT({num_ok(f"{L(cv)}{r}")}),N({L(cv)}{r})=0,NOT(ISNUMBER(F{r})),{CFGX}),"",({L(cv)}{r}*(1-{IMP})-F{r})/{L(cv)}{r})'); calc(s.cell(row=r,column=cm),PCT)
     for c in (6,7,8): s.cell(row=r,column=c).font=F(color=UVA,size=10,bold=(c==7))
     # Auditoria final-6 (G04): tabela 0 digitada é convênio que não paga nada: o prejuízo é o custo cheio.
-    # Exceção: procedimento sem cobrança também no particular (o retorno, cujo tempo já está na consulta).
+    # Exceção (auditoria final-7, F7-G01): só a linha identificada como Retorno, cujo tempo já está no custo
+    # da consulta (Config: retornos por consulta e duração). Dois preços zero em outro procedimento continuam perda.
     for j in range(NCONV):   # auxiliar oculta: prejuízo por atendimento (R$) quando a tabela não cobre o custo cheio
         cv=12+2*j; cm=cv+1
-        s.cell(row=r,column=20+j,value=f'=IF(AND(A{r}<>"",{L(cv)}{r}<>"",{num_ok(f"{L(cv)}{r}")},ISNUMBER(F{r}),NOT({CFGX}),OR({L(cv)}{r}>0,N(I{r})>0)),MIN(0,{L(cv)}{r}*(1-{IMP})-F{r}),0)'); s.cell(row=r,column=20+j).font=F(color=CINZA,size=9)
+        s.cell(row=r,column=20+j,value=f'=IF(AND(A{r}<>"",{L(cv)}{r}<>"",{num_ok(f"{L(cv)}{r}")},ISNUMBER(F{r}),NOT({CFGX}),OR({L(cv)}{r}>0,TRIM(A{r})<>"Retorno")),MIN(0,{L(cv)}{r}*(1-{IMP})-F{r}),0)'); s.cell(row=r,column=20+j).font=F(color=CINZA,size=9)
 dvs=lista('"Sim,Não"'); dvs.add(f"C{T0}:C{TN}"); s.add_data_validation(dvs)
 s.conditional_formatting.add(f"K{T0}:K{TN}", FormulaRule(formula=[f'OR(K{T0}="Abaixo do mínimo",K{T0}="Falta o custo-hora",K{T0}="Margens inválidas",K{T0}="Faltam dados da linha",K{T0}="Preço inválido",K{T0}="Falta o preço particular")'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 s.conditional_formatting.add(f"K{T0}:K{TN}", FormulaRule(formula=[f'K{T0}="Entre mínimo e alvo"'], fill=fill(AMARELO)))
 s.conditional_formatting.add(f"K{T0}:K{TN}", FormulaRule(formula=[f'K{T0}="No alvo ou acima"'], fill=fill(VERDE), font=F(color=VERDE_T,size=10)))
+# Auditoria final-7 (F7-G01): tabela 0 que conta como prejuízo fica vermelha (mesmo predicado das auxiliares T a W)
+for j in range(NCONV):
+    _c=L(12+2*j)
+    s.conditional_formatting.add(f"{_c}{T0}:{_c}{TN}", FormulaRule(formula=[f'IF(ISNUMBER({_c}{T0}),AND({_c}{T0}=0,TRIM($A{T0})<>"Retorno",ISNUMBER($F{T0}),NOT({CFGX})),FALSE)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
 for c in ["J"]+[L(13+2*j) for j in range(NCONV)]:
     s.conditional_formatting.add(f"{c}{T0}:{c}{TN}", FormulaRule(formula=[f'AND(ISNUMBER({c}{T0}),{c}{T0}<0)'], fill=fill(VERM), font=F(color=VERM_T,size=10,bold=True)))
     s.conditional_formatting.add(f"{c}{T0}:{c}{TN}", FormulaRule(formula=[f'AND(ISNUMBER({c}{T0}),{c}{T0}>=0,{c}{T0}<{MMIN})'], fill=fill(AMARELO)))
@@ -80,7 +85,7 @@ for c in ["J"]+[L(13+2*j) for j in range(NCONV)]:
 NT=TN+2
 s.cell(row=NT,column=1,value="Custo cheio = tempo (com retorno embutido) ÷ 60 × custo-hora + material. Preço mínimo = custo ÷ (1 − impostos − margem mínima); preço alvo, com a margem alvo. Margem = (preço × (1 − impostos) − custo) ÷ preço. Vermelho: não cobre o custo cheio. Amarelo: cobre o custo, mas fica abaixo da margem mínima. Verde: margem mínima ou mais.").font=F(size=9,color=LILAS)
 s.merge_cells(start_row=NT,start_column=1,end_row=NT,end_column=19); s.cell(row=NT,column=1).alignment=Alignment(wrap_text=True,vertical="top"); s.row_dimensions[NT].height=32
-s.cell(row=NT+1,column=1,value="Retorno tem preço zero de propósito: o tempo dele já está no custo da consulta. Tabela 0 em procedimento cobrado conta como prejuízo do custo cheio; no retorno (particular 0 também) não conta. Tabela de convênio abaixo do custo cheio não é automaticamente \"não aceitar\": com agenda vazia, o que importa é a contribuição (planilha 07).").font=F(size=9,color=LILAS)
+s.cell(row=NT+1,column=1,value="Retorno tem preço zero de propósito: o tempo dele já está no custo da consulta. Tabela 0 conta como prejuízo do custo cheio em qualquer procedimento, inclusive sem cobrança no particular; só não conta na linha chamada Retorno, cujo tempo já está no custo da consulta. Tabela de convênio abaixo do custo cheio não é automaticamente \"não aceitar\": com agenda vazia, o que importa é a contribuição (planilha 07).").font=F(size=9,color=LILAS)
 s.merge_cells(start_row=NT+1,start_column=1,end_row=NT+1,end_column=19); s.cell(row=NT+1,column=1).alignment=Alignment(wrap_text=True,vertical="top"); s.row_dimensions[NT+1].height=32
 # KPIs
 SA=f"$A${T0}:$A${TN}"; SK=f"$K${T0}:$K${TN}"; SF=f"$F${T0}:$F${TN}"
