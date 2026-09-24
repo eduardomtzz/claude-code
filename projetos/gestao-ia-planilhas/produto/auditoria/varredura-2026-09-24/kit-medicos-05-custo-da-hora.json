@@ -4,6 +4,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -11,6 +12,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -18,6 +20,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -25,6 +28,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -32,6 +36,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -39,6 +44,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -46,6 +52,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -53,6 +60,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -60,6 +68,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -67,6 +76,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -74,6 +84,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -81,6 +92,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -88,6 +100,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -95,13 +108,63 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
+},
+{
+"entrada": "Config!B5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B11: Sim→Não"
+]
+},
+{
+"entrada": "Config!B7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B11: Sim→Não"
+]
+},
+{
+"entrada": "Config!B7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Painel!B14: 0.3→-1"
+],
+"NEW": [],
+"CLS": [
+"Config!B11: Sim→Não"
+]
 },
 {
 "entrada": "Config!B8",
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Config!B11: Sim→Não"
 ]
@@ -111,6 +174,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Config!B11: Sim→Não"
 ]
@@ -122,15 +186,41 @@
 "NUM": [
 "Painel!B15: 0.11→-1"
 ],
+"NEW": [],
 "CLS": [
 "Config!B11: Sim→Não"
 ]
 },
 {
+"entrada": "Config!B9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
 "entrada": "Config!B10",
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -138,6 +228,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -145,6 +236,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -152,6 +244,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -159,6 +252,55 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -166,6 +308,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -173,6 +316,39 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -180,6 +356,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -187,6 +364,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -194,6 +372,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -201,6 +380,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -208,6 +388,79 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B6",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -215,6 +468,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -222,6 +476,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -229,6 +484,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -236,6 +540,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -243,6 +548,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -250,6 +556,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -257,6 +564,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -264,13 +572,17 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
 "entrada": "Equipe!A5",
 "modo": "vazio",
 "ERR": [],
-"NUM": [],
+"NUM": [
+"Equipe!K5: 0→1"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -278,15 +590,39 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!A26: Dra. Carolina Mendes→abc"
+]
+},
+{
+"entrada": "Equipe!A6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Equipe!K6: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!A6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Painel!A27: Dr. Paulo Andrade→abc"
 ]
 },
 {
 "entrada": "Equipe!A7",
 "modo": "vazio",
 "ERR": [],
-"NUM": [],
+"NUM": [
+"Equipe!K7: 0→1"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -294,6 +630,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!A28: Dra. Renata Sousa→abc"
 ]
@@ -302,7 +639,10 @@
 "entrada": "Equipe!A8",
 "modo": "vazio",
 "ERR": [],
-"NUM": [],
+"NUM": [
+"Equipe!K8: 0→1"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -310,6 +650,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!A29: Bruna Carvalho→abc"
 ]
@@ -319,6 +660,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -326,8 +668,27 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!B26: Sócia · clínica médica→abc"
+]
+},
+{
+"entrada": "Equipe!B6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!B6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Painel!B27: Sócio · cardiologia→abc"
 ]
 },
 {
@@ -335,6 +696,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -342,6 +704,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!B28: Médica parceira · endocrinologia→abc"
 ]
@@ -351,6 +714,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -358,6 +722,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!B29: Recepcionista (CLT)→abc"
 ]
@@ -367,6 +732,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -374,8 +740,27 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!C26: Pró-labore→abc"
+]
+},
+{
+"entrada": "Equipe!C6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!C6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Painel!C27: Pró-labore→abc"
 ]
 },
 {
@@ -383,6 +768,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -390,6 +776,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!C28: Repasse→abc"
 ]
@@ -399,6 +786,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -406,6 +794,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!C29: Salário→abc"
 ]
@@ -417,6 +806,7 @@
 "NUM": [
 "Equipe!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -426,6 +816,7 @@
 "NUM": [
 "Equipe!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -435,6 +826,7 @@
 "NUM": [
 "Equipe!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -444,6 +836,7 @@
 "NUM": [
 "Equipe!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -453,6 +846,7 @@
 "NUM": [
 "Equipe!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -462,6 +856,7 @@
 "NUM": [
 "Equipe!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -469,6 +864,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -476,6 +872,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -483,6 +880,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -492,6 +890,7 @@
 "NUM": [
 "Equipe!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -501,6 +900,27 @@
 "NUM": [
 "Equipe!K5: 0→1"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!E6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Equipe!K6: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!E6",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Equipe!K6: 0→1"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -508,6 +928,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -515,6 +936,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -522,6 +944,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -529,6 +952,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -538,6 +962,7 @@
 "NUM": [
 "Equipe!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -547,6 +972,7 @@
 "NUM": [
 "Equipe!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -557,6 +983,7 @@
 "Painel!D26: 70→-1",
 "Equipe!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -566,6 +993,7 @@
 "NUM": [
 "Equipe!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -575,6 +1003,7 @@
 "NUM": [
 "Equipe!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -585,6 +1014,7 @@
 "Painel!D27: 70→-1",
 "Equipe!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -592,6 +1022,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -599,6 +1030,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -608,6 +1040,7 @@
 "NUM": [
 "Painel!D28: 35→-1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -617,6 +1050,7 @@
 "NUM": [
 "Equipe!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -626,6 +1060,27 @@
 "NUM": [
 "Equipe!K5: 0→1"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!G6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Equipe!K6: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!G6",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Equipe!K6: 0→1"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -635,6 +1090,7 @@
 "NUM": [
 "Equipe!K7: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -644,6 +1100,7 @@
 "NUM": [
 "Equipe!K7: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -653,6 +1110,7 @@
 "NUM": [
 "Equipe!K8: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -662,6 +1120,179 @@
 "NUM": [
 "Equipe!K8: 0→1"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A13",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A13",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B13",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B13",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!A9",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Equipe!K9: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!A9",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Equipe!K9: 0→1"
+],
+"NEW": [
+"Painel!A30: vazio→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!B9",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Equipe!K9: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!B9",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Equipe!K9: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!C9",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Equipe!K9: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!C9",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Equipe!K9: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!D9",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Equipe!K9: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!D9",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Equipe!K9: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!E9",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Equipe!K9: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!E9",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Equipe!K9: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!F8",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!F8",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [
+"Painel!D29: vazio→1"
+],
+"CLS": []
+},
+{
+"entrada": "Equipe!G9",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Equipe!K9: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Equipe!G9",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Equipe!K9: 0→1"
+],
+"NEW": [],
 "CLS": []
 }
 ]

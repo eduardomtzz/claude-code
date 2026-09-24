@@ -4,6 +4,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -11,6 +12,183 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A15",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A15",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -18,6 +196,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -25,6 +204,183 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A22",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A23",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A24",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A26",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A26",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A27",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A27",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A28",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A28",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A29",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A29",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A30",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A30",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A31",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A31",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A32",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A32",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -32,6 +388,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -39,6 +396,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -46,6 +404,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -53,6 +412,183 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B15",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B15",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -60,6 +596,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -67,6 +604,183 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B22",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B23",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B24",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B26",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B26",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B27",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B27",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B28",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B28",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B29",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B29",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B30",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B30",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B31",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B31",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B32",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B32",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -74,6 +788,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -81,6 +796,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -88,6 +804,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -95,6 +812,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -102,6 +820,271 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C14",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C15",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C15",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C15",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C16",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C17",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C18",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C19",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C20",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -109,6 +1092,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -116,6 +1100,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -123,6 +1108,271 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C22",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C22",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C23",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C23",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C24",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C24",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C25",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C26",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C26",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C26",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C27",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C27",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C27",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C28",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C28",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C28",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C29",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C29",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C29",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C30",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C30",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C30",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C31",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C31",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C31",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C32",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C32",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C32",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -130,6 +1380,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -137,6 +1388,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -144,6 +1396,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -151,6 +1404,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -158,6 +1412,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -165,6 +1420,271 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D14",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D15",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D15",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D15",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D16",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D17",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D18",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D19",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D20",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -172,6 +1692,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -179,6 +1700,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -186,6 +1708,271 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D22",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D22",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D23",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D23",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D24",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D24",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D25",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D26",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D26",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D26",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D27",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D27",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D27",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D28",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D28",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D28",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D29",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D29",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D29",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D30",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D30",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D30",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D31",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D31",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D31",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D32",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D32",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D32",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -193,6 +1980,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -200,6 +1988,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -207,6 +1996,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -214,6 +2004,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -221,6 +2012,183 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E15",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E15",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -228,6 +2196,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -235,6 +2204,183 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E22",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E23",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E24",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E26",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E26",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E27",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E27",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E28",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E28",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E29",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E29",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E30",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E30",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E31",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E31",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E32",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E32",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -242,6 +2388,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -249,6 +2396,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -256,6 +2404,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -263,6 +2412,47 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -270,6 +2460,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -277,6 +2468,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -284,6 +2476,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -291,6 +2532,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -298,6 +2540,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -305,6 +2548,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -312,6 +2556,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -325,8 +2570,33 @@
 "Referência!G54: 1→0",
 "Referência!H54: 1509.21→0"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A54: Cível→abc"
+]
+},
+{
+"entrada": "Config!E17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!E17",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→0",
+"Referência!C55: 105400→0",
+"Referência!D55: 838→0",
+"Referência!G55: 7→0",
+"Referência!H55: 9218.87→0"
+],
+"NEW": [],
+"CLS": [
+"Referência!A55: Trabalhista→abc"
 ]
 },
 {
@@ -334,6 +2604,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -347,8 +2618,31 @@
 "Referência!G56: 1→0",
 "Referência!H56: 1115.21→0"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A56: Previdenciário→abc"
+]
+},
+{
+"entrada": "Config!E19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!E19",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→0",
+"Referência!C57: 115000→0",
+"Referência!D57: 615→0"
+],
+"NEW": [],
+"CLS": [
+"Referência!A57: Empresarial→abc"
 ]
 },
 {
@@ -356,6 +2650,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -369,6 +2664,7 @@
 "Referência!G58: 1→0",
 "Referência!H58: 33.4071→0"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A58: Família→abc"
 ]
@@ -378,6 +2674,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -385,6 +2682,23 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!G17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!G17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -392,6 +2706,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -399,6 +2714,23 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!G19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!G19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -406,6 +2738,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -413,6 +2746,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -420,6 +2754,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -427,6 +2762,23 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!I17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!I17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -434,6 +2786,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -441,6 +2794,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -448,6 +2802,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -455,6 +2810,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -462,6 +2818,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -469,7 +2826,522 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
+},
+{
+"entrada": "Nossos casos!A6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E78: 6000→7000",
+"Referência!G78: 85.7143→100",
+"Referência!H78: 2951.61→1951.61",
+"Referência!I78: 2→27",
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A78: 2998500-50.2026.8.26.0515→9495290-86.2025.8.26.0503",
+"Referência!B78: Ana Beatriz Moreira→Helena Duarte",
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!A6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!A78: 2998500-50.2026.8.26.0515→abc"
+]
+},
+{
+"entrada": "Nossos casos!A7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!A12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!A84: 8056747-83.2026.8.26.0561→abc"
+]
+},
+{
+"entrada": "Nossos casos!A13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!A13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!A80: 9236009-85.2025.8.26.0452→abc"
+]
+},
+{
+"entrada": "Nossos casos!A14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A15",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A15",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!A19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!A82: 4526984-60.2026.8.26.0258→abc"
+]
+},
+{
+"entrada": "Nossos casos!A20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A21",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A22",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!A23",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!A81: 6710873-21.2025.8.26.0571→abc"
+]
 },
 {
 "entrada": "Nossos casos!A24",
@@ -492,6 +3364,7 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
 "Referência!B83: José Antônio Ribeiro→Bistrô 42",
@@ -510,9 +3383,344 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Referência!A83: 5900991-46.2026.8.26.0469→abc"
 ]
+},
+{
+"entrada": "Nossos casos!A25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A26",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A26",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A27",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A27",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A28",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A28",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A29",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A29",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A30",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A30",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A31",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!A31",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!A79: 9495290-86.2025.8.26.0503→abc"
+]
+},
+{
+"entrada": "Nossos casos!A32",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A32",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A33",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A34",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A34",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A35",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A35",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A36",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A36",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A37",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A37",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A38",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A38",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A39",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A39",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A40",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A40",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A41",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A41",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
 },
 {
 "entrada": "Nossos casos!A42",
@@ -525,6 +3733,7 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
 "Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
@@ -536,6 +3745,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Referência!A85: 9420478-99.2025.8.26.0491→abc"
 ]
@@ -545,6 +3755,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -552,13 +3763,313 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
+},
+{
+"entrada": "Nossos casos!B6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!B78: Ana Beatriz Moreira→abc"
+]
+},
+{
+"entrada": "Nossos casos!B7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!B84: Bistrô 42→abc"
+]
+},
+{
+"entrada": "Nossos casos!B13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!B80: Bistrô 42→abc"
+]
+},
+{
+"entrada": "Nossos casos!B14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B15",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B15",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!B82: Transportadora Rota Sul→abc"
+]
+},
+{
+"entrada": "Nossos casos!B20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B21",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B22",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B23",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!B81: Escola Aurora→abc"
+]
 },
 {
 "entrada": "Nossos casos!B24",
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -566,15 +4077,291 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Referência!B83: José Antônio Ribeiro→abc"
 ]
 },
 {
+"entrada": "Nossos casos!B25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B26",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B26",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B27",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B27",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B28",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B28",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B29",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B29",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B30",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B30",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B31",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B31",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!B79: Helena Duarte→abc"
+]
+},
+{
+"entrada": "Nossos casos!B32",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B32",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B33",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B34",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B34",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B35",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B35",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B36",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B36",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B37",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B37",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B38",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B38",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B39",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B39",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B40",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B40",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B41",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B41",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
 "entrada": "Nossos casos!B42",
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -582,6 +4369,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Referência!B85: Ana Beatriz Moreira→abc"
 ]
@@ -597,6 +4385,7 @@
 "Referência!E57: 186.992→178.637",
 "Referência!F57: 0.462243→0.396911"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -610,7 +4399,542 @@
 "Referência!E57: 186.992→178.637",
 "Referência!F57: 0.462243→0.396911"
 ],
+"NEW": [],
 "CLS": []
+},
+{
+"entrada": "Nossos casos!C6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→99400",
+"Referência!D55: 838→768",
+"Referência!E55: 125.776→129.427",
+"Referência!F55: -0.0164566→0.0120969",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→6267.26"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C6",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→99400",
+"Referência!D55: 838→768",
+"Referência!E55: 125.776→129.427",
+"Referência!F55: -0.0164566→0.0120969",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→6267.26"
+],
+"NEW": [],
+"CLS": [
+"Referência!C78: Trabalhista→abc"
+]
+},
+{
+"entrada": "Nossos casos!C7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→86000",
+"Referência!D54: 632→542",
+"Referência!E54: 160.601→158.672",
+"Referência!F54: 0.255874→0.240784"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C7",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→86000",
+"Referência!D54: 632→542",
+"Referência!E54: 160.601→158.672",
+"Referência!F54: 0.255874→0.240784"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→34000",
+"Referência!D56: 264→224",
+"Referência!E56: 149.242→151.786",
+"Referência!F56: 0.167049→0.186937"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C8",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→34000",
+"Referência!D56: 264→224",
+"Referência!E56: 149.242→151.786",
+"Referência!F56: 0.167049→0.186937"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→106600",
+"Referência!D57: 615→570",
+"Referência!E57: 186.992→187.018",
+"Referência!F57: 0.462243→0.462444"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C9",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→106600",
+"Referência!D57: 615→570",
+"Referência!E57: 186.992→187.018",
+"Referência!F57: 0.462243→0.462444"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→34900",
+"Referência!D56: 264→240",
+"Referência!E56: 149.242→145.417",
+"Referência!F56: 0.167049→0.137133"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C10",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→34900",
+"Referência!D56: 264→240",
+"Referência!E56: 149.242→145.417",
+"Referência!F56: 0.167049→0.137133"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→88300",
+"Referência!D54: 632→560",
+"Referência!E54: 160.601→157.679",
+"Referência!F54: 0.255874→0.233019"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C11",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→88300",
+"Referência!D54: 632→560",
+"Referência!E54: 160.601→157.679",
+"Referência!F54: 0.255874→0.233019"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→95900",
+"Referência!D55: 838→758",
+"Referência!E55: 125.776→126.517",
+"Referência!F55: -0.0164566→-0.0106583",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→8488.46"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C12",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→95900",
+"Referência!D55: 838→758",
+"Referência!E55: 125.776→126.517",
+"Referência!F55: -0.0164566→-0.0106583",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→8488.46"
+],
+"NEW": [],
+"CLS": [
+"Referência!C84: Trabalhista→abc"
+]
+},
+{
+"entrada": "Nossos casos!C13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→101400",
+"Referência!D55: 838→793",
+"Referência!E55: 125.776→127.869",
+"Referência!F55: -0.0164566→-8.81808e-05",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→7464.26"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C13",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→101400",
+"Referência!D55: 838→793",
+"Referência!E55: 125.776→127.869",
+"Referência!F55: -0.0164566→-8.81808e-05",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→7464.26"
+],
+"NEW": [],
+"CLS": [
+"Referência!C80: Trabalhista→abc"
+]
+},
+{
+"entrada": "Nossos casos!C14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→86500",
+"Referência!D54: 632→537",
+"Referência!E54: 160.601→161.08",
+"Referência!F54: 0.255874→0.259618"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C14",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→86500",
+"Referência!D54: 632→537",
+"Referência!E54: 160.601→161.08",
+"Referência!F54: 0.255874→0.259618"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C15",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→91300",
+"Referência!D54: 632→572",
+"Referência!E54: 160.601→159.615",
+"Referência!F54: 0.255874→0.248164"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C15",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→91300",
+"Referência!D54: 632→572",
+"Referência!E54: 160.601→159.615",
+"Referência!F54: 0.255874→0.248164"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→93400",
+"Referência!D57: 615→495",
+"Referência!E57: 186.992→188.687",
+"Referência!F57: 0.462243→0.475498"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C16",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→93400",
+"Referência!D57: 615→495",
+"Referência!E57: 186.992→188.687",
+"Referência!F57: 0.462243→0.475498"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→97000",
+"Referência!D57: 615→505",
+"Referência!E57: 186.992→192.079",
+"Referência!F57: 0.462243→0.502025"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C17",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→97000",
+"Referência!D57: 615→505",
+"Referência!E57: 186.992→192.079",
+"Referência!F57: 0.462243→0.502025"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→91900",
+"Referência!D55: 838→748",
+"Referência!E55: 125.776→122.861",
+"Referência!F55: -0.0164566→-0.039249"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C18",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→91900",
+"Referência!D55: 838→748",
+"Referência!E55: 125.776→122.861",
+"Referência!F55: -0.0164566→-0.039249"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→96400",
+"Referência!D55: 838→758",
+"Referência!E55: 125.776→127.177",
+"Referência!F55: -0.0164566→-0.00550006",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→7988.46"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C19",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→96400",
+"Referência!D55: 838→758",
+"Referência!E55: 125.776→127.177",
+"Referência!F55: -0.0164566→-0.00550006",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→7988.46"
+],
+"NEW": [],
+"CLS": [
+"Referência!C82: Trabalhista→abc"
+]
+},
+{
+"entrada": "Nossos casos!C20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→101000",
+"Referência!D55: 838→810",
+"Referência!E55: 125.776→124.691",
+"Referência!F55: -0.0164566→-0.0249356"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C20",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→101000",
+"Referência!D55: 838→810",
+"Referência!E55: 125.776→124.691",
+"Referência!F55: -0.0164566→-0.0249356"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B58: 3→2",
+"Referência!C58: 22600→13600",
+"Referência!D58: 155→100",
+"Referência!E58: 145.806→136",
+"Referência!F58: 0.140181→0.063496"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C21",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B58: 3→2",
+"Referência!C58: 22600→13600",
+"Referência!D58: 155→100",
+"Referência!E58: 145.806→136",
+"Referência!F58: 0.140181→0.063496"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B58: 3→2",
+"Referência!C58: 22600→16000",
+"Referência!D58: 155→110",
+"Referência!E58: 145.806→145.455",
+"Referência!F58: 0.140181→0.137429"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C22",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B58: 3→2",
+"Referência!C58: 22600→16000",
+"Referência!D58: 155→110",
+"Referência!E58: 145.806→145.455",
+"Referência!F58: 0.140181→0.137429"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→91500",
+"Referência!D54: 632→542",
+"Referência!E54: 160.601→168.819",
+"Referência!F54: 0.255874→0.320136",
+"Referência!G54: 1→0",
+"Referência!H54: 1509.21→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C23",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→91500",
+"Referência!D54: 632→542",
+"Referência!E54: 160.601→168.819",
+"Referência!F54: 0.255874→0.320136",
+"Referência!G54: 1→0",
+"Referência!H54: 1509.21→0"
+],
+"NEW": [],
+"CLS": [
+"Referência!C81: Cível→abc"
+]
 },
 {
 "entrada": "Nossos casos!C24",
@@ -625,6 +4949,7 @@
 "Referência!G56: 1→0",
 "Referência!H56: 1115.21→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -640,11 +4965,502 @@
 "Referência!G56: 1→0",
 "Referência!H56: 1115.21→0"
 ],
+"NEW": [],
 "CLS": [
 "Referência!C83: Previdenciário→abc"
 ]
 },
 {
+"entrada": "Nossos casos!C25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→90400",
+"Referência!D55: 838→743",
+"Referência!E55: 125.776→121.669",
+"Referência!F55: -0.0164566→-0.0485706"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C25",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→90400",
+"Referência!D55: 838→743",
+"Referência!E55: 125.776→121.669",
+"Referência!F55: -0.0164566→-0.0485706"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C26",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→96400",
+"Referência!D55: 838→778",
+"Referência!E55: 125.776→123.907",
+"Referência!F55: -0.0164566→-0.0310656"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C26",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→96400",
+"Referência!D55: 838→778",
+"Referência!E55: 125.776→123.907",
+"Referência!F55: -0.0164566→-0.0310656"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C27",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→89500",
+"Referência!D54: 632→557",
+"Referência!E54: 160.601→160.682",
+"Referência!F54: 0.255874→0.256507"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C27",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→89500",
+"Referência!D54: 632→557",
+"Referência!E54: 160.601→160.682",
+"Referência!F54: 0.255874→0.256507"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C28",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→93900",
+"Referência!D54: 632→592",
+"Referência!E54: 160.601→158.615",
+"Referência!F54: 0.255874→0.24034"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C28",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→93900",
+"Referência!D54: 632→592",
+"Referência!E54: 160.601→158.615",
+"Referência!F54: 0.255874→0.24034"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C29",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→91000",
+"Referência!D57: 615→482",
+"Referência!E57: 186.992→188.797",
+"Referência!F57: 0.462243→0.476357"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C29",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→91000",
+"Referência!D57: 615→482",
+"Referência!E57: 186.992→188.797",
+"Referência!F57: 0.462243→0.476357"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C30",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→108000",
+"Referência!D57: 615→585",
+"Referência!E57: 186.992→184.615",
+"Referência!F57: 0.462243→0.44366"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C30",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→108000",
+"Referência!D57: 615→585",
+"Referência!E57: 186.992→184.615",
+"Referência!F57: 0.462243→0.44366"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C31",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→98400",
+"Referência!D55: 838→768",
+"Referência!E55: 125.776→128.125",
+"Referência!F55: -0.0164566→0.00191485",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→7267.26"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C31",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→98400",
+"Referência!D55: 838→768",
+"Referência!E55: 125.776→128.125",
+"Referência!F55: -0.0164566→0.00191485",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→7267.26"
+],
+"NEW": [],
+"CLS": [
+"Referência!C79: Trabalhista→abc"
+]
+},
+{
+"entrada": "Nossos casos!C32",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→97900",
+"Referência!D55: 838→783",
+"Referência!E55: 125.776→125.032",
+"Referência!F55: -0.0164566→-0.0222724"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C32",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→97900",
+"Referência!D55: 838→783",
+"Referência!E55: 125.776→125.032",
+"Referência!F55: -0.0164566→-0.0222724"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→31800",
+"Referência!D56: 264→224",
+"Referência!E56: 149.242→141.964",
+"Referência!F56: 0.167049→0.110136"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C33",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→31800",
+"Referência!D56: 264→224",
+"Referência!E56: 149.242→141.964",
+"Referência!F56: 0.167049→0.110136"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C34",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→34000",
+"Referência!D56: 264→229",
+"Referência!E56: 149.242→148.472",
+"Referência!F56: 0.167049→0.161022"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C34",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→34000",
+"Referência!D56: 264→229",
+"Referência!E56: 149.242→148.472",
+"Referência!F56: 0.167049→0.161022"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C35",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→103000",
+"Referência!D57: 615→555",
+"Referência!E57: 186.992→185.586",
+"Referência!F57: 0.462243→0.451246"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C35",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→103000",
+"Referência!D57: 615→555",
+"Referência!E57: 186.992→185.586",
+"Referência!F57: 0.462243→0.451246"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C36",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→83500",
+"Referência!D54: 632→522",
+"Referência!E54: 160.601→159.962",
+"Referência!F54: 0.255874→0.250872"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C36",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B54: 8→7",
+"Referência!C54: 101500→83500",
+"Referência!D54: 632→522",
+"Referência!E54: 160.601→159.962",
+"Referência!F54: 0.255874→0.250872"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C37",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→32900",
+"Referência!D56: 264→219",
+"Referência!E56: 149.242→150.228",
+"Referência!F56: 0.167049→0.174759"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C37",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→32900",
+"Referência!D56: 264→219",
+"Referência!E56: 149.242→150.228",
+"Referência!F56: 0.167049→0.174759"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C38",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→109000",
+"Referência!D57: 615→570",
+"Referência!E57: 186.992→191.228",
+"Referência!F57: 0.462243→0.49537"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C38",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B57: 8→7",
+"Referência!C57: 115000→109000",
+"Referência!D57: 615→570",
+"Referência!E57: 186.992→191.228",
+"Referência!F57: 0.462243→0.49537"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C39",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→93400",
+"Referência!D55: 838→743",
+"Referência!E55: 125.776→125.707",
+"Referência!F55: -0.0164566→-0.0169967",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→9070.25"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C39",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B55: 12→11",
+"Referência!C55: 105400→93400",
+"Referência!D55: 838→743",
+"Referência!E55: 125.776→125.707",
+"Referência!F55: -0.0164566→-0.0169967",
+"Referência!G55: 7→6",
+"Referência!H55: 9218.87→9070.25"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C40",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B58: 3→2",
+"Referência!C58: 22600→15600",
+"Referência!D58: 155→100",
+"Referência!E58: 145.806→156",
+"Referência!F58: 0.140181→0.219892",
+"Referência!G58: 1→0",
+"Referência!H58: 33.4071→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C40",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B58: 3→2",
+"Referência!C58: 22600→15600",
+"Referência!D58: 155→100",
+"Referência!E58: 145.806→156",
+"Referência!F58: 0.140181→0.219892",
+"Referência!G58: 1→0",
+"Referência!H58: 33.4071→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C41",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→33400",
+"Referência!D56: 264→224",
+"Referência!E56: 149.242→149.107",
+"Referência!F56: 0.167049→0.165991"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C41",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!B56: 7→6",
+"Referência!C56: 39400→33400",
+"Referência!D56: 264→224",
+"Referência!E56: 149.242→149.107",
+"Referência!F56: 0.167049→0.165991"
+],
+"NEW": [],
+"CLS": []
+},
+{
 "entrada": "Nossos casos!C42",
 "modo": "vazio",
 "ERR": [],
@@ -657,6 +5473,7 @@
 "Referência!G55: 7→6",
 "Referência!H55: 9218.87→8767.26"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -672,6 +5489,7 @@
 "Referência!G55: 7→6",
 "Referência!H55: 9218.87→8767.26"
 ],
+"NEW": [],
 "CLS": [
 "Referência!C85: Trabalhista→abc"
 ]
@@ -681,6 +5499,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -688,13 +5507,313 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
+},
+{
+"entrada": "Nossos casos!D6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!D78: Êxito→abc"
+]
+},
+{
+"entrada": "Nossos casos!D7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!D84: Fixo→abc"
+]
+},
+{
+"entrada": "Nossos casos!D13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!D80: Êxito→abc"
+]
+},
+{
+"entrada": "Nossos casos!D14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D15",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D15",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!D82: Êxito→abc"
+]
+},
+{
+"entrada": "Nossos casos!D20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D21",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D22",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D23",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!D81: Misto→abc"
+]
 },
 {
 "entrada": "Nossos casos!D24",
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -702,15 +5821,291 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Referência!D83: Êxito→abc"
 ]
 },
 {
+"entrada": "Nossos casos!D25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D26",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D26",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D27",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D27",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D28",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D28",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D29",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D29",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D30",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D30",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D31",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D31",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Referência!D79: Êxito→abc"
+]
+},
+{
+"entrada": "Nossos casos!D32",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D32",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D33",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D34",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D34",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D35",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D35",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D36",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D36",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D37",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D37",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D38",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D38",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D39",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D39",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D40",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D40",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D41",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D41",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
 "entrada": "Nossos casos!D42",
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -718,6 +6113,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Referência!D85: Misto→abc"
 ]
@@ -727,6 +6123,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -734,6 +6131,295 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E15",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E15",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E21",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E22",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E23",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -741,6 +6427,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -748,6 +6435,279 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E26",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E26",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E27",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E27",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E28",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E28",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E29",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E29",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E30",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E30",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E31",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E31",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E32",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E32",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E33",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E34",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E34",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E35",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E35",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E36",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E36",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E37",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E37",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E38",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E38",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E39",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E39",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E40",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E40",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E41",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E41",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -755,6 +6715,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -762,6 +6723,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -769,6 +6731,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -776,6 +6739,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -783,7 +6747,1088 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
+},
+{
+"entrada": "Nossos casos!F6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E78: 6000→7000",
+"Referência!G78: 85.7143→100",
+"Referência!H78: 2951.61→1951.61",
+"Referência!I78: 2→27",
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A78: 2998500-50.2026.8.26.0515→9495290-86.2025.8.26.0503",
+"Referência!B78: Ana Beatriz Moreira→Helena Duarte",
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F6",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E78: 6000→7000",
+"Referência!G78: 85.7143→100",
+"Referência!H78: 2951.61→1951.61",
+"Referência!I78: 2→27",
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A78: 2998500-50.2026.8.26.0515→9495290-86.2025.8.26.0503",
+"Referência!B78: Ana Beatriz Moreira→Helena Duarte",
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F6",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E78: 6000→7000",
+"Referência!G78: 85.7143→100",
+"Referência!H78: 2951.61→1951.61",
+"Referência!I78: 2→27",
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A78: 2998500-50.2026.8.26.0515→9495290-86.2025.8.26.0503",
+"Referência!B78: Ana Beatriz Moreira→Helena Duarte",
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F12",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F13",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F14",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F15",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F15",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F15",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F16",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F17",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F18",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F19",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F19",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F20",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F21",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F21",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F22",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F22",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F23",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F23",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
 },
 {
 "entrada": "Nossos casos!F24",
@@ -806,6 +7851,7 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
 "Referência!B83: José Antônio Ribeiro→Bistrô 42",
@@ -840,6 +7886,7 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
 "Referência!B83: José Antônio Ribeiro→Bistrô 42",
@@ -874,6 +7921,7 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
 "Referência!B83: José Antônio Ribeiro→Bistrô 42",
@@ -888,6 +7936,594 @@
 ]
 },
 {
+"entrada": "Nossos casos!F25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F25",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F26",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F26",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F26",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F27",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F27",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F27",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F28",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F28",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F28",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F29",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F29",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F29",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F30",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F30",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F30",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F31",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F31",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F31",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!F32",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F32",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F32",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F33",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F33",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F34",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F34",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F34",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F35",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F35",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F35",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F36",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F36",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F36",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F37",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F37",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F37",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F38",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F38",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F38",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F39",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F39",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F39",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F40",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F40",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F40",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F41",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F41",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F41",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
 "entrada": "Nossos casos!F42",
 "modo": "vazio",
 "ERR": [],
@@ -898,6 +8534,7 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
 "Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
@@ -915,6 +8552,7 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
 "Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
@@ -932,6 +8570,7 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
 "Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
@@ -943,6 +8582,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -950,6 +8590,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -957,7 +8598,1088 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
+},
+{
+"entrada": "Nossos casos!G6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E78: 6000→7000",
+"Referência!G78: 85.7143→100",
+"Referência!H78: 2951.61→1951.61",
+"Referência!I78: 2→27",
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A78: 2998500-50.2026.8.26.0515→9495290-86.2025.8.26.0503",
+"Referência!B78: Ana Beatriz Moreira→Helena Duarte",
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G6",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E78: 6000→7000",
+"Referência!G78: 85.7143→100",
+"Referência!H78: 2951.61→1951.61",
+"Referência!I78: 2→27",
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A78: 2998500-50.2026.8.26.0515→9495290-86.2025.8.26.0503",
+"Referência!B78: Ana Beatriz Moreira→Helena Duarte",
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G6",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E78: 6000→7000",
+"Referência!G78: 85.7143→100",
+"Referência!H78: 2951.61→1951.61",
+"Referência!I78: 2→27",
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A78: 2998500-50.2026.8.26.0515→9495290-86.2025.8.26.0503",
+"Referência!B78: Ana Beatriz Moreira→Helena Duarte",
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G12",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G13",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G14",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G14",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G14",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G15",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G15",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G15",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G16",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G17",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G18",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G19",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G19",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G20",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G21",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G21",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G22",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G22",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G23",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G23",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
 },
 {
 "entrada": "Nossos casos!G24",
@@ -980,6 +9702,7 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
 "Referência!B83: José Antônio Ribeiro→Bistrô 42",
@@ -1014,6 +9737,7 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
 "Referência!B83: José Antônio Ribeiro→Bistrô 42",
@@ -1048,6 +9772,7 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
 "Referência!B83: José Antônio Ribeiro→Bistrô 42",
@@ -1060,6 +9785,594 @@
 "Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
 "Referência!D85: Misto→Fixo"
 ]
+},
+{
+"entrada": "Nossos casos!G25",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G25",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G25",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G26",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G26",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G26",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G27",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G27",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G27",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G28",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G28",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G28",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G29",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G29",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G29",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G30",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G30",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G30",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G31",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G31",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G31",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Referência!E79: 7000→4000",
+"Referência!F79: 70→45",
+"Referência!G79: 100→88.8889",
+"Referência!H79: 1951.61→1754.61",
+"Referência!I79: 27→9",
+"Referência!E80: 4000→10000",
+"Referência!F80: 45→90",
+"Referência!G80: 88.8889→111.111",
+"Referência!H80: 1754.61→1509.21",
+"Referência!I80: 9→19",
+"Referência!E81: 10000→9000",
+"Referência!F81: 90→80",
+"Referência!G81: 111.111→112.5",
+"Referência!H81: 1509.21→1230.41",
+"Referência!I81: 19→15",
+"Referência!E82: 9000→4000",
+"Referência!F82: 80→40",
+"Referência!G82: 112.5→100",
+"Referência!H82: 1230.41→1115.21",
+"Referência!I82: 15→20",
+"Referência!E83: 4000→9500",
+"Referência!F83: 40→80",
+"Referência!G83: 100→118.75",
+"Referência!H83: 1115.21→730.41",
+"Referência!I83: 20→8",
+"Referência!E84: 9500→8500",
+"Referência!F84: 80→70",
+"Referência!G84: 118.75→121.429",
+"Referência!H84: 730.41→451.609",
+"Referência!I84: 8→38",
+"Referência!E85: 8500→12000",
+"Referência!F85: 70→95",
+"Referência!G85: 121.429→126.316",
+"Referência!H85: 451.609→148.612",
+"Referência!I85: 38→35"
+],
+"NEW": [],
+"CLS": [
+"Referência!A79: 9495290-86.2025.8.26.0503→9236009-85.2025.8.26.0452",
+"Referência!B79: Helena Duarte→Bistrô 42",
+"Referência!A80: 9236009-85.2025.8.26.0452→6710873-21.2025.8.26.0571",
+"Referência!B80: Bistrô 42→Escola Aurora",
+"Referência!C80: Trabalhista→Cível",
+"Referência!D80: Êxito→Misto",
+"Referência!A81: 6710873-21.2025.8.26.0571→4526984-60.2026.8.26.0258",
+"Referência!B81: Escola Aurora→Transportadora Rota Sul",
+"Referência!C81: Cível→Trabalhista",
+"Referência!D81: Misto→Êxito",
+"Referência!A82: 4526984-60.2026.8.26.0258→5900991-46.2026.8.26.0469",
+"Referência!B82: Transportadora Rota Sul→José Antônio Ribeiro",
+"Referência!C82: Trabalhista→Previdenciário",
+"Referência!A83: 5900991-46.2026.8.26.0469→8056747-83.2026.8.26.0561",
+"Referência!B83: José Antônio Ribeiro→Bistrô 42",
+"Referência!C83: Previdenciário→Trabalhista",
+"Referência!D83: Êxito→Fixo",
+"Referência!A84: 8056747-83.2026.8.26.0561→9420478-99.2025.8.26.0491",
+"Referência!B84: Bistrô 42→Ana Beatriz Moreira",
+"Referência!D84: Fixo→Misto",
+"Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
+"Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
+"Referência!D85: Misto→Fixo"
+]
+},
+{
+"entrada": "Nossos casos!G32",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G32",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G32",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G33",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G33",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G34",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G34",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G34",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G35",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G35",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G35",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G36",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G36",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G36",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G37",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G37",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G37",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G38",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G38",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G38",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G39",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G39",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G39",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G40",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G40",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G40",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G41",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G41",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G41",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
 },
 {
 "entrada": "Nossos casos!G42",
@@ -1072,6 +10385,7 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
 "Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
@@ -1089,6 +10403,7 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
 "Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
@@ -1106,10 +10421,264 @@
 "Referência!H85: 451.609→148.612",
 "Referência!I85: 38→35"
 ],
+"NEW": [],
 "CLS": [
 "Referência!A85: 9420478-99.2025.8.26.0491→8663770-96.2025.8.26.0481",
 "Referência!B85: Ana Beatriz Moreira→Oficina Mecânica Central",
 "Referência!D85: Misto→Fixo"
 ]
+},
+{
+"entrada": "Referência!A34",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!A34",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B34",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!B34",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C34",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!C34",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D34",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!D34",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E34",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Referência!E34",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!E21",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [
+"Referência!B59: vazio→0",
+"Referência!C59: vazio→0",
+"Referência!D59: vazio→0",
+"Referência!G59: vazio→0",
+"Referência!H59: vazio→0"
+],
+"CLS": []
+},
+{
+"entrada": "Config!E21",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [
+"Referência!A59: vazio→1",
+"Referência!B59: vazio→0",
+"Referência!C59: vazio→0",
+"Referência!D59: vazio→0",
+"Referência!G59: vazio→0",
+"Referência!H59: vazio→0"
+],
+"CLS": []
+},
+{
+"entrada": "Config!G21",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!G21",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!I20",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!I20",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A43",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!A43",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B43",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!B43",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C43",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!C43",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D43",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!D43",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E43",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!E43",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F43",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!F43",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G43",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Nossos casos!G43",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
 }
 ]

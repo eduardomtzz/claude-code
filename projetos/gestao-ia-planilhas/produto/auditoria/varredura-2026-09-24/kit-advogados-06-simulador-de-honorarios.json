@@ -4,6 +4,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -11,6 +12,279 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B11",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B12",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B13",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B19",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B19",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B20",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B20",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B21",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B21",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B22",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B22",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -22,6 +296,7 @@
 "Simulador!J53: 4825.02→-1e+09",
 "Simulador!J55: 4742.22→-1e+09"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -33,6 +308,7 @@
 "Simulador!J53: 4825.02→-1e+09",
 "Simulador!J55: 4742.22→-1e+09"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -44,6 +320,301 @@
 "Simulador!J53: 4825.02→-1e+09",
 "Simulador!J55: 4742.22→-1e+09"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B24",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B24",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B24",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B33",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B33",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B34",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B34",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B34",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B35",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B35",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B35",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B36",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B36",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B36",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B44",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B44",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B44",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B45",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J53: 4825.02→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B45",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J53: 4825.02→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B45",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J53: 4825.02→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B46",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B46",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B46",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B47",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B47",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!B47",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -53,6 +624,7 @@
 "NUM": [
 "Simulador!J55: 4742.22→-1e+09"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -62,6 +634,7 @@
 "NUM": [
 "Simulador!J55: 4742.22→-1e+09"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -71,6 +644,7 @@
 "NUM": [
 "Simulador!J55: 4742.22→-1e+09"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -78,6 +652,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -85,6 +660,71 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A20",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A20",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A21",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A21",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A22",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A22",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A23",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A23",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -92,6 +732,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -99,6 +740,55 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A33",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A34",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A34",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A35",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A35",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -106,6 +796,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -113,6 +804,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -124,6 +816,7 @@
 "Simulador!J53: 4825.02→-1e+09",
 "Simulador!J55: 4742.22→-1e+09"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -135,6 +828,31 @@
 "Simulador!J53: 4825.02→-1e+09",
 "Simulador!J55: 4742.22→-1e+09"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!C34",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!C34",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -146,6 +864,7 @@
 "Simulador!J53: 4825.02→-1e+09",
 "Simulador!J55: 4742.22→-1e+09"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -157,6 +876,7 @@
 "Simulador!J53: 4825.02→-1e+09",
 "Simulador!J55: 4742.22→-1e+09"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -168,6 +888,7 @@
 "Simulador!J53: 4825.02→-1e+09",
 "Simulador!J55: 4742.22→-1e+09"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -179,6 +900,7 @@
 "Simulador!J53: 4825.02→-1e+09",
 "Simulador!J55: 4742.22→-1e+09"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -186,6 +908,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -193,13 +916,115 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
+},
+{
+"entrada": "Config!B5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+]
+},
+{
+"entrada": "Config!B7",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+]
+},
+{
+"entrada": "Config!B7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+]
+},
+{
+"entrada": "Config!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+]
+},
+{
+"entrada": "Config!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+]
+},
+{
+"entrada": "Config!B8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+]
 },
 {
 "entrada": "Config!B9",
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
 ]
@@ -209,6 +1034,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
 ]
@@ -218,6 +1044,79 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B14: Sim→Não"
+]
+},
+{
+"entrada": "Config!B10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B14: Sim→Não"
+]
+},
+{
+"entrada": "Config!B10",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B14: Sim→Não"
+]
+},
+{
+"entrada": "Config!B10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B14: Sim→Não"
+]
+},
+{
+"entrada": "Config!B11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B14: Sim→Não"
+]
+},
+{
+"entrada": "Config!B11",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09"
+],
+"NEW": [],
+"CLS": [
+"Config!B14: Sim→Não"
+]
+},
+{
+"entrada": "Config!B11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09"
+],
+"NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
 ]
@@ -227,6 +1126,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
 ]
@@ -236,6 +1136,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Config!B14: Sim→Não"
 ]
@@ -245,6 +1146,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -252,6 +1154,23 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!E6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!E6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -259,6 +1178,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -266,6 +1186,23 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!E8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!E8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -273,6 +1210,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -280,6 +1218,71 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A37",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!A37",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!C37",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Simulador!C37",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Simulador!J52: 2488.22→-1e+09",
+"Simulador!J53: 4825.02→-1e+09",
+"Simulador!J55: 4742.22→-1e+09"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!E10",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!E10",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 }
 ]

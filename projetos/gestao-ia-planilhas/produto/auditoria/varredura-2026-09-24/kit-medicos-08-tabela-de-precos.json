@@ -4,6 +4,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -11,15 +12,53 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Tabela!A27: Consulta→abc"
 ]
 },
 {
+"entrada": "Tabela!A9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!A9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!A28: Retorno→abc"
+]
+},
+{
+"entrada": "Tabela!A10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!A10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!A29: ECG→abc"
+]
+},
+{
 "entrada": "Tabela!A11",
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -27,8 +66,45 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Tabela!A30: MAPA→abc"
+]
+},
+{
+"entrada": "Tabela!A12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!A12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!A31: Holter→abc"
+]
+},
+{
+"entrada": "Tabela!A13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!A13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!A32: Teste ergométrico→abc"
 ]
 },
 {
@@ -36,6 +112,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -43,6 +120,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Tabela!A33: Avaliação endócrina→abc"
 ]
@@ -52,6 +130,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -59,6 +138,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -66,6 +146,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!B9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!B9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!B9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!B10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!B10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!B10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -73,6 +202,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -80,6 +210,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -87,6 +218,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!B12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!B12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!B12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!B13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!B13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!B13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -94,6 +274,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -101,6 +282,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -108,6 +290,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -115,6 +298,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -122,6 +306,39 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!C9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!C9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!C10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!C10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -129,6 +346,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -136,6 +354,39 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!C12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!C12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!C13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!C13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -143,6 +394,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -150,6 +402,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -157,6 +410,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -164,6 +418,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -171,6 +426,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -178,6 +482,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -185,6 +490,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -192,6 +498,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -199,6 +554,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -206,6 +562,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -213,6 +570,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -220,6 +578,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -227,6 +586,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -234,6 +594,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -241,6 +650,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -248,6 +658,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -255,6 +666,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -262,6 +722,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -269,6 +730,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -276,6 +738,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -286,6 +749,7 @@
 "Tabela!E5: 14→13",
 "Tabela!O8: 3→2"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -293,6 +757,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -300,6 +765,58 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O10: 3→2"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -307,6 +824,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -314,6 +832,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -321,6 +840,58 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O13: 3→2"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -331,6 +902,7 @@
 "Tabela!E5: 14→13",
 "Tabela!O14: 1→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -338,6 +910,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -345,6 +918,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -355,6 +929,7 @@
 "Tabela!E5: 14→13",
 "Tabela!O8: 3→2"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -362,6 +937,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -369,6 +945,58 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!J9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!J9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!J9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!J10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O10: 3→2"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!J10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!J10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -379,6 +1007,7 @@
 "Tabela!E5: 14→13",
 "Tabela!O11: 2→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -386,6 +1015,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -393,6 +1023,34 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!J12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O12: 2→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!J12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!J12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -403,6 +1061,7 @@
 "Tabela!E5: 14→13",
 "Tabela!O13: 3→2"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -410,6 +1069,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -417,6 +1077,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -427,6 +1088,7 @@
 "Tabela!E5: 14→13",
 "Tabela!O8: 3→2"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -434,6 +1096,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -441,6 +1104,58 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!K9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!K9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!K9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!K10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O10: 3→2"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!K10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!K10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -451,6 +1166,7 @@
 "Tabela!E5: 14→13",
 "Tabela!O11: 2→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -458,6 +1174,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -465,6 +1182,34 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!K12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→13",
+"Tabela!O12: 2→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!K12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!K12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -475,6 +1220,7 @@
 "Tabela!E5: 14→13",
 "Tabela!O13: 3→2"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -482,6 +1228,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -489,6 +1236,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -496,6 +1244,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -503,6 +1252,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -510,6 +1260,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!P9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!P9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!P9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!P10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!P10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!P10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -517,6 +1316,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -524,6 +1324,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -531,6 +1332,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!P12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!P12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!P12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!P13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!P13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!P13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -538,6 +1388,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -545,6 +1396,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -552,6 +1404,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -559,6 +1412,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -566,6 +1420,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -573,6 +1428,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -580,6 +1484,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -587,6 +1492,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -594,6 +1500,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q13",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q13",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q13",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -601,6 +1556,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -608,6 +1564,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -615,6 +1572,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -622,6 +1580,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -629,13 +1588,145 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
+},
+{
+"entrada": "Config!B5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+]
+},
+{
+"entrada": "Config!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+]
+},
+{
+"entrada": "Config!B8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+]
+},
+{
+"entrada": "Config!B9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+]
+},
+{
+"entrada": "Config!B9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+]
+},
+{
+"entrada": "Config!B9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+]
+},
+{
+"entrada": "Config!B10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+]
+},
+{
+"entrada": "Config!B10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+]
+},
+{
+"entrada": "Config!B10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B15: Sim→Não"
+]
 },
 {
 "entrada": "Config!B11",
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -643,6 +1734,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -650,13 +1742,96 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
+},
+{
+"entrada": "Config!B12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B12",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B17",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B17",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!H7: Particular→abc",
+"Tabela!C26: Particular→abc"
+]
+},
+{
+"entrada": "Config!B18",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B18",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!I7: Saúde Total→abc",
+"Tabela!D26: Saúde Total→abc"
+]
+},
+{
+"entrada": "Config!B19",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B19",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Tabela!J7: MediPlan→abc",
+"Tabela!E26: MediPlan→abc"
+]
 },
 {
 "entrada": "Config!B20",
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -664,9 +1839,206 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Tabela!K7: Vida Care→abc",
 "Tabela!F26: Vida Care→abc"
 ]
+},
+{
+"entrada": "Tabela!A15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [
+"Tabela!I34: vazio→338.983",
+"Tabela!J34: vazio→454.545"
+],
+"CLS": []
+},
+{
+"entrada": "Tabela!A15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [
+"Tabela!A34: vazio→1",
+"Tabela!I34: vazio→338.983",
+"Tabela!J34: vazio→454.545"
+],
+"CLS": []
+},
+{
+"entrada": "Tabela!B15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!B15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!C15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!C15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!D15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!H15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!I15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!J14",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!J14",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→15",
+"Tabela!O14: 1→2"
+],
+"NEW": [
+"Tabela!E33: vazio→1.25"
+],
+"CLS": []
+},
+{
+"entrada": "Tabela!K14",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!K14",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Tabela!E5: 14→15",
+"Tabela!O14: 1→2"
+],
+"NEW": [
+"Tabela!F33: vazio→1.25"
+],
+"CLS": []
+},
+{
+"entrada": "Tabela!P15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!P15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q15",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Tabela!Q15",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B21",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B21",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [
+"Tabela!L7: vazio→1",
+"Tabela!G26: vazio→1"
+],
+"CLS": []
 }
 ]

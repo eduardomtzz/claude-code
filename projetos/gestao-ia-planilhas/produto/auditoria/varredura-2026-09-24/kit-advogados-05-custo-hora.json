@@ -4,6 +4,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -11,6 +12,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -18,6 +20,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -25,6 +28,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -32,6 +36,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -39,6 +44,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -46,6 +52,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -53,6 +60,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -60,6 +68,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -67,6 +76,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -74,6 +84,23 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -81,6 +108,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Config!B10: Sim→Não"
 ]
@@ -90,6 +118,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Config!B10: Sim→Não"
 ]
@@ -101,6 +130,39 @@
 "NUM": [
 "Painel!B14: 0.3→-1"
 ],
+"NEW": [],
+"CLS": [
+"Config!B10: Sim→Não"
+]
+},
+{
+"entrada": "Config!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B10: Sim→Não"
+]
+},
+{
+"entrada": "Config!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Config!B10: Sim→Não"
+]
+},
+{
+"entrada": "Config!B8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Painel!B15: 0.08→-1"
+],
+"NEW": [],
 "CLS": [
 "Config!B10: Sim→Não"
 ]
@@ -110,6 +172,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -117,6 +180,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -124,6 +188,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -131,6 +196,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -138,6 +204,55 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -145,6 +260,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -152,6 +268,39 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -159,6 +308,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -166,6 +316,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -173,6 +324,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -180,6 +332,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -187,6 +340,79 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B6",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -194,6 +420,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -201,6 +428,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -208,6 +436,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B11",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -215,6 +492,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -222,6 +500,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -229,6 +508,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -236,6 +516,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -243,13 +524,17 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
 "entrada": "Pessoas!A5",
 "modo": "vazio",
 "ERR": [],
-"NUM": [],
+"NUM": [
+"Pessoas!K5: 0→1"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -257,6 +542,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!A26: Marina Ferraz→abc"
 ]
@@ -265,7 +551,10 @@
 "entrada": "Pessoas!A6",
 "modo": "vazio",
 "ERR": [],
-"NUM": [],
+"NUM": [
+"Pessoas!K6: 0→1"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -273,6 +562,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!A27: Rafael Lima→abc"
 ]
@@ -281,7 +571,10 @@
 "entrada": "Pessoas!A7",
 "modo": "vazio",
 "ERR": [],
-"NUM": [],
+"NUM": [
+"Pessoas!K7: 0→1"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -289,6 +582,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!A28: Júlia Prado→abc"
 ]
@@ -298,6 +592,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -305,6 +600,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!B26: Sócia · cível e empresarial→abc"
 ]
@@ -314,6 +610,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -321,6 +618,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!B27: Sócio · trabalhista e previdenciário→abc"
 ]
@@ -330,6 +628,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -337,6 +636,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Painel!B28: Estagiária→abc"
 ]
@@ -348,6 +648,7 @@
 "NUM": [
 "Pessoas!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -357,6 +658,7 @@
 "NUM": [
 "Pessoas!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -366,6 +668,7 @@
 "NUM": [
 "Pessoas!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -375,6 +678,7 @@
 "NUM": [
 "Pessoas!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -384,6 +688,7 @@
 "NUM": [
 "Pessoas!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -393,6 +698,7 @@
 "NUM": [
 "Pessoas!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -402,6 +708,7 @@
 "NUM": [
 "Pessoas!K7: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -411,6 +718,7 @@
 "NUM": [
 "Pessoas!K7: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -420,6 +728,7 @@
 "NUM": [
 "Pessoas!K7: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -429,6 +738,7 @@
 "NUM": [
 "Pessoas!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -438,6 +748,7 @@
 "NUM": [
 "Pessoas!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -447,6 +758,7 @@
 "NUM": [
 "Pessoas!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -456,6 +768,7 @@
 "NUM": [
 "Pessoas!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -465,6 +778,7 @@
 "NUM": [
 "Pessoas!K7: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -474,6 +788,7 @@
 "NUM": [
 "Pessoas!K7: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -481,6 +796,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -488,6 +804,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -495,6 +812,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -502,6 +820,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -509,6 +828,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -516,6 +836,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -523,6 +844,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -530,6 +852,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -537,6 +860,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -546,6 +870,7 @@
 "NUM": [
 "Pessoas!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -555,6 +880,7 @@
 "NUM": [
 "Pessoas!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -565,6 +891,7 @@
 "Painel!C26: 110→-1",
 "Pessoas!K5: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -574,6 +901,7 @@
 "NUM": [
 "Pessoas!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -583,6 +911,7 @@
 "NUM": [
 "Pessoas!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -593,6 +922,7 @@
 "Painel!C27: 110→-1",
 "Pessoas!K6: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -602,6 +932,7 @@
 "NUM": [
 "Pessoas!K7: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -611,6 +942,7 @@
 "NUM": [
 "Pessoas!K7: 0→1"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -621,6 +953,161 @@
 "Painel!C28: 60→-1",
 "Pessoas!K7: 0→1"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A13",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!A13",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B13",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Custos fixos!B13",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Pessoas!A8",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Pessoas!K8: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Pessoas!A8",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Pessoas!K8: 0→1"
+],
+"NEW": [
+"Painel!A29: vazio→1"
+],
+"CLS": []
+},
+{
+"entrada": "Pessoas!B8",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Pessoas!K8: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Pessoas!B8",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Pessoas!K8: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Pessoas!C8",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Pessoas!K8: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Pessoas!C8",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Pessoas!K8: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Pessoas!D8",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Pessoas!K8: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Pessoas!D8",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Pessoas!K8: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Pessoas!E8",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Pessoas!K8: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Pessoas!E8",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Pessoas!K8: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Pessoas!F8",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [
+"Pessoas!K8: 0→1"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Pessoas!F8",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Pessoas!K8: 0→1"
+],
+"NEW": [],
 "CLS": []
 }
 ]

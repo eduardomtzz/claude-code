@@ -35,9 +35,9 @@ Gerado dos próprios arquivos de `entrega/` com openpyxl. As sete últimas colun
 | `03-rotina-da-semana.xlsx` | Como usar · Painel · Config · Rotina | 594 | 1357 | 4 | 9 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `04-checklist-abertura-e-encerramento.xlsx` | Como usar · Painel · Config · Checklist | 2688 | 7232 | 3 | 11 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `05-custo-hora.xlsx` | Como usar · Painel · Config · Custos fixos · Pessoas | 161 | 158 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| `06-simulador-de-honorarios.xlsx` | Como usar · Simulador · Config | 73 | 83 | 17 | 5 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| `06-simulador-de-honorarios.xlsx` | Como usar · Simulador · Config | 73 | 83 | 18 | 5 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `07-proposta-de-honorarios.xlsx` | Como usar · Proposta · Config · Registro | 260 | 1244 | 8 | 6 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| `08-tabela-de-referencia.xlsx` | Como usar · Referência · Config · Nossos casos | 1400 | 1667 | 9 | 5 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| `08-tabela-de-referencia.xlsx` | Como usar · Referência · Config · Nossos casos | 1400 | 1667 | 10 | 5 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `09-caixa-do-escritorio.xlsx` | Como usar · Painel · Config · Lançamentos | 1642 | 5462 | 8 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `10-provisao-de-impostos.xlsx` | Como usar · Painel · Config · Entradas e pagamentos | 189 | 88 | 4 | 6 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `11-pro-labore.xlsx` | Como usar · Painel · Config · Resultado mensal · Retiradas | 987 | 2448 | 6 | 12 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -60,9 +60,9 @@ Gerado dos próprios arquivos de `entrega/` com openpyxl. As sete últimas colun
 | `03-rotina-da-semana.xlsx` | Como usar · Painel · Config · Rotina | 594 | 1357 | 4 | 9 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `04-checklist-do-dia.xlsx` | Como usar · Painel · Config · Checklist | 3204 | 5429 | 3 | 9 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `05-custo-da-hora.xlsx` | Como usar · Painel · Config · Custos fixos · Equipe | 155 | 170 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| `06-precificacao.xlsx` | Como usar · Precificação · Config | 189 | 125 | 5 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| `07-simulador-convenio-x-particular.xlsx` | Como usar · Simulador · Config | 180 | 92 | 4 | 8 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| `08-tabela-de-precos.xlsx` | Como usar · Tabela · Config | 226 | 170 | 4 | 10 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| `06-precificacao.xlsx` | Como usar · Precificação · Config | 189 | 125 | 6 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| `07-simulador-convenio-x-particular.xlsx` | Como usar · Simulador · Config | 180 | 92 | 5 | 8 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| `08-tabela-de-precos.xlsx` | Como usar · Tabela · Config | 226 | 170 | 5 | 10 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `09-caixa-da-clinica.xlsx` | Como usar · Painel · Config · Lançamentos | 3284 | 13732 | 8 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `10-provisao-de-impostos.xlsx` | Como usar · Painel · Config · Entradas e pagamentos | 189 | 88 | 4 | 6 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `11-repasse-e-pro-labore.xlsx` | Como usar · Painel · Config · Repasse · Resultado mensal · Retiradas | 1320 | 2789 | 10 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -78,4 +78,4 @@ Gerado dos próprios arquivos de `entrega/` com openpyxl. As sete últimas colun
 
 ## Total
 
-53 arquivos · 234 abas · 189.800 fórmulas · 216.894 células de entrada · 308 validações · 483 regras condicionais · 0 TEXT com código de data · 0 arquivo(s) de entrega diferentes do gerado.
+53 arquivos · 234 abas · 189.800 fórmulas · 216.894 células de entrada · 313 validações · 483 regras condicionais · 0 TEXT com código de data · 0 arquivo(s) de entrega diferentes do gerado.

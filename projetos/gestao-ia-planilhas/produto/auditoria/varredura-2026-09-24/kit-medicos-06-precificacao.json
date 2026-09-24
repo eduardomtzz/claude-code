@@ -8,6 +8,7 @@
 "Precificação!U5: -41.6667→0",
 "Precificação!V5: -50.5667→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -15,6 +16,43 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!A6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!A6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!A7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!A7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -25,6 +63,7 @@
 "Precificação!U8: -6.01667→0",
 "Precificação!V8: -14.9167→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -32,6 +71,46 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!A9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!A9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!A10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!A10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -41,6 +120,7 @@
 "NUM": [
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -48,6 +128,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -59,6 +140,7 @@
 "Precificação!U5: -41.6667→0",
 "Precificação!V5: -50.5667→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -70,6 +152,7 @@
 "Precificação!U5: -41.6667→0",
 "Precificação!V5: -50.5667→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -81,6 +164,169 @@
 "Precificação!U5: -41.6667→0",
 "Precificação!V5: -50.5667→0"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B6",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B7",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!U8: -6.01667→0",
+"Precificação!V8: -14.9167→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!U8: -6.01667→0",
+"Precificação!V8: -14.9167→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!U8: -6.01667→0",
+"Precificação!V8: -14.9167→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B9",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B10",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -90,6 +336,7 @@
 "NUM": [
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -99,6 +346,7 @@
 "NUM": [
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -108,6 +356,87 @@
 "NUM": [
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B30",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B30",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B31",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B31",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B31",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B32",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B32",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B33",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B33",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!B33",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -115,6 +444,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -122,6 +452,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -129,6 +460,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -140,6 +472,7 @@
 "Precificação!U5: -41.6667→0",
 "Precificação!V5: -50.5667→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -151,6 +484,47 @@
 "Precificação!U5: -41.6667→0",
 "Precificação!V5: -50.5667→0"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!C6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!C6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!C7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!C7",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -161,6 +535,7 @@
 "Precificação!U8: -6.01667→0",
 "Precificação!V8: -14.9167→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -171,6 +546,53 @@
 "Precificação!U8: -6.01667→0",
 "Precificação!V8: -14.9167→0"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!C9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!C9",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!C10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!C10",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -180,6 +602,7 @@
 "NUM": [
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -189,6 +612,7 @@
 "NUM": [
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -200,6 +624,7 @@
 "Precificação!U5: -41.6667→0",
 "Precificação!V5: -50.5667→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -211,6 +636,7 @@
 "Precificação!U5: -41.6667→0",
 "Precificação!V5: -50.5667→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -222,6 +648,67 @@
 "Precificação!U5: -41.6667→0",
 "Precificação!V5: -50.5667→0"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D6",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D7",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -232,6 +719,7 @@
 "Precificação!U8: -6.01667→0",
 "Precificação!V8: -14.9167→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -242,6 +730,7 @@
 "Precificação!U8: -6.01667→0",
 "Precificação!V8: -14.9167→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -252,6 +741,76 @@
 "Precificação!U8: -6.01667→0",
 "Precificação!V8: -14.9167→0"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D9",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D10",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -261,6 +820,7 @@
 "NUM": [
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -270,6 +830,7 @@
 "NUM": [
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -279,6 +840,7 @@
 "NUM": [
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -286,6 +848,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -293,6 +856,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -300,6 +864,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I6",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I7",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -307,6 +920,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -314,6 +928,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -321,6 +936,55 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I10",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -328,6 +992,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -335,6 +1000,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -342,6 +1008,7 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -352,6 +1019,7 @@
 "Precificação!T5: -23.8667→0",
 "Precificação!E25: 14→13"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -361,6 +1029,7 @@
 "NUM": [
 "Precificação!T5: -23.8667→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -370,6 +1039,62 @@
 "NUM": [
 "Precificação!T5: -23.8667→0"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L6",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T7: -39.0667→0",
+"Precificação!E25: 14→13"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L7",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!T7: -39.0667→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!T7: -39.0667→0"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -377,6 +1102,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -384,6 +1110,7 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -391,6 +1118,62 @@
 "modo": "negativo",
 "ERR": [],
 "NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L9",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L10",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T10: -33.7333→0",
+"Precificação!E25: 14→13"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L10",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!T10: -33.7333→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L10",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!T10: -33.7333→0"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -401,6 +1184,7 @@
 "Precificação!T11: -48.3→0",
 "Precificação!E25: 14→13"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -410,6 +1194,7 @@
 "NUM": [
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -419,6 +1204,7 @@
 "NUM": [
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -429,6 +1215,7 @@
 "Precificação!U5: -41.6667→0",
 "Precificação!E25: 14→13"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -438,6 +1225,7 @@
 "NUM": [
 "Precificação!U5: -41.6667→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -447,6 +1235,62 @@
 "NUM": [
 "Precificação!U5: -41.6667→0"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!N6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!N6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!N6",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!N7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!U7: -43.5167→0",
+"Precificação!E25: 14→13"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!N7",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!U7: -43.5167→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!N7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!U7: -43.5167→0"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -457,6 +1301,7 @@
 "Precificação!U8: -6.01667→0",
 "Precificação!E25: 14→13"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -466,6 +1311,7 @@
 "NUM": [
 "Precificação!U8: -6.01667→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -475,6 +1321,38 @@
 "NUM": [
 "Precificação!U8: -6.01667→0"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!N9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!U9: -0.116667→0",
+"Precificação!E25: 14→13"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!N9",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!U9: -0.116667→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!N9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!U9: -0.116667→0"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -485,6 +1363,7 @@
 "Precificação!U10: -47.0833→0",
 "Precificação!E25: 14→13"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -494,6 +1373,7 @@
 "NUM": [
 "Precificação!U10: -47.0833→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -503,6 +1383,7 @@
 "NUM": [
 "Precificação!U10: -47.0833→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -513,6 +1394,7 @@
 "Precificação!V5: -50.5667→0",
 "Precificação!E25: 14→13"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -522,6 +1404,7 @@
 "NUM": [
 "Precificação!V5: -50.5667→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -531,6 +1414,62 @@
 "NUM": [
 "Precificação!V5: -50.5667→0"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!P6",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!P6",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!P6",
+"modo": "negativo",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!P7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!V7: -46.1867→0",
+"Precificação!E25: 14→13"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!P7",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!V7: -46.1867→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!P7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!V7: -46.1867→0"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -541,6 +1480,7 @@
 "Precificação!V8: -14.9167→0",
 "Precificação!E25: 14→13"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -550,6 +1490,7 @@
 "NUM": [
 "Precificação!V8: -14.9167→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -559,6 +1500,38 @@
 "NUM": [
 "Precificação!V8: -14.9167→0"
 ],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!P9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!V9: -9.01667→0",
+"Precificação!E25: 14→13"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!P9",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!V9: -9.01667→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!P9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!V9: -9.01667→0"
+],
+"NEW": [],
 "CLS": []
 },
 {
@@ -570,6 +1543,7 @@
 "Precificação!E25: 14→13",
 "Precificação!E26: 60.4333→50.5667"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -579,6 +1553,7 @@
 "NUM": [
 "Precificação!V10: -60.4333→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -588,6 +1563,7 @@
 "NUM": [
 "Precificação!V10: -60.4333→0"
 ],
+"NEW": [],
 "CLS": []
 },
 {
@@ -595,6 +1571,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -602,7 +1579,243 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
+},
+{
+"entrada": "Config!B5",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B5",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B7",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0",
+"Precificação!U8: -6.01667→0",
+"Precificação!V8: -14.9167→0",
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0",
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B7",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0",
+"Precificação!U8: -6.01667→0",
+"Precificação!V8: -14.9167→0",
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0",
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B7",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0",
+"Precificação!U8: -6.01667→0",
+"Precificação!V8: -14.9167→0",
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0",
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B8",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0",
+"Precificação!U8: -6.01667→0",
+"Precificação!V8: -14.9167→0",
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0",
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+]
+},
+{
+"entrada": "Config!B8",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0",
+"Precificação!U8: -6.01667→0",
+"Precificação!V8: -14.9167→0",
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0",
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+]
+},
+{
+"entrada": "Config!B8",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0",
+"Precificação!U8: -6.01667→0",
+"Precificação!V8: -14.9167→0",
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0",
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+]
+},
+{
+"entrada": "Config!B9",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0",
+"Precificação!U8: -6.01667→0",
+"Precificação!V8: -14.9167→0",
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0",
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+]
+},
+{
+"entrada": "Config!B9",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0",
+"Precificação!U8: -6.01667→0",
+"Precificação!V8: -14.9167→0",
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0",
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+]
+},
+{
+"entrada": "Config!B9",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T7: -39.0667→0",
+"Precificação!U7: -43.5167→0",
+"Precificação!V7: -46.1867→0",
+"Precificação!U8: -6.01667→0",
+"Precificação!V8: -14.9167→0",
+"Precificação!U9: -0.116667→0",
+"Precificação!V9: -9.01667→0",
+"Precificação!T10: -33.7333→0",
+"Precificação!U10: -47.0833→0",
+"Precificação!V10: -60.4333→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": [
+"Config!B13: Sim→Não"
+]
 },
 {
 "entrada": "Config!B10",
@@ -624,6 +1837,7 @@
 "Precificação!V10: -60.4333→0",
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
 "CLS": [
 "Config!B13: Sim→Não"
 ]
@@ -648,6 +1862,7 @@
 "Precificação!V10: -60.4333→0",
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
 "CLS": [
 "Config!B13: Sim→Não"
 ]
@@ -672,8 +1887,123 @@
 "Precificação!V10: -60.4333→0",
 "Precificação!T11: -48.3→0"
 ],
+"NEW": [],
 "CLS": [
 "Config!B13: Sim→Não"
+]
+},
+{
+"entrada": "Config!B11",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B11",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B11",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B12",
+"modo": "vazio",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B12",
+"modo": "texto",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B12",
+"modo": "negativo",
+"ERR": [],
+"NUM": [
+"Precificação!T5: -23.8667→0",
+"Precificação!U5: -41.6667→0",
+"Precificação!V5: -50.5667→0",
+"Precificação!T11: -48.3→0"
+],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B15",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B15",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Precificação!L4: Saúde Total→abc"
+]
+},
+{
+"entrada": "Config!B16",
+"modo": "vazio",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B16",
+"modo": "texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": [
+"Precificação!N4: MediPlan→abc"
 ]
 },
 {
@@ -681,6 +2011,7 @@
 "modo": "vazio",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": []
 },
 {
@@ -688,8 +2019,151 @@
 "modo": "texto",
 "ERR": [],
 "NUM": [],
+"NEW": [],
 "CLS": [
 "Precificação!P4: Vida Care→abc"
 ]
+},
+{
+"entrada": "Precificação!A12",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!A12",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!C12",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!C12",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D12",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!D12",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I12",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!I12",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L12",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!L12",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!N11",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!N11",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Precificação!U11: 0→-163.11",
+"Precificação!E25: 14→15",
+"Precificação!E26: 60.4333→163.11"
+],
+"NEW": [
+"Precificação!O11: vazio→-163.11"
+],
+"CLS": []
+},
+{
+"entrada": "Precificação!P11",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Precificação!P11",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [
+"Precificação!V11: 0→-163.11",
+"Precificação!E25: 14→15",
+"Precificação!E26: 60.4333→163.11"
+],
+"NEW": [
+"Precificação!Q11: vazio→-163.11"
+],
+"CLS": []
+},
+{
+"entrada": "Config!B18",
+"modo": "novo-texto",
+"ERR": [],
+"NUM": [],
+"NEW": [],
+"CLS": []
+},
+{
+"entrada": "Config!B18",
+"modo": "novo-num",
+"ERR": [],
+"NUM": [],
+"NEW": [
+"Precificação!R4: vazio→1"
+],
+"CLS": []
 }
 ]

@@ -1,35 +1,40 @@
-# Varredura automática das entradas dos sete arquivos de preço
+# Varredura automática das entradas dos sete arquivos de preço (versão da rodada 7)
 
-Por que existe: as rodadas 3 a 5 acharam, uma de cada vez, entradas vazias ou em texto tratadas
-como zero e agregados que ignoravam a linha incompleta. Em vez de esperar o próximo contraexemplo,
-cada célula de entrada preenchida do exemplo (desbloqueada, sem fórmula; nas tabelas longas, a
-primeira, a do meio e a última linha de cada coluna) recebe três mutações, uma por vez, a partir
-do exemplo intacto: **vazio**, **"abc"** e **−1** (quando numérica). Cada cópia é recalculada no
-LibreOffice pt-BR e TODAS as fórmulas do arquivo são comparadas com o exemplo:
+O que mudou depois da sua revisão ampliada, ponto a ponto:
 
-- **ERR**: célula com erro de fórmula;
-- **NUM**: número que mudou de valor (a entrada inválida produziu outro número em vez de aviso);
-- **CLS**: rótulo que virou outro rótulo (por exemplo "Baixo" → "Médio") sem palavra de aviso.
+- **Sem amostragem.** Antes eram três linhas por coluna, por isso a varredura não chegava ao custo-hora
+  do simulador nem às linhas do meio. Agora TODA célula de entrada preenchida do exemplo (desbloqueada
+  e sem fórmula) recebe **vazio**, **"abc"** e **−1** (quando numérica), uma por vez, a partir do
+  exemplo intacto.
+- **Linha nova.** Em cada coluna de tabela, a primeira célula de entrada vazia depois da última
+  preenchida recebe **"abc"** e **1**. É o caso da despesa nova sem valor (F6-G03) e do resíduo sem
+  nome.
+- **NEW.** Além de ERR (erro de fórmula), NUM (número que mudou sem aviso) e CLS (rótulo trocado por
+  outro, sem palavra de aviso), a varredura acusa fórmula que estava vazia e **passou a mostrar
+  número**.
+- **Decisões por saída.** Uma decisão de produto ("branco = não se aplica") não pula mais o cenário
+  inteiro. Cada decisão diz, em `SAI` no código da triagem, quais células podem mudar: a margem da
+  própria célula, a contagem e o maior prejuízo, o quadro por área. Qualquer outra mudança continua
+  sendo triada, e erro de fórmula nunca é pulado.
+- **TEXTCOL estreito.** Só as colunas de nome ou descrição livre contam como eco de texto: pessoa,
+  papel, nº e cliente do caso, tipo de serviço, nome de etapa ou despesa, descrição de custo fixo,
+  nome do procedimento e nome do pagador. Área, modalidade, marcações Sim/Não e listas saíram.
 
-`varredura_triagem.py` separa o que não é defeito, e cada exclusão está escrita no código:
-colunas auxiliares ocultas (flag da pessoa, prejuízo auxiliar, pontuação), predicados da Config
-que viram "Não", eco da entrada (margem mostrada no Painel, horas da pessoa, lista dos 8 casos que
-se reordena) e as decisões de produto em que branco significa "não se aplica" (convenções,
-seção "Domínio, resíduo e decisões de em branco").
+Cada exclusão da triagem está escrita no código (`varredura_triagem.py`), com o motivo.
 
 ## Resultado final (arquivos deste pacote)
 
-| Arquivo | Células de entrada testadas | Mutações (vazio, texto, −1) | Com erro de fórmula |
+| Arquivo | Células de entrada testadas | Mutações (vazio, texto, −1, linha nova) | Com erro de fórmula |
 |---|---:|---:|---:|
-| kit-advogados-05-custo-hora | 31 | 79 | 0 |
-| kit-advogados-06-simulador-de-honorarios | 15 | 33 | 0 |
-| kit-advogados-08-tabela-de-referencia | 48 | 110 | 0 |
-| kit-medicos-05-custo-da-hora | 35 | 85 | 0 |
-| kit-medicos-06-precificacao | 27 | 73 | 0 |
-| kit-medicos-07-simulador-convenio-x-particular | 17 | 43 | 0 |
-| kit-medicos-08-tabela-de-precos | 33 | 91 | 0 |
+| kit-advogados-05-custo-hora | 51 | 125 | 0 |
+| kit-advogados-06-simulador-de-honorarios | 51 | 125 | 0 |
+| kit-advogados-08-tabela-de-referencia | 427 | 985 | 0 |
+| kit-medicos-05-custo-da-hora | 62 | 146 | 0 |
+| kit-medicos-06-precificacao | 78 | 205 | 0 |
+| kit-medicos-07-simulador-convenio-x-particular | 65 | 166 | 0 |
+| kit-medicos-08-tabela-de-precos | 91 | 242 | 0 |
 
-Total: 514 mutações.
+Total: 1994 mutações.
 
 ```
 == 05-custo-hora: 0 caso(s) a triar
@@ -49,10 +54,15 @@ Total: 514 mutações.
 TOTAL a triar: 0
 ```
 
-Antes das correções desta rodada, a mesma varredura sobre o pacote final-5 marcava 10 mutações com
-erro de fórmula e centenas de números mudados sem aviso (custo fixo e pró-labore negativos, horas
-negativas, múltiplo de arredondamento vazio, preço negativo, produção vazia, resíduos de linha sem
-nome, entre outros). Os resultados brutos por arquivo estão nos `.json` desta pasta.
+Na primeira passada desta versão, sobre os arquivos já com as correções F6, a varredura achou quatro
+defeitos que a versão anterior não via. Todos foram corrigidos no gerador:
 
-Limites: a varredura muda uma entrada por vez (não combina duas), testa três linhas por coluna nas
-tabelas longas e roda no LibreOffice, não no Excel nem no Sheets.
+1. Custo fixo digitado sem descrição entrava no total sem aviso (05 dos dois kits).
+2. As horas de trabalho de uma pessoa com cadastro incompleto entravam no total do Painel (03/05 B20).
+3. O Painel mostrava 0 no papel ou na remuneração de uma pessoa nova com o campo vazio (05 dos dois kits).
+4. Particular −1 no retorno fazia "valor médio contra o mínimo" mostrar −100 % (04/08 S9).
+
+Limites que continuam: a varredura muda uma entrada por vez (não combina duas) e roda no LibreOffice,
+não no Excel nem no Sheets. Os quatro arquivos que não mudaram depois da primeira passada (03/06,
+03/08, 04/06, 04/07) foram varridos com o mesmo código, exceto a palavra "sem nome", que só entrou
+depois na lista de avisos. A triagem aplica a mesma regra aos resultados deles.
